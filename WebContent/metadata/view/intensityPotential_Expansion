@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityPotential_Expansion",
+        "designer|userClassName": "intensityPotential_Expansion",
+        "height": 588,
+        "id": null,
+        "title": "扩展潜力测算",
+        "width": 786
+    },
+    "name": "thematic_LanuseIntensityTrend2",
+    "designerId": "5fb489e4-7669-451c-9a05-f80a443f927a",
+    "viewControllerInstanceId": "abf23127-1228-417f-9056-bb648b1d5fb7",
+    "viewModelInstanceId": "30ebaddb-e84e-4a97-842a-56dde931062e"
+}

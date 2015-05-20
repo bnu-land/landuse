@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_DataImportDatabase",
+        "designer|userClassName": "achievement_DataImportDatabase",
+        "height": 588,
+        "id": null,
+        "title": "成果数据入库",
+        "width": 786
+    },
+    "name": "achievement_UploadDataManage2",
+    "designerId": "b8b65a28-cde5-4005-a45e-cbfc41b7fb7a",
+    "viewControllerInstanceId": "95c73bc6-9dd9-46eb-ac60-57f5264301d0",
+    "viewModelInstanceId": "3a3310e0-5fe0-45bc-9588-c9b6036a88ad"
+}

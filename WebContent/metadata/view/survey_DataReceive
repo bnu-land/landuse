@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "survey_DataReceive",
+        "designer|userClassName": "survey_DataReceive",
+        "height": 588,
+        "id": null,
+        "title": "调查数据接收",
+        "width": 786
+    },
+    "name": "intensityuse_IntensityScoreCalculation1",
+    "designerId": "2341222c-fd07-4440-a61f-3aa50fc71e5b",
+    "viewControllerInstanceId": "6377156e-6ca3-4066-81ed-9ba4700effed",
+    "viewModelInstanceId": "be41a40a-78d6-4019-96bf-3c0d38bc4e6f"
+}

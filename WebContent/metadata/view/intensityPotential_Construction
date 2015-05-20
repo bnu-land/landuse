@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityPotential_Construction",
+        "designer|userClassName": "intensityPotential_Construction",
+        "height": 588,
+        "id": null,
+        "title": "结构潜力测算",
+        "width": 786
+    },
+    "name": "intensityPotential_Expansion1",
+    "designerId": "bc27a927-26fa-42d9-95db-414f99435d75",
+    "viewControllerInstanceId": "0608d600-8b36-4a93-b41a-8fdf9ec3daf9",
+    "viewModelInstanceId": "34aaed8b-10de-42de-8fda-97c476ab497b"
+}

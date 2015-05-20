@@ -1,0 +1,46 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_LandusePropertyChangeMonitor",
+        "designer|userClassName": "enterprise_LandusePropertyChangeMonitor",
+        "html": [
+            "<div id=\"map\" ></div>"
+        ],
+        "id": null,
+        "title": "企业用地性质变更监控"
+    },
+    "name": "homePanel1",
+    "designerId": "d61cdbaf-90ca-4c30-879a-a5aaecec48ce",
+    "viewControllerInstanceId": "1dedf25c-e00d-466b-b95a-1f134400b3d5",
+    "viewModelInstanceId": "1d6f08d6-782b-4813-aeca-1dfc9547283f",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入地图的js文件",
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"mapjs/testMap.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "74fa3088-d7fe-47e9-b8a5-ad549e74e242"
+        }
+    ]
+}

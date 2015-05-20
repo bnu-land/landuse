@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_DepartmentManage",
+        "designer|userClassName": "system_DepartmentManage",
+        "height": 588,
+        "id": null,
+        "title": "部门信息管理",
+        "width": 786
+    },
+    "name": "system_UserManage1",
+    "designerId": "1f617c85-71d7-4f9a-b833-bd4d9139d58c",
+    "viewControllerInstanceId": "c320916f-2794-424e-903f-529eddfc4e16",
+    "viewModelInstanceId": "eee05645-fcca-4893-ba2a-f2afbbd198b2"
+}

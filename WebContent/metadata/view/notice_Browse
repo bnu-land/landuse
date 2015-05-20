@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "notice_Browse",
+        "designer|userClassName": "notice_Browse",
+        "height": 588,
+        "id": null,
+        "title": "内容浏览",
+        "width": 786
+    },
+    "name": "notice_Publish1",
+    "designerId": "88cb76d1-c7cf-4eb0-b1a7-394f8de9d563",
+    "viewControllerInstanceId": "a1439688-7d1c-4bc4-8d43-fc3544e9ac08",
+    "viewModelInstanceId": "a81e9a6e-5891-45b9-bcf8-503c5a4a6146"
+}

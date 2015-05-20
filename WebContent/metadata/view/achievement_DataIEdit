@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_DataIEdit",
+        "designer|userClassName": "achievement_DataIEdit",
+        "height": 588,
+        "id": null,
+        "title": "成果数据编辑",
+        "width": 786
+    },
+    "name": "achievement_DataIBrowse1",
+    "designerId": "bdccaff1-df46-425e-bdcc-429879c75365",
+    "viewControllerInstanceId": "01cf8c0a-7694-433c-86ea-b8f351725ddc",
+    "viewModelInstanceId": "768a14bd-6767-4121-a98f-5d216f364f32"
+}

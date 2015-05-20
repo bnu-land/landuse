@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "task_Release",
+        "designer|userClassName": "task_Release",
+        "height": 588,
+        "id": null,
+        "title": "任务下达",
+        "width": 786
+    },
+    "name": "task_Locate1",
+    "designerId": "4bcd31bf-b3b3-4d21-ad51-93729836a354",
+    "viewControllerInstanceId": "6dba1ef7-6584-4b61-bed7-649d77a9dad5",
+    "viewModelInstanceId": "7c62c52d-f39f-4f0a-bf95-cd6b9803991a"
+}

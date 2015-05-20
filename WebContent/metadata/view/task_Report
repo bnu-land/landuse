@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "task_Report",
+        "designer|userClassName": "task_Report",
+        "height": 588,
+        "id": null,
+        "title": "举报任务",
+        "width": 786
+    },
+    "name": "thematic_LanuseIntensityTrend3",
+    "designerId": "6fd09a34-fba9-4b18-aeff-6491ce3c822d",
+    "viewControllerInstanceId": "bca7e488-3288-4ae2-9cf3-ac0906863521",
+    "viewModelInstanceId": "f030d4a0-5d31-475e-85fb-e3a253088e7b"
+}

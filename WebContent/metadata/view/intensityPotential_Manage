@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityPotential_Manage",
+        "designer|userClassName": "intensityPotential_Manage",
+        "height": 588,
+        "id": null,
+        "title": "管理潜力测算",
+        "width": 786
+    },
+    "name": "intensityPotential_Intension1",
+    "designerId": "a7c6e8af-8084-4b65-b57a-28b378079d76",
+    "viewControllerInstanceId": "ee2a28e4-67d6-444f-bfe7-2a1e07af74db",
+    "viewModelInstanceId": "6e5ea53f-585a-4087-82ee-c0fc5bb5b62f"
+}

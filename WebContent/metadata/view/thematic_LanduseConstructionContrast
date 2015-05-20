@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "thematic_LanduseConstructionContrast",
+        "designer|userClassName": "thematic_LanduseConstructionContrast",
+        "height": 588,
+        "id": null,
+        "title": "土地利用结构对比分析",
+        "width": 786
+    },
+    "name": "MyPanel6",
+    "designerId": "1abf2f29-1a39-41a9-ba51-ab69c1b227ef",
+    "viewControllerInstanceId": "9c28e495-a6bd-4f82-905a-cb6de88b2365",
+    "viewModelInstanceId": "b2fd1140-1817-43fc-80f4-202b52bdfb03"
+}

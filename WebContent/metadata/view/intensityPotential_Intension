@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityPotential_Intension",
+        "designer|userClassName": "intensityPotential_Intension",
+        "height": 588,
+        "id": null,
+        "title": "强度潜力测算",
+        "width": 786
+    },
+    "name": "intensityPotential_Construction1",
+    "designerId": "46ba8e50-f1a1-4d72-876b-6277c931db47",
+    "viewControllerInstanceId": "8305fee4-7dbe-47ab-91ab-2cfdf382df4a",
+    "viewModelInstanceId": "97587ea3-5a93-492c-ba20-e58060c14a89"
+}

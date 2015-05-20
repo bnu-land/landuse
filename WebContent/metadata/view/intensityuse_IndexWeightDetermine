@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityuse_IndexWeightDetermine",
+        "designer|userClassName": "intensityuse_IndexWeightDetermine",
+        "height": 588,
+        "id": null,
+        "title": "指标权重确定",
+        "width": 786
+    },
+    "name": "intensityPotential_Manager1",
+    "designerId": "5c55c585-cc1e-4817-b5bc-46ff5c54822f",
+    "viewControllerInstanceId": "117373f3-eedd-4233-a733-19a89ae39888",
+    "viewModelInstanceId": "eebc291e-1b94-4812-a40c-64cabae33c5e"
+}

@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_DataEdit",
+        "designer|userClassName": "system_DataEdit",
+        "height": 588,
+        "id": null,
+        "title": "数据编辑",
+        "width": 786
+    },
+    "name": "system_DataSearch1",
+    "designerId": "f5259419-f84d-4df1-84ae-b07f2615be2b",
+    "viewControllerInstanceId": "c2363066-ebf9-44ad-b6b2-d11b0ff40c3c",
+    "viewModelInstanceId": "f61be366-ee6d-4eee-8549-1ca659393c12"
+}

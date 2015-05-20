@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityuse_IndexIdealValueBinding",
+        "designer|userClassName": "intensityuse_IndexIdealValueBinding",
+        "height": 588,
+        "id": null,
+        "title": "指标理想值绑定",
+        "width": 786
+    },
+    "name": "intensityuse_IndexWeightDetermine1",
+    "designerId": "cfe546c2-51f6-44d8-a052-fd95c95b886a",
+    "viewControllerInstanceId": "ebb68e32-9676-4f30-87d7-2019f289c5b1",
+    "viewModelInstanceId": "7424647f-bc4d-4847-8c7e-ecc4c50a7287"
+}

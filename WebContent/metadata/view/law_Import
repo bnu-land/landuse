@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "law_Import",
+        "designer|userClassName": "law_Import",
+        "height": 588,
+        "id": null,
+        "title": "法律法规导入",
+        "width": 786
+    },
+    "name": "law_Manage1",
+    "designerId": "6ae10173-3d3d-403e-b964-b539aa5d8b96",
+    "viewControllerInstanceId": "1fe307e5-d863-4fdd-ab3d-1614f708d79e",
+    "viewModelInstanceId": "1fa4ee0b-9395-4f68-a456-570008ae7640"
+}

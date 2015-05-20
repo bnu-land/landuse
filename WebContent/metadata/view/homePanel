@@ -1,0 +1,46 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "homePanel",
+        "designer|userClassName": "homePanel",
+        "html": [
+            "<div id=\"map\" ></div>"
+        ],
+        "id": null,
+        "title": "主页"
+    },
+    "name": "MyPanel7",
+    "designerId": "6747b565-6ad5-4c67-88d6-97a45d83a02d",
+    "viewControllerInstanceId": "f8bc8af9-b912-4bca-8468-1202515d1554",
+    "viewModelInstanceId": "47313ecd-90a7-4d23-8c66-7086a37b8b04",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入地图的js文件",
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"mapjs/testMap.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "57ceb202-9d2e-47a7-9a30-5978a7034e52"
+        }
+    ]
+}

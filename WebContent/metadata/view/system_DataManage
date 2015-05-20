@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_DataManage",
+        "designer|userClassName": "system_DataManage",
+        "height": 588,
+        "id": null,
+        "title": "数据管理",
+        "width": 786
+    },
+    "name": "system_DataEdit1",
+    "designerId": "8175621c-542a-4de1-b98d-8d1a9a9313f1",
+    "viewControllerInstanceId": "d9c74193-3aed-4947-83c3-939b3c3dc894",
+    "viewModelInstanceId": "38d10ad2-1c33-4604-ac42-5a30455e79e0"
+}

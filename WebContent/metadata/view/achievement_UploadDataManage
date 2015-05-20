@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_UploadDataManage",
+        "designer|userClassName": "achievement_UploadDataManage",
+        "height": 588,
+        "id": null,
+        "title": "上报数据管理",
+        "width": 786
+    },
+    "name": "law_Search1",
+    "designerId": "d8f6cdc7-a98d-4b3d-a8db-daca23488fc1",
+    "viewControllerInstanceId": "106d0b98-3734-4fc4-a11a-1dba61128899",
+    "viewModelInstanceId": "43348f95-6ffc-4f31-a80b-705be8190f7e"
+}

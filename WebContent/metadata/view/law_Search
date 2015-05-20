@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "law_Search",
+        "designer|userClassName": "law_Search",
+        "height": 588,
+        "id": null,
+        "title": "法律法规查询",
+        "width": 786
+    },
+    "name": "law_Import1",
+    "designerId": "4c1245cb-9570-46c5-b32c-794834b38f20",
+    "viewControllerInstanceId": "eed8fe61-0de8-436f-9f56-32c67492ccc1",
+    "viewModelInstanceId": "29270d3a-05d1-4ace-963c-79f7b64a2b0f"
+}

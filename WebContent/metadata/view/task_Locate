@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "task_Locate",
+        "designer|userClassName": "task_Locate",
+        "height": 588,
+        "id": null,
+        "title": "任务定位",
+        "width": 786
+    },
+    "name": "task_Report1",
+    "designerId": "4dbb5c82-1d81-4a13-b6de-c4e767f8c0a3",
+    "viewControllerInstanceId": "f97dce52-2a8d-4c0f-879a-7a4e4658702a",
+    "viewModelInstanceId": "f63593d9-cab3-45c4-802d-56b53b5f4f16"
+}

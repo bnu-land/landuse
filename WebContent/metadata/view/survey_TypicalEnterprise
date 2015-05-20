@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "survey_TypicalEnterprise",
+        "designer|userClassName": "survey_TypicalEnterprise",
+        "height": 588,
+        "id": null,
+        "title": "典型企业调查",
+        "width": 786
+    },
+    "name": "survey_DataReceive1",
+    "designerId": "b97f0ff6-1138-42e2-9e38-04994c11290a",
+    "viewControllerInstanceId": "f8856837-eff8-4003-835f-486b59e01811",
+    "viewModelInstanceId": "281dc95c-d809-43c3-b760-6892751322ef"
+}

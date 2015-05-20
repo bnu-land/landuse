@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "thematic_LanduseConstructionChangeTrend",
+        "designer|userClassName": "thematic_LanduseConstructionChangeTrend",
+        "height": 588,
+        "id": null,
+        "title": "土地利用结构变换趋势分析",
+        "width": 786
+    },
+    "name": "thematic_LanduseConstructionContrast1",
+    "designerId": "074a2a32-a485-4d6f-b19c-5a450a8a85da",
+    "viewControllerInstanceId": "4a47206f-5e1d-41d3-b1bf-d71a875dbf42",
+    "viewModelInstanceId": "1c79a484-2db3-42e3-b65c-336303a1e602"
+}

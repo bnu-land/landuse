@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_RightManage",
+        "designer|userClassName": "system_RightManage",
+        "height": 588,
+        "id": null,
+        "title": "系统权限管理",
+        "width": 786
+    },
+    "name": "system_DepartmentManage1",
+    "designerId": "0c0e09b9-bccb-4e79-adbc-9a865d66f5ee",
+    "viewControllerInstanceId": "566fb89c-bdfd-4e9e-90d5-5deafb58059f",
+    "viewModelInstanceId": "4c7d1560-57f8-40be-a38b-722030d42c56"
+}

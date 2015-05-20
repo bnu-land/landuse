@@ -1,0 +1,46 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_UseRightExpireWarning",
+        "designer|userClassName": "enterprise_UseRightExpireWarning",
+        "html": [
+            "<div id=\"map\" ></div>"
+        ],
+        "id": null,
+        "title": "企业使用权到期预警"
+    },
+    "name": "enterprise_IntensityDynamicMonitor1",
+    "designerId": "aee6a701-5600-4887-b444-74897ec96983",
+    "viewControllerInstanceId": "2ec27d94-093b-45dd-b23d-3c432003afaa",
+    "viewModelInstanceId": "e6065ab2-42e1-4ccb-ae1c-90e58ab2c957",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入地图的js文件",
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"mapjs/testMap.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "bf474a67-3c3e-4bd7-af37-7a94bdade19a"
+        }
+    ]
+}

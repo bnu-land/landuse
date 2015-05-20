@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "intensityuse_IndexStandard",
+        "designer|userClassName": "intensityuse_IndexStandard",
+        "height": 588,
+        "id": null,
+        "title": "指标标准化处理",
+        "width": 786
+    },
+    "name": "intensityuse_IndexWeightDetermine2",
+    "designerId": "46a2dc4b-45ab-4f5a-9e1b-a2ebc8559a43",
+    "viewControllerInstanceId": "d3006118-4e3a-4b27-b1f1-b298dacc8092",
+    "viewModelInstanceId": "c03bfa86-d930-4e5d-8751-da3cece35f6f"
+}

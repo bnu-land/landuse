@@ -1,0 +1,46 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_IntensityDynamicMonitor",
+        "designer|userClassName": "enterprise_IntensityDynamicMonitor",
+        "html": [
+            "<div id=\"map\" ></div>"
+        ],
+        "id": null,
+        "title": "企业集约度动态监测"
+    },
+    "name": "enterprise_LandusePropertyChangeMonitor1",
+    "designerId": "9aabb849-3716-4fa3-abd6-825a1dfbf061",
+    "viewControllerInstanceId": "a89d25e9-f226-4bdd-9feb-44eda006ad06",
+    "viewModelInstanceId": "d7588c85-b6a2-426f-bac9-934716c8e06b",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入地图的js文件",
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"mapjs/testMap.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "a5b2a405-e6d4-4abd-807b-a8d7dfdd8fa0"
+        }
+    ]
+}

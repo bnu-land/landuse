@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "task_DynamicInspect",
+        "designer|userClassName": "task_DynamicInspect",
+        "height": 588,
+        "id": null,
+        "title": "动态巡查任务",
+        "width": 786
+    },
+    "name": "Task_Report1",
+    "designerId": "4ab2b9bc-b567-40f6-9499-d30aa902f447",
+    "viewControllerInstanceId": "de8349b4-2288-4adf-9dea-a8a95335d3a4",
+    "viewModelInstanceId": "bc15e574-b8e9-49cf-b65d-e6989deb3ffa"
+}

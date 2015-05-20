@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_MapManage",
+        "designer|userClassName": "system_MapManage",
+        "height": 588,
+        "id": null,
+        "title": "地图管理",
+        "width": 786
+    },
+    "name": "system_RightManage1",
+    "designerId": "5e9ab70a-617b-497c-90bd-e3137d3d7351",
+    "viewControllerInstanceId": "53a92a67-d3aa-405d-9903-9ffee7b51526",
+    "viewModelInstanceId": "fd45e3ed-721c-46bf-91e3-7249e83880af"
+}

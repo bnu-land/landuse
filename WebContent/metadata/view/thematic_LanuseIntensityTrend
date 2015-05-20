@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "thematic_LanuseIntensityTrend",
+        "designer|userClassName": "thematic_LanuseIntensityTrend",
+        "height": 588,
+        "id": null,
+        "title": "土地利用集约趋势分析",
+        "width": 786
+    },
+    "name": "thematic_LanduseConstructionContrast2",
+    "designerId": "a47635b0-b1ca-4037-9b29-6abd64a48900",
+    "viewControllerInstanceId": "073ee046-bbd5-43c2-b183-3c788d837e3c",
+    "viewModelInstanceId": "efc132a5-9588-4066-935f-fb0c7ecaccd4"
+}

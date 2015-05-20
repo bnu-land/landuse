@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "notice_Publish",
+        "designer|userClassName": "notice_Publish",
+        "height": 588,
+        "id": null,
+        "title": "内容发布",
+        "width": 786
+    },
+    "name": "task_Report2",
+    "designerId": "7aa286f2-b44c-430f-a3ca-f3e6c57edd50",
+    "viewControllerInstanceId": "876bda78-ecac-475b-b899-4483b24b31e1",
+    "viewModelInstanceId": "3811f6ae-26cf-4887-aa07-f36f192198b8"
+}

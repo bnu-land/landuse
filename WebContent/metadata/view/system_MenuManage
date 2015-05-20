@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_MenuManage",
+        "designer|userClassName": "system_MenuManage",
+        "height": 588,
+        "id": null,
+        "title": "系统菜单管理",
+        "width": 786
+    },
+    "name": "task_Report3",
+    "designerId": "ad73cd77-e51a-47e4-974c-da8647f1fc23",
+    "viewControllerInstanceId": "945b4f12-090c-4dff-be41-d30f19d65f45",
+    "viewModelInstanceId": "d00cd9e8-815c-4bb5-a434-4994e01841c7"
+}

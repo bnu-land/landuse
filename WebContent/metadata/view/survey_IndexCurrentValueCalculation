@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "survey_IndexCurrentValueCalculation",
+        "designer|userClassName": "survey_IndexCurrentValueCalculation",
+        "height": 588,
+        "id": null,
+        "title": "指标现状值计算",
+        "width": 786
+    },
+    "name": "survey_TypicalEnterprise1",
+    "designerId": "160514b0-07fd-4f66-8240-4ce75caac37b",
+    "viewControllerInstanceId": "a3c61f94-ee32-4a03-be3e-2b646dc90f2a",
+    "viewModelInstanceId": "11c0b2c7-fb87-4f7b-9889-6fa6285f2942"
+}

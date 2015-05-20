@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_DataSearch",
+        "designer|userClassName": "system_DataSearch",
+        "height": 588,
+        "id": null,
+        "title": "数据查询",
+        "width": 786
+    },
+    "name": "system_MapManage1",
+    "designerId": "7cb43f3d-f7a2-4e9b-9e60-9f680bc06a43",
+    "viewControllerInstanceId": "b867963c-92f2-44da-be78-1ab773cff737",
+    "viewModelInstanceId": "1570ca46-9f6e-4f73-8955-f2a84b215645"
+}

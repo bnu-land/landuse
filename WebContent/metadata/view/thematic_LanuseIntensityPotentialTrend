@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "thematic_LanuseIntensityPotentialTrend",
+        "designer|userClassName": "thematic_LanuseIntensityPotentialTrend",
+        "height": 588,
+        "id": null,
+        "title": "土地集约利用潜力趋势分析",
+        "width": 786
+    },
+    "name": "thematic_LanuseIntensityTrend1",
+    "designerId": "f98d28ae-6152-40c5-a534-ec562f648131",
+    "viewControllerInstanceId": "623a1ca1-f1ec-41e9-8f2e-77adb45dadc7",
+    "viewModelInstanceId": "b9877d5b-0576-434d-baf8-36fdbf9b05ea"
+}

@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_DataIBrowse",
+        "designer|userClassName": "achievement_DataIBrowse",
+        "height": 588,
+        "id": null,
+        "title": "成果数据浏览",
+        "width": 786
+    },
+    "name": "achievement_DataImportDatabase1",
+    "designerId": "9aafd864-c273-48cf-89a3-81516e1d6a64",
+    "viewControllerInstanceId": "f34e6e9e-9637-463b-8c76-bdc1ebdf8b6f",
+    "viewModelInstanceId": "306f39a5-66c9-4dd6-914b-fa28f7b0dbc7"
+}
