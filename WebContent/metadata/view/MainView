@@ -147,6 +147,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "href": "j_spring_security_logout",
+                                "hrefTarget": "_parent",
                                 "layout|flex": null,
                                 "text": "退出"
                             },

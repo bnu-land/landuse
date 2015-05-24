@@ -17,13 +17,6 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.enterprise_LandusePropertyChangeMonitor',
 
-    requires: [
-        'MyApp.view.homePanelViewModel1'
-    ],
-
-    viewModel: {
-        type: 'enterprise_landusepropertychangemonitor'
-    },
     html: '<div id="map" ></div>',
     title: '企业用地性质变更监控',
     defaultListenerScope: true,
@@ -37,7 +30,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/testMap.js";
+        script.src="mapjs/homeMap.js";
         head.appendChild(script);
     }
 

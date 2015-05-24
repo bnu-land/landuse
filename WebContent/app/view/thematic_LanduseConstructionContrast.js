@@ -17,15 +17,23 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanduseConstructionContrast',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel'
-    ],
-
-    viewModel: {
-        type: 'thematic_landuseconstructioncontrast'
-    },
     height: 588,
+    html: '<div id = "thematic_LanduseConstructionContrast_div" style = "width=100%;height:100%;"></div>',
     width: 786,
-    title: '土地利用结构对比分析'
+    title: '土地利用结构对比分析',
+    defaultListenerScope: true,
+
+    listeners: {
+        afterrender: 'onPanelAfterRender'
+    },
+
+    onPanelAfterRender: function(component, eOpts) {
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/thematic_LanduseConstructionContrast_map.js";
+        head.appendChild(script);
+    }
 
 });

@@ -17,15 +17,23 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanduseConstructionChangeTrend',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel1'
-    ],
-
-    viewModel: {
-        type: 'thematic_landuseconstructionchangetrend'
-    },
     height: 588,
+    html: '<div id = "map" style = "width=100%;height:100%;"></div>',
     width: 786,
-    title: '土地利用结构变换趋势分析'
+    title: '土地利用结构变换趋势分析',
+    defaultListenerScope: true,
+
+    listeners: {
+        afterrender: 'onPanelAfterRender'
+    },
+
+    onPanelAfterRender: function(component, eOpts) {
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/testMap.js";
+        head.appendChild(script);
+    }
 
 });

@@ -18,14 +18,67 @@ Ext.define('MyApp.view.system_MapManage', {
     alias: 'widget.system_MapManage',
 
     requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel35'
+        'Ext.tree.Panel',
+        'Ext.tree.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator'
     ],
 
-    viewModel: {
-        type: 'system_mapmanage'
-    },
     height: 588,
     width: 786,
-    title: '地图管理'
+    layout: 'fit',
+    title: '地图管理',
+
+    items: [
+        {
+            xtype: 'treepanel',
+            id: 'system_MapManageTree',
+            viewConfig: {
+
+            },
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'system_MapManage_SearchText'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/search.png',
+                            text: '查询'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/preview.png',
+                            text: '预览'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/add.png',
+                            text: '添加'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/edit.png',
+                            text: '修改'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 
 });

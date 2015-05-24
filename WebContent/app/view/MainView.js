@@ -71,6 +71,8 @@ Ext.define('MyApp.view.MainView', {
                         },
                         {
                             xtype: 'button',
+                            href: 'j_spring_security_logout',
+                            hrefTarget: '_parent',
                             text: '退出'
                         }
                     ]

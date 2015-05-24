@@ -1,0 +1,42 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mapInfoWindow",
+        "designer|userClassName": "mapInfoWindow",
+        "height": 229,
+        "id": null,
+        "layout": "fit",
+        "title": "属性信息",
+        "titleCollapse": true,
+        "width": 253
+    },
+    "designerId": "d0277b25-d984-4c65-a4cc-ea67ba3ffef8",
+    "viewControllerInstanceId": "f34e6e9e-9637-463b-8c76-bdc1ebdf8b6f",
+    "viewModelInstanceId": "306f39a5-66c9-4dd6-914b-fa28f7b0dbc7",
+    "cn": [
+        {
+            "type": "Ext.grid.property.Grid",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "mapInfoWindowGrid",
+                "nameField": null,
+                "source": [
+                    "{\"Property 1\":\"String\",\"Property 2\":true,\"Property 3\":\"2015-05-23T15:57:54\",\"Property 4\":123}"
+                ],
+                "title": null,
+                "titleCollapse": true
+            },
+            "name": "MyPropertyGrid",
+            "designerId": "21ebd1b9-f735-4aba-9ecd-310226008943"
+        }
+    ]
+}

@@ -37,7 +37,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/testMap.js";
+        script.src="mapjs/homeMap.js";
         head.appendChild(script);
     }
 

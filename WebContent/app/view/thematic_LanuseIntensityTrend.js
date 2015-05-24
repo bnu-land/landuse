@@ -17,13 +17,6 @@ Ext.define('MyApp.view.thematic_LanuseIntensityTrend', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanuseIntensityTrend',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel2'
-    ],
-
-    viewModel: {
-        type: 'thematic_lanuseintensitytrend'
-    },
     height: 588,
     width: 786,
     title: '土地利用集约趋势分析'

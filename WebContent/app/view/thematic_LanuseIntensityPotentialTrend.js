@@ -17,13 +17,6 @@ Ext.define('MyApp.view.thematic_LanuseIntensityPotentialTrend', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanuseIntensityPotentialTrend',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel3'
-    ],
-
-    viewModel: {
-        type: 'thematic_lanuseintensitypotentialtrend'
-    },
     height: 588,
     width: 786,
     title: '土地集约利用潜力趋势分析'

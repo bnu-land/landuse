@@ -17,13 +17,6 @@ Ext.define('MyApp.view.task_Report', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_Report',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel16'
-    ],
-
-    viewModel: {
-        type: 'task_report'
-    },
     height: 588,
     width: 786,
     title: '举报任务'

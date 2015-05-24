@@ -28,14 +28,14 @@ body{margin:0; padding:0; font-size:9pt;}
 #top_left{width:1000px; height:89px; float:left;}
 #top_left img {margin-left:33px;}
 
-#center_left{width:752px; height:450px; background:url(images/login_center_left.jpg); float:left;}
-#center_center{width:248px; height:89px; background:url(images/login_center_center.gif); float:left;}
-#center_middle{width:248px; height:450px; float:left; background:url(images/login_center_middle.gif) repeat-y;}
-#center_right{width:36px; height:190px; float:right; background:url(images/login_center_right.gif);}
+#center_left{width:752px; height:450px; background:url(images/login/login_center_left.jpg); float:left;}
+#center_center{width:248px; height:89px; background:url(images/login/login_center_center.gif); float:left;}
+#center_middle{width:248px; height:450px; float:left; background:url(images/login/login_center_middle.gif) repeat-y;}
+#center_right{width:36px; height:190px; float:right; background:url(images/login/login_center_right.gif);}
 
 #down_left{width:1000px; height:50px; float:left; margin-top:15px;}
-#down_center{width:248px; height:50px; background:url(images/login_down_center.gif); float:left;}
-#inf{width:1000px; height:38px; background:url(images/login_inf.png) no-repeat; }
+#down_center{width:248px; height:50px; background:url(images/login/login_down_center.gif); float:left;}
+#inf{width:1000px; height:38px; background:url(images/login/login_inf.png) no-repeat; }
 .inf_text{font-family:Arial;display:block; width:100px; height:20px; font-size:16px; font-weight:bolder; color:#fff; margin-left:17px; margin-top:12px; float:left;}
 .copyright{font-family:Arial;display:block; float:left; margin-left:17px; margin-top:15px;}
 
@@ -45,8 +45,8 @@ body{margin:0; padding:0; font-size:9pt;}
 #rememberme{float:left;margin-left:10px; margin-top:20px; height:30px;font-size: 10px}
 .checkbox{margin-left:30px;}
 #btn{float:left;margin-left:30px; margin-top:20px;height:25px; margin-right:28px; text-align:center;}
-#btn a{display:block; line-height:25px; background: url(images/login_background.gif); border: solid 1px #b6b6b6; width:65px; float:left; margin-left:15px; text-decoration:none; color:#000;}
-.submitbtn{display:block; line-height:25px; background: url(images/login_background.gif); border: solid 1px #b6b6b6; width:65px; float:left; margin-left:15px; text-decoration:none; color:#000;}
+#btn a{display:block; line-height:25px; background: url(images/login/login_background.gif); border: solid 1px #b6b6b6; width:65px; float:left; margin-left:15px; text-decoration:none; color:#000;}
+.submitbtn{display:block; line-height:25px; background: url(images/login/login_background.gif); border: solid 1px #b6b6b6; width:65px; float:left; margin-left:15px; text-decoration:none; color:#000;}
 
 </style>
 </head>
@@ -74,7 +74,7 @@ body{margin:0; padding:0; font-size:9pt;}
 
 <div id="login">
     <div id="top">
-        <div id="top_left"><img src="images/login_top_left.png"/></div>
+        <div id="top_left"><img src="images/login/login_top_left.png"/></div>
     </div>
 
     <div id="center">

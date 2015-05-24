@@ -10,11 +10,158 @@
         "designer|userClassName": "system_MapManage",
         "height": 588,
         "id": null,
+        "layout": "fit",
         "title": "地图管理",
         "width": 786
     },
     "name": "system_RightManage1",
     "designerId": "5e9ab70a-617b-497c-90bd-e3137d3d7351",
     "viewControllerInstanceId": "53a92a67-d3aa-405d-9903-9ffee7b51526",
-    "viewModelInstanceId": "fd45e3ed-721c-46bf-91e3-7249e83880af"
+    "viewModelInstanceId": "fd45e3ed-721c-46bf-91e3-7249e83880af",
+    "cn": [
+        {
+            "type": "Ext.tree.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "system_MapManageTree",
+                "title": null
+            },
+            "name": "MyTreePanel",
+            "designerId": "4c8c1207-c8cf-4e02-9668-e5f325b18238",
+            "cn": [
+                {
+                    "type": "Ext.tree.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTreeView",
+                    "designerId": "4dd66f47-85a1-4704-8af6-136236af4daa"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "d57c558a-aba0-425d-90ca-14c971413983",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "system_MapManage_SearchText",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "c593847c-c78b-4a2f-b214-c6e4e063485c"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "查询"
+                            },
+                            "name": "MyButton",
+                            "designerId": "862d2265-ace8-4b5a-9319-678b096397d1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/preview.png",
+                                "layout|flex": null,
+                                "text": "预览"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "dd0ed9dd-86d6-4ff3-833e-f03e1229c8cc"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MySeparator",
+                            "designerId": "9dac105c-8af5-447f-8140-646df9eaa114"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "b7d63cb8-7f84-4c52-9b01-a271a5e25e2b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "修改"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "29cd415e-9b43-42b9-9235-048521a90623"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "3160ed53-a677-4082-bfa0-e7b20d9260aa"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

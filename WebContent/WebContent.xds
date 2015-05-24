@@ -6,10 +6,10 @@
         },
         "canvasControls": {
             "viewportSize": {
-                "name": "Small",
+                "name": "Medium",
                 "builtIn": true,
-                "height": 600,
-                "width": 800
+                "height": 768,
+                "width": 1024
             }
         },
         "urlPrefix": "",
@@ -52,6 +52,7 @@
             "d8f6cdc7-a98d-4b3d-a8db-daca23488fc1",
             "b8b65a28-cde5-4005-a45e-cbfc41b7fb7a",
             "9aafd864-c273-48cf-89a3-81516e1d6a64",
+            "d0277b25-d984-4c65-a4cc-ea67ba3ffef8",
             "bdccaff1-df46-425e-bdcc-429879c75365",
             "4d52b1ac-8212-4638-be87-879d69b56a72",
             "88cb76d1-c7cf-4eb0-b1a7-394f8de9d563",
@@ -79,9 +80,14 @@
             "aee6a701-5600-4887-b444-74897ec96983",
             "f8bc8af9-b912-4bca-8468-1202515d1554"
         ],
-        "store": [],
+        "store": [
+            "ade07e9f-097a-42c1-9fa2-1788170f17d3",
+            "10cb1c22-ff26-436c-a375-09618dd4368d"
+        ],
         "controller": [],
-        "model": [],
+        "model": [
+            "a437806c-74ab-4d92-999a-6eb1bc29b4f9"
+        ],
         "resource": [
             "ed1b2218-96e3-4f67-afee-45be463f92e9",
             "a2282eda-3e4d-4fea-aad0-099b036cd1e7"

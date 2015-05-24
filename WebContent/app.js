@@ -20,6 +20,13 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
+    models: [
+        'MyModel'
+    ],
+    stores: [
+        'MyJsonStore',
+        'MyTreeStore'
+    ],
     views: [
         'MainView',
         'thematic_LanduseConstructionContrast',
@@ -64,7 +71,8 @@ Ext.application({
         'system_MapManage',
         'system_DataSearch',
         'system_DataEdit',
-        'system_DataManage'
+        'system_DataManage',
+        'mapInfoWindow'
     ],
     name: 'MyApp',
 

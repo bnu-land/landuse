@@ -17,13 +17,6 @@ Ext.define('MyApp.view.achievement_DataIBrowse', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataIBrowse',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel29'
-    ],
-
-    viewModel: {
-        type: 'achievement_dataibrowse'
-    },
     height: 588,
     width: 786,
     title: '成果数据浏览'

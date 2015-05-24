@@ -9,6 +9,9 @@
         "designer|userAlias": "thematic_LanduseConstructionChangeTrend",
         "designer|userClassName": "thematic_LanduseConstructionChangeTrend",
         "height": 588,
+        "html": [
+            "<div id = \"map\" style = \"width=100%;height:100%;\"></div>"
+        ],
         "id": null,
         "title": "土地利用结构变换趋势分析",
         "width": 786
@@ -16,5 +19,30 @@
     "name": "thematic_LanduseConstructionContrast1",
     "designerId": "074a2a32-a485-4d6f-b19c-5a450a8a85da",
     "viewControllerInstanceId": "4a47206f-5e1d-41d3-b1bf-d71a875dbf42",
-    "viewModelInstanceId": "1c79a484-2db3-42e3-b65c-336303a1e602"
+    "viewModelInstanceId": "1c79a484-2db3-42e3-b65c-336303a1e602",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入地图的js文件",
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"mapjs/testMap.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "8586daa4-3a36-45a9-bebc-06f8572ea66d"
+        }
+    ]
 }

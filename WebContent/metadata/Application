@@ -6,7 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "MyModel"
+        ],
         "name": "MyApp",
+        "stores": [
+            "MyJsonStore",
+            "MyTreeStore"
+        ],
         "views": [
             "MainView",
             "thematic_LanduseConstructionContrast",
@@ -51,7 +58,8 @@
             "system_MapManage",
             "system_DataSearch",
             "system_DataEdit",
-            "system_DataManage"
+            "system_DataManage",
+            "mapInfoWindow"
         ]
     },
     "name": "Application",
