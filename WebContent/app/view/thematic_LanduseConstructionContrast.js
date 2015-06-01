@@ -17,15 +17,173 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanduseConstructionContrast',
 
-    height: 588,
-    html: '<div id = "thematic_LanduseConstructionContrast_div" style = "width=100%;height:100%;"></div>',
+    requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'Ext.chart.PolarChart',
+        'Ext.chart.series.Pie',
+        'Ext.chart.series.sprite.PieSlice',
+        'Ext.chart.interactions.Rotate',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Number',
+        'Ext.grid.View'
+    ],
+
+    height: 671,
     width: 786,
+    layout: 'border',
     title: '土地利用结构对比分析',
     defaultListenerScope: true,
 
-    listeners: {
-        afterrender: 'onPanelAfterRender'
-    },
+    items: [
+        {
+            xtype: 'panel',
+            region: 'north',
+            split: true,
+            height: 441,
+            layout: 'border',
+            title: '',
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            id: 'thematicLCC_LayerCombo',
+                            width: 350,
+                            fieldLabel: '选择开发区',
+                            displayField: 'name',
+                            store: 'systemMapFeatureLayerStore',
+                            valueField: 'url'
+                        }
+                    ]
+                }
+            ],
+            items: [
+                {
+                    xtype: 'panel',
+                    region: 'west',
+                    split: true,
+                    width: 591,
+                    layout: 'fit',
+                    title: '统计图表',
+                    items: [
+                        {
+                            xtype: 'polar',
+                            colors: [
+                                '#115fa6',
+                                '#94ae0a',
+                                '#a61120',
+                                '#ff8809',
+                                '#ffd13e',
+                                '#a61187',
+                                '#24ad9a',
+                                '#7c7474',
+                                '#a66111'
+                            ],
+                            insetPadding: {
+                                top: 40,
+                                left: 40,
+                                right: 40,
+                                bottom: 40
+                            },
+                            store: 'thematic_LCC_PieStore',
+                            innerPadding: 20,
+                            series: [
+                                {
+                                    type: 'pie',
+                                    label: {
+                                        field: 'name',
+                                        display: 'rotate',
+                                        contrast: true,
+                                        font: '12px Arial'
+                                    },
+                                    xField: 'value'
+                                }
+                            ],
+                            interactions: [
+                                {
+                                    type: 'rotate'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    region: 'center',
+                    split: true,
+                    html: '<div id = "thematic_LanduseConstructionContrast_div" style = "width=100%;height:100%;"></div>',
+                    id: 'thematic_LanduseConstructionContrast_MapPanel',
+                    title: '开发区地图',
+                    listeners: {
+                        afterrender: 'onPanelAfterRender'
+                    }
+                }
+            ]
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'center',
+            split: true,
+            id: 'thematic_LanduseConstructionContrastGrid',
+            title: '属性数据',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    width: 80,
+                    dataIndex: 'TBBH',
+                    text: '图斑编号',
+                    format: '0,000'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'DLMC',
+                    text: '地类名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 80,
+                    dataIndex: 'DLDM',
+                    text: '地类代码'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'GHYT',
+                    text: '规划用途'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 80,
+                    dataIndex: 'GHDM',
+                    text: '规划代码'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'TDSYZ',
+                    text: '土地使用者'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'QS',
+                    text: '权属'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'DLMJ',
+                    text: '地类面积'
+                }
+            ]
+        }
+    ],
 
     onPanelAfterRender: function(component, eOpts) {
         //加入地图的js文件

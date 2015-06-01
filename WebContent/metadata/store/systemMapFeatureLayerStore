@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "systemMapFeatureLayerStore",
+        "model": "systemMapModel",
+        "storeId": "systemMapFeatureLayerStore"
+    },
+    "name": "systemManageMapStore1",
+    "designerId": "fe7aee14-a00b-4f6f-af2a-9d6dd2b0399e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    \"LayerGroups\":[\"landuse\"]",
+                    "}"
+                ],
+                "url": "get_FeatureLayerURLs"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "62d934bb-4409-4742-8902-adbfd979fdba",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "3a060e0a-9295-4abb-b33b-a06cd1d227ce"
+                }
+            ]
+        }
+    ]
+}

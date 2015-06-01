@@ -9,10 +9,8 @@
         "designer|userAlias": "thematic_LanduseConstructionChangeTrend",
         "designer|userClassName": "thematic_LanduseConstructionChangeTrend",
         "height": 588,
-        "html": [
-            "<div id = \"map\" style = \"width=100%;height:100%;\"></div>"
-        ],
         "id": null,
+        "layout": "border",
         "title": "土地利用结构变换趋势分析",
         "width": 786
     },
@@ -21,6 +19,339 @@
     "viewControllerInstanceId": "4a47206f-5e1d-41d3-b1bf-d71a875dbf42",
     "viewModelInstanceId": "1c79a484-2db3-42e3-b65c-336303a1e602",
     "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "fit",
+                "layout|region": "center",
+                "layout|split": true,
+                "title": null
+            },
+            "name": "MyPanel",
+            "designerId": "170a5920-58fb-4a20-937e-4146d726207c",
+            "cn": [
+                {
+                    "type": "Ext.chart.CartesianChart",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 250,
+                        "id": "thematic_LCCT_BarChart",
+                        "insetPadding": [
+                            "20"
+                        ],
+                        "width": 400
+                    },
+                    "name": "ColumnChart",
+                    "designerId": "5bbb6c4a-2427-4479-913e-664b744d8229",
+                    "isBuiltIn": true,
+                    "iconCls": "icon-column-chart",
+                    "autoName": "ColumnChart",
+                    "cn": [
+                        {
+                            "type": "Ext.chart.axis.Category",
+                            "reference": {
+                                "name": "axes",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fields": [
+                                    "DLMC"
+                                ],
+                                "grid": [
+                                    "true"
+                                ],
+                                "label": [
+                                    "{",
+                                    "    rotate: {",
+                                    "       degrees: -45",
+                                    "    },",
+                                    "    textAlign:'center'",
+                                    "}"
+                                ],
+                                "title": [
+                                    "Category Axis"
+                                ]
+                            },
+                            "name": "MyCategoryAxis",
+                            "designerId": "7747fa1c-fb9e-4e41-b8c6-b03d424006e3"
+                        },
+                        {
+                            "type": "Ext.chart.axis.Numeric",
+                            "reference": {
+                                "name": "axes",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|createAlias": "thematic_LCCT_YAxis",
+                                "designer|displayName": "thematic_LCCT_YAxis",
+                                "grid": [
+                                    "true"
+                                ],
+                                "label": [
+                                    "{",
+                                    "    renderer: function(v) { return v + '%'; }",
+                                    "}"
+                                ],
+                                "minimum": 0,
+                                "position": "left",
+                                "title": [
+                                    "Numeric Axis"
+                                ]
+                            },
+                            "name": "MyNumericAxis",
+                            "designerId": "45106d1e-754a-4906-ad7f-9778658cb292"
+                        },
+                        {
+                            "type": "Ext.chart.series.Bar",
+                            "reference": {
+                                "name": "series",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "highlight": [
+                                    "{",
+                                    "    fill: '#ce5403',",
+                                    "    'stroke-width': 1,",
+                                    "    stroke: '#000'",
+                                    "}",
+                                    ""
+                                ],
+                                "stacked": false,
+                                "style": [
+                                    "{",
+                                    "    opacity: 0.80",
+                                    "}"
+                                ],
+                                "tooltip": [
+                                    "{",
+                                    "    trackMouse: true,",
+                                    "    style: 'background: #FFF',",
+                                    "    height: 20,",
+                                    "    renderer: function(storeItem, item) {",
+                                    "        //var browser = item.series.title[Ext.Array.indexOf(item.series.yField, item.yField)];",
+                                    "        this.setTitle(item.field+' '+storeItem.get('DLMC') + ': ' + storeItem.get(item.field).toFixed(3) + '平方千米');",
+                                    "    }",
+                                    "}"
+                                ],
+                                "xField": "DLMC"
+                            },
+                            "name": "MyBarSeries",
+                            "designerId": "17060abf-66a2-49db-ba66-87afa01925de"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 250,
+                "layout": "fit",
+                "layout|region": "south",
+                "layout|split": true,
+                "title": ""
+            },
+            "name": "MyPanel1",
+            "designerId": "ea86c3fa-8148-44dd-bcd6-4482b1819e4d",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "thematic_LCCT_Grid",
+                        "store": null,
+                        "title": "历年土地利用结构统计数据"
+                    },
+                    "name": "MyGridPanel1",
+                    "designerId": "702de879-7d7c-4a52-99ff-263c5d5de7f6",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "4e0cc2c0-24f3-430f-9680-75c3c0886eda"
+                        },
+                        {
+                            "type": "Ext.grid.column.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyRowNumberer1",
+                            "designerId": "034aabac-c769-41f4-a7ac-c68a8f7756fb"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar3",
+            "designerId": "1b088c2a-fbb6-4418-ac77-5addcbc99b6e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoadOnValue": true,
+                        "displayField": "name",
+                        "fieldLabel": "开发区",
+                        "id": "thematicLCCT_KFQCombo",
+                        "labelWidth": 60,
+                        "layout|flex": null,
+                        "renderData": [
+                            "return [",
+                            "    {\"name\": \"2016\",\"value\": \"2016\"},",
+                            "    {\"name\": \"2015\",\"value\": \"2015\"},",
+                            "    {\"name\": \"2014\",\"value\": \"2014\"},",
+                            "    {\"name\": \"2013\",\"value\": \"2013\"},",
+                            "    {\"name\": \"2012\",\"value\": \"2012\"},",
+                            "    {\"name\": \"2011\",\"value\": \"2011\"},",
+                            "    {\"name\": \"2010\",\"value\": \"2010\"}",
+                            "];",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "store": "tmematic_LCCT_KFQStore",
+                        "valueField": "value",
+                        "width": 250
+                    },
+                    "name": "MyComboBox2",
+                    "designerId": "c72132eb-ae0e-406c-81a2-2b0acd8ae13f"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoadOnValue": true,
+                        "displayField": "name",
+                        "fieldLabel": "起始年份",
+                        "id": "thematicLCCT_StartYearCombo",
+                        "labelWidth": 60,
+                        "layout|flex": null,
+                        "renderData": [
+                            "return [",
+                            "    {\"name\": \"2016\",\"value\": \"2016\"},",
+                            "    {\"name\": \"2015\",\"value\": \"2015\"},",
+                            "    {\"name\": \"2014\",\"value\": \"2014\"},",
+                            "    {\"name\": \"2013\",\"value\": \"2013\"},",
+                            "    {\"name\": \"2012\",\"value\": \"2012\"},",
+                            "    {\"name\": \"2011\",\"value\": \"2011\"},",
+                            "    {\"name\": \"2010\",\"value\": \"2010\"}",
+                            "];",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "store": "tmematic_LCCT_StartYearStore",
+                        "value": [
+                            "'2012'"
+                        ],
+                        "valueField": "value",
+                        "valueNotFoundText": "时间超出范围",
+                        "width": 150
+                    },
+                    "name": "MyComboBox3",
+                    "designerId": "d4121e5d-f7f3-49b5-8b8d-84a84a7c93ad"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoadOnValue": true,
+                        "displayField": "name",
+                        "fieldLabel": "截止年份",
+                        "id": "thematicLCCT_EndYearCombo",
+                        "labelWidth": 60,
+                        "layout|flex": null,
+                        "renderData": [
+                            "return [",
+                            "    {\"name\": \"2016\",\"value\": \"2016\"},",
+                            "    {\"name\": \"2015\",\"value\": \"2015\"},",
+                            "    {\"name\": \"2014\",\"value\": \"2014\"},",
+                            "    {\"name\": \"2013\",\"value\": \"2013\"},",
+                            "    {\"name\": \"2012\",\"value\": \"2012\"},",
+                            "    {\"name\": \"2011\",\"value\": \"2011\"},",
+                            "    {\"name\": \"2010\",\"value\": \"2010\"}",
+                            "];",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "store": "tmematic_LCCT_EndYearStore",
+                        "value": [
+                            "'2013'"
+                        ],
+                        "valueField": "value",
+                        "width": 150
+                    },
+                    "name": "MyComboBox4",
+                    "designerId": "1dcdd46c-2845-451f-b57e-108989025068"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "thematicLCCT_SubmitButton",
+                        "layout|flex": null,
+                        "text": "开始分析"
+                    },
+                    "name": "MyButton",
+                    "designerId": "ba5efefd-ef1c-4f64-a91c-425f1b81d1c5"
+                }
+            ]
+        },
         {
             "type": "basiceventbinding",
             "reference": {
@@ -35,14 +366,14 @@
                     "var head = document.getElementsByTagName('head')[0];",
                     "var script= document.createElement(\"script\");",
                     "script.type = \"text/javascript\";",
-                    "script.src=\"mapjs/testMap.js\";",
+                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend_map.js\";",
                     "head.appendChild(script);"
                 ],
                 "name": "afterrender",
                 "scope": "me"
             },
             "name": "onPanelAfterRender",
-            "designerId": "8586daa4-3a36-45a9-bebc-06f8572ea66d"
+            "designerId": "a1b87ad1-1120-408e-b92d-9d5ba08dfdb9"
         }
     ]
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-27 18:43:10 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.NoticeNews" table="notice_news" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="column" type="string">
+            <column name="column" length="50">
+                <comment>column</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="50">
+                <comment>title</comment>
+            </column>
+        </property>
+        <property name="author" type="string">
+            <column name="author" length="50">
+                <comment>author</comment>
+            </column>
+        </property>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19">
+                <comment>datetime</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535">
+                <comment>content</comment>
+            </column>
+        </property>
+        <property name="attachment" type="string">
+            <column name="attachment" length="200">
+                <comment>attachment</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300">
+                <comment>description</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

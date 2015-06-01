@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-31 19:03:47 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.SystemMap" table="system_map" catalog="landuse">
+        <id name="mapId" type="java.lang.Long">
+            <column name="map_id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="java.lang.Integer">
+            <column name="pid">
+                <comment>pid</comment>
+            </column>
+        </property>
+        <property name="group" type="string">
+            <column name="group" length="200">
+                <comment>group</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50">
+                <comment>name</comment>
+            </column>
+        </property>
+        <property name="key" type="string">
+            <column name="key" length="100">
+                <comment>urlKey</comment>
+            </column>
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="200">
+                <comment>map url</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300">
+                <comment>description</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

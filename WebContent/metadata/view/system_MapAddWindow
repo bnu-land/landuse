@@ -1,0 +1,262 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_MapAddWindow",
+        "designer|userClassName": "system_MapAddWindow",
+        "height": 272,
+        "id": "system_MapAddWindow",
+        "layout": "fit",
+        "title": "添加地图",
+        "width": 445
+    },
+    "designerId": "5b7a3d4a-619e-4ecb-a3d9-0b882fbdbcd8",
+    "viewControllerInstanceId": "53a92a67-d3aa-405d-9903-9ffee7b51526",
+    "viewModelInstanceId": "fd45e3ed-721c-46bf-91e3-7249e83880af",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "system_MapAddForm",
+                "jsonSubmit": true,
+                "modelValidation": false,
+                "title": null,
+                "url": "add_Map"
+            },
+            "name": "MyForm",
+            "designerId": "6639a39e-9e79-41f5-a9fd-0576f69808de",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "图层编号",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "pid"
+                    },
+                    "name": "MyNumberField",
+                    "designerId": "51097cd5-d4db-48f0-860f-75f44abb7cd2"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "地图名称",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "name"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "91200159-e5cb-4af8-a96b-862a48e7d3d7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "地图标识",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "key"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "4ac7f4ae-e222-4e22-991d-48fe7aae9e8a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "地图地址",
+                        "inputType": "url",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "url"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "a6795f60-0da1-4707-87c4-3e6ee5384c37"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "描述",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "description"
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "03639d9d-9cd7-4924-a85b-29317acac28a"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "eba7900f-ce45-4650-a400-a030318bf007",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "9a1af575-ee32-4b95-bf1a-6e649d23ed36"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "e541c054-1858-4907-abad-39c5504549b7",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "a4708429-1113-4343-b22c-365aa6a22165"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "添加"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "ad86b8bb-d4bf-40c1-a67b-f753b67f7bb9",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win  = Ext.getCmp('system_MapAddWindow');",
+                                            "",
+                                            "var myform = Ext.getCmp('system_MapAddForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        //url : 'add_Map',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '添加地图成功。');",
+                                            "",
+                                            "            var mystore = Ext.StoreMgr.get('systemManageMapStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            win.close();",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '添加地图失败，请重试。');",
+                                            "            win.close();",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "b8858964-075c-48b7-92ce-25705a58ef0b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "9fe7de1b-5e09-4e78-abfa-40b538864efc"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "noticeColumnsModel"
+    },
+    "name": "notice_news1",
+    "designerId": "bd3c2010-9c75-4ea6-86a8-93a5817c36f3",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "group"
+            },
+            "name": "MyField",
+            "designerId": "9691ad97-f22d-4a75-8fc2-dc539ef012ce"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "column"
+            },
+            "name": "MyField1",
+            "designerId": "c1440e21-e773-4bc0-b3ec-af071d5e23a6"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "name": "MyField3",
+            "designerId": "93a09c3d-a9f9-4bc2-b35e-b5dee7b2a1d6"
+        }
+    ]
+}

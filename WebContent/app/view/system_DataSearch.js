@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_DataSearch', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_DataSearch',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel36'
-    ],
-
-    viewModel: {
-        type: 'system_datasearch'
-    },
     height: 588,
     width: 786,
     title: '数据查询'

@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "thematic_LCC_PieModel"
+    },
+    "name": "MyModel",
+    "designerId": "6bd59853-9689-45c4-aee7-9e6559e3f270",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyField2",
+            "designerId": "9a20b37b-757c-4ce3-aedc-71dfd6e9ae4d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField5",
+            "designerId": "3d6b4de9-a5d8-4e67-be0d-658611f942ca"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "data"
+            },
+            "name": "MyField6",
+            "designerId": "ee059c6d-0b91-4ad0-9921-0c050943208b"
+        }
+    ]
+}

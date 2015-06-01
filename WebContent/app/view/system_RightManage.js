@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_RightManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_RightManage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel34'
-    ],
-
-    viewModel: {
-        type: 'system_rightmanage'
-    },
     height: 588,
     width: 786,
     title: '系统权限管理'

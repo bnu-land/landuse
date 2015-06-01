@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_MenuManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_MenuManage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel31'
-    ],
-
-    viewModel: {
-        type: 'system_menumanage'
-    },
     height: 588,
     width: 786,
     title: '系统菜单管理'

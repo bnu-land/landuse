@@ -17,13 +17,6 @@ Ext.define('MyApp.view.survey_DataReceive', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_DataReceive',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel12'
-    ],
-
-    viewModel: {
-        type: 'survey_datareceive'
-    },
     height: 588,
     width: 786,
     title: '调查数据接收'

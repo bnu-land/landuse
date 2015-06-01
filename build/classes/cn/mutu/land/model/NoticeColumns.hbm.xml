@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-27 18:43:10 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.NoticeColumns" table="notice_columns" catalog="landuse">
+        <id name="column" type="string">
+            <column name="column" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="group" type="string">
+            <column name="group" length="50">
+                <comment>group</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200">
+                <comment>description</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

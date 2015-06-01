@@ -18,14 +18,111 @@ Ext.define('MyApp.view.notice_Manage', {
     alias: 'widget.notice_Manage',
 
     requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel22'
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Action',
+        'Ext.grid.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator',
+        'Ext.selection.CheckboxModel'
     ],
 
-    viewModel: {
-        type: 'notice_manage'
-    },
     height: 588,
     width: 786,
-    title: '内容管理'
+    layout: 'fit',
+    title: '内容管理',
+
+    items: [
+        {
+            xtype: 'gridpanel',
+            id: 'notice_NewsManageGrid',
+            store: 'notice_newStore',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 120,
+                    dataIndex: 'column',
+                    text: '所属栏目'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 250,
+                    dataIndex: 'title',
+                    text: '标题'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'author',
+                    text: '作者'
+                },
+                {
+                    xtype: 'datecolumn',
+                    width: 120,
+                    dataIndex: 'datetime',
+                    text: '发表时间'
+                },
+                {
+                    xtype: 'actioncolumn',
+                    dataIndex: 'attachment',
+                    text: '附件'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 200,
+                    dataIndex: 'description',
+                    text: '备注'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'system_MapManage_SearchText1'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/search.png',
+                            text: '查询'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/preview.png',
+                            text: '预览'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/add.png',
+                            text: '添加'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/edit.png',
+                            text: '修改'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ],
+            selModel: {
+                selType: 'checkboxmodel'
+            }
+        }
+    ]
 
 });

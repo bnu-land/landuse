@@ -1,0 +1,232 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "notice_Columns",
+        "designer|userClassName": "notice_Columns",
+        "height": 588,
+        "id": null,
+        "layout": "fit",
+        "title": "通知通告栏目管理",
+        "width": 786
+    },
+    "name": "notice_Manage1",
+    "designerId": "7eb636eb-a42a-41b6-8ecd-02e61bfc7017",
+    "viewControllerInstanceId": "9eb34fd3-4fb5-4e4b-9689-f6376c95656f",
+    "viewModelInstanceId": "e96037fd-3eed-475c-a739-df68e0f1c665",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "notice_ColumnsGrid",
+                "store": "notice_columnsStore",
+                "title": null
+            },
+            "name": "MyGridPanel1",
+            "designerId": "09af1f11-b427-449f-a73e-254b5e7dc610",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer1",
+                    "designerId": "0b75d0f3-fc29-40b5-ae0a-3bbc4306a74f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "group",
+                        "text": "栏目组",
+                        "width": 200
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "18990241-856b-4f60-8eb6-926dc997497b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "column",
+                        "text": "栏目名称",
+                        "width": 200
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "3231f0cf-b48b-446f-a3f2-3c4c3fdb345f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "备注",
+                        "width": 200
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "d14d1101-abb0-4c95-8d64-705515fdb7cd"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "5ad7a546-3e23-414d-ab85-838ae25ade68"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "e009e30d-12d5-4e1e-b674-82dc5f310e2e",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加栏目"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "4d0a1564-6aeb-40f1-a853-08ad962f73fb",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win = Ext.widget('notice_ColumnsWindow');",
+                                            "win.show();",
+                                            "var form = Ext.getCmp('notice_ColumnsWindowForm');",
+                                            "form.url = 'add_NoticeColumns';"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "6635d86e-799e-4488-a191-528b60de19f1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "修改栏目"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "36b39269-40f3-49fd-b839-79bfa9740550",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "bb817af3-9572-418e-9d51-edbf359fa55d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除栏目"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "643acaf9-9911-4bd3-9984-63c4e01113ce",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick2",
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick2",
+                                    "designerId": "e207644f-25ee-4e15-8ce9-6803d3d35e37"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "6772c35f-1be3-458e-a626-470b72eb3a82"
+                }
+            ]
+        }
+    ]
+}

@@ -17,7 +17,7 @@ require([
 
         dojo.connect(map, "onExtentChange", onExtentChange);
 
-        var url = "http://localhost:6080/arcgis/rest/services/binxi/MapServer";
+        var url = "http://localhost:6080/arcgis/rest/services/binxi2013/MapServer";
         var layer = new ArcGISDynamicMapServiceLayer(url);
         map.addLayer(layer);
 

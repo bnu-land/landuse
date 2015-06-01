@@ -39,6 +39,7 @@
 		<intercept-url pattern="/remove*" access="ROLE_ADMIN" />
 		<!-- 数据管理 -->
 		<intercept-url pattern="/database*" access="ROLE_ADMIN" />
+		<intercept-url pattern="/system*" access="ROLE_ADMIN" />
 		<!-- 地图功能 -->
 		<intercept-url pattern="/map*" access="ROLE_MAP" />
 		<!-- 其他只要拥有ROLE_OPER权限即可 -->

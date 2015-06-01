@@ -1,0 +1,74 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"name\": \"2016\",",
+            "        \"value\": \"2016\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2015\",",
+            "        \"value\": \"2015\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2014\",",
+            "        \"value\": \"2014\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2013\",",
+            "        \"value\": \"2013\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2012\",",
+            "        \"value\": \"2012\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2011\",",
+            "        \"value\": \"2011\"",
+            "    },",
+            "    {",
+            "        \"name\": \"2010\",",
+            "        \"value\": \"2010\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "tmematic_LCCT_StartYearStore",
+        "storeId": "tmematic_LCCT_StartYearStore"
+    },
+    "name": "tmematic_LCCT_KFQCombo1",
+    "designerId": "27c48c3c-6377-4847-8893-de699bef39bb",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyField8",
+            "designerId": "4197cf0a-3ac0-41ef-bf9b-df90995e389e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField9",
+            "designerId": "8f68c193-8c29-4182-a76e-f14361f46170"
+        }
+    ]
+}

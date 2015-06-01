@@ -21,11 +21,25 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'MyModel'
+        'systemMapModel',
+        'noticeNewsModel',
+        'noticeColumnsModel',
+        'thematic_LCC_PieModel',
+        'thematic_LCCT_GridModel'
     ],
     stores: [
-        'MyJsonStore',
-        'MyTreeStore'
+        'systemManageMapStore',
+        'notice_newStore',
+        'systemManageMapTreeStore',
+        'notice_columnsStore',
+        'systemMapFeatureLayerStore',
+        'tmematic_LCCT_KFQStore',
+        'tmematic_LCCT_StartYearStore',
+        'tmematic_LCCT_EndYearStore',
+        'MyArrayStore',
+        'thematic_LCCT_GridStore',
+        'thematic_LCC_PieStore',
+        'systemMapQYYDLayerStore'
     ],
     views: [
         'MainView',
@@ -34,7 +48,6 @@ Ext.application({
         'enterprise_LandusePropertyChangeMonitor',
         'enterprise_IntensityDynamicMonitor',
         'enterprise_UseRightExpireWarning',
-        'thematic_LanduseConstructionChangeTrend',
         'thematic_LanuseIntensityTrend',
         'thematic_LanuseIntensityPotentialTrend',
         'intensityPotential_Expansion',
@@ -46,7 +59,6 @@ Ext.application({
         'intensityuse_IndexStandard',
         'intensityuse_IntensityScoreCalculation',
         'survey_DataReceive',
-        'survey_TypicalEnterprise',
         'survey_IndexCurrentValueCalculation',
         'survey_DataManager',
         'task_Report',
@@ -68,11 +80,18 @@ Ext.application({
         'system_UserManage',
         'system_DepartmentManage',
         'system_RightManage',
-        'system_MapManage',
+        'system_MapManageTree',
         'system_DataSearch',
         'system_DataEdit',
         'system_DataManage',
-        'mapInfoWindow'
+        'mapInfoWindow',
+        'system_MapManage',
+        'system_MapAddWindow',
+        'notice_Columns',
+        'notice_ColumnsWindow',
+        'thematic_LanduseConstructionChangeTrend',
+        'survey_Landuse',
+        'survey_TypicalEnterprise'
     ],
     name: 'MyApp',
 

@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_DataManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_DataManage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel38'
-    ],
-
-    viewModel: {
-        type: 'system_datamanage'
-    },
     height: 588,
     width: 786,
     title: '数据管理'

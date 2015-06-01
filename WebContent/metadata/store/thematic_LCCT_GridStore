@@ -1,0 +1,43 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "thematic_LCCT_GridStore",
+        "model": "thematic_LCCT_GridModel",
+        "storeId": "thematic_LCCT_GridStore"
+    },
+    "name": "MyStore",
+    "designerId": "714af206-34f8-42a5-8464-4eb06085cc02",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "73e85cd7-2900-43ba-be00-e6d5bb06ca27",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "6ee085bd-b7ac-4380-9b93-f0890db20694"
+                }
+            ]
+        }
+    ]
+}

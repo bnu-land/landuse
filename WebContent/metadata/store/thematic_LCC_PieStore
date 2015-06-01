@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "thematic_LCC_PieStore",
+        "model": "thematic_LCC_PieModel",
+        "storeId": "thematic_LCC_PieStore"
+    },
+    "name": "MyStore",
+    "designerId": "315687c4-db43-4c8e-95f5-d2d255edc615"
+}

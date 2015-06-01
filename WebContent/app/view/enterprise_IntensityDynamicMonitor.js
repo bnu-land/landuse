@@ -17,14 +17,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.enterprise_IntensityDynamicMonitor',
 
-    requires: [
-        'MyApp.view.homePanelViewModel2'
-    ],
-
-    viewModel: {
-        type: 'enterprise_intensitydynamicmonitor'
-    },
-    html: '<div id="map" ></div>',
+    html: '<div id = "enterprise_IntensityDynamicMonitor_div" style = "width=100%;height:100%;"></div>',
     title: '企业集约度动态监测',
     defaultListenerScope: true,
 
@@ -37,7 +30,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/homeMap.js";
+        script.src="mapjs/enterprise_IntensityDynamicMonitor_map.js";
         head.appendChild(script);
     }
 

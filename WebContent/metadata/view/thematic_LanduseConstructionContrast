@@ -8,11 +8,9 @@
     "userConfig": {
         "designer|userAlias": "thematic_LanduseConstructionContrast",
         "designer|userClassName": "thematic_LanduseConstructionContrast",
-        "height": 588,
-        "html": [
-            "<div id = \"thematic_LanduseConstructionContrast_div\" style = \"width=100%;height:100%;\"></div>"
-        ],
+        "height": 671,
         "id": null,
+        "layout": "border",
         "title": "土地利用结构对比分析",
         "width": 786
     },
@@ -22,27 +20,330 @@
     "viewModelInstanceId": "b2fd1140-1817-43fc-80f4-202b52bdfb03",
     "cn": [
         {
-            "type": "basiceventbinding",
+            "type": "Ext.panel.Panel",
             "reference": {
-                "name": "listeners",
+                "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onPanelAfterRender",
-                "implHandler": [
-                    "//加入地图的js文件",
-                    "var head = document.getElementsByTagName('head')[0];",
-                    "var script= document.createElement(\"script\");",
-                    "script.type = \"text/javascript\";",
-                    "script.src=\"mapjs/thematic_LanduseConstructionContrast_map.js\";",
-                    "head.appendChild(script);"
-                ],
-                "name": "afterrender",
-                "scope": "me"
+                "height": 441,
+                "layout": "border",
+                "layout|region": "north",
+                "layout|split": true,
+                "title": ""
             },
-            "name": "onPanelAfterRender",
-            "designerId": "62f5a010-607d-4774-a316-f8b56e42eac4"
+            "name": "MyPanel6",
+            "designerId": "72ed7e0c-68c5-497a-912f-9afe7006d94a",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "3f566af9-28dc-4140-8f73-aa887a48e8b2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "fieldLabel": "选择开发区",
+                                "id": "thematicLCC_LayerCombo",
+                                "layout|flex": null,
+                                "store": "systemMapFeatureLayerStore",
+                                "valueField": "url",
+                                "width": 350
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "aaf48b70-cbc2-4a60-976c-4a9b68cb0f5d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "layout": "fit",
+                        "layout|region": "west",
+                        "layout|split": true,
+                        "title": "统计图表",
+                        "width": 591
+                    },
+                    "name": "MyPanel16",
+                    "designerId": "20f9f28e-a1ef-4a37-8755-14189f597f21",
+                    "cn": [
+                        {
+                            "type": "Ext.chart.PolarChart",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "colors": [
+                                    "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                                ],
+                                "innerPadding": 20,
+                                "insetPadding": [
+                                    "{\"top\":40,\"left\":40,\"right\":40,\"bottom\":40}"
+                                ],
+                                "store": "thematic_LCC_PieStore"
+                            },
+                            "name": "MyPieChart",
+                            "designerId": "572d6144-f89f-444f-9009-4e91ad3ae9c2",
+                            "isBuiltIn": true,
+                            "iconCls": "icon-pie-chart",
+                            "autoName": "MyPieChart",
+                            "cn": [
+                                {
+                                    "type": "Ext.chart.series.Pie",
+                                    "reference": {
+                                        "name": "series",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "label": [
+                                            "{'field':'name','display':'rotate','contrast':true,'font':'12px Arial'}"
+                                        ],
+                                        "xField": "value"
+                                    },
+                                    "name": "MyPieSeries1",
+                                    "designerId": "42819785-7e06-405c-875b-17f2d02d0d47"
+                                },
+                                {
+                                    "type": "Ext.chart.interactions.Rotate",
+                                    "reference": {
+                                        "name": "interactions",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyRotateInteraction1",
+                                    "designerId": "ffa0533a-c74b-48f1-9f18-c2129779ce1a"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "html": [
+                            "<div id = \"thematic_LanduseConstructionContrast_div\" style = \"width=100%;height:100%;\"></div>"
+                        ],
+                        "id": "thematic_LanduseConstructionContrast_MapPanel",
+                        "layout|region": "center",
+                        "layout|split": true,
+                        "title": "开发区地图"
+                    },
+                    "name": "MyPanel7",
+                    "designerId": "39263a5b-87bf-4f4a-b685-e7c216d186e8",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelAfterRender",
+                                "implHandler": [
+                                    "//加入地图的js文件",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"mapjs/thematic_LanduseConstructionContrast_map.js\";",
+                                    "head.appendChild(script);"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "name": "onPanelAfterRender",
+                            "designerId": "885099e4-d489-446c-a68f-49fc59b58159"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "thematic_LanduseConstructionContrastGrid",
+                "layout|region": "center",
+                "layout|split": true,
+                "title": "属性数据"
+            },
+            "name": "MyGridPanel",
+            "designerId": "1ed41fb6-2bee-4f06-81d2-6c8b1b6d0c76",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer",
+                    "designerId": "fc218114-bee6-4620-b84d-2a66bd6909c3"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TBBH",
+                        "format": "0,000",
+                        "text": "图斑编号",
+                        "width": 80
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "881064bd-c578-42db-85ef-056691f9db71"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DLMC",
+                        "text": "地类名称",
+                        "width": 150
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "c8450331-76ad-4475-866d-b839ef89c97e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DLDM",
+                        "text": "地类代码",
+                        "width": 80
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "5e936041-ee9b-466c-9e0d-711a030183fc"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "GHYT",
+                        "text": "规划用途",
+                        "width": 150
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "dff49d93-460f-45b5-8c5e-e3a8a951456b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "GHDM",
+                        "text": "规划代码",
+                        "width": 80
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "1d385176-77cc-412b-aa16-87e2e180967e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TDSYZ",
+                        "text": "土地使用者",
+                        "width": 150
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "24a89d29-110e-4956-b121-d5e9b85789c0"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "QS",
+                        "text": "权属"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "746e2f50-a330-4316-ad72-0f59ec9312cd"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "DLMJ",
+                        "text": "地类面积"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "d58ef3f2-7b06-4d8f-be92-5105f9dea58d"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "a0c36cb4-af71-48a9-8098-d9d62afcd45f"
+                }
+            ]
         }
     ]
 }

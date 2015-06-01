@@ -1,0 +1,38 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyArrayStore",
+        "storeId": "MyArrayStore"
+    },
+    "name": "MyArrayStore",
+    "designerId": "ad8092bc-3782-435f-86e4-e0e0972b1311",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "d908bf55-d056-4a0c-b606-fd3e29b153cc",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyArrayReader",
+                    "designerId": "81762e92-1825-423a-bf81-a92281d368ba"
+                }
+            ]
+        }
+    ]
+}

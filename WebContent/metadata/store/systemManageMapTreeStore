@@ -1,0 +1,47 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "systemManageMapTreeStore",
+        "groupField": "id",
+        "model": "systemMapModel",
+        "rootVisible": true,
+        "storeId": "systemManageMapTreeStore"
+    },
+    "name": "MyTreeStore",
+    "designerId": "5a736e53-fee4-4bb1-bb72-7f9e8bdb1b27",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": null
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "63a305bd-44c7-491f-99db-5187b8554155",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": null
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "1f2e6209-a46a-4cdb-9bfe-934665bdf779"
+                }
+            ]
+        }
+    ]
+}

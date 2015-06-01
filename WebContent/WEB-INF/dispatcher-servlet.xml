@@ -25,7 +25,7 @@
 		</property>
 		<property name="mappingLocations">
 			<list>
-				<value>classpath:/cn/edu/bnu/land/model/*.hbm.xml</value>
+				<value>classpath:/cn/mutu/land/model/*.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -62,13 +62,13 @@
 	<aop:config expose-proxy="true">
 		<!-- 只对业务逻辑层实施事务 -->
 		<aop:pointcut id="txPointcut"
-			expression="execution(* cn.edu.bnu.land.service.*.*(..))" />
+			expression="execution(* cn.mutu.land.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
 	</aop:config>
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
-	<context:component-scan base-package="cn.edu.bnu.land.model" />
-	<context:component-scan base-package="cn.edu.bnu.land.service" />
-	<context:component-scan base-package="cn.edu.bnu.land.web" />
+	<context:component-scan base-package="cn.mutu.land.model" />
+	<context:component-scan base-package="cn.mutu.land.service" />
+	<context:component-scan base-package="cn.mutu.land.web" />
 
 </beans>

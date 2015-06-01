@@ -17,12 +17,165 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.thematic_LanduseConstructionChangeTrend',
 
+    requires: [
+        'Ext.chart.CartesianChart',
+        'Ext.chart.axis.Category',
+        'Ext.chart.axis.Numeric',
+        'Ext.chart.series.Bar',
+        'Ext.grid.Panel',
+        'Ext.grid.View',
+        'Ext.grid.column.RowNumberer',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'Ext.button.Button'
+    ],
+
     height: 588,
-    html: '<div id = "map" style = "width=100%;height:100%;"></div>',
     width: 786,
+    layout: 'border',
     title: '土地利用结构变换趋势分析',
     defaultListenerScope: true,
 
+    items: [
+        {
+            xtype: 'panel',
+            region: 'center',
+            split: true,
+            layout: 'fit',
+            items: [
+                {
+                    xtype: 'cartesian',
+                    height: 250,
+                    id: 'thematic_LCCT_BarChart',
+                    width: 400,
+                    insetPadding: 20,
+                    axes: [
+                        {
+                            type: 'category',
+                            fields: [
+                                'DLMC'
+                            ],
+                            grid: true,
+                            label: {
+                                rotate: {
+                                    degrees: -45
+                                },
+                                textAlign: 'center'
+                            },
+                            title: 'Category Axis',
+                            position: 'bottom'
+                        },
+                        {
+                            type: 'numeric',
+                            grid: true,
+                            label: {
+                                renderer: function(v) { return v + '%'; }
+                            },
+                            minimum: 0,
+                            position: 'left',
+                            title: 'Numeric Axis'
+                        }
+                    ],
+                    series: [
+                        {
+                            type: 'bar',
+                            highlight: {
+                                fill: '#ce5403',
+                                'stroke-width': 1,
+                                stroke: '#000'
+                            },
+                            style: {
+                                opacity: 0.80
+                            },
+                            tooltip: {
+                                trackMouse: true,
+                                style: 'background: #FFF',
+                                height: 20,
+                                renderer: function(storeItem, item) {
+                                    //var browser = item.series.title[Ext.Array.indexOf(item.series.yField, item.yField)];
+                                    this.setTitle(item.field+' '+storeItem.get('DLMC') + ': ' + storeItem.get(item.field).toFixed(3) + '平方千米');
+                                }
+                            },
+                            xField: 'DLMC',
+                            stacked: false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            xtype: 'panel',
+            region: 'south',
+            split: true,
+            height: 250,
+            layout: 'fit',
+            title: '',
+            items: [
+                {
+                    xtype: 'gridpanel',
+                    id: 'thematic_LCCT_Grid',
+                    title: '历年土地利用结构统计数据',
+                    columns: [
+                        {
+                            xtype: 'rownumberer'
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'combobox',
+                    id: 'thematicLCCT_KFQCombo',
+                    renderData: 'return [\n    {"name": "2016","value": "2016"},\n    {"name": "2015","value": "2015"},\n    {"name": "2014","value": "2014"},\n    {"name": "2013","value": "2013"},\n    {"name": "2012","value": "2012"},\n    {"name": "2011","value": "2011"},\n    {"name": "2010","value": "2010"}\n];',
+                    width: 250,
+                    fieldLabel: '开发区',
+                    labelWidth: 60,
+                    autoLoadOnValue: true,
+                    displayField: 'name',
+                    store: 'tmematic_LCCT_KFQStore',
+                    valueField: 'value'
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'thematicLCCT_StartYearCombo',
+                    renderData: 'return [\n    {"name": "2016","value": "2016"},\n    {"name": "2015","value": "2015"},\n    {"name": "2014","value": "2014"},\n    {"name": "2013","value": "2013"},\n    {"name": "2012","value": "2012"},\n    {"name": "2011","value": "2011"},\n    {"name": "2010","value": "2010"}\n];',
+                    width: 150,
+                    fieldLabel: '起始年份',
+                    labelWidth: 60,
+                    value: '2012',
+                    autoLoadOnValue: true,
+                    displayField: 'name',
+                    store: 'tmematic_LCCT_StartYearStore',
+                    valueField: 'value',
+                    valueNotFoundText: '时间超出范围'
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'thematicLCCT_EndYearCombo',
+                    renderData: 'return [\n    {"name": "2016","value": "2016"},\n    {"name": "2015","value": "2015"},\n    {"name": "2014","value": "2014"},\n    {"name": "2013","value": "2013"},\n    {"name": "2012","value": "2012"},\n    {"name": "2011","value": "2011"},\n    {"name": "2010","value": "2010"}\n];',
+                    width: 150,
+                    fieldLabel: '截止年份',
+                    labelWidth: 60,
+                    value: '2013',
+                    autoLoadOnValue: true,
+                    displayField: 'name',
+                    store: 'tmematic_LCCT_EndYearStore',
+                    valueField: 'value'
+                },
+                {
+                    xtype: 'button',
+                    id: 'thematicLCCT_SubmitButton',
+                    text: '开始分析'
+                }
+            ]
+        }
+    ],
     listeners: {
         afterrender: 'onPanelAfterRender'
     },
@@ -32,7 +185,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/testMap.js";
+        script.src="mapjs/thematic_LanduseConstructionChangeTrend_map.js";
         head.appendChild(script);
     }
 

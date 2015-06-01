@@ -10,11 +10,124 @@
         "designer|userClassName": "system_UserManage",
         "height": 588,
         "id": null,
+        "layout": "fit",
         "title": "人员信息管理",
         "width": 786
     },
     "name": "system_MenuManage1",
     "designerId": "7f579a87-109b-4a74-985f-b247f53fa5dd",
     "viewControllerInstanceId": "e5010244-4945-428a-9e0f-c5611dd2526b",
-    "viewModelInstanceId": "85165a79-c233-464f-8feb-65e044fe958e"
+    "viewModelInstanceId": "85165a79-c233-464f-8feb-65e044fe958e",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "store": "systemManageMapStore",
+                "title": "地图url"
+            },
+            "name": "MyGridPanel",
+            "designerId": "5d013458-72a9-413b-bda7-1fddedfd4f41",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "id",
+                        "text": "id"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "e5672d95-e9c4-4944-b575-98d40312fcaf"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "pid",
+                        "text": "pid"
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "1fc8a370-f6d2-4dce-81eb-b20cd3fb5221"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "name",
+                        "text": "name"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "bdb56503-8a0a-42a4-875d-94d3d0b1ca03"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "key",
+                        "text": "key"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "fc3787c2-f9d7-4cec-bee6-6fc5e802d4ff"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "url",
+                        "text": "url"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "bb9babcf-b7de-46e7-a92c-f0592dd68b96"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "description"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "af08a646-5139-45d7-a27b-7a3db808aa25"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "6f1d2914-9d64-45c3-8091-9f9658aade64"
+                }
+            ]
+        }
+    ]
 }

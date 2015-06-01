@@ -1,0 +1,28 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "thematic_LCCT_GridModel"
+    },
+    "name": "thematic_LCC_PieModel1",
+    "designerId": "a7aad989-4296-4f5f-85ea-cee34c77c4ed",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DLMC"
+            },
+            "name": "MyField2",
+            "designerId": "1c06d55e-7a84-48f4-9373-444e13642dee"
+        }
+    ]
+}

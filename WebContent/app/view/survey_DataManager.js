@@ -17,13 +17,6 @@ Ext.define('MyApp.view.survey_DataManager', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_DataManager',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel15'
-    ],
-
-    viewModel: {
-        type: 'survey_datamanager'
-    },
     height: 588,
     width: 786,
     title: '调查数据管理'

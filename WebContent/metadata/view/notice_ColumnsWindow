@@ -1,0 +1,210 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "notice_ColumnsWindow",
+        "designer|userClassName": "notice_ColumnsWindow",
+        "height": 229,
+        "id": "notice_ColumnsWindow",
+        "layout": "fit",
+        "title": "添加栏目",
+        "width": 399
+    },
+    "designerId": "38869d84-b270-437a-ab2b-27529c0968f7",
+    "viewControllerInstanceId": "9eb34fd3-4fb5-4e4b-9689-f6376c95656f",
+    "viewModelInstanceId": "e96037fd-3eed-475c-a739-df68e0f1c665",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "notice_ColumnsWindowForm",
+                "jsonSubmit": true,
+                "title": null,
+                "url": "add_NoticeColumns"
+            },
+            "name": "MyForm1",
+            "designerId": "2afa3998-a88a-4dda-ba41-f825cebbdabb",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "栏目组名",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "group"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "c5ae50ca-0e6f-41bf-881e-12a9bfca25cd"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "栏目名称",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "column"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "b28a5ea6-65dd-4438-aa21-b24cf9b9ce6d"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "备注",
+                        "height": 80,
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "description"
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "673e56c2-c05a-4852-85d2-b146c49b39ff"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "093bb962-b602-45e4-ba53-098bba6bb3d6",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "0af0cff0-7950-4f69-8da9-6ecdc92550c7"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "616e9934-9a5a-47db-9dff-78d3c5bb146b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "b6790003-d42e-488f-a8a6-a8d82c707f64"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确定"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "10a01180-efc6-4419-810a-8529f9399125",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win  = Ext.getCmp('notice_ColumnsWindow');",
+                                            "",
+                                            "var myform = Ext.getCmp('notice_ColumnsWindowForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        //url : 'add_Map',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '添加成功。');",
+                                            "",
+                                            "            var mystore = Ext.StoreMgr.get('notice_columnsStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            win.close();",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '添加地图失败，请重试。');",
+                                            "            win.close();",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "2ac273c7-fb87-43f7-984d-d033a7e809e3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

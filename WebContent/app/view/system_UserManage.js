@@ -18,14 +18,54 @@ Ext.define('MyApp.view.system_UserManage', {
     alias: 'widget.system_UserManage',
 
     requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel32'
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.View'
     ],
 
-    viewModel: {
-        type: 'system_usermanage'
-    },
     height: 588,
     width: 786,
-    title: '人员信息管理'
+    layout: 'fit',
+    title: '人员信息管理',
+
+    items: [
+        {
+            xtype: 'gridpanel',
+            title: '地图url',
+            store: 'systemManageMapStore',
+            columns: [
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'id',
+                    text: 'id'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'pid',
+                    text: 'pid'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'name',
+                    text: 'name'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'key',
+                    text: 'key'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'url',
+                    text: 'url'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'description',
+                    text: 'description'
+                }
+            ]
+        }
+    ]
 
 });

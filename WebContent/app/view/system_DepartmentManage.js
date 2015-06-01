@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_DepartmentManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_DepartmentManage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel33'
-    ],
-
-    viewModel: {
-        type: 'system_departmentmanage'
-    },
     height: 588,
     width: 786,
     title: '部门信息管理'

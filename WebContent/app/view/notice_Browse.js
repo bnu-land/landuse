@@ -17,13 +17,6 @@ Ext.define('MyApp.view.notice_Browse', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.notice_Browse',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel21'
-    ],
-
-    viewModel: {
-        type: 'notice_browse'
-    },
     height: 588,
     width: 786,
     title: '内容浏览'

@@ -709,6 +709,21 @@
                                     "designerId": "1b9bbc5d-fa2d-428e-9922-09ea7c1397b1"
                                 },
                                 {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "survey_Landuse",
+                                        "text": "土地利用现状地图"
+                                    },
+                                    "name": "MyMenuItem20",
+                                    "designerId": "f86685e3-0fa6-4a2d-ac36-dfa980c2435f"
+                                },
+                                {
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -918,6 +933,21 @@
                                     },
                                     "name": "MyMenuItem8",
                                     "designerId": "1fbd9fc1-3bb2-45bf-9ea4-fac5b79dd531"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "notice_Columns",
+                                        "text": "栏目管理"
+                                    },
+                                    "name": "MyMenuItem19",
+                                    "designerId": "109f5f53-f996-46b7-99b8-11571b5bad4e"
                                 },
                                 {
                                     "type": "basiceventbinding",

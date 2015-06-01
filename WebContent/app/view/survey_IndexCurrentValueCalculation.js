@@ -17,13 +17,6 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_IndexCurrentValueCalculation',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel14'
-    ],
-
-    viewModel: {
-        type: 'survey_indexcurrentvaluecalculation'
-    },
     height: 588,
     width: 786,
     title: '指标现状值计算'

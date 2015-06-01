@@ -277,6 +277,12 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'survey_IndexCurrentValueCalculation',
                                     hideOnClick: false,
                                     text: '指标现状值计算'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'survey_Landuse',
+                                    hideOnClick: false,
+                                    text: '土地利用现状地图'
                                 }
                             ],
                             listeners: {
@@ -351,6 +357,12 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'notice_Manage',
                                     hideOnClick: false,
                                     text: '内容管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'notice_Columns',
+                                    hideOnClick: false,
+                                    text: '栏目管理'
                                 }
                             ],
                             listeners: {

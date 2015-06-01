@@ -17,13 +17,6 @@ Ext.define('MyApp.view.system_DataEdit', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_DataEdit',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel37'
-    ],
-
-    viewModel: {
-        type: 'system_dataedit'
-    },
     height: 588,
     width: 786,
     title: '数据编辑'
