@@ -18,14 +18,132 @@ Ext.define('MyApp.view.notice_Publish', {
     alias: 'widget.notice_Publish',
 
     requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel20'
+        'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
+        'Ext.form.field.HtmlEditor',
+        'Ext.form.field.ComboBox',
+        'Ext.form.field.Hidden',
+        'Ext.form.field.TextArea'
     ],
 
-    viewModel: {
-        type: 'notice_publish'
-    },
     height: 588,
     width: 786,
-    title: '内容发布'
+    layout: 'fit',
+    title: '内容发布',
+
+    items: [
+        {
+            xtype: 'form',
+            id: 'notice_PublishForm',
+            bodyPadding: 20,
+            jsonSubmit: true,
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '存草稿箱'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var myform = Ext.getCmp('notice_PublishForm').getForm();
+                                if (myform.isValid())
+                                {
+                                    myform.submit({
+                                        url : 'add_NoticeNews',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '内容发布成功。');
+                                            var mystore = Ext.StoreMgr.get('notice_newStore'); //获得store对象
+                                            mystore.reload();
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '内容发布失败，请重试。');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
+                            text: '发布文章'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'tbfill',
+                            fixed: true,
+                            maxWidth: 5,
+                            width: 10
+                        },
+                        {
+                            xtype: 'textfield',
+                            height: 30,
+                            width: '50%',
+                            fieldLabel: '  文章标题',
+                            name: 'noticeTitle'
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 200,
+                            fieldLabel: '栏目名称',
+                            labelWidth: 60,
+                            name: 'noticeColumn',
+                            displayField: 'columnName',
+                            forceSelection: true,
+                            store: 'notice_columnsStore',
+                            valueField: 'columnName'
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 180,
+                            fieldLabel: '文章作者',
+                            labelWidth: 60,
+                            name: 'noticeAuthor',
+                            displayField: 'trueName',
+                            store: 'uUserInfoStore',
+                            valueField: 'trueName'
+                        }
+                    ]
+                }
+            ],
+            items: [
+                {
+                    xtype: 'htmleditor',
+                    anchor: '100% -45',
+                    height: 349,
+                    fieldLabel: '文章内容',
+                    name: 'noticeContent'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    fieldLabel: 'hidden',
+                    name: 'id'
+                },
+                {
+                    xtype: 'textareafield',
+                    anchor: '100% 0',
+                    height: 40,
+                    maxHeight: 40,
+                    fieldLabel: '备注',
+                    name: 'description'
+                }
+            ]
+        }
+    ]
 
 });

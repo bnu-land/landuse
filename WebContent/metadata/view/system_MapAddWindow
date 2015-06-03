@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "system_MapAddWindow",
         "designer|userClassName": "system_MapAddWindow",
-        "height": 272,
+        "height": 322,
         "id": "system_MapAddWindow",
         "layout": "fit",
         "title": "添加地图",
@@ -37,6 +37,23 @@
             "designerId": "6639a39e-9e79-41f5-a9fd-0576f69808de",
             "cn": [
                 {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "图层编号",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "mapId"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "f9ebac0c-bd9d-4070-bd26-58aa1b22979e"
+                },
+                {
                     "type": "Ext.form.field.Number",
                     "reference": {
                         "name": "items",
@@ -48,10 +65,27 @@
                         "labelAlign": "right",
                         "labelWidth": 80,
                         "layout|anchor": "100%",
-                        "name": "pid"
+                        "name": "mapPid"
                     },
                     "name": "MyNumberField",
                     "designerId": "51097cd5-d4db-48f0-860f-75f44abb7cd2"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "图层组名",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "mapGroup"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "7acd6052-41ee-4f17-bcb6-398e9974cd21"
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -66,7 +100,7 @@
                         "labelAlign": "right",
                         "labelWidth": 80,
                         "layout|anchor": "100%",
-                        "name": "name"
+                        "name": "mapName"
                     },
                     "name": "MyTextField2",
                     "designerId": "91200159-e5cb-4af8-a96b-862a48e7d3d7"
@@ -83,7 +117,7 @@
                         "labelAlign": "right",
                         "labelWidth": 80,
                         "layout|anchor": "100%",
-                        "name": "key"
+                        "name": "mapKey"
                     },
                     "name": "MyTextField3",
                     "designerId": "4ac7f4ae-e222-4e22-991d-48fe7aae9e8a"
@@ -101,7 +135,7 @@
                         "labelAlign": "right",
                         "labelWidth": 80,
                         "layout|anchor": "100%",
-                        "name": "url"
+                        "name": "mapUrl"
                     },
                     "name": "MyTextField4",
                     "designerId": "a6795f60-0da1-4707-87c4-3e6ee5384c37"
@@ -173,7 +207,7 @@
                                     "userConfig": {
                                         "fn": "onButtonClick1",
                                         "implHandler": [
-                                            ""
+                                            "Ext.getCmp('system_MapAddWindow').close();"
                                         ],
                                         "name": "click",
                                         "scope": "me"
@@ -192,7 +226,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "添加"
+                                "text": "确定"
                             },
                             "name": "MyButton6",
                             "designerId": "ad86b8bb-d4bf-40c1-a67b-f753b67f7bb9",
@@ -208,7 +242,7 @@
                                         "fn": "onButtonClick",
                                         "implHandler": [
                                             "var win  = Ext.getCmp('system_MapAddWindow');",
-                                            "",
+                                            "var title = win.getTitle();",
                                             "var myform = Ext.getCmp('system_MapAddForm').getForm();",
                                             "if (myform.isValid())",
                                             "{",
@@ -216,14 +250,14 @@
                                             "        //url : 'add_Map',",
                                             "        success : function (form, action)",
                                             "        {",
-                                            "            Ext.Msg.alert('成功', '添加地图成功。');",
+                                            "            Ext.Msg.alert('成功', title+'成功。');",
                                             "",
                                             "            var mystore = Ext.StoreMgr.get('systemManageMapStore'); //获得store对象",
                                             "            mystore.reload();",
                                             "            win.close();",
                                             "        },",
                                             "        failure: function(form, action){",
-                                            "            Ext.Msg.alert('失败', '添加地图失败，请重试。');",
+                                            "            Ext.Msg.alert('失败', title+'失败，请重试。');",
                                             "            win.close();",
                                             "        }",
                                             "    });",

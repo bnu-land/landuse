@@ -25,19 +25,25 @@ Ext.define('MyApp.model.noticeNewsModel', {
             name: 'id'
         },
         {
-            name: 'column'
+            name: 'noticeColumn'
         },
         {
-            name: 'title'
+            name: 'noticeTitle'
         },
         {
-            name: 'author'
+            name: 'noticeAuthor'
         },
         {
-            name: 'datetime'
+            name: 'publishDate'
         },
         {
-            name: 'content'
+            name: 'editDate'
+        },
+        {
+            name: 'noticeContent'
+        },
+        {
+            name: 'noticeState'
         },
         {
             name: 'attachment'

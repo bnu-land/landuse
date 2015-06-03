@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_UserInfoEditTab",
+        "designer|userClassName": "db_UserInfoEditTabViewModel"
+    },
+    "designerId": "7bc07181-400e-4ef0-80a0-99b89e594ff7"
+}

@@ -17,13 +17,6 @@ Ext.define('MyApp.view.achievement_DataIEdit', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataIEdit',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel30'
-    ],
-
-    viewModel: {
-        type: 'achievement_dataiedit'
-    },
     height: 588,
     width: 786,
     title: '成果数据编辑'

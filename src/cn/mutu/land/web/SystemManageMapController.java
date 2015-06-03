@@ -24,14 +24,13 @@ public class SystemManageMapController {
 	public SystemManageMapController(SystemManageMapService mapServcie) {
 		this.mapServcie = mapServcie;
 	}
-
+	
 	//--------------------管理地图url--------------------------------
 	@RequestMapping(value = "/get_systemManageMap")
 	@ResponseBody
 	public Map<String, Object> handle(
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
-		System.out.println("------search for map url--------");
 		return this.mapServcie.getSystemManagerMapList(searchKeyword);
 		//
 	}
@@ -40,12 +39,12 @@ public class SystemManageMapController {
 	@RequestMapping(value = "/del_MapById")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
-	public void delUserById(@RequestParam("id") String id) throws IOException {
-		this.mapServcie.deleteMap(id);
+	public void delUserById(@RequestParam("mapIds") String[] ids) throws IOException {
+		this.mapServcie.deleteMap(ids);
 	}
 
 	// 添加用户信息
-	@RequestMapping(value = "/add_Map")
+	@RequestMapping(value = "/add_Map",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addMap(@RequestBody SystemMap map)
 			throws IOException {
@@ -86,7 +85,6 @@ public class SystemManageMapController {
 	public Map<String, Object> getFeatureLayerURLs(
 			@RequestParam("LayerGroups") String[] LayerGroups
 			)throws SQLException {
-		System.out.println("------search for map url--------");
 		return this.mapServcie.getFeatureLayerURLList(LayerGroups);
 		//
 	}

@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2015-5-27 18:43:10 by Hibernate Tools 4.0.0
+// Generated 2015-6-3 19:53:43 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -10,24 +10,30 @@ import java.util.Date;
 public class NoticeNews implements java.io.Serializable {
 
 	private Integer id;
-	private String column;
-	private String title;
-	private String author;
-	private Date datetime;
-	private String content;
+	private String noticeColumn;
+	private String noticeTitle;
+	private String noticeAuthor;
+	private Date publishDate;
+	private Date editDate;
+	private String noticeContent;
+	private Integer noticeState;
 	private String attachment;
 	private String description;
 
 	public NoticeNews() {
 	}
 
-	public NoticeNews(String column, String title, String author,
-			Date datetime, String content, String attachment, String description) {
-		this.column = column;
-		this.title = title;
-		this.author = author;
-		this.datetime = datetime;
-		this.content = content;
+	public NoticeNews(String noticeColumn, String noticeTitle,
+			String noticeAuthor, Date publishDate, Date editDate,
+			String noticeContent, Integer noticeState, String attachment,
+			String description) {
+		this.noticeColumn = noticeColumn;
+		this.noticeTitle = noticeTitle;
+		this.noticeAuthor = noticeAuthor;
+		this.publishDate = publishDate;
+		this.editDate = editDate;
+		this.noticeContent = noticeContent;
+		this.noticeState = noticeState;
 		this.attachment = attachment;
 		this.description = description;
 	}
@@ -40,44 +46,60 @@ public class NoticeNews implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getColumn() {
-		return this.column;
+	public String getNoticeColumn() {
+		return this.noticeColumn;
 	}
 
-	public void setColumn(String column) {
-		this.column = column;
+	public void setNoticeColumn(String noticeColumn) {
+		this.noticeColumn = noticeColumn;
 	}
 
-	public String getTitle() {
-		return this.title;
+	public String getNoticeTitle() {
+		return this.noticeTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setNoticeTitle(String noticeTitle) {
+		this.noticeTitle = noticeTitle;
 	}
 
-	public String getAuthor() {
-		return this.author;
+	public String getNoticeAuthor() {
+		return this.noticeAuthor;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setNoticeAuthor(String noticeAuthor) {
+		this.noticeAuthor = noticeAuthor;
 	}
 
-	public Date getDatetime() {
-		return this.datetime;
+	public Date getPublishDate() {
+		return this.publishDate;
 	}
 
-	public void setDatetime(Date datetime) {
-		this.datetime = datetime;
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
 	}
 
-	public String getContent() {
-		return this.content;
+	public Date getEditDate() {
+		return this.editDate;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setEditDate(Date editDate) {
+		this.editDate = editDate;
+	}
+
+	public String getNoticeContent() {
+		return this.noticeContent;
+	}
+
+	public void setNoticeContent(String noticeContent) {
+		this.noticeContent = noticeContent;
+	}
+
+	public Integer getNoticeState() {
+		return this.noticeState;
+	}
+
+	public void setNoticeState(Integer noticeState) {
+		this.noticeState = noticeState;
 	}
 
 	public String getAttachment() {

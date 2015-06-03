@@ -78,7 +78,6 @@ require([
             //console.log(delta);
         }
 
-
         //------------arcgis js 函数---------------
 
         function onMapLayerLoad(map) {
@@ -91,7 +90,6 @@ require([
                 }
             }
         }
-
 
         // --------------------- Extjs ---------
 
@@ -108,7 +106,9 @@ require([
             }
             layer = new FeatureLayer(url, {
                 mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
-                outFields: ["TBBH", "DLMC", "DLDM", "GHYT", "GHDM", "TDSYZ", "QS", "DLMJ"]
+                outFields: ["DXDM", "QYMC", "QYDZ", "SSPJFW", "HYLB", "HYDM", "QYRS", "YJZTZ",
+                    "WCTZ", "ZSR", "ZCZ", "SSZE", "QYYDMJ", "CFPT", "XZBG", "LTCD", "NBYLD",
+                    "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"]
             });
             map.addLayer(layer);
 
@@ -158,7 +158,9 @@ require([
                     var queryTask = new QueryTask(url);
                     var query = new Query();
                     query.returnGeometry = true;
-                    query.outFields = ["TBBH", "DLMC", "DLDM", "GHYT", "GHDM", "TDSYZ", "QS", "DLMJ"];
+                    query.outFields = ["DXDM", "QYMC", "QYDZ", "SSPJFW", "HYLB", "HYDM", "QYRS", "YJZTZ",
+                        "WCTZ", "ZSR", "ZCZ", "SSZE", "QYYDMJ", "CFPT", "XZBG", "LTCD", "NBYLD",
+                        "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"];
                     //query.text = dom.byId("stateName").value;
                     query.where = "1=1";
                     queryTask.execute(query, showResults);
@@ -187,15 +189,32 @@ require([
                 data: attributesData,
                 // reader configs
                 fields: [
-                    {name: 'TBBH', type: 'int'},
-                    {name: 'DLMC', type: 'auto'},
-                    {name: 'DLDM', type: 'auto'},
-                    {name: 'GHYT', type: 'auto'},
-                    {name: 'GHDM', type: 'auto'},
-                    {name: 'TDSYZ', type: 'auto'},
-                    {name: 'QS', type: 'auto'},
-                    {name: 'DLMJ', type: 'float'},
-                    {name: 'feature', type: 'auto'}
+                    {name: "DXDM", type: 'auto'},
+                    {name: "QYMC", type: 'auto'},
+                    {name: "QYDZ", type: 'auto'},
+                    {name: "SSPJFW", type: 'auto'},
+                    {name: "HYLB", type: 'auto'},
+                    {name: "HYDM", type: 'auto'},
+                    {name: "QYRS", type: 'auto'},
+                    {name: "YJZTZ", type: 'auto'},
+                    {name: "WCTZ", type: 'auto'},
+                    {name: "ZSR", type: 'auto'},
+                    {name: "ZCZ", type: 'auto'},
+                    {name: "SSZE", type: 'auto'},
+                    {name: "QYYDMJ", type: 'auto'},
+                    {name: "CFPT", type: 'auto'},
+                    {name: "XZBG", type: 'auto'},
+                    {name: "LTCD", type: 'auto'},
+                    {name: "NBYLD", type: 'auto'},
+                    {name: "DLTCC", type: 'auto'},
+                    {name: "LD", type: 'auto'},
+                    {name: "QT", type: 'auto'},
+                    {name: "ZJZMJ", type: 'auto'},
+                    {name: "RJL", type: 'auto'},
+                    {name: "JDZMJ", type: 'auto'},
+                    {name: "JZXS", type: 'auto'},
+                    {name: "BZ", type: 'auto'},
+                    {name: "feature", type: 'auto'}
                 ],
                 autoLoad: true
             });

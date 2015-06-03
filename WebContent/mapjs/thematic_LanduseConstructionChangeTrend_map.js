@@ -91,12 +91,12 @@ require([
 
         for (var year = startYear; year <= endYear; year++) {
             var key = kfqName + year;
-            var index = mapUrlStore.find('key', key);
+            var index = mapUrlStore.find('mapKey', key);
             if (index < 0) {
                 continue;
             }
             var record = mapUrlStore.getAt(index);
-            urls.push([year, record.get("url")]);
+            urls.push([year, record.get("mapUrl")]);
         }
 
         for (var url in urls) {

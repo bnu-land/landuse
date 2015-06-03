@@ -52,7 +52,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "name",
+                        "dataIndex": "mapName",
                         "text": "名称",
                         "width": 250
                     },
@@ -67,7 +67,22 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "key",
+                        "dataIndex": "mapGroup",
+                        "text": "标签信息",
+                        "width": 250
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "db7466ba-e25f-4020-b513-fc44f8f3f342"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mapKey",
                         "text": "键值",
                         "width": 150
                     },
@@ -82,7 +97,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "url",
+                        "dataIndex": "mapUrl",
                         "text": "图层地址",
                         "width": 500
                     },
@@ -271,7 +286,26 @@
                                     "userConfig": {
                                         "fn": "onButtonClick2",
                                         "implHandler": [
-                                            ""
+                                            "//获取数据",
+                                            "var models = Ext.getCmp('system_MapManageGrid').getSelection();",
+                                            "if (models.length === 0){",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                            "    return;",
+                                            "} else if(models.length >1){",
+                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                            "    return;",
+                                            "}",
+                                            "//启动窗口",
+                                            "var win = Ext.widget('system_MapAddWindow');",
+                                            "win.setTitle('修改信息');",
+                                            "win.show();",
+                                            "",
+                                            "//改变Ajax url",
+                                            "var form = Ext.getCmp('system_MapAddForm').getForm();",
+                                            "form.loadRecord(models[0]);",
+                                            "form.load({",
+                                            "    url:'update_Map'",
+                                            "});"
                                         ],
                                         "name": "click",
                                         "scope": "me"
@@ -294,7 +328,65 @@
                                 "text": "删除"
                             },
                             "name": "MyButton3",
-                            "designerId": "a3de47b2-2ff6-468e-a94f-49281193b26a"
+                            "designerId": "a3de47b2-2ff6-468e-a94f-49281193b26a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick3",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('system_MapManageGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}",
+                                            "var  ids =new Array(records.length);",
+                                            "for(var i = 0;i<records.length;i++){",
+                                            "    ids[i] = records[i].get(\"mapId\");",
+                                            "}",
+                                            "if(ids.length ==1){",
+                                            "    Ext.Msg.confirm('提示', '您正在删除地图：' + records[0].get('mapName') + '，<br/> 地图链接为：'+records[0].get('mapUrl')+'，<br/> 确认删除？', getResult);",
+                                            "}else{",
+                                            "    Ext.Msg.confirm('提示', '您正在删除<br/>[' +ids.length+']组地图数据。<br/> 确认删除？', getResult);",
+                                            "}",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_MapById',",
+                                            "            params :",
+                                            "            {",
+                                            "                mapIds : ids",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                var mystore = Ext.StoreMgr.get('systemManageMapStore');",
+                                            "                mystore.load();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick3",
+                                    "designerId": "2082bde7-a247-456a-8040-3231437edb7b"
+                                }
+                            ]
                         }
                     ]
                 },

@@ -1,36 +1,46 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-5-27 18:43:10 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2015-6-3 19:53:43 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.NoticeNews" table="notice_news" catalog="landuse">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="column" type="string">
-            <column name="column" length="50">
+        <property name="noticeColumn" type="string">
+            <column name="notice_column" length="50">
                 <comment>column</comment>
             </column>
         </property>
-        <property name="title" type="string">
-            <column name="title" length="50">
+        <property name="noticeTitle" type="string">
+            <column name="notice_title" length="50">
                 <comment>title</comment>
             </column>
         </property>
-        <property name="author" type="string">
-            <column name="author" length="50">
+        <property name="noticeAuthor" type="string">
+            <column name="notice_author" length="50">
                 <comment>author</comment>
             </column>
         </property>
-        <property name="datetime" type="timestamp">
-            <column name="datetime" length="19">
-                <comment>datetime</comment>
+        <property name="publishDate" type="date">
+            <column name="publish_date" length="10">
+                <comment>publish date</comment>
             </column>
         </property>
-        <property name="content" type="string">
-            <column name="content" length="65535">
+        <property name="editDate" type="date">
+            <column name="edit_date" length="10">
+                <comment>edit date</comment>
+            </column>
+        </property>
+        <property name="noticeContent" type="string">
+            <column name="notice_content" length="65535">
                 <comment>content</comment>
+            </column>
+        </property>
+        <property name="noticeState" type="java.lang.Integer">
+            <column name="notice_state">
+                <comment>1publish2draft3Recycle</comment>
             </column>
         </property>
         <property name="attachment" type="string">

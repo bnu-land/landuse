@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityPotential_Intension', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityPotential_Intension',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel6'
-    ],
-
-    viewModel: {
-        type: 'intensitypotential_intension'
-    },
     height: 588,
     width: 786,
     title: '强度潜力测算'

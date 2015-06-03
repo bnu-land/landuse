@@ -54,9 +54,9 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                             id: 'thematicLCC_LayerCombo',
                             width: 350,
                             fieldLabel: '选择开发区',
-                            displayField: 'name',
+                            displayField: 'mapName',
                             store: 'systemMapFeatureLayerStore',
-                            valueField: 'url'
+                            valueField: 'mapUrl'
                         }
                     ]
                 }

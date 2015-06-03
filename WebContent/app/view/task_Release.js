@@ -17,13 +17,6 @@ Ext.define('MyApp.view.task_Release', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_Release',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel19'
-    ],
-
-    viewModel: {
-        type: 'task_release'
-    },
     height: 588,
     width: 786,
     title: '任务下达'

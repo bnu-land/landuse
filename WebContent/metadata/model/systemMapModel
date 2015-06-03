@@ -32,20 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "group"
-            },
-            "name": "MyField1",
-            "designerId": "997d473a-579c-4c6c-9078-240d153d6309"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "pid"
+                "name": "mapPid"
             },
             "name": "MyField7",
             "designerId": "fb755f01-5331-4db7-90c2-8bb9893f0074"
@@ -58,7 +45,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "name"
+                "name": "mapGroup"
+            },
+            "name": "MyField1",
+            "designerId": "997d473a-579c-4c6c-9078-240d153d6309"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mapName"
             },
             "name": "MyField2",
             "designerId": "c65a924c-d883-4cdc-bcd4-89d8517c8d70"
@@ -71,7 +71,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "key"
+                "name": "mapKey"
             },
             "name": "MyField3",
             "designerId": "86614500-3f18-464b-b306-4739075542cf"
@@ -84,7 +84,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "url"
+                "name": "mapUrl"
             },
             "name": "MyField4",
             "designerId": "c1893700-cdfb-482c-8946-d0f3b0af6655"

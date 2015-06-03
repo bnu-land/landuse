@@ -32,7 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "column"
+                "name": "noticeColumn"
             },
             "name": "MyField1",
             "designerId": "72ff99e5-282e-48d8-949f-bbadd83ff75e"
@@ -45,7 +45,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "title"
+                "name": "noticeTitle"
             },
             "name": "MyField2",
             "designerId": "391e85f7-7873-4f72-a0c9-1ff6ab24252f"
@@ -58,7 +58,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "author"
+                "name": "noticeAuthor"
             },
             "name": "MyField3",
             "designerId": "264ccc70-3025-4666-81fc-033ad7a6935c"
@@ -71,9 +71,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "datetime"
+                "name": "publishDate"
             },
-            "name": "MyField4",
+            "name": "MyField8",
             "designerId": "67989eb0-1a0d-4530-b6e1-93092b21ba55"
         },
         {
@@ -84,10 +84,36 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "content"
+                "name": "editDate"
             },
             "name": "MyField5",
             "designerId": "4b3a37a3-ccbf-48a1-9ffb-3b6a5595aca0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "noticeContent"
+            },
+            "name": "MyField9",
+            "designerId": "2bc5b00a-0164-4686-91fc-47843185dcde"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "noticeState"
+            },
+            "name": "MyField10",
+            "designerId": "fe4a0c39-f5c8-4631-91be-29b4daef3581"
         },
         {
             "type": "Ext.data.field.Field",

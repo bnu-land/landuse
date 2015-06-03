@@ -10,11 +10,269 @@
         "designer|userClassName": "notice_Publish",
         "height": 588,
         "id": null,
+        "layout": "fit",
         "title": "内容发布",
         "width": 786
     },
     "name": "task_Report2",
     "designerId": "7aa286f2-b44c-430f-a3ca-f3e6c57edd50",
     "viewControllerInstanceId": "876bda78-ecac-475b-b899-4483b24b31e1",
-    "viewModelInstanceId": "3811f6ae-26cf-4887-aa07-f36f192198b8"
+    "viewModelInstanceId": "3811f6ae-26cf-4887-aa07-f36f192198b8",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 20,
+                "id": "notice_PublishForm",
+                "jsonSubmit": true,
+                "title": null
+            },
+            "name": "MyForm1",
+            "designerId": "93110665-5dbd-4314-9e28-833971d812bf",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "6efb89fe-2655-4a35-acab-f5830e6c87f3",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "cc217b06-ec23-400a-842f-b3b8c0fb2749"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "存草稿箱"
+                            },
+                            "name": "MyButton",
+                            "designerId": "84618776-44b6-4142-b379-1816511e2591"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "发布文章"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "779d2922-400b-4000-8ea0-1450d95d9bd2",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var myform = Ext.getCmp('notice_PublishForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        url : 'add_NoticeNews',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '内容发布成功。');",
+                                            "            var mystore = Ext.StoreMgr.get('notice_newStore'); //获得store对象",
+                                            "            mystore.reload();            ",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '内容发布失败，请重试。');",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "e231e189-55ae-41c1-a70a-de7f3c46345e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.HtmlEditor",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "anchorSize": null,
+                        "dock": null,
+                        "fieldLabel": "文章内容",
+                        "height": 349,
+                        "layout|anchor": "100% -45",
+                        "name": "noticeContent",
+                        "width": null
+                    },
+                    "name": "MyHtmlEditor",
+                    "configAlternates": {
+                        "anchorSize": "object"
+                    },
+                    "designerId": "88f8f4bb-cf53-461d-82d3-4ea290b8e9f9"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "8c8e1c86-84fd-4e5d-9362-dbb5bbb73900",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fixed": true,
+                                "layout|flex": null,
+                                "maxWidth": 5,
+                                "width": 10
+                            },
+                            "name": "MyFill2",
+                            "designerId": "7e1d2286-f7e6-4d18-a078-76206c985713"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "  文章标题",
+                                "height": 30,
+                                "layout|flex": null,
+                                "name": "noticeTitle",
+                                "padding": null,
+                                "width": "50%"
+                            },
+                            "name": "MyTextField",
+                            "designerId": "f37d8554-ddd8-4c33-b30d-61fd37e3c081"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "columnName",
+                                "fieldLabel": "栏目名称",
+                                "forceSelection": true,
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "name": "noticeColumn",
+                                "store": "notice_columnsStore",
+                                "valueField": "columnName",
+                                "width": 200
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "c416ec90-43c3-4a03-9b70-cf3e24130b23"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "trueName",
+                                "fieldLabel": "文章作者",
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "name": "noticeAuthor",
+                                "store": "uUserInfoStore",
+                                "valueField": "trueName",
+                                "width": 180
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "128ecbb5-cb47-402e-bd72-659e6d1ce089"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "hidden",
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "name": "MyHiddenField2",
+                    "designerId": "c44f24e1-d746-44d0-9a11-cf0f70577188"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "备注",
+                        "height": 40,
+                        "layout|anchor": "100% 0",
+                        "maxHeight": 40,
+                        "name": "description"
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "7dc29968-bd39-4b31-9e02-c9a5ea7e8928"
+                }
+            ]
+        }
+    ]
 }

@@ -44,13 +44,7 @@ Ext.define('MyApp.view.notice_Columns', {
                 {
                     xtype: 'gridcolumn',
                     width: 200,
-                    dataIndex: 'group',
-                    text: '栏目组'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 200,
-                    dataIndex: 'column',
+                    dataIndex: 'columnName',
                     text: '栏目名称'
                 },
                 {
@@ -101,16 +95,68 @@ Ext.define('MyApp.view.notice_Columns', {
     onButtonClick: function(button, e, eOpts) {
         var win = Ext.widget('notice_ColumnsWindow');
         win.show();
-        var form = Ext.getCmp('notice_ColumnsWindowForm');
-        form.url = 'add_NoticeColumns';
     },
 
     onButtonClick1: function(button, e, eOpts) {
+        //获取数据
+        var records = Ext.getCmp('notice_ColumnsGrid').getSelection();
+        if (records.length === 0){
+            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+            return;
+        } else if(records.length >1){
+            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+            return;
+        }
+        //启动窗口
+        var win = Ext.widget('notice_ColumnsWindow');
+        win.setTitle('修改栏目');
+        win.show();
 
+        //改变Ajax url
+        var form = Ext.getCmp('notice_ColumnsWindowForm').getForm();
+        form.loadRecord(records[0]);
+        form.load({
+            url:'update_NoticeColumns'
+        });
     },
 
     onButtonClick2: function(button, e, eOpts) {
+        //获取数据
+        var records = Ext.getCmp('notice_ColumnsGrid').getSelection();
+        if (records.length === 0){
+           Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+           return;
+        }else if(records.length >1){
+           Ext.Msg.alert('提示', '每次只能删除一条栏目。');
+           return;
+        }
+        var id = records[0].get("id");
+        var columnName= records[0].get("columnName");
+        Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']栏目。<br/> 确认删除？', getResult);
 
+
+        function getResult(confirm)
+        {
+            console.log('confirm:', confirm);
+            if (confirm == "yes"){
+                Ext.Ajax.request(
+                {
+                    url : 'del_NoticeColumnById',
+                    params :
+                    {
+                        id : id
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        var mystore = Ext.StoreMgr.get('notice_columnsStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
     }
 
 });

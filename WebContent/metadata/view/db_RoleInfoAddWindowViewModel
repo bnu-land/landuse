@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_RoleInfoAddWindow",
+        "designer|userClassName": "db_RoleInfoAddWindowViewModel"
+    },
+    "designerId": "d5204c95-22af-40e4-ba16-b1dffb6b6bff"
+}

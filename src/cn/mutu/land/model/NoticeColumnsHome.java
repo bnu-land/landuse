@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2015-5-27 18:43:10 by Hibernate Tools 4.0.0
+// Generated 2015-6-3 20:23:59 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -89,7 +89,7 @@ public class NoticeColumnsHome {
 		}
 	}
 
-	public NoticeColumns findById(java.lang.String id) {
+	public NoticeColumns findById(java.lang.Integer id) {
 		log.debug("getting NoticeColumns instance with id: " + id);
 		try {
 			NoticeColumns instance = (NoticeColumns) sessionFactory

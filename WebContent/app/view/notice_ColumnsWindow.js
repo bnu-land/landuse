@@ -19,13 +19,14 @@ Ext.define('MyApp.view.notice_ColumnsWindow', {
 
     requires: [
         'Ext.form.Panel',
+        'Ext.form.field.Hidden',
         'Ext.form.field.TextArea',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button'
     ],
 
-    height: 229,
+    height: 200,
     id: 'notice_ColumnsWindow',
     width: 399,
     layout: 'fit',
@@ -41,12 +42,12 @@ Ext.define('MyApp.view.notice_ColumnsWindow', {
             url: 'add_NoticeColumns',
             items: [
                 {
-                    xtype: 'textfield',
+                    xtype: 'hiddenfield',
                     anchor: '100%',
                     fieldLabel: '栏目组名',
                     labelAlign: 'right',
                     labelWidth: 70,
-                    name: 'group'
+                    name: 'id'
                 },
                 {
                     xtype: 'textfield',
@@ -54,7 +55,8 @@ Ext.define('MyApp.view.notice_ColumnsWindow', {
                     fieldLabel: '栏目名称',
                     labelAlign: 'right',
                     labelWidth: 70,
-                    name: 'column'
+                    name: 'columnName',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textareafield',
@@ -95,12 +97,12 @@ Ext.define('MyApp.view.notice_ColumnsWindow', {
     ],
 
     onButtonClick1: function(button, e, eOpts) {
-
+        Ext.getCmp('notice_ColumnsWindow').close();
     },
 
     onButtonClick: function(button, e, eOpts) {
         var win  = Ext.getCmp('notice_ColumnsWindow');
-
+        var title = win.getTitle();
         var myform = Ext.getCmp('notice_ColumnsWindowForm').getForm();
         if (myform.isValid())
         {
@@ -108,14 +110,14 @@ Ext.define('MyApp.view.notice_ColumnsWindow', {
                 //url : 'add_Map',
                 success : function (form, action)
                 {
-                    Ext.Msg.alert('成功', '添加成功。');
+                    Ext.Msg.alert('成功', title+'成功。');
 
                     var mystore = Ext.StoreMgr.get('notice_columnsStore'); //获得store对象
                     mystore.reload();
                     win.close();
                 },
                 failure: function(form, action){
-                    Ext.Msg.alert('失败', '添加地图失败，请重试。');
+                    Ext.Msg.alert('失败', title+'失败，请重试。');
                     win.close();
                 }
             });

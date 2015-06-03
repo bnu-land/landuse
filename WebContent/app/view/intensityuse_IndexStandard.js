@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityuse_IndexStandard', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityuse_IndexStandard',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel10'
-    ],
-
-    viewModel: {
-        type: 'intensityuse_indexstandard'
-    },
     height: 588,
     width: 786,
     title: '指标标准化处理'

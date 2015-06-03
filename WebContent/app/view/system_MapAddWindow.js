@@ -19,6 +19,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
 
     requires: [
         'Ext.form.Panel',
+        'Ext.form.field.Hidden',
         'Ext.form.field.Number',
         'Ext.form.field.TextArea',
         'Ext.toolbar.Toolbar',
@@ -26,7 +27,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
         'Ext.button.Button'
     ],
 
-    height: 272,
+    height: 322,
     id: 'system_MapAddWindow',
     width: 445,
     layout: 'fit',
@@ -43,12 +44,28 @@ Ext.define('MyApp.view.system_MapAddWindow', {
             url: 'add_Map',
             items: [
                 {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    fieldLabel: '图层编号',
+                    labelAlign: 'right',
+                    labelWidth: 80,
+                    name: 'mapId'
+                },
+                {
                     xtype: 'numberfield',
                     anchor: '100%',
                     fieldLabel: '图层编号',
                     labelAlign: 'right',
                     labelWidth: 80,
-                    name: 'pid'
+                    name: 'mapPid'
+                },
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    fieldLabel: '图层组名',
+                    labelAlign: 'right',
+                    labelWidth: 80,
+                    name: 'mapGroup'
                 },
                 {
                     xtype: 'textfield',
@@ -56,7 +73,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
                     fieldLabel: '地图名称',
                     labelAlign: 'right',
                     labelWidth: 80,
-                    name: 'name',
+                    name: 'mapName',
                     allowBlank: false
                 },
                 {
@@ -65,7 +82,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
                     fieldLabel: '地图标识',
                     labelAlign: 'right',
                     labelWidth: 80,
-                    name: 'key'
+                    name: 'mapKey'
                 },
                 {
                     xtype: 'textfield',
@@ -73,7 +90,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
                     fieldLabel: '地图地址',
                     labelAlign: 'right',
                     labelWidth: 80,
-                    name: 'url',
+                    name: 'mapUrl',
                     inputType: 'url'
                 },
                 {
@@ -102,7 +119,7 @@ Ext.define('MyApp.view.system_MapAddWindow', {
                         },
                         {
                             xtype: 'button',
-                            text: '添加',
+                            text: '确定',
                             listeners: {
                                 click: 'onButtonClick'
                             }
@@ -120,12 +137,12 @@ Ext.define('MyApp.view.system_MapAddWindow', {
     ],
 
     onButtonClick1: function(button, e, eOpts) {
-
+        Ext.getCmp('system_MapAddWindow').close();
     },
 
     onButtonClick: function(button, e, eOpts) {
         var win  = Ext.getCmp('system_MapAddWindow');
-
+        var title = win.getTitle();
         var myform = Ext.getCmp('system_MapAddForm').getForm();
         if (myform.isValid())
         {
@@ -133,14 +150,14 @@ Ext.define('MyApp.view.system_MapAddWindow', {
                 //url : 'add_Map',
                 success : function (form, action)
                 {
-                    Ext.Msg.alert('成功', '添加地图成功。');
+                    Ext.Msg.alert('成功', title+'成功。');
 
                     var mystore = Ext.StoreMgr.get('systemManageMapStore'); //获得store对象
                     mystore.reload();
                     win.close();
                 },
                 failure: function(form, action){
-                    Ext.Msg.alert('失败', '添加地图失败，请重试。');
+                    Ext.Msg.alert('失败', title+'失败，请重试。');
                     win.close();
                 }
             });

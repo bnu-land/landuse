@@ -25,7 +25,14 @@ Ext.application({
         'noticeNewsModel',
         'noticeColumnsModel',
         'thematic_LCC_PieModel',
-        'thematic_LCCT_GridModel'
+        'thematic_LCCT_GridModel',
+        'uUserRoleModel',
+        'uUserInfoModel',
+        'uRoleInfoModel',
+        'uRightListModel',
+        'uRightInfoModel',
+        'uDeptInfoModel',
+        'uRoleRightModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -39,7 +46,13 @@ Ext.application({
         'MyArrayStore',
         'thematic_LCCT_GridStore',
         'thematic_LCC_PieStore',
-        'systemMapQYYDLayerStore'
+        'systemMapQYYDLayerStore',
+        'uDeptInfoStore',
+        'uUserInfoStore',
+        'uUserRoleStore',
+        'uRoleInfoStore',
+        'uRightInfoStore',
+        'uRightListStore'
     ],
     views: [
         'MainView',
@@ -77,7 +90,6 @@ Ext.application({
         'achievement_DataIBrowse',
         'achievement_DataIEdit',
         'system_MenuManage',
-        'system_UserManage',
         'system_DepartmentManage',
         'system_RightManage',
         'system_MapManageTree',
@@ -91,7 +103,17 @@ Ext.application({
         'notice_ColumnsWindow',
         'thematic_LanduseConstructionChangeTrend',
         'survey_Landuse',
-        'survey_TypicalEnterprise'
+        'survey_TypicalEnterprise',
+        'db_RightInfoAddWindow',
+        'db_RightInfoWindow',
+        'db_DeptInfoWindow',
+        'db_RoleInfoWindow',
+        'db_UserInfoEditTab',
+        'db_UserInfoWindow',
+        'system_UserManage',
+        'db_UserRoleSettingWindow',
+        'db_DeptInfoAddWindow',
+        'db_UserInfoAddWindow'
     ],
     name: 'MyApp',
 

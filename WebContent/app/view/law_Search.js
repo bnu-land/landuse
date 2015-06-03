@@ -17,13 +17,6 @@ Ext.define('MyApp.view.law_Search', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.law_Search',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel25'
-    ],
-
-    viewModel: {
-        type: 'law_search'
-    },
     height: 588,
     width: 786,
     title: '法律法规查询'

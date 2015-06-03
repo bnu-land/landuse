@@ -51,9 +51,9 @@ Ext.define('MyApp.view.survey_Landuse', {
                             id: 'survey_Landuse_LayerCombo',
                             width: 350,
                             fieldLabel: '选择开发区',
-                            displayField: 'name',
+                            displayField: 'mapName',
                             store: 'systemMapFeatureLayerStore',
-                            valueField: 'url'
+                            valueField: 'mapUrl'
                         }
                     ]
                 }

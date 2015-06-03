@@ -17,13 +17,6 @@ Ext.define('MyApp.view.task_DynamicInspect', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_DynamicInspect',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel17'
-    ],
-
-    viewModel: {
-        type: 'task_dynamicinspect'
-    },
     height: 588,
     width: 786,
     title: '动态巡查任务'

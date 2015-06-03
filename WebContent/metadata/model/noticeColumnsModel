@@ -19,7 +19,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "group"
+                "name": "id"
             },
             "name": "MyField",
             "designerId": "9691ad97-f22d-4a75-8fc2-dc539ef012ce"
@@ -32,7 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "column"
+                "name": "columnName"
             },
             "name": "MyField1",
             "designerId": "c1440e21-e773-4bc0-b3ec-af071d5e23a6"

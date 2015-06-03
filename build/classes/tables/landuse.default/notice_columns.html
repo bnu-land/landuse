@@ -61,15 +61,15 @@
 			<tbody>
 					<tr>
 						<td>
-							<a href="#column_detail_group">
-								group
+							<a href="#column_detail_id">
+								id
 							</a>
 						</td>
 						<td>
-							varchar(50)
+							integer
 						</td>
 						<td>
-							50
+							255
 						</td>
 						<td>
 							19
@@ -78,16 +78,16 @@
 							2
 						</td>
 						<td>
-							true
+							false
 						</td>
 						<td>
-							false
+							true
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_column">
-								column
+							<a href="#column_detail_column_name">
+								column_name
 							</a>
 						</td>
 						<td>
@@ -103,10 +103,10 @@
 							2
 						</td>
 						<td>
-							false
+							true
 						</td>
 						<td>
-							true
+							false
 						</td>
 					</tr>
 					<tr>
@@ -159,8 +159,8 @@
 								PRIMARY
 						</td>
 						<td>
-								<a href="#column_detail_column">
-									column
+								<a href="#column_detail_id">
+									id
 								</a>
 						</td>
 					</tr>
@@ -190,8 +190,8 @@
 								PRIMARY
 							</td>
 							<td>
-									<a href="#column_detail_column">
-										column
+									<a href="#column_detail_id">
+										id
 									</a>
 							</td>
 						</tr>
@@ -203,7 +203,35 @@
 				Column Detail
 			</p>
 				
-				<h3 id="column_detail_group">group</h3>
+				<h3 id="column_detail_id">id</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> integer
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 19
+					</li>
+					<li>
+						<strong>Scale:</strong> 2
+					</li>
+					<li>
+						<strong>Nullable:</strong> false
+					</li>
+					<li>
+						<strong>Unique:</strong> true
+					</li>
+					<li>
+						<strong>Comment:</strong> id
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_column_name">column_name</h3>
 				
 				<ul>
 					<li>
@@ -225,35 +253,7 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> group
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_column">column</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> varchar(50)
-					</li>
-					<li>
-						<strong>Length:</strong> 50
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> false
-					</li>
-					<li>
-						<strong>Unique:</strong> true
-					</li>
-					<li>
-						<strong>Comment:</strong> column
+						<strong>Comment:</strong> columnName
 					</li>
 				</ul>
 

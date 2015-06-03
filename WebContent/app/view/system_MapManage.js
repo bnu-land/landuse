@@ -46,19 +46,25 @@ Ext.define('MyApp.view.system_MapManage', {
                 {
                     xtype: 'gridcolumn',
                     width: 250,
-                    dataIndex: 'name',
+                    dataIndex: 'mapName',
                     text: '名称'
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 250,
+                    dataIndex: 'mapGroup',
+                    text: '标签信息'
+                },
+                {
+                    xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'key',
+                    dataIndex: 'mapKey',
                     text: '键值'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 500,
-                    dataIndex: 'url',
+                    dataIndex: 'mapUrl',
                     text: '图层地址'
                 },
                 {
@@ -112,7 +118,10 @@ Ext.define('MyApp.view.system_MapManage', {
                         {
                             xtype: 'button',
                             icon: 'images/table/delete.png',
-                            text: '删除'
+                            text: '删除',
+                            listeners: {
+                                click: 'onButtonClick3'
+                            }
                         }
                     ]
                 }
@@ -138,7 +147,68 @@ Ext.define('MyApp.view.system_MapManage', {
     },
 
     onButtonClick2: function(button, e, eOpts) {
+        //获取数据
+        var models = Ext.getCmp('system_MapManageGrid').getSelection();
+        if (models.length === 0){
+            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+            return;
+        } else if(models.length >1){
+            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+            return;
+        }
+        //启动窗口
+        var win = Ext.widget('system_MapAddWindow');
+        win.setTitle('修改信息');
+        win.show();
 
+        //改变Ajax url
+        var form = Ext.getCmp('system_MapAddForm').getForm();
+        form.loadRecord(models[0]);
+        form.load({
+            url:'update_Map'
+        });
+    },
+
+    onButtonClick3: function(button, e, eOpts) {
+        //获取数据
+        var records = Ext.getCmp('system_MapManageGrid').getSelection();
+        if (records.length === 0){
+           Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+           return;
+        }
+        var  ids =new Array(records.length);
+        for(var i = 0;i<records.length;i++){
+            ids[i] = records[i].get("mapId");
+        }
+        if(ids.length ==1){
+            Ext.Msg.confirm('提示', '您正在删除地图：' + records[0].get('mapName') + '，<br/> 地图链接为：'+records[0].get('mapUrl')+'，<br/> 确认删除？', getResult);
+        }else{
+            Ext.Msg.confirm('提示', '您正在删除<br/>[' +ids.length+']组地图数据。<br/> 确认删除？', getResult);
+        }
+
+
+        function getResult(confirm)
+        {
+            console.log('confirm:', confirm);
+            if (confirm == "yes"){
+                Ext.Ajax.request(
+                {
+                    url : 'del_MapById',
+                    params :
+                    {
+                        mapIds : ids
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        var mystore = Ext.StoreMgr.get('systemManageMapStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
     }
 
 });

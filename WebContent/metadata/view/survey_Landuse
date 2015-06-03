@@ -60,12 +60,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "displayField": "name",
+                                "displayField": "mapName",
                                 "fieldLabel": "选择开发区",
                                 "id": "survey_Landuse_LayerCombo",
                                 "layout|flex": null,
                                 "store": "systemMapFeatureLayerStore",
-                                "valueField": "url",
+                                "valueField": "mapUrl",
                                 "width": 350
                             },
                             "name": "MyComboBox",

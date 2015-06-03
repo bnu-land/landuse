@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_UserPrivilegeManagerTab",
+        "designer|userClassName": "system_UserManageViewController"
+    },
+    "designerId": "00e809bb-0c5c-4e4b-bb5f-a90b22651219"
+}

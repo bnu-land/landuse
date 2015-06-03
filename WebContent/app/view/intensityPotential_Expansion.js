@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityPotential_Expansion', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityPotential_Expansion',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel4'
-    ],
-
-    viewModel: {
-        type: 'intensitypotential_expansion'
-    },
     height: 588,
     width: 786,
     title: '扩展潜力测算'

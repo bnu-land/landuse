@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityuse_IntensityScoreCalculation', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityuse_IntensityScoreCalculation',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel11'
-    ],
-
-    viewModel: {
-        type: 'intensityuse_intensityscorecalculation'
-    },
     height: 588,
     width: 786,
     title: '集约度分值计算'

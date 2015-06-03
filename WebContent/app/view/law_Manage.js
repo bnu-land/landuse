@@ -17,13 +17,6 @@ Ext.define('MyApp.view.law_Manage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.law_Manage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel23'
-    ],
-
-    viewModel: {
-        type: 'law_manage'
-    },
     height: 588,
     width: 786,
     title: '法律法规管理'

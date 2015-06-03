@@ -17,13 +17,6 @@ Ext.define('MyApp.view.task_Locate', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_Locate',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel18'
-    ],
-
-    viewModel: {
-        type: 'task_locate'
-    },
     height: 588,
     width: 786,
     title: '任务定位'

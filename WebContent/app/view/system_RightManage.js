@@ -17,8 +17,430 @@ Ext.define('MyApp.view.system_RightManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_RightManage',
 
+    requires: [
+        'Ext.tab.Panel',
+        'Ext.tab.Tab',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.column.Action',
+        'Ext.grid.View',
+        'Ext.selection.CheckboxModel'
+    ],
+
     height: 588,
     width: 786,
-    title: '系统权限管理'
+    layout: 'fit',
+    title: '系统权限管理',
+    defaultListenerScope: true,
+
+    initConfig: function(instanceConfig) {
+        var me = this,
+            config = {
+                items: [
+                    {
+                        xtype: 'tabpanel',
+                        items: [
+                            {
+                                xtype: 'panel',
+                                layout: 'fit',
+                                title: '角色信息管理',
+                                dockedItems: [
+                                    {
+                                        xtype: 'toolbar',
+                                        dock: 'top',
+                                        items: [
+                                            {
+                                                xtype: 'textfield',
+                                                id: 'searchKeyword_roleInfo',
+                                                emptyText: '请输入搜索关键字'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/search.png',
+                                                text: '搜索',
+                                                listeners: {
+                                                    click: 'onButtonClick3'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/refresh.png',
+                                                text: '刷新',
+                                                listeners: {
+                                                    click: 'onButtonClick11'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '添加角色',
+                                                listeners: {
+                                                    click: 'onButtonClick21'
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                items: [
+                                    {
+                                        xtype: 'gridpanel',
+                                        store: 'uRoleInfoStore',
+                                        columns: [
+                                            {
+                                                xtype: 'rownumberer',
+                                                width: 40,
+                                                text: '序号'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 120,
+                                                dataIndex: 'roleNameCn',
+                                                text: '角色名称'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 150,
+                                                dataIndex: 'roleName',
+                                                text: '角色标识'
+                                            },
+                                            {
+                                                xtype: 'booleancolumn',
+                                                width: 60,
+                                                dataIndex: 'enabled',
+                                                text: '是否启用',
+                                                falseText: '否',
+                                                trueText: '是'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 400,
+                                                dataIndex: 'description',
+                                                text: '描述'
+                                            },
+                                            {
+                                                xtype: 'actioncolumn',
+                                                handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
+                                                    if (colIndex === undefined || colIndex < 2) {
+                                                        return;
+                                                    }
+                                                    var win = Ext.widget('db_RoleInfoWindow');
+                                                    win.show();
+
+                                                    var form = Ext.getCmp('db_RoleInfoWindowForm').getForm();
+                                                    form.loadRecord(record);
+
+                                                },
+                                                width: 50,
+                                                dataIndex: 'date',
+                                                menuText: '',
+                                                icon: 'images/table/edit.png'
+                                            },
+                                            {
+                                                xtype: 'actioncolumn',
+                                                handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
+                                                    Ext.Msg.confirm('您正在删除', '角色：' + record.get('roleNameCn') + '，角色代码为：'+record.get('roleName')+'，<br/> 确认删除？', getResult);
+                                                    function getResult(confirm)
+                                                    {
+                                                        console.log('confirm:', confirm);
+                                                        if (confirm == "yes"){
+                                                            var roleId = record.get("roleId");
+                                                            Ext.Ajax.request(
+                                                            {
+                                                                url : 'del_RoleInfoById',
+                                                                params :
+                                                                {
+                                                                    roleId : roleId
+                                                                },
+                                                                success : function (response){
+                                                                    Ext.Msg.alert('成功提示', '角色删除成功。');
+                                                                    var mystore = Ext.StoreMgr.get('uRoleInfoStore');
+                                                                    mystore.load();
+                                                                },
+                                                                failure : function (response){
+
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                },
+                                                width: 50,
+                                                dataIndex: 'date',
+                                                icon: 'images/table/delete.png'
+                                            }
+                                        ],
+                                        selModel: Ext.create('Ext.selection.CheckboxModel', {
+                                            selType: 'checkboxmodel'
+                                        })
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'panel',
+                                autoScroll: true,
+                                layout: 'fit',
+                                title: '权限信息管理',
+                                dockedItems: [
+                                    {
+                                        xtype: 'toolbar',
+                                        dock: 'top',
+                                        items: [
+                                            {
+                                                xtype: 'textfield',
+                                                id: 'searchKeyword_RightInfo',
+                                                emptyText: '请输入搜索关键字'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/search.png',
+                                                text: '搜索',
+                                                listeners: {
+                                                    click: 'onButtonClick31'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/refresh.png',
+                                                text: '刷新',
+                                                listeners: {
+                                                    click: 'onButtonClick111'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '添加权限',
+                                                listeners: {
+                                                    click: 'onButtonClick211'
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                items: [
+                                    {
+                                        xtype: 'gridpanel',
+                                        autoScroll: true,
+                                        id: 'rightInfoGrid',
+                                        store: 'uRightInfoStore',
+                                        columns: [
+                                            {
+                                                xtype: 'rownumberer',
+                                                width: 40,
+                                                text: '序号'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 200,
+                                                dataIndex: 'rightName',
+                                                text: '权限名称'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                dataIndex: 'rightId',
+                                                text: '权限编号'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 150,
+                                                dataIndex: 'url',
+                                                text: '权限地址'
+                                            },
+                                            {
+                                                xtype: 'booleancolumn',
+                                                width: 60,
+                                                dataIndex: 'enabled',
+                                                text: '是否启用',
+                                                falseText: '否',
+                                                trueText: '是'
+                                            },
+                                            {
+                                                xtype: 'gridcolumn',
+                                                width: 400,
+                                                dataIndex: 'description',
+                                                text: '描述'
+                                            },
+                                            {
+                                                xtype: 'actioncolumn',
+                                                handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
+                                                    if (colIndex === undefined || colIndex < 2) {
+                                                        return;
+                                                    }
+                                                    var win = Ext.widget('db_RightInfoWindow');
+                                                    win.show();
+
+                                                    var form = Ext.getCmp('db_RightInfoWindowForm');
+                                                    form.loadRecord(record);
+
+                                                    //对显示的内容进行处理
+                                                    //对权限名称进行处理
+                                                    var rightNameField = Ext.getCmp('w_rightName');
+                                                    var value = rightNameField.getValue();
+                                                    var index = value.lastIndexOf("&nbsp;");
+                                                    console.log(index);
+                                                    if(index>=0){
+                                                        var substr = value.substring(index+6,value.length);
+                                                        rightNameField.setValue(substr);
+                                                    }
+                                                },
+                                                width: 50,
+                                                dataIndex: 'date',
+                                                menuText: '',
+                                                icon: 'images/table/edit.png'
+                                            },
+                                            {
+                                                xtype: 'actioncolumn',
+                                                handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
+                                                    //去除权限名称的空格
+                                                    var rightName = record.get('rightName');
+                                                    var index = rightName.lastIndexOf("&nbsp;");
+                                                    var substr;
+                                                    if(index>=0){
+                                                        substr = rightName.substring(index+6,rightName.length);
+                                                    }
+                                                    Ext.Msg.confirm('您正在删除', '权限："' + substr + '"，权限代码为："'+record.get('url')+'"，<br/> 确认删除？', getResult);
+
+                                                    function getResult(confirm)
+                                                    {
+                                                        console.log('confirm:', confirm);
+                                                        if (confirm == "yes"){
+                                                            var rightId = record.get("rightId");
+                                                            Ext.Ajax.request(
+                                                            {
+                                                                url : 'del_RightInfoById',
+                                                                params :
+                                                                {
+                                                                    rightId : rightId
+                                                                },
+                                                                success : function (response){
+                                                                    Ext.Msg.alert('成功提示', '权限删除成功。');
+                                                                    //successResult();
+                                                                    var mystore = Ext.StoreMgr.get('uRightInfoStore');
+                                                                    mystore.load();
+                                                                },
+                                                                failure : function (response){
+                                                                    //failedResult();
+                                                                    // Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                },
+                                                width: 50,
+                                                dataIndex: 'date',
+                                                icon: 'images/table/delete.png'
+                                            }
+                                        ],
+                                        selModel: Ext.create('Ext.selection.CheckboxModel', {
+                                            selType: 'checkboxmodel'
+                                        })
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            };
+        if (instanceConfig) {
+            me.getConfigurator().merge(me, config, instanceConfig);
+        }
+        return me.callParent([config]);
+    },
+
+    onButtonClick3: function(button, e, eOpts) {
+        var getKeyword = Ext.getCmp('searchKeyword_roleInfo').getValue();
+        console.log("keyword:",getKeyword);
+        var mystore = Ext.StoreMgr.get('uRoleInfoStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params :
+            {
+                searchKeyword : getKeyword,
+                enabled:"true"
+            }
+        });
+    },
+
+    onButtonClick11: function(button, e, eOpts) {
+        Ext.getCmp('searchKeyword_roleInfo').setValue('');
+        var mystore = Ext.StoreMgr.get('uRoleInfoStore'); //获得store对象
+        mystore.load();
+
+    },
+
+    onButtonClick21: function(button, e, eOpts) {
+        var win = Ext.widget('db_RoleInfoAddWindow');
+        win.show();
+
+    },
+
+    onButtonClick31: function(button, e, eOpts) {
+        var getKeyword = Ext.getCmp('searchKeyword_RightInfo').getValue();
+        //console.log("keyword:",getKeyword);
+        var mystore = Ext.StoreMgr.get('uRightInfoStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params :{
+                searchKeyword : getKeyword,
+                limit:'300'
+            }
+        });
+
+    },
+
+    onButtonClick111: function(button, e, eOpts) {
+        Ext.getCmp('searchKeyword_RightInfo').setValue('');
+        var mystore = Ext.StoreMgr.get('uRightInfoStore'); //获得store对象
+        mystore.load();
+
+    },
+
+    onButtonClick211: function(button, e, eOpts) {
+        //取得上一级部门id
+        var grid = Ext.getCmp('rightInfoGrid');
+        var record = grid.getSelectionModel().getSelection();
+        if(record.length === 0){
+            Ext.MessageBox.confirm('提示','添加新的权限需要先指定上一级权限，如果您没有在列表中勾选上一级权限，</br>那么您添加的权限为最高级别。确定添加？', function(btn){
+                if(btn == "yes"){
+                    doShowWin(0);
+                }
+            });
+            return;
+
+        }else{
+            doShowWin(1);
+        }
+
+        function doShowWin(level){
+            console.log('level:',level);
+            var win = Ext.widget('db_RightInfoAddWindow');
+            win.show();
+
+            var rightIdField = Ext.getCmp('wAdd_parentRightId');
+            var rightNameField = Ext.getCmp('wAdd_parentRightName');
+            //对显示的内容进行处理
+            switch(level){
+                case 0:	//如果没有上级部门
+                    rightIdField.setValue("0000000000");	//如果没有上一级部门，则设为0
+                    rightNameField.disable();
+                    break;
+                case 1:	//如果有上级部门
+                    var  rightId = record[0].get("rightId");	//取得上级部门id
+                    rightIdField.setValue(rightId);
+                    //对部门名称进行处理
+                    var rightName = record[0].get("rightName");	//取得上级部门名称
+
+                    var index = rightName.lastIndexOf("&nbsp;");
+                    if(index >= 0){
+                        var substr = rightName.substring(index+6,rightName.length);
+                        rightNameField.setValue(substr);
+                    }
+                    break;
+            }
+
+        }
+    }
 
 });

@@ -17,8 +17,264 @@ Ext.define('MyApp.view.system_DepartmentManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_DepartmentManage',
 
+    requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View',
+        'Ext.selection.CheckboxModel'
+    ],
+
     height: 588,
     width: 786,
-    title: '部门信息管理'
+    layout: 'fit',
+    title: '部门信息管理',
+    defaultListenerScope: true,
+
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'textfield',
+                    id: 'searchKeyword_DeptInfo',
+                    emptyText: '请输入搜索关键字'
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/search.png',
+                    text: '搜索',
+                    listeners: {
+                        click: 'onButtonClick31111'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/refresh.png',
+                    text: '刷新',
+                    listeners: {
+                        click: 'onButtonClick111111'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/add.png',
+                    text: '添加新部门',
+                    listeners: {
+                        click: 'onButtonClick211111'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/add.png',
+                    text: '编辑部门',
+                    listeners: {
+                        click: 'onButtonClick2111111'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/add.png',
+                    text: '删除部门',
+                    listeners: {
+                        click: 'onButtonClick21111111'
+                    }
+                }
+            ]
+        }
+    ],
+
+    initConfig: function(instanceConfig) {
+        var me = this,
+            config = {
+                items: [
+                    {
+                        xtype: 'gridpanel',
+                        autoScroll: true,
+                        id: 'deptInfoGrid',
+                        store: 'uDeptInfoStore',
+                        columns: [
+                            {
+                                xtype: 'rownumberer'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 200,
+                                dataIndex: 'deptName',
+                                text: '部门名称'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                dataIndex: 'deptId',
+                                text: '部门编号'
+                            },
+                            {
+                                xtype: 'booleancolumn',
+                                width: 50,
+                                dataIndex: 'enabled',
+                                text: '可用',
+                                falseText: '否',
+                                trueText: '是'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 400,
+                                dataIndex: 'description',
+                                text: '描述'
+                            }
+                        ],
+                        selModel: Ext.create('Ext.selection.CheckboxModel', {
+                            selType: 'checkboxmodel'
+                        })
+                    }
+                ]
+            };
+        if (instanceConfig) {
+            me.getConfigurator().merge(me, config, instanceConfig);
+        }
+        return me.callParent([config]);
+    },
+
+    onButtonClick31111: function(button, e, eOpts) {
+        var getKeyword = Ext.getCmp('searchKeyword_DeptInfo').getValue();
+        console.log("keyword:",getKeyword);
+        var mystore = Ext.StoreMgr.get('uDeptInfoStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load();
+
+    },
+
+    onButtonClick111111: function(button, e, eOpts) {
+        Ext.getCmp('searchKeyword_DeptInfo').setValue('');
+        var mystore = Ext.StoreMgr.get('uDeptInfoStore'); //获得store对象
+        mystore.reload();
+
+    },
+
+    onButtonClick211111: function(button, e, eOpts) {
+        //取得上一级部门id
+        var grid = Ext.getCmp('deptInfoGrid');
+        var record = grid.getSelectionModel().getSelection();
+        if(record.length === 0){
+            Ext.MessageBox.confirm('提示','添加新的部门需要先指定上一级部门，如果您没有在列表中勾选上一级部门，</br>那么您添加的部门为最高级别。确定添加？', function(btn){
+                if(btn == "yes"){
+                    doShowWin(0);
+                }
+            });
+            return;
+
+        }else{
+            doShowWin(1);
+        }
+        function doShowWin(level){
+            console.log('level:',level);
+            var win = Ext.widget('db_DeptInfoAddWindow');
+            win.show();
+
+            var deptIdField = Ext.getCmp('deptAdd_parentDeptId');
+            //对显示的内容进行处理
+            switch(level){
+                case 0:	//如果没有上级部门
+                deptIdField.setValue("0000000000");	//如果没有上一级部门，则设为0
+                break;
+                case 1:	//如果有上级部门
+                var  deptId = record[0].get("deptId");	//取得上级部门id
+                var deptName = record[0].get("deptName");	//取得上级部门名称
+                deptIdField.setValue(deptId);
+                //对部门名称进行处理
+                var deptNameField = Ext.getCmp('deptAdd_parentDeptName');
+                var index = deptName.lastIndexOf("&nbsp;");
+                if(index >= 0){
+                    var substr = deptName.substring(index+6,deptName.length);
+                    deptNameField.setValue(substr);
+                }
+                break;
+            }
+
+        }
+    },
+
+    onButtonClick2111111: function(button, e, eOpts) {
+        //取得上一级部门id
+        var grid = Ext.getCmp('deptInfoGrid');
+        var record = grid.getSelectionModel().getSelection();
+        if(record.length === 0){
+            Ext.MessageBox.confirm('提示','添加新的部门需要先指定上一级部门，如果您没有在列表中勾选上一级部门，</br>那么您添加的部门为最高级别。确定添加？', function(btn){
+                if(btn == "yes"){
+                    doShowWin(0);
+                }
+            });
+            return;
+
+        }else{
+            doShowWin(1);
+        }
+        function doShowWin(level){
+            console.log('level:',level);
+            var win = Ext.widget('db_DeptInfoAddWindow');
+            win.show();
+
+            var deptIdField = Ext.getCmp('deptAdd_parentDeptId');
+            //对显示的内容进行处理
+            switch(level){
+                case 0:	//如果没有上级部门
+                deptIdField.setValue("0000000000");	//如果没有上一级部门，则设为0
+                break;
+                case 1:	//如果有上级部门
+                var  deptId = record[0].get("deptId");	//取得上级部门id
+                var deptName = record[0].get("deptName");	//取得上级部门名称
+                deptIdField.setValue(deptId);
+                //对部门名称进行处理
+                var deptNameField = Ext.getCmp('deptAdd_parentDeptName');
+                var index = deptName.lastIndexOf("&nbsp;");
+                if(index >= 0){
+                    var substr = deptName.substring(index+6,deptName.length);
+                    deptNameField.setValue(substr);
+                }
+                break;
+            }
+
+        }
+    },
+
+    onButtonClick21111111: function(button, e, eOpts) {
+        //去除名称的空格
+        var deptName = record.get('deptName');
+        var index = deptName.lastIndexOf("&nbsp;");
+        var substr;
+        if(index>=0){
+            substr = deptName.substring(index+6,deptName.length);
+        }
+        Ext.Msg.confirm('您正在删除', '部门："' + substr + '"，部门编号为："'+record.get('deptId')+'"，<br/> 确认删除？', getResult);
+        function getResult(confirm)
+        {
+            console.log('confirm:', confirm);
+            if (confirm == "yes"){
+                var deptId = record.get("deptId");
+                Ext.Ajax.request(
+                {
+                    url : 'del_DeptInfoById',
+                    params :
+                    {
+                        deptId : deptId
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        //successResult();
+                        var mystore = Ext.StoreMgr.get('uDeptInfoStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        //failedResult();
+                        // Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
+    }
 
 });

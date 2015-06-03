@@ -10,11 +10,447 @@
         "designer|userClassName": "system_DepartmentManage",
         "height": 588,
         "id": null,
+        "layout": "fit",
         "title": "部门信息管理",
         "width": 786
     },
     "name": "system_UserManage1",
     "designerId": "1f617c85-71d7-4f9a-b833-bd4d9139d58c",
     "viewControllerInstanceId": "c320916f-2794-424e-903f-529eddfc4e16",
-    "viewModelInstanceId": "eee05645-fcca-4893-ba2a-f2afbbd198b2"
+    "viewModelInstanceId": "eee05645-fcca-4893-ba2a-f2afbbd198b2",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar32",
+            "designerId": "df6d013d-7a58-45cd-b1cf-a71c37a8136f",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "请输入搜索关键字",
+                        "fieldLabel": null,
+                        "id": "searchKeyword_DeptInfo",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField129",
+                    "designerId": "157f5582-4952-4583-ae86-421de4c1198e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/search.png",
+                        "layout|flex": null,
+                        "text": "搜索"
+                    },
+                    "name": "MyButton121",
+                    "designerId": "ed880cef-47a1-475f-bf47-48d63a711434",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick31111",
+                                "implHandler": [
+                                    "var getKeyword = Ext.getCmp('searchKeyword_DeptInfo').getValue();\r",
+                                    "console.log(\"keyword:\",getKeyword);\r",
+                                    "var mystore = Ext.StoreMgr.get('uDeptInfoStore'); //获得store对象\r",
+                                    "//在load事件中添加参数\r",
+                                    "mystore.load();\r",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick31111",
+                            "designerId": "31a9aef1-201b-4dbb-871a-199802a1b599"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/refresh.png",
+                        "layout|flex": null,
+                        "text": "刷新"
+                    },
+                    "name": "MyButton122",
+                    "designerId": "be777270-7020-48ee-a642-dd5bd984c685",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick111111",
+                                "implHandler": [
+                                    "Ext.getCmp('searchKeyword_DeptInfo').setValue('');\r",
+                                    "var mystore = Ext.StoreMgr.get('uDeptInfoStore'); //获得store对象\r",
+                                    "mystore.reload();\r",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick111111",
+                            "designerId": "65859d73-aa6c-48af-b837-d1766cebd0b0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/add.png",
+                        "layout|flex": null,
+                        "text": "添加新部门"
+                    },
+                    "name": "MyButton123",
+                    "designerId": "708d18e7-506c-49c8-927b-00ed36e3d4f8",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick211111",
+                                "implHandler": [
+                                    "//取得上一级部门id\r",
+                                    "var grid = Ext.getCmp('deptInfoGrid');\r",
+                                    "var record = grid.getSelectionModel().getSelection();\r",
+                                    "if(record.length === 0){\r",
+                                    "    Ext.MessageBox.confirm('提示','添加新的部门需要先指定上一级部门，如果您没有在列表中勾选上一级部门，</br>那么您添加的部门为最高级别。确定添加？', function(btn){        \r",
+                                    "        if(btn == \"yes\"){            \r",
+                                    "            doShowWin(0);\r",
+                                    "        }\r",
+                                    "    });\r",
+                                    "    return;\r",
+                                    "\r",
+                                    "}else{    \r",
+                                    "    doShowWin(1);\r",
+                                    "}\r",
+                                    "function doShowWin(level){\r",
+                                    "    console.log('level:',level);\r",
+                                    "    var win = Ext.widget('db_DeptInfoAddWindow');\r",
+                                    "    win.show();\r",
+                                    "\r",
+                                    "    var deptIdField = Ext.getCmp('deptAdd_parentDeptId');\r",
+                                    "    //对显示的内容进行处理\r",
+                                    "    switch(level){\r",
+                                    "        case 0:\t//如果没有上级部门\r",
+                                    "        deptIdField.setValue(\"0000000000\");\t//如果没有上一级部门，则设为0\r",
+                                    "        break;\r",
+                                    "        case 1:\t//如果有上级部门\r",
+                                    "        var  deptId = record[0].get(\"deptId\");\t//取得上级部门id\r",
+                                    "        var deptName = record[0].get(\"deptName\");\t//取得上级部门名称\r",
+                                    "        deptIdField.setValue(deptId);\r",
+                                    "        //对部门名称进行处理\r",
+                                    "        var deptNameField = Ext.getCmp('deptAdd_parentDeptName');\r",
+                                    "        var index = deptName.lastIndexOf(\"&nbsp;\");\r",
+                                    "        if(index >= 0){\r",
+                                    "            var substr = deptName.substring(index+6,deptName.length);\r",
+                                    "            deptNameField.setValue(substr);\r",
+                                    "        }    \r",
+                                    "        break;\r",
+                                    "    }\r",
+                                    "\r",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick211111",
+                            "designerId": "6bcf8f86-b574-4a2b-bd34-54398e0496bb"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/add.png",
+                        "layout|flex": null,
+                        "text": "编辑部门"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "3da26a18-24ab-4469-8207-5cf1d543534e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2111111",
+                                "implHandler": [
+                                    "//取得上一级部门id\r",
+                                    "var grid = Ext.getCmp('deptInfoGrid');\r",
+                                    "var record = grid.getSelectionModel().getSelection();\r",
+                                    "if(record.length === 0){\r",
+                                    "    Ext.MessageBox.confirm('提示','添加新的部门需要先指定上一级部门，如果您没有在列表中勾选上一级部门，</br>那么您添加的部门为最高级别。确定添加？', function(btn){        \r",
+                                    "        if(btn == \"yes\"){            \r",
+                                    "            doShowWin(0);\r",
+                                    "        }\r",
+                                    "    });\r",
+                                    "    return;\r",
+                                    "\r",
+                                    "}else{    \r",
+                                    "    doShowWin(1);\r",
+                                    "}\r",
+                                    "function doShowWin(level){\r",
+                                    "    console.log('level:',level);\r",
+                                    "    var win = Ext.widget('db_DeptInfoAddWindow');\r",
+                                    "    win.show();\r",
+                                    "\r",
+                                    "    var deptIdField = Ext.getCmp('deptAdd_parentDeptId');\r",
+                                    "    //对显示的内容进行处理\r",
+                                    "    switch(level){\r",
+                                    "        case 0:\t//如果没有上级部门\r",
+                                    "        deptIdField.setValue(\"0000000000\");\t//如果没有上一级部门，则设为0\r",
+                                    "        break;\r",
+                                    "        case 1:\t//如果有上级部门\r",
+                                    "        var  deptId = record[0].get(\"deptId\");\t//取得上级部门id\r",
+                                    "        var deptName = record[0].get(\"deptName\");\t//取得上级部门名称\r",
+                                    "        deptIdField.setValue(deptId);\r",
+                                    "        //对部门名称进行处理\r",
+                                    "        var deptNameField = Ext.getCmp('deptAdd_parentDeptName');\r",
+                                    "        var index = deptName.lastIndexOf(\"&nbsp;\");\r",
+                                    "        if(index >= 0){\r",
+                                    "            var substr = deptName.substring(index+6,deptName.length);\r",
+                                    "            deptNameField.setValue(substr);\r",
+                                    "        }    \r",
+                                    "        break;\r",
+                                    "    }\r",
+                                    "\r",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2111111",
+                            "designerId": "190b8779-19b4-4798-8ec9-76437f9b66d2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/add.png",
+                        "layout|flex": null,
+                        "text": "删除部门"
+                    },
+                    "name": "MyButton17",
+                    "designerId": "6a79a934-f838-4a9f-bd71-a267925c3f76",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick21111111",
+                                "implHandler": [
+                                    "//去除名称的空格",
+                                    "var deptName = record.get('deptName');",
+                                    "var index = deptName.lastIndexOf(\"&nbsp;\");",
+                                    "var substr;",
+                                    "if(index>=0){",
+                                    "    substr = deptName.substring(index+6,deptName.length);",
+                                    "}",
+                                    "Ext.Msg.confirm('您正在删除', '部门：\"' + substr + '\"，部门编号为：\"'+record.get('deptId')+'\"，<br/> 确认删除？', getResult);",
+                                    "function getResult(confirm)",
+                                    "{",
+                                    "    console.log('confirm:', confirm);",
+                                    "    if (confirm == \"yes\"){",
+                                    "        var deptId = record.get(\"deptId\");",
+                                    "        Ext.Ajax.request(",
+                                    "        {",
+                                    "            url : 'del_DeptInfoById',",
+                                    "            params :",
+                                    "            {",
+                                    "                deptId : deptId",
+                                    "            },",
+                                    "            success : function (response){",
+                                    "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                    "                //successResult();",
+                                    "                var mystore = Ext.StoreMgr.get('uDeptInfoStore');",
+                                    "                mystore.load();",
+                                    "            },",
+                                    "            failure : function (response){",
+                                    "                //failedResult();",
+                                    "                // Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                    "            }",
+                                    "        });",
+                                    "    }",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick21111111",
+                            "designerId": "10801e00-398e-4db0-95bc-0f59c6b3d377"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "id": "deptInfoGrid",
+                "store": "uDeptInfoStore",
+                "title": null
+            },
+            "name": "MyGridPanel26",
+            "designerId": "0ffd5e96-11a4-4b6b-931c-114653d0bf80",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer20",
+                    "designerId": "39783ff0-5329-4e9f-baf1-ed375fc62785"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "deptName",
+                        "text": "部门名称",
+                        "width": 200
+                    },
+                    "name": "MyColumn142",
+                    "designerId": "a9360d9c-94c5-46b6-b023-cc68606a5914"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "deptId",
+                        "text": "部门编号"
+                    },
+                    "name": "MyColumn143",
+                    "designerId": "03e6b3fb-5aab-4237-bed8-e405f9d2770f"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "enabled",
+                        "falseText": "否",
+                        "text": "可用",
+                        "trueText": "是",
+                        "width": 50
+                    },
+                    "name": "MyBooleanColumn7",
+                    "designerId": "ce943932-0215-4df8-8ade-908959d7e5c9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "描述",
+                        "width": 400
+                    },
+                    "name": "MyColumn144",
+                    "designerId": "fd696212-b2a4-4c52-b97f-3bcd6c1461c8"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView26",
+                    "designerId": "a20af8f2-16c4-44c3-9ddf-74d7dc5d38c6"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": "Ext.selection.CheckboxModel",
+                    "name": "MyCheckboxSelectionModel19",
+                    "designerId": "bf5341cf-bfec-4cae-b5ff-3697bd0ad8e9"
+                }
+            ]
+        }
+    ]
 }

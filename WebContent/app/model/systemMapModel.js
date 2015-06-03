@@ -25,19 +25,19 @@ Ext.define('MyApp.model.systemMapModel', {
             name: 'mapId'
         },
         {
-            name: 'group'
+            name: 'mapPid'
         },
         {
-            name: 'pid'
+            name: 'mapGroup'
         },
         {
-            name: 'name'
+            name: 'mapName'
         },
         {
-            name: 'key'
+            name: 'mapKey'
         },
         {
-            name: 'url'
+            name: 'mapUrl'
         },
         {
             name: 'description'

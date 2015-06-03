@@ -17,13 +17,6 @@ Ext.define('MyApp.view.achievement_UploadDataManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_UploadDataManage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel26'
-    ],
-
-    viewModel: {
-        type: 'achievement_uploaddatamanage'
-    },
     height: 588,
     width: 786,
     title: '上报数据管理'

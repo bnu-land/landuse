@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityuse_IndexIdealValueBinding',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel9'
-    ],
-
-    viewModel: {
-        type: 'intensityuse_indexidealvaluebinding'
-    },
     height: 588,
     width: 786,
     title: '指标理想值绑定'

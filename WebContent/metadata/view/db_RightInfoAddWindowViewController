@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_RightInfoAddWindow",
+        "designer|userClassName": "db_RightInfoAddWindowViewController"
+    },
+    "designerId": "37fb3206-86f2-439f-84b3-3dea6ab27d43"
+}

@@ -17,13 +17,6 @@ Ext.define('MyApp.view.law_Import', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.law_Import',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel24'
-    ],
-
-    viewModel: {
-        type: 'law_import'
-    },
     height: 588,
     width: 786,
     title: '法律法规导入'

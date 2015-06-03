@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "notice_ColumnsWindow",
         "designer|userClassName": "notice_ColumnsWindow",
-        "height": 229,
+        "height": 200,
         "id": "notice_ColumnsWindow",
         "layout": "fit",
         "title": "添加栏目",
@@ -36,7 +36,7 @@
             "designerId": "2afa3998-a88a-4dda-ba41-f825cebbdabb",
             "cn": [
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.Hidden",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -47,9 +47,9 @@
                         "labelAlign": "right",
                         "labelWidth": 70,
                         "layout|anchor": "100%",
-                        "name": "group"
+                        "name": "id"
                     },
-                    "name": "MyTextField1",
+                    "name": "MyHiddenField1",
                     "designerId": "c5ae50ca-0e6f-41bf-881e-12a9bfca25cd"
                 },
                 {
@@ -60,11 +60,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "栏目名称",
                         "labelAlign": "right",
                         "labelWidth": 70,
                         "layout|anchor": "100%",
-                        "name": "column"
+                        "name": "columnName"
                     },
                     "name": "MyTextField5",
                     "designerId": "b28a5ea6-65dd-4438-aa21-b24cf9b9ce6d"
@@ -136,6 +137,9 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "Ext.getCmp('notice_ColumnsWindow').close();"
+                                        ],
                                         "name": "click",
                                         "scope": "me"
                                     },
@@ -169,7 +173,7 @@
                                         "fn": "onButtonClick",
                                         "implHandler": [
                                             "var win  = Ext.getCmp('notice_ColumnsWindow');",
-                                            "",
+                                            "var title = win.getTitle();",
                                             "var myform = Ext.getCmp('notice_ColumnsWindowForm').getForm();",
                                             "if (myform.isValid())",
                                             "{",
@@ -177,14 +181,14 @@
                                             "        //url : 'add_Map',",
                                             "        success : function (form, action)",
                                             "        {",
-                                            "            Ext.Msg.alert('成功', '添加成功。');",
+                                            "            Ext.Msg.alert('成功', title+'成功。');",
                                             "",
                                             "            var mystore = Ext.StoreMgr.get('notice_columnsStore'); //获得store对象",
                                             "            mystore.reload();",
                                             "            win.close();",
                                             "        },",
                                             "        failure: function(form, action){",
-                                            "            Ext.Msg.alert('失败', '添加地图失败，请重试。');",
+                                            "            Ext.Msg.alert('失败', title+'失败，请重试。');",
                                             "            win.close();",
                                             "        }",
                                             "    });",

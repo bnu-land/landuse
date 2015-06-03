@@ -86,8 +86,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_column">
-								column
+							<a href="#column_detail_notice_column">
+								notice_column
 							</a>
 						</td>
 						<td>
@@ -111,8 +111,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_title">
-								title
+							<a href="#column_detail_notice_title">
+								notice_title
 							</a>
 						</td>
 						<td>
@@ -136,8 +136,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_author">
-								author
+							<a href="#column_detail_notice_author">
+								notice_author
 							</a>
 						</td>
 						<td>
@@ -161,15 +161,15 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_datetime">
-								datetime
+							<a href="#column_detail_publish_date">
+								publish_date
 							</a>
 						</td>
 						<td>
-							datetime
+							date
 						</td>
 						<td>
-							19
+							10
 						</td>
 						<td>
 							19
@@ -186,8 +186,33 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_content">
-								content
+							<a href="#column_detail_edit_date">
+								edit_date
+							</a>
+						</td>
+						<td>
+							date
+						</td>
+						<td>
+							10
+						</td>
+						<td>
+							19
+						</td>
+						<td>
+							2
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_notice_content">
+								notice_content
 							</a>
 						</td>
 						<td>
@@ -195,6 +220,31 @@
 						</td>
 						<td>
 							65,535
+						</td>
+						<td>
+							19
+						</td>
+						<td>
+							2
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_notice_state">
+								notice_state
+							</a>
+						</td>
+						<td>
+							integer
+						</td>
+						<td>
+							255
 						</td>
 						<td>
 							19
@@ -356,7 +406,7 @@
 
 
 				<hr/>
-				<h3 id="column_detail_column">column</h3>
+				<h3 id="column_detail_notice_column">notice_column</h3>
 				
 				<ul>
 					<li>
@@ -384,7 +434,7 @@
 
 
 				<hr/>
-				<h3 id="column_detail_title">title</h3>
+				<h3 id="column_detail_notice_title">notice_title</h3>
 				
 				<ul>
 					<li>
@@ -412,7 +462,7 @@
 
 
 				<hr/>
-				<h3 id="column_detail_author">author</h3>
+				<h3 id="column_detail_notice_author">notice_author</h3>
 				
 				<ul>
 					<li>
@@ -440,14 +490,14 @@
 
 
 				<hr/>
-				<h3 id="column_detail_datetime">datetime</h3>
+				<h3 id="column_detail_publish_date">publish_date</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> datetime
+						<strong>Type:</strong> date
 					</li>
 					<li>
-						<strong>Length:</strong> 19
+						<strong>Length:</strong> 10
 					</li>
 					<li>
 						<strong>Precision:</strong> 19
@@ -462,13 +512,41 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> datetime
+						<strong>Comment:</strong> publish date
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_content">content</h3>
+				<h3 id="column_detail_edit_date">edit_date</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> date
+					</li>
+					<li>
+						<strong>Length:</strong> 10
+					</li>
+					<li>
+						<strong>Precision:</strong> 19
+					</li>
+					<li>
+						<strong>Scale:</strong> 2
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> edit date
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_notice_content">notice_content</h3>
 				
 				<ul>
 					<li>
@@ -491,6 +569,34 @@
 					</li>
 					<li>
 						<strong>Comment:</strong> content
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_notice_state">notice_state</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> integer
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 19
+					</li>
+					<li>
+						<strong>Scale:</strong> 2
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 1publish2draft3Recycle
 					</li>
 				</ul>
 

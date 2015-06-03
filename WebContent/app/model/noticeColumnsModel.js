@@ -22,10 +22,10 @@ Ext.define('MyApp.model.noticeColumnsModel', {
 
     fields: [
         {
-            name: 'group'
+            name: 'id'
         },
         {
-            name: 'column'
+            name: 'columnName'
         },
         {
             name: 'description'

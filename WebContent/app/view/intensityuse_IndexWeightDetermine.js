@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityuse_IndexWeightDetermine',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel8'
-    ],
-
-    viewModel: {
-        type: 'intensityuse_indexweightdetermine'
-    },
     height: 588,
     width: 786,
     title: '指标权重确定'

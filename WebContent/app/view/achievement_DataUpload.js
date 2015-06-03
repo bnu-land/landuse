@@ -17,13 +17,6 @@ Ext.define('MyApp.view.achievement_DataUpload', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataUpload',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel27'
-    ],
-
-    viewModel: {
-        type: 'achievement_dataupload'
-    },
     height: 588,
     width: 786,
     title: '数据上报'

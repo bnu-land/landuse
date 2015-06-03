@@ -23,7 +23,6 @@ public class NoticeManageService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getNoticeNewList(String searchKeyword) {
-		System.out.println("-----get map url list--------");
 		String hql = "FROM NoticeNews as nn";
 		// WHERE sm.name LIKE '%b%' OR sm.key LIKE '%b%' OR sm.url LIKE '%b%' OR
 		// sm.description LIKE '%b%'
@@ -45,11 +44,44 @@ public class NoticeManageService {
 		return myMapResult;
 	}
 	
+	public void addNotice(NoticeNews notice) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			//System.out.println("id:"+sysMap.getMapId());
+			session.saveOrUpdate(notice);
+		} catch (Exception er) {
+			System.out.println(er.getMessage());
+		}
+	}
+
+	// 编辑更新角色权限信息
+	public void updateNotice(NoticeNews notice) {
+		Session session = sessionFactory.getCurrentSession();
+		try{
+		session.saveOrUpdate(notice);
+		}catch (Exception er){
+			System.out.println(er.getMessage());
+		}
+	}
+
+	// 删除角色权限信息
+	public void deleteNotice(String id) {
+		// System.out.println("roleId:" + roleId);
+		NoticeNews result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			result = (NoticeNews) session.get(NoticeNews.class,
+					Integer.parseInt(id));
+			session.delete(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//--------------Columns---------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getNoticeColumnsList() {
-		System.out.println("-----get map url list--------");
-		String hql = "FROM NoticeColumns as nc ORDER BY nc.group";
+		String hql = "FROM NoticeColumns as nc ORDER BY nc.id";
 		System.out.println(hql);
 		List<NoticeColumns> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
@@ -64,8 +96,6 @@ public class NoticeManageService {
 	public void addNoticeColumns(NoticeColumns columns) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			System.out.println("add columns...");
-			System.out.println("columns:"+columns.getColumn());
 			//System.out.println("id:"+sysMap.getMapId());
 			session.saveOrUpdate(columns);
 		} catch (Exception er) {
@@ -84,13 +114,13 @@ public class NoticeManageService {
 	}
 
 	// 删除角色权限信息
-	public void deleteNoticeColumns(String columns) {
+	public void deleteNoticeColumns(String id) {
 		// System.out.println("roleId:" + roleId);
 		NoticeColumns result = null;
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			result = (NoticeColumns) session.get(NoticeColumns.class,
-					Integer.parseInt(columns));
+					Integer.parseInt(id));
 			session.delete(result);
 		} catch (Exception e) {
 			e.printStackTrace();

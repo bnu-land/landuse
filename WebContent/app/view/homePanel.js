@@ -17,13 +17,6 @@ Ext.define('MyApp.view.homePanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.homePanel',
 
-    requires: [
-        'MyApp.view.homePanelViewModel'
-    ],
-
-    viewModel: {
-        type: 'homepanel'
-    },
     html: '<div id="map" ></div>',
     title: '主页',
     defaultListenerScope: true,

@@ -17,13 +17,6 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.enterprise_UseRightExpireWarning',
 
-    requires: [
-        'MyApp.view.homePanelViewModel3'
-    ],
-
-    viewModel: {
-        type: 'enterprise_userightexpirewarning'
-    },
     html: '<div id="map" ></div>',
     title: '企业使用权到期预警',
     defaultListenerScope: true,

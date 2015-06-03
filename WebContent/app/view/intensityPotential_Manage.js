@@ -17,13 +17,6 @@ Ext.define('MyApp.view.intensityPotential_Manage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityPotential_Manage',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel7'
-    ],
-
-    viewModel: {
-        type: 'intensitypotential_manage'
-    },
     height: 588,
     width: 786,
     title: '管理潜力测算'

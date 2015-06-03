@@ -37,7 +37,7 @@ Ext.define('MyApp.view.survey_TypicalEnterprise', {
             xtype: 'panel',
             region: 'center',
             split: true,
-            html: '<div id = "survey_TypicalEnterprise_LayerCombo_div" style = "width=100%;height:100%;"></div>',
+            html: '<div id = "survey_TypicalEnterprise_div" style = "width=100%;height:100%;"></div>',
             id: 'survey_TypicalEnterprise_MapPanel',
             layout: 'fit',
             title: '',
@@ -51,9 +51,9 @@ Ext.define('MyApp.view.survey_TypicalEnterprise', {
                             id: 'survey_TypicalEnterprise_LayerCombo',
                             width: 350,
                             fieldLabel: '选择开发区',
-                            displayField: 'name',
+                            displayField: 'mapName',
                             store: 'systemMapQYYDLayerStore',
-                            valueField: 'url'
+                            valueField: 'mapUrl'
                         }
                     ]
                 }
@@ -76,49 +76,136 @@ Ext.define('MyApp.view.survey_TypicalEnterprise', {
                 {
                     xtype: 'numbercolumn',
                     width: 80,
-                    dataIndex: 'TBBH',
-                    text: '图斑编号',
+                    dataIndex: 'DXDM',
+                    text: '企业代码',
                     format: '0,000'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'DLMC',
-                    text: '地类名称'
+                    dataIndex: 'QYMC',
+                    text: '企业名称'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 80,
-                    dataIndex: 'DLDM',
-                    text: '地类代码'
+                    dataIndex: 'QYDZ',
+                    text: '企业地址'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'GHYT',
-                    text: '规划用途'
+                    dataIndex: 'SSPJFW',
+                    text: '所属评价范围'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 80,
-                    dataIndex: 'GHDM',
-                    text: '规划代码'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 150,
-                    dataIndex: 'TDSYZ',
-                    text: '土地使用者'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'QS',
-                    text: '权属'
+                    dataIndex: 'HYLB',
+                    text: '行业类别'
                 },
                 {
                     xtype: 'numbercolumn',
-                    dataIndex: 'DLMJ',
-                    text: '地类面积'
+                    width: 150,
+                    dataIndex: 'HYDM',
+                    text: '行业代码',
+                    format: '0,000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'QYRS',
+                    text: '企业人数/人',
+                    format: '0,000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'YJZTZ',
+                    text: '预计总投资/万元'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'WCTZ',
+                    text: '完成总投资/万元'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'ZSR',
+                    text: '总收入/万元'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'ZCZ',
+                    text: '总产值/万元'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'SSZE',
+                    text: '税收总额/万元'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'QYYDMJ',
+                    text: '企业用地面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'CFPT',
+                    text: '厂房配套面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'XZBG',
+                    text: '行政办公面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'LTCD',
+                    text: '露天操作面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'NBYLD',
+                    text: '内部预留地/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'DLTCC',
+                    text: '道路停车场/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'LD',
+                    text: '绿地面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'QT',
+                    text: '其他面积/公顷'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'ZJZMJ',
+                    text: '总建筑面积/万平方米'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'RJL',
+                    text: '容积率'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'JDZMJ',
+                    text: '基底总面积/万平方米'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'JZXS',
+                    text: '建筑系数/%'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'BZ',
+                    text: '备注'
                 }
             ]
         }

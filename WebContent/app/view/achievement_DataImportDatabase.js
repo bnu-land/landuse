@@ -17,13 +17,6 @@ Ext.define('MyApp.view.achievement_DataImportDatabase', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataImportDatabase',
 
-    requires: [
-        'MyApp.view.thematic_LanduseConstructionContrastViewModel28'
-    ],
-
-    viewModel: {
-        type: 'achievement_dataimportdatabase'
-    },
     height: 588,
     width: 786,
     title: '成果数据入库'
