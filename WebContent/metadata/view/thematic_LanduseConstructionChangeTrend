@@ -251,7 +251,7 @@
                             "",
                             ""
                         ],
-                        "store": "tmematic_LCCT_KFQStore",
+                        "store": "thematic_LCCT_KFQStore",
                         "valueField": "value",
                         "width": 250
                     },

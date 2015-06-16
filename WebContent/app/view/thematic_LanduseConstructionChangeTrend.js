@@ -138,7 +138,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
                     labelWidth: 60,
                     autoLoadOnValue: true,
                     displayField: 'name',
-                    store: 'tmematic_LCCT_KFQStore',
+                    store: 'thematic_LCCT_KFQStore',
                     valueField: 'value'
                 },
                 {

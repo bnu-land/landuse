@@ -1,0 +1,53 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "landIndexWeightStore",
+        "model": "land_indexWeightModel",
+        "storeId": "landIndexWeightStore"
+    },
+    "name": "landIndexWeightStore1",
+    "designerId": "930a489b-650e-4220-9db7-7a67c56d0188",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: '',",
+                    "    markType:'权重值汇总'",
+                    "}"
+                ],
+                "url": "get_indexWeight"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "13b9ecfe-2400-43db-be45-a4131864d53b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "b8a2234d-4712-47bd-9269-74c2500535dd"
+                }
+            ]
+        }
+    ]
+}

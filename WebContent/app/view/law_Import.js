@@ -17,8 +17,152 @@ Ext.define('MyApp.view.law_Import', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.law_Import',
 
-    height: 588,
-    width: 786,
-    title: '法律法规导入'
+    requires: [
+        'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
+        'Ext.form.field.HtmlEditor',
+        'Ext.form.field.ComboBox',
+        'Ext.form.field.Hidden',
+        'Ext.form.field.TextArea'
+    ],
+
+    height: 692,
+    width: 918,
+    layout: 'fit',
+    title: '法律法规导入',
+
+    items: [
+        {
+            xtype: 'form',
+            id: 'law_ImportForm',
+            bodyPadding: 20,
+            jsonSubmit: true,
+            url: 'add_law',
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    items: [
+                        {
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var xtype = 'law_Manage';
+                                var mainView = Ext.getCmp('mainView');
+                                mainView.removeAll();
+                                mainView.add(Ext.widget(xtype));
+                            },
+                            text: '取消'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var myform = Ext.getCmp('law_ImportForm').getForm();
+                                if (myform.isValid())
+                                {
+                                    myform.submit({
+                                        //url : 'add_law',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '内容发布成功。');
+                                            var mystore = Ext.StoreMgr.get('law_RegulationStore'); //获得store对象
+                                            mystore.reload();
+                                            var xtype = 'law_Manage';
+                                            var mainView = Ext.getCmp('mainView');
+                                            mainView.removeAll();
+                                            mainView.add(Ext.widget(xtype));
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '内容发布失败，请重试。');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
+                            text: '导入法规'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'tbfill',
+                            fixed: true,
+                            maxWidth: 5,
+                            width: 10
+                        },
+                        {
+                            xtype: 'textfield',
+                            height: 30,
+                            width: '40%',
+                            fieldLabel: '法律标题',
+                            name: 'lawTitle',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 180,
+                            fieldLabel: '法律类型',
+                            labelWidth: 60,
+                            name: 'lawType',
+                            displayField: 'lawType',
+                            forceSelection: true,
+                            store: 'law_TypesStore',
+                            valueField: 'lawType'
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 180,
+                            fieldLabel: '颁发部门',
+                            labelWidth: 60,
+                            name: 'publishDept'
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 150,
+                            fieldLabel: '编辑人',
+                            labelWidth: 60,
+                            name: 'lawEditor',
+                            displayField: 'trueName',
+                            store: 'uUserInfoStore',
+                            valueField: 'trueName'
+                        }
+                    ]
+                }
+            ],
+            items: [
+                {
+                    xtype: 'htmleditor',
+                    anchor: '100% -45',
+                    height: 349,
+                    fieldLabel: '文章内容',
+                    name: 'lawContent'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    fieldLabel: 'hidden',
+                    name: 'id'
+                },
+                {
+                    xtype: 'textareafield',
+                    anchor: '100% 0',
+                    height: 40,
+                    maxHeight: 40,
+                    fieldLabel: '描述',
+                    name: 'description'
+                }
+            ]
+        }
+    ]
 
 });

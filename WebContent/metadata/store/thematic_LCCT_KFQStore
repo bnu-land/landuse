@@ -38,8 +38,8 @@
             "    }",
             "]"
         ],
-        "designer|userClassName": "tmematic_LCCT_KFQStore",
-        "storeId": "tmematic_LCCT_KFQStore"
+        "designer|userClassName": "thematic_LCCT_KFQStore",
+        "storeId": "thematic_LCCT_KFQStore"
     },
     "name": "MyStore",
     "designerId": "8b7d81d4-e7c2-40e9-9c0f-7d9edf39e0a9",

@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-16 15:49:28 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LanduseIndexWeight" table="landuse_index_weight" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="projectId" type="string">
+            <column name="project_id" length="20" />
+        </property>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="50" />
+        </property>
+        <property name="kfqType" type="string">
+            <column name="kfq_type" length="50" />
+        </property>
+        <property name="markType" type="string">
+            <column name="mark_type" length="20">
+                <comment>weightCollect,weightMark,idleCollect,idleMark</comment>
+            </column>
+        </property>
+        <property name="mainDevelopSum" type="java.lang.Float">
+            <column name="main_develop_sum" precision="12" scale="0" />
+        </property>
+        <property name="mainArea" type="java.lang.Float">
+            <column name="main_area" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduse" type="java.lang.Float">
+            <column name="main_landuse" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseDegree" type="java.lang.Float">
+            <column name="main_landuse_degree" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseDegreeSupply" type="java.lang.Float">
+            <column name="main_landuse_degree_supply" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseDegreeSupplyReason" type="string">
+            <column name="main_landuse_degree_supply_reason" length="200" />
+        </property>
+        <property name="mainLanduseDegreeBuild" type="java.lang.Float">
+            <column name="main_landuse_degree_build" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseDegreeBuildReason" type="string">
+            <column name="main_landuse_degree_build_reason" length="140" />
+        </property>
+        <property name="mainLanduseConstruct" type="java.lang.Float">
+            <column name="main_landuse_construct" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseConstructIndustry" type="java.lang.Float">
+            <column name="main_landuse_construct_industry" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseConstructIndustryReason" type="string">
+            <column name="main_landuse_construct_industry_reason" length="200" />
+        </property>
+        <property name="mainLanduseIntensity" type="java.lang.Float">
+            <column name="main_landuse_intensity" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseIntensityRatio" type="java.lang.Float">
+            <column name="main_landuse_intensity_ratio" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseIntensityRatioReason" type="string">
+            <column name="main_landuse_intensity_ratio_reason" length="200" />
+        </property>
+        <property name="mainLanduseIntensityDensity" type="java.lang.Float">
+            <column name="main_landuse_intensity_density" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseIntensityDensityReason" type="string">
+            <column name="main_landuse_intensity_density_reason" length="200" />
+        </property>
+        <property name="mainLanduseIntensitySumratio" type="java.lang.Float">
+            <column name="main_landuse_intensity_sumratio" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseIntensitySumratioReason" type="string">
+            <column name="main_landuse_intensity_sumratio_reason" length="200" />
+        </property>
+        <property name="mainLanduseIntensityBuildindex" type="java.lang.Float">
+            <column name="main_landuse_intensity_buildindex" precision="12" scale="0" />
+        </property>
+        <property name="mainLanduseIntensityBuildindexReason" type="string">
+            <column name="main_landuse_intensity_buildindex_reason" length="200" />
+        </property>
+        <property name="mainBenefit" type="java.lang.Float">
+            <column name="main_benefit" precision="12" scale="0" />
+        </property>
+        <property name="mainBenefitInexport" type="java.lang.Float">
+            <column name="main_benefit_Inexport" precision="12" scale="0" />
+        </property>
+        <property name="mainBenefitInexportAssets" type="java.lang.Float">
+            <column name="main_benefit_Inexport_assets" precision="12" scale="0" />
+        </property>
+        <property name="mainBenefitInexportAssetsReason" type="string">
+            <column name="main_benefit_Inexport_assets_reason" length="200" />
+        </property>
+        <property name="mainBenefitInexportTax" type="java.lang.Float">
+            <column name="main_benefit_Inexport_tax" precision="12" scale="0" />
+        </property>
+        <property name="mainBenefitInexportTaxReason" type="string">
+            <column name="main_benefit_Inexport_tax_reason" length="200" />
+        </property>
+        <property name="mainBenefitInexportPopulation" type="java.lang.Float">
+            <column name="main_benefit_Inexport_population" precision="12" scale="0" />
+        </property>
+        <property name="mainBenefitInexportPopulationReason" type="string">
+            <column name="main_benefit_Inexport_population_reason" length="200" />
+        </property>
+        <property name="mainPerformance" type="java.lang.Float">
+            <column name="main_performance" precision="12" scale="0" />
+        </property>
+        <property name="mainPerformanceManage" type="java.lang.Float">
+            <column name="main_performance_manage" precision="12" scale="0" />
+        </property>
+        <property name="mainPerformanceManageIdle" type="java.lang.Float">
+            <column name="main_performance_manage_idle" precision="12" scale="0" />
+        </property>
+        <property name="mainPerformanceManageIdleReason" type="string">
+            <column name="main_performance_manage_idle_reason" length="200" />
+        </property>
+        <property name="developArea" type="java.lang.Float">
+            <column name="develop_area" precision="12" scale="0" />
+        </property>
+        <property name="developLanduse" type="java.lang.Float">
+            <column name="develop_landuse" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseDegree" type="java.lang.Float">
+            <column name="develop_landuse_degree" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseDegreeDevratio" type="java.lang.Float">
+            <column name="develop_landuse_degree_devratio" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseDegreeDevratioReason" type="string">
+            <column name="develop_landuse_degree_devratio_reason" length="200" />
+        </property>
+        <property name="developLanduseConstruct" type="java.lang.Float">
+            <column name="develop_landuse_construct" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseConstructIndustry" type="java.lang.Float">
+            <column name="develop_landuse_construct_industry" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseConstructIndustryReason" type="string">
+            <column name="develop_landuse_construct_industry_reason" length="200" />
+        </property>
+        <property name="developLanduseIntensity" type="java.lang.Float">
+            <column name="develop_landuse_intensity" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseIntensityRatio" type="java.lang.Float">
+            <column name="develop_landuse_intensity_ratio" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseIntensityRatioReason" type="string">
+            <column name="develop_landuse_intensity_ratio_reason" length="200" />
+        </property>
+        <property name="developLanduseIntensityDensity" type="java.lang.Float">
+            <column name="develop_landuse_intensity_density" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseIntensityDensityReason" type="string">
+            <column name="develop_landuse_intensity_density_reason" length="200" />
+        </property>
+        <property name="developLanduseIntensitySumratio" type="java.lang.Float">
+            <column name="develop_landuse_intensity_sumratio" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseIntensitySumratioReason" type="string">
+            <column name="develop_landuse_intensity_sumratio_reason" length="200" />
+        </property>
+        <property name="developLanduseIntensityBuildindex" type="java.lang.Float">
+            <column name="develop_landuse_intensity_buildindex" precision="12" scale="0" />
+        </property>
+        <property name="developLanduseIntensityBuildindexReason" type="string">
+            <column name="develop_landuse_intensity_buildindex_reason" length="200" />
+        </property>
+        <property name="developBenefit" type="java.lang.Float">
+            <column name="develop_benefit" precision="12" scale="0" />
+        </property>
+        <property name="developBenefitInexport" type="java.lang.Float">
+            <column name="develop_benefit_Inexport" precision="12" scale="0" />
+        </property>
+        <property name="developBenefitInexportAssets" type="java.lang.Float">
+            <column name="develop_benefit_Inexport_assets" precision="12" scale="0" />
+        </property>
+        <property name="developBenefitInexportAssetsReason" type="string">
+            <column name="develop_benefit_Inexport_assets_reason" length="200" />
+        </property>
+        <property name="developBenefitInexportTax" type="java.lang.Float">
+            <column name="develop_benefit_Inexport_tax" precision="12" scale="0" />
+        </property>
+        <property name="developBenefitInexportTaxReason" type="string">
+            <column name="develop_benefit_Inexport_tax_reason" length="200" />
+        </property>
+        <property name="developBenefitInexportPopulation" type="java.lang.Float">
+            <column name="develop_benefit_Inexport_population" precision="12" scale="0" />
+        </property>
+        <property name="developBenefitInexportPopulationReason" type="string">
+            <column name="develop_benefit_Inexport_population_reason" length="200" />
+        </property>
+        <property name="developPerformance" type="java.lang.Float">
+            <column name="develop_performance" precision="12" scale="0" />
+        </property>
+        <property name="developPerformanceManage" type="java.lang.Float">
+            <column name="develop_performance_manage" precision="12" scale="0" />
+        </property>
+        <property name="developPerformanceManageIdle" type="java.lang.Float">
+            <column name="develop_performance_manage_idle" precision="12" scale="0" />
+        </property>
+        <property name="developPerformanceManageIdleReason" type="string">
+            <column name="develop_performance_manage_idle_reason" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

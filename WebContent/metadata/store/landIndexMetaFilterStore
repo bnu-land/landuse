@@ -7,12 +7,13 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "designer|userClassName": "notice_newStore",
-        "model": "noticeNewsModel",
-        "storeId": "notice_newStore"
+        "autoSync": true,
+        "designer|userClassName": "landIndexMetaFilterStore",
+        "model": "landIndexMetaModel",
+        "storeId": "landIndexMetaFilterStore"
     },
-    "name": "systemManageMapStore1",
-    "designerId": "4dd96b40-8d26-4764-97f8-caabe10f6ff3",
+    "name": "landIndexMetaStore1",
+    "designerId": "6632f51b-7098-4d9c-a8e9-b91f000c2914",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -27,10 +28,10 @@
                     "    searchKeyword: ''",
                     "}"
                 ],
-                "url": "get_NoticeNews"
+                "url": "get_indexMeta"
             },
             "name": "MyAjaxProxy",
-            "designerId": "6fc56b2a-e6ec-4502-a9bf-af1b88c668a3",
+            "designerId": "0a2be151-b85e-4229-b206-65ed4fdbe228",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -43,7 +44,7 @@
                         "rootProperty": "root"
                     },
                     "name": "MyJsonReader",
-                    "designerId": "db01bfc7-026b-49ba-a7e9-2bb34a8c1f9b"
+                    "designerId": "8c0c7c36-33e1-429e-b73b-08575323e08a"
                 }
             ]
         }

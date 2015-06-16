@@ -57,7 +57,6 @@ public class SystemUserManagerService {
 
 				sql += hql2;
 			}
-			// System.out.println(sql);
 
 			SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(sql);
 			List<Object[]> userList = query.list();
@@ -87,14 +86,11 @@ public class SystemUserManagerService {
 
 		// 删除用户信息
 		public void deleteUserInfoById(String userId) {
-			System.out.println("userId:" + userId);
 			UUserInfo result = null;
 			Session session = sessionFactory.getCurrentSession();
 			try {
 				result = (UUserInfo) session.get(UUserInfo.class,
 						Integer.parseInt(userId));
-				System.out.println("result.getDescription():"
-						+ result.getDescription());
 				session.delete(result);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -140,7 +136,6 @@ public class SystemUserManagerService {
 					sql += ",u.user_pwd = '" + md5Pwd + "'";
 				}
 				sql += " WHERE u.user_id = " + userInfo.getUserId();
-				System.out.println("updateUser,hql:" + sql);
 				// session.beginTransaction();
 				// org.hibernate.Query query = session.createQuery(hql);
 				SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(
@@ -159,7 +154,6 @@ public class SystemUserManagerService {
 		// 查询角色信息
 		@SuppressWarnings("unchecked")
 		public Map<String, Object> getRoleInfoList(String searchKey,String enabled) {
-			System.out.println("进入UserManagerService函数-----");
 			String hql = "FROM URoleInfo as r";
 			if (!searchKey.equals("")) {
 				String hql2 = " where r.roleName like '%" + searchKey + "%'"
@@ -170,7 +164,6 @@ public class SystemUserManagerService {
 				}
 				hql = hql + hql2;
 			}
-			System.out.println(hql);
 			List<URoleInfo> results = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -183,7 +176,6 @@ public class SystemUserManagerService {
 
 		// 删除角色信息
 		public void deleteRoleInfoById(String roleId) {
-			// System.out.println("roleId:" + roleId);
 			URoleInfo result = null;
 			Session session = sessionFactory.getCurrentSession();
 			try {
@@ -217,14 +209,12 @@ public class SystemUserManagerService {
 		public void updateOneRoleInfo(URoleInfo roleInfo) {
 			Session session = sessionFactory.getCurrentSession();
 			session.saveOrUpdate(roleInfo);
-			// System.out.println("updateOneDraft: "+infoArticle.getArticlePublishtime());
 		}
 
 		// -----------------------------权限信息---------------------------
 		// 查询权限信息
 		@SuppressWarnings("unchecked")
 		public Map<String, Object> getRightInfoList(String searchKey, String limit) {
-			System.out.println("进入UserManagerService函数-----");
 			String hql = "FROM URightInfo as URightInfo";
 			if (!searchKey.equals("")) {
 				String hql2 = " where URightInfo.rightName like '%" + searchKey
@@ -232,7 +222,6 @@ public class SystemUserManagerService {
 						+ "%'";
 				hql = hql + hql2;
 			}
-			System.out.println(hql);
 			List<URightInfo> rightList = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -275,7 +264,6 @@ public class SystemUserManagerService {
 
 		// 删除权限信息
 		public void deleteRightInfoById(String rightId) {
-			// System.out.println("rightId:" + rightId);
 			URightInfo result = null;
 			Session session = sessionFactory.getCurrentSession();
 			try {
@@ -326,9 +314,6 @@ public class SystemUserManagerService {
 					hql = "FROM URightInfo as r where r.rightId like '"
 							+ parentRightCode + "%'";
 				}
-
-				System.out.println("parentRightCode:" + parentRightCode);
-				System.out.println(hql);
 
 				List<URightInfo> results = null;
 				org.hibernate.Query query = sessionFactory.getCurrentSession()
@@ -400,14 +385,12 @@ public class SystemUserManagerService {
 		// 查询角色权限信息
 		@SuppressWarnings("unchecked")
 		public Map<String, Object> getRoleRightList(String searchKey) {
-			System.out.println("进入UserManagerService函数-----");
 			String hql = "FROM URoleRight as URoleRight";
 			if (!searchKey.equals("")) {
 				String hql2 = " where URoleRight.roleId like '%" + searchKey + "%'"
 						+ " or URoleRight.rightId like '%" + searchKey + "%'";
 				hql = hql + hql2;
 			}
-			System.out.println(hql);
 			List<URoleRight> results = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -450,21 +433,18 @@ public class SystemUserManagerService {
 		public void updateOneRoleRight(URoleRight uRoleRight) {
 			Session session = sessionFactory.getCurrentSession();
 			session.saveOrUpdate(uRoleRight);
-			// System.out.println("updateOneDraft: "+infoArticle.getArticlePublishtime());
 		}
 
 		// -----------------------------部门信息---------------------------
 		// 查询部门信息
 		@SuppressWarnings("unchecked")
 		public Map<String, Object> getDeptInfoList(String searchKey) {
-			System.out.println("进入UserManagerService函数-----");
 			String hql = "FROM UDeptInfo as d";
 			if (!"".equals(searchKey)) {
 				String hql2 = " where d.deptName like '%" + searchKey + "%'"
 						+ " or d.description like '%" + searchKey + "%'";
 				hql = hql + hql2;
 			}
-			System.out.println(hql);
 			List<UDeptInfo> deptList = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -507,10 +487,7 @@ public class SystemUserManagerService {
 		// 查询部门信息
 		@SuppressWarnings("unchecked")
 		public String getDeptInfoTree(HttpServletResponse response) {
-			String jsonString = "";
-			System.out.println("进入UserManagerService函数-----");
 			String hql = "FROM UDeptInfo as UDeptInfo";
-			System.out.println(hql);
 			List<UDeptInfo> results = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -538,18 +515,11 @@ public class SystemUserManagerService {
 			mapJson.put("enabled", dept.getEnabled().toString()); // 是否启用
 			mapJson.put("description", dept.getDescription()); // 描述
 
-			// createJsonFromList(results, index, mapJson); //
-			// 用递归算法，讲list<UDeptInfo>转成json
 			testMapJson(results, index, mapJson); // 测试json
 
 			Gson gson = new GsonBuilder().enableComplexMapKeySerialization()
 					.create();
 			String jsonStr = gson.toJson(mapJson);
-
-			// System.out.println("Json字符串："+jsonStr);
-			// Map<String, Object> myMapResult = new TreeMap<String, Object>();
-			// myMapResult.put("root", jsonStr);
-			// myMapResult.put("success", true);
 			return jsonStr;
 		}
 
@@ -670,9 +640,6 @@ public class SystemUserManagerService {
 							+ parentDeptCode + "%'";
 				}
 
-				System.out.println("parentDeptCode:" + parentDeptCode);
-				System.out.println(hql);
-
 				List<UDeptInfo> results = null;
 				org.hibernate.Query query = sessionFactory.getCurrentSession()
 						.createQuery(hql);
@@ -724,7 +691,6 @@ public class SystemUserManagerService {
 						deptId += '0';
 					}
 				}
-				System.out.println("deptId" + deptId);
 				deptInfo.setDeptId(deptId);
 				session.save(deptInfo);
 			} catch (Exception er) {
@@ -736,7 +702,6 @@ public class SystemUserManagerService {
 		public void updateOneDeptInfo(UDeptInfo deptInfo) {
 			Session session = sessionFactory.getCurrentSession();
 			session.saveOrUpdate(deptInfo);
-			// System.out.println("updateOneDraft: "+infoArticle.getArticlePublishtime());
 		}
 
 		public Map<String, Object> getMapFromCodeId(List<UDeptInfo> deptList) {
@@ -753,11 +718,6 @@ public class SystemUserManagerService {
 				}
 			};
 			Collections.sort(deptList, comparator);// 排序
-			// Iterator<UDeptInfo> iterator = deptList.iterator();
-			// UDeptInfo preDept = iterator.next();
-			// while(iterator.hasNext()){
-			// UDeptInfo dept = iterator.next();
-			// }
 			UDeptInfo dept1 = deptList.get(0); // 取得第一个dept
 			map.put("deptId", dept1.getDeptId());
 			map.put("deptName", dept1.getDeptName());
@@ -806,7 +766,7 @@ public class SystemUserManagerService {
 						
 				hql = hql + hql2;
 			}
-			System.out.println(hql);
+			//System.out.println(hql);
 			List<UUserRole> results = null;
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
@@ -843,7 +803,6 @@ public class SystemUserManagerService {
 				}
 				result = result + temp;
 			}
-			System.out.println(result);
 			return result;
 		}
 

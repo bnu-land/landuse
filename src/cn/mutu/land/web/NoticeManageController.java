@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.NoticeColumns;
 import cn.mutu.land.model.NoticeNews;
 import cn.mutu.land.service.NoticeManageService;
@@ -36,6 +37,7 @@ public class NoticeManageController {
 	public Map<String, Object> getNoticeNews(
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
+		searchKeyword = Encoder.encode(searchKeyword);
 		return this.noticeService.getNoticeNewList(searchKeyword);
 		//
 	}
@@ -88,7 +90,7 @@ public class NoticeManageController {
 	// -------------------------columns----------------------------
 	@RequestMapping(value = "/get_NoticeColumns")
 	@ResponseBody
-	public Map<String, Object> getNoticeColumns() throws SQLException {
+	public Map<String, Object> getNoticeColumns() throws SQLException {		
 		return this.noticeService.getNoticeColumnsList();
 	}
 

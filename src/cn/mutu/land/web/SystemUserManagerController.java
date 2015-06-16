@@ -39,7 +39,6 @@ public class SystemUserManagerController {
 		public Map<String, Object> getDeptInfo(
 				@RequestParam("searchKeyword") String searchKeyword)
 				throws IOException {
-			System.out.println("get_DeptInfo : " + searchKeyword);
 			searchKeyword = Encoder.encode(searchKeyword);
 			// this.userManagerService.addUser(user);
 			return this.systemUserManagerService.getDeptInfoList(searchKeyword);
@@ -47,9 +46,6 @@ public class SystemUserManagerController {
 
 		// 查询部门信息Tree
 		@RequestMapping(value = "/get_DeptInfoTree", produces = "text/html;charset=UTF-8")
-		// @RequestMapping(value="/Home/writeJson", method=RequestMethod.GET,
-		// produces = "text/html;charset=UTF-8")
-		// ,method=RequestMethod.POST
 		@ResponseBody
 		public String getDeptInfoTree(HttpServletResponse response)
 				throws IOException {
@@ -70,7 +66,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public Map<String, Object> addDeptInfo(@RequestBody UDeptInfo deptInfo)
 				throws IOException {
-			// System.out.println("addDeptInfo :"+deptInfo);
 			this.systemUserManagerService.addDeptInfo(deptInfo);
 			Map<String, Object> deptInfoResults = new HashMap<String, Object>();
 			deptInfoResults.put("success", true);
@@ -80,7 +75,6 @@ public class SystemUserManagerController {
 
 		// 修改部门信息
 		@RequestMapping(value = "/update_DeptInfo", method = RequestMethod.POST)
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void updateDeptInfo(@RequestBody UDeptInfo deptInfo)
 				throws IOException {
@@ -96,15 +90,12 @@ public class SystemUserManagerController {
 		public Map<String, Object> getUserInfo(
 				@RequestParam("searchKeyword") String searchKeyword)
 				throws IOException {
-			System.out.println("searchKeyword : " + searchKeyword);
 			searchKeyword = Encoder.encode(searchKeyword);
-			// this.systemUserManagerService.addUser(user);
 			return this.systemUserManagerService.getUserInfoList(searchKeyword);
 		}
 
 		// 删除用户信息
 		@RequestMapping(value = "/del_UserInfoById")
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void delUserInfoById(@RequestParam("userId") String userId)
 				throws IOException {
@@ -117,7 +108,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public Map<String, Object> addUserInfo(@RequestBody UUserInfo userInfo)
 				throws IOException {
-			// System.out.println("addUserInfo :"+userInfo);
 			this.systemUserManagerService.addUserInfo(userInfo);
 			Map<String, Object> userInfoResults = new HashMap<String, Object>();
 			userInfoResults.put("success", true);
@@ -127,11 +117,9 @@ public class SystemUserManagerController {
 
 		// 修改用户信息
 		@RequestMapping(value = "/update_UserInfo")
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void updateUserInfo(@RequestBody UUserInfo userInfo)
 				throws IOException {
-			System.out.println("update_userInfo: " + userInfo.getUserId());
 			this.systemUserManagerService.updateOneUserInfo(userInfo);
 		}
 
@@ -143,15 +131,12 @@ public class SystemUserManagerController {
 		public Map<String, Object> getRightInfo(
 				@RequestParam("searchKeyword") String searchKeyword,
 				@RequestParam("limit") String limit) throws IOException {
-			System.out.println("searchKeyword : " + searchKeyword);
 			searchKeyword = Encoder.encode(searchKeyword);
-			// this.systemUserManagerService.addUser(user);
 			return this.systemUserManagerService.getRightInfoList(searchKeyword, limit);
 		}
 
 		// 删除权限信息
 		@RequestMapping(value = "/del_RightInfoById")
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void delRightInfoById(@RequestParam("rightId") String rightId)
 				throws IOException {
@@ -163,7 +148,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public Map<String, Object> addRightInfo(@RequestBody URightInfo rightInfo)
 				throws IOException {
-			// System.out.println("addRightInfo :"+rightInfo);
 			this.systemUserManagerService.addRightInfo(rightInfo);
 			Map<String, Object> rightInfoResults = new HashMap<String, Object>();
 			rightInfoResults.put("success", true);
@@ -177,7 +161,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public void updateRightInfo(@RequestBody URightInfo rightInfo)
 				throws IOException {
-			System.out.println("update_rightInfo: " + rightInfo.getRightName());
 			this.systemUserManagerService.updateOneRightInfo(rightInfo);
 		}
 
@@ -191,7 +174,6 @@ public class SystemUserManagerController {
 				@RequestParam("enabled") String enabled)
 				throws IOException {		
 			searchKeyword = Encoder.encode(searchKeyword);
-			System.out.println("searchKeyword : " + searchKeyword);
 			// this.systemUserManagerService.addUser(user);
 			return this.systemUserManagerService.getRoleInfoList(searchKeyword,enabled);
 		}
@@ -220,7 +202,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public void updateRoleInfo(@RequestBody URoleInfo roleInfo)
 				throws IOException {
-			// System.out.println("update_roleInfo: " + roleInfo.getRoleName());
 			this.systemUserManagerService.updateOneRoleInfo(roleInfo);
 		}
 
@@ -241,7 +222,6 @@ public class SystemUserManagerController {
 		public Map<String, Object> updateUserRole(
 				@RequestParam("username") String username,
 				@RequestParam("userRole") String[] userRole) throws IOException {
-			// System.out.println("addRoleRight :"+roleRight);
 			this.systemUserManagerService.updateUserRole(username, userRole);
 			Map<String, Object> roleRightResults = new HashMap<String, Object>();
 			roleRightResults.put("success", true);
@@ -252,20 +232,16 @@ public class SystemUserManagerController {
 		// ----------------------------------角色权限信息-------------------------------
 		// 查询角色权限信息
 		@RequestMapping(value = "/get_RoleRight")
-		// ,method=RequestMethod.POST
 		@ResponseBody
 		public Map<String, Object> getRoleRight(
 				@RequestParam("searchKeyword") String searchKeyword)
 				throws IOException {
-			System.out.println("searchKeyword : " + searchKeyword);
 			searchKeyword = Encoder.encode(searchKeyword);
-			// this.systemUserManagerService.addUser(user);
 			return this.systemUserManagerService.getRoleRightList(searchKeyword);
 		}
 
 		// 删除角色权限信息
 		@RequestMapping(value = "/del_RoleRightById")
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void delRoleRightById(@RequestParam("roleId") String roleId)
 				throws IOException {
@@ -277,7 +253,6 @@ public class SystemUserManagerController {
 		@ResponseBody
 		public Map<String, Object> addRoleRight(@RequestBody URoleRight roleRight)
 				throws IOException {
-			// System.out.println("addRoleRight :"+roleRight);
 			this.systemUserManagerService.addRoleRight(roleRight);
 			Map<String, Object> roleRightResults = new HashMap<String, Object>();
 			roleRightResults.put("success", true);
@@ -287,11 +262,9 @@ public class SystemUserManagerController {
 
 		// 修改角色权限信息
 		@RequestMapping(value = "/update_RoleRight")
-		// ,method=RequestMethod.POST)
 		@ResponseBody
 		public void updateRoleRight(@RequestBody URoleRight roleRight)
 				throws IOException {
-			System.out.println("update_roleRight: " + roleRight.getRightId());
 			this.systemUserManagerService.updateOneRoleRight(roleRight);
 		}
 

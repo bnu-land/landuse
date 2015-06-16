@@ -115,9 +115,7 @@ Ext.define('MyApp.view.notice_Columns', {
         //改变Ajax url
         var form = Ext.getCmp('notice_ColumnsWindowForm').getForm();
         form.loadRecord(records[0]);
-        form.load({
-            url:'update_NoticeColumns'
-        });
+        form.url='update_NoticeColumns';
     },
 
     onButtonClick2: function(button, e, eOpts) {

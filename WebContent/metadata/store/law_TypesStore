@@ -1,0 +1,46 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "law_TypesStore",
+        "model": "lawTypesModel",
+        "storeId": "law_TypesStore"
+    },
+    "name": "notice_columnsStore1",
+    "designerId": "180d2001-756e-4802-a74e-ada23b95fa5c",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "get_LawTypes"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "2110340e-0ae8-46d1-83b3-91fd291d5555",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "53c2060e-80d0-4401-b575-52f1be9ccb53"
+                }
+            ]
+        }
+    ]
+}

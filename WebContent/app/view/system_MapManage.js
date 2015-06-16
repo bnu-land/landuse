@@ -164,9 +164,7 @@ Ext.define('MyApp.view.system_MapManage', {
         //改变Ajax url
         var form = Ext.getCmp('system_MapAddForm').getForm();
         form.loadRecord(models[0]);
-        form.load({
-            url:'update_Map'
-        });
+        form.url = 'update_Map';
     },
 
     onButtonClick3: function(button, e, eOpts) {

@@ -10,11 +10,406 @@
         "designer|userClassName": "law_Manage",
         "height": 588,
         "id": null,
+        "layout": "fit",
         "title": "法律法规管理",
         "width": 786
     },
     "name": "notice_Publish2",
     "designerId": "54d89ef1-96f8-44ac-b0f4-b5419d7c5a06",
     "viewControllerInstanceId": "8f28d6ba-695d-4313-a5f9-4cb2c96f5437",
-    "viewModelInstanceId": "34318424-e2b8-41f9-abc3-fbe1df801052"
+    "viewModelInstanceId": "34318424-e2b8-41f9-abc3-fbe1df801052",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "law_ManageGrid",
+                "store": "law_RegulationStore",
+                "title": null
+            },
+            "name": "MyGridPanel1",
+            "designerId": "36125228-d98a-4473-a81e-85f2d956b71b",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer1",
+                    "designerId": "b4f4b962-4f2a-4afa-8929-8bceec571931"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "lawType",
+                        "text": "法律类型",
+                        "width": 120
+                    },
+                    "name": "MyColumn",
+                    "designerId": "cfd3af34-8d56-4134-b38f-f6592bff77cd"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "lawTitle",
+                        "text": "标题",
+                        "width": 250
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "769410cd-6daa-49f0-aeea-8b0c17ba9d3b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "publishDept",
+                        "text": "颁发部门",
+                        "width": 150
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "5402e0cf-2ef4-4eaf-80ce-b404435fac27"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "lawEditor",
+                        "text": "编辑人",
+                        "width": 100
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "7d617abe-0c15-422f-bb53-34abb8add743"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "法律概要",
+                        "width": 350
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "0b67d9be-7940-4484-922c-6178bdf8d00c"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "0b3b583c-78a6-4c76-ac8c-81f6f3bd8707"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "fc58c62b-c7c8-42a7-8dac-987d004c611f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "lawManage_SearchText",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "7ca2d86c-7b0c-4ee0-9971-257f8aa729df"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "查询"
+                            },
+                            "name": "MyButton",
+                            "designerId": "cdc951d8-72af-4db9-8cd3-f96a0b314244",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var searchKeyword = Ext.getCmp('lawManage_SearchText').getValue();",
+                                            "var mystore = Ext.StoreMgr.get('law_RegulationStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params :{searchKeyword : searchKeyword}",
+                                            "});"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "0f8ddd9d-b678-406f-9260-3b5c96fd014d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/preview.png",
+                                "layout|flex": null,
+                                "text": "栏目管理"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "5181fd09-58cb-4370-89cc-3cd1756de011",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "Ext.widget('law_TypesManagerWindow').show();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "55947229-ac7e-4560-b5e1-d2b0d6dea00b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MySeparator",
+                            "designerId": "5e57f6e8-f382-48b0-a2a4-f49b49928fcf"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "70236d68-e1e8-4942-940f-02faa9319df2",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var xtype = 'law_Import';",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "131efc5a-bc9b-4000-bfbf-1e6ec00a6c8a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "修改"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "7739bd04-fd02-41a4-ad4e-8198563b3d77",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('law_ManageGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                            "    return;",
+                                            "} else if(records.length >1){",
+                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                            "    return;",
+                                            "}",
+                                            "//启动窗口",
+                                            "var xtype = 'law_Import';",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));",
+                                            "",
+                                            "//改变Ajax url",
+                                            "var form = Ext.getCmp('law_ImportForm').getForm();",
+                                            "form.loadRecord(records[0]);",
+                                            "//form.load({    url:'update_law'});",
+                                            "form.url = 'update_law';"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "b85887b4-d907-4f76-a0e2-c5f07749aad8"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "4f53dc37-1a44-42d5-a79b-ad36c2edefee",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('law_ManageGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}else if(records.length >1){",
+                                            "   Ext.Msg.alert('提示', '每次只能删除一条法律。');",
+                                            "   return;",
+                                            "}",
+                                            "var id = records[0].get(\"id\");",
+                                            "var columnName= records[0].get(\"lawTitle\");",
+                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']栏目。<br/> 确认删除？', getResult);",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_law',",
+                                            "            params :",
+                                            "            {",
+                                            "                id : id",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                var mystore = Ext.StoreMgr.get('law_RegulationStore');",
+                                            "                mystore.load();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "b798d5cf-9b8c-4202-a392-e0f601adf0d7"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "ae19150f-cd7f-468d-9d78-df280a921cb0"
+                }
+            ]
+        }
+    ]
 }

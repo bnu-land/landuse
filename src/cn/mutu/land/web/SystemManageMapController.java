@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.SystemMap;
 import cn.mutu.land.service.SystemManageMapService;
 
@@ -31,6 +33,7 @@ public class SystemManageMapController {
 	public Map<String, Object> handle(
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
+		searchKeyword = Encoder.encode(searchKeyword);
 		return this.mapServcie.getSystemManagerMapList(searchKeyword);
 		//
 	}
@@ -85,7 +88,11 @@ public class SystemManageMapController {
 	public Map<String, Object> getFeatureLayerURLs(
 			@RequestParam("LayerGroups") String[] LayerGroups
 			)throws SQLException {
-		return this.mapServcie.getFeatureLayerURLList(LayerGroups);
+		String[] groups = new String[LayerGroups.length];
+		for(int i =0;i<LayerGroups.length;i++){
+			groups[i] = Encoder.encode(LayerGroups[i]);
+		}
+		return this.mapServcie.getFeatureLayerURLList(groups);
 		//
 	}
 }

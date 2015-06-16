@@ -1,0 +1,119 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "lawRegulationModel"
+    },
+    "name": "noticeNewsModel1",
+    "designerId": "02df14d1-d508-43f3-bf74-ca88be2ec5d6",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField",
+            "designerId": "169dbdc0-4110-4648-a64d-faf09f91140c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lawType"
+            },
+            "name": "MyField1",
+            "designerId": "0141b540-9de1-4bab-a376-81b9fad0f4d0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lawTitle"
+            },
+            "name": "MyField2",
+            "designerId": "73c81743-b668-4571-bbe6-0401cc1d7d61"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "publishDate"
+            },
+            "name": "MyField3",
+            "designerId": "de8b18fc-9ee5-4f7e-ae30-8d218ff24a42"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "publishDept"
+            },
+            "name": "MyField8",
+            "designerId": "3d4ecb41-a96b-4e98-bde8-7e899f927e13"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "name": "MyField5",
+            "designerId": "b9a0d54e-f944-4fda-87a9-645653e54a65"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lawContent"
+            },
+            "name": "MyField9",
+            "designerId": "4b18f0e2-d564-4790-b269-836bc8c6b2f0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lawEditor"
+            },
+            "name": "MyField10",
+            "designerId": "b3893e40-0423-4040-ba3d-526a110c96b6"
+        }
+    ]
+}

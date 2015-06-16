@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-10 16:08:54 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LandKfqType" table="land_kfq_type" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="calcName" type="string">
+            <column name="calc_name" length="50">
+                <comment>the name of this calculation</comment>
+            </column>
+        </property>
+        <property name="calcDate" type="date">
+            <column name="calc_date" length="10">
+                <comment>calculate date</comment>
+            </column>
+        </property>
+        <property name="kfqType" type="string">
+            <column name="kfq_type" length="50">
+                <comment>kfq type</comment>
+            </column>
+        </property>
+        <property name="jcczzmj" type="java.lang.Double">
+            <column name="jcczzmj" precision="22" scale="0">
+                <comment>sum of builded area</comment>
+            </column>
+        </property>
+        <property name="gkcczmj" type="java.lang.Double">
+            <column name="gkcczmj" precision="22" scale="0">
+                <comment>Mining and warehousing area</comment>
+            </column>
+        </property>
+        <property name="zzzmj" type="java.lang.Double">
+            <column name="zzzmj" precision="22" scale="0">
+                <comment>Residential Area</comment>
+            </column>
+        </property>
+        <property name="gkccRate" type="java.lang.Double">
+            <column name="gkcc_rate" precision="22" scale="0">
+                <comment>gkcczmj/jcczzmj</comment>
+            </column>
+        </property>
+        <property name="zzRate" type="java.lang.Double">
+            <column name="zz_rate" precision="22" scale="0">
+                <comment>zzzmj/jcczzmj</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

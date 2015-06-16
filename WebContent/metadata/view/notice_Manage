@@ -65,7 +65,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "id": "notice_NewsManageGrid",
-                                "store": "notice_newStore",
+                                "store": "notice_newsStore",
                                 "title": null
                             },
                             "name": "MyGridPanel1",
@@ -218,7 +218,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fieldLabel": null,
-                                                "id": "system_MapManage_SearchText1",
+                                                "id": "noticeNews_SearchText",
                                                 "layout|flex": null
                                             },
                                             "name": "MyTextField",
@@ -237,7 +237,30 @@
                                                 "text": "查询"
                                             },
                                             "name": "MyButton",
-                                            "designerId": "c982e8af-1438-465f-8e0f-71af201861e2"
+                                            "designerId": "c982e8af-1438-465f-8e0f-71af201861e2",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var searchKeyword = Ext.getCmp('noticeNews_SearchText').getValue();",
+                                                            "var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象",
+                                                            "//在load事件中添加参数",
+                                                            "mystore.load({",
+                                                            "    params :{searchKeyword : searchKeyword}",
+                                                            "});"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "cd7d53c5-63bf-40c3-82eb-4849f94d1f3c"
+                                                }
+                                            ]
                                         },
                                         {
                                             "type": "Ext.button.Button",
@@ -280,7 +303,28 @@
                                                 "text": "添加"
                                             },
                                             "name": "MyButton1",
-                                            "designerId": "c6ca6f2f-87fe-4dfe-9829-c874281929c6"
+                                            "designerId": "c6ca6f2f-87fe-4dfe-9829-c874281929c6",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var xtype = 'notice_Publish';",
+                                                            "var mainView = Ext.getCmp('mainView');",
+                                                            "mainView.removeAll();",
+                                                            "mainView.add(Ext.widget(xtype));"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "3576bc14-0f9a-4d7f-aba4-ae682373c8b9"
+                                                }
+                                            ]
                                         },
                                         {
                                             "type": "Ext.button.Button",
@@ -295,7 +339,43 @@
                                                 "text": "修改"
                                             },
                                             "name": "MyButton2",
-                                            "designerId": "131b1b60-5b1c-4e94-ac1e-d75e639c2ec7"
+                                            "designerId": "131b1b60-5b1c-4e94-ac1e-d75e639c2ec7",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "//获取数据",
+                                                            "var records = Ext.getCmp('notice_NewsManageGrid').getSelection();",
+                                                            "if (records.length === 0){",
+                                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                                            "    return;",
+                                                            "} else if(records.length >1){",
+                                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                                            "    return;",
+                                                            "}",
+                                                            "//启动窗口",
+                                                            "var xtype = 'notice_Publish';",
+                                                            "var mainView = Ext.getCmp('mainView');",
+                                                            "mainView.removeAll();",
+                                                            "mainView.add(Ext.widget(xtype));",
+                                                            "",
+                                                            "//改变Ajax url",
+                                                            "var form = Ext.getCmp('notice_PublishForm').getForm();",
+                                                            "form.loadRecord(records[0]);",
+                                                            "form.url = 'update_NoticeNews';"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "f3fb1494-3a98-4636-879e-bcba746c527a"
+                                                }
+                                            ]
                                         },
                                         {
                                             "type": "Ext.button.Button",
@@ -310,7 +390,60 @@
                                                 "text": "删除"
                                             },
                                             "name": "MyButton3",
-                                            "designerId": "45d7701b-b630-4a09-a191-cf924d00456e"
+                                            "designerId": "45d7701b-b630-4a09-a191-cf924d00456e",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "//获取数据",
+                                                            "var records = Ext.getCmp('notice_NewsManageGrid').getSelection();",
+                                                            "if (records.length === 0){",
+                                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                                            "   return;",
+                                                            "}else if(records.length >1){",
+                                                            "   Ext.Msg.alert('提示', '每次只能删除一条文章。');",
+                                                            "   return;",
+                                                            "}",
+                                                            "var id = records[0].get(\"id\");",
+                                                            "var columnName= records[0].get(\"noticeTitle\");",
+                                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']。<br/> 确认删除？', getResult);",
+                                                            "",
+                                                            "",
+                                                            "function getResult(confirm)",
+                                                            "{",
+                                                            "    console.log('confirm:', confirm);",
+                                                            "    if (confirm == \"yes\"){",
+                                                            "        Ext.Ajax.request(",
+                                                            "        {",
+                                                            "            url : 'del_NoticeNews',",
+                                                            "            params :",
+                                                            "            {",
+                                                            "                id : id",
+                                                            "            },",
+                                                            "            success : function (response){",
+                                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                                            "                var mystore = Ext.StoreMgr.get('notice_newsStore');",
+                                                            "                mystore.load();",
+                                                            "            },",
+                                                            "            failure : function (response){",
+                                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                                            "            }",
+                                                            "        });",
+                                                            "    }",
+                                                            "}"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "3ac14a64-bcde-46f0-8ff1-0f35cf00efad"
+                                                }
+                                            ]
                                         }
                                     ]
                                 },

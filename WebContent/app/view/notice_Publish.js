@@ -39,6 +39,7 @@ Ext.define('MyApp.view.notice_Publish', {
             id: 'notice_PublishForm',
             bodyPadding: 20,
             jsonSubmit: true,
+            url: 'add_NoticeNews',
             dockedItems: [
                 {
                     xtype: 'toolbar',
@@ -58,12 +59,17 @@ Ext.define('MyApp.view.notice_Publish', {
                                 if (myform.isValid())
                                 {
                                     myform.submit({
-                                        url : 'add_NoticeNews',
+                                        //url : 'add_NoticeNews',
                                         success : function (form, action)
                                         {
                                             Ext.Msg.alert('成功', '内容发布成功。');
-                                            var mystore = Ext.StoreMgr.get('notice_newStore'); //获得store对象
+                                            var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象
                                             mystore.reload();
+
+                                            var xtype = 'notice_Manage';
+                                            var mainView = Ext.getCmp('mainView');
+                                            mainView.removeAll();
+                                            mainView.add(Ext.widget(xtype));
                                         },
                                         failure: function(form, action){
                                             Ext.Msg.alert('失败', '内容发布失败，请重试。');

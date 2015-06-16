@@ -1,0 +1,17 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "landIndexIdealFormStore",
+        "model": "land_indexWeightModel",
+        "storeId": "landIndexIdealFormStore"
+    },
+    "name": "landIndexWeightFormStore1",
+    "designerId": "90c5c15d-bcfb-4ab2-8a35-b8da30ba308c"
+}

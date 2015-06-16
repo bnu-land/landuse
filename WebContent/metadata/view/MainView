@@ -402,10 +402,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "集约潜力测算"
+                        "title": "土地利用现状调查"
                     },
-                    "name": "MyPanel5",
-                    "designerId": "75661fc3-906d-4861-8b6b-3f46f5df3d1b",
+                    "name": "MyPanel9",
+                    "designerId": "4b54cbb4-2552-4e4b-bde3-f24a77857a49",
                     "cn": [
                         {
                             "type": "Ext.menu.Menu",
@@ -420,7 +420,7 @@
                                 "width": null
                             },
                             "name": "MyMenu2",
-                            "designerId": "0b76075d-71c5-4330-b36a-2f20b79602f9",
+                            "designerId": "85832588-dcf7-48d1-a471-c22920867cd3",
                             "cn": [
                                 {
                                     "type": "Ext.menu.Item",
@@ -431,11 +431,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "intensityPotential_Expansion",
-                                        "text": "扩展潜力测算"
+                                        "id": "survey_DataReceive",
+                                        "text": "调查数据接收"
                                     },
                                     "name": "MyMenuItem6",
-                                    "designerId": "58af5433-8fcd-4e1e-8b72-393dacbac634"
+                                    "designerId": "f28c904c-4006-4aec-b9cc-954a21603296"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -446,11 +446,26 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "intensityPotential_Construction",
-                                        "text": "结构潜力测算"
+                                        "id": "survey_DataManager",
+                                        "text": "调查数据管理"
+                                    },
+                                    "name": "MyMenuItem12",
+                                    "designerId": "1167eb88-ac2c-486a-8184-b6775152b0c4"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "survey_TypicalEnterprise",
+                                        "text": "典型企业调查"
                                     },
                                     "name": "MyMenuItem7",
-                                    "designerId": "3475efc3-9da5-4513-a311-15ae6e8cfbee"
+                                    "designerId": "f74b3af8-0609-4991-9f17-1ca1fd2531d0"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -461,11 +476,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "intensityPotential_Intension",
-                                        "text": "强度潜力测算"
+                                        "id": "survey_IndexCurrentValueCalculation",
+                                        "text": "指标现状值计算"
                                     },
                                     "name": "MyMenuItem8",
-                                    "designerId": "6dc1aefe-13fa-4d16-85c0-2a2b3d86ebf7"
+                                    "designerId": "1b9bbc5d-fa2d-428e-9922-09ea7c1397b1"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -476,11 +491,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "intensityPotential_Manage",
-                                        "text": "管理潜力测算"
+                                        "id": "survey_Landuse",
+                                        "text": "土地利用现状地图"
                                     },
-                                    "name": "MyMenuItem10",
-                                    "designerId": "2df903c9-fb24-4b66-a367-f7db8d139be4"
+                                    "name": "MyMenuItem20",
+                                    "designerId": "f86685e3-0fa6-4a2d-ac36-dfa980c2435f"
                                 },
                                 {
                                     "type": "basiceventbinding",
@@ -490,7 +505,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onMenu3Click",
+                                        "fn": "onMenu3Click2",
                                         "implHandler": [
                                             "var xtype = item.id;",
                                             "var mainView = Ext.getCmp('mainView');",
@@ -500,8 +515,8 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
-                                    "name": "onMenu3Click",
-                                    "designerId": "8e72f46d-d77e-4229-a2f7-4fd8e03aa447"
+                                    "name": "onMenu3Click2",
+                                    "designerId": "d341b8ce-0065-40f8-bfbc-11054e7d8647"
                                 }
                             ]
                         }
@@ -628,10 +643,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "土地利用现状调查"
+                        "title": "集约潜力测算"
                     },
-                    "name": "MyPanel9",
-                    "designerId": "4b54cbb4-2552-4e4b-bde3-f24a77857a49",
+                    "name": "MyPanel5",
+                    "designerId": "75661fc3-906d-4861-8b6b-3f46f5df3d1b",
                     "cn": [
                         {
                             "type": "Ext.menu.Menu",
@@ -646,7 +661,7 @@
                                 "width": null
                             },
                             "name": "MyMenu2",
-                            "designerId": "85832588-dcf7-48d1-a471-c22920867cd3",
+                            "designerId": "0b76075d-71c5-4330-b36a-2f20b79602f9",
                             "cn": [
                                 {
                                     "type": "Ext.menu.Item",
@@ -657,11 +672,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "survey_DataReceive",
-                                        "text": "调查数据接收"
+                                        "id": "intensityPotential_Expansion",
+                                        "text": "扩展潜力测算"
                                     },
                                     "name": "MyMenuItem6",
-                                    "designerId": "f28c904c-4006-4aec-b9cc-954a21603296"
+                                    "designerId": "58af5433-8fcd-4e1e-8b72-393dacbac634"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -672,26 +687,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "survey_DataManager",
-                                        "text": "调查数据管理"
-                                    },
-                                    "name": "MyMenuItem12",
-                                    "designerId": "1167eb88-ac2c-486a-8184-b6775152b0c4"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "survey_TypicalEnterprise",
-                                        "text": "典型企业调查"
+                                        "id": "intensityPotential_Construction",
+                                        "text": "结构潜力测算"
                                     },
                                     "name": "MyMenuItem7",
-                                    "designerId": "f74b3af8-0609-4991-9f17-1ca1fd2531d0"
+                                    "designerId": "3475efc3-9da5-4513-a311-15ae6e8cfbee"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -702,11 +702,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "survey_IndexCurrentValueCalculation",
-                                        "text": "指标现状值计算"
+                                        "id": "intensityPotential_Intension",
+                                        "text": "强度潜力测算"
                                     },
                                     "name": "MyMenuItem8",
-                                    "designerId": "1b9bbc5d-fa2d-428e-9922-09ea7c1397b1"
+                                    "designerId": "6dc1aefe-13fa-4d16-85c0-2a2b3d86ebf7"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -717,11 +717,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "survey_Landuse",
-                                        "text": "土地利用现状地图"
+                                        "id": "intensityPotential_Manage",
+                                        "text": "管理潜力测算"
                                     },
-                                    "name": "MyMenuItem20",
-                                    "designerId": "f86685e3-0fa6-4a2d-ac36-dfa980c2435f"
+                                    "name": "MyMenuItem10",
+                                    "designerId": "2df903c9-fb24-4b66-a367-f7db8d139be4"
                                 },
                                 {
                                     "type": "basiceventbinding",
@@ -731,7 +731,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "onMenu3Click2",
+                                        "fn": "onMenu3Click",
                                         "implHandler": [
                                             "var xtype = item.id;",
                                             "var mainView = Ext.getCmp('mainView');",
@@ -741,8 +741,8 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
-                                    "name": "onMenu3Click2",
-                                    "designerId": "d341b8ce-0065-40f8-bfbc-11054e7d8647"
+                                    "name": "onMenu3Click",
+                                    "designerId": "8e72f46d-d77e-4229-a2f7-4fd8e03aa447"
                                 }
                             ]
                         }

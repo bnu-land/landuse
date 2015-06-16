@@ -17,8 +17,2120 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityuse_IndexIdealValueBinding',
 
-    height: 588,
-    width: 786,
-    title: '指标理想值绑定'
+    requires: [
+        'Ext.tab.Panel',
+        'Ext.tab.Tab',
+        'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Separator',
+        'Ext.form.Label',
+        'Ext.form.FieldSet',
+        'Ext.form.field.Display',
+        'Ext.form.field.Number',
+        'Ext.form.field.Hidden',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Number',
+        'Ext.grid.View',
+        'Ext.form.field.ComboBox'
+    ],
+
+    height: 800,
+    width: 1136,
+    layout: 'border',
+    title: '指标理想值绑定',
+    defaultListenerScope: true,
+
+    items: [
+        {
+            xtype: 'tabpanel',
+            region: 'north',
+            split: true,
+            height: 466,
+            id: 'intensity_ideal_tabPanel',
+            activeTab: 0,
+            items: [
+                {
+                    xtype: 'panel',
+                    tabIndex: 0,
+                    id: 'indensity_ideal_industryTab',
+                    layout: 'fit',
+                    title: '工业主导型',
+                    items: [
+                        {
+                            xtype: 'form',
+                            height: 390,
+                            id: 'intensity_ideal_industryForm',
+                            layout: 'fit',
+                            bodyPadding: 10,
+                            jsonSubmit: true,
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                var combo = Ext.getCmp('intensity_ideal_kfqAreaText');
+                                                var comboValue = combo.getValue();
+                                                var comboRawValue = combo.getRawValue();
+                                                if(!comboValue){
+                                                    Ext.Msg.alert('提示','请先在下方的“指标现状历史数据”中选择待评价地区的权重值汇总数据，再进行指标理想值打分。');
+                                                    return;
+                                                }
+
+                                                Ext.getCmp('intensity_idealIndustry_MarkTypeField').setValue('理想值汇总');
+                                                var form = Ext.getCmp('intensity_ideal_industryForm').getForm();
+                                                var store = Ext.StoreMgr.get('landIndexIdealFormStore');
+                                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                                if (form.isValid())
+                                                {
+                                                    var record = form.getValues(false,false,true);
+                                                    store.add(record);
+                                                    grid.reconfigure(store);
+                                                }
+                                                else
+                                                {
+                                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                                }
+                                                grid.setTitle('专家打分记录表');
+                                            },
+                                            width: '',
+                                            text: '添加专家打分'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                var form = Ext.getCmp('intensity_deal_industryForm').getForm();
+                                                form.reset();
+                                            },
+                                            width: '',
+                                            text: '重置'
+                                        },
+                                        {
+                                            xtype: 'tbseparator',
+                                            width: 250
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 55,
+                                            text: '理想值'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 110,
+                                            text: '理想值确定依据'
+                                        },
+                                        {
+                                            xtype: 'tbseparator',
+                                            width: 170
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 55,
+                                            text: '理想值'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 100,
+                                            text: '理想值确定依据'
+                                        }
+                                    ]
+                                }
+                            ],
+                            items: [
+                                {
+                                    xtype: 'fieldset',
+                                    autoScroll: true,
+                                    height: 380,
+                                    margin: '0,0,0,0',
+                                    layout: {
+                                        type: 'table',
+                                        columns: 4
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            width: 90,
+                                            title: '目标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 230,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle',
+                                                        pack: 'center'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '土地利用状况',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 60
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 66,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '用地效益',
+                                                            labelSeparator: ' '
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '管理绩效',
+                                                            labelSeparator: ' '
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '子目标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '0,0,0,0',
+                                                    width: 115,
+                                                    items: [
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 68,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用程度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 35,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用程度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 126,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用强度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 66,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    width: 115,
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            margin: '0,0,0,0',
+                                                            fieldLabel: '产业用地投入产出效益',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 90
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    width: 115,
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            margin: '0,0,0,0',
+                                                            fieldLabel: '土地利用监管绩效',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 110
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '主区评价指标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    width: '',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '土地供应率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseDegreeSupply',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseDegreeSupplyReason',
+                                                            emptyText: ' ',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地建成率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseDegreeBuild',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseDegreeBuildReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseConstructIndustry',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseConstructIndustryReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityRatio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityRatioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '建筑密度',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityDensity',
+                                                            emptyText: '0.22',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityDensityReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensitySumratio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensitySumratioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地建筑系数',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityBuildindex',
+                                                            emptyText: '0.28',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityBuildindexReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地固定资产投入强度',
+                                                            labelWidth: 170,
+                                                            name: 'mainBenefitInexportAssets',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainBenefitInexportAssetsReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地地均税收',
+                                                            labelWidth: 170,
+                                                            name: 'mainBenefitInexportTax',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainBenefitInexportTaxReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地闲置率',
+                                                            labelWidth: 170,
+                                                            name: 'mainPerformanceManageIdle',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainPerformanceManageIdleReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '发展方向区评价指标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 68,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地开发率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseDegreeDevratio',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseDegreeDevratioReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseConstructIndustry',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseConstructIndustryReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityRatio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityRatioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '建筑密度',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityDensity',
+                                                            emptyText: '0.22',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityDensityReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensitySumratio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensitySumratioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地建筑系数',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityBuildindex',
+                                                            emptyText: '0.28',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityBuildindexReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地固定资产投入强度',
+                                                            labelWidth: 170,
+                                                            name: 'developBenefitInexportAssets',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developBenefitInexportAssetsReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地地均税收',
+                                                            labelWidth: 170,
+                                                            name: 'developBenefitInexportTax',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developBenefitInexportTaxReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地闲置率',
+                                                            labelWidth: 170,
+                                                            name: 'developPerformanceManageIdle',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developPerformanceManageIdleReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    fieldLabel: 'Label',
+                                    name: 'projectId'
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_idealIndustry_MarkTypeField',
+                                    fieldLabel: 'Label',
+                                    name: 'markType',
+                                    value: '理想值汇总'
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_ideal_kfqNameIndustryFormText',
+                                    fieldLabel: 'Label',
+                                    name: 'kfqName',
+                                    value: 0
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_ideal_kfqTypeIndustryFormText',
+                                    fieldLabel: 'Label',
+                                    name: 'kfqType',
+                                    value: 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    tabIndex: 0,
+                    id: 'indensity_ideal_cityTab',
+                    layout: 'fit',
+                    title: '产城融合型',
+                    items: [
+                        {
+                            xtype: 'form',
+                            height: 520,
+                            id: 'intensity_ideal_cityForm',
+                            layout: 'fit',
+                            bodyPadding: 10,
+                            jsonSubmit: true,
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                var combo = Ext.getCmp('intensity_ideal_kfqAreaText');
+                                                var comboValue = combo.getValue();
+                                                var comboRawValue = combo.getRawValue();
+                                                if(!comboValue){
+                                                    Ext.Msg.alert('提示','请先在下方的“指标现状历史数据”中选择待评价地区的权重值汇总数据，再进行指标理想值打分。');
+                                                    return;
+                                                }
+
+                                                Ext.getCmp('intensity_idealCity_MarkTypeField').setValue('理想值汇总');
+                                                var form = Ext.getCmp('intensity_ideal_cityForm').getForm();
+                                                var store = Ext.StoreMgr.get('landIndexIdealFormStore');
+                                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                                if (form.isValid())
+                                                {
+                                                    var record = form.getValues(false,false,true);
+                                                    store.add(record);
+                                                    grid.reconfigure(store);
+                                                }
+                                                else
+                                                {
+                                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                                }
+                                                grid.setTitle('专家打分记录表');
+                                            },
+                                            width: '',
+                                            text: '添加专家打分'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                var form = Ext.getCmp('intensity_ideal_cityForm').getForm();
+                                                form.reset();
+                                            },
+                                            width: '',
+                                            text: '重置'
+                                        },
+                                        {
+                                            xtype: 'tbseparator',
+                                            width: 250
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 50,
+                                            text: '理想值'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 110,
+                                            text: '理想值确定依据'
+                                        },
+                                        {
+                                            xtype: 'tbseparator',
+                                            width: 180
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 55,
+                                            text: '理想值'
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            width: 100,
+                                            text: '理想值确定依据'
+                                        }
+                                    ]
+                                }
+                            ],
+                            items: [
+                                {
+                                    xtype: 'fieldset',
+                                    autoScroll: true,
+                                    margin: '0,0,0,0',
+                                    layout: {
+                                        type: 'table',
+                                        columns: 4
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            width: 90,
+                                            title: '目标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 230,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle',
+                                                        pack: 'center'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '土地利用状况',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 60,
+                                                            name: ''
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 66,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '用地效益',
+                                                            labelSeparator: ' '
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            fieldLabel: '管理绩效',
+                                                            labelSeparator: ' '
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '子目标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '0,0,0,0',
+                                                    width: 115,
+                                                    items: [
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 68,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用程度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 35,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用程度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            xtype: 'fieldset',
+                                                            height: 126,
+                                                            margin: '0,0,0,0',
+                                                            padding: '5,0,5,0',
+                                                            width: 115,
+                                                            layout: {
+                                                                type: 'hbox',
+                                                                align: 'middle'
+                                                            },
+                                                            items: [
+                                                                {
+                                                                    xtype: 'displayfield',
+                                                                    margin: '0,0,0,0',
+                                                                    fieldLabel: '土地利用强度',
+                                                                    labelSeparator: ' ',
+                                                                    labelWidth: 90
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 66,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    width: 115,
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            margin: '0,0,0,0',
+                                                            fieldLabel: '产业用地投入产出效益',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 90
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    width: 115,
+                                                    layout: {
+                                                        type: 'hbox',
+                                                        align: 'middle'
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'displayfield',
+                                                            margin: '0,0,0,0',
+                                                            fieldLabel: '土地利用监管绩效',
+                                                            labelSeparator: ' ',
+                                                            labelWidth: 110
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '主区评价指标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '土地供应率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseDegreeSupply',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseDegreeSupplyReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地建成率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseDegreeBuild',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseDegreeBuildReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseConstructIndustry',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseConstructIndustryReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityRatio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityRatioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '建筑密度',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityDensity',
+                                                            emptyText: '0.22',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityDensityReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensitySumratio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensitySumratioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地建筑系数',
+                                                            labelWidth: 170,
+                                                            name: 'mainLanduseIntensityBuildindex',
+                                                            emptyText: '0.28',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainLanduseIntensityBuildindexReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地固定资产投入强度',
+                                                            labelWidth: 170,
+                                                            name: 'mainBenefitInexportAssets',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'mainBenefitInexportAssetsReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地地均税收',
+                                                            labelWidth: 170,
+                                                            name: 'mainBenefitInexportTax',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainBenefitInexportTaxReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地闲置率',
+                                                            labelWidth: 170,
+                                                            name: 'mainPerformanceManageIdle',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'mainPerformanceManageIdleReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'fieldset',
+                                            height: 360,
+                                            padding: '0,0,0,0',
+                                            title: '发展方向区评价指标',
+                                            items: [
+                                                {
+                                                    xtype: 'fieldset',
+                                                    height: 68,
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地开发率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseDegreeDevratio',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseDegreeDevratioReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseConstructIndustry',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseConstructIndustryReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityRatio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityRatioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '建筑密度',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityDensity',
+                                                            emptyText: '0.22',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityDensityReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地综合容积率',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensitySumratio',
+                                                            emptyText: '0.25',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensitySumratioReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地建筑系数',
+                                                            labelWidth: 170,
+                                                            name: 'developLanduseIntensityBuildindex',
+                                                            emptyText: '0.28',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developLanduseIntensityBuildindexReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地固定资产投入强度',
+                                                            labelWidth: 170,
+                                                            name: 'developBenefitInexportAssets',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            width: 120,
+                                                            name: 'developBenefitInexportAssetsReason',
+                                                            hideTrigger: true
+                                                        },
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '工业用地地均税收',
+                                                            labelWidth: 170,
+                                                            name: 'developBenefitInexportTax',
+                                                            emptyText: '0.5',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developBenefitInexportTaxReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'fieldset',
+                                                    margin: '0,0,0,0',
+                                                    padding: '5,0,5,0',
+                                                    layout: {
+                                                        type: 'table',
+                                                        columns: 2
+                                                    },
+                                                    items: [
+                                                        {
+                                                            xtype: 'numberfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 230,
+                                                            fieldLabel: '土地闲置率',
+                                                            labelWidth: 170,
+                                                            name: 'developPerformanceManageIdle',
+                                                            emptyText: '1.0',
+                                                            hideTrigger: true,
+                                                            maxValue: 1,
+                                                            minValue: 0
+                                                        },
+                                                        {
+                                                            xtype: 'textfield',
+                                                            margin: '0,0,0,0',
+                                                            width: 120,
+                                                            name: 'developPerformanceManageIdleReason',
+                                                            hideTrigger: true
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    fieldLabel: 'Label',
+                                    name: 'projectId'
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_idealCity_MarkTypeField',
+                                    fieldLabel: 'Label',
+                                    name: 'markType',
+                                    value: '理想值汇总'
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_ideal_kfqNameCityFormText',
+                                    fieldLabel: 'Label',
+                                    name: 'kfqName',
+                                    value: 0
+                                },
+                                {
+                                    xtype: 'hiddenfield',
+                                    id: 'intensity_ideal_kfqTypeCityFormText',
+                                    fieldLabel: 'Label',
+                                    name: 'kfqType',
+                                    value: 0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'center',
+            split: true,
+            id: 'intensity_ideal_Gird',
+            title: '指标现状历史计算数据',
+            store: 'landIndexWeightIdealStore',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 130,
+                    dataIndex: 'projectId',
+                    text: '评价编号'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 100,
+                    dataIndex: 'kfqName',
+                    text: '开发区名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqType',
+                    text: '开发区类型'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 120,
+                    dataIndex: 'markType',
+                    text: '评价得分类型'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainArea',
+                    text: '主区',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduse',
+                    text: '土地利用状况',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseDegree',
+                    text: '土地利用程度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    width: 120,
+                    dataIndex: 'mainLanduseDegreeSupply',
+                    text: '土地供应率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseDegreeBuild',
+                    text: '土地建成率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseConstruct',
+                    text: '用地结构状况',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseConstructIndustry',
+                    text: '工业用地率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseIntensity',
+                    text: '土地利用强度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseIntensityRatio',
+                    text: '综合容积率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseIntensityDensity',
+                    text: '建筑密度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseIntensitySumratio',
+                    text: '工业用地综合容积率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainLanduseIntensityBuildindex',
+                    text: '工业用地建筑系数',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBenefit',
+                    text: '用地效益',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBenefitInexport',
+                    text: '产业用地投入产出效益',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBenefitInexportAssets',
+                    text: '工业用地固定资产投入强度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBenefitInexportPopulation',
+                    text: '工业用地地均税收',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainPerformance',
+                    text: '管理绩效',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainPerformanceManage',
+                    text: '土地利用监管绩效',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainPerformanceManageIdle',
+                    text: '土地闲置率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developArea',
+                    text: '发展方向区',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduse',
+                    text: '土地利用状况',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBenefit',
+                    text: '用地效益',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developPerformance',
+                    text: '管理绩效',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseDegree',
+                    text: '土地利用程度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseConstruct',
+                    text: '用地结构状况',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensity',
+                    text: '土地利用强度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensity',
+                    text: '土地利用强度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBenefitInexport',
+                    text: '投入产出效益',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developPerformanceManage',
+                    text: '土地利用管理绩效',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseDegreeDevratio',
+                    text: '土地开发率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseConstructIndustry',
+                    text: '工业用地率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensityRatio',
+                    text: '综合容积率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensityDensity',
+                    text: '建筑密度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensitySumratio',
+                    text: '工业用地综合容积率',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developLanduseIntensityBuildindex',
+                    text: '工业用地建筑系数',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBenefitInexportAssets',
+                    text: '工业用地固定资产投入强度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBenefitInexportTax',
+                    text: '工业用地地均税收',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBenefitInexportPopulation',
+                    text: '人口密度',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developPerformanceManageIdle',
+                    text: '土地闲置率',
+                    format: '0,000.000'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var store = Ext.StoreMgr.get('landIndexWeightStore');
+                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                Ext.getCmp('intensity_ideal_kfqAreaText').setValue('');
+                                Ext.getCmp('intensity_ideal_kfqTypeText').setValue('');
+                                store.load({
+                                    params :{
+                                        searchKeyword : '',
+                                        markType:'汇总'
+                                    }
+                                });
+                                grid.reconfigure(store);
+                                grid.setTitle('指标现状历史计算数据');
+                            },
+                            text: '指标现状数据'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var store = Ext.StoreMgr.get('landIndexIdealFormStore');
+                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                grid.reconfigure(store);
+                                grid.setTitle('专家打分记录表');
+                            },
+                            text: '专家打分数据'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'intensity_Ideal_Combo',
+                            width: 200,
+                            fieldLabel: '评价编号',
+                            labelWidth: 60,
+                            displayField: 'projectId',
+                            store: 'landIndexIdealStore',
+                            valueField: 'projectId',
+                            listeners: {
+                                change: 'onComboboxChange1'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var store = Ext.StoreMgr.get('landIndexIdealFormStore');
+                                //var data = {};
+                                var record = {};
+                                var date = new Date();
+                                //var projectId = 'p'+date.getFullYear()+(date.getMonth()+1)+date.getDate();
+
+                                var fields = store.getModel().getFields();
+                                //var gridColumns = Ext.getCmp('intensity_IndexWeight_Gird').columns;
+                                for(var index = 0;index<fields.length;index++){
+                                    var column = fields[index];
+                                    var name = column.name;
+                                    var value;
+                                    if(name.indexOf('Reason')>=0){
+                                        continue;
+                                    }else if(name.indexOf('main')>=0 || name.indexOf('develop')>=0){
+                                        var count = store.getCount();
+                                        value = store.average (name);///count;
+                                    }else{
+                                        continue;
+                                    }
+                                    record[name] = value;
+                                }
+                                store.add(record);
+                                var newRecord = store.last();
+
+                                var formId;
+                                var activeTabId = Ext.getCmp('intensity_ideal_tabPanel').getActiveTab().getId();
+                                if(activeTabId.indexOf('industry') >=0){
+                                    formId = 'intensity_ideal_industryForm';
+                                }else{
+                                    formId = 'intensity_ideal_cityForm';
+                                }
+                                var form = Ext.getCmp(formId).getForm();
+                                form.loadRecord(newRecord);
+                            },
+                            text: '专家打分权重汇总'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var formId;
+                                var activeTabId = Ext.getCmp('intensity_ideal_tabPanel').getActiveTab().getId();
+                                if(activeTabId.indexOf('industry') >=0){
+                                    formId = 'intensity_ideal_industryForm';
+                                    Ext.getCmp('intensity_idealIndustry_MarkTypeField').setValue('理想值汇总');
+                                }else{
+                                    formId = 'intensity_ideal_cityForm';
+                                    Ext.getCmp('intensity_idealCity_MarkTypeField').setValue('理想值汇总');
+                                }
+                                var store = Ext.StoreMgr.get('landIndexWeightIdealStore'); //获得store对象
+                                var myform = Ext.getCmp(formId).getForm();
+                                if (myform.isValid())
+                                {
+                                    myform.submit({
+                                        url : 'add_indexWeight',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '专家打分记录汇总保存成功。');
+                                            store.reload();
+                                            //myform.reset();
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '记录保存失败，请重试。');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+
+                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                store.reload();
+                                grid.reconfigure(store);
+                                grid.setTitle('指标现状历史数据');
+                            },
+                            text: '保存专家打分'
+                        },
+                        {
+                            xtype: 'tbseparator',
+                            width: ''
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var grid = Ext.getCmp('intensity_ideal_Gird');
+                                var store = grid.getStore();
+                                var storeId = store.getStoreId();
+                                //获取数据
+                                var records = grid.getSelection();
+                                if (records.length === 0){
+                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                    return;
+                                }
+                                if(storeId.indexOf('Form') >= 0){
+                                    store.remove(records);
+                                }else{
+                                    var  ids =new Array(records.length);
+                                    for(var i = 0;i<records.length;i++){
+                                        ids[i] = records[i].get("id");
+                                    }
+                                    if(ids.length ==1){
+                                        Ext.Msg.confirm('提示', '您正在删除：<br/>[' + records[0].get('projectId') +']<br/> 确认删除？',getConfirmResult);
+                                    }else{
+                                        Ext.Msg.confirm('提示', '您正在删除<br/>[' +ids.length+']组数据。<br/> 确认删除？', getConfirmResult);
+                                    }
+                                }
+                                function getConfirmResult(confirm)
+                                {
+                                    if (confirm == "yes"){
+                                        Ext.Ajax.request(
+                                        {
+                                            url : 'del_indexWeight',
+                                            params :
+                                            {
+                                                ids : ids
+                                            },
+                                            success : function (response){
+                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                store.load();
+                                            },
+                                            failure : function (response){
+                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                            }
+                                        });
+                                    }
+                                }
+                            },
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ],
+            listeners: {
+                cellclick: 'onIntensity_idle_GirdCellClick'
+            }
+        }
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'textfield',
+                    id: 'intensity_ideal_kfqAreaText',
+                    width: 220,
+                    fieldLabel: '开发区名称',
+                    labelWidth: 70,
+                    submitValue: false,
+                    readOnly: true
+                },
+                {
+                    xtype: 'textfield',
+                    id: 'intensity_ideal_kfqTypeText',
+                    width: 250,
+                    fieldLabel: '开发区评价类型',
+                    submitValue: false,
+                    readOnly: true
+                }
+            ]
+        }
+    ],
+
+    onComboboxChange1: function(field, newValue, oldValue, eOpts) {
+        var store = Ext.StoreMgr.get('landIndexWeightStore'); //获得store对象
+        var projectId = Ext.getCmp('intensity_ideal_Combo').getRawValue();
+        var storeId = store.getStoreId();
+        var grid = Ext.getCmp('intensity_ideal_Gird');
+        store.load({
+            params :{
+                searchKeyword : projectId,
+                isExpertMark:'1'
+            }
+        });
+        grid.reconfigure(store);
+    },
+
+    onIntensity_idle_GirdCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        var kfqType = record.get('kfqType');
+        if(!kfqType){
+            return;
+        }
+        var formId;
+        if(kfqType.indexOf('工业')<0){
+            formId = 'intensity_ideal_cityForm';
+            Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_cityTab');
+        }else{
+            formId = 'intensity_ideal_industryForm';
+            Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_industryTab');
+        }
+        var form = Ext.getCmp(formId).getForm();
+        form.loadRecord(record);
+
+        var kfqName = record.get('kfqName');
+        var kfqType = record.get('kfqType');
+        //top toolbar text
+        Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);
+        Ext.getCmp('intensity_ideal_kfqTypeText').setValue(kfqType);
+
+
+    }
 
 });

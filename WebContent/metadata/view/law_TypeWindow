@@ -1,0 +1,215 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "law_TypeWindow",
+        "designer|userClassName": "law_TypeWindow",
+        "height": 200,
+        "id": "law_TypeWindow",
+        "layout": "fit",
+        "title": "添加栏目",
+        "width": 399
+    },
+    "name": "notice_ColumnsWindow1",
+    "designerId": "11e33b70-bba6-4b5f-bd4a-b08fce4b0d6d",
+    "viewControllerInstanceId": "9eb34fd3-4fb5-4e4b-9689-f6376c95656f",
+    "viewModelInstanceId": "e96037fd-3eed-475c-a739-df68e0f1c665",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "law_TypeForm",
+                "jsonSubmit": true,
+                "title": null,
+                "url": "add_LawType"
+            },
+            "name": "MyForm1",
+            "designerId": "4da63d63-c96c-4a9a-80df-14b42866191f",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "栏目组名",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "a427b0eb-098e-4b81-8f9a-7fbb50ab2a22"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "栏目名称",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "lawType"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "84956b20-baff-4d79-b0f5-895e0b93285d"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "描述",
+                        "height": 80,
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "description"
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "55fabaa0-5da0-4942-a689-cae61d0b5d2a"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "dd57b703-b1ed-441c-898d-760e1e4ac5b4",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "de572b50-0078-4510-9e32-4f73136ae726"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "fbf7d3f6-9822-4394-a7c0-cd475a49cb90",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "Ext.getCmp('law_TypeWindow').close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "b484d987-74a3-4899-89e4-b17cef3b6946"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确定"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "4d186811-7fe8-4f55-9b26-a269f548fd04",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win  = Ext.getCmp('law_TypeWindow');",
+                                            "var title = win.getTitle();",
+                                            "var myform = Ext.getCmp('law_TypeForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        //url : 'add_Map',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', title+'成功。');",
+                                            "",
+                                            "            var mystore = Ext.StoreMgr.get('law_TypesStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            win.close();",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', title+'失败，请重试。');",
+                                            "            win.close();",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "9686dcd7-3724-4c2e-9d1e-60df1a6034d5"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

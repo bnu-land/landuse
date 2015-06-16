@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-15 21:04:46 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LanduseIndexMeta" table="landuse_index_meta" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="java.lang.Integer">
+            <column name="pid" />
+        </property>
+        <property name="levelCode" type="string">
+            <column name="level_code" length="20" />
+        </property>
+        <property name="indexName" type="string">
+            <column name="index_name" length="100" />
+        </property>
+        <property name="indexKey" type="string">
+            <column name="index_key" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

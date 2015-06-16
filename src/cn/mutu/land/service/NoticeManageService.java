@@ -29,11 +29,10 @@ public class NoticeManageService {
 
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE nn.column" + likeStr + "OR nn.title" + likeStr
-					+ "OR nn.author" + likeStr + "OR nn.description" + likeStr;
+			String hql2 = " WHERE nn.noticeColumn" + likeStr + "OR nn.noticeTitle" + likeStr
+					+ "OR nn.noticeAuthor" + likeStr + "OR nn.description" + likeStr;
 			hql = hql + hql2;
 		}
-		System.out.println(hql);
 		List<NoticeNews> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
@@ -82,7 +81,6 @@ public class NoticeManageService {
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getNoticeColumnsList() {
 		String hql = "FROM NoticeColumns as nc ORDER BY nc.id";
-		System.out.println(hql);
 		List<NoticeColumns> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
