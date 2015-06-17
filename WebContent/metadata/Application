@@ -24,7 +24,10 @@
             "landKfqTypeModel",
             "land_indexWeightModel",
             "land_indexWeightModel1",
-            "landIndexMetaModel"
+            "landIndexMetaModel",
+            "land_intensityExpansionModel",
+            "land_intensityConstructModel",
+            "land_intensityIntensionModel"
         ],
         "name": "MyApp",
         "stores": [
@@ -58,7 +61,12 @@
             "landIndexIdealFormStore",
             "landIndexMetaStore",
             "landIndexIntensityValueStore",
-            "landIndexMetaFilterStore"
+            "landIndexMetaFilterStore",
+            "notice_newsDraftStore",
+            "notice_newsDeleteStore",
+            "landIntensityExpansionStore",
+            "landIntensityConstructStore",
+            "landIntensityIntensionStore"
         ],
         "views": [
             "MainView",
@@ -70,7 +78,7 @@
             "thematic_LanuseIntensityTrend",
             "thematic_LanuseIntensityPotentialTrend",
             "intensityPotential_Expansion",
-            "intensityPotential_Construction",
+            "intensityPotential_Construct",
             "intensityPotential_Intension",
             "intensityPotential_Manage",
             "intensityuse_IndexWeightDetermine",

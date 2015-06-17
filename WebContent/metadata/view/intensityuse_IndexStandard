@@ -40,14 +40,14 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": "projectId",
-                        "fieldLabel": "评价编号",
+                        "displayField": "kfqName",
+                        "fieldLabel": "开发区名称",
                         "id": "intensity_standard_combo",
                         "labelWidth": 70,
                         "layout|flex": null,
                         "store": "landIndexIdealStore",
-                        "valueField": "kfqName",
-                        "width": 200
+                        "valueField": "projectId",
+                        "width": 250
                     },
                     "name": "MyComboBox2",
                     "designerId": "f393d7fb-5b6b-4e0b-a988-ad3e5165f816",
@@ -64,7 +64,7 @@
                                 "implHandler": [
                                     "var v = field.getValue();",
                                     "var record = field.findRecord(field.valueField || field.displayField, v);",
-                                    "Ext.getCmp('intensity_standard_kfqAreaText').setValue(record.get('kfqName'));",
+                                    "Ext.getCmp('intensity_standard_ProjectIdText').setValue(record.get('projectId'));",
                                     "var kfqType = record.get('kfqType');",
                                     "if(kfqType.indexOf('工业')>=0){",
                                     "    Ext.getCmp('intensity_standard_tabPanel').setActiveTab('indensity_standard_industryTab');",
@@ -89,10 +89,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "开发区名称",
-                        "id": "intensity_standard_kfqAreaText",
+                        "fieldLabel": "评价编号",
+                        "id": "intensity_standard_ProjectIdText",
                         "labelWidth": 70,
                         "layout|flex": null,
+                        "readOnly": true,
                         "submitValue": false,
                         "width": 200
                     },

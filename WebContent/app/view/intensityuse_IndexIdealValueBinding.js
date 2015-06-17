@@ -1887,8 +1887,8 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
                             handler: function() {
                                 var store = Ext.StoreMgr.get('landIndexWeightStore');
                                 var grid = Ext.getCmp('intensity_ideal_Gird');
-                                Ext.getCmp('intensity_ideal_kfqAreaText').setValue('');
-                                Ext.getCmp('intensity_ideal_kfqTypeText').setValue('');
+                                //Ext.getCmp('intensity_ideal_kfqAreaText').setValue('');
+                                //Ext.getCmp('intensity_ideal_kfqTypeText').setValue('');
                                 store.load({
                                     params :{
                                         searchKeyword : '',
@@ -2074,13 +2074,15 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
             dock: 'top',
             items: [
                 {
-                    xtype: 'textfield',
-                    id: 'intensity_ideal_kfqAreaText',
-                    width: 220,
+                    xtype: 'combobox',
+                    id: 'intensity_ideal_kfqAreaCombo',
                     fieldLabel: '开发区名称',
-                    labelWidth: 70,
-                    submitValue: false,
-                    readOnly: true
+                    displayField: 'kfqName',
+                    store: 'landIndexWeightStore',
+                    valueField: 'projectId',
+                    listeners: {
+                        change: 'onIntensity_ideal_kfqAreaComboChange'
+                    }
                 },
                 {
                     xtype: 'textfield',
@@ -2127,9 +2129,40 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
         var kfqName = record.get('kfqName');
         var kfqType = record.get('kfqType');
         //top toolbar text
-        Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);
+        //Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);
         Ext.getCmp('intensity_ideal_kfqTypeText').setValue(kfqType);
 
+
+    },
+
+    onIntensity_ideal_kfqAreaComboChange: function(field, newValue, oldValue, eOpts) {
+        var store = field.getStore();
+        var recordIndex = store.find('projectId',newValue);
+        if(recordIndex <0 ){
+            Ext.Msg.alert('提示','未找到相应的数据。');
+            return;
+        }
+        var record = store.getAt(recordIndex);
+        var kfqType = record.get('kfqType');
+        if(!kfqType){
+            return;
+        }
+        var formId;
+        if(kfqType.indexOf('工业')<0){
+            formId = 'intensity_ideal_cityForm';
+            Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_cityTab');
+        }else{
+            formId = 'intensity_ideal_industryForm';
+            Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_industryTab');
+        }
+        var form = Ext.getCmp(formId).getForm();
+        form.loadRecord(record);
+
+        var kfqName = record.get('kfqName');
+        var kfqType = record.get('kfqType');
+        //top toolbar text
+        //Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);
+        Ext.getCmp('intensity_ideal_kfqTypeText').setValue(kfqType);
 
     }
 

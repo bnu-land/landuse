@@ -268,7 +268,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'intensityPotential_Construction',
+                                    id: 'intensityPotential_Construct',
                                     hideOnClick: false,
                                     text: '结构潜力测算'
                                 },

@@ -102,6 +102,30 @@ require([
 
         Ext.getCmp('survey_index_CalcNameText').setValue(urlCombo.getRawValue());
 
+        //计算地区工业类型
+        var kfqTypeCombo = Ext.getCmp('survey_index_kfqTypeCombo');
+        var kfqArea = Ext.getCmp('survey_KfqArea_Combo').getRawValue();
+        if (kfqArea.indexOf("保税") > -1 || kfqArea.indexOf("加工区") > -1) {
+            kfqTypeCombo.setValue('工业主导型开发区');
+            return;
+        }
+
+        var gkccRate = Ext.getCmp('survey_index_gkccRateText').getValue();
+        var zzRate = Ext.getCmp('survey_index_zzmjRateText').getValue();
+
+        if (gkccRate == "") {
+            Ext.Msg.alert('提示', '请先计算现状值再计算开发区类型。');
+            return;
+        }
+
+        if (gkccRate > 0.30 && zzRate < 0.25) {
+            kfqTypeCombo.setValue('工业主导型开发区');
+        } else if (gkccRate <= 0.30 && zzRate >= 0.25) {
+            kfqTypeCombo.setValue('产城融合型开发区');
+        } else {
+            kfqTypeCombo.setValue('其他类型开发区');
+        }
+
 
     }
 

@@ -4104,8 +4104,8 @@
                                         "implHandler": [
                                             "var store = Ext.StoreMgr.get('landIndexWeightStore');",
                                             "var grid = Ext.getCmp('intensity_ideal_Gird');",
-                                            "Ext.getCmp('intensity_ideal_kfqAreaText').setValue('');",
-                                            "Ext.getCmp('intensity_ideal_kfqTypeText').setValue('');",
+                                            "//Ext.getCmp('intensity_ideal_kfqAreaText').setValue('');",
+                                            "//Ext.getCmp('intensity_ideal_kfqTypeText').setValue('');",
                                             "store.load({",
                                             "    params :{",
                                             "        searchKeyword : '',",
@@ -4468,7 +4468,7 @@
                             "var kfqName = record.get('kfqName');",
                             "var kfqType = record.get('kfqType');",
                             "//top toolbar text",
-                            "Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);",
+                            "//Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);",
                             "Ext.getCmp('intensity_ideal_kfqTypeText').setValue(kfqType);",
                             "",
                             ""
@@ -4495,23 +4495,69 @@
             "designerId": "a141f4e6-d815-4d29-9303-3ef9aa98f012",
             "cn": [
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "displayField": "kfqName",
                         "fieldLabel": "开发区名称",
-                        "id": "intensity_ideal_kfqAreaText",
-                        "labelWidth": 70,
+                        "id": "intensity_ideal_kfqAreaCombo",
                         "layout|flex": null,
-                        "readOnly": true,
-                        "submitValue": false,
-                        "width": 220
+                        "store": "landIndexWeightStore",
+                        "valueField": "projectId"
                     },
-                    "name": "MyTextField",
-                    "designerId": "a135033a-e448-4be9-aac3-ac4c38ae4521"
+                    "name": "MyComboBox1",
+                    "designerId": "603048c7-285c-4d0a-a031-84209de4bc55",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIntensity_ideal_kfqAreaComboChange",
+                                "implHandler": [
+                                    "var store = field.getStore();",
+                                    "var recordIndex = store.find('projectId',newValue);",
+                                    "if(recordIndex <0 ){",
+                                    "    Ext.Msg.alert('提示','未找到相应的数据。');",
+                                    "    return;",
+                                    "}",
+                                    "var record = store.getAt(recordIndex);",
+                                    "var kfqType = record.get('kfqType');",
+                                    "if(!kfqType){",
+                                    "    return;",
+                                    "}",
+                                    "var formId;",
+                                    "if(kfqType.indexOf('工业')<0){",
+                                    "    formId = 'intensity_ideal_cityForm';",
+                                    "    Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_cityTab');",
+                                    "}else{",
+                                    "    formId = 'intensity_ideal_industryForm';",
+                                    "    Ext.getCmp('intensity_ideal_tabPanel').setActiveTab('indensity_ideal_industryTab');",
+                                    "}",
+                                    "var form = Ext.getCmp(formId).getForm();",
+                                    "form.loadRecord(record);",
+                                    "",
+                                    "var kfqName = record.get('kfqName');",
+                                    "var kfqType = record.get('kfqType');",
+                                    "//top toolbar text",
+                                    "//Ext.getCmp('intensity_ideal_kfqAreaText').setValue(kfqName);",
+                                    "Ext.getCmp('intensity_ideal_kfqTypeText').setValue(kfqType);",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onIntensity_ideal_kfqAreaComboChange",
+                            "designerId": "c63f13df-61c0-4762-ba98-987c94f59210"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Text",

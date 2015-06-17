@@ -29,7 +29,7 @@
             "userConfig": {
                 "bodyPadding": 10,
                 "designer|snapToGrid": 10,
-                "height": 200,
+                "height": 250,
                 "id": "survey_IndexCurrentValue_Form",
                 "jsonSubmit": true,
                 "layout": "absolute",
@@ -82,6 +82,7 @@
                                         "fn": "onComboboxChange",
                                         "implHandler": [
                                             "var store = Ext.StoreMgr.get('survey_IndexCurrent_MapStore');",
+                                            "store.clearFilter();",
                                             "store.filter('mapKey',newValue);"
                                         ],
                                         "name": "change",
@@ -152,19 +153,6 @@
                             ]
                         },
                         {
-                            "type": "Ext.toolbar.Fill",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null
-                            },
-                            "name": "MyFill",
-                            "designerId": "eb9879c3-143f-4ddb-b07a-7a5d6c55225f"
-                        },
-                        {
                             "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",
@@ -173,7 +161,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "保存以下计算结果"
+                                "text": "保存计算结果"
                             },
                             "name": "MyButton4",
                             "designerId": "9a4f051c-798f-4559-a21b-3f05f155fbbd",
@@ -230,12 +218,12 @@
                         "displayField": "name",
                         "fieldLabel": "开发区评价类型",
                         "id": "survey_index_kfqTypeCombo",
-                        "layout|x": 520,
-                        "layout|y": 80,
+                        "layout|x": 20,
+                        "layout|y": 170,
                         "name": "kfqType",
                         "store": "landKfqTypeComboStore",
                         "valueField": "value",
-                        "width": 300
+                        "width": 340
                     },
                     "name": "MyComboBox3",
                     "designerId": "56a77b27-b178-426d-83c8-58b185e405fd"
@@ -256,60 +244,6 @@
                     },
                     "name": "MyHiddenField",
                     "designerId": "e32faa08-928a-489d-9cd6-a4769d55b9b2"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|x": 390,
-                        "layout|y": 80,
-                        "text": "计算开发区类型 ->"
-                    },
-                    "name": "MyButton5",
-                    "designerId": "5a3707d2-cf5e-4dc0-9131-520d9f022152",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var kfqTypeCombo = Ext.getCmp('survey_index_kfqTypeCombo');",
-                                    "var kfqArea = Ext.getCmp('survey_KfqArea_Combo').getRawValue();",
-                                    "if(kfqArea.indexOf(\"保税\") > -1 || kfqArea.indexOf(\"加工区\") > -1 ){",
-                                    "    kfqTypeCombo.setValue('工业主导型开发区');",
-                                    "    return;",
-                                    "}",
-                                    "",
-                                    "var gkccRate = Ext.getCmp('survey_index_gkccRateText').getValue();",
-                                    "var zzRate = Ext.getCmp('survey_index_zzmjRateText').getValue();",
-                                    "",
-                                    "if(!(gkccRate || zzRate)&& (gkccRate !== 0||zzRate !== 0)){",
-                                    "    Ext.Msg.alert('提示', '请先计算现状值再计算开发区类型。');",
-                                    "    return;",
-                                    "}",
-                                    "",
-                                    "if(gkccRate >0.30 && zzRate < 0.25){",
-                                    "    kfqTypeCombo.setValue('工业主导型开发区');",
-                                    "}else if (gkccRate <= 0.30 && zzRate >= 0.25){",
-                                    "    kfqTypeCombo.setValue('产城融合型开发区');",
-                                    "}else{",
-                                    "    kfqTypeCombo.setValue('其他类型开发区');",
-                                    "}"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "29abcfc9-1a02-4ea3-a41f-f53711d4476f"
-                        }
-                    ]
                 },
                 {
                     "type": "Ext.form.FieldSet",

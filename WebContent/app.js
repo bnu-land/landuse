@@ -38,7 +38,10 @@ Ext.application({
         'landKfqTypeModel',
         'land_indexWeightModel',
         'land_indexWeightModel1',
-        'landIndexMetaModel'
+        'landIndexMetaModel',
+        'land_intensityExpansionModel',
+        'land_intensityConstructModel',
+        'land_intensityIntensionModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -71,7 +74,12 @@ Ext.application({
         'landIndexIdealFormStore',
         'landIndexMetaStore',
         'landIndexIntensityValueStore',
-        'landIndexMetaFilterStore'
+        'landIndexMetaFilterStore',
+        'notice_newsDraftStore',
+        'notice_newsDeleteStore',
+        'landIntensityExpansionStore',
+        'landIntensityConstructStore',
+        'landIntensityIntensionStore'
     ],
     views: [
         'MainView',
@@ -83,7 +91,7 @@ Ext.application({
         'thematic_LanuseIntensityTrend',
         'thematic_LanuseIntensityPotentialTrend',
         'intensityPotential_Expansion',
-        'intensityPotential_Construction',
+        'intensityPotential_Construct',
         'intensityPotential_Intension',
         'intensityPotential_Manage',
         'intensityuse_IndexWeightDetermine',

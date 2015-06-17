@@ -10,11 +10,1975 @@
         "designer|userClassName": "intensityPotential_Intension",
         "height": 588,
         "id": null,
+        "layout": "border",
         "title": "强度潜力测算",
-        "width": 786
+        "width": 1065
     },
     "name": "intensityPotential_Construction1",
     "designerId": "46ba8e50-f1a1-4d72-876b-6277c931db47",
     "viewControllerInstanceId": "8305fee4-7dbe-47ab-91ab-2cfdf382df4a",
-    "viewModelInstanceId": "97587ea3-5a93-492c-ba20-e58060c14a89"
+    "viewModelInstanceId": "97587ea3-5a93-492c-ba20-e58060c14a89",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "65fd8071-7869-4410-af34-fb9f518dd7fb",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "name",
+                        "fieldLabel": "开发区名称",
+                        "layout|flex": null,
+                        "name": "kfqName",
+                        "store": "thematic_LCCT_KFQStore",
+                        "submitValue": false,
+                        "valueField": "value",
+                        "width": 250
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "96ea9336-de21-4503-be4d-6016e3543d33",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxChange11",
+                                "implHandler": [
+                                    "var kfqName = field.getRawValue();",
+                                    "//图层过滤",
+                                    "var storeMap = Ext.getCmp('intension_layerUrls_Combo').getStore();",
+                                    "storeMap.clearFilter();",
+                                    "storeMap.filter('mapKey',newValue);",
+                                    "//权重值过滤",
+                                    "var storeWeight = Ext.getCmp('intension_weight_Combo').getStore();",
+                                    "storeWeight.clearFilter();",
+                                    "storeWeight.filter('kfqName',kfqName);",
+                                    "//理想值过滤",
+                                    "var storeIdeal = Ext.getCmp('intension_ideal_Combo').getStore();",
+                                    "storeIdeal.clearFilter();",
+                                    "storeIdeal.filter('kfqName',kfqName);",
+                                    "",
+                                    "Ext.getCmp('intensity_intension_form').getForm().reset();",
+                                    "Ext.getCmp('intension_isCalculated').setValue('false');",
+                                    "Ext.getCmp('intension_kfqName_field').setValue(kfqName);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxChange11",
+                            "designerId": "de8a80a0-a27a-4f69-96e6-d4b008fbc548"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "mapName",
+                        "fieldLabel": "选择年份",
+                        "id": "intension_layerUrls_Combo",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "store": "survey_IndexCurrent_MapStore",
+                        "submitValue": false,
+                        "valueField": "mapUrl",
+                        "width": 220
+                    },
+                    "name": "MyComboBox4",
+                    "designerId": "edb3bebf-d357-43fd-a25f-955e92348f56",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIntension_layerUrls_ComboChange",
+                                "implHandler": [
+                                    "Ext.getCmp('intension_kfqMap_field').setValue(field.getRawValue());",
+                                    "",
+                                    "//加入地图的js文件",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"mapjs/intensity_intension_map.js\";",
+                                    "head.appendChild(script);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onIntension_layerUrls_ComboChange",
+                            "designerId": "ade2b439-233e-4f35-b48d-74e65feb2854"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "kfqName",
+                        "fieldLabel": "权重值记录",
+                        "id": "intension_weight_Combo",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "store": "landIndexWeightStore",
+                        "submitValue": false,
+                        "valueField": "projectId",
+                        "width": 200
+                    },
+                    "name": "MyComboBox2",
+                    "designerId": "fc5d9976-8333-4b46-8a94-b8a212d5fd59",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIntension_weight_ComboChange",
+                                "implHandler": [
+                                    "var store = field.getStore();",
+                                    "var index = store.find('projectId',newValue);",
+                                    "if(index <0){",
+                                    "    return;",
+                                    "}",
+                                    "var record = store.getAt(index);",
+                                    "var kfqType = record.get('kfqType');",
+                                    "Ext.getCmp('intension_kfqType').setValue(kfqType);",
+                                    "",
+                                    "Ext.getCmp('intension_mainBuildrateWeight_field').setValue(record.get('mainLanduseIntensitySumratio'));",
+                                    "Ext.getCmp('intension_mainSumratioWeight_field').setValue(record.get('mainLanduseIntensityBuildindex'));",
+                                    "Ext.getCmp('intension_mainAssetWeight_field').setValue(record.get('mainBenefitInexportAssets'));",
+                                    "if(kfqType.indexOf('工业') >=0 ){",
+                                    "    Ext.getCmp('intension_mainTaxWeight_field').setValue(record.get('mainBenefitInexportTax'));",
+                                    "}else{",
+                                    "    Ext.getCmp('intension_mainSumtaxWeight_field').setValue(record.get('mainBenefitInexportTax'));",
+                                    "}",
+                                    "",
+                                    "Ext.getCmp('intension_developSumratioWeight_field').setValue(record.get('developLanduseIntensitySumratio'));",
+                                    "Ext.getCmp('intension_developBuildrateWeight_field').setValue(record.get('developLanduseIntensityBuildindex'));",
+                                    "Ext.getCmp('intension_developAssetWeight_field').setValue(record.get('developBenefitInexportAssets'));",
+                                    "if(kfqType.indexOf('工业') >=0 ){",
+                                    "    Ext.getCmp('intension_developTaxWeight_field').setValue(record.get('developBenefitInexportTax'));",
+                                    "}else{",
+                                    "    Ext.getCmp('intension_developSumtaxWeight_field').setValue(record.get('developBenefitInexportTax'));",
+                                    "}",
+                                    "",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onIntension_weight_ComboChange",
+                            "designerId": "6af0ed6f-4b7b-4d79-a10b-78ce90527264"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "kfqName",
+                        "fieldLabel": "理想值记录",
+                        "id": "intension_ideal_Combo",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "store": "landIndexIdealStore",
+                        "submitValue": false,
+                        "valueField": "projectId",
+                        "width": 200
+                    },
+                    "name": "MyComboBox3",
+                    "designerId": "6840e359-ee15-46b8-af6e-ec817362f738",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIntension_ideal_ComboChange",
+                                "implHandler": [
+                                    "var store = field.getStore();",
+                                    "var index = store.find('projectId',newValue);",
+                                    "if(index <0){",
+                                    "    return;",
+                                    "}",
+                                    "var record = store.getAt(index);",
+                                    "var kfqType = record.get('kfqType');",
+                                    "",
+                                    "Ext.getCmp('intension_mainBuildrateIdeal_field').setValue(record.get('mainLanduseIntensitySumratio'));",
+                                    "Ext.getCmp('intension_mainSumratioIdeal_field').setValue(record.get('mainLanduseIntensityBuildindex'));",
+                                    "Ext.getCmp('intension_mainAssetIdeal_field').setValue(record.get('mainBenefitInexportAssets'));",
+                                    "if(kfqType.indexOf('工业') >=0 ){",
+                                    "    Ext.getCmp('intension_mainTaxIdeal_field').setValue(record.get('mainBenefitInexportTax'));",
+                                    "}else{",
+                                    "    Ext.getCmp('intension_mainSumtaxIdeal_field').setValue(record.get('mainBenefitInexportTax'));",
+                                    "}",
+                                    "",
+                                    "Ext.getCmp('intension_developSumratioIdeal_field').setValue(record.get('developLanduseIntensitySumratio'));",
+                                    "Ext.getCmp('intension_developBuildrateIdeal_field').setValue(record.get('developLanduseIntensityBuildindex'));",
+                                    "Ext.getCmp('intension_developAssetIdeal_field').setValue(record.get('developBenefitInexportAssets'));",
+                                    "if(kfqType.indexOf('工业') >=0 ){",
+                                    "    Ext.getCmp('intension_developTaxIdeal_field').setValue(record.get('developBenefitInexportTax'));",
+                                    "}else{",
+                                    "    Ext.getCmp('intension_developSumtaxIdeal_field').setValue(record.get('developBenefitInexportTax'));",
+                                    "}"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onIntension_ideal_ComboChange",
+                            "designerId": "2b46a85f-d1a9-4604-87fd-484239e2d707"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "结构潜力测算"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "40a0b46f-e245-40a4-8e97-3e410884b5e5",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var dldmGkccmj= Ext.getCmp('intension_dldmGkccmj_field').getValue();",
+                                    "",
+                                    "var intension_mainBuildrateWeight = Ext.getCmp('intension_mainBuildrateWeight_field').getValue();",
+                                    "var intension_mainSumratioWeight = Ext.getCmp('intension_mainSumratioWeight_field').getValue();",
+                                    "var intension_mainAssetWeight = Ext.getCmp('intension_mainAssetWeight_field').getValue();",
+                                    "var intension_mainTaxWeight = Ext.getCmp('intension_mainTaxWeight_field').getValue();",
+                                    "var intension_mainSumtaxWeight = Ext.getCmp('intension_mainSumtaxWeight_field').getValue();",
+                                    "var intension_developSumratioWeight = Ext.getCmp('intension_developSumratioWeight_field').getValue();",
+                                    "var intension_developBuildrateWeight = Ext.getCmp('intension_developBuildrateWeight_field').getValue();",
+                                    "var intension_developAssetWeight = Ext.getCmp('intension_developAssetWeight_field').getValue();",
+                                    "var intension_developTaxWeight = Ext.getCmp('intension_developTaxWeight_field').getValue();",
+                                    "var intension_developSumtaxWeight = Ext.getCmp('intension_developSumtaxWeight_field').getValue();",
+                                    "",
+                                    "var intension_mainSumratioIdeal = Ext.getCmp('intension_mainSumratioIdeal_field').getValue();",
+                                    "var intension_mainBuildrateIdeal = Ext.getCmp('intension_mainBuildrateIdeal_field').getValue();",
+                                    "var intension_mainAssetIdeal = Ext.getCmp('intension_mainAssetIdeal_field').getValue();",
+                                    "var intension_mainTaxIdeal = Ext.getCmp('intension_mainTaxIdeal_field').getValue();",
+                                    "var intension_mainSumtaxIdeal = Ext.getCmp('intension_mainSumtaxIdeal_field').getValue();",
+                                    "var intension_developSumratioIdeal = Ext.getCmp('intension_developSumratioIdeal_field').getValue();",
+                                    "var intension_developBuildrateIdeal = Ext.getCmp('intension_developBuildrateIdeal_field').getValue();",
+                                    "var intension_developAssetIdeal = Ext.getCmp('intension_developAssetIdeal_field').getValue();",
+                                    "var intension_developTaxIdeal = Ext.getCmp('intension_developTaxIdeal_field').getValue();",
+                                    "var intension_developSumtaxIdeal = Ext.getCmp('intension_developSumtaxIdeal_field').getValue();",
+                                    "",
+                                    "var intension_mainSumratioIntension = dldmGkccmj*(intension_mainSumratioIdeal-intension_mainBuildrateWeight)/intension_mainSumratioIdeal;",
+                                    "var intension_mainBuildrateIntension = dldmGkccmj*(intension_mainBuildrateIdeal-intension_mainSumratioWeight)/intension_mainBuildrateIdeal;",
+                                    "var intension_mainAssetIntension = dldmGkccmj*(intension_mainAssetIdeal-intension_mainAssetWeight)/intension_mainAssetIdeal;",
+                                    "var intension_mainTaxIntension = dldmGkccmj*(intension_mainTaxIdeal-intension_mainTaxWeight)/intension_mainTaxIdeal;",
+                                    "var intension_mainSumtaxIntension = dldmGkccmj*(intension_mainSumtaxIdeal-intension_mainSumtaxWeight)/intension_mainSumtaxIdeal;",
+                                    "var intension_developSumratioIntension = dldmGkccmj*(intension_developSumratioIdeal-intension_developSumratioWeight)/intension_developSumratioIdeal;",
+                                    "var intension_developBuildrateIntension = dldmGkccmj*(intension_developBuildrateIdeal-intension_developBuildrateWeight)/intension_developBuildrateIdeal;",
+                                    "var intension_developAssetIntension = dldmGkccmj*(intension_developAssetIdeal-intension_developAssetWeight)/intension_developAssetIdeal;",
+                                    "var intension_developTaxIntension = dldmGkccmj*(intension_developTaxIdeal-intension_developTaxWeight)/intension_developTaxIdeal;",
+                                    "var intension_developSumtaxIntension = dldmGkccmj*(intension_developSumtaxIdeal-intension_developSumtaxWeight)/intension_developSumtaxIdeal;",
+                                    "",
+                                    "var kfqType = Ext.getCmp('intension_kfqType').getValue();",
+                                    "",
+                                    "Ext.getCmp('intension_mainSumratioIntension_field').setValue(intension_mainSumratioIntension.toFixed(3));",
+                                    "Ext.getCmp('intension_mainBuildrateIntension_field').setValue(intension_mainBuildrateIntension.toFixed(3));",
+                                    "Ext.getCmp('intension_mainAssetIntension_field').setValue(intension_mainAssetIntension.toFixed(3));",
+                                    "if(kfqType.indexOf('工业')>=0){",
+                                    "    Ext.getCmp('intension_mainTaxIntension_field').setValue(intension_mainTaxIntension.toFixed(3));",
+                                    "}else{",
+                                    "    Ext.getCmp('intension_mainSumtaxIntension_field').setValue(intension_mainSumtaxIntension.toFixed(3));",
+                                    "}",
+                                    "",
+                                    "Ext.getCmp('intension_developSumratioIntension_field').setValue(intension_developSumratioIntension.toFixed(3));",
+                                    "Ext.getCmp('intension_developBuildrateIntension_field').setValue(intension_developBuildrateIntension.toFixed(3));",
+                                    "Ext.getCmp('intension_developAssetIntension_field').setValue(intension_developAssetIntension.toFixed(3));",
+                                    "if(kfqType.indexOf('工业')>=0){",
+                                    "    Ext.getCmp('intension_developTaxIntension_field').setValue(intension_developTaxIntension.toFixed(3));",
+                                    "}",
+                                    "else{",
+                                    "    Ext.getCmp('intension_developSumtaxIntension_field').setValue(intension_developSumtaxIntension.toFixed(3));",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "63b023aa-4415-469d-9d3a-8a254e5a84be"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "保存测算结果"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "416a331b-8d49-40cb-9b68-d18dcf993c6f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var isCalc = Ext.getCmp('intension_isCalculated').getValue();",
+                                    "if(!isCalc){",
+                                    "    Ext.Msg.alert('提示','请先进行强度测算，再保存结果。');",
+                                    "    return;",
+                                    "}",
+                                    "var myform = Ext.getCmp('intensity_intension_form').getForm();",
+                                    "if (myform.isValid())",
+                                    "{",
+                                    "    myform.submit({",
+                                    "        url : 'add_intension',",
+                                    "        success : function (form, action)",
+                                    "        {",
+                                    "            Ext.Msg.alert('成功', '测算结果保存成功。');",
+                                    "            Ext.getCmp('intensity_intension_grid').getStore().reload();",
+                                    "        },",
+                                    "        failure: function(form, action){",
+                                    "            Ext.Msg.alert('失败', '测算结果保存失败，请重试。');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "3c380c98-3e86-4726-9061-247a8ac11d3b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "intension_isCalculated",
+                        "layout|flex": null,
+                        "value": [
+                            "false"
+                        ]
+                    },
+                    "name": "MyHiddenField5",
+                    "designerId": "6894ce61-c736-47c4-a2d3-2edefbe4ef00"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "intension_kfqType",
+                        "layout|flex": null,
+                        "value": [
+                            "false"
+                        ]
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "74bbc494-92d7-4fb7-a7c2-41d0f5d4cc19"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|columns": 9,
+                "height": 227,
+                "id": "intensity_intension_form",
+                "jsonSubmit": true,
+                "layout": "table",
+                "layout|region": "north",
+                "layout|split": true,
+                "title": null
+            },
+            "name": "MyForm",
+            "designerId": "71f9f63d-6a7a-44cf-a704-361764f43159",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "intension_kfqName_field",
+                        "name": "kfqName"
+                    },
+                    "name": "MyHiddenField8",
+                    "designerId": "dc813bdc-91d2-40f5-bbd7-5dd88921d5b3"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "intension_kfqMap_field",
+                        "name": "kfqMap"
+                    },
+                    "name": "MyHiddenField9",
+                    "designerId": "9117aaa8-873b-437a-87d6-020573ea8098"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "已建成工矿仓储用地面积",
+                        "id": "intension_dldmGkccmj_field",
+                        "labelWidth": 150,
+                        "layout|colspan": 9,
+                        "name": "dldmGkccmj",
+                        "width": 300
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "01170b53-6d70-41ba-aad5-08e19600c771"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "项目",
+                        "layout|colspan": 3,
+                        "layout|rowspan": 2,
+                        "value": " ",
+                        "width": 100
+                    },
+                    "name": "MyDisplayField",
+                    "designerId": "9750539a-4ace-4a69-a9fe-a0f292fa0b6f"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "2,4",
+                        "layout|colspan": 3,
+                        "layout|rowspan": null,
+                        "text": "主区"
+                    },
+                    "name": "MyLabel10",
+                    "designerId": "6664159d-096d-4684-8e79-bb31212f638f"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "2,7",
+                        "layout|colspan": 3,
+                        "layout|rowspan": null,
+                        "text": "发展方向区"
+                    },
+                    "name": "MyLabel11",
+                    "designerId": "3b371329-a010-46e4-ae75-a2835790cf6e"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,4",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "现状值(%)"
+                    },
+                    "name": "MyLabel12",
+                    "designerId": "84550fa1-c381-4d6f-bcb1-2030c649fe82"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,5",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "理想值(%)"
+                    },
+                    "name": "MyLabel13",
+                    "designerId": "f1f0c0ce-2563-4449-8e41-023b7f137abe"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,6",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "强度潜力(hm2)"
+                    },
+                    "name": "MyLabel15",
+                    "designerId": "03e79cc7-4904-4a15-a80b-44f4f683ade3"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,7",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "现状值(%)"
+                    },
+                    "name": "MyLabel16",
+                    "designerId": "e8eb354e-f5c5-4407-9ce0-0ce9eed12ec7"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,8",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "理想值(%)"
+                    },
+                    "name": "MyLabel17",
+                    "designerId": "17a2820f-0580-43f7-a04d-dbec4fe3a15f"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "3,9",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "强度潜力(hm2)"
+                    },
+                    "name": "MyLabel19",
+                    "designerId": "87873d41-aa0c-4121-b972-6156e20522ba"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 9,
+                        "layout": "table",
+                        "layout|colspan": 9,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 750
+                    },
+                    "name": "MyFieldSet",
+                    "designerId": "d6fc769d-e0f2-4308-b5a4-56b74138cfcb",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业用地综合容积率",
+                                "id": "intension_mainSumratioWeight_field",
+                                "labelWidth": 160,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumratioWeight",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "8cc32d1e-8f39-4fcc-971c-0e7b3fb80561"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainSumratioIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumratioIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "f38335f3-ecb7-4fd0-a3bb-94ab1d4df571"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainSumratioIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumratioIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "5692e0a5-5955-401a-b653-12c4ca6620bc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumratioWeight_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumratioWeight",
+                                "width": 90
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "2bc1ac1a-7755-46ce-b524-aaa92d62952e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumratioIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumratioIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "201565d1-3168-405f-b845-d144f3b0e2c5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumratioIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumratioIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "5d216370-2b24-4137-bfac-6c2c0a957c58"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 9,
+                        "layout": "table",
+                        "layout|colspan": 9,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 750
+                    },
+                    "name": "MyFieldSet8",
+                    "designerId": "94d6f2f1-d0aa-453e-a0f8-fb9dee451d64",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业用地建筑系数",
+                                "id": "intension_mainBuildrateWeight_field",
+                                "labelWidth": 160,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainBuildrateWeight",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "99d580db-096c-4d0d-9cac-e80b50d4e2dd"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainBuildrateIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainBuildrateIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "f469c4b0-3c4c-41ae-9041-0105e1aae7a3"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainBuildrateIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainBuildrateIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "0b36d8bb-945a-4d2b-bb65-66e4ac33bc3c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developBuildrateWeight_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developBuildrateWeight",
+                                "width": 90
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "480e8d32-41ec-43b6-9815-1faa3eb8522e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developBuildrateIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developBuildrateIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "f3c87e44-72f0-493b-b76c-404116568434"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developBuildrateIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developBuildrateIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "f1c5400e-b962-46d2-aee9-5f8bba5da733"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 9,
+                        "layout": "table",
+                        "layout|colspan": 9,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 750
+                    },
+                    "name": "MyFieldSet7",
+                    "designerId": "b1f7a442-9f5e-4c38-bf2b-01789332b07b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业用地固定资产投入强度",
+                                "id": "intension_mainAssetWeight_field",
+                                "labelWidth": 160,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainAssetWeight",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "f4a539fd-c4d6-4df8-b5e5-9a24c7938a86"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainAssetIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainAssetIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "6bafa630-dff4-4650-8ca3-878b274dc07a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainAssetIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainAssetIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "69f3b228-979c-42d0-8da8-cb0abbcd1eb2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developAssetWeight_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developAssetWeight",
+                                "width": 90
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "753efa09-0f3d-4a1c-a68b-7db6b9d50b33"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developAssetIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developAssetIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "31402924-8a9d-4cc9-bf50-171ea678c53d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developAssetIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developAssetIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "6f194719-0a68-4daa-8b13-a850aec2554d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 9,
+                        "layout": "table",
+                        "layout|colspan": 9,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 750
+                    },
+                    "name": "MyFieldSet6",
+                    "designerId": "4e01d50e-b1d5-4e87-8952-54e451fbc598",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业用地地均税收",
+                                "id": "intension_mainTaxWeight_field",
+                                "labelWidth": 160,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainTaxWeight",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "f2488e77-f13b-44ca-86e3-fe4c69591367"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainTaxIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainTaxIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "47c3a7cb-22db-406e-a87f-562517176359"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainTaxIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainTaxIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "dc1806ca-acea-401a-831c-791ef250a136"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developTaxWeight_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developTaxWeight",
+                                "width": 90
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "123ae9b4-0af8-4f7f-83b9-85a42bb6d97e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developTaxIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developTaxIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "59bca1e2-afd9-4432-b8ce-2d7f8847dde0"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developTaxIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developTaxIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "6057123f-9853-4abf-a4eb-14fc04c01d47"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 9,
+                        "layout": "table",
+                        "layout|colspan": 9,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 750
+                    },
+                    "name": "MyFieldSet5",
+                    "designerId": "4e8a8aa8-7400-4253-a304-4194926a0808",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "综合地均税收",
+                                "id": "intension_mainSumtaxWeight_field",
+                                "labelWidth": 160,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumtaxWeight",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "74cbcf5d-fc49-4e6f-9aa9-e0c6a08f0d4e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainSumtaxIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumtaxIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "2f5511ed-1609-4959-b942-f066a0949d34"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_mainSumtaxIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "mainSumtaxIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "7d975ee1-361e-460e-ab58-7e44d4bc7a0c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumtaxWeight_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumtaxWeight",
+                                "width": 90
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "350ed881-56e7-4b24-bdb1-7be7e282e496"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumtaxIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumtaxIdeal",
+                                "width": 90
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "25961e76-4aaf-4b52-8f6a-8c0ab8765253"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_developSumtaxIntension_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developSumtaxIntension",
+                                "width": 90
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "31d937f0-4e9a-4bb2-a8d7-7ba2a50e9bac"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "intensity_intension_grid",
+                "layout|region": "center",
+                "store": "landIntensityIntensionStore",
+                "title": "开发区土地集约利用强度潜力测算数据"
+            },
+            "name": "MyGridPanel1",
+            "designerId": "04bd43bf-b2c1-4d63-a7c1-f8c192a56539",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer",
+                    "designerId": "2b4ce4b4-a1de-4bf4-b082-a680b7e31b22"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqName",
+                        "text": "开发区名称",
+                        "width": 150
+                    },
+                    "name": "MyColumn",
+                    "designerId": "b7085aab-2f1d-41a8-bed7-5623c569ed92"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqMap",
+                        "text": "测算地图",
+                        "width": 150
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "b2a9b4e3-5160-4c7f-8da4-4e7cb283905e"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "calcDate",
+                        "format": "Y-m-d",
+                        "text": "测算时间"
+                    },
+                    "name": "MyDateColumn",
+                    "designerId": "a29f0e9d-bd0e-44d6-9c63-f4150d231503"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "dldmGkccmj",
+                        "text": "已建成工矿仓储"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "2dbc4664-be33-4c09-9b3a-22b504e1110b"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumratioWeight",
+                        "text": "综合容积率现状值(主区)"
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "2ca8723f-4aea-45b8-aea9-b919675d9c03"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumratioIdeal",
+                        "text": "综合容积率理想值(主区)"
+                    },
+                    "name": "MyNumberColumn12",
+                    "designerId": "0cdb5713-cda9-4b51-a229-e766ece39aac"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumratioIntension",
+                        "text": "综合容积率强度潜力(主区)"
+                    },
+                    "name": "MyNumberColumn13",
+                    "designerId": "07b65cd7-fbba-4a9c-a519-fda336f5ae02"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainBuildrateWeight",
+                        "text": "建筑系数现状值(主区)"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "db5ad7d4-34b9-427a-9a1b-d1b7df744012"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainBuildrateIdeal",
+                        "text": "建筑系数理想值(主区)"
+                    },
+                    "name": "MyNumberColumn14",
+                    "designerId": "cb0eac2c-d59e-467e-9567-f8b3ea426407"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainBuildrateIntension",
+                        "text": "建筑系数强度潜力(主区)"
+                    },
+                    "name": "MyNumberColumn15",
+                    "designerId": "14a2971c-9c90-40af-9bc6-fd7d698e4155"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainAssetWeight",
+                        "text": "资产投入强度现状值(主区)"
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "8c2df536-d436-49f1-89b2-597704c4ba31"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainAssetIdeal",
+                        "text": "资产投入强度理想值(主区)"
+                    },
+                    "name": "MyNumberColumn16",
+                    "designerId": "e3c1fd7f-1bf0-442c-8deb-adb39c0feaca"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainAssetIntension",
+                        "text": "资产投入强度强度潜力(主区)"
+                    },
+                    "name": "MyNumberColumn17",
+                    "designerId": "77f0400d-258b-4f50-84bc-27eded158ee2"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainTaxWeight",
+                        "text": "地均税收现状值(主区)"
+                    },
+                    "name": "MyNumberColumn18",
+                    "designerId": "25ef8711-ad27-48ba-a6c8-f8ea548e6e6c"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainTaxIdeal",
+                        "text": "地均税收理想值(主区)"
+                    },
+                    "name": "MyNumberColumn19",
+                    "designerId": "07932116-b531-4d4f-bb32-516b5f7b2936"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainTaxIntension",
+                        "text": "地均税收潜力强度(主区)"
+                    },
+                    "name": "MyNumberColumn20",
+                    "designerId": "c812ee57-bc42-4e94-8119-f9e2a8958806"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumtaxWeight",
+                        "text": "综合地均税收现状值(主区)"
+                    },
+                    "name": "MyNumberColumn22",
+                    "designerId": "c081e178-857a-4ccd-a406-dc1b50269fed"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumtaxIdeal",
+                        "text": "综合地均税收理想值(主区)"
+                    },
+                    "name": "MyNumberColumn41",
+                    "designerId": "7b2c6181-1856-4182-90ea-13d44983a85a"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainSumtaxIntension",
+                        "text": "综合地均税收潜力强度(主区)"
+                    },
+                    "name": "MyNumberColumn23",
+                    "designerId": "bdd31445-a4f2-40d2-b31d-621c06d3b90f"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumratioWeight",
+                        "text": "综合容积率现状值(发展区)"
+                    },
+                    "name": "MyNumberColumn24",
+                    "designerId": "2e1a9b72-2e7d-4245-a083-e587cec75127"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumratioIdeal",
+                        "text": "综合容积率理想值(发展区)"
+                    },
+                    "name": "MyNumberColumn25",
+                    "designerId": "58229672-6629-4259-a6e6-a650496d5ea6"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumratioIntension",
+                        "text": "综合容积率强度潜力(发展区)"
+                    },
+                    "name": "MyNumberColumn26",
+                    "designerId": "c3089b18-51ce-43c5-90f2-b0a89cb44b1a"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developBuildrateWeight",
+                        "text": "建筑系数现状值(发展区)"
+                    },
+                    "name": "MyNumberColumn27",
+                    "designerId": "20126e14-9a56-481c-91a4-adfa6d9ca218"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developBuildrateIdeal",
+                        "text": "建筑系数理想值(发展区)"
+                    },
+                    "name": "MyNumberColumn28",
+                    "designerId": "01911a2b-5edb-4636-a525-ad9e792d0ab4"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developBuildrateIntension",
+                        "text": "建筑系数强度潜力(发展区)"
+                    },
+                    "name": "MyNumberColumn29",
+                    "designerId": "dd451881-5b34-47d0-b0d9-45e21bf12a54"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developAssetWeight",
+                        "text": "资产投入强度现状值(发展区)"
+                    },
+                    "name": "MyNumberColumn38",
+                    "designerId": "e5a56bed-7f2d-440b-bed6-e31363040b38"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developAssetIdeal",
+                        "text": "资产投入强度理想值(发展区)"
+                    },
+                    "name": "MyNumberColumn39",
+                    "designerId": "7b5821ad-5390-48fc-94be-45fd4366c592"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developAssetIntension",
+                        "text": "资产投入强度强度潜力(发展区)"
+                    },
+                    "name": "MyNumberColumn40",
+                    "designerId": "5e651137-9679-46fd-b932-c2e3fd6a7421"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developTaxWeight",
+                        "text": "地均税收现状值(发展区)"
+                    },
+                    "name": "MyNumberColumn33",
+                    "designerId": "aa0b7a6a-8eda-436a-a78b-23672bcf14b0"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developTaxIdeal",
+                        "text": "地均税收理想值(发展区)"
+                    },
+                    "name": "MyNumberColumn34",
+                    "designerId": "daa67d58-0919-47d2-be57-4cf081d39fec"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developTaxIntension",
+                        "text": "地均税收潜力强度(发展区)"
+                    },
+                    "name": "MyNumberColumn35",
+                    "designerId": "bbe96e66-b680-41de-b744-cfd93877d4ce"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumtaxWeight",
+                        "text": "综合地均税收现状值(发展区)"
+                    },
+                    "name": "MyNumberColumn36",
+                    "designerId": "64d2d2ed-4d3a-4535-83d9-489d5de2f568"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumtaxIdeal",
+                        "text": "综合地均税收理想值(发展区)"
+                    },
+                    "name": "MyNumberColumn42",
+                    "designerId": "9e13c5be-a060-4613-93d8-4ff9c29083bf"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developSumtaxIntension",
+                        "text": "综合地均税收潜力强度(发展区)"
+                    },
+                    "name": "MyNumberColumn37",
+                    "designerId": "3ccb1434-fde2-4fc7-8030-370b51134766"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "104ae465-de6b-4031-9f53-d14fd06889ff"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "760c5c40-8de0-4c5e-aa11-2cf994b25163",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "intension_SearchText",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "ebabc162-fc02-4231-b41f-72e58d16a389"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "查询"
+                            },
+                            "name": "MyButton",
+                            "designerId": "ea61cdc4-3b1c-46b3-bb77-a980b7c7157d",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var searchKeyword = Ext.getCmp('intension_SearchText').getValue();",
+                                            "var mystore = Ext.getCmp('intensity_intension_grid').getStore(); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params :{searchKeyword : searchKeyword}",
+                                            "});"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "73270818-78e5-40fc-834d-78f2aab21905"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "fd5529ee-2f19-44fc-a779-ceca95a114e0",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var grid = Ext.getCmp('intensity_intension_grid');",
+                                            "var records = grid.getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}else if(records.length >1){",
+                                            "   Ext.Msg.alert('提示', '每次只能删除一条法律。');",
+                                            "   return;",
+                                            "}",
+                                            "var id = records[0].get(\"id\");",
+                                            "var columnName= records[0].get(\"kfqName\");",
+                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']测算数据。<br/> 确认删除？', getResult);",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_intension',",
+                                            "            params :",
+                                            "            {",
+                                            "                id : id",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                grid.getStore().reload();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "882db633-3dfe-443a-8d6b-f53c5e1de00f"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onIntensity_construct_gridCellClick1",
+                        "implHandler": [
+                            "Ext.getCmp('intensity_construct_form').getForm().loadRecord(record);"
+                        ],
+                        "name": "cellclick",
+                        "scope": "me"
+                    },
+                    "name": "onIntensity_construct_gridCellClick1",
+                    "designerId": "591a39d1-640f-4003-bb51-d526081557c7"
+                }
+            ]
+        }
+    ]
 }

@@ -136,6 +136,16 @@
                                     "codeClass": null,
                                     "name": "MyRotateInteraction1",
                                     "designerId": "ffa0533a-c74b-48f1-9f18-c2129779ce1a"
+                                },
+                                {
+                                    "type": "Ext.chart.interactions.ItemHighlight",
+                                    "reference": {
+                                        "name": "interactions",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyItemHighlightInteraction",
+                                    "designerId": "f1517c72-860a-4afa-889a-4fb6ea1f2c7e"
                                 }
                             ]
                         }

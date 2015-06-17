@@ -74,7 +74,50 @@
                                 "text": "存草稿箱"
                             },
                             "name": "MyButton",
-                            "designerId": "84618776-44b6-4142-b379-1816511e2591"
+                            "designerId": "84618776-44b6-4142-b379-1816511e2591",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var myform = Ext.getCmp('notice_PublishForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    Ext.getCmp('notice_publish_stateField').setValue('1');",
+                                            "    myform.submit({",
+                                            "        //url : 'add_NoticeNews',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '内容发布成功。');",
+                                            "            var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "",
+                                            "            var xtype = 'notice_Manage';",
+                                            "            var mainView = Ext.getCmp('mainView');",
+                                            "            mainView.removeAll();",
+                                            "            mainView.add(Ext.widget(xtype));",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '内容发布失败，请重试。');",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "c2a5f2a0-80bb-45e4-8e60-b423238e5879"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.button.Button",
@@ -260,6 +303,25 @@
                     },
                     "name": "MyHiddenField2",
                     "designerId": "c44f24e1-d746-44d0-9a11-cf0f70577188"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "hidden",
+                        "id": "notice_publish_stateField",
+                        "layout|anchor": "100%",
+                        "name": "noticeState",
+                        "value": [
+                            "0"
+                        ]
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "3f22f00f-6219-47b3-bf0b-b76491a684c7"
                 },
                 {
                     "type": "Ext.form.field.TextArea",

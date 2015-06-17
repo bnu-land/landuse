@@ -24,7 +24,8 @@
             "userConfig": {
                 "extraParams": [
                     "{",
-                    "    searchKeyword: ''",
+                    "    searchKeyword: '',",
+                    "    noticeState:'0'",
                     "}"
                 ],
                 "url": "get_NoticeNews"

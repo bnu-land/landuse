@@ -687,7 +687,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "intensityPotential_Construction",
+                                        "id": "intensityPotential_Construct",
                                         "text": "结构潜力测算"
                                     },
                                     "name": "MyMenuItem7",

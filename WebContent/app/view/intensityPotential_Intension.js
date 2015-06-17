@@ -17,8 +17,941 @@ Ext.define('MyApp.view.intensityPotential_Intension', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityPotential_Intension',
 
+    requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'Ext.button.Button',
+        'Ext.form.field.Hidden',
+        'Ext.form.Panel',
+        'Ext.form.field.Display',
+        'Ext.form.Label',
+        'Ext.form.FieldSet',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Number',
+        'Ext.grid.View'
+    ],
+
     height: 588,
-    width: 786,
-    title: '强度潜力测算'
+    width: 1065,
+    layout: 'border',
+    title: '强度潜力测算',
+    defaultListenerScope: true,
+
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'combobox',
+                    width: 250,
+                    fieldLabel: '开发区名称',
+                    name: 'kfqName',
+                    submitValue: false,
+                    displayField: 'name',
+                    store: 'thematic_LCCT_KFQStore',
+                    valueField: 'value',
+                    listeners: {
+                        change: 'onComboboxChange11'
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'intension_layerUrls_Combo',
+                    width: 220,
+                    fieldLabel: '选择年份',
+                    labelWidth: 70,
+                    submitValue: false,
+                    displayField: 'mapName',
+                    store: 'survey_IndexCurrent_MapStore',
+                    valueField: 'mapUrl',
+                    listeners: {
+                        change: 'onIntension_layerUrls_ComboChange'
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'intension_weight_Combo',
+                    width: 200,
+                    fieldLabel: '权重值记录',
+                    labelWidth: 70,
+                    submitValue: false,
+                    displayField: 'kfqName',
+                    store: 'landIndexWeightStore',
+                    valueField: 'projectId',
+                    listeners: {
+                        change: 'onIntension_weight_ComboChange'
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'intension_ideal_Combo',
+                    width: 200,
+                    fieldLabel: '理想值记录',
+                    labelWidth: 70,
+                    submitValue: false,
+                    displayField: 'kfqName',
+                    store: 'landIndexIdealStore',
+                    valueField: 'projectId',
+                    listeners: {
+                        change: 'onIntension_ideal_ComboChange'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var dldmGkccmj= Ext.getCmp('intension_dldmGkccmj_field').getValue();
+
+                        var intension_mainBuildrateWeight = Ext.getCmp('intension_mainBuildrateWeight_field').getValue();
+                        var intension_mainSumratioWeight = Ext.getCmp('intension_mainSumratioWeight_field').getValue();
+                        var intension_mainAssetWeight = Ext.getCmp('intension_mainAssetWeight_field').getValue();
+                        var intension_mainTaxWeight = Ext.getCmp('intension_mainTaxWeight_field').getValue();
+                        var intension_mainSumtaxWeight = Ext.getCmp('intension_mainSumtaxWeight_field').getValue();
+                        var intension_developSumratioWeight = Ext.getCmp('intension_developSumratioWeight_field').getValue();
+                        var intension_developBuildrateWeight = Ext.getCmp('intension_developBuildrateWeight_field').getValue();
+                        var intension_developAssetWeight = Ext.getCmp('intension_developAssetWeight_field').getValue();
+                        var intension_developTaxWeight = Ext.getCmp('intension_developTaxWeight_field').getValue();
+                        var intension_developSumtaxWeight = Ext.getCmp('intension_developSumtaxWeight_field').getValue();
+
+                        var intension_mainSumratioIdeal = Ext.getCmp('intension_mainSumratioIdeal_field').getValue();
+                        var intension_mainBuildrateIdeal = Ext.getCmp('intension_mainBuildrateIdeal_field').getValue();
+                        var intension_mainAssetIdeal = Ext.getCmp('intension_mainAssetIdeal_field').getValue();
+                        var intension_mainTaxIdeal = Ext.getCmp('intension_mainTaxIdeal_field').getValue();
+                        var intension_mainSumtaxIdeal = Ext.getCmp('intension_mainSumtaxIdeal_field').getValue();
+                        var intension_developSumratioIdeal = Ext.getCmp('intension_developSumratioIdeal_field').getValue();
+                        var intension_developBuildrateIdeal = Ext.getCmp('intension_developBuildrateIdeal_field').getValue();
+                        var intension_developAssetIdeal = Ext.getCmp('intension_developAssetIdeal_field').getValue();
+                        var intension_developTaxIdeal = Ext.getCmp('intension_developTaxIdeal_field').getValue();
+                        var intension_developSumtaxIdeal = Ext.getCmp('intension_developSumtaxIdeal_field').getValue();
+
+                        var intension_mainSumratioIntension = dldmGkccmj*(intension_mainSumratioIdeal-intension_mainBuildrateWeight)/intension_mainSumratioIdeal;
+                        var intension_mainBuildrateIntension = dldmGkccmj*(intension_mainBuildrateIdeal-intension_mainSumratioWeight)/intension_mainBuildrateIdeal;
+                        var intension_mainAssetIntension = dldmGkccmj*(intension_mainAssetIdeal-intension_mainAssetWeight)/intension_mainAssetIdeal;
+                        var intension_mainTaxIntension = dldmGkccmj*(intension_mainTaxIdeal-intension_mainTaxWeight)/intension_mainTaxIdeal;
+                        var intension_mainSumtaxIntension = dldmGkccmj*(intension_mainSumtaxIdeal-intension_mainSumtaxWeight)/intension_mainSumtaxIdeal;
+                        var intension_developSumratioIntension = dldmGkccmj*(intension_developSumratioIdeal-intension_developSumratioWeight)/intension_developSumratioIdeal;
+                        var intension_developBuildrateIntension = dldmGkccmj*(intension_developBuildrateIdeal-intension_developBuildrateWeight)/intension_developBuildrateIdeal;
+                        var intension_developAssetIntension = dldmGkccmj*(intension_developAssetIdeal-intension_developAssetWeight)/intension_developAssetIdeal;
+                        var intension_developTaxIntension = dldmGkccmj*(intension_developTaxIdeal-intension_developTaxWeight)/intension_developTaxIdeal;
+                        var intension_developSumtaxIntension = dldmGkccmj*(intension_developSumtaxIdeal-intension_developSumtaxWeight)/intension_developSumtaxIdeal;
+
+                        var kfqType = Ext.getCmp('intension_kfqType').getValue();
+
+                        Ext.getCmp('intension_mainSumratioIntension_field').setValue(intension_mainSumratioIntension.toFixed(3));
+                        Ext.getCmp('intension_mainBuildrateIntension_field').setValue(intension_mainBuildrateIntension.toFixed(3));
+                        Ext.getCmp('intension_mainAssetIntension_field').setValue(intension_mainAssetIntension.toFixed(3));
+                        if(kfqType.indexOf('工业')>=0){
+                            Ext.getCmp('intension_mainTaxIntension_field').setValue(intension_mainTaxIntension.toFixed(3));
+                        }else{
+                            Ext.getCmp('intension_mainSumtaxIntension_field').setValue(intension_mainSumtaxIntension.toFixed(3));
+                        }
+
+                        Ext.getCmp('intension_developSumratioIntension_field').setValue(intension_developSumratioIntension.toFixed(3));
+                        Ext.getCmp('intension_developBuildrateIntension_field').setValue(intension_developBuildrateIntension.toFixed(3));
+                        Ext.getCmp('intension_developAssetIntension_field').setValue(intension_developAssetIntension.toFixed(3));
+                        if(kfqType.indexOf('工业')>=0){
+                            Ext.getCmp('intension_developTaxIntension_field').setValue(intension_developTaxIntension.toFixed(3));
+                        }
+                        else{
+                            Ext.getCmp('intension_developSumtaxIntension_field').setValue(intension_developSumtaxIntension.toFixed(3));
+                        }
+                    },
+                    text: '结构潜力测算'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var isCalc = Ext.getCmp('intension_isCalculated').getValue();
+                        if(!isCalc){
+                            Ext.Msg.alert('提示','请先进行强度测算，再保存结果。');
+                            return;
+                        }
+                        var myform = Ext.getCmp('intensity_intension_form').getForm();
+                        if (myform.isValid())
+                        {
+                            myform.submit({
+                                url : 'add_intension',
+                                success : function (form, action)
+                                {
+                                    Ext.Msg.alert('成功', '测算结果保存成功。');
+                                    Ext.getCmp('intensity_intension_grid').getStore().reload();
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '测算结果保存失败，请重试。');
+                                }
+                            });
+                        }
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
+                    },
+                    text: '保存测算结果'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'intension_isCalculated',
+                    fieldLabel: 'Label',
+                    value: false
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'intension_kfqType',
+                    fieldLabel: 'Label',
+                    value: false
+                }
+            ]
+        }
+    ],
+    items: [
+        {
+            xtype: 'form',
+            region: 'north',
+            split: true,
+            height: 227,
+            id: 'intensity_intension_form',
+            bodyPadding: 10,
+            jsonSubmit: true,
+            layout: {
+                type: 'table',
+                columns: 9
+            },
+            items: [
+                {
+                    xtype: 'hiddenfield',
+                    id: 'intension_kfqName_field',
+                    fieldLabel: 'Label',
+                    name: 'kfqName'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'intension_kfqMap_field',
+                    fieldLabel: 'Label',
+                    name: 'kfqMap'
+                },
+                {
+                    xtype: 'textfield',
+                    colspan: 9,
+                    id: 'intension_dldmGkccmj_field',
+                    width: 300,
+                    fieldLabel: '已建成工矿仓储用地面积',
+                    labelWidth: 150,
+                    name: 'dldmGkccmj'
+                },
+                {
+                    xtype: 'displayfield',
+                    colspan: 3,
+                    rowspan: 2,
+                    width: 100,
+                    fieldLabel: '项目',
+                    value: ' '
+                },
+                {
+                    xtype: 'label',
+                    colspan: 3,
+                    html: '2,4',
+                    text: '主区'
+                },
+                {
+                    xtype: 'label',
+                    colspan: 3,
+                    html: '2,7',
+                    text: '发展方向区'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,4',
+                    text: '现状值(%)'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,5',
+                    text: '理想值(%)'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,6',
+                    text: '强度潜力(hm2)'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,7',
+                    text: '现状值(%)'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,8',
+                    text: '理想值(%)'
+                },
+                {
+                    xtype: 'label',
+                    html: '3,9',
+                    text: '强度潜力(hm2)'
+                },
+                {
+                    xtype: 'fieldset',
+                    colspan: 9,
+                    margin: '0,0,0,0',
+                    width: 750,
+                    layout: {
+                        type: 'table',
+                        columns: 9
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            colspan: 2,
+                            id: 'intension_mainSumratioWeight_field',
+                            margin: '0,0,0,0',
+                            width: 250,
+                            fieldLabel: '工业用地综合容积率',
+                            labelWidth: 160,
+                            name: 'mainSumratioWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainSumratioIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainSumratioIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainSumratioIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainSumratioIntension'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumratioWeight_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumratioWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumratioIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumratioIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumratioIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumratioIntension'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    colspan: 9,
+                    margin: '0,0,0,0',
+                    width: 750,
+                    layout: {
+                        type: 'table',
+                        columns: 9
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            colspan: 2,
+                            id: 'intension_mainBuildrateWeight_field',
+                            margin: '0,0,0,0',
+                            width: 250,
+                            fieldLabel: '工业用地建筑系数',
+                            labelWidth: 160,
+                            name: 'mainBuildrateWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainBuildrateIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainBuildrateIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainBuildrateIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainBuildrateIntension'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developBuildrateWeight_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developBuildrateWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developBuildrateIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developBuildrateIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developBuildrateIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developBuildrateIntension'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    colspan: 9,
+                    margin: '0,0,0,0',
+                    width: 750,
+                    layout: {
+                        type: 'table',
+                        columns: 9
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            colspan: 2,
+                            id: 'intension_mainAssetWeight_field',
+                            margin: '0,0,0,0',
+                            width: 250,
+                            fieldLabel: '工业用地固定资产投入强度',
+                            labelWidth: 160,
+                            name: 'mainAssetWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainAssetIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainAssetIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainAssetIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainAssetIntension'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developAssetWeight_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developAssetWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developAssetIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developAssetIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developAssetIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developAssetIntension'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    colspan: 9,
+                    margin: '0,0,0,0',
+                    width: 750,
+                    layout: {
+                        type: 'table',
+                        columns: 9
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            colspan: 2,
+                            id: 'intension_mainTaxWeight_field',
+                            margin: '0,0,0,0',
+                            width: 250,
+                            fieldLabel: '工业用地地均税收',
+                            labelWidth: 160,
+                            name: 'mainTaxWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainTaxIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainTaxIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainTaxIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainTaxIntension'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developTaxWeight_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developTaxWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developTaxIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developTaxIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developTaxIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developTaxIntension'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    colspan: 9,
+                    margin: '0,0,0,0',
+                    width: 750,
+                    layout: {
+                        type: 'table',
+                        columns: 9
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            colspan: 2,
+                            id: 'intension_mainSumtaxWeight_field',
+                            margin: '0,0,0,0',
+                            width: 250,
+                            fieldLabel: '综合地均税收',
+                            labelWidth: 160,
+                            name: 'mainSumtaxWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainSumtaxIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainSumtaxIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_mainSumtaxIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'mainSumtaxIntension'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumtaxWeight_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumtaxWeight'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumtaxIdeal_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumtaxIdeal'
+                        },
+                        {
+                            xtype: 'textfield',
+                            colspan: 1,
+                            id: 'intension_developSumtaxIntension_field',
+                            margin: '0,0,0,0',
+                            width: 90,
+                            name: 'developSumtaxIntension'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'center',
+            id: 'intensity_intension_grid',
+            title: '开发区土地集约利用强度潜力测算数据',
+            store: 'landIntensityIntensionStore',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqName',
+                    text: '开发区名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqMap',
+                    text: '测算地图'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'calcDate',
+                    text: '测算时间',
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'dldmGkccmj',
+                    text: '已建成工矿仓储'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumratioWeight',
+                    text: '综合容积率现状值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumratioIdeal',
+                    text: '综合容积率理想值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumratioIntension',
+                    text: '综合容积率强度潜力(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBuildrateWeight',
+                    text: '建筑系数现状值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBuildrateIdeal',
+                    text: '建筑系数理想值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainBuildrateIntension',
+                    text: '建筑系数强度潜力(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainAssetWeight',
+                    text: '资产投入强度现状值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainAssetIdeal',
+                    text: '资产投入强度理想值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainAssetIntension',
+                    text: '资产投入强度强度潜力(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainTaxWeight',
+                    text: '地均税收现状值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainTaxIdeal',
+                    text: '地均税收理想值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainTaxIntension',
+                    text: '地均税收潜力强度(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumtaxWeight',
+                    text: '综合地均税收现状值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumtaxIdeal',
+                    text: '综合地均税收理想值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSumtaxIntension',
+                    text: '综合地均税收潜力强度(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumratioWeight',
+                    text: '综合容积率现状值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumratioIdeal',
+                    text: '综合容积率理想值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumratioIntension',
+                    text: '综合容积率强度潜力(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBuildrateWeight',
+                    text: '建筑系数现状值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBuildrateIdeal',
+                    text: '建筑系数理想值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developBuildrateIntension',
+                    text: '建筑系数强度潜力(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developAssetWeight',
+                    text: '资产投入强度现状值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developAssetIdeal',
+                    text: '资产投入强度理想值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developAssetIntension',
+                    text: '资产投入强度强度潜力(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developTaxWeight',
+                    text: '地均税收现状值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developTaxIdeal',
+                    text: '地均税收理想值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developTaxIntension',
+                    text: '地均税收潜力强度(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumtaxWeight',
+                    text: '综合地均税收现状值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumtaxIdeal',
+                    text: '综合地均税收理想值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSumtaxIntension',
+                    text: '综合地均税收潜力强度(发展区)'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'intension_SearchText'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var searchKeyword = Ext.getCmp('intension_SearchText').getValue();
+                                var mystore = Ext.getCmp('intensity_intension_grid').getStore(); //获得store对象
+                                //在load事件中添加参数
+                                mystore.load({
+                                    params :{searchKeyword : searchKeyword}
+                                });
+                            },
+                            icon: 'images/table/search.png',
+                            text: '查询'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                //获取数据
+                                var grid = Ext.getCmp('intensity_intension_grid');
+                                var records = grid.getSelection();
+                                if (records.length === 0){
+                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                    return;
+                                }else if(records.length >1){
+                                    Ext.Msg.alert('提示', '每次只能删除一条法律。');
+                                    return;
+                                }
+                                var id = records[0].get("id");
+                                var columnName= records[0].get("kfqName");
+                                Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']测算数据。<br/> 确认删除？', getResult);
+
+
+                                function getResult(confirm)
+                                {
+                                    console.log('confirm:', confirm);
+                                    if (confirm == "yes"){
+                                        Ext.Ajax.request(
+                                        {
+                                            url : 'del_intension',
+                                            params :
+                                            {
+                                                id : id
+                                            },
+                                            success : function (response){
+                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                grid.getStore().reload();
+                                            },
+                                            failure : function (response){
+                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                            }
+                                        });
+                                    }
+                                }
+                            },
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ],
+            listeners: {
+                cellclick: 'onIntensity_construct_gridCellClick1'
+            }
+        }
+    ],
+
+    onComboboxChange11: function(field, newValue, oldValue, eOpts) {
+        var kfqName = field.getRawValue();
+        //图层过滤
+        var storeMap = Ext.getCmp('intension_layerUrls_Combo').getStore();
+        storeMap.clearFilter();
+        storeMap.filter('mapKey',newValue);
+        //权重值过滤
+        var storeWeight = Ext.getCmp('intension_weight_Combo').getStore();
+        storeWeight.clearFilter();
+        storeWeight.filter('kfqName',kfqName);
+        //理想值过滤
+        var storeIdeal = Ext.getCmp('intension_ideal_Combo').getStore();
+        storeIdeal.clearFilter();
+        storeIdeal.filter('kfqName',kfqName);
+
+        Ext.getCmp('intensity_intension_form').getForm().reset();
+        Ext.getCmp('intension_isCalculated').setValue('false');
+        Ext.getCmp('intension_kfqName_field').setValue(kfqName);
+    },
+
+    onIntension_layerUrls_ComboChange: function(field, newValue, oldValue, eOpts) {
+        Ext.getCmp('intension_kfqMap_field').setValue(field.getRawValue());
+
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/intensity_intension_map.js";
+        head.appendChild(script);
+    },
+
+    onIntension_weight_ComboChange: function(field, newValue, oldValue, eOpts) {
+        var store = field.getStore();
+        var index = store.find('projectId',newValue);
+        if(index <0){
+            return;
+        }
+        var record = store.getAt(index);
+        var kfqType = record.get('kfqType');
+        Ext.getCmp('intension_kfqType').setValue(kfqType);
+
+        Ext.getCmp('intension_mainBuildrateWeight_field').setValue(record.get('mainLanduseIntensitySumratio'));
+        Ext.getCmp('intension_mainSumratioWeight_field').setValue(record.get('mainLanduseIntensityBuildindex'));
+        Ext.getCmp('intension_mainAssetWeight_field').setValue(record.get('mainBenefitInexportAssets'));
+        if(kfqType.indexOf('工业') >=0 ){
+            Ext.getCmp('intension_mainTaxWeight_field').setValue(record.get('mainBenefitInexportTax'));
+        }else{
+            Ext.getCmp('intension_mainSumtaxWeight_field').setValue(record.get('mainBenefitInexportTax'));
+        }
+
+        Ext.getCmp('intension_developSumratioWeight_field').setValue(record.get('developLanduseIntensitySumratio'));
+        Ext.getCmp('intension_developBuildrateWeight_field').setValue(record.get('developLanduseIntensityBuildindex'));
+        Ext.getCmp('intension_developAssetWeight_field').setValue(record.get('developBenefitInexportAssets'));
+        if(kfqType.indexOf('工业') >=0 ){
+            Ext.getCmp('intension_developTaxWeight_field').setValue(record.get('developBenefitInexportTax'));
+        }else{
+            Ext.getCmp('intension_developSumtaxWeight_field').setValue(record.get('developBenefitInexportTax'));
+        }
+
+
+    },
+
+    onIntension_ideal_ComboChange: function(field, newValue, oldValue, eOpts) {
+        var store = field.getStore();
+        var index = store.find('projectId',newValue);
+        if(index <0){
+            return;
+        }
+        var record = store.getAt(index);
+        var kfqType = record.get('kfqType');
+
+        Ext.getCmp('intension_mainBuildrateIdeal_field').setValue(record.get('mainLanduseIntensitySumratio'));
+        Ext.getCmp('intension_mainSumratioIdeal_field').setValue(record.get('mainLanduseIntensityBuildindex'));
+        Ext.getCmp('intension_mainAssetIdeal_field').setValue(record.get('mainBenefitInexportAssets'));
+        if(kfqType.indexOf('工业') >=0 ){
+            Ext.getCmp('intension_mainTaxIdeal_field').setValue(record.get('mainBenefitInexportTax'));
+        }else{
+            Ext.getCmp('intension_mainSumtaxIdeal_field').setValue(record.get('mainBenefitInexportTax'));
+        }
+
+        Ext.getCmp('intension_developSumratioIdeal_field').setValue(record.get('developLanduseIntensitySumratio'));
+        Ext.getCmp('intension_developBuildrateIdeal_field').setValue(record.get('developLanduseIntensityBuildindex'));
+        Ext.getCmp('intension_developAssetIdeal_field').setValue(record.get('developBenefitInexportAssets'));
+        if(kfqType.indexOf('工业') >=0 ){
+            Ext.getCmp('intension_developTaxIdeal_field').setValue(record.get('developBenefitInexportTax'));
+        }else{
+            Ext.getCmp('intension_developSumtaxIdeal_field').setValue(record.get('developBenefitInexportTax'));
+        }
+    },
+
+    onIntensity_construct_gridCellClick1: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        Ext.getCmp('intensity_construct_form').getForm().loadRecord(record);
+    }
 
 });

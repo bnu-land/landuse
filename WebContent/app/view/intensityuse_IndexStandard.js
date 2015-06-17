@@ -43,23 +43,24 @@ Ext.define('MyApp.view.intensityuse_IndexStandard', {
                 {
                     xtype: 'combobox',
                     id: 'intensity_standard_combo',
-                    width: 200,
-                    fieldLabel: '评价编号',
+                    width: 250,
+                    fieldLabel: '开发区名称',
                     labelWidth: 70,
-                    displayField: 'projectId',
+                    displayField: 'kfqName',
                     store: 'landIndexIdealStore',
-                    valueField: 'kfqName',
+                    valueField: 'projectId',
                     listeners: {
                         change: 'onComboboxChange'
                     }
                 },
                 {
                     xtype: 'textfield',
-                    id: 'intensity_standard_kfqAreaText',
+                    id: 'intensity_standard_ProjectIdText',
                     width: 200,
-                    fieldLabel: '开发区名称',
+                    fieldLabel: '评价编号',
                     labelWidth: 70,
-                    submitValue: false
+                    submitValue: false,
+                    readOnly: true
                 },
                 {
                     xtype: 'button',
@@ -1596,7 +1597,7 @@ Ext.define('MyApp.view.intensityuse_IndexStandard', {
     onComboboxChange: function(field, newValue, oldValue, eOpts) {
         var v = field.getValue();
         var record = field.findRecord(field.valueField || field.displayField, v);
-        Ext.getCmp('intensity_standard_kfqAreaText').setValue(record.get('kfqName'));
+        Ext.getCmp('intensity_standard_ProjectIdText').setValue(record.get('projectId'));
         var kfqType = record.get('kfqType');
         if(kfqType.indexOf('工业')>=0){
             Ext.getCmp('intensity_standard_tabPanel').setActiveTab('indensity_standard_industryTab');

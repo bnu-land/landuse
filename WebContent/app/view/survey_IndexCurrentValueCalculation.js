@@ -22,7 +22,6 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
         'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
-        'Ext.toolbar.Fill',
         'Ext.form.field.Hidden',
         'Ext.form.FieldSet',
         'Ext.form.field.Number',
@@ -45,7 +44,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
         {
             xtype: 'form',
             anchor: '100%',
-            height: 200,
+            height: 250,
             id: 'survey_IndexCurrentValue_Form',
             layout: 'absolute',
             bodyPadding: 10,
@@ -92,9 +91,6 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
                             text: '计算现状值'
                         },
                         {
-                            xtype: 'tbfill'
-                        },
-                        {
                             xtype: 'button',
                             handler: function() {
                                 var myform = Ext.getCmp('survey_IndexCurrentValue_Form').getForm();
@@ -119,7 +115,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
                                     Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                                 }
                             },
-                            text: '保存以下计算结果'
+                            text: '保存计算结果'
                         }
                     ]
                 }
@@ -127,10 +123,10 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
             items: [
                 {
                     xtype: 'combobox',
-                    x: 520,
-                    y: 80,
+                    x: 20,
+                    y: 170,
                     id: 'survey_index_kfqTypeCombo',
-                    width: 300,
+                    width: 340,
                     fieldLabel: '开发区评价类型',
                     name: 'kfqType',
                     allowBlank: false,
@@ -145,36 +141,6 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
                     id: 'survey_index_CalcNameText',
                     fieldLabel: 'Label',
                     name: 'calcName'
-                },
-                {
-                    xtype: 'button',
-                    handler: function() {
-                        var kfqTypeCombo = Ext.getCmp('survey_index_kfqTypeCombo');
-                        var kfqArea = Ext.getCmp('survey_KfqArea_Combo').getRawValue();
-                        if(kfqArea.indexOf("保税") > -1 || kfqArea.indexOf("加工区") > -1 ){
-                            kfqTypeCombo.setValue('工业主导型开发区');
-                            return;
-                        }
-
-                        var gkccRate = Ext.getCmp('survey_index_gkccRateText').getValue();
-                        var zzRate = Ext.getCmp('survey_index_zzmjRateText').getValue();
-
-                        if(!(gkccRate || zzRate)&& (gkccRate !== 0||zzRate !== 0)){
-                            Ext.Msg.alert('提示', '请先计算现状值再计算开发区类型。');
-                            return;
-                        }
-
-                        if(gkccRate >0.30 && zzRate < 0.25){
-                            kfqTypeCombo.setValue('工业主导型开发区');
-                        }else if (gkccRate <= 0.30 && zzRate >= 0.25){
-                            kfqTypeCombo.setValue('产城融合型开发区');
-                        }else{
-                            kfqTypeCombo.setValue('其他类型开发区');
-                        }
-                    },
-                    x: 390,
-                    y: 80,
-                    text: '计算开发区类型 ->'
                 },
                 {
                     xtype: 'fieldset',
@@ -367,6 +333,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
 
     onComboboxChange: function(field, newValue, oldValue, eOpts) {
         var store = Ext.StoreMgr.get('survey_IndexCurrent_MapStore');
+        store.clearFilter();
         store.filter('mapKey',newValue);
     },
 

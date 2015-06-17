@@ -32,7 +32,8 @@ Ext.define('MyApp.store.notice_newsStore', {
             proxy: {
                 type: 'ajax',
                 extraParams: {
-                    searchKeyword: ''
+                    searchKeyword: '',
+                    noticeState: '0'
                 },
                 url: 'get_NoticeNews',
                 reader: {

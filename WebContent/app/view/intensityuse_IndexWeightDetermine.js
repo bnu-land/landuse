@@ -191,7 +191,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                     emptyText: '0.8',
                                                                     hideTrigger: true,
                                                                     maxValue: 1,
-                                                                    minValue: 0
+                                                                    minValue: 0.8
                                                                 }
                                                             ]
                                                         },
@@ -220,8 +220,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'mainLanduse',
                                                                             emptyText: '0.7',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.75,
+                                                                            minValue: 0.7
                                                                         }
                                                                     ]
                                                                 },
@@ -243,8 +243,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'mainBenefit',
                                                                             emptyText: '0.2',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.2,
+                                                                            minValue: 0.15
                                                                         }
                                                                     ]
                                                                 },
@@ -265,8 +265,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'mainPerformance',
                                                                             emptyText: '0.1',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.12,
+                                                                            minValue: 0.08
                                                                         }
                                                                     ]
                                                                 }
@@ -303,8 +303,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'mainLanduseDegree',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.25,
+                                                                                    minValue: 0.2
                                                                                 }
                                                                             ]
                                                                         },
@@ -322,8 +322,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'mainLanduseConstruct',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.2,
+                                                                                    minValue: 0.15
                                                                                 }
                                                                             ]
                                                                         },
@@ -346,8 +346,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'mainLanduseIntensity',
                                                                                     emptyText: '0.5',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.57,
+                                                                                    minValue: 0.5
                                                                                 }
                                                                             ]
                                                                         }
@@ -373,7 +373,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 },
@@ -396,7 +396,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 }
@@ -593,7 +593,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                     name: 'developArea',
                                                                     emptyText: '0.2',
                                                                     hideTrigger: true,
-                                                                    maxValue: 1,
+                                                                    maxValue: 0.2,
                                                                     minValue: 0
                                                                 }
                                                             ]
@@ -623,8 +623,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'developLanduse',
                                                                             emptyText: '0.7',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.75,
+                                                                            minValue: 0.7
                                                                         }
                                                                     ]
                                                                 },
@@ -646,8 +646,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'developBenefit',
                                                                             emptyText: '0.2',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.2,
+                                                                            minValue: 0.15
                                                                         }
                                                                     ]
                                                                 },
@@ -668,8 +668,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'developPerformance',
                                                                             emptyText: '0.1',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.12,
+                                                                            minValue: 0.08
                                                                         }
                                                                     ]
                                                                 }
@@ -706,8 +706,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'developLanduseDegree',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.3,
+                                                                                    minValue: 0.2
                                                                                 }
                                                                             ]
                                                                         },
@@ -726,8 +726,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'developLanduseConstruct',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.3,
+                                                                                    minValue: 0.2
                                                                                 }
                                                                             ]
                                                                         },
@@ -750,8 +750,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'developLanduseIntensity',
                                                                                     emptyText: '0.5',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.6,
+                                                                                    minValue: 0.5
                                                                                 }
                                                                             ]
                                                                         }
@@ -777,7 +777,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 },
@@ -800,7 +800,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 }
@@ -1139,7 +1139,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                     emptyText: '0.8',
                                                                     hideTrigger: true,
                                                                     maxValue: 1,
-                                                                    minValue: 0
+                                                                    minValue: 0.8
                                                                 }
                                                             ]
                                                         },
@@ -1166,10 +1166,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             fieldLabel: '土地利用状况',
                                                                             labelWidth: 90,
                                                                             name: 'mainLanduse',
-                                                                            emptyText: '0.7',
+                                                                            emptyText: '0.65',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.65,
+                                                                            minValue: 0.6
                                                                         }
                                                                     ]
                                                                 },
@@ -1189,10 +1189,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             fieldLabel: '用地效益',
                                                                             labelWidth: 90,
                                                                             name: 'mainBenefit',
-                                                                            emptyText: '0.2',
+                                                                            emptyText: '0.25',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.35,
+                                                                            minValue: 0.25
                                                                         }
                                                                     ]
                                                                 },
@@ -1213,8 +1213,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'mainPerformance',
                                                                             emptyText: '0.1',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.12,
+                                                                            minValue: 0.08
                                                                         }
                                                                     ]
                                                                 }
@@ -1249,10 +1249,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     fieldLabel: '土地利用程度',
                                                                                     labelWidth: 150,
                                                                                     name: 'mainLanduseDegree',
-                                                                                    emptyText: '0.25',
+                                                                                    emptyText: '0.45',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.45,
+                                                                                    minValue: 0.4
                                                                                 }
                                                                             ]
                                                                         },
@@ -1273,10 +1273,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     fieldLabel: '土地利用强度',
                                                                                     labelWidth: 150,
                                                                                     name: 'mainLanduseIntensity',
-                                                                                    emptyText: '0.5',
+                                                                                    emptyText: '0.55',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.6,
+                                                                                    minValue: 0.55
                                                                                 }
                                                                             ]
                                                                         }
@@ -1302,7 +1302,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 },
@@ -1325,7 +1325,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 }
@@ -1478,7 +1478,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                     name: 'developArea',
                                                                     emptyText: '0.2',
                                                                     hideTrigger: true,
-                                                                    maxValue: 1,
+                                                                    maxValue: 0.2,
                                                                     minValue: 0
                                                                 }
                                                             ]
@@ -1506,10 +1506,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             fieldLabel: '土地利用状况',
                                                                             labelWidth: 90,
                                                                             name: 'developLanduse',
-                                                                            emptyText: '0.7',
+                                                                            emptyText: '0.65',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.65,
+                                                                            minValue: 0.6
                                                                         }
                                                                     ]
                                                                 },
@@ -1529,10 +1529,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             fieldLabel: '用地效益',
                                                                             labelWidth: 90,
                                                                             name: 'developBenefit',
-                                                                            emptyText: '0.2',
+                                                                            emptyText: '0.25',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.35,
+                                                                            minValue: 0.25
                                                                         }
                                                                     ]
                                                                 },
@@ -1553,8 +1553,8 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             name: 'developPerformance',
                                                                             emptyText: '0.1',
                                                                             hideTrigger: true,
-                                                                            maxValue: 1,
-                                                                            minValue: 0
+                                                                            maxValue: 0.12,
+                                                                            minValue: 0.08
                                                                         }
                                                                     ]
                                                                 }
@@ -1589,10 +1589,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     fieldLabel: '土地利用程度',
                                                                                     labelWidth: 150,
                                                                                     name: 'developLanduseDegree',
-                                                                                    emptyText: '0.25',
+                                                                                    emptyText: '0.3',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.4,
+                                                                                    minValue: 0.3
                                                                                 }
                                                                             ]
                                                                         },
@@ -1613,10 +1613,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     fieldLabel: '土地利用强度',
                                                                                     labelWidth: 150,
                                                                                     name: 'developLanduseIntensity',
-                                                                                    emptyText: '0.5',
+                                                                                    emptyText: '0.7',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 1,
-                                                                                    minValue: 0
+                                                                                    maxValue: 0.7,
+                                                                                    minValue: 0.6
                                                                                 }
                                                                             ]
                                                                         }
@@ -1642,7 +1642,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 },
@@ -1665,7 +1665,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             emptyText: '1.0',
                                                                             hideTrigger: true,
                                                                             maxValue: 1,
-                                                                            minValue: 0
+                                                                            minValue: 1
                                                                         }
                                                                     ]
                                                                 }
@@ -1739,7 +1739,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             anchor: '100%',
                                                                             margin: '0,0,0,0',
                                                                             width: 230,
-                                                                            fieldLabel: '地均税收',
+                                                                            fieldLabel: '综合地均税收',
                                                                             labelWidth: 170,
                                                                             name: 'developBenefitInexportTax',
                                                                             emptyText: '0.5',

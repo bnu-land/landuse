@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-17 9:22:50 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LanduseIntensityIntension" table="landuse_intensity_intension" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="50" />
+        </property>
+        <property name="kfqMap" type="string">
+            <column name="kfq_map" length="50" />
+        </property>
+        <property name="calcDate" type="date">
+            <column name="calc_date" length="10" />
+        </property>
+        <property name="dldmGkccmj" type="java.lang.Double">
+            <column name="dldm_gkccmj" precision="22" scale="0" />
+        </property>
+        <property name="mainSumratioWeight" type="java.lang.Double">
+            <column name="main_sumratio_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainSumratioIdeal" type="java.lang.Double">
+            <column name="main_sumratio_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainSumratioIntension" type="java.lang.Double">
+            <column name="main_sumratio_intension" precision="22" scale="0" />
+        </property>
+        <property name="mainBuildrateWeight" type="java.lang.Double">
+            <column name="main_buildrate_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainBuildrateIdeal" type="java.lang.Double">
+            <column name="main_buildrate_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainBuildrateIntension" type="java.lang.Double">
+            <column name="main_buildrate_intension" precision="22" scale="0" />
+        </property>
+        <property name="mainAssetWeight" type="java.lang.Double">
+            <column name="main_asset_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainAssetIdeal" type="java.lang.Double">
+            <column name="main_asset_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainAssetIntension" type="java.lang.Double">
+            <column name="main_asset_intension" precision="22" scale="0" />
+        </property>
+        <property name="mainTaxWeight" type="java.lang.Double">
+            <column name="main_tax_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainTaxIdeal" type="java.lang.Double">
+            <column name="main_tax_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainTaxIntension" type="java.lang.Double">
+            <column name="main_tax_intension" precision="22" scale="0" />
+        </property>
+        <property name="mainSumtaxWeight" type="java.lang.Double">
+            <column name="main_sumtax_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainSumtaxIdeal" type="java.lang.Double">
+            <column name="main_sumtax_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainSumtaxIntension" type="java.lang.Double">
+            <column name="main_sumtax_intension" precision="22" scale="0" />
+        </property>
+        <property name="developSumratioWeight" type="java.lang.Double">
+            <column name="develop_sumratio_weight" precision="22" scale="0" />
+        </property>
+        <property name="developSumratioIdeal" type="java.lang.Double">
+            <column name="develop_sumratio_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developSumratioIntension" type="java.lang.Double">
+            <column name="develop_sumratio_intension" precision="22" scale="0" />
+        </property>
+        <property name="developBuildrateWeight" type="java.lang.Double">
+            <column name="develop_buildrate_weight" precision="22" scale="0" />
+        </property>
+        <property name="developBuildrateIdeal" type="java.lang.Double">
+            <column name="develop_buildrate_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developBuildrateIntension" type="java.lang.Double">
+            <column name="develop_buildrate_intension" precision="22" scale="0" />
+        </property>
+        <property name="developAssetWeight" type="java.lang.Double">
+            <column name="develop_asset_weight" precision="22" scale="0" />
+        </property>
+        <property name="developAssetIdeal" type="java.lang.Double">
+            <column name="develop_asset_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developAssetIntension" type="java.lang.Double">
+            <column name="develop_asset_intension" precision="22" scale="0" />
+        </property>
+        <property name="developTaxWeight" type="java.lang.Double">
+            <column name="develop_tax_weight" precision="22" scale="0" />
+        </property>
+        <property name="developTaxIdeal" type="java.lang.Double">
+            <column name="develop_tax_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developTaxIntension" type="java.lang.Double">
+            <column name="develop_tax_intension" precision="22" scale="0" />
+        </property>
+        <property name="developSumtaxWeight" type="java.lang.Double">
+            <column name="develop_sumtax_weight" precision="22" scale="0" />
+        </property>
+        <property name="developSumtaxIdeal" type="java.lang.Double">
+            <column name="develop_sumtax_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developSumtaxIntension" type="java.lang.Double">
+            <column name="develop_sumtax_intension" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

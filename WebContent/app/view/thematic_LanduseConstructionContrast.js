@@ -24,6 +24,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
         'Ext.chart.series.Pie',
         'Ext.chart.series.sprite.PieSlice',
         'Ext.chart.interactions.Rotate',
+        'Ext.chart.interactions.ItemHighlight',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Number',
@@ -106,6 +107,9 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                             interactions: [
                                 {
                                     type: 'rotate'
+                                },
+                                {
+                                    type: 'itemhighlight'
                                 }
                             ]
                         }

@@ -31,12 +31,13 @@ public class LandEvaluationService {
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getLandKfqTypeList(String searchKeyword) {
 		String hql = "FROM LandKfqType as t";
-
+		String hql2 = "";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE t.calcName" + likeStr;
-			hql = hql + hql2;
+			hql2 = " WHERE t.calcName" + likeStr;			
 		}
+		hql2 = " ORDER BY t.calcDate DESC";
+		hql = hql + hql2;
 		List<LandKfqType> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
