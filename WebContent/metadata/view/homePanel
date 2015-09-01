@@ -9,9 +9,7 @@
         "designer|userAlias": "homePanel",
         "designer|userClassName": "homePanel",
         "html": [
-            "<div id=\"map\">",
-            "<span id=\"BasemapToggle\" class=\"BasemapToggle\"></span>",
-            "</div>"
+            "<div id=\"map\"></div>"
         ],
         "id": null,
         "title": "主页"

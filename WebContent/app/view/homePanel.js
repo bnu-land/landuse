@@ -17,7 +17,7 @@ Ext.define('MyApp.view.homePanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.homePanel',
 
-    html: '<div id="map">\n<span id="BasemapToggle" class="BasemapToggle"></span>\n</div>',
+    html: '<div id="map"></div>',
     title: '主页',
     defaultListenerScope: true,
 
