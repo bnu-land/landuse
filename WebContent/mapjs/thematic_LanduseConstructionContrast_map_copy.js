@@ -12,7 +12,9 @@ var mymap;
 var mylayer;
 function init() {//65.3447265625,4.21875, 135.7470703125, 53.61328125
     var initExtent = new esri.geometry.Extent({"xmin":127.1441,"ymin":45.5246,"xmax":127.8857,"ymax":45.9402,"spatialReference":{"wkid":4326}});
-    mymap = new esri.Map("thematic_LanduseConstructionContrast_div");
+    mymap = new esri.Map("thematic_LanduseConstructionContrast_div",{
+        logo:false
+    });
     //地图
     dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {
         constructor: function() {

@@ -12,7 +12,8 @@ require([
         var map = new Map("map", {
             center: [-118, 34.5],
             zoom: 8,
-            basemap: "topo"
+            basemap: "topo",
+            logo:false
         });
 
         dojo.connect(map, "onExtentChange", onExtentChange);

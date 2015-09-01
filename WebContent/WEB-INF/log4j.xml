@@ -71,7 +71,8 @@
 		<appender-ref ref="normalError" />
 	</logger>
 
-	<category name="org.springframework">
+
+	<!-- <category name="org.springframework">
 		<priority value="debug" />
 	</category>
 
@@ -95,7 +96,7 @@
 		name="org.springframework.transaction.support.TransactionSynchronizationManager">
 		<priority value="debug" />
 	</category>
-
+ -->
 
 	<root>
 		<priority value="debug" />

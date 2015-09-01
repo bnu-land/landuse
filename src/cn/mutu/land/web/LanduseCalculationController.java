@@ -17,6 +17,7 @@ import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.LanduseIntensityConstruct;
 import cn.mutu.land.model.LanduseIntensityExpansion;
 import cn.mutu.land.model.LanduseIntensityIntension;
+import cn.mutu.land.model.LanduseIntensityManager;
 import cn.mutu.land.service.LanduseCalculationService;
 
 @Controller
@@ -137,7 +138,7 @@ public class LanduseCalculationController {
 		this.landServcie.deleteConstruct(id);
 	}
 
-	// --------------------结构潜力--------------------------------
+	// --------------------强度潜力--------------------------------
 	@RequestMapping(value = "/get_intension")
 	@ResponseBody
 	public Map<String, Object> getIntension(
@@ -190,5 +191,59 @@ public class LanduseCalculationController {
 	public void delIntension(@RequestParam("id") String id) throws IOException {
 		this.landServcie.deleteIntension(id);
 	}
+	
+	// --------------------管理潜力--------------------------------
+		@RequestMapping(value = "/get_managerPotential")
+		@ResponseBody
+		public Map<String, Object> getManagerPotential(
+				@RequestParam("searchKeyword") String searchKeyword)
+				throws SQLException {
+			searchKeyword = Encoder.encode(searchKeyword);
+			return this.landServcie.getManagerList(searchKeyword);
+			//
+		}
+
+		// 添加
+		@RequestMapping(value = "/add_managerPotential", method = RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> addManagerPotential(
+				@RequestBody LanduseIntensityManager type) throws IOException {
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {
+				this.landServcie.addManager(type);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}
+
+		// 修改
+		@RequestMapping(value = "/update_managerPotential", method = RequestMethod.POST)
+		// ,method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> updateManagerPotential(
+				@RequestBody LanduseIntensityManager type) throws IOException {
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {
+				this.landServcie.updateManager(type);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}
+
+		// 删除
+		@RequestMapping(value = "/del_managerPotential")
+		// ,method=RequestMethod.POST)
+		@ResponseBody
+		public void delManagerPotential(@RequestParam("id") String id) throws IOException {
+			this.landServcie.deleteIntension(id);
+		}
 
 }

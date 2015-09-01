@@ -37,11 +37,11 @@ Ext.application({
         'lawTypesModel',
         'landKfqTypeModel',
         'land_indexWeightModel',
-        'land_indexWeightModel1',
         'landIndexMetaModel',
         'land_intensityExpansionModel',
         'land_intensityConstructModel',
-        'land_intensityIntensionModel'
+        'land_intensityIntensionModel',
+        'land_intensityManagerModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -79,7 +79,8 @@ Ext.application({
         'notice_newsDeleteStore',
         'landIntensityExpansionStore',
         'landIntensityConstructStore',
-        'landIntensityIntensionStore'
+        'landIntensityIntensionStore',
+        'landIntensityManagerStore'
     ],
     views: [
         'MainView',

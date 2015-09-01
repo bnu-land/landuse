@@ -23,7 +23,7 @@
 	</div>
 
 		<h4>Schema landuse.default</h4>
-		<h2>Table system_map</h2>
+		<h2>Table landuse_intensity_manager</h2>
 
 			<p></p>
 
@@ -61,8 +61,8 @@
 			<tbody>
 					<tr>
 						<td>
-							<a href="#column_detail_map_id">
-								map_id
+							<a href="#column_detail_id">
+								id
 							</a>
 						</td>
 						<td>
@@ -86,58 +86,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_map_pid">
-								map_pid
-							</a>
-						</td>
-						<td>
-							integer
-						</td>
-						<td>
-							255
-						</td>
-						<td>
-							19
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							true
-						</td>
-						<td>
-							false
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#column_detail_map_group">
-								map_group
-							</a>
-						</td>
-						<td>
-							varchar(200)
-						</td>
-						<td>
-							200
-						</td>
-						<td>
-							19
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							true
-						</td>
-						<td>
-							false
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#column_detail_map_name">
-								map_name
+							<a href="#column_detail_kfq_name">
+								kfq_name
 							</a>
 						</td>
 						<td>
@@ -161,15 +111,15 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_map_key">
-								map_key
+							<a href="#column_detail_kfq_map">
+								kfq_map
 							</a>
 						</td>
 						<td>
-							varchar(100)
+							varchar(50)
 						</td>
 						<td>
-							100
+							50
 						</td>
 						<td>
 							19
@@ -186,15 +136,15 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_map_url">
-								map_url
+							<a href="#column_detail_calc_date">
+								calc_date
 							</a>
 						</td>
 						<td>
-							varchar(200)
+							date
 						</td>
 						<td>
-							200
+							10
 						</td>
 						<td>
 							19
@@ -211,21 +161,146 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_description">
-								description
+							<a href="#column_detail_main_expire">
+								main_expire
 							</a>
 						</td>
 						<td>
-							varchar(300)
+							double precision
 						</td>
 						<td>
-							300
+							255
 						</td>
 						<td>
-							19
+							22
 						</td>
 						<td>
-							2
+							0
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_main_ideal">
+								main_ideal
+							</a>
+						</td>
+						<td>
+							double precision
+						</td>
+						<td>
+							255
+						</td>
+						<td>
+							22
+						</td>
+						<td>
+							0
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_develop_expire">
+								develop_expire
+							</a>
+						</td>
+						<td>
+							double precision
+						</td>
+						<td>
+							255
+						</td>
+						<td>
+							22
+						</td>
+						<td>
+							0
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_develop_ideal">
+								develop_ideal
+							</a>
+						</td>
+						<td>
+							double precision
+						</td>
+						<td>
+							255
+						</td>
+						<td>
+							22
+						</td>
+						<td>
+							0
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_sum_expire">
+								sum_expire
+							</a>
+						</td>
+						<td>
+							double precision
+						</td>
+						<td>
+							255
+						</td>
+						<td>
+							22
+						</td>
+						<td>
+							0
+						</td>
+						<td>
+							true
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_sum_ideal">
+								sum_ideal
+							</a>
+						</td>
+						<td>
+							double precision
+						</td>
+						<td>
+							255
+						</td>
+						<td>
+							22
+						</td>
+						<td>
+							0
 						</td>
 						<td>
 							true
@@ -259,8 +334,8 @@
 								PRIMARY
 						</td>
 						<td>
-								<a href="#column_detail_map_id">
-									map_id
+								<a href="#column_detail_id">
+									id
 								</a>
 						</td>
 					</tr>
@@ -287,11 +362,11 @@
 				<tbody>
 						<tr>
 							<td>
-								map_id
+								PRIMARY
 							</td>
 							<td>
-									<a href="#column_detail_map_id">
-										map_id
+									<a href="#column_detail_id">
+										id
 									</a>
 							</td>
 						</tr>
@@ -303,7 +378,7 @@
 				Column Detail
 			</p>
 				
-				<h3 id="column_detail_map_id">map_id</h3>
+				<h3 id="column_detail_id">id</h3>
 				
 				<ul>
 					<li>
@@ -325,69 +400,13 @@
 						<strong>Unique:</strong> true
 					</li>
 					<li>
-						<strong>Comment:</strong> id
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_map_pid">map_pid</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> integer
-					</li>
-					<li>
-						<strong>Length:</strong> 255
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> true
-					</li>
-					<li>
-						<strong>Unique:</strong> false
-					</li>
-					<li>
-						<strong>Comment:</strong> pid
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_map_group">map_group</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> varchar(200)
-					</li>
-					<li>
-						<strong>Length:</strong> 200
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> true
-					</li>
-					<li>
-						<strong>Unique:</strong> false
-					</li>
-					<li>
-						<strong>Comment:</strong> group
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_map_name">map_name</h3>
+				<h3 id="column_detail_kfq_name">kfq_name</h3>
 				
 				<ul>
 					<li>
@@ -409,20 +428,20 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> name
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_map_key">map_key</h3>
+				<h3 id="column_detail_kfq_map">kfq_map</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> varchar(100)
+						<strong>Type:</strong> varchar(50)
 					</li>
 					<li>
-						<strong>Length:</strong> 100
+						<strong>Length:</strong> 50
 					</li>
 					<li>
 						<strong>Precision:</strong> 19
@@ -437,20 +456,20 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> urlKey
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_map_url">map_url</h3>
+				<h3 id="column_detail_calc_date">calc_date</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> varchar(200)
+						<strong>Type:</strong> date
 					</li>
 					<li>
-						<strong>Length:</strong> 200
+						<strong>Length:</strong> 10
 					</li>
 					<li>
 						<strong>Precision:</strong> 19
@@ -465,26 +484,26 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> map url
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_description">description</h3>
+				<h3 id="column_detail_main_expire">main_expire</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> varchar(300)
+						<strong>Type:</strong> double precision
 					</li>
 					<li>
-						<strong>Length:</strong> 300
+						<strong>Length:</strong> 255
 					</li>
 					<li>
-						<strong>Precision:</strong> 19
+						<strong>Precision:</strong> 22
 					</li>
 					<li>
-						<strong>Scale:</strong> 2
+						<strong>Scale:</strong> 0
 					</li>
 					<li>
 						<strong>Nullable:</strong> true
@@ -493,7 +512,147 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> description
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_main_ideal">main_ideal</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> double precision
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 22
+					</li>
+					<li>
+						<strong>Scale:</strong> 0
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_develop_expire">develop_expire</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> double precision
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 22
+					</li>
+					<li>
+						<strong>Scale:</strong> 0
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_develop_ideal">develop_ideal</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> double precision
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 22
+					</li>
+					<li>
+						<strong>Scale:</strong> 0
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_sum_expire">sum_expire</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> double precision
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 22
+					</li>
+					<li>
+						<strong>Scale:</strong> 0
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_sum_ideal">sum_ideal</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> double precision
+					</li>
+					<li>
+						<strong>Length:</strong> 255
+					</li>
+					<li>
+						<strong>Precision:</strong> 22
+					</li>
+					<li>
+						<strong>Scale:</strong> 0
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 

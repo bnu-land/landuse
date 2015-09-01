@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-18 16:06:27 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LanduseIntensityManager" table="landuse_intensity_manager" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="50" />
+        </property>
+        <property name="kfqMap" type="string">
+            <column name="kfq_map" length="50" />
+        </property>
+        <property name="calcDate" type="date">
+            <column name="calc_date" length="10" />
+        </property>
+        <property name="mainExpire" type="java.lang.Double">
+            <column name="main_expire" precision="22" scale="0" />
+        </property>
+        <property name="mainIdeal" type="java.lang.Double">
+            <column name="main_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developExpire" type="java.lang.Double">
+            <column name="develop_expire" precision="22" scale="0" />
+        </property>
+        <property name="developIdeal" type="java.lang.Double">
+            <column name="develop_ideal" precision="22" scale="0" />
+        </property>
+        <property name="sumExpire" type="java.lang.Double">
+            <column name="sum_expire" precision="22" scale="0" />
+        </property>
+        <property name="sumIdeal" type="java.lang.Double">
+            <column name="sum_ideal" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

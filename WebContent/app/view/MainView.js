@@ -20,8 +20,8 @@ Ext.define('MyApp.view.MainView', {
     requires: [
         'MyApp.view.MainViewViewModel',
         'Ext.toolbar.Toolbar',
-        'Ext.toolbar.Fill',
         'Ext.button.Button',
+        'Ext.toolbar.Fill',
         'Ext.form.Label',
         'Ext.menu.Menu',
         'Ext.menu.Item'
@@ -39,6 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 100,
+            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:25px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -46,9 +47,6 @@ Ext.define('MyApp.view.MainView', {
                     dock: 'top',
                     width: 150,
                     items: [
-                        {
-                            xtype: 'tbfill'
-                        },
                         {
                             xtype: 'button',
                             id: 'homePanel',
@@ -58,8 +56,11 @@ Ext.define('MyApp.view.MainView', {
                             }
                         },
                         {
+                            xtype: 'tbfill'
+                        },
+                        {
                             xtype: 'label',
-                            text: '黑龙江开发区土地利用监测巡检系统'
+                            text: ''
                         },
                         {
                             xtype: 'label',

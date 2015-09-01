@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import cn.mutu.land.model.LanduseIntensityConstruct;
 import cn.mutu.land.model.LanduseIntensityExpansion;
 import cn.mutu.land.model.LanduseIntensityIntension;
+import cn.mutu.land.model.LanduseIntensityManager;
 
 @Service
 public class LanduseCalculationService {
@@ -141,7 +142,7 @@ public class LanduseCalculationService {
 		}
 	}
 
-	// ------------结构潜力----------------------------
+	// ------------强度潜力----------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getIntensionList(String searchKeyword) {
 		String hql = "FROM LanduseIntensityIntension as t";
@@ -199,4 +200,60 @@ public class LanduseCalculationService {
 		}
 	}
 
+	// ------------管理潜力----------------------------
+		@SuppressWarnings("unchecked")
+		public Map<String, Object> getManagerList(String searchKeyword) {
+			String hql = "FROM LanduseIntensityManager as t";
+			String hql2 = "";
+			if (!searchKeyword.equals("")) {
+				String likeStr = " LIKE '%" + searchKeyword + "%' ";
+				hql2 = " WHERE t.kfqName" + likeStr + "AND t.kfqMap" + likeStr;
+			}
+			hql2 += " ORDER BY t.id DESC";
+			hql = hql + hql2;
+			List<LanduseIntensityManager> results = null;
+			org.hibernate.Query query = sessionFactory.getCurrentSession()
+					.createQuery(hql);
+			results = (List<LanduseIntensityManager>) query.list();
+			Map<String, Object> myMapResult = new TreeMap<String, Object>();
+			myMapResult.put("root", results);
+			myMapResult.put("success", true);
+			return myMapResult;
+		}
+
+		public void addManager(LanduseIntensityManager type) {
+			Session session = sessionFactory.getCurrentSession();
+			try {
+				Calendar ca = Calendar.getInstance();
+				Date now = ca.getTime();
+				type.setCalcDate(now);
+				session.saveOrUpdate(type);
+			} catch (SQLGrammarException s) {
+				System.out.println(s);
+			}
+		}
+
+		// 编辑
+		public void updateManager(LanduseIntensityManager type) {
+			Session session = sessionFactory.getCurrentSession();
+			try {
+				session.saveOrUpdate(type);
+			} catch (Exception er) {
+				System.out.println(er.getMessage());
+			}
+		}
+
+		// 删除
+		public void deleteManager(String id) {
+			LanduseIntensityManager result = null;
+			Session session = sessionFactory.getCurrentSession();
+			try {
+				result = (LanduseIntensityManager) session.get(
+						LanduseIntensityManager.class, Integer.parseInt(id));
+				session.delete(result);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }

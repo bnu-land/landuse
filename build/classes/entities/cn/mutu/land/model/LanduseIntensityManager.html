@@ -25,11 +25,11 @@
 		<h4>
 				cn.mutu.land.model
 		</h4>
-		<h2>Entity SystemMap</h2>
+		<h2>Entity LanduseIntensityManager</h2>
 		
 		<ul class="EntityHierarchy">
 			<li>
-				cn.mutu.land.model.SystemMap
+				cn.mutu.land.model.LanduseIntensityManager
 			</li>
 		</ul>
 
@@ -63,8 +63,8 @@
 				<tbody>
 						<tr>
 							<td>
-								<a href="#identifier_detail_mapId">
-									mapId
+								<a href="#identifier_detail_id">
+									id
 								</a>
 							</td>
 							<td>
@@ -110,14 +110,89 @@
 	
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_description">
-									description
+								<a href="#property_detail_calcDate">
+									calcDate
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											description
+											calc_date
+										</a>
+									</td>
+	
+							<td rowspan="1">
+								property (<a href="#property_summary">get</a> / <a href="#property_summary">set</a>)
+							</td>
+	
+							<td rowspan="1">
+									Date
+							</td>
+	
+							<td rowspan="1">
+									&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="1">
+								<a href="#property_detail_developExpire">
+									developExpire
+								</a>
+							</td>
+	
+									<td>
+										<a href="#property_summary">
+											develop_expire
+										</a>
+									</td>
+	
+							<td rowspan="1">
+								property (<a href="#property_summary">get</a> / <a href="#property_summary">set</a>)
+							</td>
+	
+							<td rowspan="1">
+									Double
+							</td>
+	
+							<td rowspan="1">
+									&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="1">
+								<a href="#property_detail_developIdeal">
+									developIdeal
+								</a>
+							</td>
+	
+									<td>
+										<a href="#property_summary">
+											develop_ideal
+										</a>
+									</td>
+	
+							<td rowspan="1">
+								property (<a href="#property_summary">get</a> / <a href="#property_summary">set</a>)
+							</td>
+	
+							<td rowspan="1">
+									Double
+							</td>
+	
+							<td rowspan="1">
+									&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="1">
+								<a href="#property_detail_kfqMap">
+									kfqMap
+								</a>
+							</td>
+	
+									<td>
+										<a href="#property_summary">
+											kfq_map
 										</a>
 									</td>
 	
@@ -135,14 +210,14 @@
 						</tr>
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_mapGroup">
-									mapGroup
+								<a href="#property_detail_kfqName">
+									kfqName
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											map_group
+											kfq_name
 										</a>
 									</td>
 	
@@ -160,14 +235,14 @@
 						</tr>
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_mapKey">
-									mapKey
+								<a href="#property_detail_mainExpire">
+									mainExpire
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											map_key
+											main_expire
 										</a>
 									</td>
 	
@@ -176,7 +251,7 @@
 							</td>
 	
 							<td rowspan="1">
-									String
+									Double
 							</td>
 	
 							<td rowspan="1">
@@ -185,14 +260,14 @@
 						</tr>
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_mapName">
-									mapName
+								<a href="#property_detail_mainIdeal">
+									mainIdeal
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											map_name
+											main_ideal
 										</a>
 									</td>
 	
@@ -201,7 +276,7 @@
 							</td>
 	
 							<td rowspan="1">
-									String
+									Double
 							</td>
 	
 							<td rowspan="1">
@@ -210,14 +285,14 @@
 						</tr>
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_mapPid">
-									mapPid
+								<a href="#property_detail_sumExpire">
+									sumExpire
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											map_pid
+											sum_expire
 										</a>
 									</td>
 	
@@ -226,7 +301,7 @@
 							</td>
 	
 							<td rowspan="1">
-									Integer
+									Double
 							</td>
 	
 							<td rowspan="1">
@@ -235,14 +310,14 @@
 						</tr>
 						<tr>
 							<td rowspan="1">
-								<a href="#property_detail_mapUrl">
-									mapUrl
+								<a href="#property_detail_sumIdeal">
+									sumIdeal
 								</a>
 							</td>
 	
 									<td>
 										<a href="#property_summary">
-											map_url
+											sum_ideal
 										</a>
 									</td>
 	
@@ -251,7 +326,7 @@
 							</td>
 	
 							<td rowspan="1">
-									String
+									Double
 							</td>
 	
 							<td rowspan="1">
@@ -266,23 +341,29 @@
 			<p id="identifier_detail" class="MainTableHeading">
 				Identifier Detail
 			</p>
-				<h3 id="identifier_detail_mapId">mapId</h3>
+				<h3 id="identifier_detail_id">id</h3>
 
 
 			<p id="property_detail" class="MainTableHeading">
 				Property Detail
 			</p>
-				<h3 id="property_detail_mapPid">mapPid</h3>
+				<h3 id="property_detail_kfqName">kfqName</h3>
 				<hr/>
-				<h3 id="property_detail_mapGroup">mapGroup</h3>
+				<h3 id="property_detail_kfqMap">kfqMap</h3>
 				<hr/>
-				<h3 id="property_detail_mapName">mapName</h3>
+				<h3 id="property_detail_calcDate">calcDate</h3>
 				<hr/>
-				<h3 id="property_detail_mapKey">mapKey</h3>
+				<h3 id="property_detail_mainExpire">mainExpire</h3>
 				<hr/>
-				<h3 id="property_detail_mapUrl">mapUrl</h3>
+				<h3 id="property_detail_mainIdeal">mainIdeal</h3>
 				<hr/>
-				<h3 id="property_detail_description">description</h3>
+				<h3 id="property_detail_developExpire">developExpire</h3>
+				<hr/>
+				<h3 id="property_detail_developIdeal">developIdeal</h3>
+				<hr/>
+				<h3 id="property_detail_sumExpire">sumExpire</h3>
+				<hr/>
+				<h3 id="property_detail_sumIdeal">sumIdeal</h3>
 				<hr/>
 
 	</body>

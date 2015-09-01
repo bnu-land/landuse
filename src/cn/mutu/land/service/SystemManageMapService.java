@@ -71,7 +71,7 @@ public class SystemManageMapService {
 				result = (SystemMap) session.get(SystemMap.class,
 						Integer.parseInt(id));
 				session.delete(result);
-			}			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

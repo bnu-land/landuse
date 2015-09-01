@@ -1,0 +1,146 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "land_intensityManagerModel"
+    },
+    "name": "land_intensityExpansionModel1",
+    "designerId": "464f0b53-9ff9-4812-b67b-a0c18825e455",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyInteger1",
+            "designerId": "1dfbc487-6e3b-423c-a138-dc1b3a820c8f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "kfqName"
+            },
+            "name": "MyField4",
+            "designerId": "feb35264-9963-457b-b761-3f1006af1022"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "kfqMap"
+            },
+            "name": "MyField38",
+            "designerId": "76e4c515-7c04-458d-900b-25bfd7b7084c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "calcDate"
+            },
+            "name": "MyField6",
+            "designerId": "d87929c9-64ce-4c34-b78c-8dce050d9f6a"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mainExpire"
+            },
+            "name": "MyNumber39",
+            "designerId": "976cb7f7-e89c-46cf-b82b-cc2d6565e87c"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "developExpire"
+            },
+            "name": "MyNumber",
+            "designerId": "88d3c6c0-c841-4498-bdcb-c4419139629e"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|createAlias": null,
+                "name": "sumExpire"
+            },
+            "name": "MyNumber1",
+            "designerId": "309f7ed0-6a6f-4fc8-9b11-80edb3844797"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mainIdeal"
+            },
+            "name": "MyNumber2",
+            "designerId": "d23ea700-db56-48a1-a14f-2e49c5d3c24a"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "developIdeal"
+            },
+            "name": "MyNumber3",
+            "designerId": "dc175b3a-72ec-46c3-b660-e66c74f447d7"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sumIdeal"
+            },
+            "name": "MyNumber4",
+            "designerId": "5fc46af2-3041-46ff-9d8e-ec6a939c7124"
+        }
+    ]
+}
