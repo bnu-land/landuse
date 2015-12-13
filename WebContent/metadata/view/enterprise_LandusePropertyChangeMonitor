@@ -12,6 +12,7 @@
             "<div id=\"map\" ></div>"
         ],
         "id": null,
+        "layout": "border",
         "title": "企业用地性质变更监控"
     },
     "name": "homePanel1",
@@ -41,6 +42,106 @@
             },
             "name": "onPanelAfterRender",
             "designerId": "74fa3088-d7fe-47e9-b8a5-ad549e74e242"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "layout|split": true,
+                "title": "My Panel"
+            },
+            "name": "MyPanel",
+            "designerId": "a5fd4445-c4db-41c5-9d0b-9095cd7625e5"
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 150,
+                "layout|region": "south",
+                "layout|split": true,
+                "store": "entLanduseChange",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel",
+            "designerId": "ba7addd1-4bf4-43c9-8279-6ca6f1750c18",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "String"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "f10f2868-f3da-4812-9cfc-41bf57df3093"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "number",
+                        "text": "Number"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "40394aa2-edb0-41bb-87fb-3453c8cd5d31"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "date",
+                        "text": "Date"
+                    },
+                    "name": "MyDateColumn",
+                    "designerId": "8cc883c8-cf56-45e2-b68a-8a638db5bd8f"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "bool",
+                        "text": "Boolean"
+                    },
+                    "name": "MyBooleanColumn",
+                    "designerId": "cf3d71bc-aa2c-44e7-85d0-5629b9ec8052"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "d90658d5-4e61-4dda-bd1e-c1be270be860"
+                }
+            ]
         }
     ]
 }

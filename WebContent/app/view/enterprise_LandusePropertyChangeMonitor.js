@@ -17,13 +17,60 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.enterprise_LandusePropertyChangeMonitor',
 
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View'
+    ],
+
     html: '<div id="map" ></div>',
+    layout: 'border',
     title: '企业用地性质变更监控',
     defaultListenerScope: true,
 
     listeners: {
         afterrender: 'onPanelAfterRender'
     },
+    items: [
+        {
+            xtype: 'panel',
+            region: 'center',
+            split: true,
+            title: 'My Panel'
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'south',
+            split: true,
+            height: 150,
+            title: 'My Grid Panel',
+            store: 'entLanduseChange',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: 'String'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'number',
+                    text: 'Number'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'date',
+                    text: 'Date'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'bool',
+                    text: 'Boolean'
+                }
+            ]
+        }
+    ],
 
     onPanelAfterRender: function(component, eOpts) {
         //加入地图的js文件
