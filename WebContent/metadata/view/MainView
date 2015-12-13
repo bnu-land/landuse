@@ -25,6 +25,9 @@
             "codeClass": null,
             "userConfig": {
                 "height": 100,
+                "html": [
+                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:25px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
+                ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
                 "title": null
@@ -46,19 +49,6 @@
                     "name": "MyToolbar",
                     "designerId": "4c39dc46-35f3-427d-9362-cdec3195ccf2",
                     "cn": [
-                        {
-                            "type": "Ext.toolbar.Fill",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null
-                            },
-                            "name": "MyFill",
-                            "designerId": "2de92776-6417-4f14-a236-1d96e3c8fe4f"
-                        },
                         {
                             "type": "Ext.button.Button",
                             "reference": {
@@ -98,6 +88,19 @@
                             ]
                         },
                         {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "2de92776-6417-4f14-a236-1d96e3c8fe4f"
+                        },
+                        {
                             "type": "Ext.form.Label",
                             "reference": {
                                 "name": "items",
@@ -106,7 +109,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "黑龙江开发区土地利用监测巡检系统"
+                                "text": ""
                             },
                             "name": "MyLabel",
                             "designerId": "654471bb-78c8-4814-a6bd-88fbf2d46083"

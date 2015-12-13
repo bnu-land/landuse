@@ -58,7 +58,9 @@ require([
             "ymax": 45.8012362121582,
             "spatialReference": {"wkid": WKID}
         });
-        map = new esri.Map("thematic_LanduseConstructionContrast_div");
+        map = new esri.Map("thematic_LanduseConstructionContrast_div",{
+            logo:false
+        });
 
         //---------Ext JS 事件----------
         //初始化选择图层
