@@ -8,13 +8,12 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
-        "designer|userAlias": "entLanduseChange",
-        "designer|userClassName": "entLanduseChange",
-        "model": "entLanduseChange",
-        "storeId": "entLanduseChange"
+        "designer|userClassName": "systemMap_QYYD_Store",
+        "model": "systemMapModel",
+        "storeId": "systemMap_QYYD_Store"
     },
-    "name": "landIndexMetaStore1",
-    "designerId": "798a1f48-a409-4e52-bfff-60b94f0bbac7",
+    "name": "systemMapFeatureLayerStore1",
+    "designerId": "166941e5-3bfc-463d-911d-780f14075746",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -26,13 +25,13 @@
             "userConfig": {
                 "extraParams": [
                     "{",
-                    "    searchKeyword: ''",
+                    "    \"LayerGroups\":[\"qyyd\"]",
                     "}"
                 ],
-                "url": "get_EntLandChange"
+                "url": "get_FeatureLayerURLs"
             },
             "name": "MyAjaxProxy",
-            "designerId": "38637dd5-8ae1-4400-a593-e8b7231f13ef",
+            "designerId": "9521e2ad-a644-4d3a-950f-dae4f0d6957d",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -45,7 +44,7 @@
                         "rootProperty": "root"
                     },
                     "name": "MyJsonReader",
-                    "designerId": "02013f4e-2edc-4534-ab19-8cb8e2c233cf"
+                    "designerId": "7eb4607c-7b29-4d7a-9ff9-4a9dde314e31"
                 }
             ]
         }

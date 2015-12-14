@@ -22,100 +22,106 @@ Ext.define('MyApp.model.entLanduseChange', {
 
     fields: [
         {
-            name: 'MBBSM'
+            name: 'mbbsm'
         },
         {
-            name: 'YSDM'
+            name: 'ysdm'
         },
         {
-            name: 'KFQDM'
+            name: 'kfqdm'
         },
         {
-            name: 'KFQMC'
+            name: 'kfqmc'
         },
         {
-            name: 'TBBH'
+            name: 'tbbh'
         },
         {
-            name: 'DXDM'
+            name: 'dxdm'
         },
         {
-            name: 'QYMC'
+            name: 'qymc'
         },
         {
-            name: 'QYDZ'
+            name: 'qydz'
         },
         {
-            name: 'SSPJFW'
+            name: 'sspjfw'
         },
         {
-            name: 'HYLB'
+            name: 'hylb'
         },
         {
-            name: 'HYDM'
+            name: 'hydm'
         },
         {
-            name: 'QYRS'
+            name: 'qyrs'
         },
         {
-            name: 'YJZTZ'
+            name: 'yjztz'
         },
         {
-            name: 'WCTZ'
+            name: 'wctz'
         },
         {
-            name: 'ZSR'
+            name: 'zsr'
         },
         {
-            name: 'ZCZ'
+            name: 'zcz'
         },
         {
-            name: 'SSZE'
+            name: 'ssze'
         },
         {
-            name: 'QYYDMJ'
+            name: 'qyydmj'
         },
         {
-            name: 'CFPT'
+            name: 'cfpt'
         },
         {
-            name: 'XZBG'
+            name: 'xzbg'
         },
         {
-            name: 'LTCD'
+            name: 'ltcd'
         },
         {
-            name: 'NBYLD'
+            name: 'nbyld'
         },
         {
-            name: 'DLTCC'
+            name: 'dltcc'
         },
         {
-            name: 'LD'
+            name: 'ld'
         },
         {
-            name: 'QT'
+            name: 'qt'
         },
         {
-            name: 'ZJZMJ'
+            name: 'zjzmj'
         },
         {
-            name: 'RJL'
+            name: 'rjl'
         },
         {
-            name: 'JDZMJ'
+            name: 'jdzmj'
         },
         {
-            name: 'JZXS'
+            name: 'jzxs'
         },
         {
-            name: 'BZ'
+            name: 'bz'
         },
         {
-            name: 'CJR'
+            name: 'cjr'
         },
         {
-            name: 'CJSJ'
+            name: 'cjsj'
+        },
+        {
+            name: 'shzt'
+        },
+        {
+            name: 'shyj'
         }
     ]
 });

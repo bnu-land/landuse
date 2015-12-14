@@ -21,14 +21,14 @@ public class EnterpriseDynamicMonitorService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getEntLanduseChangeList(String searchKeyword) {
-		String hql = "FROM LawRegulation as law";
+		String hql = "FROM EntDxqyydPda as ent";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE law.lawType" + likeStr 
-					+ "OR law.lawTitle" + likeStr
-					+ "OR law.description" + likeStr
-					+ "OR law.lawContent" + likeStr
-					+ "OR law.lawEditor" + likeStr;
+			String hql2 = " WHERE ent.lawType" + likeStr 
+					+ "OR ent.lawTitle" + likeStr
+					+ "OR ent.description" + likeStr
+					+ "OR ent.lawContent" + likeStr
+					+ "OR ent.lawEditor" + likeStr;
 			hql += hql2;
 		}		
 		List<EntDxqyydPda> results = null;

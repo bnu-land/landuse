@@ -82,7 +82,8 @@ Ext.application({
         'landIntensityConstructStore',
         'landIntensityIntensionStore',
         'landIntensityManagerStore',
-        'entLanduseChange'
+        'entLanduseChange',
+        'systemMap_QYYD_Store'
     ],
     views: [
         'MainView',

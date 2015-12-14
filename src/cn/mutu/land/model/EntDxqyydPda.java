@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2015-12-13 21:58:06 by Hibernate Tools 4.0.0
+// Generated 2015-12-14 14:54:48 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -42,6 +42,8 @@ public class EntDxqyydPda implements java.io.Serializable {
 	private String bz;
 	private String cjr;
 	private Date cjsj;
+	private Integer shzt;
+	private String shyj;
 
 	public EntDxqyydPda() {
 	}
@@ -56,7 +58,7 @@ public class EntDxqyydPda implements java.io.Serializable {
 			Double zsr, Double zcz, Double ssze, Double qyydmj, Double cfpt,
 			Double xzbg, Double ltcd, Double nbyld, Double dltcc, Double ld,
 			Double qt, Double zjzmj, Double rjl, Double jdzmj, Double jzxs,
-			String bz, String cjr, Date cjsj) {
+			String bz, String cjr, Date cjsj, Integer shzt, String shyj) {
 		this.mbbsm = mbbsm;
 		this.ysdm = ysdm;
 		this.kfqdm = kfqdm;
@@ -89,6 +91,8 @@ public class EntDxqyydPda implements java.io.Serializable {
 		this.bz = bz;
 		this.cjr = cjr;
 		this.cjsj = cjsj;
+		this.shzt = shzt;
+		this.shyj = shyj;
 	}
 
 	public Integer getId() {
@@ -353,6 +357,22 @@ public class EntDxqyydPda implements java.io.Serializable {
 
 	public void setCjsj(Date cjsj) {
 		this.cjsj = cjsj;
+	}
+
+	public Integer getShzt() {
+		return this.shzt;
+	}
+
+	public void setShzt(Integer shzt) {
+		this.shzt = shzt;
+	}
+
+	public String getShyj() {
+		return this.shyj;
+	}
+
+	public void setShyj(String shyj) {
+		this.shyj = shyj;
 	}
 
 }
