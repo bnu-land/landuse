@@ -70,7 +70,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             region: 'east',
             split: true,
             autoScroll: true,
-            width: 230,
+            width: 270,
             collapsed: false,
             collapsible: true,
             title: '企业用地变更详情',
@@ -116,216 +116,412 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
                         {
                             xtype: 'fieldset',
                             title: '要素字段属性',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
                             items: [
                                 {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '目标识别码',
-                                    labelWidth: 90,
-                                    name: 'mbbsm'
+                                    xtype: 'container',
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '目标识别码',
+                                            labelWidth: 80,
+                                            name: 'mbbsm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '要素代码',
+                                            labelWidth: 80,
+                                            name: 'ysdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '开发区代码',
+                                            labelWidth: 80,
+                                            name: 'kfqdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '开发区名称',
+                                            labelWidth: 80,
+                                            name: 'kfqmc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '图斑编号',
+                                            labelWidth: 80,
+                                            name: 'tbbh'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '典型企业代码',
+                                            labelWidth: 80,
+                                            name: 'dxdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '企业名称',
+                                            labelWidth: 80,
+                                            name: 'qymc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '企业地址',
+                                            labelWidth: 80,
+                                            name: 'qydz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '所属评价范围',
+                                            labelWidth: 80,
+                                            name: 'sspjfw'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '行业类别',
+                                            labelWidth: 80,
+                                            name: 'hylb'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '行业代码',
+                                            labelWidth: 80,
+                                            name: 'hydm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '行业企业人数',
+                                            labelWidth: 80,
+                                            name: 'qyrs'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '预计总投资',
+                                            labelWidth: 80,
+                                            name: 'yjztz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '实际完成投资',
+                                            labelWidth: 80,
+                                            name: 'wctz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '总收入',
+                                            labelWidth: 80,
+                                            name: 'zsr'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '总产值',
+                                            labelWidth: 80,
+                                            name: 'zcz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '税收总额/万元',
+                                            labelWidth: 80,
+                                            name: 'ssze'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '企业用地面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'qyydmj'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '厂房及配套面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'cfpt'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '办公及生活设施面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'xzbg'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '堆场及操作场地面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'ltcd'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '预留地面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'nbyld'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '道路停车场面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'dltcc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '绿地面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'ld'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '其他用地面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'qt'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '总建筑面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'zjzmj'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '容积率/%',
+                                            labelWidth: 80,
+                                            name: 'rjl'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '构筑物基底总面积/公顷',
+                                            labelWidth: 80,
+                                            name: 'jdzmj'
+                                        },
+                                        {
+                                            xtype: 'textareafield',
+                                            width: 150,
+                                            fieldLabel: '备注',
+                                            labelWidth: 80,
+                                            name: 'bz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 150,
+                                            fieldLabel: '建筑系数/%',
+                                            labelWidth: 80,
+                                            name: 'jzxs'
+                                        }
+                                    ]
                                 },
                                 {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '要素代码',
-                                    labelWidth: 90,
-                                    name: 'ysdm'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '开发区代码',
-                                    labelWidth: 90,
-                                    name: 'kfqdm'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '开发区名称',
-                                    labelWidth: 90,
-                                    name: 'kfqmc'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '图斑编号',
-                                    labelWidth: 90,
-                                    name: 'tbbh'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '典型企业代码',
-                                    labelWidth: 90,
-                                    name: 'dxdm'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '企业名称',
-                                    labelWidth: 90,
-                                    name: 'qymc'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '企业地址',
-                                    labelWidth: 90,
-                                    name: 'qydz'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '所属评价范围',
-                                    labelWidth: 90,
-                                    name: 'sspjfw'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '行业类别',
-                                    labelWidth: 90,
-                                    name: 'hylb'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '行业代码',
-                                    labelWidth: 90,
-                                    name: 'hydm'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '行业企业人数',
-                                    labelWidth: 90,
-                                    name: 'qyrs'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '预计总投资',
-                                    labelWidth: 90,
-                                    name: 'yjztz'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '实际完成投资',
-                                    labelWidth: 90,
-                                    name: 'wctz'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '总收入',
-                                    labelWidth: 90,
-                                    name: 'zsr'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '总产值',
-                                    labelWidth: 90,
-                                    name: 'zcz'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '税收总额/万元',
-                                    labelWidth: 90,
-                                    name: 'ssze'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '企业用地面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'qyydmj'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '厂房及配套面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'cfpt'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '办公及生活设施面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'xzbg'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '堆场及操作场地面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'ltcd'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '预留地面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'nbyld'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '道路停车场面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'dltcc'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '绿地面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'ld'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '其他用地面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'qt'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '总建筑面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'zjzmj'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '容积率/%',
-                                    labelWidth: 90,
-                                    name: 'rjl'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '构筑物基底总面积/公顷',
-                                    labelWidth: 90,
-                                    name: 'jdzmj'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    anchor: '100%',
-                                    fieldLabel: '建筑系数/%',
-                                    labelWidth: 90,
-                                    name: 'jzxs'
-                                },
-                                {
-                                    xtype: 'textareafield',
-                                    anchor: '100%',
-                                    fieldLabel: '备注',
-                                    labelWidth: 80,
-                                    name: 'bz'
+                                    xtype: 'container',
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            name: 'mbbsm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'ysdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'kfqdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'kfqmc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'tbbh'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'dxdm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            fieldLabel: '',
+                                            labelWidth: 90,
+                                            name: 'qymc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'qydz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            fieldLabel: '',
+                                            labelWidth: 90,
+                                            name: 'sspjfw'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'hylb'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'hydm'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'qyrs'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'yjztz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'wctz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            fieldLabel: '',
+                                            labelWidth: 90,
+                                            name: 'zsr'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'zcz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'ssze'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'qyydmj'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'cfpt'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'xzbg'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'ltcd'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'nbyld'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'dltcc'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'ld'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'qt'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'zjzmj'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'rjl'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'jdzmj'
+                                        },
+                                        {
+                                            xtype: 'textareafield',
+                                            width: 60,
+                                            labelWidth: 80,
+                                            name: 'bz'
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            width: 60,
+                                            labelWidth: 90,
+                                            name: 'jzxs'
+                                        }
+                                    ]
                                 }
                             ]
                         }
