@@ -22,7 +22,6 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
         'Ext.form.field.ComboBox',
         'Ext.form.Panel',
         'Ext.form.field.TextArea',
-        'Ext.form.FieldSet',
         'Ext.tab.Panel',
         'Ext.tab.Tab',
         'Ext.grid.Panel',
@@ -69,71 +68,72 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             xtype: 'panel',
             region: 'east',
             split: true,
-            autoScroll: true,
             width: 270,
+            layout: 'border',
             collapsed: false,
             collapsible: true,
             title: '企业用地变更详情',
-            layout: {
-                type: 'vbox',
-                align: 'stretch'
-            },
             items: [
                 {
                     xtype: 'form',
+                    region: 'north',
+                    height: 200,
                     id: 'ent_landuseChangeAttr_Form',
-                    width: 150,
+                    layout: 'auto',
                     bodyPadding: 10,
                     items: [
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             fieldLabel: '审核状态',
                             labelWidth: 80,
                             name: 'shzt'
                         },
                         {
                             xtype: 'textareafield',
-                            anchor: '100%',
                             fieldLabel: '审核意见',
                             labelWidth: 80,
                             name: 'shyj'
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             fieldLabel: '采集人',
                             labelWidth: 80,
                             name: 'cjr'
                         },
                         {
                             xtype: 'textfield',
-                            anchor: '100%',
                             fieldLabel: '采集时间',
                             labelWidth: 80,
                             name: 'cjsj'
-                        },
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    flex: 1,
+                    region: 'center',
+                    autoScroll: true,
+                    layout: 'border',
+                    items: [
                         {
-                            xtype: 'fieldset',
-                            title: '要素字段属性',
-                            layout: {
-                                type: 'hbox',
-                                align: 'stretch'
-                            },
+                            xtype: 'form',
+                            flex: 1,
+                            region: 'center',
+                            layout: 'auto',
+                            bodyPadding: 10,
+                            title: '变更前',
                             items: [
                                 {
                                     xtype: 'container',
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            width: 150,
                                             fieldLabel: '目标识别码',
                                             labelWidth: 80,
                                             name: 'mbbsm'
                                         },
                                         {
                                             xtype: 'textfield',
-                                            width: 150,
                                             fieldLabel: '要素代码',
                                             labelWidth: 80,
                                             name: 'ysdm'
@@ -335,24 +335,32 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
                                             name: 'jzxs'
                                         }
                                     ]
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'form',
+                            flex: 1,
+                            region: 'east',
+                            maxWidth: 80,
+                            width: 80,
+                            bodyPadding: 10,
+                            title: '变更后',
+                            items: [
                                 {
                                     xtype: 'container',
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            width: 60,
                                             name: 'mbbsm'
                                         },
                                         {
                                             xtype: 'textfield',
-                                            width: 60,
                                             labelWidth: 90,
                                             name: 'ysdm'
                                         },
                                         {
                                             xtype: 'textfield',
-                                            width: 60,
                                             labelWidth: 90,
                                             name: 'kfqdm'
                                         },

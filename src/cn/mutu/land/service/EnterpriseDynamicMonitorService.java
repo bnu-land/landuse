@@ -30,7 +30,8 @@ public class EnterpriseDynamicMonitorService {
 					+ "OR ent.lawContent" + likeStr
 					+ "OR ent.lawEditor" + likeStr;
 			hql += hql2;
-		}		
+		}
+		System.out.print("sql:"+hql);
 		List<EntDxqyydPda> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
