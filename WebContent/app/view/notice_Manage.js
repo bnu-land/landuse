@@ -49,7 +49,7 @@ Ext.define('MyApp.view.notice_Manage', {
                         {
                             xtype: 'gridpanel',
                             id: 'notice_NewsManageGrid',
-                            store: 'notice_newStore',
+                            store: 'notice_newsStore',
                             columns: [
                                 {
                                     xtype: 'rownumberer'
@@ -104,10 +104,18 @@ Ext.define('MyApp.view.notice_Manage', {
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            id: 'system_MapManage_SearchText1'
+                                            id: 'noticeNews_SearchText'
                                         },
                                         {
                                             xtype: 'button',
+                                            handler: function() {
+                                                var searchKeyword = Ext.getCmp('noticeNews_SearchText').getValue();
+                                                var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象
+                                                //在load事件中添加参数
+                                                mystore.load({
+                                                    params :{searchKeyword : searchKeyword}
+                                                });
+                                            },
                                             icon: 'images/table/search.png',
                                             text: '查询'
                                         },
@@ -121,16 +129,82 @@ Ext.define('MyApp.view.notice_Manage', {
                                         },
                                         {
                                             xtype: 'button',
+                                            handler: function() {
+                                                var xtype = 'notice_Publish';
+                                                var mainView = Ext.getCmp('mainView');
+                                                mainView.removeAll();
+                                                mainView.add(Ext.widget(xtype));
+                                            },
                                             icon: 'images/table/add.png',
                                             text: '添加'
                                         },
                                         {
                                             xtype: 'button',
+                                            handler: function() {
+                                                //获取数据
+                                                var records = Ext.getCmp('notice_NewsManageGrid').getSelection();
+                                                if (records.length === 0){
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+                                                    return;
+                                                } else if(records.length >1){
+                                                    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+                                                    return;
+                                                }
+                                                //启动窗口
+                                                var xtype = 'notice_Publish';
+                                                var mainView = Ext.getCmp('mainView');
+                                                mainView.removeAll();
+                                                mainView.add(Ext.widget(xtype));
+
+                                                //改变Ajax url
+                                                var form = Ext.getCmp('notice_PublishForm').getForm();
+                                                form.loadRecord(records[0]);
+                                                form.url = 'update_NoticeNews';
+                                            },
                                             icon: 'images/table/edit.png',
                                             text: '修改'
                                         },
                                         {
                                             xtype: 'button',
+                                            handler: function() {
+                                                //获取数据
+                                                var records = Ext.getCmp('notice_NewsManageGrid').getSelection();
+                                                if (records.length === 0){
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                                    return;
+                                                }else if(records.length >1){
+                                                    Ext.Msg.alert('提示', '每次只能删除一条文章。');
+                                                    return;
+                                                }
+                                                var id = records[0].get("id");
+                                                var columnName= records[0].get("noticeTitle");
+                                                Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']。<br/> 确认删除？', getResult);
+
+                                                var record = records[0];
+
+                                                function getResult(confirm)
+                                                {
+                                                    console.log('confirm:', confirm);
+                                                    if (confirm == "yes"){
+                                                        Ext.Ajax.request(
+                                                        {
+                                                            url : 'del_NoticeToDraft',
+                                                            params :
+                                                            {
+                                                                news : record
+                                                            },
+                                                            success : function (response){
+                                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                                var mystore = Ext.StoreMgr.get('notice_newsStore');
+                                                                mystore.load();
+                                                            },
+                                                            failure : function (response){
+                                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            },
                                             icon: 'images/table/delete.png',
                                             text: '删除'
                                         }
@@ -145,7 +219,169 @@ Ext.define('MyApp.view.notice_Manage', {
                 },
                 {
                     xtype: 'panel',
-                    title: '草稿箱'
+                    title: '草稿箱',
+                    items: [
+                        {
+                            xtype: 'gridpanel',
+                            id: 'notice_NewsDraftGrid',
+                            store: 'notice_newsDraftStore',
+                            columns: [
+                                {
+                                    xtype: 'rownumberer'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    width: 120,
+                                    dataIndex: 'noticeColumn',
+                                    text: '所属栏目'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    width: 250,
+                                    dataIndex: 'noticeTitle',
+                                    text: '标题'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'noticeAuthor',
+                                    text: '作者'
+                                },
+                                {
+                                    xtype: 'datecolumn',
+                                    width: 100,
+                                    dataIndex: 'publishDate',
+                                    text: '发表时间',
+                                    format: 'Y-m-d'
+                                },
+                                {
+                                    xtype: 'datecolumn',
+                                    width: 100,
+                                    dataIndex: 'editDate',
+                                    text: '最近修改',
+                                    format: 'Y-m-d'
+                                },
+                                {
+                                    xtype: 'actioncolumn',
+                                    dataIndex: 'attachment',
+                                    text: '附件'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    width: 200,
+                                    dataIndex: 'description',
+                                    text: '备注'
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            id: 'noticeNews_draft_SearchText'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                var searchKeyword = Ext.getCmp('noticeNews_draft_SearchText').getValue();
+                                                var mystore = Ext.StoreMgr.get('notice_newsDraftStore'); //获得store对象
+                                                //在load事件中添加参数
+                                                mystore.load({
+                                                    params :{
+                                                        searchKeyword : searchKeyword,
+                                                        noticeState:'1'
+                                                    }
+                                                });
+                                            },
+                                            icon: 'images/table/search.png',
+                                            text: '查询'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            icon: 'images/table/preview.png',
+                                            text: '预览'
+                                        },
+                                        {
+                                            xtype: 'tbseparator'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                //获取数据
+                                                var records = Ext.getCmp('notice_NewsDraftGrid').getSelection();
+                                                if (records.length === 0){
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+                                                    return;
+                                                } else if(records.length >1){
+                                                    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+                                                    return;
+                                                }
+                                                //启动窗口
+                                                var xtype = 'notice_Publish';
+                                                var mainView = Ext.getCmp('mainView');
+                                                mainView.removeAll();
+                                                mainView.add(Ext.widget(xtype));
+
+                                                //改变Ajax url
+                                                var form = Ext.getCmp('notice_PublishForm').getForm();
+                                                form.loadRecord(records[0]);
+                                                form.url = 'update_NoticeNews';
+                                            },
+                                            icon: 'images/table/edit.png',
+                                            text: '发布'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function() {
+                                                //获取数据
+                                                var records = Ext.getCmp('notice_NewsDraftGrid').getSelection();
+                                                if (records.length === 0){
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                                    return;
+                                                }else if(records.length >1){
+                                                    Ext.Msg.alert('提示', '每次只能删除一条文章。');
+                                                    return;
+                                                }
+                                                var id = records[0].get("id");
+                                                var columnName= records[0].get("noticeTitle");
+                                                Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']。<br/> 确认删除？', getResult);
+
+
+                                                function getResult(confirm)
+                                                {
+                                                    console.log('confirm:', confirm);
+                                                    if (confirm == "yes"){
+                                                        Ext.Ajax.request(
+                                                        {
+                                                            url : 'del_NoticeToDelete',
+                                                            params :
+                                                            {
+                                                                id : id
+                                                            },
+                                                            success : function (response){
+                                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                                var mystore = Ext.StoreMgr.get('notice_newsStore');
+                                                                mystore.load();
+                                                            },
+                                                            failure : function (response){
+                                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            },
+                                            icon: 'images/table/delete.png',
+                                            text: '删除'
+                                        }
+                                    ]
+                                }
+                            ],
+                            selModel: {
+                                selType: 'checkboxmodel'
+                            }
+                        }
+                    ]
                 },
                 {
                     xtype: 'panel',

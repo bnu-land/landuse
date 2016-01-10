@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-17 5:51:33 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LanduseIntensityConstruct" table="landuse_intensity_construct" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="50" />
+        </property>
+        <property name="kfqMap" type="string">
+            <column name="kfq_map" length="50" />
+        </property>
+        <property name="calcDate" type="date">
+            <column name="calc_date" length="10" />
+        </property>
+        <property name="mainYjcczmj" type="java.lang.Double">
+            <column name="main_yjcczmj" precision="22" scale="0" />
+        </property>
+        <property name="mainBuildWeight" type="java.lang.Double">
+            <column name="main_build_weight" precision="22" scale="0" />
+        </property>
+        <property name="mainBuildIdeal" type="java.lang.Double">
+            <column name="main_build_ideal" precision="22" scale="0" />
+        </property>
+        <property name="mainConstruct" type="java.lang.Double">
+            <column name="main_construct" precision="22" scale="0" />
+        </property>
+        <property name="developYjcczmj" type="java.lang.Double">
+            <column name="develop_yjcczmj" precision="22" scale="0" />
+        </property>
+        <property name="developBuildWeight" type="java.lang.Double">
+            <column name="develop_build_weight" precision="22" scale="0" />
+        </property>
+        <property name="developBuildIdeal" type="java.lang.Double">
+            <column name="develop_build_ideal" precision="22" scale="0" />
+        </property>
+        <property name="developConstruct" type="java.lang.Double">
+            <column name="develop_construct" precision="22" scale="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300" />
+        </property>
+    </class>
+</hibernate-mapping>

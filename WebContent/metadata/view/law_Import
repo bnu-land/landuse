@@ -8,13 +8,315 @@
     "userConfig": {
         "designer|userAlias": "law_Import",
         "designer|userClassName": "law_Import",
-        "height": 588,
+        "height": 692,
         "id": null,
+        "layout": "fit",
         "title": "法律法规导入",
-        "width": 786
+        "width": 918
     },
     "name": "law_Manage1",
     "designerId": "6ae10173-3d3d-403e-b964-b539aa5d8b96",
     "viewControllerInstanceId": "1fe307e5-d863-4fdd-ab3d-1614f708d79e",
-    "viewModelInstanceId": "1fa4ee0b-9395-4f68-a456-570008ae7640"
+    "viewModelInstanceId": "1fa4ee0b-9395-4f68-a456-570008ae7640",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 20,
+                "id": "law_ImportForm",
+                "jsonSubmit": true,
+                "title": null,
+                "url": "add_law"
+            },
+            "name": "MyForm",
+            "designerId": "330d2a01-44c0-4da2-8483-9e0df4115bc5",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "a199c5e1-ab72-4c13-b24e-ede4005971bf",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "8fde227e-2607-4b0b-a7a5-3563e991dd8e"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton",
+                            "designerId": "62d38424-c81e-45d7-9e34-3a801a43c215",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var xtype = 'law_Manage';",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "fc5478b8-1130-4d12-945c-37356234b539"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "导入法规"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "4a5ce095-90ab-4bc4-a70b-5832f66343a6",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var myform = Ext.getCmp('law_ImportForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        //url : 'add_law',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '内容发布成功。');",
+                                            "            var mystore = Ext.StoreMgr.get('law_RegulationStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            var xtype = 'law_Manage';",
+                                            "            var mainView = Ext.getCmp('mainView');",
+                                            "            mainView.removeAll();",
+                                            "            mainView.add(Ext.widget(xtype));",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '内容发布失败，请重试。');",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "6c00f74e-3a0b-4a78-905b-d1b2c0128e3a"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.HtmlEditor",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "anchorSize": null,
+                        "dock": null,
+                        "fieldLabel": "文章内容",
+                        "height": 349,
+                        "layout|anchor": "100% -45",
+                        "name": "lawContent",
+                        "width": null
+                    },
+                    "name": "MyHtmlEditor",
+                    "configAlternates": {
+                        "anchorSize": "object"
+                    },
+                    "designerId": "0340010a-be79-4b7e-b650-384478c5018b"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "afd0fb7d-20e9-4785-9b83-056635005d80",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fixed": true,
+                                "layout|flex": null,
+                                "maxWidth": 5,
+                                "width": 10
+                            },
+                            "name": "MyFill2",
+                            "designerId": "2d7fae86-9f99-42ee-b1d0-b4994379617a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "法律标题",
+                                "height": 30,
+                                "layout|flex": null,
+                                "name": "lawTitle",
+                                "padding": null,
+                                "width": "40%"
+                            },
+                            "name": "MyTextField",
+                            "designerId": "df832a8a-eb1e-4850-a85a-97613e85a6a3"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "lawType",
+                                "fieldLabel": "法律类型",
+                                "forceSelection": true,
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "name": "lawType",
+                                "store": "law_TypesStore",
+                                "valueField": "lawType",
+                                "width": 180
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "6afc9c59-c456-4b66-b57d-6a9475790726"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "颁发部门",
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "name": "publishDept",
+                                "width": 180
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "6598ad18-3e50-4b89-98a8-af3254cda831"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "trueName",
+                                "fieldLabel": "编辑人",
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "name": "lawEditor",
+                                "store": "uUserInfoStore",
+                                "valueField": "trueName",
+                                "width": 150
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "8f5979ca-3e2e-4394-998d-dfcc464ea38b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "hidden",
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "name": "MyHiddenField2",
+                    "designerId": "980d478a-ba2a-4d5c-a505-8b4af97fcc3d"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "描述",
+                        "height": 40,
+                        "layout|anchor": "100% 0",
+                        "maxHeight": 40,
+                        "name": "description"
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "682c14f3-5422-4498-a8b3-fa1943ff5449"
+                }
+            ]
+        }
+    ]
 }

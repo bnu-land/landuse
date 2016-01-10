@@ -1,0 +1,272 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "law_TypesManagerWindow",
+        "designer|userClassName": "law_TypesManagerWindow",
+        "height": 351,
+        "id": "law_TypesManagerWindow",
+        "layout": "fit",
+        "title": "法律法规类型管理",
+        "width": 537
+    },
+    "designerId": "63c6c441-ab0e-4ce1-9a95-58c4f3194d59",
+    "viewControllerInstanceId": "9eb34fd3-4fb5-4e4b-9689-f6376c95656f",
+    "viewModelInstanceId": "e96037fd-3eed-475c-a739-df68e0f1c665",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "law_TypesManagerGrid",
+                "store": "law_TypesStore",
+                "title": null
+            },
+            "name": "MyGridPanel1",
+            "designerId": "91f16189-f20a-4962-84df-99024dda0a91",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer1",
+                    "designerId": "e699c3f2-4433-4283-b3d4-06001a261637"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "lawType",
+                        "text": "栏目名称",
+                        "width": 200
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "da6bdce2-134a-48fa-95dc-f5f32dc926d7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "描述",
+                        "width": 250
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "8e5633f9-b4d9-4ff4-8c38-11839017e415"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "9f56c7f7-9a5c-4ec0-914c-37f9adae69a4"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "517fad84-56f0-4077-95f7-6803fa4b3eda",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加栏目"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "16c66aba-4bac-476a-aca5-dd58e2a220d2",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win = Ext.widget('law_TypeWindow');",
+                                            "win.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "bf78f8a4-9d0e-4e49-a0b9-0f560bc5ab05"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "修改栏目"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "71f3e759-8654-4543-9067-c5a657e243a6",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('law_TypesManagerGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                            "    return;",
+                                            "} else if(records.length >1){",
+                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                            "    return;",
+                                            "}",
+                                            "//启动窗口",
+                                            "var win = Ext.widget('law_TypeWindow');",
+                                            "win.setTitle('修改栏目');",
+                                            "win.show();",
+                                            "",
+                                            "//改变Ajax url",
+                                            "var form = Ext.getCmp('law_TypeForm').getForm();",
+                                            "form.loadRecord(records[0]);",
+                                            "form.url='update_LawType';"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "f99a804e-91aa-4363-b116-018b6eb949d5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除栏目"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "36eba387-0c9c-47ab-808a-44fe52c3ca44",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick2",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('law_TypesManagerGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}else if(records.length >1){",
+                                            "   Ext.Msg.alert('提示', '每次只能删除一条栏目。');",
+                                            "   return;",
+                                            "}",
+                                            "var id = records[0].get(\"id\");",
+                                            "var columnName= records[0].get(\"lawType\");",
+                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']栏目。<br/> 确认删除？', getResult);",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_LawTypeById',",
+                                            "            params :",
+                                            "            {",
+                                            "                id : id",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                var mystore = Ext.StoreMgr.get('law_TypesStore');",
+                                            "                mystore.load();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick2",
+                                    "designerId": "45850a3f-eb25-4449-ab8b-af1442c22151"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "6adb6df3-b2dc-4f26-90c1-6529f4ccc936"
+                }
+            ]
+        }
+    ]
+}

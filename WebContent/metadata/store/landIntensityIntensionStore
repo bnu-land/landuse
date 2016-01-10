@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "landIntensityIntensionStore",
+        "model": "land_intensityIntensionModel",
+        "storeId": "landIntensityIntensionStore"
+    },
+    "name": "landIntensityExpansionStore1",
+    "designerId": "5d4d2567-a546-43b9-9389-bfea0d8799d1",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_intension"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "65603210-26b2-445f-908a-99a4785e1ebc",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "c998ba1a-b5ee-4657-9c8e-a270c9b2f8fe"
+                }
+            ]
+        }
+    ]
+}

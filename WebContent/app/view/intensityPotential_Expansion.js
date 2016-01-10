@@ -17,8 +17,376 @@ Ext.define('MyApp.view.intensityPotential_Expansion', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.intensityPotential_Expansion',
 
+    requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'Ext.button.Button',
+        'Ext.form.field.Hidden',
+        'Ext.form.Panel',
+        'Ext.form.Label',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Number',
+        'Ext.grid.View',
+        'Ext.toolbar.Separator'
+    ],
+
     height: 588,
     width: 786,
-    title: '扩展潜力测算'
+    layout: 'border',
+    title: '扩展潜力测算',
+    defaultListenerScope: true,
+
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'combobox',
+                    fieldLabel: '开发区名称',
+                    name: 'kfqName',
+                    submitValue: false,
+                    displayField: 'name',
+                    store: 'thematic_LCCT_KFQStore',
+                    valueField: 'value',
+                    listeners: {
+                        change: 'onComboboxChange'
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'expansion_layerUrls_Combo',
+                    width: 250,
+                    fieldLabel: '选择年份',
+                    labelWidth: 70,
+                    submitValue: false,
+                    displayField: 'mapName',
+                    store: 'survey_IndexCurrent_MapStore',
+                    valueField: 'mapUrl',
+                    listeners: {
+                        change: 'onIntensity_layerUrls_ComboChange'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var mapUrl = Ext.getCmp('expansion_layerUrls_Combo').getValue();
+                        if(!mapUrl){
+                            Ext.Msg.alert('提示','请先选择开发区和地图年份再进行拓展潜力测算。');
+                            return;
+                        }
+                        //加入地图的js文件
+                        var head = document.getElementsByTagName('head')[0];
+                        var script= document.createElement("script");
+                        script.type = "text/javascript";
+                        script.src="mapjs/intensity_expansion_map.js";
+                        head.appendChild(script);
+                    },
+                    text: '扩展潜力测算'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var isCalc = Ext.getCmp('expansion_isCalculated').getValue();
+                        if(!isCalc){
+                            Ext.Msg.alert('提示','请先进行扩展潜力测算，再保存结果。');
+                            return;
+                        }
+                        var myform = Ext.getCmp('intensity_expansion_form').getForm();
+                        if (myform.isValid())
+                        {
+                            myform.submit({
+                                url : 'add_expansion',
+                                success : function (form, action)
+                                {
+                                    Ext.Msg.alert('成功', '测算结果保存成功。');
+                                    Ext.getCmp('intensity_expansion_grid').getStore().reload();
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '测算结果保存失败，请重试。');
+                                }
+                            });
+                        }
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
+                    },
+                    text: '保存测算结果'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'expansion_isCalculated',
+                    fieldLabel: 'Label',
+                    value: false
+                }
+            ]
+        }
+    ],
+    items: [
+        {
+            xtype: 'form',
+            region: 'north',
+            height: 150,
+            id: 'intensity_expansion_form',
+            bodyPadding: 10,
+            jsonSubmit: true,
+            layout: {
+                type: 'table',
+                columns: 4
+            },
+            items: [
+                {
+                    xtype: 'hiddenfield',
+                    id: 'expansion_kfqName_field',
+                    fieldLabel: 'Label',
+                    name: 'kfqName'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'expansion_kfqMap_field',
+                    fieldLabel: 'Label',
+                    name: 'kfqMap'
+                },
+                {
+                    xtype: 'label',
+                    html: '1,1',
+                    text: '项目'
+                },
+                {
+                    xtype: 'label',
+                    html: '1,2',
+                    text: '主区'
+                },
+                {
+                    xtype: 'label',
+                    html: '1,3',
+                    text: '发展方向区'
+                },
+                {
+                    xtype: 'label',
+                    html: '1,3',
+                    text: ' (单位：hm2)'
+                },
+                {
+                    xtype: 'textfield',
+                    colspan: 2,
+                    id: 'expansion_mainskgytdmj_field',
+                    fieldLabel: '尚可供应土地面积',
+                    labelWidth: 180,
+                    name: 'mainSkgytd',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'textfield',
+                    colspan: 2,
+                    id: 'expansion_developskgytdmj_field',
+                    fieldLabel: '',
+                    name: 'developSkgytd'
+                },
+                {
+                    xtype: 'textfield',
+                    colspan: 2,
+                    id: 'expansion_mainskgygkcc_field',
+                    fieldLabel: '尚可供应工矿仓储用地面积',
+                    labelWidth: 180,
+                    name: 'mainSkgygkcc',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'textfield',
+                    colspan: 2,
+                    id: 'expansion_developskgygkcc_field',
+                    fieldLabel: '',
+                    name: 'developSkgygkcc'
+                }
+            ]
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'center',
+            id: 'intensity_expansion_grid',
+            title: '开发区土地集约利用拓展潜力测算数据',
+            store: 'landIntensityExpansionStore',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqName',
+                    text: '开发区名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqMap',
+                    text: '测算地图'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'calcDate',
+                    text: '测算时间',
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSkgytd',
+                    text: '尚可供应土地面积(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSkgygkcc',
+                    text: '尚可供应工矿仓储面积(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSnnjgytd',
+                    text: '前三年年均供地面积(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainWngytdzdz',
+                    text: '前五年年均供地最大值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainSnnjgkcc',
+                    text: '前三年年均供应工矿仓储(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'mainWngkcczdz',
+                    text: '前五年供应工矿仓储最大值(主区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSkgytd',
+                    text: '尚可供应土地面积(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSkgygkcc',
+                    text: '尚可供应工矿仓储面积(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSnnjgytd',
+                    text: '前三年年均供地面积(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developWngytdzdz',
+                    text: '前五年年均供地最大值(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developSnnjgkcc',
+                    text: '前三年年均供应工矿仓储(发展区)'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'developWngkcczdz',
+                    text: '前五年供应工矿仓储最大值(发展区)'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'expansion_SearchText'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var searchKeyword = Ext.getCmp('expansion_SearchText').getValue();
+                                var mystore = Ext.getCmp('intensity_expansion_grid').getStore(); //获得store对象
+                                //在load事件中添加参数
+                                mystore.load({
+                                    params :{searchKeyword : searchKeyword}
+                                });
+                            },
+                            icon: 'images/table/search.png',
+                            text: '查询'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                //获取数据
+                                var grid = Ext.getCmp('intensity_expansion_grid');
+                                var records = grid.getSelection();
+                                if (records.length === 0){
+                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                    return;
+                                }else if(records.length >1){
+                                    Ext.Msg.alert('提示', '每次只能删除一条法律。');
+                                    return;
+                                }
+                                var id = records[0].get("id");
+                                var columnName= records[0].get("kfqName");
+                                Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']测算数据。<br/> 确认删除？', getResult);
+
+
+                                function getResult(confirm)
+                                {
+                                    console.log('confirm:', confirm);
+                                    if (confirm == "yes"){
+                                        Ext.Ajax.request(
+                                        {
+                                            url : 'del_expansion',
+                                            params :
+                                            {
+                                                id : id
+                                            },
+                                            success : function (response){
+                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                grid.getStore().reload();
+                                            },
+                                            failure : function (response){
+                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                            }
+                                        });
+                                    }
+                                }
+                            },
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+
+    onComboboxChange: function(field, newValue, oldValue, eOpts) {
+        var store = Ext.StoreMgr.get('survey_IndexCurrent_MapStore');
+        store.clearFilter();
+        store.filter('mapKey',newValue);
+        Ext.getCmp('expansion_kfqName_field').setValue(field.getRawValue());
+
+        Ext.getCmp('expansion_mainskgytdmj_field').setValue(0);
+        Ext.getCmp('expansion_mainskgygkcc_field').setValue(0);
+        Ext.getCmp('expansion_developskgytdmj_field').setValue(0);
+        Ext.getCmp('expansion_developskgygkcc_field').setValue(0);
+        Ext.getCmp('expansion_isCalculated').setValue('false');
+    },
+
+    onIntensity_layerUrls_ComboChange: function(field, newValue, oldValue, eOpts) {
+        Ext.getCmp('expansion_kfqMap_field').setValue(field.getRawValue());
+        Ext.getCmp('expansion_isCalculated').setValue('false');
+        Ext.getCmp('expansion_mainskgytdmj_field').setValue(0);
+        Ext.getCmp('expansion_mainskgygkcc_field').setValue(0);
+        Ext.getCmp('expansion_developskgytdmj_field').setValue(0);
+        Ext.getCmp('expansion_developskgygkcc_field').setValue(0);
+    }
 
 });

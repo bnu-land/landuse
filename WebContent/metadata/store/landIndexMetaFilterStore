@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "landIndexMetaFilterStore",
+        "model": "landIndexMetaModel",
+        "storeId": "landIndexMetaFilterStore"
+    },
+    "name": "landIndexMetaStore1",
+    "designerId": "6632f51b-7098-4d9c-a8e9-b91f000c2914",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_indexMeta"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "0a2be151-b85e-4229-b206-65ed4fdbe228",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "8c0c7c36-33e1-429e-b73b-08575323e08a"
+                }
+            ]
+        }
+    ]
+}

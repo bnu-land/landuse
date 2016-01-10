@@ -226,7 +226,7 @@ require([
 
     //选择第一个
 
-    var storeKFQ = Ext.data.StoreManager.lookup('tmematic_LCCT_KFQStore');
+    var storeKFQ = Ext.data.StoreManager.lookup('thematic_LCCT_KFQStore');
     if (storeKFQ.getCount() > 0) {
         var model = storeKFQ.getAt(0);
         KFQCombo.select(model);

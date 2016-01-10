@@ -39,6 +39,7 @@ Ext.define('MyApp.view.notice_Publish', {
             id: 'notice_PublishForm',
             bodyPadding: 20,
             jsonSubmit: true,
+            url: 'add_NoticeNews',
             dockedItems: [
                 {
                     xtype: 'toolbar',
@@ -49,6 +50,34 @@ Ext.define('MyApp.view.notice_Publish', {
                         },
                         {
                             xtype: 'button',
+                            handler: function() {
+                                var myform = Ext.getCmp('notice_PublishForm').getForm();
+                                if (myform.isValid())
+                                {
+                                    Ext.getCmp('notice_publish_stateField').setValue('1');
+                                    myform.submit({
+                                        //url : 'add_NoticeNews',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '内容发布成功。');
+                                            var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象
+                                            mystore.reload();
+
+                                            var xtype = 'notice_Manage';
+                                            var mainView = Ext.getCmp('mainView');
+                                            mainView.removeAll();
+                                            mainView.add(Ext.widget(xtype));
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '内容发布失败，请重试。');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
                             text: '存草稿箱'
                         },
                         {
@@ -58,12 +87,17 @@ Ext.define('MyApp.view.notice_Publish', {
                                 if (myform.isValid())
                                 {
                                     myform.submit({
-                                        url : 'add_NoticeNews',
+                                        //url : 'add_NoticeNews',
                                         success : function (form, action)
                                         {
                                             Ext.Msg.alert('成功', '内容发布成功。');
-                                            var mystore = Ext.StoreMgr.get('notice_newStore'); //获得store对象
+                                            var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象
                                             mystore.reload();
+
+                                            var xtype = 'notice_Manage';
+                                            var mainView = Ext.getCmp('mainView');
+                                            mainView.removeAll();
+                                            mainView.add(Ext.widget(xtype));
                                         },
                                         failure: function(form, action){
                                             Ext.Msg.alert('失败', '内容发布失败，请重试。');
@@ -133,6 +167,14 @@ Ext.define('MyApp.view.notice_Publish', {
                     anchor: '100%',
                     fieldLabel: 'hidden',
                     name: 'id'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    id: 'notice_publish_stateField',
+                    fieldLabel: 'hidden',
+                    name: 'noticeState',
+                    value: 0
                 },
                 {
                     xtype: 'textareafield',

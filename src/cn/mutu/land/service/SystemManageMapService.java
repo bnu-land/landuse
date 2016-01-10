@@ -33,7 +33,6 @@ public class SystemManageMapService {
 					+ "OR sm.mapUrl" + likeStr + "OR sm.description" + likeStr;
 			hql = hql + hql2;
 		}
-		System.out.println(hql);
 		List<SystemMap> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
@@ -47,7 +46,6 @@ public class SystemManageMapService {
 	public void addMap(SystemMap sysMap) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			// System.out.println("id:"+sysMap.getMapId());
 			session.saveOrUpdate(sysMap);
 		} catch (SQLGrammarException s) {
 			System.out.println(s);
@@ -66,7 +64,6 @@ public class SystemManageMapService {
 
 	// 删除角色权限信息
 	public void deleteMap(String[] ids) {
-		// System.out.println("roleId:" + roleId);
 		SystemMap result = null;
 		Session session = sessionFactory.getCurrentSession();
 		try {
@@ -74,7 +71,7 @@ public class SystemManageMapService {
 				result = (SystemMap) session.get(SystemMap.class,
 						Integer.parseInt(id));
 				session.delete(result);
-			}			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

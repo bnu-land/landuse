@@ -17,8 +17,396 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_IndexCurrentValueCalculation',
 
+    requires: [
+        'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'Ext.button.Button',
+        'Ext.form.field.Hidden',
+        'Ext.form.FieldSet',
+        'Ext.form.field.Number',
+        'Ext.form.Label',
+        'Ext.grid.Panel',
+        'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Number',
+        'Ext.grid.View',
+        'Ext.toolbar.Separator'
+    ],
+
     height: 588,
-    width: 786,
-    title: '指标现状值计算'
+    width: 924,
+    layout: 'anchor',
+    title: '指标现状值计算',
+    defaultListenerScope: true,
+
+    items: [
+        {
+            xtype: 'form',
+            anchor: '100%',
+            height: 250,
+            id: 'survey_IndexCurrentValue_Form',
+            layout: 'absolute',
+            bodyPadding: 10,
+            jsonSubmit: true,
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            id: 'survey_KfqArea_Combo',
+                            fieldLabel: '选择地区',
+                            submitValue: false,
+                            displayField: 'name',
+                            store: 'thematic_LCCT_KFQStore',
+                            valueField: 'value',
+                            listeners: {
+                                change: 'onComboboxChange'
+                            }
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'survey_layerUrls_Combo',
+                            width: 250,
+                            fieldLabel: '选择年份',
+                            labelWidth: 60,
+                            name: '',
+                            submitValue: false,
+                            displayField: 'mapName',
+                            store: 'survey_IndexCurrent_MapStore',
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                //加入地图的js文件
+                                var head = document.getElementsByTagName('head')[0];
+                                var script= document.createElement("script");
+                                script.type = "text/javascript";
+                                script.src="mapjs/survey_IndexCurrentValueCalculation_map.js";
+                                head.appendChild(script);
+                            },
+                            text: '计算现状值'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var myform = Ext.getCmp('survey_IndexCurrentValue_Form').getForm();
+                                if (myform.isValid())
+                                {
+                                    myform.submit({
+                                        url : 'add_landKfqType',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '本次计算结果添加成功。');
+                                            var mystore = Ext.StoreMgr.get('landKfqTypeStore'); //获得store对象
+                                            mystore.reload();
+                                            myform.reset();
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '添加失败，请重试。');
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
+                            text: '保存计算结果'
+                        }
+                    ]
+                }
+            ],
+            items: [
+                {
+                    xtype: 'combobox',
+                    x: 20,
+                    y: 170,
+                    id: 'survey_index_kfqTypeCombo',
+                    width: 340,
+                    fieldLabel: '开发区评价类型',
+                    name: 'kfqType',
+                    allowBlank: false,
+                    displayField: 'name',
+                    store: 'landKfqTypeComboStore',
+                    valueField: 'value'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    x: 370,
+                    y: 120,
+                    id: 'survey_index_CalcNameText',
+                    fieldLabel: 'Label',
+                    name: 'calcName'
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 145,
+                    width: 370,
+                    layout: 'absolute',
+                    title: '指标现状值',
+                    items: [
+                        {
+                            xtype: 'numberfield',
+                            x: 10,
+                            y: 90,
+                            id: 'survey_index_yjcczzmjText',
+                            width: 290,
+                            fieldLabel: '建成城镇总面积',
+                            name: 'jcczzmj',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            keyNavEnabled: false,
+                            mouseWheelEnabled: false
+                        },
+                        {
+                            xtype: 'numberfield',
+                            x: 10,
+                            y: 10,
+                            id: 'survey_index_gkccmjText',
+                            width: 220,
+                            fieldLabel: '工矿仓储面积',
+                            name: 'gkcczmj',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            keyNavEnabled: false,
+                            mouseWheelEnabled: false
+                        },
+                        {
+                            xtype: 'numberfield',
+                            x: 10,
+                            y: 50,
+                            id: 'survey_index_zzmjText',
+                            width: 220,
+                            fieldLabel: '住宅用地面积',
+                            name: 'zzzmj',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            keyNavEnabled: false,
+                            mouseWheelEnabled: false
+                        },
+                        {
+                            xtype: 'numberfield',
+                            x: 240,
+                            y: 10,
+                            id: 'survey_index_gkccRateText',
+                            width: 100,
+                            fieldLabel: '比例',
+                            labelWidth: 30,
+                            name: 'gkccRate',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            keyNavEnabled: false,
+                            mouseWheelEnabled: false
+                        },
+                        {
+                            xtype: 'numberfield',
+                            x: 240,
+                            y: 50,
+                            id: 'survey_index_zzmjRateText',
+                            width: 100,
+                            fieldLabel: '比例',
+                            labelWidth: 30,
+                            name: 'zzRate',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            keyNavEnabled: false,
+                            mouseWheelEnabled: false
+                        },
+                        {
+                            xtype: 'label',
+                            x: 310,
+                            y: 95,
+                            text: '公顷'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            xtype: 'gridpanel',
+            anchor: '100% 0',
+            id: 'land_KfqTypeGird',
+            title: '指标现状历史计算数据',
+            store: 'landKfqTypeStore',
+            columns: [
+                {
+                    xtype: 'rownumberer'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 130,
+                    dataIndex: 'calcName',
+                    text: '名称'
+                },
+                {
+                    xtype: 'datecolumn',
+                    width: 100,
+                    dataIndex: 'calcDate',
+                    text: '时间',
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 150,
+                    dataIndex: 'kfqType',
+                    text: '开发区类型'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    width: 150,
+                    dataIndex: 'jcczzmj',
+                    text: '建成城镇总面积/公顷',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    width: 130,
+                    dataIndex: 'gkcczmj',
+                    text: '工矿仓储面积/公顷',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'gkccRate',
+                    text: '工矿仓储比例',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    width: 120,
+                    dataIndex: 'zzzmj',
+                    text: '住宅面积/公顷',
+                    format: '0,000.000'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'zzRate',
+                    text: '住宅比例',
+                    format: '0,000.000'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'land_KfqType_SearchText'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/search.png',
+                            text: '查询',
+                            listeners: {
+                                click: 'onButtonClick4'
+                            }
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/edit.png',
+                            text: '修改',
+                            listeners: {
+                                click: 'onButtonClick21'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            icon: 'images/table/delete.png',
+                            text: '删除',
+                            listeners: {
+                                click: 'onButtonClick31'
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+
+    onComboboxChange: function(field, newValue, oldValue, eOpts) {
+        var store = Ext.StoreMgr.get('survey_IndexCurrent_MapStore');
+        store.clearFilter();
+        store.filter('mapKey',newValue);
+    },
+
+    onButtonClick4: function(button, e, eOpts) {
+        var searchKeyword = Ext.getCmp('land_KfqType_SearchText').getValue();
+        var mystore = Ext.StoreMgr.get('landKfqTypeStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params :{searchKeyword : searchKeyword}
+        });
+    },
+
+    onButtonClick21: function(button, e, eOpts) {
+        //获取数据
+        var models = Ext.getCmp('system_MapManageGrid').getSelection();
+        if (models.length === 0){
+            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+            return;
+        } else if(models.length >1){
+            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+            return;
+        }
+        //启动窗口
+        var win = Ext.widget('system_MapAddWindow');
+        win.setTitle('修改信息');
+        win.show();
+
+        //改变Ajax url
+        var form = Ext.getCmp('system_MapAddForm').getForm();
+        form.loadRecord(models[0]);
+        form.url = 'update_Map';
+    },
+
+    onButtonClick31: function(button, e, eOpts) {
+        //获取数据
+        var records = Ext.getCmp('land_KfqTypeGird').getSelection();
+        if (records.length === 0){
+           Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+           return;
+        }
+        var  ids =new Array(records.length);
+        for(var i = 0;i<records.length;i++){
+            ids[i] = records[i].get("id");
+        }
+        if(ids.length ==1){
+            Ext.Msg.confirm('提示', '您正在删除：<br/>[' + records[0].get('calcName') +']<br/> 确认删除？', getResult);
+        }else{
+            Ext.Msg.confirm('提示', '您正在删除<br/>[' +ids.length+']组数据。<br/> 确认删除？', getResult);
+        }
+
+
+        function getResult(confirm)
+        {
+            console.log('confirm:', confirm);
+            if (confirm == "yes"){
+                Ext.Ajax.request(
+                {
+                    url : 'del_landKfqTypeById',
+                    params :
+                    {
+                        ids : ids
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        var mystore = Ext.StoreMgr.get('landKfqTypeStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
+    }
 
 });

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-8 20:28:03 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.LawTypes" table="law_types" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="java.lang.Integer">
+            <column name="pid">
+                <comment>pid</comment>
+            </column>
+        </property>
+        <property name="lawType" type="string">
+            <column name="law_type" length="50">
+                <comment>lay type</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="300">
+                <comment>description</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

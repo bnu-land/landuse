@@ -1,0 +1,51 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "survey_IndexCurrent_MapStore",
+        "model": "systemMapModel",
+        "storeId": "survey_IndexCurrent_MapStore"
+    },
+    "name": "systemManageMapStore1",
+    "designerId": "2d4d687c-8c9a-4c65-bc40-f79b308093e5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_systemManageMap"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "9def64c0-6d5a-44f0-87d1-7adb39466144",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "68379aff-a332-4ed8-9fc0-546294d12242"
+                }
+            ]
+        }
+    ]
+}

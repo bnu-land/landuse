@@ -1,0 +1,53 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userAlias": "entLanduseChange",
+        "designer|userClassName": "entLanduseChange",
+        "model": "entLanduseChange",
+        "storeId": "entLanduseChange"
+    },
+    "name": "landIndexMetaStore1",
+    "designerId": "798a1f48-a409-4e52-bfff-60b94f0bbac7",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_EntLandChange"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "38637dd5-8ae1-4400-a593-e8b7231f13ef",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "02013f4e-2edc-4534-ab19-8cb8e2c233cf"
+                }
+            ]
+        }
+    ]
+}

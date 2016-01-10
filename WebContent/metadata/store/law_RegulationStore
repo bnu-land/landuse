@@ -1,0 +1,51 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "law_RegulationStore",
+        "model": "lawRegulationModel",
+        "storeId": "law_RegulationStore"
+    },
+    "name": "notice_newsStore1",
+    "designerId": "18ad545c-5a2a-4d11-b97e-3488f8d7c377",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_laws"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "659fa499-9773-48b2-8c49-5e070958c3a4",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "1dae7705-6c3f-48a3-8037-3d37f90bf1da"
+                }
+            ]
+        }
+    ]
+}

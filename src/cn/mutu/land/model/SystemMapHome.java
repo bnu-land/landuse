@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2015-6-2 20:44:26 by Hibernate Tools 4.0.0
+// Generated 2015-6-18 21:16:27 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -89,7 +89,7 @@ public class SystemMapHome {
 		}
 	}
 
-	public SystemMap findById(java.lang.Long id) {
+	public SystemMap findById(java.lang.Integer id) {
 		log.debug("getting SystemMap instance with id: " + id);
 		try {
 			SystemMap instance = (SystemMap) sessionFactory.getCurrentSession()

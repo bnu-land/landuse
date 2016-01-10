@@ -1,0 +1,74 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "        \"name\": \"宾西\",",
+            "        \"value\": \"binxi\"",
+            "    },",
+            "    {",
+            "        \"name\": \"海林\",",
+            "        \"value\": \"hailin\"",
+            "    },",
+            "    {",
+            "        \"name\": \"利民\",",
+            "        \"value\": \"limin\"",
+            "    },",
+            "    {",
+            "        \"name\": \"牡丹江\",",
+            "        \"value\": \"mudanjiang\"",
+            "    },",
+            "    {",
+            "        \"name\": \"绥芬河保税区\",",
+            "        \"value\": \"suifenhe\"",
+            "    },",
+            "    {",
+            "        \"name\": \"绥芬河市合作区\",",
+            "        \"value\": \"suifenheshi\"",
+            "    },",
+            "    {",
+            "        \"name\": \"绥化\",",
+            "        \"value\": \"suihua\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "thematic_LCCT_KFQStore",
+        "storeId": "thematic_LCCT_KFQStore"
+    },
+    "name": "MyStore",
+    "designerId": "8b7d81d4-e7c2-40e9-9c0f-7d9edf39e0a9",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyField8",
+            "designerId": "a294e56d-8244-42ed-8783-21da1beb8cd9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField9",
+            "designerId": "1e0a6671-851a-4908-9752-8e81f1385e8f"
+        }
+    ]
+}

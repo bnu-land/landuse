@@ -303,9 +303,7 @@
                                             "//改变Ajax url",
                                             "var form = Ext.getCmp('system_MapAddForm').getForm();",
                                             "form.loadRecord(models[0]);",
-                                            "form.load({",
-                                            "    url:'update_Map'",
-                                            "});"
+                                            "form.url = 'update_Map';"
                                         ],
                                         "name": "click",
                                         "scope": "me"

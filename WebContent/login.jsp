@@ -103,7 +103,7 @@ body{margin:0; padding:0; font-size:9pt;}
         <div id="inf">
             <span class="inf_text">版权信息</span>
             <span class="copyright">Copyright &nbsp; &copy;
-                2014 &nbsp;北京师范大学 &nbsp;&nbsp; 农村土地流转一站式系统 &nbsp; v1.0</span>
+                2014 &nbsp;北京穆图科技有限公司 &nbsp;&nbsp; 黑龙江开发区土地利用监测巡检系统 &nbsp; v1.0</span>
         </div>
     </div>
 </div>

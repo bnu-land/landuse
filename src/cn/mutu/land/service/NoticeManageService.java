@@ -20,20 +20,32 @@ public class NoticeManageService {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getNoticeNewList(String searchKeyword) {
+	public Map<String, Object> getNoticeNewList(String searchKeyword,
+			String noticeState) {
 		String hql = "FROM NoticeNews as nn";
 		// WHERE sm.name LIKE '%b%' OR sm.key LIKE '%b%' OR sm.url LIKE '%b%' OR
 		// sm.description LIKE '%b%'
-
+		String whereStr = " WHERE ";
+		String hql2 = "";
+		String hql3 = "";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE nn.column" + likeStr + "OR nn.title" + likeStr
-					+ "OR nn.author" + likeStr + "OR nn.description" + likeStr;
-			hql = hql + hql2;
+			hql2 = "nn.noticeColumn" + likeStr + "OR nn.noticeTitle" + likeStr
+					+ "OR nn.noticeAuthor" + likeStr + "OR nn.description"
+					+ likeStr;
 		}
-		System.out.println(hql);
+		if (!noticeState.equals("")) {
+			if (!searchKeyword.equals("")) {
+				hql3 += " AND ";
+			}
+			hql3 = "nn.noticeState = " + noticeState;
+		}
+		if (!searchKeyword.equals("") || !noticeState.equals("")) {
+			hql = hql + whereStr + hql2 + hql3;
+		}
+		hql += " ORDER BY nn.publishDate DESC";
 		List<NoticeNews> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
@@ -43,11 +55,11 @@ public class NoticeManageService {
 		myMapResult.put("success", true);
 		return myMapResult;
 	}
-	
+
 	public void addNotice(NoticeNews notice) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			//System.out.println("id:"+sysMap.getMapId());
+			// System.out.println("id:"+sysMap.getMapId());
 			session.saveOrUpdate(notice);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -57,14 +69,42 @@ public class NoticeManageService {
 	// 编辑更新角色权限信息
 	public void updateNotice(NoticeNews notice) {
 		Session session = sessionFactory.getCurrentSession();
-		try{
-		session.saveOrUpdate(notice);
-		}catch (Exception er){
+		try {
+			session.saveOrUpdate(notice);
+		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 	}
 
-	// 删除角色权限信息
+	// 移除到草稿箱
+	public void noticeToDraft(NoticeNews news) {
+		// System.out.println("roleId:" + roleId);
+		NoticeNews result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {			
+			news.setNoticeState(1);
+			session.saveOrUpdate(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 移除到删除
+	public void noticeToDelete(String id) {
+		// System.out.println("roleId:" + roleId);
+		NoticeNews result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			result = (NoticeNews) session.get(NoticeNews.class,
+					Integer.parseInt(id));
+			result.setNoticeState(2);
+			session.saveOrUpdate(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 删除
 	public void deleteNotice(String id) {
 		// System.out.println("roleId:" + roleId);
 		NoticeNews result = null;
@@ -77,12 +117,11 @@ public class NoticeManageService {
 			e.printStackTrace();
 		}
 	}
-	
-	//--------------Columns---------------------------------
+
+	// --------------Columns---------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getNoticeColumnsList() {
 		String hql = "FROM NoticeColumns as nc ORDER BY nc.id";
-		System.out.println(hql);
 		List<NoticeColumns> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
@@ -96,7 +135,7 @@ public class NoticeManageService {
 	public void addNoticeColumns(NoticeColumns columns) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			//System.out.println("id:"+sysMap.getMapId());
+			// System.out.println("id:"+sysMap.getMapId());
 			session.saveOrUpdate(columns);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -106,9 +145,9 @@ public class NoticeManageService {
 	// 编辑更新角色权限信息
 	public void updateNoticeColumns(NoticeColumns columns) {
 		Session session = sessionFactory.getCurrentSession();
-		try{
-		session.saveOrUpdate(columns);
-		}catch (Exception er){
+		try {
+			session.saveOrUpdate(columns);
+		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 	}

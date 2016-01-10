@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "notice_newsDraftStore",
+        "model": "noticeNewsModel",
+        "storeId": "notice_newsDraftStore"
+    },
+    "name": "notice_newsStore1",
+    "designerId": "fdf4d456-dbcb-44ee-b734-e2c8caf980be",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: '',",
+                    "    noticeState:'1'",
+                    "}"
+                ],
+                "url": "get_NoticeNews"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "800fbc48-52bb-4875-a566-b8cd958c995c",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "8d5bde07-70e2-4a97-9b27-bac6c4625b29"
+                }
+            ]
+        }
+    ]
+}

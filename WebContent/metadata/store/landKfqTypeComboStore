@@ -1,0 +1,58 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "        \"name\": \"工业主导型开发区\",",
+            "        \"value\": \"工业主导型开发区\"",
+            "    },",
+            "    {",
+            "        \"name\": \"产城融合型开发区\",",
+            "        \"value\": \"产城融合型开发区\"",
+            "    },",
+            "    {",
+            "        \"name\": \"其他类型开发区\",",
+            "        \"value\": \"其他类型开发区\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "landKfqTypeComboStore",
+        "storeId": "landKfqTypeComboStore"
+    },
+    "name": "thematic_LCCT_KFQStore1",
+    "designerId": "2739e150-88ac-4ffd-af87-884dac40de46",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyField8",
+            "designerId": "2e6ff182-622c-47a5-a1c4-7a5553dd21ff"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyField9",
+            "designerId": "207819dd-4575-4f75-910d-b3c3d9abdc74"
+        }
+    ]
+}

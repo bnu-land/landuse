@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "lawTypesModel"
+    },
+    "name": "lawRegulationModel1",
+    "designerId": "e4484924-174b-4093-8cae-17a6843cf0c5",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField",
+            "designerId": "314eb721-adfc-4d3f-9462-314b99ff6124"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "pid"
+            },
+            "name": "MyField1",
+            "designerId": "43041274-c02f-40ac-a794-9fae07c3a6b6"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lawType"
+            },
+            "name": "MyField2",
+            "designerId": "92103947-ba1c-4e61-866c-da2abf1f1a8f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "description"
+            },
+            "name": "MyField5",
+            "designerId": "67dc64c2-76eb-4056-951a-3a5ff7dd2b86"
+        }
+    ]
+}

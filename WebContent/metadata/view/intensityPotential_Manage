@@ -8,13 +8,847 @@
     "userConfig": {
         "designer|userAlias": "intensityPotential_Manage",
         "designer|userClassName": "intensityPotential_Manage",
-        "height": 588,
+        "height": 673,
         "id": null,
+        "layout": "border",
         "title": "管理潜力测算",
-        "width": 786
+        "width": 991
     },
     "name": "intensityPotential_Intension1",
     "designerId": "a7c6e8af-8084-4b65-b57a-28b378079d76",
     "viewControllerInstanceId": "ee2a28e4-67d6-444f-bfe7-2a1e07af74db",
-    "viewModelInstanceId": "6e5ea53f-585a-4087-82ee-c0fc5bb5b62f"
+    "viewModelInstanceId": "6e5ea53f-585a-4087-82ee-c0fc5bb5b62f",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar2",
+            "designerId": "e5fa03a6-afbf-4a46-8171-103f0404f15e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "name",
+                        "fieldLabel": "开发区名称",
+                        "layout|flex": null,
+                        "name": "kfqName",
+                        "store": "thematic_LCCT_KFQStore",
+                        "submitValue": false,
+                        "valueField": "value",
+                        "width": 250
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "0179ca81-4d8c-456c-969f-f589d55a52f0",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxChange111",
+                                "implHandler": [
+                                    "var kfqName = field.getRawValue();",
+                                    "//图层过滤",
+                                    "var storeMap = Ext.getCmp('manager_layerUrls_Combo').getStore();",
+                                    "storeMap.clearFilter();",
+                                    "storeMap.filter('mapKey',newValue);",
+                                    "",
+                                    "Ext.getCmp('intensity_manager_form').getForm().reset();",
+                                    "Ext.getCmp('manager_isCalculated').setValue('false');",
+                                    "Ext.getCmp('manager_kfqName_field').setValue(kfqName);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxChange111",
+                            "designerId": "0b066e8b-3568-4177-a9ed-ff90bea0273e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "mapName",
+                        "fieldLabel": "选择年份",
+                        "id": "manager_layerUrls_Combo",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "store": "survey_IndexCurrent_MapStore",
+                        "submitValue": false,
+                        "valueField": "mapUrl",
+                        "width": 220
+                    },
+                    "name": "MyComboBox4",
+                    "designerId": "b184c542-0596-4024-b01f-516b47e26876",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIntension_layerUrls_ComboChange1",
+                                "implHandler": [
+                                    "Ext.getCmp('manager_kfqMap_field').setValue(field.getRawValue());",
+                                    "Ext.getCmp('manager_developExpire_field').setValue(0);",
+                                    "Ext.getCmp('manager_developIdeal_field').setValue(0);",
+                                    "",
+                                    "",
+                                    "//加入地图的js文件",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"mapjs/intensity_manager_map.js\";",
+                                    "head.appendChild(script);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onIntension_layerUrls_ComboChange1",
+                            "designerId": "2097b1d4-b0f2-418a-a826-ba090c754cff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "结构潜力测算"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "1e96b24b-44a3-4aa5-9ffc-f6aa66d23cfd",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var url = Ext.getCmp('manager_layerUrls_Combo').getValue();",
+                                    "if(!url){",
+                                    "    Ext.Msg.alert('提示','请先选择开发区和地图年份再进行测算。');",
+                                    "    return;",
+                                    "}",
+                                    "",
+                                    "",
+                                    "var mainExpire = Ext.getCmp('manager_mainExpire_field').getValue();",
+                                    "var developExpire = Ext.getCmp('manager_developExpire_field').getValue();",
+                                    "var sumExpire = parseFloat(mainExpire)+parseFloat(developExpire);",
+                                    "Ext.getCmp('manager_sumExpire_field').setValue(sumExpire);",
+                                    "",
+                                    "var mainIdeal = Ext.getCmp('manager_mainIdeal_field').getValue();",
+                                    "var developIdeal = Ext.getCmp('manager_developIdeal_field').getValue();",
+                                    "var sumIdeal = parseFloat(mainIdeal) +parseFloat(developIdeal);",
+                                    "Ext.getCmp('manager_sumIdeal_field').setValue(sumIdeal);",
+                                    "",
+                                    "Ext.getCmp('manager_isCalculated').setValue(true);"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "a1e5c043-bf29-4f86-9f40-e7f2ec677f69"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "保存测算结果"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "a95c0d04-d652-4b88-af05-8f2baadbb1a6",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var isCalc = Ext.getCmp('manager_isCalculated').getValue();",
+                                    "if(!isCalc){",
+                                    "    Ext.Msg.alert('提示','请先进行强度测算，再保存结果。');",
+                                    "    return;",
+                                    "}",
+                                    "var myform = Ext.getCmp('intensity_manager_form').getForm();",
+                                    "if (myform.isValid())",
+                                    "{",
+                                    "    myform.submit({",
+                                    "        url : 'add_managerPotential',",
+                                    "        success : function (form, action)",
+                                    "        {",
+                                    "            Ext.Msg.alert('成功', '测算结果保存成功。');",
+                                    "            Ext.getCmp('intensity_manager_grid').getStore().reload();",
+                                    "        },",
+                                    "        failure: function(form, action){",
+                                    "            Ext.Msg.alert('失败', '测算结果保存失败，请重试。');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "f4deffca-fc85-4aa2-b31f-08b78c583b1f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "manager_isCalculated",
+                        "layout|flex": null,
+                        "value": [
+                            "false"
+                        ]
+                    },
+                    "name": "MyHiddenField5",
+                    "designerId": "1b66ce4f-3a65-44e7-9eed-915358701269"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "manager_kfqType",
+                        "layout|flex": null,
+                        "value": [
+                            "false"
+                        ]
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "cb3286ad-a619-4eee-b944-5086f1db6a26"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|columns": 5,
+                "height": 227,
+                "id": "intensity_manager_form",
+                "jsonSubmit": true,
+                "layout": "table",
+                "layout|region": "north",
+                "layout|split": true,
+                "title": null
+            },
+            "name": "MyForm1",
+            "designerId": "4338ffda-11d8-4433-9f7f-246b817f9dfd",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "manager_kfqName_field",
+                        "name": "kfqName"
+                    },
+                    "name": "MyHiddenField8",
+                    "designerId": "28cea19b-41b0-4bce-8a20-6553976c5171"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "manager_kfqMap_field",
+                        "name": "kfqMap"
+                    },
+                    "name": "MyHiddenField9",
+                    "designerId": "215ff108-63db-43d6-ab13-510ded3664e2"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "项目",
+                        "layout|colspan": 2,
+                        "layout|rowspan": null,
+                        "value": " ",
+                        "width": 100
+                    },
+                    "name": "MyDisplayField",
+                    "designerId": "222626a9-9688-4295-8cd2-c88138b14aa3"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "主区",
+                        "labelWidth": 60,
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "value": " ",
+                        "width": 60
+                    },
+                    "name": "MyDisplayField1",
+                    "designerId": "3df84021-be6b-46c3-927c-ed8342a83441"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "1,4",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "发展方向区"
+                    },
+                    "name": "MyLabel11",
+                    "designerId": "e6e19f2d-3a1c-43f8-9cd7-a1ac25076352"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "1,5",
+                        "layout|colspan": null,
+                        "layout|rowspan": null,
+                        "text": "现状值(%)"
+                    },
+                    "name": "MyLabel12",
+                    "designerId": "bd224d10-d392-40e8-bf3b-f5064f7079e8"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 4,
+                        "layout": "table",
+                        "layout|colspan": 5,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 515
+                    },
+                    "name": "MyFieldSet",
+                    "designerId": "93f371cc-1473-4e3c-abc3-dfaaae910cb2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "有偿使用且已到期但未处置土地面积",
+                                "id": "manager_mainExpire_field",
+                                "labelWidth": 130,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainExpire",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "3aa4b21c-6811-4e37-a51a-f04e92a0dbcc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "manager_developExpire_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developExpire",
+                                "width": 120
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "42c87416-dc8d-44fc-8d5b-e93b77d30e17"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "manager_sumExpire_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "sumExpire",
+                                "width": 120
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "9d314bbd-ce06-43d3-9871-1858cce3a5d6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|columns": 4,
+                        "layout": "table",
+                        "layout|colspan": 5,
+                        "margin": "0,0,0,0",
+                        "title": null,
+                        "width": 515
+                    },
+                    "name": "MyFieldSet6",
+                    "designerId": "3b065f41-a4ca-4a36-8f95-240582ca324c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "闲置土地面积",
+                                "id": "manager_mainIdeal_field",
+                                "labelWidth": 130,
+                                "layout|colspan": 2,
+                                "margin": "0,0,0,0",
+                                "name": "mainIdeal",
+                                "width": 250
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "324b7b1a-3206-4e52-ad23-0625d1075ae0"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "manager_developIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "developIdeal",
+                                "width": 120
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "36099095-2f37-4073-8958-f68bb1bcb6cc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "manager_sumIdeal_field",
+                                "layout|colspan": 1,
+                                "margin": "0,0,0,0",
+                                "name": "sumIdeal",
+                                "width": 120
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "a0a6c280-d08b-443e-a7aa-eb715a7a0fad"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "intensity_manager_grid",
+                "layout|region": "center",
+                "store": "landIntensityManagerStore",
+                "title": "管理潜力测算历史记录"
+            },
+            "name": "MyGridPanel",
+            "designerId": "75a3eea3-c1fe-45fc-9668-53c292a77a2e",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowNumberer",
+                    "designerId": "9237bb2d-f336-4d4f-9ecb-4dc79c24a018"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqName",
+                        "text": "开发区名称"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "b2aaad99-75e5-45ab-9f37-d7717d583c2e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqMap",
+                        "text": "使用地图"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "a1244026-e001-453d-9428-15cffce3dc91"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "calcDate",
+                        "format": "Y-m-d",
+                        "text": "测算时间"
+                    },
+                    "name": "MyDateColumn1",
+                    "designerId": "08c5131f-2f6c-482e-80ea-fa44cc58ff5d"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainExpire",
+                        "text": "到期未处置(主区)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn4",
+                    "designerId": "2bfdbb24-d5eb-4ace-8214-1d2d817c949b"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developExpire",
+                        "text": "到期未处置(发展区)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "5c04e418-a1e2-4a52-831e-7326d05f79db"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "sumExpire",
+                        "text": "到期未处置(合计)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "2cafd01b-3236-4594-a6ba-6aa06d9d7f34"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mainIdeal",
+                        "text": "闲置土地(主区)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "6703f192-8b13-4c0c-8267-713f0073a91f"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "developIdeal",
+                        "text": "闲置土地(发展区)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "01a83dd0-7800-4ded-af1f-bded0850cdbf"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "sumIdeal",
+                        "text": "闲置土地(合计)",
+                        "width": 130
+                    },
+                    "name": "MyNumberColumn5",
+                    "designerId": "53d3d763-4cce-4b31-858d-a52be662fc28"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "8a18b0e5-5037-4afc-9989-8f29a75082cd"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "bcfb18a7-ae19-4492-8fff-fa2b36dca2b9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "manager_SearchText",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "4959e2de-f62e-46e2-81b8-2a2eb2bf98ce"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "查询"
+                            },
+                            "name": "MyButton",
+                            "designerId": "69b1d3e0-c6c4-4f41-8894-4492d95ea717",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var searchKeyword = Ext.getCmp('manager_SearchText').getValue();",
+                                            "var mystore = Ext.getCmp('intensity_manager_grid').getStore(); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params :{searchKeyword : searchKeyword}",
+                                            "});"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "a0030bbd-ed9e-47c7-8e54-97b8aab1d7bf"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "007d2c4e-7adb-4c3c-b33a-4663e0cb669b",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var grid = Ext.getCmp('intensity_manager_grid');",
+                                            "var records = grid.getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}else if(records.length >1){",
+                                            "   Ext.Msg.alert('提示', '每次只能删除一条法律。');",
+                                            "   return;",
+                                            "}",
+                                            "var id = records[0].get(\"id\");",
+                                            "var columnName= records[0].get(\"kfqName\");",
+                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']测算数据。<br/> 确认删除？', getResult);",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_managerPotential',",
+                                            "            params :",
+                                            "            {",
+                                            "                id : id",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                grid.getStore().reload();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "bd9d298c-0e4b-4b09-91b5-d85f59ec002b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "landKfqTypeStore",
+        "model": "landKfqTypeModel",
+        "storeId": "landKfqTypeStore"
+    },
+    "name": "systemMapFeatureLayerStore1",
+    "designerId": "bdc173bb-6ee7-4e3e-b1fd-dd56f0f1c54a",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_landKfqType"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "6310fcbe-e511-40ed-a634-d0273a1e3863",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "febfd8ff-c68d-4cb6-8762-f7f678bf7d1b"
+                }
+            ]
+        }
+    ]
+}

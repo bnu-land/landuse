@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.NoticeColumns;
 import cn.mutu.land.model.NoticeNews;
 import cn.mutu.land.service.NoticeManageService;
@@ -34,29 +35,48 @@ public class NoticeManageController {
 	@RequestMapping(value = "/get_NoticeNews")
 	@ResponseBody
 	public Map<String, Object> getNoticeNews(
-			@RequestParam("searchKeyword") String searchKeyword)
+			@RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("noticeState") String noticeState)
 			throws SQLException {
-		return this.noticeService.getNoticeNewList(searchKeyword);
+		searchKeyword = Encoder.encode(searchKeyword);
+		noticeState = Encoder.encode(noticeState);
+		return this.noticeService.getNoticeNewList(searchKeyword, noticeState);
 		//
+	}
+
+	// 移除到草稿箱
+	@RequestMapping(value = "/del_NoticeToDraft")
+	@ResponseBody
+	public void noticeToDraftById(@RequestParam("news") NoticeNews news)
+			throws IOException {
+		this.noticeService.noticeToDraft(news);
+	}
+
+	// 移除到删除
+	@RequestMapping(value = "/del_NoticeToDelete")
+	@ResponseBody
+	public void noticeToDeleteById(@RequestParam("id") String id)
+			throws IOException {
+		this.noticeService.noticeToDelete(id);
 	}
 
 	// 删除
 	@RequestMapping(value = "/del_NoticeNews")
-		@ResponseBody
-		public void delNoticeById(@RequestParam("id") String id) throws IOException {
-			this.noticeService.deleteNotice(id);
-		}
+	@ResponseBody
+	public void delNoticeById(@RequestParam("id") String id) throws IOException {
+		this.noticeService.deleteNotice(id);
+	}
 
 	// 添加用户信息
-	@RequestMapping(value = "/add_NoticeNews",method=RequestMethod.POST)
+	@RequestMapping(value = "/add_NoticeNews", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addNotice(@RequestBody NoticeNews notice)
 			throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			Calendar ca = Calendar.getInstance();
-	     	Date now = ca.getTime();
-	     	notice.setPublishDate(now);	     	
+			Date now = ca.getTime();
+			notice.setPublishDate(now);
 			this.noticeService.addNotice(notice);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");

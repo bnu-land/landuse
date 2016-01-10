@@ -20,8 +20,8 @@ Ext.define('MyApp.view.MainView', {
     requires: [
         'MyApp.view.MainViewViewModel',
         'Ext.toolbar.Toolbar',
-        'Ext.toolbar.Fill',
         'Ext.button.Button',
+        'Ext.toolbar.Fill',
         'Ext.form.Label',
         'Ext.menu.Menu',
         'Ext.menu.Item'
@@ -39,6 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 100,
+            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:25px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -46,9 +47,6 @@ Ext.define('MyApp.view.MainView', {
                     dock: 'top',
                     width: 150,
                     items: [
-                        {
-                            xtype: 'tbfill'
-                        },
                         {
                             xtype: 'button',
                             id: 'homePanel',
@@ -58,8 +56,11 @@ Ext.define('MyApp.view.MainView', {
                             }
                         },
                         {
+                            xtype: 'tbfill'
+                        },
+                        {
                             xtype: 'label',
-                            text: '黑龙江开发区土地利用监测巡检系统'
+                            text: ''
                         },
                         {
                             xtype: 'label',
@@ -167,7 +168,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '集约潜力测算',
+                    title: '土地利用现状调查',
                     items: [
                         {
                             xtype: 'menu',
@@ -176,31 +177,37 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'intensityPotential_Expansion',
+                                    id: 'survey_DataReceive',
                                     hideOnClick: false,
-                                    text: '扩展潜力测算'
+                                    text: '调查数据接收'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'intensityPotential_Construction',
+                                    id: 'survey_DataManager',
                                     hideOnClick: false,
-                                    text: '结构潜力测算'
+                                    text: '调查数据管理'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'intensityPotential_Intension',
+                                    id: 'survey_TypicalEnterprise',
                                     hideOnClick: false,
-                                    text: '强度潜力测算'
+                                    text: '典型企业调查'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'intensityPotential_Manage',
+                                    id: 'survey_IndexCurrentValueCalculation',
                                     hideOnClick: false,
-                                    text: '管理潜力测算'
+                                    text: '指标现状值计算'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'survey_Landuse',
+                                    hideOnClick: false,
+                                    text: '土地利用现状地图'
                                 }
                             ],
                             listeners: {
-                                click: 'onMenu3Click'
+                                click: 'onMenu3Click2'
                             }
                         }
                     ]
@@ -247,7 +254,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '土地利用现状调查',
+                    title: '集约潜力测算',
                     items: [
                         {
                             xtype: 'menu',
@@ -256,37 +263,31 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'survey_DataReceive',
+                                    id: 'intensityPotential_Expansion',
                                     hideOnClick: false,
-                                    text: '调查数据接收'
+                                    text: '扩展潜力测算'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'survey_DataManager',
+                                    id: 'intensityPotential_Construct',
                                     hideOnClick: false,
-                                    text: '调查数据管理'
+                                    text: '结构潜力测算'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'survey_TypicalEnterprise',
+                                    id: 'intensityPotential_Intension',
                                     hideOnClick: false,
-                                    text: '典型企业调查'
+                                    text: '强度潜力测算'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'survey_IndexCurrentValueCalculation',
+                                    id: 'intensityPotential_Manage',
                                     hideOnClick: false,
-                                    text: '指标现状值计算'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'survey_Landuse',
-                                    hideOnClick: false,
-                                    text: '土地利用现状地图'
+                                    text: '管理潜力测算'
                                 }
                             ],
                             listeners: {
-                                click: 'onMenu3Click2'
+                                click: 'onMenu3Click'
                             }
                         }
                     ]
@@ -565,7 +566,7 @@ Ext.define('MyApp.view.MainView', {
         mainView.add(Ext.widget(xtype));
     },
 
-    onMenu3Click: function(menu, item, e, eOpts) {
+    onMenu3Click2: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
@@ -579,7 +580,7 @@ Ext.define('MyApp.view.MainView', {
         mainView.add(Ext.widget(xtype));
     },
 
-    onMenu3Click2: function(menu, item, e, eOpts) {
+    onMenu3Click: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();

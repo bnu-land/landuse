@@ -24,6 +24,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
         'Ext.chart.series.Pie',
         'Ext.chart.series.sprite.PieSlice',
         'Ext.chart.interactions.Rotate',
+        'Ext.chart.interactions.ItemHighlight',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Number',
@@ -106,6 +107,9 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                             interactions: [
                                 {
                                     type: 'rotate'
+                                },
+                                {
+                                    type: 'itemhighlight'
                                 }
                             ]
                         }
@@ -115,7 +119,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                     xtype: 'panel',
                     region: 'center',
                     split: true,
-                    html: '<div id = "thematic_LanduseConstructionContrast_div" style = "width=100%;height:100%;"></div>',
+                    html: '<div id = "thematic_LanduseConstructionContrast_div" class="MapDiv"></div>',
                     id: 'thematic_LanduseConstructionContrast_MapPanel',
                     title: '开发区地图',
                     listeners: {
