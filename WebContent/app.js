@@ -41,7 +41,11 @@ Ext.application({
         'land_intensityExpansionModel',
         'land_intensityConstructModel',
         'land_intensityIntensionModel',
-        'land_intensityManagerModel'
+        'land_intensityManagerModel',
+        'entLanduseChange',
+        'enterprise_IntensityAlertModel',
+        'enterprise_expirealertModel',
+        'survey_dataManager'
     ],
     stores: [
         'systemManageMapStore',
@@ -80,7 +84,12 @@ Ext.application({
         'landIntensityExpansionStore',
         'landIntensityConstructStore',
         'landIntensityIntensionStore',
-        'landIntensityManagerStore'
+        'landIntensityManagerStore',
+        'entLanduseChange',
+        'systemMap_QYYD_Store',
+        'enterprise_IntensityAlertStore',
+        'enterprise_ExpireAlertStore',
+        'survey_dataManagerStore'
     ],
     views: [
         'MainView',

@@ -1,0 +1,94 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "survey_dataManager",
+        "designer|userClassName": "survey_dataManager"
+    },
+    "name": "enterprise_expirealertModel1",
+    "designerId": "8e960a62-42d1-4c4f-8599-ea325fecb6cd",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "surveyDate"
+            },
+            "name": "MyField32",
+            "designerId": "64a1b208-e47f-4ac6-a96a-88aa5f9dbaed"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "surveyName"
+            },
+            "name": "MyField33",
+            "designerId": "e4dc78a5-7185-4dd3-9a04-4fcdf928676e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "surveyAddress"
+            },
+            "name": "MyField34",
+            "designerId": "b44f4ffc-6f16-409c-afe1-9e5ff2c89265"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "kfqmc"
+            },
+            "name": "MyField35",
+            "designerId": "f2d98047-0a9b-4fd9-b14f-5251a34c05a5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "kfqdm"
+            },
+            "name": "MyField36",
+            "designerId": "c7de10ef-2718-4732-86f5-cf82ad24a001"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "surveyData"
+            },
+            "name": "MyField37",
+            "designerId": "4b1387da-e82f-4d5a-9558-d51ad8196b9c"
+        }
+    ]
+}

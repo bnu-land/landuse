@@ -161,7 +161,7 @@
                     "userConfig": {
                         "dock": null,
                         "html": [
-                            "<div id = \"thematic_LanduseConstructionContrast_div\" style = \"width=100%;height:100%;\"></div>"
+                            "<div id = \"thematic_LanduseConstructionContrast_div\" class=\"MapDiv\"></div>"
                         ],
                         "id": "thematic_LanduseConstructionContrast_MapPanel",
                         "layout|region": "center",

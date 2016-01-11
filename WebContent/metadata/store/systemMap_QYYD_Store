@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "systemMap_QYYD_Store",
+        "model": "systemMapModel",
+        "storeId": "systemMap_QYYD_Store"
+    },
+    "name": "systemMapFeatureLayerStore1",
+    "designerId": "166941e5-3bfc-463d-911d-780f14075746",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    \"LayerGroups\":[\"qyyd\"]",
+                    "}"
+                ],
+                "url": "get_FeatureLayerURLs"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "9521e2ad-a644-4d3a-950f-dae4f0d6957d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "7eb4607c-7b29-4d7a-9ff9-4a9dde314e31"
+                }
+            ]
+        }
+    ]
+}

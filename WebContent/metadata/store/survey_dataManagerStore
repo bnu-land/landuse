@@ -1,0 +1,53 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userAlias": "survey_dataManagerStore",
+        "designer|userClassName": "survey_dataManagerStore",
+        "model": "survey_dataManager",
+        "storeId": "survey_dataManagerStore"
+    },
+    "name": "enterprise_ExpireAlertStore1",
+    "designerId": "07048a35-502a-47e8-95f5-3192aeec08ba",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_SurveyDataManager"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "729ca78e-d405-44cf-bec7-cbc74fd92c82",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "818cd8ff-428f-482b-8d72-bd3209e0f70d"
+                }
+            ]
+        }
+    ]
+}

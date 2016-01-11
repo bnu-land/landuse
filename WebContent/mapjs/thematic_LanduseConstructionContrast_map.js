@@ -78,7 +78,6 @@ require([
             //console.log(delta);
         }
 
-
         //------------arcgis js 函数---------------
 
         function onMapLayerLoad(map) {
@@ -92,10 +91,7 @@ require([
             }
         }
 
-
         // --------------------- Extjs ---------
-
-
         function onComboBoxChange(comboBox, newValue, oldValue, eOpts) {
             //加载图层
             var url = comboBox.getValue();

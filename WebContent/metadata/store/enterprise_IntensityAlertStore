@@ -1,0 +1,53 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userAlias": "enterprise_IntensityAlertStore",
+        "designer|userClassName": "enterprise_IntensityAlertStore",
+        "model": "enterprise_IntensityAlertModel",
+        "storeId": "enterprise_IntensityAlertStore"
+    },
+    "name": "entLanduseChange2",
+    "designerId": "34577e08-7081-40fc-b89a-00283014e861",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_EntLandIntensity"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "add867bd-ef58-4653-ae61-bd426879e32e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "ae9c456a-2cd6-4f5e-82bb-986c0a1ee625"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-14 14:54:49 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.EntDxqyydPda" table="ent_dxqyyd_pda" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="mbbsm" type="java.lang.Integer">
+            <column name="MBBSM">
+                <comment>&#196;&#191;&#177;&#234;&#177;&#234;&#202;&#182;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="ysdm" type="string">
+            <column name="YSDM" length="10">
+                <comment>&#210;&#170;&#203;&#216;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="kfqdm" type="string">
+            <column name="KFQDM" length="7">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="kfqmc" type="string">
+            <column name="KFQMC" length="60">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="tbbh" type="string">
+            <column name="TBBH" length="20" not-null="true">
+                <comment>&#205;&#188;&#176;&#223;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="dxdm" type="string">
+            <column name="DXDM" length="2">
+                <comment>&#181;&#228;&#208;&#205;&#198;&#243;&#210;&#181;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="qymc" type="string">
+            <column name="QYMC" length="40">
+                <comment>&#198;&#243;&#210;&#181;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="qydz" type="string">
+            <column name="QYDZ" length="100">
+                <comment>&#198;&#243;&#210;&#181;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="sspjfw" type="string">
+            <column name="SSPJFW" length="10">
+                <comment>&#203;&#249;&#202;&#244;&#198;&#192;&#188;&#219;&#183;&#182;&#206;&#167;</comment>
+            </column>
+        </property>
+        <property name="hylb" type="string">
+            <column name="HYLB" length="40">
+                <comment>&#208;&#208;&#210;&#181;&#192;&#224;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="hydm" type="string">
+            <column name="HYDM" length="4">
+                <comment>&#208;&#208;&#210;&#181;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="qyrs" type="java.lang.Integer">
+            <column name="QYRS">
+                <comment>&#198;&#243;&#210;&#181;&#200;&#203;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="yjztz" type="java.lang.Double">
+            <column name="YJZTZ" precision="22" scale="0">
+                <comment>&#212;&#164;&#188;&#198;&#215;&#220;&#205;&#182;&#215;&#202;</comment>
+            </column>
+        </property>
+        <property name="wctz" type="java.lang.Double">
+            <column name="WCTZ" precision="22" scale="0">
+                <comment>&#205;&#234;&#179;&#201;&#205;&#182;&#215;&#202;</comment>
+            </column>
+        </property>
+        <property name="zsr" type="java.lang.Double">
+            <column name="ZSR" precision="22" scale="0">
+                <comment>&#215;&#220;&#202;&#213;&#200;&#235;</comment>
+            </column>
+        </property>
+        <property name="zcz" type="java.lang.Double">
+            <column name="ZCZ" precision="22" scale="0">
+                <comment>&#215;&#220;&#178;&#250;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="ssze" type="java.lang.Double">
+            <column name="SSZE" precision="22" scale="0">
+                <comment>&#203;&#176;&#202;&#213;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="qyydmj" type="java.lang.Double">
+            <column name="QYYDMJ" precision="22" scale="0">
+                <comment>&#198;&#243;&#210;&#181;&#211;&#195;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="cfpt" type="java.lang.Double">
+            <column name="CFPT" precision="22" scale="0">
+                <comment>&#179;&#167;&#183;&#191;&#188;&#176;&#197;&#228;&#204;&#215;&#211;&#195;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="xzbg" type="java.lang.Double">
+            <column name="XZBG" precision="22" scale="0">
+                <comment>
+                &#198;&#243;&#210;&#181;&#196;&#218;&#178;&#191;&#208;&#208;&#213;&#254;&#176;&#236;&#185;&#171;&#188;&#176;&#201;&#250;&#187;&#238;&#183;&#254;&#206;&#241;&#201;&#232;&#202;&#169;&#211;&#195;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="ltcd" type="java.lang.Double">
+            <column name="LTCD" precision="22" scale="0">
+                <comment>
+                &#194;&#182;&#204;&#236;&#179;&#161;&#181;&#216;&#161;&#162;&#194;&#182;&#204;&#236;&#178;&#217;&#215;&#247;&#179;&#161;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="nbyld" type="java.lang.Double">
+            <column name="NBYLD" precision="22" scale="0">
+                <comment>&#179;&#167;&#199;&#248;&#196;&#218;&#178;&#191;&#212;&#164;&#193;&#244;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="dltcc" type="java.lang.Double">
+            <column name="DLTCC" precision="22" scale="0">
+                <comment>&#198;&#243;&#210;&#181;&#196;&#218;&#178;&#191;&#181;&#192;&#194;&#183;&#205;&#163;&#179;&#181;&#179;&#161;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="ld" type="java.lang.Double">
+            <column name="LD" precision="22" scale="0">
+                <comment>&#194;&#204;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="qt" type="java.lang.Double">
+            <column name="QT" precision="22" scale="0">
+                <comment>&#198;&#228;&#203;&#251;&#211;&#195;&#181;&#216;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="zjzmj" type="java.lang.Double">
+            <column name="ZJZMJ" precision="22" scale="0">
+                <comment>&#215;&#220;&#189;&#168;&#214;&#254;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="rjl" type="java.lang.Double">
+            <column name="RJL" precision="22" scale="0">
+                <comment>&#200;&#221;&#187;&#253;&#194;&#202;</comment>
+            </column>
+        </property>
+        <property name="jdzmj" type="java.lang.Double">
+            <column name="JDZMJ" precision="22" scale="0">
+                <comment>
+                &#189;&#168;&#214;&#254;&#206;&#239;&#185;&#185;&#214;&#254;&#206;&#239;&#187;&#249;&#181;&#215;&#161;&#162;&#194;&#182;&#204;&#236;&#182;&#209;&#179;&#161;&#186;&#205;&#194;&#182;&#204;&#236;&#178;&#217;&#215;&#247;&#179;&#161;&#181;&#216;&#181;&#196;&#215;&#220;&#195;&#230;&#187;&#253;</comment>
+            </column>
+        </property>
+        <property name="jzxs" type="java.lang.Double">
+            <column name="JZXS" precision="22" scale="0">
+                <comment>&#189;&#168;&#214;&#254;&#207;&#181;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="bz" type="string">
+            <column name="BZ" length="200">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <property name="cjr" type="string">
+            <column name="CJR" length="30">
+                <comment>&#178;&#201;&#188;&#175;&#200;&#203;</comment>
+            </column>
+        </property>
+        <property name="cjsj" type="date">
+            <column name="CJSJ" length="10">
+                <comment>&#178;&#201;&#188;&#175;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="shzt" type="java.lang.Integer">
+            <column name="SHZT">
+                <comment>&#201;&#243;&#186;&#203;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="shyj" type="string">
+            <column name="SHYJ" length="300">
+                <comment>&#201;&#243;&#186;&#203;&#210;&#226;&#188;&#251;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

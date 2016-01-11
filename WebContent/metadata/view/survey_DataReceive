@@ -8,10 +8,10 @@
     "userConfig": {
         "designer|userAlias": "survey_DataReceive",
         "designer|userClassName": "survey_DataReceive",
-        "height": 588,
+        "height": 703,
         "id": null,
         "title": "调查数据接收",
-        "width": 786
+        "width": 1024
     },
     "name": "intensityuse_IntensityScoreCalculation1",
     "designerId": "2341222c-fd07-4440-a61f-3aa50fc71e5b",
