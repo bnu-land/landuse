@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-1-11 16:06:33 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.SurveyData" table="survey_data" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="surveyDate" type="date">
+            <column name="survey_date" length="10" />
+        </property>
+        <property name="surveyName" type="string">
+            <column name="survey_name" length="20">
+                <comment>&#181;&#247;&#178;&#233;&#200;&#203;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="surveyAddress" type="string">
+            <column name="survey_address" length="100">
+                <comment>&#181;&#247;&#178;&#233;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="kfqmc" type="string">
+            <column name="kfqmc" length="20">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="kfqdm" type="string">
+            <column name="kfqdm" length="10">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="surveyData" type="string">
+            <column name="survey_data" length="65535">
+                <comment>&#178;&#201;&#188;&#175;&#202;&#253;&#190;&#221;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

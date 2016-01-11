@@ -17,8 +17,89 @@ Ext.define('MyApp.view.survey_DataManager', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_DataManager',
 
-    height: 588,
-    width: 786,
-    title: '调查数据管理'
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.grid.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator'
+    ],
+
+    height: 731,
+    width: 1017,
+    layout: 'fit',
+    title: '调查数据管理',
+
+    items: [
+        {
+            xtype: 'gridpanel',
+            store: 'survey_dataManagerStore',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'surveyDate',
+                    text: '调查时间'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'surveyName',
+                    text: '调查人'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'surveyAddress',
+                    text: '调查地址'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'kfqmc',
+                    text: '开发区名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'kfqdm',
+                    text: '开发区代码'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'surveyData',
+                    text: '调查数据'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: ''
+                        },
+                        {
+                            xtype: 'button',
+                            text: '搜索'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '数据接收'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '数据删除'
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'MyButton'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 
 });

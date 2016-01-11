@@ -24,9 +24,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 100,
+                "height": 90,
                 "html": [
-                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:25px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
+                    "<!-- <h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1> -->"
                 ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
@@ -433,6 +433,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "survey_DataReceive",
                                         "text": "调查数据接收"
@@ -1083,89 +1084,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "成果数据上报"
-                    },
-                    "name": "MyPanel13",
-                    "designerId": "ce0a4d63-03b7-4312-b5e7-45ae019df3a1",
-                    "cn": [
-                        {
-                            "type": "Ext.menu.Menu",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "floating": false,
-                                "itemId": "menu3",
-                                "width": null
-                            },
-                            "name": "MyMenu2",
-                            "designerId": "a9e66a95-50d0-4830-8bd1-4309d787c2df",
-                            "cn": [
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "achievement_UploadDataManage",
-                                        "text": "上报数据管理"
-                                    },
-                                    "name": "MyMenuItem6",
-                                    "designerId": "3789d7f5-8c89-4e93-8a25-429593b5c200"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "achievement_DataUpload",
-                                        "text": "数据上报"
-                                    },
-                                    "name": "MyMenuItem7",
-                                    "designerId": "6cf7c512-2ed5-48ac-8228-aed4a5e64805"
-                                },
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onMenu3Click6",
-                                        "implHandler": [
-                                            "var xtype = item.id;",
-                                            "var mainView = Ext.getCmp('mainView');",
-                                            "mainView.removeAll();",
-                                            "mainView.add(Ext.widget(xtype));"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onMenu3Click6",
-                                    "designerId": "af1ce355-c4a3-4842-a2aa-3126f5999147"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
                         "title": "成果数据管理"
                     },
                     "name": "MyPanel14",
@@ -1251,6 +1169,89 @@
                                     },
                                     "name": "onMenu3Click7",
                                     "designerId": "b8cb4c64-0b93-4b98-ae89-2ffdba94d8de"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "成果数据上报"
+                    },
+                    "name": "MyPanel13",
+                    "designerId": "ce0a4d63-03b7-4312-b5e7-45ae019df3a1",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "floating": false,
+                                "itemId": "menu3",
+                                "width": null
+                            },
+                            "name": "MyMenu2",
+                            "designerId": "a9e66a95-50d0-4830-8bd1-4309d787c2df",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "achievement_UploadDataManage",
+                                        "text": "上报数据管理"
+                                    },
+                                    "name": "MyMenuItem6",
+                                    "designerId": "3789d7f5-8c89-4e93-8a25-429593b5c200"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "achievement_DataUpload",
+                                        "text": "数据上报"
+                                    },
+                                    "name": "MyMenuItem7",
+                                    "designerId": "6cf7c512-2ed5-48ac-8228-aed4a5e64805"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMenu3Click6",
+                                        "implHandler": [
+                                            "var xtype = item.id;",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMenu3Click6",
+                                    "designerId": "af1ce355-c4a3-4842-a2aa-3126f5999147"
                                 }
                             ]
                         }

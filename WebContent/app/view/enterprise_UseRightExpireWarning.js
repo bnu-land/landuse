@@ -17,21 +17,98 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.enterprise_UseRightExpireWarning',
 
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.grid.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator'
+    ],
+
     html: '<div id="map" ></div>',
     title: '企业使用权到期预警',
     defaultListenerScope: true,
 
-    listeners: {
-        afterrender: 'onPanelAfterRender'
+    items: [
+        {
+            xtype: 'gridpanel',
+            store: 'enterprise_ExpireAlertStore',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'kfqdm',
+                    text: '开发区代码'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'kfqmc',
+                    text: '开发区名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'tbbh',
+                    text: '图斑编号'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'sspjfw',
+                    text: '所属评价范围'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'hylb',
+                    text: '行业类别'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'dqsj',
+                    text: '到期时间'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '搜索'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '高集约度企业',
+                            listeners: {
+                                click: 'onButtonClick2'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: '中集约度企业',
+                            listeners: {
+                                click: 'onButtonClick11'
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+
+    onButtonClick2: function(button, e, eOpts) {
+        var store = Ext.getCmp('enterprise_IntensityAlertStore');
+
     },
 
-    onPanelAfterRender: function(component, eOpts) {
-        //加入地图的js文件
-        var head = document.getElementsByTagName('head')[0];
-        var script= document.createElement("script");
-        script.type = "text/javascript";
-        script.src="mapjs/homeMap.js";
-        head.appendChild(script);
+    onButtonClick11: function(button, e, eOpts) {
+
     }
 
 });

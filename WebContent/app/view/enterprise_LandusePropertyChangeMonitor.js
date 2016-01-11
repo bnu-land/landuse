@@ -71,7 +71,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             split: true,
             width: 270,
             layout: 'border',
-            collapsed: false,
+            collapsed: true,
             collapsible: true,
             title: '企业用地变更详情',
             items: [
@@ -576,7 +576,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             split: true,
             height: 250,
             referenceHolder: false,
-            collapsed: true,
+            collapsed: false,
             collapsible: true,
             overlapHeader: false,
             title: '企业用地性质变更列表',

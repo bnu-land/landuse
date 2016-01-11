@@ -105,7 +105,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "collapsed": false,
+                "collapsed": true,
                 "collapsible": true,
                 "layout": "border",
                 "layout|region": "east",
@@ -1322,7 +1322,7 @@
             "codeClass": null,
             "userConfig": {
                 "activeTab": 0,
-                "collapsed": true,
+                "collapsed": false,
                 "collapsible": true,
                 "height": 250,
                 "layout|region": "south",

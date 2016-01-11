@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "enterprise_ExpireAlertStore",
+        "model": "enterprise_expirealertModel",
+        "storeId": "enterprise_ExpireAlertStore"
+    },
+    "name": "enterprise_IntensityAlertStore1",
+    "designerId": "d54efec4-05e6-4a27-8b7b-ab7e08e9c20d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword: ''",
+                    "}"
+                ],
+                "url": "get_EntExpireAlert"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "f7068ef0-f2c7-47a7-9ba6-fef3ad17c369",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "22675574-0dd3-4788-b3e5-cf88ba154d97"
+                }
+            ]
+        }
+    ]
+}

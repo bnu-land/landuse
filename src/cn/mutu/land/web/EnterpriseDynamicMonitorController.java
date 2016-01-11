@@ -30,4 +30,24 @@ public class EnterpriseDynamicMonitorController {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.entServcie.getEntLanduseChangeList(searchKeyword);
 	}
+	
+	// --------------------企业集约度监控--------------------------------
+		@RequestMapping(value = "/get_EntLandIntensity")
+		@ResponseBody
+		public Map<String, Object> getEntIntensity(
+				@RequestParam("searchKeyword") String searchKeyword)
+				throws SQLException {
+			searchKeyword = Encoder.encode(searchKeyword);
+			return this.entServcie.getEntLandIntensity();
+		}
+
+		// --------------------企业到期预警--------------------------------
+			@RequestMapping(value = "/get_EntExpireAlert")
+			@ResponseBody
+			public Map<String, Object> getEntExpireAlert(
+					@RequestParam("searchKeyword") String searchKeyword)
+					throws SQLException {
+				searchKeyword = Encoder.encode(searchKeyword);
+				return this.entServcie.getEntExpireAlert();
+			}
 }

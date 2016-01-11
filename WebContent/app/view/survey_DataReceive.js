@@ -17,8 +17,8 @@ Ext.define('MyApp.view.survey_DataReceive', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.survey_DataReceive',
 
-    height: 588,
-    width: 786,
+    height: 703,
+    width: 1024,
     title: '调查数据接收'
 
 });

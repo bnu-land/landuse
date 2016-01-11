@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-1-11 14:56:12 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.EntExpirealert" table="ent_expirealert" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="mbbsm" type="java.lang.Integer">
+            <column name="MBBSM" />
+        </property>
+        <property name="ysdm" type="string">
+            <column name="YSDM" length="10" />
+        </property>
+        <property name="kfqdm" type="string">
+            <column name="KFQDM" length="10" />
+        </property>
+        <property name="kfqmc" type="string">
+            <column name="KFQMC" length="30" />
+        </property>
+        <property name="tbbh" type="string">
+            <column name="TBBH" length="10" />
+        </property>
+        <property name="qymc" type="string">
+            <column name="QYMC" length="50" />
+        </property>
+        <property name="sspjfw" type="string">
+            <column name="SSPJFW" length="20" />
+        </property>
+        <property name="hylb" type="string">
+            <column name="HYLB" length="20" />
+        </property>
+        <property name="dqsj" type="date">
+            <column name="DQSJ" length="10">
+                <comment>&#181;&#189;&#198;&#218;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

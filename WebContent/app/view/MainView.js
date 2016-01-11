@@ -38,8 +38,8 @@ Ext.define('MyApp.view.MainView', {
         {
             xtype: 'panel',
             region: 'north',
-            height: 100,
-            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:25px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
+            height: 90,
+            html: '<!-- <h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1> -->',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -177,6 +177,7 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'survey_DataReceive',
                                     hideOnClick: false,
                                     text: '调查数据接收'
@@ -408,34 +409,6 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '成果数据上报',
-                    items: [
-                        {
-                            xtype: 'menu',
-                            floating: false,
-                            itemId: 'menu3',
-                            items: [
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'achievement_UploadDataManage',
-                                    hideOnClick: false,
-                                    text: '上报数据管理'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'achievement_DataUpload',
-                                    hideOnClick: false,
-                                    text: '数据上报'
-                                }
-                            ],
-                            listeners: {
-                                click: 'onMenu3Click6'
-                            }
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
                     title: '成果数据管理',
                     items: [
                         {
@@ -464,6 +437,34 @@ Ext.define('MyApp.view.MainView', {
                             ],
                             listeners: {
                                 click: 'onMenu3Click7'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    title: '成果数据上报',
+                    items: [
+                        {
+                            xtype: 'menu',
+                            floating: false,
+                            itemId: 'menu3',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'achievement_UploadDataManage',
+                                    hideOnClick: false,
+                                    text: '上报数据管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'achievement_DataUpload',
+                                    hideOnClick: false,
+                                    text: '数据上报'
+                                }
+                            ],
+                            listeners: {
+                                click: 'onMenu3Click6'
                             }
                         }
                     ]
@@ -608,14 +609,14 @@ Ext.define('MyApp.view.MainView', {
         mainView.add(Ext.widget(xtype));
     },
 
-    onMenu3Click6: function(menu, item, e, eOpts) {
+    onMenu3Click7: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
         mainView.add(Ext.widget(xtype));
     },
 
-    onMenu3Click7: function(menu, item, e, eOpts) {
+    onMenu3Click6: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
