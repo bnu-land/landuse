@@ -350,6 +350,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'notice_Browse',
                                     hideOnClick: false,
                                     text: '内容浏览'

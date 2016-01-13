@@ -17,8 +17,48 @@ Ext.define('MyApp.view.task_Locate', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_Locate',
 
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.grid.View'
+    ],
+
     height: 588,
     width: 786,
-    title: '任务定位'
+    layout: 'border',
+    title: '任务定位',
+
+    items: [
+        {
+            xtype: 'gridpanel',
+            region: 'west',
+            split: true,
+            width: 285,
+            title: '任务信息',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: '任务编号'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: '任务名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: '执行时间'
+                }
+            ]
+        },
+        {
+            xtype: 'panel',
+            region: 'center',
+            split: true,
+            title: '任务地图'
+        }
+    ]
 
 });

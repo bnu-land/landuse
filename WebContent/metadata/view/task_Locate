@@ -10,11 +10,99 @@
         "designer|userClassName": "task_Locate",
         "height": 588,
         "id": null,
+        "layout": "border",
         "title": "任务定位",
         "width": 786
     },
     "name": "task_Report1",
     "designerId": "4dbb5c82-1d81-4a13-b6de-c4e767f8c0a3",
     "viewControllerInstanceId": "f97dce52-2a8d-4c0f-879a-7a4e4658702a",
-    "viewModelInstanceId": "f63593d9-cab3-45c4-802d-56b53b5f4f16"
+    "viewModelInstanceId": "f63593d9-cab3-45c4-802d-56b53b5f4f16",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "west",
+                "layout|split": true,
+                "title": "任务信息",
+                "width": 285
+            },
+            "name": "MyGridPanel2",
+            "designerId": "6b060ab0-63c5-4b9d-85b6-46f9e928922d",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "任务编号"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "a3440620-d559-428a-a692-6b5a053d596d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "任务名称"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "33db9557-c2a6-428a-a90e-5a9685d57238"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "执行时间"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "352e072c-10aa-4145-adae-e5e22c12e980"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "5e4aea99-a0a1-4a41-a287-2917cb926a10"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "layout|split": true,
+                "title": "任务地图"
+            },
+            "name": "MyPanel6",
+            "designerId": "8f0dc7f1-d4aa-4e3a-aa6a-7b6963c9a358"
+        }
+    ]
 }

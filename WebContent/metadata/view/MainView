@@ -916,6 +916,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "notice_Browse",
                                         "text": "内容浏览"
