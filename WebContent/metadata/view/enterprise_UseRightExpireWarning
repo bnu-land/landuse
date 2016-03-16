@@ -190,7 +190,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "高集约度企业"
+                                "text": "已到期企业"
                             },
                             "name": "MyButton3",
                             "designerId": "cbc9f9c2-87a0-437c-afe2-3e941daf2991",
@@ -225,7 +225,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "中集约度企业"
+                                "text": "三月内到期企业"
                             },
                             "name": "MyButton4",
                             "designerId": "4ec02dd6-f811-4e4c-aad9-bdb654c96b37",
