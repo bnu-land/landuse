@@ -26,7 +26,7 @@
             "userConfig": {
                 "height": 90,
                 "html": [
-                    "<!-- <h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1> -->"
+                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
                 ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
@@ -916,6 +916,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "notice_Browse",
                                         "text": "内容浏览"
@@ -1360,6 +1361,21 @@
                                     },
                                     "name": "MyMenuItem15",
                                     "designerId": "97a44e53-c2a7-46aa-8876-c36c39fd95fb"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "system_Log",
+                                        "text": "系统日志"
+                                    },
+                                    "name": "MyMenuItem21",
+                                    "designerId": "28e8eac3-bb75-475a-afe9-5866ddfc7026"
                                 },
                                 {
                                     "type": "Ext.menu.Item",

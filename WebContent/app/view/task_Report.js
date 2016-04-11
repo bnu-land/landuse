@@ -17,8 +17,87 @@ Ext.define('MyApp.view.task_Report', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.task_Report',
 
+    requires: [
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator'
+    ],
+
     height: 588,
     width: 786,
-    title: '举报任务'
+    layout: 'fit',
+    title: '举报任务',
+
+    items: [
+        {
+            xtype: 'gridpanel',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: 'String'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'number',
+                    text: 'Number'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'date',
+                    text: 'Date'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'bool',
+                    text: 'Boolean'
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield'
+                        },
+                        {
+                            xtype: 'button',
+                            width: 67,
+                            text: '搜索'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '已完成'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '进行中'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '未处理'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '处理意见'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 
 });

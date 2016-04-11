@@ -196,18 +196,17 @@
                             "designerId": "18570ddd-991b-46fc-9432-b9fbf0d74066"
                         },
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.toolbar.Separator",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "text": "数据删除"
+                                "layout|flex": null
                             },
-                            "name": "MyButton7",
-                            "designerId": "8c9d016f-898c-46fe-89f1-8268d8590af4"
+                            "name": "MySeparator",
+                            "designerId": "e8cfdeb4-a3f9-4b07-a5f5-f4f5de4a176f"
                         },
                         {
                             "type": "Ext.button.Button",
@@ -218,12 +217,50 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "MyButton"
+                                "text": "预览"
                             },
                             "name": "MyButton8",
                             "designerId": "dea1908f-efb9-4e25-80f4-cbaecb2b63d6"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "通过并变更"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "8827f0fc-06d5-4928-860f-858b6831765b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "拒绝"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "8c9d016f-898c-46fe-89f1-8268d8590af4"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "a04a1373-1c00-4ec4-b681-13f6a85165a4"
                 }
             ]
         }

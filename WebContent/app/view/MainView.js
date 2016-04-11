@@ -39,7 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 90,
-            html: '<!-- <h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1> -->',
+            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -350,6 +350,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'notice_Browse',
                                     hideOnClick: false,
                                     text: '内容浏览'
@@ -507,6 +508,12 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'system_MapManage',
                                     hideOnClick: false,
                                     text: '地图管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'system_Log',
+                                    hideOnClick: false,
+                                    text: '系统日志'
                                 },
                                 {
                                     xtype: 'menuitem',

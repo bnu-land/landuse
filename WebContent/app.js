@@ -152,7 +152,8 @@ Ext.application({
         'law_TypesManagerWindow',
         'law_TypeWindow',
         'intensityuse_IndexIdealValueBinding',
-        'intensityuse_IntensityScoreCalculation'
+        'intensityuse_IntensityScoreCalculation',
+        'system_Log'
     ],
     name: 'MyApp',
 

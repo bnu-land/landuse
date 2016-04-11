@@ -24,7 +24,8 @@ Ext.define('MyApp.view.survey_DataManager', {
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
         'Ext.button.Button',
-        'Ext.toolbar.Separator'
+        'Ext.toolbar.Separator',
+        'Ext.selection.CheckboxModel'
     ],
 
     height: 731,
@@ -89,16 +90,26 @@ Ext.define('MyApp.view.survey_DataManager', {
                             text: '数据接收'
                         },
                         {
-                            xtype: 'button',
-                            text: '数据删除'
+                            xtype: 'tbseparator'
                         },
                         {
                             xtype: 'button',
-                            text: 'MyButton'
+                            text: '预览'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '通过并变更'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '拒绝'
                         }
                     ]
                 }
-            ]
+            ],
+            selModel: {
+                selType: 'checkboxmodel'
+            }
         }
     ]
 

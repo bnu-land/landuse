@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_Log",
+        "designer|userClassName": "system_Log",
+        "height": 588,
+        "id": null,
+        "title": "系统日志",
+        "width": 786
+    },
+    "name": "system_DataEdit1",
+    "designerId": "d8e72fb5-7704-47b9-94f7-d9255b210d58",
+    "viewControllerInstanceId": "c2363066-ebf9-44ad-b6b2-d11b0ff40c3c",
+    "viewModelInstanceId": "f61be366-ee6d-4eee-8549-1ca659393c12"
+}

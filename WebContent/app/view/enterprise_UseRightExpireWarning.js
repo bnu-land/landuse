@@ -58,6 +58,12 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 200,
+                    dataIndex: 'qymc',
+                    text: '公司名称'
+                },
+                {
+                    xtype: 'gridcolumn',
                     dataIndex: 'hylb',
                     text: '行业类别'
                 },
@@ -84,14 +90,14 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
                         },
                         {
                             xtype: 'button',
-                            text: '高集约度企业',
+                            text: '已到期企业',
                             listeners: {
                                 click: 'onButtonClick2'
                             }
                         },
                         {
                             xtype: 'button',
-                            text: '中集约度企业',
+                            text: '三月内到期企业',
                             listeners: {
                                 click: 'onButtonClick11'
                             }
