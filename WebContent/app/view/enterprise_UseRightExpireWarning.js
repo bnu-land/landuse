@@ -58,6 +58,12 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 200,
+                    dataIndex: 'qymc',
+                    text: '公司名称'
+                },
+                {
+                    xtype: 'gridcolumn',
                     dataIndex: 'hylb',
                     text: '行业类别'
                 },

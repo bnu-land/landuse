@@ -1110,7 +1110,6 @@
                         },
                         {
                             "id": "14923f88-ac9f-49e7-9633-b2704700eecd",
-                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "1649fb16-aaae-4c02-aa91-d99a7de3538e",
@@ -1129,6 +1128,9 @@
                                         },
                                         {
                                             "id": "97a44e53-c2a7-46aa-8876-c36c39fd95fb"
+                                        },
+                                        {
+                                            "id": "28e8eac3-bb75-475a-afe9-5866ddfc7026"
                                         },
                                         {
                                             "id": "2283ac01-3c3a-44f5-94cc-96dd77be6e58"
@@ -1864,6 +1866,9 @@
         },
         "f5259419-f84d-4df1-84ae-b07f2615be2b": {
             "id": "f5259419-f84d-4df1-84ae-b07f2615be2b"
+        },
+        "d8e72fb5-7704-47b9-94f7-d9255b210d58": {
+            "id": "d8e72fb5-7704-47b9-94f7-d9255b210d58"
         },
         "8175621c-542a-4de1-b98d-8d1a9a9313f1": {
             "id": "8175621c-542a-4de1-b98d-8d1a9a9313f1"
@@ -7402,6 +7407,9 @@
                             "id": "c56e40f7-10bc-44c7-9c4d-a4c2b2348342"
                         },
                         {
+                            "id": "fff83329-e49d-4345-b04a-4ff57fdeea82"
+                        },
+                        {
                             "id": "c3e17d29-791f-414f-93a8-e7b3fc90e090"
                         },
                         {
@@ -8995,16 +9003,17 @@
     "tabState": {
         "openTabs": [
             "ccf11f1b-c72a-44fc-9803-344ace6f3349",
-            "aee6a701-5600-4887-b444-74897ec96983"
+            "aee6a701-5600-4887-b444-74897ec96983",
+            "d8e72fb5-7704-47b9-94f7-d9255b210d58"
         ]
     },
     "canvasState": {
-        "topInstance": "aee6a701-5600-4887-b444-74897ec96983"
+        "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "aee6a701-5600-4887-b444-74897ec96983",
-        "selectedInstance": "4ec02dd6-f811-4e4c-aad9-bdb654c96b37"
+        "topInstance": "application",
+        "selectedInstance": "application"
     },
-    "editMode": "design",
+    "editMode": "code",
     "userSettings": {}
 }

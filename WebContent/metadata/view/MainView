@@ -1371,6 +1371,21 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
+                                        "id": "system_Log",
+                                        "text": "系统日志"
+                                    },
+                                    "name": "MyMenuItem21",
+                                    "designerId": "28e8eac3-bb75-475a-afe9-5866ddfc7026"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
                                         "id": "system_DataSearch",
                                         "text": "数据查询"
                                     },

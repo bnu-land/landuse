@@ -97,11 +97,26 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "hylb",
-                        "text": "行业类别"
+                        "dataIndex": "qymc",
+                        "text": "公司名称",
+                        "width": 200
                     },
                     "name": "MyColumn1",
                     "designerId": "c56e40f7-10bc-44c7-9c4d-a4c2b2348342"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "hylb",
+                        "text": "行业类别"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "fff83329-e49d-4345-b04a-4ff57fdeea82"
                 },
                 {
                     "type": "Ext.grid.column.Column",

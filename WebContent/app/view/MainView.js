@@ -511,6 +511,12 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    id: 'system_Log',
+                                    hideOnClick: false,
+                                    text: '系统日志'
+                                },
+                                {
+                                    xtype: 'menuitem',
                                     id: 'system_DataSearch',
                                     hideOnClick: false,
                                     text: '数据查询'
