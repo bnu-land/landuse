@@ -79,6 +79,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "dock": null,
+                        "html": [
+                            "<div id = \"thematic_LanduseConstructionContrast_echart\" class=\"echartsDiv\"></div>"
+                        ],
                         "layout": "fit",
                         "layout|region": "west",
                         "layout|split": true,
@@ -89,65 +92,26 @@
                     "designerId": "20f9f28e-a1ef-4a37-8755-14189f597f21",
                     "cn": [
                         {
-                            "type": "Ext.chart.PolarChart",
+                            "type": "basiceventbinding",
                             "reference": {
-                                "name": "items",
+                                "name": "listeners",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "colors": [
-                                    "[\"#115fa6\", \"#94ae0a\", \"#a61120\", \"#ff8809\", \"#ffd13e\", \"#a61187\", \"#24ad9a\", \"#7c7474\", \"#a66111\"]"
+                                "fn": "onPanelAfterRender1",
+                                "implHandler": [
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"echarts/thematic_LanduseConstructionContrast.js\";",
+                                    "head.appendChild(script);"
                                 ],
-                                "innerPadding": 20,
-                                "insetPadding": [
-                                    "{\"top\":40,\"left\":40,\"right\":40,\"bottom\":40}"
-                                ],
-                                "store": "thematic_LCC_PieStore"
+                                "name": "afterrender",
+                                "scope": "me"
                             },
-                            "name": "MyPieChart",
-                            "designerId": "572d6144-f89f-444f-9009-4e91ad3ae9c2",
-                            "isBuiltIn": true,
-                            "iconCls": "icon-pie-chart",
-                            "autoName": "MyPieChart",
-                            "cn": [
-                                {
-                                    "type": "Ext.chart.series.Pie",
-                                    "reference": {
-                                        "name": "series",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "label": [
-                                            "{'field':'name','display':'rotate','contrast':true,'font':'12px Arial'}"
-                                        ],
-                                        "xField": "value"
-                                    },
-                                    "name": "MyPieSeries1",
-                                    "designerId": "42819785-7e06-405c-875b-17f2d02d0d47"
-                                },
-                                {
-                                    "type": "Ext.chart.interactions.Rotate",
-                                    "reference": {
-                                        "name": "interactions",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "name": "MyRotateInteraction1",
-                                    "designerId": "ffa0533a-c74b-48f1-9f18-c2129779ce1a"
-                                },
-                                {
-                                    "type": "Ext.chart.interactions.ItemHighlight",
-                                    "reference": {
-                                        "name": "interactions",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "name": "MyItemHighlightInteraction",
-                                    "designerId": "f1517c72-860a-4afa-889a-4fb6ea1f2c7e"
-                                }
-                            ]
+                            "name": "onPanelAfterRender1",
+                            "designerId": "53a0e592-1eda-492b-9bda-7d19a60337f7"
                         }
                     ]
                 },

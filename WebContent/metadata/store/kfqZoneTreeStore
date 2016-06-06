@@ -1,0 +1,57 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "kfqZoneTreeStore",
+        "root": [
+            "{",
+            "    text: 'Root',",
+            "    id: 'root',",
+            "    expanded: true,",
+            "    children: [{",
+            "            id: '1',",
+            "            text: 'First node',",
+            "            leaf: false,",
+            "            children: [",
+            "                { id: '3', text: 'First child node', leaf: true },",
+            "                { id: '4', text: 'Second child node', leaf: true }",
+            "            ]",
+            "        },",
+            "        { id: '2', text: 'Second node', leaf: true }",
+            "    ]",
+            "}",
+            ""
+        ],
+        "storeId": "kfqZoneTreeStore"
+    },
+    "name": "MyTreeStore1",
+    "designerId": "f7cedde1-45cb-4239-8821-00559370d536",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy2",
+            "designerId": "94840866-6f1d-482a-aea3-05a78e88fe6d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader2",
+                    "designerId": "c10124ae-8cbd-4c6b-99d8-5e388a4a2d8b"
+                }
+            ]
+        }
+    ]
+}

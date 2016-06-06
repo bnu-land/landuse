@@ -20,11 +20,6 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
     requires: [
         'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
-        'Ext.chart.PolarChart',
-        'Ext.chart.series.Pie',
-        'Ext.chart.series.sprite.PieSlice',
-        'Ext.chart.interactions.Rotate',
-        'Ext.chart.interactions.ItemHighlight',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Number',
@@ -67,53 +62,13 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                     xtype: 'panel',
                     region: 'west',
                     split: true,
+                    html: '<div id = "thematic_LanduseConstructionContrast_echart" class="echartsDiv"></div>',
                     width: 591,
                     layout: 'fit',
                     title: '统计图表',
-                    items: [
-                        {
-                            xtype: 'polar',
-                            colors: [
-                                '#115fa6',
-                                '#94ae0a',
-                                '#a61120',
-                                '#ff8809',
-                                '#ffd13e',
-                                '#a61187',
-                                '#24ad9a',
-                                '#7c7474',
-                                '#a66111'
-                            ],
-                            insetPadding: {
-                                top: 40,
-                                left: 40,
-                                right: 40,
-                                bottom: 40
-                            },
-                            store: 'thematic_LCC_PieStore',
-                            innerPadding: 20,
-                            series: [
-                                {
-                                    type: 'pie',
-                                    label: {
-                                        field: 'name',
-                                        display: 'rotate',
-                                        contrast: true,
-                                        font: '12px Arial'
-                                    },
-                                    xField: 'value'
-                                }
-                            ],
-                            interactions: [
-                                {
-                                    type: 'rotate'
-                                },
-                                {
-                                    type: 'itemhighlight'
-                                }
-                            ]
-                        }
-                    ]
+                    listeners: {
+                        afterrender: 'onPanelAfterRender1'
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -188,6 +143,14 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
             ]
         }
     ],
+
+    onPanelAfterRender1: function(component, eOpts) {
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="echarts/thematic_LanduseConstructionContrast.js";
+        head.appendChild(script);
+    },
 
     onPanelAfterRender: function(component, eOpts) {
         //加入地图的js文件

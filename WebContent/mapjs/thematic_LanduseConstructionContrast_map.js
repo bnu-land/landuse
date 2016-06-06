@@ -207,7 +207,7 @@ require([
                 for(var key in counts){
                     var rec = {
                         name :key,
-                        value:counts[key]
+                        value:Math.ceil(counts[key]*1000)/1000  //取三位小数
                     };
                     data.push(rec);
                 }

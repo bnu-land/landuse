@@ -19,27 +19,27 @@ require([
     "dojo/dom",
     "dojo/parser",
     "dojo/domReady!"
-], function (Map,
-             graphicsUtils,
-             ArcGISDynamicMapServiceLayer,
-             FeatureLayer,
-             arcgisUtils,
-             Extent,
-             Query,
-             QueryTask,
-             ready,
-             on,
-             dojoIOScript,
-             connect,
-             arrayUtil,
-             dom,
-             parser) {
+], function(Map,
+    graphicsUtils,
+    ArcGISDynamicMapServiceLayer,
+    FeatureLayer,
+    arcgisUtils,
+    Extent,
+    Query,
+    QueryTask,
+    ready,
+    on,
+    dojoIOScript,
+    connect,
+    arrayUtil,
+    dom,
+    parser) {
 
     var urls = [];
-    var mapUrlStore = Ext.data.StoreManager.get("systemManageMapStore");        //取得地图url store
+    var mapUrlStore = Ext.data.StoreManager.get("systemManageMapStore"); //取得地图url store
     var jsonData = {};
     var yearNum = 0;
-    var dataMulti = [,];
+    var dataMulti = [, ];
 
     var fieldsArr = [];
     var columnsArr = [];
@@ -56,6 +56,7 @@ require([
     if (submitButton) {
         submitButton.on('click', onSubmitButtonClick);
     }
+
     function onSubmitButtonClick(button, e, eOpts) {
 
     }
@@ -116,7 +117,14 @@ require([
             var featureAttributes = results.features[i].attributes;
             var record = [];
             for (var attr in featureAttributes) {
-                record.push(featureAttributes[attr]);
+                var av = featureAttributes[attr];
+                var v;
+                if (isNumber(av)) {
+                    v = Math.ceil(av);
+                }else{
+                    v = av;
+                }
+                record.push(v);
             }
             attrData.push(record);
         }
@@ -128,9 +136,9 @@ require([
             data: attrData,
             // reader configs
             fields: [
-                {name: 'DLMC', type: 'auto'},
+                { name: 'DLMC', type: 'auto' },
                 //{name: 'DLSL', type: 'int'},
-                {name: 'DLMJ', type: 'float'}
+                { name: 'DLMJ', type: 'float' }
             ],
             autoLoad: true
         });
@@ -151,14 +159,12 @@ require([
                 rec.push(dlmj[key]);
                 dataMulti.push(rec);
             }
-        }
-        else {
+        } else {
             for (var i = 0; i < dataMulti.length; i++) {
                 var mj = dlmj[dataMulti[i][0]];
-                if(mj){
+                if (mj) {
                     dataMulti[i].push(mj);
-                }
-                else{
+                } else {
                     dataMulti[i].push(0);
                 }
             }
@@ -195,10 +201,10 @@ require([
         var grid = Ext.getCmp('thematic_LCCT_Grid');
         grid.reconfigure(gridStore, columnsArr);
 
-        var barChart = Ext.getCmp('thematic_LCCT_BarChart');
-        barChart.series[0].setYField(yFieldsOfChart);
-        //barChart.getAxis('thematic_LCCT_YAxis').setFields([newField]);
-        barChart.setStore(gridStore);
+        // echarts
+        var chartStore = Ext.data.StoreManager.get('thematic_LCCT_ChartStore');
+        chartStore.setData(gridStore.data.items);
+        chartStore.reload();
 
         yearNum++;
 
@@ -222,6 +228,10 @@ require([
         //    storePie.setData(data);
         //    storePie.reload();
         //}
+    }
+
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
     //选择第一个

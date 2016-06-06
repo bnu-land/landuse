@@ -89,7 +89,9 @@ Ext.application({
         'systemMap_QYYD_Store',
         'enterprise_IntensityAlertStore',
         'enterprise_ExpireAlertStore',
-        'survey_dataManagerStore'
+        'survey_dataManagerStore',
+        'thematic_LCCT_ChartStore',
+        'kfqZoneTreeStore'
     ],
     views: [
         'MainView',

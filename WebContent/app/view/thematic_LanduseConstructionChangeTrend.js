@@ -18,10 +18,6 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     alias: 'widget.thematic_LanduseConstructionChangeTrend',
 
     requires: [
-        'Ext.chart.CartesianChart',
-        'Ext.chart.axis.Category',
-        'Ext.chart.axis.Numeric',
-        'Ext.chart.series.Bar',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.RowNumberer',
@@ -33,7 +29,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     height: 588,
     width: 786,
     layout: 'border',
-    title: '土地利用结构变换趋势分析',
+    title: '土地利用结构变化趋势分析',
     defaultListenerScope: true,
 
     items: [
@@ -41,67 +37,11 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
             xtype: 'panel',
             region: 'center',
             split: true,
+            html: '<div id = "thematic_LanduseConstructionChangeTrend_echart" class="echartsDiv"></div>',
             layout: 'fit',
-            items: [
-                {
-                    xtype: 'cartesian',
-                    height: 250,
-                    id: 'thematic_LCCT_BarChart',
-                    width: 400,
-                    insetPadding: 20,
-                    axes: [
-                        {
-                            type: 'category',
-                            fields: [
-                                'DLMC'
-                            ],
-                            grid: true,
-                            label: {
-                                rotate: {
-                                    degrees: -45
-                                },
-                                textAlign: 'center'
-                            },
-                            title: 'Category Axis',
-                            position: 'bottom'
-                        },
-                        {
-                            type: 'numeric',
-                            grid: true,
-                            label: {
-                                renderer: function(v) { return v + '%'; }
-                            },
-                            minimum: 0,
-                            position: 'left',
-                            title: 'Numeric Axis'
-                        }
-                    ],
-                    series: [
-                        {
-                            type: 'bar',
-                            highlight: {
-                                fill: '#ce5403',
-                                'stroke-width': 1,
-                                stroke: '#000'
-                            },
-                            style: {
-                                opacity: 0.80
-                            },
-                            tooltip: {
-                                trackMouse: true,
-                                style: 'background: #FFF',
-                                height: 20,
-                                renderer: function(storeItem, item) {
-                                    //var browser = item.series.title[Ext.Array.indexOf(item.series.yField, item.yField)];
-                                    this.setTitle(item.field+' '+storeItem.get('DLMC') + ': ' + storeItem.get(item.field).toFixed(3) + '平方千米');
-                                }
-                            },
-                            xField: 'DLMC',
-                            stacked: false
-                        }
-                    ]
-                }
-            ]
+            listeners: {
+                afterrender: 'onPanelAfterRender1'
+            }
         },
         {
             xtype: 'panel',
@@ -178,6 +118,14 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     ],
     listeners: {
         afterrender: 'onPanelAfterRender'
+    },
+
+    onPanelAfterRender1: function(component, eOpts) {
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="echarts/thematic_LanduseConstructionChangeTrend.js";
+        head.appendChild(script);
     },
 
     onPanelAfterRender: function(component, eOpts) {
