@@ -199,9 +199,10 @@ select.select-xs {
     display: table;
 }
 .mainbg {
-	background-image: url(../imgs/background-bg1.png);
+	background-image: url(image/top-background.jpg);
 	background-repeat: repeat-x;
 	background-position: center top;
+
 }
 .mainbg1 {
 	background-image: url(../imgs/background-bg3.png);
@@ -232,9 +233,10 @@ select.select-xs {
 }
 }
 .slider-hover {
-	margin-top: -14%;
+	margin-top: 0%;
 	position: relative;
 	padding: 0;
+	height: 80%;
 }
 
 /* main content*/
