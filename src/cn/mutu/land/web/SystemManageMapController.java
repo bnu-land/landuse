@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.SystemMap;
+import cn.mutu.land.model.UtilFieldnameIndex;
 import cn.mutu.land.service.SystemManageMapService;
 
 @Controller
@@ -94,5 +94,58 @@ public class SystemManageMapController {
 		}
 		return this.mapServcie.getFeatureLayerURLList(groups);
 		//
+	}
+
+	//--------------------地图要素属性中英文对照--------------------------------
+	@RequestMapping(value = "/get_MapAttrNameIndex")
+	@ResponseBody
+	public Map<String, Object> handle_MapAttrNameIndex(
+			@RequestParam("searchKeyword") String searchKeyword)
+			throws SQLException {
+		searchKeyword = Encoder.encode(searchKeyword);
+		return this.mapServcie.getMapAttrNameIndexList(searchKeyword);
+	}
+
+	// 删除
+	@RequestMapping(value = "/del_MapAttrNameIndex")
+	// ,method=RequestMethod.POST)
+	@ResponseBody
+	public void del_MapAttrNameIndex(@RequestParam("ids") String[] ids) throws IOException {
+		this.mapServcie.deleteMapAttrNameIndex(ids);
+	}
+
+	// 添加
+	@RequestMapping(value = "/add_MapAttrNameIndex",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> add_MapAttrNameIndex(@RequestBody UtilFieldnameIndex nameIndex)
+			throws IOException {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			this.mapServcie.addMapAttrNameIndex(nameIndex);
+			result.put("success", true);
+			result.put("msg", ",successfully saved");
+		} catch (Exception er) {
+			result.put("failure", true);
+			result.put("msg", ",failed saved");
+		}
+		return result;
+	}
+
+	// 修改
+	@RequestMapping(value = "/update_MapAttrNameIndex",method=RequestMethod.POST)
+	// ,method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> update_MapAttrNameIndex(@RequestBody UtilFieldnameIndex nameIndex)
+			throws IOException {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			this.mapServcie.updateMapAttrNameIndex(nameIndex);
+			result.put("success", true);
+			result.put("msg", ",successfully saved");
+		} catch (Exception er) {
+			result.put("failure", true);
+			result.put("msg", ",failed saved");
+		}
+		return result;
 	}
 }

@@ -45,7 +45,8 @@ Ext.application({
         'entLanduseChange',
         'enterprise_IntensityAlertModel',
         'enterprise_expirealertModel',
-        'survey_dataManager'
+        'survey_dataManager',
+        'sys_MapAttrNameIndexModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -91,7 +92,8 @@ Ext.application({
         'enterprise_ExpireAlertStore',
         'survey_dataManagerStore',
         'thematic_LCCT_ChartStore',
-        'kfqZoneTreeStore'
+        'kfqZoneTreeStore',
+        'sys_MapAttrNameIndexStore'
     ],
     views: [
         'MainView',
@@ -155,7 +157,9 @@ Ext.application({
         'law_TypeWindow',
         'intensityuse_IndexIdealValueBinding',
         'intensityuse_IntensityScoreCalculation',
-        'system_Log'
+        'system_Log',
+        'sys_MapAttrNameIndexWindow',
+        'sys_MapAddAttrNameIndexWindow'
     ],
     name: 'MyApp',
 

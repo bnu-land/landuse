@@ -36,7 +36,50 @@
                 "titleCollapse": true
             },
             "name": "MyPropertyGrid",
-            "designerId": "21ebd1b9-f735-4aba-9ecd-310226008943"
+            "designerId": "21ebd1b9-f735-4aba-9ecd-310226008943",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMapInfoWindowGridBeforeReconfigure",
+                        "implHandler": [
+                            "var source = gridpanel.getSource();",
+                            "if(!source){",
+                            "    return;",
+                            "}",
+                            "//获取中英文对照表",
+                            "var nameIndexStore = Ext.StoreMgr.get('sys_MapAttrNameIndexStore');",
+                            "var nameIndexRecords = nameIndexStore.getRange();",
+                            "var nameIndex = {};",
+                            "for(var i in nameIndexRecords){",
+                            "    var name = nameIndexRecords[i].data;",
+                            "    nameIndex[name.enName] = name.cnName;    ",
+                            "}",
+                            "",
+                            "//替换",
+                            "var newSource = {};",
+                            "for(var name in source){",
+                            "    var cnName = nameIndex[name];",
+                            "    if(cnName){",
+                            "        newSource[cnName]=source[name];",
+                            "    }else{",
+                            "        newSource[name] = source[name];",
+                            "    }",
+                            "}",
+                            "gridpanel.setSource(newSource);"
+                        ],
+                        "name": "beforereconfigure",
+                        "scope": "me"
+                    },
+                    "name": "onMapInfoWindowGridBeforeReconfigure",
+                    "designerId": "34f799a6-38db-4845-8300-f2d2e4d08ded"
+                }
+            ]
         }
     ]
 }

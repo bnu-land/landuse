@@ -1,0 +1,287 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "sys_MapAddAttrNameIndexWindow",
+        "designer|userClassName": "sys_MapAddAttrNameIndexWindow",
+        "height": 293,
+        "id": "sys_MapAddAttrNameIndexWindow",
+        "layout": "fit",
+        "title": "添加字段中英文对照",
+        "width": 399
+    },
+    "name": "law_TypeWindow1",
+    "designerId": "3a86fe1a-1c59-4911-b4bf-54072101c87f",
+    "viewControllerInstanceId": "9eb34fd3-4fb5-4e4b-9689-f6376c95656f",
+    "viewModelInstanceId": "e96037fd-3eed-475c-a739-df68e0f1c665",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "sys_MapAttrNameIndexForm",
+                "jsonSubmit": true,
+                "title": null,
+                "url": "add_MapAttrNameIndex"
+            },
+            "name": "MyForm1",
+            "designerId": "c08cca8d-cc31-4c28-b84d-1594ec9e4be7",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "栏目组名",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "b6df0cab-e743-4207-8778-45c9362c5490"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "英文名称",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "enName"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "3042260b-bc34-44d4-bfe9-06b71c4f9b15"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "中文名称",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "cnName"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "79d38cf9-5a59-43d9-bf64-1f99d18bd0e2"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "",
+                        "checked": true,
+                        "fieldLabel": "字段单位",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "enable",
+                        "width": ""
+                    },
+                    "name": "MyCheckbox",
+                    "designerId": "f8560165-2af0-43b3-b1f0-0c6c77b5ae59"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "字段单位",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "unit"
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "bad5835a-5872-4d40-80f2-de1e59e873e2"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "来自表格",
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "byTableName"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "77a5f952-86ad-4d39-94f5-6c73a49e5cb1"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "备注",
+                        "height": 60,
+                        "labelAlign": "right",
+                        "labelWidth": 70,
+                        "layout|anchor": "100%",
+                        "name": "comment"
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "f758fb82-d79d-47c9-a9fc-6062dc542721"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "6e80ac50-5473-40e6-870b-b13a74f763d5",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "23558980-6dee-4c97-9295-78207dcf4845"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "4308b0fa-4064-4afa-8c8c-56b0f1815ab9",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "Ext.getCmp('sys_MapAddAttrNameIndexWindow').close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "077fb15c-b9ca-4069-8bf7-893ca46b542d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确定"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "6a0b6f7c-57e4-4623-80e1-5a33490183bf",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win  = Ext.getCmp('sys_MapAddAttrNameIndexWindow');",
+                                            "var title = win.getTitle();",
+                                            "var myform = Ext.getCmp('sys_MapAttrNameIndexForm').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        //url : 'add_Map',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', title+'成功。');",
+                                            "",
+                                            "            var mystore = Ext.StoreMgr.get('sys_MapAttrNameIndexStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            win.close();",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', title+'失败，请重试。');",
+                                            "            win.close();",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "9c5fc188-276e-4c8c-980e-79c003e81221"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
