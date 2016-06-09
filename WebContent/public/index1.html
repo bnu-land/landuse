@@ -23,6 +23,8 @@
         font-weight: bold;
     }
     </style>
+    <script type="text/javascript" src="jquery/1.9.1/jquery.js"></script>
+    <script src="jquery/1.9.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -46,13 +48,17 @@
             <div class="maincontent row">
                 <!-- 左边列 -->
                 <div class="col-md-6 col-sm-8 firstlist">
-                    <div class="boxtitle">
-                        <span class="title">新闻1</span>
-                        <a class="more" href="bsdkx/index.html">更多</a>
+                    <div class="boxtitle" style="height:50%">
+                        <span id="news" class="title" value="新闻速递">新闻速递</span>
+                        <!-- <a class="more" href="bsdkx/index.html">更多</a> -->
                     </div>
                     <div class="boxlist">
-                        <ul class="">
-                            <li><a href="http://news.bnu.edu.cn/lxyz/lxyz_gzdt/index.htm" target="blank" alt="学校各单位开展“两学一做”学习教育">            学校各单位开展“两学一做”学习教育     </a></li>
+                        <!-- <div id="noticeTitle"></div>
+                        <div id="noticeAuthor"></div>
+                        <div id="publishDate"></div> -->
+                        <ul id="news_noticeTitle" class="">
+                           <!-- <li><a href="bsdkx/81524.html" target="blank" alt="">  -->
+                            <!--  <li><a href="http://news.bnu.edu.cn/lxyz/lxyz_gzdt/index.htm" target="blank" alt="学校各单位开展“两学一做”学习教育">            学校各单位开展“两学一做”学习教育     </a></li>
                             <li><a href="bsdkx/81524.html" target="blank" alt="刘书记出席学校首届本科生党员微党课大赛决赛">            刘书记出席学校首届本科生党员微党课大赛决赛     </a></li>
                             <li><a href="bsdkx/81500.html" target="blank" alt="刘书记董校长应邀出席印度总统访华系列活动">            刘书记董校长应邀出席印度总统访华系列活动     </a></li>
                             <li><a href="bsdkx/81498.html" target="blank" alt="学校组织研究生党员骨干赴延安培训学习">            学校组织研究生党员骨干赴延安培训学习     </a></li>
@@ -62,16 +68,15 @@
                             <li><a href="bsdkx/81462.html" target="blank" alt="教育部网站报道我校推进“三型”党组织建设工作经验">            教育部网站报道我校推进“三型”党组织建设工作经验     </a></li>
                             <li><a href="bsdkx/81474.html" target="blank" alt="学校举办学生假日党校第54期青年共产主义者培训班">            学校举办学生假日党校第54期青年共产主义者培训班     </a></li>
                             <li><a href="bsdkx/81460.html" target="blank" alt="我校学生在2016年“创青春”首都大学生创业大赛中喜获佳绩">            我校学生在2016年“创青春”首都大学生创业大赛中喜获佳绩     </a></li>
-                            <li><a href="bsdkx/81454.html" target="blank" alt="学校党委举行学习贯彻习近平总书记哲学社会科学工作重要讲话精神座谈会">            学校党委举行学习贯彻习近平总书记哲学社会科学工作重要讲话精神座谈会    </a></li>
+                            <li><a href="bsdkx/81454.html" target="blank" alt="学校党委举行学习贯彻习近平总书记哲学社会科学工作重要讲话精神座谈会">            学校党委举行学习贯彻习近平总书记哲学社会科学工作重要讲话精神座谈会    </a></li> -->
                         </ul>
                     </div>
                     <div class="boxtitle nomargintop">
-                        <span class="title">新闻3</span>
-                        <a class="more" href="tzgg/index.html">更多</a>
+                        <span id="landchange" class="title">土地动态</span>
                     </div>
                     <div class="boxlist">
-                        <ul class="">
-                            <li><a href="tzgg/81172.html" target="blank" alt="北京师范大学关于广泛征集校史展品和校史资料的通知">            北京师范大学关于广泛征集校史展品和校史资料的通知     </a></li>
+                        <ul id="landchange_noticeTitle" class="">
+                            <!-- <li><a href="tzgg/81172.html" target="blank" alt="北京师范大学关于广泛征集校史展品和校史资料的通知">            北京师范大学关于广泛征集校史展品和校史资料的通知     </a></li>
                             <li><a href="tzgg/81514.html" target="blank" alt="关于固态硬盘及内存条的询价公告">            关于固态硬盘及内存条的询价公告     </a></li>
                             <li><a href="tzgg/81512.html" target="blank" alt="关于邱季端地下教室教学设备购置的询价公告">            关于邱季端地下教室教学设备购置的询价公告     </a></li>
                             <li><a href="tzgg/81494.html" target="blank" alt="北京师范大学校园环境建设（绿化）工程招标公告">            北京师范大学校园环境建设（绿化）工程招标公告     </a></li>
@@ -80,19 +85,18 @@
                             <li><a href="tzgg/81440.html" target="blank" alt="空调冷却塔日常维护保养服务项目招标公告（二次）">            空调冷却塔日常维护保养服务项目招标公告（二次）     </a></li>
                             <li><a href="tzgg/81414.html" target="blank" alt="北京师范大学后勤管理处外事服务中心布草洗涤厂家遴选公告">            北京师范大学后勤管理处外事服务中心布草洗涤厂家遴选公告     </a></li>
                             <li><a href="tzgg/81418.html" target="blank" alt="地球前沿科学交叉平台中心装修改造项目招标公告">            地球前沿科学交叉平台中心装修改造项目招标公告     </a></li>
-                            <li><a href="tzgg/81350.html" target="blank" alt="北京师范大学拟对食堂物资供货商公开遴选">            北京师范大学拟对食堂物资供货商公开遴选     </a></li>
+                            <li><a href="tzgg/81350.html" target="blank" alt="北京师范大学拟对食堂物资供货商公开遴选">            北京师范大学拟对食堂物资供货商公开遴选     </a></li> -->
                         </ul>
                     </div>
                 </div>
                 <!-- 中间列 -->
                 <div class="col-md-4 col-sm-4 midlist">
                     <div class="boxtitle">
-                        <span class="title">新闻2</span>
-                        <a class="more" href="xzdt/index.html">更多</a>
+                        <span id="notice" class="title">通知公告</span>
                     </div>
                     <div class="boxlist">
-                        <ul class="">
-                            <li><a href="xzdt/81416.html" target="blank" alt="[通知]学校开展“两学一做”主题征文活动">            [通知]学校开展“两学一做”主题征文活动     </a></li>
+                        <ul id="notice_noticeTitle" class="">
+                            <!-- <li><a href="xzdt/81416.html" target="blank" alt="[通知]学校开展“两学一做”主题征文活动">            [通知]学校开展“两学一做”主题征文活动     </a></li>
                             <li><a href="docs/20160524092544149248.pdf" target="blank" alt="[通知]学校成立“两学一做”学习教育宣讲团">            [通知]学校成立“两学一做”学习教育宣讲团     </a></li>
                             <li><a href="xzdt/81504.html" target="blank" alt="[通知]转发《中共北京市委教育工作委员会关于开展2016年北京高校青年教师社会调研成果申报、评选工作的通知》">            [通知]转发《中共北京市委教育工作委员会关于开展2016年北京高校青年教师社会调研成果申报、评选工作的通知》     </a></li>
                             <li><a href="docs/20160509142927217254.pdf" target="blank" alt="[通知]中共北京市委《北京工作》“两学一做”学习教育专栏征稿">            [通知]中共北京市委《北京工作》“两学一做”学习教育专栏征稿     </a></li>
@@ -101,16 +105,15 @@
                             <li><a href="xzdt/81502.html" target="blank" alt="[预告]06.07北师大心理学院校友论坛第五讲">            [预告]06.07北师大心理学院校友论坛第五讲     </a></li>
                             <li><a href="xzdt/81490.html" target="blank" alt="[预告]06.07图书馆讲座《现代的“金箍”——清代卫生机制及其演变的“现代性”省思》">            [预告]06.07图书馆讲座《现代的“金箍”——清代卫生机制及其演变的“现代性”省思》    </a></li>
                             <li><a href="xzdt/81508.html" target="blank" alt="[预告]06.08经资源讲座《创新及创业投资资本运作策略》">            [预告]06.08经资源讲座《创新及创业投资资本运作策略》     </a></li>
-                            <li><a href="xzdt/81516.html" target="blank" alt="[预告]06.10系统理论进展系列讲座:The secrets of swarm architecture: deciphering construction rules in ant colonies ">            [预告]06.10系统理论进展系列讲座:The secrets of swarm architecture: deciphering construction rules in ant colonie...     </a></li>
+                            <li><a href="xzdt/81516.html" target="blank" alt="[预告]06.10系统理论进展系列讲座:The secrets of swarm architecture: deciphering construction rules in ant colonies ">            [预告]06.10系统理论进展系列讲座:The secrets of swarm architecture: deciphering construction rules in ant colonie...     </a></li> -->
                         </ul>
                     </div>
                     <div class="boxtitle nomargintop">
-                        <span class="title">新闻4</span>
-                        <a class="more" href="tzgg/index.html">更多</a>
+                        <span id="landlaw" class="title">土地政策</span>
                     </div>
                     <div class="boxlist">
-                        <ul class="">
-                            <li><a href="tzgg/81172.html" target="blank" alt="北京师范大学关于广泛征集校史展品和校史资料的通知">            北京师范大学关于广泛征集校史展品和校史资料的通知     </a></li>
+                        <ul id="landlaw_noticeTitle" class="">
+                            <!-- <li><a href="tzgg/81172.html" target="blank" alt="北京师范大学关于广泛征集校史展品和校史资料的通知">            北京师范大学关于广泛征集校史展品和校史资料的通知     </a></li>
                             <li><a href="tzgg/81514.html" target="blank" alt="关于固态硬盘及内存条的询价公告">            关于固态硬盘及内存条的询价公告    </a></li>
                             <li><a href="tzgg/81512.html" target="blank" alt="关于邱季端地下教室教学设备购置的询价公告">            关于邱季端地下教室教学设备购置的询价公告     </a></li>
                             <li><a href="tzgg/81494.html" target="blank" alt="北京师范大学校园环境建设（绿化）工程招标公告">            北京师范大学校园环境建设（绿化）工程招标公告     </a></li>
@@ -119,7 +122,7 @@
                             <li><a href="tzgg/81440.html" target="blank" alt="空调冷却塔日常维护保养服务项目招标公告（二次）">            空调冷却塔日常维护保养服务项目招标公告（二次）    </a></li>
                             <li><a href="tzgg/81414.html" target="blank" alt="北京师范大学后勤管理处外事服务中心布草洗涤厂家遴选公告">            北京师范大学后勤管理处外事服务中心布草洗涤厂家遴选公告    </a></li>
                             <li><a href="tzgg/81418.html" target="blank" alt="地球前沿科学交叉平台中心装修改造项目招标公告">            地球前沿科学交叉平台中心装修改造项目招标公告    </a></li>
-                            <li><a href="tzgg/81350.html" target="blank" alt="北京师范大学拟对食堂物资供货商公开遴选">            北京师范大学拟对食堂物资供货商公开遴选     </a></li>
+                            <li><a href="tzgg/81350.html" target="blank" alt="北京师范大学拟对食堂物资供货商公开遴选">            北京师范大学拟对食堂物资供货商公开遴选     </a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -133,7 +136,7 @@
                             <span><button onclick="con_db_test()">企业用户登录</button> 
                             </span>
                             <a href="index2.html" target="_blank">跳转</a> </span>
-                             <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+                            <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
                         </div>
                         <div class="col-md-12 col-sm-4 nopadding">
                             <span class="morelinks">常用链接</span>
@@ -145,14 +148,12 @@
                             <span><a href="http://www.bnu.edu.cn/jsjyjykx/52918.html">教师教育机构</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.bnu.edu.cn/jsjyjykx/52919.html">教育科学期刊</a></span>
                             <span>&nbsp;<a href="http://xinqing100.bnu.edu.cn/" target="_blank">京师心晴</a></span>
                             <span><a href="http://ipv6te.bnu.edu.cn/" target="_blank">IPv6教师教育创新支持系统</a></span>
- 
                         </div>
                         <div style="clear:both"></div>
                     </div>
                 </div>
             </div>
             <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
-            
             <div>
                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tbody>
@@ -160,190 +161,25 @@
                             <td width="22%" height="89" valign="top">
                                 <!--  <h3>首页</h3> -->
                                 <ul class="ul_daohang6">
-                                    <li><a href="ysglk1/index.html">法律法规1</a></li>
-                                    <li><a href="glkjk1/index.html">法律法规1</a></li>
-                                    <li><a href="zxzjk1/index.html">法律法规1</a></li>
-                                    <li><a href="xssw1/index.html">法律法规1</a></li>
-                                    <li><a href="gzsw3/index.html">法律法规1</a></li>
-                                    <li><a href="fpkjygl2/index.html">法律法规1</a></li>
-                                    <li><a href="zfcgk1/index.html">法律法规1</a></li>
-                                    <li><a href="hszx1/index.html">法律法规1</a></li>
+                                    <li><a href="ysglk1/index.html">矿产资源管理</a></li>
+                                    <li><a href="glkjk1/index.html">土地管理</a></li>
+                                    <li><a href="zxzjk1/index.html">海洋管理</a></li>
+                                    <li><a href="xssw1/index.html">地方法规</a></li>
+                                    <li><a href="gzsw3/index.html">综合管理</a></li>
+                                    <li><a href="fpkjygl2/index.html">地质环境管理</a></li>
+                                    <li><a href="zfcgk1/index.html">测绘管理</a></li>
+                                    <li><a href="hszx1/index.html">相关法律</a></li>
+                                    <li><a href="hszx1/index.html">法律解释</a></li>
+                                    <li><a href="hszx1/index.html">部门规章</a></li>
                                 </ul>
                             </td>
                             <td width="78%" rowspan="2" valign="top">
-                               
                                 <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-                                    <tbody>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="【政府采购.新】2016年货物、服务类采购项目委托书" href="zfcgk1/121345.html" target="_blank" class="aa">            【政府采购.新】2016年货物、服务类采购项目委托书</a></div>
-                                            
-                                             </td>
-                                            <td class="aa" align="middle" width="120" height="31">2016-01-05</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left">
-                                                <a title="【专项资金管理】间接经费计算流程（附表）" href="../docs/20141102090857849269.docx" target="_blank" class="aa">【专项资金管理】间接经费计算流程（附表）</a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-11-02</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="校外及合同工信息收集-核对银行-查询" href="../docs/20141023083559405179.xlsm" target="_blank" class="aa">校外及合同工信息收集-核对银行-查询</a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-23</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="【发票开具与管理】借发票公函" href="../docs/20141022162839031061.docx" target="_blank" class="aa"> 【发票开具与管理】借发票公函 </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-22</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="稿酬收入税务表" href="../docs/20141016161122943192.xls" target="_blank" class="aa"> 稿酬收入税务表    </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="离退休人员工薪收入税务表" href="../docs/20141016161036078084.xls" target="_blank" class="aa"> 离退休人员工薪收入税务表 </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="校外人员收入税务表" href="../docs/20141016160948027956.xls" target="_blank" class="aa"> 校外人员收入税务表     </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="长期临时工工薪收入税务表" href="../docs/20141016160844744820.xls" target="_blank" class="aa"> 长期临时工工薪收入税务表     </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="在职人员工薪收入税务表" href="../docs/20141016160731877787.xls" target="_blank" class="aa"> 在职人员工薪收入税务表   </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="学生劳务收入税务表" href="../docs/20141016160533928511.xls" target="_blank" class="aa">  学生劳务收入税务表    </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-16</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="middle" width="24" height="31">
-                                                <div align="center"><img src="http://emi.bnu.edu.cn/images/dot2.jpg" alt="" width="14" height="18"></div>
-                                            </td>
-                                            <td width="952" height="31" class="aa">
-                                                <div align="left"><a title="北京师范大学收费项目统计表" href="../docs/20141009164247829214.xls" target="_blank" class="aa">  北京师范大学收费项目统计表   </a></div>
-                                            </td>
-                                            <td class="aa" align="middle" width="120" height="31">2014-10-09</td>
-                                        </tr>
-                                        <tr>
-                                            <td background="/pub/bnu/images/index_line002.gif" colspan="3" height="1"></td>
-                                        </tr>
-                                        <tr>
-                                            <td background="/pub/bnu/images/index_line001.gif" colspan="3" height="1"></td>
-                                        </tr>
-                                        <tr>
-                                            <td background="http://xueronghua.bnu.edu.cn/images/index_line001.gif" colspan="3" height="1"></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left" colspan="3" height="30">
-                                                <table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
-                                                    <form action="#" method="post" name="pageForm" id="pageForm"></form>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <table cellspacing="1" cellpadding="0" width="100%" bgcolor="#f5f5f5" border="0">
-                                                                    <tbody class="footercontant  row">
-                                                                        <tr align="middle">
-                                                                            <td width="25%" class="aa1">
-                                                                                <div align="center" class="aa">当前第 1 页</div>
-                                                                            </td>
-                                                                            <td width="25%" class="aa1">
-                                                                                <div align="center" class="aa">总页数： 1 页</div>
-                                                                            </td>
-                                                                            <td width="25%" class="aa1">
-                                                                                <div align="center" class="aa">总记录数： 11 条</div>
-                                                                            </td>
-                                                                            <td width="25%">
-                                                                                <select onchange="javascript:PageFormSubmit()" name="page">
-                                                                                    <option selected="selected">选择要查询页数</option>
-                                                                                    <option value="index.html" selected="">第 1 页</option>
-                                                                                </select>
-                                                                                <script language="JavaScript" type="text/javascript">
-                                                                                function PageFormSubmit() {
-                                                                                    document.location.href = document.pageForm.page.options[document.pageForm.page.selectedIndex].value;
-                                                                                }
-                                                                                </script>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <!--  <table cellspacing="1" width="100%" align="center" bgcolor="#f5f5f5" border="0">
-                                                                    <tbody class="footercontant  row">
-                                                                        <tr valign="baseline" align="middle">
-                                                                            <td>
-                                                                                <div align="center"><a href="index.html" class="aa">首页</a></div>
-                                                                            </td>
-                                                                            <td class="wuxian">
-                                                                                <div align="center"><a href="index.html" class="aa">上一页</a></div>
-                                                                            </td>
-                                                                            <td class="wuxian">
-                                                                                <div align="center"><a href="index.html" class="aa">下一页</a> </div>
-                                                                            </td>
-                                                                            <td class="wuxian">
-                                                                                <div align="center"><a href="index.html" class="aa">末页</a> </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table> -->
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td background="/pub/bnu/images/index_line001.gif" colspan="3" height="1"></td>
-                                        </tr>
+                                    <tbody id="law_table">
+                                       <tr>
+                                       <td class='boxtitle' align='left' width='952' height='31'><span  class="title" >信息标题</span></td>
+                                       <td class='boxtitle' align='middle' width='120' height='31'><span  class="title" >发布时间</span></td></tr>
+                                       
                                     </tbody>
                                 </table>
                             </td>
@@ -363,104 +199,106 @@
             </div>
         </div>
     </div>
-    <script src="jquery/1.9.1/jquery.min.js"></script>
-    <map name="Map">
-        <area shape="rect" coords="2,3,26,27" href=" http://e.weibo.com/lovebnu/profile" target="_blank">
-    </map>
-    <map name="Map2">
-        <area shape="rect" coords="4,5,26,26" href="http://www.bnu.edu.cn/xzdt/51346.html" target="_blank">
-    </map>
-    <script>
-    // Can also be used with $(document).ready()
-    function con_db_test() {
-        alert("链接数据库");
+</body>
+<script type="text/javascript">
+  $.ajax({
+
+    url: "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25",
+
+    success: function(result) {
+       // console.log("result:", result); $('#noticeAuthor').html(data[2].noticeAuthor);
+        //$('#publishDate').html(data[2].publishDate);
+      
+        var data = result.root;
+        var i=0;
+        
+
+        for(i;i<data.length;i++){
+            if(data[i].publishDate==null){
+                data[i].publishDate="未发布";
+            }
+            console.log("新闻："+data[i].publishDate);
+            console.log(data[i].noticeTitle);
+             console.log(data[i].noticeColumn);
+
+        // alert(data[i].noticeColumn);
+            if(data[i].noticeColumn=="新闻速递"){
+
+             var Msg_title="<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间："+data[i].publishDate+"】</span></a></li>";
+           //var Msg_title="<li><a href='index2.html' target='blank' >"+data[i].noticeTitle+"【"+data[i].publishDate+"】</a></li>"; 
+            $("#news_noticeTitle").append(Msg_title);
+            } 
+            else if(data[i].noticeColumn=="通知公告"){
+             var Msg_title="<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间："+data[i].publishDate+"】</span></a></li>";
+            
+           // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
+            $("#notice_noticeTitle").append(Msg_title);
+            } 
+            else if(data[i].noticeColumn=="土地动态"){
+             var Msg_title="<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间："+data[i].publishDate+"】</span></a></li>";
+           // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
+            $("#landchange_noticeTitle").append(Msg_title);
+            } 
+            else if(data[i].noticeColumn=="土地政策"){
+             var Msg_title="<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间："+data[i].publishDate+"】</span></a></li>";
+           // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
+            $("#landlaw_noticeTitle").append(Msg_title);
+            }
+        };
+        
+       
+
     }
-    $(document).ready(function() {
 
-        $('.xs-navlist-toggle').click(function() {
-            $('.xs-navlist').toggle();
-        });
+});
+   $.ajax({
 
-       /* $('.flexslider').flexslider({
+    url: "http://localhost:8080/landuse/get_laws?_dc=1465479261629&searchKeyword=&page=1&start=0&limit=25",
 
-            animation: "slide",
-
-            slideshowSpeed: 10000
-
-            //controlsContainer: ".flex-container"
-
-        });*/
-
-        $('.navlist li a.fisrtmenu').hover(function() {
-
-            $(this).css("border-right", "1px solid #fff");
-
-            $(this).parent().prev().children('a').css("border-right", "1px solid #fff");
-            $('.subnavlist').hide();
-            $(this).next('.subnavlist').fadeIn();
+    success: function(result) {
+        var lawData=result.root;
+        var j=0;
+        for(j;j<lawData.length;j++){
+            if(lawData[j].publishDate==null){
+                lawData[j].publishDate="未发布";
+            }
+            console.log(lawData[j].publishDate);
+            var law_title="<tr><td width='952' height='31' class='aa'><div align='left'><a title='"+lawData[j].lawTitle+"'href='zfcgk1/121345.html' target='_blank' class='aa'>"+lawData[j].lawTitle+"</a></div></td><td class='aa' align='middle' width='120' height='31'>"+lawData[j].publishDate+"</td></tr>";
+            $("#law_table").append(law_title);
+        }
+       $("#law_table").append("<tr><td width='952' height='31' class='aa'><div align='left'><a  target='_blank' class='aa'></a><td width='25%' class='aa1'><div align='middle' class='aa'>总记录数:"+ lawData.length+"条</div></td></tr>");
+    }
+});
+  /*funtion (data,tle,bind){
 
 
-        }, function() {
-
-            $(this).css("border-right", "1px solid #d4d3ce");
-            $(this).parent().prev().children('a').css("border-right", "1px solid #d4d3ce");
-
-        });
-
-        $('.navbar-nav').hover(function() {
-            $('.subnavlist').hide();
-        });
-
-        $('.subnavlist').hover(function() {
-            $(this).parent().addClass('active');
-        }, function() {
-            $(this).parent().removeClass('active');
-            $(this).fadeOut();
-        });
-
-        $(function() {
-
-            // bind change event to select
-
-            $('.selecttogo').bind('change', function() {
-
-                var url = $(this).val(); // get selected value
-
-                if (url) { // require a URL
-
-                    window.location = url; // redirect
-
-                }
-
-                return false;
-
-            });
-
-        });
-
+  };*/
+  /*$(document).ready(function(){
+//按钮的点击事件，每次点击的时候动态的创建一个  li对象，jquery直接通过 ul对象的id，使用 append 方法 动态的把li添加到ul里面
+    $("#addButton").bind("click",function(){ 
+        var google = Math.random();
+        var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
+        $("#colist").append(msg);
+        //每次添加万一个元素后，都会给改li绑定移除事件
+        bindListener();
     });
-    </script>
-   <!--  <script language="javascript">
-    var conn = new ActiveXObject("ADODB.Connection");
-    conn.Open("Provider=SQLOLEDB.1; Data Source=tgf; User ID=sa; " + "Password=sasa; Initial Catalog=MyBulletin");
-    var rs = new ActiveXObject("ADODB.Recordset");
-    var sql = "select id,name from Category";
-    rs.open(sql, conn);
-    alert(rs(0)); //取出第一个来
-    rs.close();
-    rs = null;
-    conn.close();
-    conn = null;
-    </script> -->
-</body>
-
-</html>
-</body>
-
-</html>
-</body>
-
-</html>
-</body>
+    //
+    function bindListener(){
+        //给所有的 ul li重新绑定移除事件
+        $("#colist li a").unbind().click(function(){
+          //直接通过.remove() 方法移除掉li元素,页面自动就会刷新
+          $(this).parent().remove();
+        });
+    }
+    //jquery 检索ul li的所有元素
+    $("#collect").click(function(){
+        var data = "";
+        $("#nav").find("ul li span").each(function(index,value){
+            data += $(this).text() + "|";
+        })
+        alert(data);
+    })
+})*/
+</script>
 
 </html>
