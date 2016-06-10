@@ -1,0 +1,53 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "sys_MapAttrNameIndexStore",
+        "model": "sys_MapAttrNameIndexModel",
+        "pageSize": null,
+        "storeId": "sys_MapAttrNameIndexStore"
+    },
+    "name": "uUserRoleStore1",
+    "designerId": "21b73016-dc2a-428c-9c4b-ec3b18b62ea2",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword:''",
+                    "}"
+                ],
+                "url": "get_MapAttrNameIndex"
+            },
+            "name": "MyAjaxProxy91",
+            "designerId": "d9561bea-6302-4aae-8857-cac1734a01c8",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader91",
+                    "designerId": "f40ada23-350e-4347-8bd2-442eab3abe54"
+                }
+            ]
+        }
+    ]
+}

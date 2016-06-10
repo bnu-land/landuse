@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-8 16:08:52 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.UtilFieldnameIndex" table="util_fieldname_index" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="enName" type="string">
+            <column name="en_name" length="30" not-null="true">
+                <comment>&#211;&#162;&#206;&#196;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="cnName" type="string">
+            <column name="cn_name" length="50" not-null="true">
+                <comment>&#214;&#208;&#206;&#196;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="enable" type="java.lang.Boolean">
+            <column name="enable">
+                <comment>&#202;&#199;&#183;&#241;&#198;&#244;&#211;&#195;</comment>
+            </column>
+        </property>
+        <property name="unit" type="string">
+            <column name="unit" length="15" />
+        </property>
+        <property name="byTableName" type="string">
+            <column name="by_table_name" length="100">
+                <comment>&#213;&#170;&#215;&#212;&#177;&#237;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="100">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

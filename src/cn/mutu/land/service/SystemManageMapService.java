@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.mutu.land.model.SystemMap;
+import cn.mutu.land.model.UtilFieldnameIndex;
 
 @Service
 public class SystemManageMapService {
@@ -118,4 +119,59 @@ public class SystemManageMapService {
 		return myMapResult;
 	}
 
+	// -------------------地图要素属性中英文对照----------------------
+	// 查询
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> getMapAttrNameIndexList(String searchKeyword) {
+		String hql = "FROM UtilFieldnameIndex as tbl";
+
+		if (!searchKeyword.equals("")) {
+			String likeStr = " LIKE '%" + searchKeyword + "%' ";
+			String hql2 = " WHERE tbl.enName" + likeStr + "OR tbl.cnName" + likeStr;
+			hql = hql + hql2;
+		}
+		hql = hql +" ORDER BY tbl.enName";
+		List<UtilFieldnameIndex> results = null;
+		org.hibernate.Query query = sessionFactory.getCurrentSession()
+				.createQuery(hql);
+		results = (List<UtilFieldnameIndex>) query.list();
+		Map<String, Object> myMapResult = new TreeMap<String, Object>();
+		myMapResult.put("root", results);
+		myMapResult.put("success", true);
+		return myMapResult;
+	}
+	//添加
+	public void addMapAttrNameIndex(UtilFieldnameIndex nameIndex) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			session.saveOrUpdate(nameIndex);
+		} catch (SQLGrammarException s) {
+			System.out.println(s);
+		}
+	}
+
+	// 编辑
+	public void updateMapAttrNameIndex(UtilFieldnameIndex nameIndex) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			session.saveOrUpdate(nameIndex);
+		} catch (Exception er) {
+			System.out.println(er.getMessage());
+		}
+	}
+
+	// 删除
+	public void deleteMapAttrNameIndex(String[] ids) {
+		UtilFieldnameIndex result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			for(String id : ids){
+				result = (UtilFieldnameIndex) session.get(UtilFieldnameIndex.class,
+						Integer.parseInt(id));
+				session.delete(result);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

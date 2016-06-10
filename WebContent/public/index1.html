@@ -8,11 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Beijing Normal University" />
     <!-- Bootstrap -->
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="flexslider.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="cjc.css" rel="stylesheet" type="text/css">
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/cjc.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="jquery/1.9.1/jquery.js"></script>
+    <script src="jquery/1.9.1/jquery.min.js"></script>
     <style type="text/css">
     .redlf {
         font-weight: bold;
@@ -23,11 +25,15 @@
         font-weight: bold;
     }
     </style>
-    <script type="text/javascript" src="jquery/1.9.1/jquery.js"></script>
-    <script src="jquery/1.9.1/jquery.min.js"></script>
+    
 </head>
 
 <body>
+    <!-- Static navbar -->
+    <!-- <hr style="height:10px;border:none;border-top:10px groove skyblue;" /> -->
+    <!--   <div class="navbar navbar-up navbar-static-top">
+
+    </div> -->
     <div class="main mainbg">
         <div class="container bg-white">
             <div class="slider-hover col-md-12">
@@ -142,10 +148,7 @@
                 <div class="footercontantline col-md-12">
                     <span class="col-md-10">&copy; Copyright 北京世级九州软件有限公司　地址：北京市海淀区永庄北路9号7号院206 　</span>
                 </div>
-                <!--  <div class="footercontantline col-md-12">
-                    <span class="col-md-9"></span>
-                    <span class="col-md-3 right"></span>
-                </div> -->
+                
             </div>
         </div>
     </div>
@@ -153,16 +156,15 @@
 <script type="text/javascript">
 $.ajax({
 
+
     url: "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25",
 
     success: function(result) {
-        // console.log("result:", result); $('#noticeAuthor').html(data[2].noticeAuthor);
-        //$('#publishDate').html(data[2].publishDate);
+
+
 
         var data = result.root;
         var i = 0;
-
-
         for (i; i < data.length; i++) {
             if (data[i].publishDate == null) {
                 data[i].publishDate = "未发布";
@@ -170,43 +172,22 @@ $.ajax({
             console.log("新闻：" + data[i].publishDate);
             console.log(data[i].noticeTitle);
             console.log(data[i].noticeColumn);
-            getNotice(data[i],"新闻速递","news_noticeTitle");
-            getNotice(data[i],"通知公告","notice_noticeTitle");
-            getNotice(data[i],"土地动态","landchange_noticeTitle");
-            getNotice(data[i],"土地政策","landlaw_noticeTitle");
-            // alert(data[i].noticeColumn);
-            /*if (data[i].noticeColumn == "新闻速递") {
+            getNotice(data[i], "新闻速递", "news_noticeTitle");
+            getNotice(data[i], "通知公告", "notice_noticeTitle");
+            getNotice(data[i], "土地动态", "landchange_noticeTitle");
+            getNotice(data[i], "土地政策", "landlaw_noticeTitle");
 
-                var Msg_title = "<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间：" + data[i].publishDate + "】</span></a></li>";
-                //var Msg_title="<li><a href='index2.html' target='blank' >"+data[i].noticeTitle+"【"+data[i].publishDate+"】</a></li>"; 
-                $("#news_noticeTitle").append(Msg_title);
-            } else if (data[i].noticeColumn == "通知公告") {
-                var Msg_title = "<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间：" + data[i].publishDate + "】</span></a></li>";
-
-                // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
-                $("#notice_noticeTitle").append(Msg_title);
-            } else if (data[i].noticeColumn == "土地动态") {
-                var Msg_title = "<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间：" + data[i].publishDate + "】</span></a></li>";
-                // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
-                $("#landchange_noticeTitle").append(Msg_title);
-            } else if (data[i].noticeColumn == "土地政策") {
-                var Msg_title = "<li><a  href='index2.html'><span >" + data[i].noticeTitle + "</span><span>【发布时间：" + data[i].publishDate + "】</span></a></li>";
-                // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
-                $("#landlaw_noticeTitle").append(Msg_title);
-            }*/
         };
-
-
 
     }
 
 });
 
-function getNotice(dataMsg,titles,addMsg) {
+
+function getNotice(dataMsg, titles, addMsg) {
     if (dataMsg.noticeColumn == titles) {
         var Msg_title = "<li><a  href='index2.html'><span >" + dataMsg.noticeTitle + "</span><span>【发布时间：" + dataMsg.publishDate + "】</span></a></li>";
-        // var Msg_title="<li><a target='blank' alt='"+data[i].noticeTitle+"'>"; 
-        $("#"+addMsg).append(Msg_title);
+        $("#" + addMsg).append(Msg_title);
     }
 
 };
@@ -215,6 +196,7 @@ $.ajax({
     url: "http://localhost:8080/landuse/get_laws?_dc=1465479261629&searchKeyword=&page=1&start=0&limit=25",
 
     success: function(result) {
+
         var lawData = result.root;
         var j = 0;
         for (j; j < lawData.length; j++) {
@@ -228,36 +210,6 @@ $.ajax({
         $("#law_table").append("<tr><td width='952' height='31' class='aa'><div align='left'><a  target='_blank' class='aa'></a><td width='25%' class='aa1'><div align='middle' class='aa'>总记录数:" + lawData.length + "条</div></td></tr>");
     }
 });
-/*funtion (data,tle,bind){
-
-
-};*/
-/*$(document).ready(function(){
-//按钮的点击事件，每次点击的时候动态的创建一个  li对象，jquery直接通过 ul对象的id，使用 append 方法 动态的把li添加到ul里面
-    $("#addButton").bind("click",function(){ 
-        var google = Math.random();
-        var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
-        $("#colist").append(msg);
-        //每次添加万一个元素后，都会给改li绑定移除事件
-        bindListener();
-    });
-    //
-    function bindListener(){
-        //给所有的 ul li重新绑定移除事件
-        $("#colist li a").unbind().click(function(){
-          //直接通过.remove() 方法移除掉li元素,页面自动就会刷新
-          $(this).parent().remove();
-        });
-    }
-    //jquery 检索ul li的所有元素
-    $("#collect").click(function(){
-        var data = "";
-        $("#nav").find("ul li span").each(function(index,value){
-            data += $(this).text() + "|";
-        })
-        alert(data);
-    })
-})*/
 </script>
 
 </html>

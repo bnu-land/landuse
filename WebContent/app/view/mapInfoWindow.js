@@ -26,6 +26,7 @@ Ext.define('MyApp.view.mapInfoWindow', {
     layout: 'fit',
     title: '属性信息',
     titleCollapse: true,
+    defaultListenerScope: true,
 
     items: [
         {
@@ -37,8 +38,38 @@ Ext.define('MyApp.view.mapInfoWindow', {
                 'Property 2': true,
                 'Property 3': '2015-05-23T15:57:54',
                 'Property 4': 123
+            },
+            listeners: {
+                beforereconfigure: 'onMapInfoWindowGridBeforeReconfigure'
             }
         }
-    ]
+    ],
+
+    onMapInfoWindowGridBeforeReconfigure: function(gridpanel, store, columns, oldStore, oldColumns, eOpts) {
+        var source = gridpanel.getSource();
+        if(!source){
+            return;
+        }
+        //获取中英文对照表
+        var nameIndexStore = Ext.StoreMgr.get('sys_MapAttrNameIndexStore');
+        var nameIndexRecords = nameIndexStore.getRange();
+        var nameIndex = {};
+        for(var i in nameIndexRecords){
+            var name = nameIndexRecords[i].data;
+            nameIndex[name.enName] = name.cnName;
+        }
+
+        //替换
+        var newSource = {};
+        for(var name in source){
+            var cnName = nameIndex[name];
+            if(cnName){
+                newSource[cnName]=source[name];
+            }else{
+                newSource[name] = source[name];
+            }
+        }
+        gridpanel.setSource(newSource);
+    }
 
 });
