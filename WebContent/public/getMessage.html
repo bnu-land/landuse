@@ -9,8 +9,7 @@
 
 <body>
 
-<div id= "noticeTitle" class="abcd" value=""><span></span></div>
-
+<div id= "noticeTitle"></div>
 <div id= "noticeAuthor"></div>
 <div id= "publishDate"></div>
 <div id= "noticeContent"></div>
@@ -22,7 +21,7 @@ $.ajax({
     success: function(result) {
         console.log("result:",result);
         var data = result.root;
-        $('span').html(data[2].noticeTitle);
+        $('#noticeTitle').html(data[2].noticeTitle);
         $('#noticeAuthor').html(data[2].noticeAuthor);
         $('#publishDate').html(data[2].publishDate);
         $('#noticeContent').html(data[2].noticeContent);
@@ -30,4 +29,4 @@ $.ajax({
 });
 </script>
 
-</html>
+<html>
