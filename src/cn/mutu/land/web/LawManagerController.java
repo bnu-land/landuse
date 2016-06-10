@@ -81,6 +81,16 @@ public class LawManagerController {
 		}
 		return result;
 	}
+	// 获取相应法律的前十条
+			@RequestMapping(value = "/get_Top10Laws")
+			@ResponseBody
+			public Map<String, Object> getTop10LawsList(
+					@RequestParam("lawType") String lawType)
+					throws SQLException {
+				lawType = Encoder.encode(lawType);
+				return this.lawService.get10LawRegulationList(lawType);
+				//
+			}
 
 	// -------------------------columns----------------------------
 	@RequestMapping(value = "/get_LawTypes")

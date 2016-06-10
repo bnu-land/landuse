@@ -3,14 +3,13 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="landuse">
+    <session-factory name="tdlz">
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.connection.password">noroot</property>
-        <property name="hibernate.connection.url">jdbc:mysql://202.112.95.178:7712/landuse</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tdlz</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
-        <mapping resource="cn/mutu/land/model/UtilFieldnameIndex.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

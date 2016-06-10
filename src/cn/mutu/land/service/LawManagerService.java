@@ -76,7 +76,25 @@ public class LawManagerService {
 			e.printStackTrace();
 		}
 	}
-	
+	// 获取相关栏目的前十条法律法规
+	public Map<String, Object> get10LawRegulationList(String lawType) {
+		String hql = "FROM LawRegulation as law";
+		if (!lawType.equals("")) {
+			String likeStr = " like '%" + lawType + "%'";
+			String hql2 = " WHERE law.lawType" + likeStr;
+			//  +" limit 0,3"
+			hql += hql2;
+		}		
+		List<LawRegulation> results = null;
+		org.hibernate.Query query = sessionFactory.getCurrentSession()
+				.createQuery(hql).setMaxResults(10);
+		results = (List<LawRegulation>) query.list();
+		Map<String, Object> myMapResult = new TreeMap<String, Object>();
+		myMapResult.put("root", results);
+		myMapResult.put("success", true);
+		return myMapResult;
+	}
+
 	//--------------types---------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getLawTypesList() {

@@ -9,24 +9,30 @@
 
 <body>
 
-<div id= "noticeTitle"></div>
+<div id= "noticeTitle">
+    <li onclick="test(ok);">点我测试</li>
+</div>
 <div id= "noticeAuthor"></div>
 <div id= "publishDate"></div>
 <div id= "noticeContent"></div>
 
 </body>
 <script type="text/javascript">
-$.ajax({
-    url: "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25",
-    success: function(result) {
-        console.log("result:",result);
-        var data = result.root;
-        $('#noticeTitle').html(data[2].noticeTitle);
-        $('#noticeAuthor').html(data[2].noticeAuthor);
-        $('#publishDate').html(data[2].publishDate);
-        $('#noticeContent').html(data[2].noticeContent);
-    }
-});
+// $.ajax({
+//     url: "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25",
+//     success: function(result) {
+//         console.log("result:",result);
+//         var data = result.root;
+//         $('#noticeTitle').html(data[2].noticeTitle);
+//         $('#noticeAuthor').html(data[2].noticeAuthor);
+//         $('#publishDate').html(data[2].publishDate);
+//         $('#noticeContent').html(data[2].noticeContent);
+//     }
+// });
+function test(argument) {
+    console.log(argument);
+    // body...
+}
 </script>
 
 <html>

@@ -15,6 +15,7 @@
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="jquery/1.9.1/jquery.js"></script>
     <script src="jquery/1.9.1/jquery.min.js"></script>
+    <!--  <script src="js/layer.js"></script> -->
     <style type="text/css">
     .redlf {
         font-weight: bold;
@@ -25,7 +26,6 @@
         font-weight: bold;
     }
     </style>
-    
 </head>
 
 <body>
@@ -116,8 +116,8 @@
                         <tr>
                             <td width="22%" height="89" valign="top">
                                 <!--  <h3>首页</h3> -->
-                                <ul class="ul_daohang6">
-                                    <li><a href="ysglk1/index.html">矿产资源管理</a></li>
+                                <ul id="lawtypes" class="ul_daohang6">
+                                    <!-- <li><a href="ysglk1/index.html">矿产资源管理</a></li>
                                     <li><a href="glkjk1/index.html">土地管理</a></li>
                                     <li><a href="zxzjk1/index.html">海洋管理</a></li>
                                     <li><a href="xssw1/index.html">地方法规</a></li>
@@ -126,17 +126,23 @@
                                     <li><a href="zfcgk1/index.html">测绘管理</a></li>
                                     <li><a href="hszx1/index.html">相关法律</a></li>
                                     <li><a href="hszx1/index.html">法律解释</a></li>
-                                    <li><a href="hszx1/index.html">部门规章</a></li>
+                                    <li><a href="hszx1/index.html">部门规章</a></li> -->
                                 </ul>
                             </td>
                             <td width="78%" rowspan="2" valign="top">
                                 <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-                                    <tbody id="law_table">
-                                        <tr>
+                                <tbody>
+                                	<tr id="lawtr">
                                             <td class='boxtitle' align='left' width='952' height='31'><span class="title">信息标题</span></td>
                                             <td class='boxtitle' align='middle' width='120' height='31'><span class="title">发布时间</span></td>
                                         </tr>
+                                </tbody>
+                                    <tbody id="law_table">
+                                        
                                     </tbody>
+                                   <!--  <tbody id="page">
+                                    	
+                                    </tbody> -->
                                 </table>
                             </td>
                         </tr>
@@ -148,12 +154,37 @@
                 <div class="footercontantline col-md-12">
                     <span class="col-md-10">&copy; Copyright 北京世级九州软件有限公司　地址：北京市海淀区永庄北路9号7号院206 　</span>
                 </div>
-                
             </div>
         </div>
     </div>
 </body>
 <script type="text/javascript">
+$.ajax({
+    url: "http://localhost:8080/landuse/get_LawTypes?_dc=1465535514109&page=1&start=0&limit=25",
+    success: function(result) {
+        var lawtypes = result.root;
+
+        for (var i = 0; i < lawtypes.length; i++) {
+        	var lawclass=lawtypes[i].lawType;
+        	var lawid=lawtypes[i].id;
+            var lawtype = "<li><a  id='lawid"+lawtypes[i].id+"'>" + lawtypes[i].lawType + "</a></li>";
+            $("#lawtypes").append(lawtype);
+            /*$("#lawid"+lawid).bind("click",function(){
+            	console.log(lawclass);
+            	console.log(lawid);
+            })*/
+
+        };
+         $("ul li").click(function(){
+         	 $("#law_table tr").remove();
+         	//console.log(this.innerText);
+         	law_list(this.innerText);
+         });
+         
+        /* $(ul li).click(law_list(this.innerHTML));*/
+    }
+
+});
 $.ajax({
 
 
@@ -183,11 +214,40 @@ $.ajax({
 
 });
 
+function law_list(lawtype) {
+
+    $.ajax({
+
+        url: "http://localhost:8080/landuse/get_laws?_dc=1465479261629&searchKeyword="+lawtype+"&page=1&start=0&limit=25",
+
+        success: function(result) {
+           
+            var lawData = result.root;
+            var j = 0,record=0;
+            for (j; j < lawData.length; j++) {
+                if (lawData[j].publishDate == null) {
+                    lawData[j].publishDate = "未发布";
+                }
+                
+                
+                    var law_title = "<tr><td width='952' height='31' class='aa'><div align='left'><a title='" + lawData[j].lawTitle + "'href='index2.html?law_id=" + lawData[j].id + "' target='_blank' class='aa'>" + lawData[j].lawTitle + "</a></div></td><td class='aa' align='middle' width='120' height='31'>" + lawData[j].publishDate + "</td></tr>";
+                    $("#law_table").append(law_title);
+                    record++;
+               
+            }
+                $("#law_table").append("<tr><td width='952' height='31' class='aa'><div align='left'><a  target='_blank' class='aa'></a><td width='25%' class='aa1'><div align='middle' class='aa'>总记录数:" + record + "条</div></td></tr>");
+
+        }
+    });
+
+};
 
 function getNotice(dataMsg, titles, addMsg) {
     if (dataMsg.noticeColumn == titles) {
-        var Msg_title = "<li><a  href='index2.html'><span >" + dataMsg.noticeTitle + "</span><span>【发布时间：" + dataMsg.publishDate + "】</span></a></li>";
+        console.log(titles + "绑定ID：" + dataMsg.id.toString());
+        var Msg_title = "<li><a class='aa' href='index2.html?notice_id=" + dataMsg.id + "'><span >" + dataMsg.noticeTitle + "</span><span>【发布时间：" + dataMsg.publishDate + "】</span></a></li>";
         $("#" + addMsg).append(Msg_title);
+
     }
 
 };
@@ -204,12 +264,17 @@ $.ajax({
                 lawData[j].publishDate = "未发布";
             }
             console.log(lawData[j].publishDate);
-            var law_title = "<tr><td width='952' height='31' class='aa'><div align='left'><a title='" + lawData[j].lawTitle + "'href='zfcgk1/121345.html' target='_blank' class='aa'>" + lawData[j].lawTitle + "</a></div></td><td class='aa' align='middle' width='120' height='31'>" + lawData[j].publishDate + "</td></tr>";
+            var law_title = "<tr><td width='952' height='31' class='aa'><div align='left'><a title='" + lawData[j].lawTitle + "'href='index2.html?law_id=" + lawData[j].id + "' target='_blank' class='aa'>" + lawData[j].lawTitle + "</a></div></td><td class='aa' align='middle' width='120' height='31'>" + lawData[j].publishDate + "</td></tr>";
             $("#law_table").append(law_title);
         }
         $("#law_table").append("<tr><td width='952' height='31' class='aa'><div align='left'><a  target='_blank' class='aa'></a><td width='25%' class='aa1'><div align='middle' class='aa'>总记录数:" + lawData.length + "条</div></td></tr>");
     }
 });
+
+function getlist(type) {
+
+
+}
 </script>
 
 </html>
