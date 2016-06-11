@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.mutu.land.common.Decoder;
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.LawRegulation;
 import cn.mutu.land.model.LawTypes;
@@ -88,9 +89,21 @@ public class LawManagerController {
 					@RequestParam("lawType") String lawType)
 					throws SQLException {
 				lawType = Encoder.encode(lawType);
+				//lawType = Decoder.decode(lawType);
+				
 				return this.lawService.get10LawRegulationList(lawType);
 				//
 			}
+			// 更新阅读次数
+						@RequestMapping(value = "/update_readCount")
+						@ResponseBody
+						public Map<String, Object> updateReadCount(
+								@RequestParam("id") String id)
+								throws SQLException {
+							id = Encoder.encode(id);
+							return this.lawService.updateRead(id);
+							//
+						}
 
 	// -------------------------columns----------------------------
 	@RequestMapping(value = "/get_LawTypes")
@@ -141,4 +154,20 @@ public class LawManagerController {
 		}
 		return result;
 	}
+	/*// 修改阅读次数
+		@RequestMapping(value = "/update_lawRead",method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> update_lawRead(@RequestBody String id)
+				throws IOException {
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {			     	
+				this.lawService.updateRead(id);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}*/
 }

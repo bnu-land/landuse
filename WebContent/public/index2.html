@@ -104,9 +104,16 @@ if (get_value != "notice_id") {
                 if (data[i].id == showval) {
                     console.log(data[i].publishDate);
 
-                    var law_word = "<h2>" + data[i].lawTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:448次</span></div><div class='zhengwen_lf'>" + data[i].lawContent + "</div><br><div style='text-align: right'>" + data[i].publishDept + "<br>"
+                    var law_word = "<h2>" + data[i].lawTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:"+data[i].readCount+"次</span></div><div class='zhengwen_lf'>" + data[i].lawContent + "</div><br><div style='text-align: right'>" + data[i].publishDept + "<br>"
                     data[i].lawEditor + "&nbsp;&nbsp;&nbsp;&nbsp;</div><br>";
                     $("#detail").append(law_word);
+                     $.ajax({
+
+                        url:"http://localhost:8080/landuse/update_readCount?id="+showval+"&page=1&start=0&limit=25",
+                        success:function(resultvalue){
+                            console.log(resultvalue.success);
+                        }
+                    })
 
                 }
             }
@@ -115,7 +122,7 @@ if (get_value != "notice_id") {
     });
 
 } else {
-    url = "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25";
+    url = "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=&page=1&start=0&limit=25";
     $.ajax({
 
         url: url,
@@ -131,8 +138,15 @@ if (get_value != "notice_id") {
                 if (data[i].id == showval) {
                     console.log(data[i].publishDate);
 
-                    var notice_word = "<h2>" + data[i].noticeTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:448次</span></div><div class='zhengwen_lf'>" + data[i].noticeContent + "</div><br><div style='text-align: right'>" + data[i].noticeAuthor + "&nbsp;&nbsp;&nbsp;&nbsp;</div><br>";
+                    var notice_word = "<h2>" + data[i].noticeTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:"+data[i].readCount+"次</span></div><div class='zhengwen_lf'>" + data[i].noticeContent + "</div><br><div style='text-align: right'>" + data[i].noticeAuthor + "&nbsp;&nbsp;&nbsp;&nbsp;</div><br>";
                     $("#detail").append(notice_word);
+                    $.ajax({
+
+                        url:"http://localhost:8080/landuse/update_noticeReadCount?id="+showval+"&page=1&start=0&limit=25",
+                        success:function(resultvalue){
+                            console.log(resultvalue.success);
+                        }
+                    })
 
                 }
             }

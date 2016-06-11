@@ -2,7 +2,8 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-
-<!-- <table-filter match-name="notice_news" match-catalog="landuse"></table-filter> -->
-<table-filter match-name="law_regulation" match-catalog="landuse"></table-filter>
+  <table-filter match-catalog="landuse" match-name="law_regulation"/>
+  <table-filter match-catalog="landuse" match-name="law_types"/>
+  <table-filter match-catalog="landuse" match-name="notice_columns"/>
+  <table-filter match-catalog="landuse" match-name="notice_news"/>
 </hibernate-reverse-engineering>

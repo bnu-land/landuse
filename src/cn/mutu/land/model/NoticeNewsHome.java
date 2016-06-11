@@ -1,41 +1,30 @@
 package cn.mutu.land.model;
 
-// Generated 2015-6-3 19:53:43 by Hibernate Tools 4.0.0
+// Generated 2016-6-11 12:24:30 by Hibernate Tools 4.0.0
 
-import java.util.List;
-import javax.naming.InitialContext;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.LockMode;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Example;
 
 /**
  * Home object for domain model class NoticeNews.
  * @see cn.mutu.land.model.NoticeNews
  * @author Hibernate Tools
  */
+@Stateless
 public class NoticeNewsHome {
 
 	private static final Log log = LogFactory.getLog(NoticeNewsHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
-
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext()
-					.lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException(
-					"Could not locate SessionFactory in JNDI");
-		}
-	}
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	public void persist(NoticeNews transientInstance) {
 		log.debug("persisting NoticeNews instance");
 		try {
-			sessionFactory.getCurrentSession().persist(transientInstance);
+			entityManager.persist(transientInstance);
 			log.debug("persist successful");
 		} catch (RuntimeException re) {
 			log.error("persist failed", re);
@@ -43,35 +32,13 @@ public class NoticeNewsHome {
 		}
 	}
 
-	public void attachDirty(NoticeNews instance) {
-		log.debug("attaching dirty NoticeNews instance");
+	public void remove(NoticeNews persistentInstance) {
+		log.debug("removing NoticeNews instance");
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(instance);
-			log.debug("attach successful");
+			entityManager.remove(persistentInstance);
+			log.debug("remove successful");
 		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
-	}
-
-	public void attachClean(NoticeNews instance) {
-		log.debug("attaching clean NoticeNews instance");
-		try {
-			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
-			log.debug("attach successful");
-		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
-	}
-
-	public void delete(NoticeNews persistentInstance) {
-		log.debug("deleting NoticeNews instance");
-		try {
-			sessionFactory.getCurrentSession().delete(persistentInstance);
-			log.debug("delete successful");
-		} catch (RuntimeException re) {
-			log.error("delete failed", re);
+			log.error("remove failed", re);
 			throw re;
 		}
 	}
@@ -79,8 +46,7 @@ public class NoticeNewsHome {
 	public NoticeNews merge(NoticeNews detachedInstance) {
 		log.debug("merging NoticeNews instance");
 		try {
-			NoticeNews result = (NoticeNews) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			NoticeNews result = entityManager.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -89,35 +55,14 @@ public class NoticeNewsHome {
 		}
 	}
 
-	public NoticeNews findById(java.lang.Integer id) {
+	public NoticeNews findById(Integer id) {
 		log.debug("getting NoticeNews instance with id: " + id);
 		try {
-			NoticeNews instance = (NoticeNews) sessionFactory
-					.getCurrentSession().get("cn.mutu.land.model.NoticeNews",
-							id);
-			if (instance == null) {
-				log.debug("get successful, no instance found");
-			} else {
-				log.debug("get successful, instance found");
-			}
+			NoticeNews instance = entityManager.find(NoticeNews.class, id);
+			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
-			throw re;
-		}
-	}
-
-	public List findByExample(NoticeNews instance) {
-		log.debug("finding NoticeNews instance by example");
-		try {
-			List results = sessionFactory.getCurrentSession()
-					.createCriteria("cn.mutu.land.model.NoticeNews")
-					.add(Example.create(instance)).list();
-			log.debug("find by example successful, result size: "
-					+ results.size());
-			return results;
-		} catch (RuntimeException re) {
-			log.error("find by example failed", re);
 			throw re;
 		}
 	}
