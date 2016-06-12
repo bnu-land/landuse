@@ -19,31 +19,46 @@ Ext.define('MyApp.view.business_message', {
 
     requires: [
         'MyApp.view.business_messageViewModel',
-        'Ext.Img'
+        'Ext.Img',
+        'Ext.form.Label'
     ],
 
     viewModel: {
         type: 'business_message'
     },
-    height: 417,
-    width: 481,
+    height: 488,
+    width: 729,
     layout: 'absolute',
     title: '企业预警与通知',
 
     items: [
         {
             xtype: 'image',
+            x: 130,
+            y: 110,
             height: 201,
             width: 201,
             src: 'images/ico/warning_ico.jpg'
         },
         {
             xtype: 'image',
-            x: 270,
-            y: -3,
+            x: 530,
+            y: 110,
             height: 201,
             width: 201,
             src: 'images/ico/message_ico.jpg'
+        },
+        {
+            xtype: 'label',
+            x: 190,
+            y: 60,
+            text: '我的预警通知'
+        },
+        {
+            xtype: 'label',
+            x: 580,
+            y: 60,
+            text: '我的消息通知'
         }
     ]
 

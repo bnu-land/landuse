@@ -9,10 +9,10 @@
         "designer|snapToGrid": 10,
         "designer|userAlias": "business_message",
         "designer|userClassName": "business_message",
-        "height": 417,
+        "height": 488,
         "layout": "absolute",
         "title": "企业预警与通知",
-        "width": 481
+        "width": 729
     },
     "name": "MyPanel7",
     "designerId": "6fe34b61-04d3-4cf1-9857-b00c3ef6ec64",
@@ -28,6 +28,8 @@
             "codeClass": null,
             "userConfig": {
                 "height": 201,
+                "layout|x": 130,
+                "layout|y": 110,
                 "src": "images/ico/warning_ico.jpg",
                 "width": 201
             },
@@ -43,13 +45,43 @@
             "codeClass": null,
             "userConfig": {
                 "height": 201,
-                "layout|x": 270,
-                "layout|y": -3,
+                "layout|x": 530,
+                "layout|y": 110,
                 "src": "images/ico/message_ico.jpg",
                 "width": 201
             },
             "name": "MyImg1",
             "designerId": "c9feda33-7ad2-44f3-b541-138e368eb507"
+        },
+        {
+            "type": "Ext.form.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|x": 190,
+                "layout|y": 60,
+                "text": "我的预警通知"
+            },
+            "name": "MyLabel3",
+            "designerId": "0da1f55c-12a7-4a78-93a6-afe011028c84"
+        },
+        {
+            "type": "Ext.form.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|x": 580,
+                "layout|y": 60,
+                "text": "我的消息通知"
+            },
+            "name": "MyLabel4",
+            "designerId": "170fa472-70e3-4d34-b896-64c368d275cb"
         }
     ]
 }

@@ -18,14 +18,147 @@ Ext.define('MyApp.view.business_uploadMap', {
     alias: 'widget.business_uploadMap',
 
     requires: [
-        'MyApp.view.business_uploadMapViewModel'
+        'MyApp.view.business_uploadMapViewModel',
+        'Ext.button.Button',
+        'Ext.form.field.Text',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View'
     ],
 
     viewModel: {
         type: 'business_uploadmap'
     },
-    height: 436,
-    width: 484,
-    title: '企业上传地图数据'
+    height: 551,
+    width: 704,
+    layout: 'border',
+    title: '企业上传地图数据',
+    defaultListenerScope: true,
+
+    items: [
+        {
+            xtype: 'panel',
+            region: 'west',
+            width: 440,
+            layout: 'absolute',
+            title: '信息录入',
+            items: [
+                {
+                    xtype: 'button',
+                    x: 200,
+                    y: 410,
+                    text: '提交审核'
+                },
+                {
+                    xtype: 'button',
+                    x: 63,
+                    y: 413,
+                    text: '保存预览'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 90,
+                    y: 160,
+                    width: 200,
+                    fieldLabel: '北坐标',
+                    labelWidth: 50
+                },
+                {
+                    xtype: 'textfield',
+                    x: 0,
+                    y: 240,
+                    width: 200,
+                    fieldLabel: '西坐标',
+                    labelWidth: 50
+                },
+                {
+                    xtype: 'textfield',
+                    x: 210,
+                    y: 240,
+                    width: 200,
+                    fieldLabel: '东坐标',
+                    labelWidth: 50
+                },
+                {
+                    xtype: 'textfield',
+                    x: 90,
+                    y: 330,
+                    width: 200,
+                    fieldLabel: '南坐标',
+                    labelWidth: 50
+                },
+                {
+                    xtype: 'textfield',
+                    x: 30,
+                    y: 100,
+                    width: 290,
+                    fieldLabel: '企业用户',
+                    labelWidth: 70
+                },
+                {
+                    xtype: 'textfield',
+                    x: 30,
+                    y: 40,
+                    width: 290,
+                    fieldLabel: '项目编号',
+                    labelWidth: 70
+                }
+            ]
+        },
+        {
+            xtype: 'panel',
+            region: 'center',
+            html: '<div id="map"></div>',
+            collapseDirection: 'right',
+            collapsible: false,
+            title: '地图预览',
+            titleAlign: 'center',
+            listeners: {
+                beforerender: 'onPanelBeforeRender'
+            }
+        },
+        {
+            xtype: 'gridpanel',
+            region: 'south',
+            autoScroll: true,
+            height: 150,
+            collapsed: true,
+            collapsible: true,
+            title: '数据浏览',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'string',
+                    text: 'String'
+                },
+                {
+                    xtype: 'numbercolumn',
+                    dataIndex: 'number',
+                    text: 'Number'
+                },
+                {
+                    xtype: 'datecolumn',
+                    dataIndex: 'date',
+                    text: 'Date'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'bool',
+                    text: 'Boolean'
+                }
+            ]
+        }
+    ],
+
+    onPanelBeforeRender: function(component, eOpts) {
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/homeMap.js";
+        head.appendChild(script);
+    }
 
 });

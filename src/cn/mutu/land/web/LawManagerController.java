@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.mutu.land.common.Decoder;
+
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.LawRegulation;
 import cn.mutu.land.model.LawTypes;
