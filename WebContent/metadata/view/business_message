@@ -1,0 +1,55 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|snapToGrid": 10,
+        "designer|userAlias": "business_message",
+        "designer|userClassName": "business_message",
+        "height": 417,
+        "layout": "absolute",
+        "title": "企业预警与通知",
+        "width": 481
+    },
+    "name": "MyPanel7",
+    "designerId": "6fe34b61-04d3-4cf1-9857-b00c3ef6ec64",
+    "viewControllerInstanceId": "7b18184c-b362-4967-9345-cc2b84ffd681",
+    "viewModelInstanceId": "62d64b7c-24ce-4ca1-97bf-2a5aa5b0a893",
+    "cn": [
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 201,
+                "src": "images/ico/warning_ico.jpg",
+                "width": 201
+            },
+            "name": "MyImg",
+            "designerId": "9ac81d4e-9128-40de-be97-09fd9eebc3ca"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 201,
+                "layout|x": 270,
+                "layout|y": -3,
+                "src": "images/ico/message_ico.jpg",
+                "width": 201
+            },
+            "name": "MyImg1",
+            "designerId": "c9feda33-7ad2-44f3-b541-138e368eb507"
+        }
+    ]
+}

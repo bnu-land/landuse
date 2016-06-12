@@ -1,0 +1,19 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_uploadMap",
+        "designer|userClassName": "business_uploadMap",
+        "height": 436,
+        "title": "企业上传地图数据",
+        "width": 484
+    },
+    "name": "MyPanel7",
+    "designerId": "e341950a-ea6f-418f-8da7-8defc044f2da",
+    "viewControllerInstanceId": "c18be0dd-f15b-4b1c-b69f-4217ef371da7",
+    "viewModelInstanceId": "704a2783-bf16-450f-b145-ee2df28383e6"
+}

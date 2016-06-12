@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_uploadphoto",
+        "designer|userClassName": "business_uploadPhotoViewModel"
+    },
+    "designerId": "3d204037-351f-4431-b826-6beb3f9e6acb"
+}

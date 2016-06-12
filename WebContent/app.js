@@ -159,7 +159,10 @@ Ext.application({
         'intensityuse_IntensityScoreCalculation',
         'system_Log',
         'sys_MapAttrNameIndexWindow',
-        'sys_MapAddAttrNameIndexWindow'
+        'sys_MapAddAttrNameIndexWindow',
+        'business_message',
+        'business_uploadPhoto',
+        'business_uploadMap'
     ],
     name: 'MyApp',
 

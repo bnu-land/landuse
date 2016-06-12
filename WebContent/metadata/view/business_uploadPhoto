@@ -1,0 +1,19 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_uploadPhoto",
+        "designer|userClassName": "business_uploadPhoto",
+        "height": 439,
+        "title": "企业上传图片数据",
+        "width": 468
+    },
+    "name": "MyPanel7",
+    "designerId": "50569405-4656-4e14-956a-e72ea79bd132",
+    "viewControllerInstanceId": "908e75be-8058-4e65-a4d4-2f3a15a40c7c",
+    "viewModelInstanceId": "3d204037-351f-4431-b826-6beb3f9e6acb"
+}
