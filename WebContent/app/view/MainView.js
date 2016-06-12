@@ -539,6 +539,40 @@ Ext.define('MyApp.view.MainView', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'panel',
+                    title: '企业数据管理',
+                    items: [
+                        {
+                            xtype: 'menu',
+                            floating: false,
+                            itemId: 'menu3',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_message',
+                                    hideOnClick: false,
+                                    text: '我的讯息'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_uploadPhoto',
+                                    hideOnClick: false,
+                                    text: '上传图片信息'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_uploadMap',
+                                    hideOnClick: false,
+                                    text: '上传地图信息'
+                                }
+                            ],
+                            listeners: {
+                                click: 'onMenu3Click9'
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -631,6 +665,13 @@ Ext.define('MyApp.view.MainView', {
     },
 
     onMenu3Click8: function(menu, item, e, eOpts) {
+        var xtype = item.id;
+        var mainView = Ext.getCmp('mainView');
+        mainView.removeAll();
+        mainView.add(Ext.widget(xtype));
+    },
+
+    onMenu3Click9: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();

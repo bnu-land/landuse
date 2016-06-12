@@ -1446,6 +1446,105 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hideMode": null,
+                        "title": "企业数据管理"
+                    },
+                    "name": "MyPanel6",
+                    "designerId": "22635016-2f64-4390-ae33-0cefb52e1f77",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "floating": false,
+                                "itemId": "menu3",
+                                "width": null
+                            },
+                            "name": "MyMenu2",
+                            "designerId": "315f3934-9c0c-40ed-89f8-2377639e778b",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "business_message",
+                                        "text": "我的讯息"
+                                    },
+                                    "name": "MyMenuItem17",
+                                    "designerId": "1d9db772-c27e-438d-87a2-6dbc71b50add"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "business_uploadPhoto",
+                                        "text": "上传图片信息"
+                                    },
+                                    "name": "MyMenuItem22",
+                                    "designerId": "1aff5401-2ae3-4019-bd8b-d6ae2864a7c2"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "business_uploadMap",
+                                        "text": "上传地图信息"
+                                    },
+                                    "name": "MyMenuItem18",
+                                    "designerId": "85d93acb-77b8-4bc3-ab9f-cacd5b45b16e"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMenu3Click9",
+                                        "implHandler": [
+                                            "var xtype = item.id;",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMenu3Click9",
+                                    "designerId": "aed8bc85-fac7-4553-ba43-469f5b745aa5"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
