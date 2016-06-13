@@ -6,10 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "defaultRootId": "children",
+        "defaultRootText": "children",
+        "designer|userAlias": "systemManageMapTreeStore",
         "designer|userClassName": "systemManageMapTreeStore",
         "groupField": "id",
         "model": "systemMapModel",
-        "rootVisible": true,
+        "root": [
+            "{",
+            "    expanded:false",
+            "}"
+        ],
         "storeId": "systemManageMapTreeStore"
     },
     "name": "MyTreeStore",
@@ -23,7 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": null
+                "url": "get_systemManageMapTree"
             },
             "name": "MyAjaxProxy1",
             "designerId": "63a305bd-44c7-491f-99db-5187b8554155",
@@ -42,6 +51,27 @@
                     "designerId": "1f2e6209-a46a-4cdb-9bfe-934665bdf779"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTreeStoreLoad",
+                "implHandler": [
+                    "//var jsonData = Ext.pluck(treestore.data.items, 'data'); //从store获取数据",
+                    "//var store = Ext.StoreMgr.get('sys_TreeStore');",
+                    "//store.setRoot(jsonData);",
+                    "//console.log(\"json:\",jsonData);"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "name": "onTreeStoreLoad",
+            "designerId": "ad40d2c9-16ee-4c9d-ae17-6c7e70290836"
         }
     ]
 }

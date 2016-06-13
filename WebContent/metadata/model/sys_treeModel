@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "sys_treeModel"
+    },
+    "name": "systemMapModel1",
+    "designerId": "76bcb7f4-bcd5-4d45-b328-9b54c390b0ac",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "task"
+            },
+            "name": "MyField8",
+            "designerId": "56154c7a-f5cf-4f9e-abdc-e22bd93b9772"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "duration"
+            },
+            "name": "MyField9",
+            "designerId": "8ea5f248-0453-4078-8761-6f55ece92373"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "user"
+            },
+            "name": "MyField10",
+            "designerId": "ec7f7bd6-8c23-4b07-9cd4-90e3fbc9b945"
+        }
+    ]
+}

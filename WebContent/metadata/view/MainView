@@ -1356,7 +1356,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "system_MapManage",
+                                        "id": "system_MapManageTree",
                                         "text": "地图管理"
                                     },
                                     "name": "MyMenuItem15",

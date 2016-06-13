@@ -70,7 +70,7 @@ Ext.define('MyApp.view.system_MapManage', {
                 {
                     xtype: 'gridcolumn',
                     width: 200,
-                    dataIndex: 'description',
+                    dataIndex: 'id',
                     text: '备注'
                 }
             ],

@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-6-18 21:16:26 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-6-10 21:19:08 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.SystemMap" table="system_map" catalog="landuse">
         <id name="mapId" type="java.lang.Integer">
             <column name="map_id" />
             <generator class="identity" />
         </id>
+        <property name="kfqId" type="java.lang.Integer">
+            <column name="kfq_id">
+                <comment>&#193;&#165;&#202;&#244;&#181;&#196;&#191;&#170;&#183;&#162;&#199;&#248;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
         <property name="mapPid" type="java.lang.Integer">
             <column name="map_pid">
                 <comment>pid</comment>

@@ -19,21 +19,21 @@ require([
     "dojo/dom",
     "dojo/parser",
     "dojo/domReady!"
-], function (Map,
-             graphicsUtils,
-             ArcGISDynamicMapServiceLayer,
-             FeatureLayer,
-             arcgisUtils,
-             Extent,
-             Query,
-             QueryTask,
-             ready,
-             on,
-             dojoIOScript,
-             connect,
-             arrayUtil,
-             dom,
-             parser) {
+], function(Map,
+    graphicsUtils,
+    ArcGISDynamicMapServiceLayer,
+    FeatureLayer,
+    arcgisUtils,
+    Extent,
+    Query,
+    QueryTask,
+    ready,
+    on,
+    dojoIOScript,
+    connect,
+    arrayUtil,
+    dom,
+    parser) {
 
     var WKID = 4326;
 
@@ -41,14 +41,14 @@ require([
     var layer;
     var extInfoWindow;
     var extInfoWindowGrid;
-    var fields;     //属性表表头
+    var fields; //属性表表头
     var attributesData; //属性表
     var store;
     var grid;
     var comboBoxLayerSelect;
     var mapPanel;
 
-    ready(function () {//65.3447265625,4.21875, 135.7470703125, 53.61328125
+    ready(function() { //65.3447265625,4.21875, 135.7470703125, 53.61328125
         parser.parse();
 
         //加载天地图图层
@@ -58,10 +58,10 @@ require([
             "ymin": 45.666310369873045,
             "xmax": 127.29946497192383,
             "ymax": 45.8012362121582,
-            "spatialReference": {"wkid": WKID}
+            "spatialReference": { "wkid": WKID }
         });
-        map = new esri.Map("survey_TypicalEnterprise_div",{
-            logo:false
+        map = new esri.Map("survey_TypicalEnterprise_div", {
+            logo: false
         });
 
         //---------Ext JS 事件----------
@@ -74,8 +74,9 @@ require([
 
         //----------------地图事件-------------
         //当地图范围发生变化时
-        on(map, "extent-change", onExtentChange);       //范围变化
+        on(map, "extent-change", onExtentChange); //范围变化
         on(map, "load", onMapLayerLoad);
+
         function onExtentChange(delta, extent, levelChange, lod) {
             //console.log(delta);
         }
@@ -110,17 +111,19 @@ require([
                 mode: esri.layers.FeatureLayer.MODE_SNAPSHOT,
                 outFields: ["DXDM", "QYMC", "QYDZ", "SSPJFW", "HYLB", "HYDM", "QYRS", "YJZTZ",
                     "WCTZ", "ZSR", "ZCZ", "SSZE", "QYYDMJ", "CFPT", "XZBG", "LTCD", "NBYLD",
-                    "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"]
+                    "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"
+                ]
             });
             map.addLayer(layer);
 
             if (layer) {
                 //属性window
                 on(layer, "click", featureLayerClick);
+
                 function featureLayerClick(event) {
                     if (!extInfoWindow) {
                         extInfoWindow = Ext.widget("mapInfoWindow");
-                        extInfoWindow.on("close", function (panel, eOpts) {
+                        extInfoWindow.on("close", function(panel, eOpts) {
                             extInfoWindow = null;
                             extInfoWindowGrid = null;
                         });
@@ -133,6 +136,7 @@ require([
                     var feature = event.graphic;
                     var attr = feature.attributes;
                     extInfoWindowGrid.setSource(attr);
+                    extInfoWindowGrid.setStore(extInfoWindowGrid.getStore());
 
                     var ptClick = event.screenPoint;
                     var panelPosition = mapPanel.getPosition();
@@ -141,12 +145,13 @@ require([
 
                 //设置添加的图层居中
                 on(layer, "load", onLayerAdd);
+
                 function onLayerAdd(layerAdd) {
                     dojoIOScript.get({
                         url: url + '?f=json',
-                        content: {q: "#dojo"},
+                        content: { q: "#dojo" },
                         callbackParamName: "callback"
-                    }).then(function (data) {
+                    }).then(function(data) {
                         var newExtent = new Extent();
                         newExtent.xmax = data.extent.xmax;
                         newExtent.xmin = data.extent.xmin;
@@ -162,7 +167,8 @@ require([
                     query.returnGeometry = true;
                     query.outFields = ["DXDM", "QYMC", "QYDZ", "SSPJFW", "HYLB", "HYDM", "QYRS", "YJZTZ",
                         "WCTZ", "ZSR", "ZCZ", "SSZE", "QYYDMJ", "CFPT", "XZBG", "LTCD", "NBYLD",
-                        "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"];
+                        "DLTCC", "LD", "QT", "ZJZMJ", "RJL", "JDZMJ", "JZXS", "BZ"
+                    ];
                     //query.text = dom.byId("stateName").value;
                     query.where = "1=1";
                     queryTask.execute(query, showResults);
@@ -191,32 +197,32 @@ require([
                 data: attributesData,
                 // reader configs
                 fields: [
-                    {name: "DXDM", type: 'auto'},
-                    {name: "QYMC", type: 'auto'},
-                    {name: "QYDZ", type: 'auto'},
-                    {name: "SSPJFW", type: 'auto'},
-                    {name: "HYLB", type: 'auto'},
-                    {name: "HYDM", type: 'auto'},
-                    {name: "QYRS", type: 'auto'},
-                    {name: "YJZTZ", type: 'auto'},
-                    {name: "WCTZ", type: 'auto'},
-                    {name: "ZSR", type: 'auto'},
-                    {name: "ZCZ", type: 'auto'},
-                    {name: "SSZE", type: 'auto'},
-                    {name: "QYYDMJ", type: 'auto'},
-                    {name: "CFPT", type: 'auto'},
-                    {name: "XZBG", type: 'auto'},
-                    {name: "LTCD", type: 'auto'},
-                    {name: "NBYLD", type: 'auto'},
-                    {name: "DLTCC", type: 'auto'},
-                    {name: "LD", type: 'auto'},
-                    {name: "QT", type: 'auto'},
-                    {name: "ZJZMJ", type: 'auto'},
-                    {name: "RJL", type: 'auto'},
-                    {name: "JDZMJ", type: 'auto'},
-                    {name: "JZXS", type: 'auto'},
-                    {name: "BZ", type: 'auto'},
-                    {name: "feature", type: 'auto'}
+                    { name: "DXDM", type: 'auto' },
+                    { name: "QYMC", type: 'auto' },
+                    { name: "QYDZ", type: 'auto' },
+                    { name: "SSPJFW", type: 'auto' },
+                    { name: "HYLB", type: 'auto' },
+                    { name: "HYDM", type: 'auto' },
+                    { name: "QYRS", type: 'auto' },
+                    { name: "YJZTZ", type: 'auto' },
+                    { name: "WCTZ", type: 'auto' },
+                    { name: "ZSR", type: 'auto' },
+                    { name: "ZCZ", type: 'auto' },
+                    { name: "SSZE", type: 'auto' },
+                    { name: "QYYDMJ", type: 'auto' },
+                    { name: "CFPT", type: 'auto' },
+                    { name: "XZBG", type: 'auto' },
+                    { name: "LTCD", type: 'auto' },
+                    { name: "NBYLD", type: 'auto' },
+                    { name: "DLTCC", type: 'auto' },
+                    { name: "LD", type: 'auto' },
+                    { name: "QT", type: 'auto' },
+                    { name: "ZJZMJ", type: 'auto' },
+                    { name: "RJL", type: 'auto' },
+                    { name: "JDZMJ", type: 'auto' },
+                    { name: "JZXS", type: 'auto' },
+                    { name: "BZ", type: 'auto' },
+                    { name: "feature", type: 'auto' }
                 ],
                 autoLoad: true
             });
@@ -231,6 +237,7 @@ require([
         if (grid) {
             grid.on('cellclick', onGridCellClick);
         }
+
         function onGridCellClick(grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {
             var graphic = record.get('feature');
             if (graphic) {
@@ -245,6 +252,7 @@ require([
             mapPanel.on('resize', onMapPanelResize);
             mapPanel.on('deactivate', onMapPanelBlur);
         }
+
         function onMapPanelResize(panel, width, height, oldWidth, oldHeight, eOpts) {
             if (map) {
                 map.resize();
@@ -261,40 +269,41 @@ require([
         //----------------------加载天地图--------------------------
         // 地图
         dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {
-            constructor: function () {
-                this.spatialReference = new esri.SpatialReference({wkid: WKID});
+            constructor: function() {
+                this.spatialReference = new esri.SpatialReference({ wkid: WKID });
                 this.initialExtent = (this.fullExtent =
                     new esri.geometry.Extent(-180.0, -90.0, 180.0, 90.0, this.spatialReference));
                 this.tileInfo = new esri.layers.TileInfo({
                     "rows": 256,
                     "cols": 256,
                     "compressionQuality": 0,
-                    "origin": {"x": -180, "y": 90},
-                    "spatialReference": {"wkid": WKID},
+                    "origin": { "x": -180, "y": 90 },
+                    "spatialReference": { "wkid": WKID },
                     "lods": [
-                        {"level": 0, "resolution": 0.703125, "scale": 295497593.05875},
-                        {"level": 1, "resolution": 0.3515625, "scale": 147748796.529375},
-                        {"level": 2, "resolution": 0.17578125, "scale": 73874398.264688},
-                        {"level": 3, "resolution": 0.087890625, "scale": 36937199.132344},
-                        {"level": 4, "resolution": 0.0439453125, "scale": 18468599.566172},
-                        {"level": 5, "resolution": 0.02197265625, "scale": 9234299.783086},
-                        {"level": 6, "resolution": 0.010986328125, "scale": 4617149.891543},
-                        {"level": 7, "resolution": 0.0054931640625, "scale": 2308574.945771},
-                        {"level": 8, "resolution": 0.00274658203125, "scale": 1154287.472886},
-                        {"level": 9, "resolution": 0.001373291015625, "scale": 577143.736443},
-                        {"level": 10, "resolution": 0.0006866455078125, "scale": 288571.86822143558},
-                        {"level": 11, "resolution": 0.00034332275390625, "scale": 144285.93411071779},
-                        {"level": 12, "resolution": 0.000171661376953125, "scale": 72142.967055358895},
-                        {"level": 13, "resolution": 8.58306884765625e-005, "scale": 36071.483527679447},
-                        {"level": 14, "resolution": 4.291534423828125e-005, "scale": 18035.741763839724},
-                        {"level": 15, "resolution": 2.1457672119140625e-005, "scale": 9017.8708819198619},
-                        {"level": 16, "resolution": 1.0728836059570313e-005, "scale": 4508.9354409599309},
-                        {"level": 17, "resolution": 5.3644180297851563e-006, "scale": 2254.4677204799655}]
+                        { "level": 0, "resolution": 0.703125, "scale": 295497593.05875 },
+                        { "level": 1, "resolution": 0.3515625, "scale": 147748796.529375 },
+                        { "level": 2, "resolution": 0.17578125, "scale": 73874398.264688 },
+                        { "level": 3, "resolution": 0.087890625, "scale": 36937199.132344 },
+                        { "level": 4, "resolution": 0.0439453125, "scale": 18468599.566172 },
+                        { "level": 5, "resolution": 0.02197265625, "scale": 9234299.783086 },
+                        { "level": 6, "resolution": 0.010986328125, "scale": 4617149.891543 },
+                        { "level": 7, "resolution": 0.0054931640625, "scale": 2308574.945771 },
+                        { "level": 8, "resolution": 0.00274658203125, "scale": 1154287.472886 },
+                        { "level": 9, "resolution": 0.001373291015625, "scale": 577143.736443 },
+                        { "level": 10, "resolution": 0.0006866455078125, "scale": 288571.86822143558 },
+                        { "level": 11, "resolution": 0.00034332275390625, "scale": 144285.93411071779 },
+                        { "level": 12, "resolution": 0.000171661376953125, "scale": 72142.967055358895 },
+                        { "level": 13, "resolution": 8.58306884765625e-005, "scale": 36071.483527679447 },
+                        { "level": 14, "resolution": 4.291534423828125e-005, "scale": 18035.741763839724 },
+                        { "level": 15, "resolution": 2.1457672119140625e-005, "scale": 9017.8708819198619 },
+                        { "level": 16, "resolution": 1.0728836059570313e-005, "scale": 4508.9354409599309 },
+                        { "level": 17, "resolution": 5.3644180297851563e-006, "scale": 2254.4677204799655 }
+                    ]
                 });
                 this.loaded = true;
                 this.onLoad(this);
             },
-            getTileUrl: function (level, row, col) {
+            getTileUrl: function(level, row, col) {
                 var levelMap = "";
                 if (level < 10) {
                     levelMap = "A0512_EMap";
@@ -309,14 +318,14 @@ require([
         //文字标注
 
         dojo.declare("TianDiBiaoZhuMapServiceLayer", TianDiTiledMapServiceLayer, {
-            getTileUrl: function (level, row, col) {
+            getTileUrl: function(level, row, col) {
                 return "http://t1.tianditu.cn/DataServer?T=cva_c&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
             }
         });
 
         //影像地图
         dojo.declare("TianDiYXMapServiceLayer", TianDiTiledMapServiceLayer, {
-            getTileUrl: function (level, row, col) {//wmts
+            getTileUrl: function(level, row, col) { //wmts
                 return "http://t1.tianditu.cn/DataServer?T=img_c&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
             }
         });

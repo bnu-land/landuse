@@ -44,7 +44,7 @@
                         "fieldLabel": "开发区名称",
                         "layout|flex": null,
                         "name": "kfqName",
-                        "store": "thematic_LCCT_KFQStore",
+                        "store": null,
                         "submitValue": false,
                         "valueField": "value",
                         "width": 250

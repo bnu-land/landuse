@@ -139,8 +139,73 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "displayField": "kfqName",
+                        "fieldLabel": "开发区级别",
+                        "id": "thematicLCCT_KfqTypeCombo",
+                        "labelWidth": 80,
+                        "layout|flex": null,
+                        "store": "sys_MapKfqTypeStore",
+                        "valueField": "id",
+                        "width": 200
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "64615caa-9e52-497c-930b-83595aca5c0b",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onThematicLCCT_KfqTypeComboChange",
+                                "implHandler": [
+                                    "var store = Ext.StoreMgr.get('sys_MapKfqNameStore'); //获得store对象",
+                                    "store.load({",
+                                    "    params: { pid: newValue }",
+                                    "});",
+                                    "var nameCombo = Ext.getCmp('thematicLCCT_KFQCombo');",
+                                    "nameCombo.reset();"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onThematicLCCT_KfqTypeComboChange",
+                            "designerId": "7f388e86-f125-42fe-98e7-217a35baa811"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onThematicLCCT_KfqTypeComboAfterRender",
+                                "implHandler": [
+                                    "var store = component.getStore(); ",
+                                    "var model = store.getAt(0);",
+                                    "component.select(model);"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "name": "onThematicLCCT_KfqTypeComboAfterRender",
+                            "designerId": "e2d5751b-a285-4d24-9130-191e39f0d883"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "autoLoadOnValue": true,
-                        "displayField": "name",
+                        "displayField": "kfqName",
                         "fieldLabel": "开发区",
                         "id": "thematicLCCT_KFQCombo",
                         "labelWidth": 60,
@@ -159,8 +224,8 @@
                             "",
                             ""
                         ],
-                        "store": "thematic_LCCT_KFQStore",
-                        "valueField": "value",
+                        "store": "sys_MapKfqNameStore",
+                        "valueField": "id",
                         "width": 250
                     },
                     "name": "MyComboBox2",

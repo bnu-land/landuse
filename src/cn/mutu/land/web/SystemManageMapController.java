@@ -3,6 +3,7 @@ package cn.mutu.land.web;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class SystemManageMapController {
 	public SystemManageMapController(SystemManageMapService mapServcie) {
 		this.mapServcie = mapServcie;
 	}
-	
-	//--------------------管理地图url--------------------------------
+
+	// --------------------管理地图url--------------------------------
 	@RequestMapping(value = "/get_systemManageMap")
 	@ResponseBody
 	public Map<String, Object> handle(
@@ -38,16 +39,52 @@ public class SystemManageMapController {
 		//
 	}
 
-	// 删除用户信息
+	// 获取开发区类型
+	@RequestMapping(value = "/get_SysKfqType")
+	@ResponseBody
+	public Map<String, Object> getSysKfqType() throws SQLException {
+		return this.mapServcie.getKfqTypeList();
+		//
+	}
+
+	// 开发区名称
+	@RequestMapping(value = "/get_SysKfqName")
+	@ResponseBody
+	public Map<String, Object> getSysKfqName(@RequestParam("pid") String pid)
+			throws SQLException {
+		pid = Encoder.encode(pid);
+		return this.mapServcie.getKfqNameList(pid);
+		//
+	}
+
+	// 开发区地图
+	@RequestMapping(value = "/get_SysKfqMap")
+	@ResponseBody
+	public Map<String, Object> getSysKfqMap(@RequestParam("kfqId") String kfqId)
+			throws SQLException {
+		kfqId = Encoder.encode(kfqId);
+		return this.mapServcie.getKfqMapList(kfqId);
+		//
+	}
+
+	// 获取树状列表
+	@RequestMapping(value = "/get_systemManageMapTree")
+	@ResponseBody
+	public Map<String, Object> getSystemManageMapTree() throws SQLException {
+		return this.mapServcie.getSystemManagerMapTree();
+	}
+
+	// 删除
 	@RequestMapping(value = "/del_MapById")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
-	public void delUserById(@RequestParam("mapIds") String[] ids) throws IOException {
+	public void delUserById(@RequestParam("mapIds") String[] ids)
+			throws IOException {
 		this.mapServcie.deleteMap(ids);
 	}
 
-	// 添加用户信息
-	@RequestMapping(value = "/add_Map",method=RequestMethod.POST)
+	// 添加
+	@RequestMapping(value = "/add_Map", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addMap(@RequestBody SystemMap map)
 			throws IOException {
@@ -63,8 +100,8 @@ public class SystemManageMapController {
 		return result;
 	}
 
-	// 修改用户信息
-	@RequestMapping(value = "/update_Map",method=RequestMethod.POST)
+	// 修改
+	@RequestMapping(value = "/update_Map", method = RequestMethod.POST)
 	// ,method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> updateMap(@RequestBody SystemMap sysMap)
@@ -80,23 +117,23 @@ public class SystemManageMapController {
 		}
 		return result;
 	}
-	
-	//-------------------取得地图要素图层----------------------
-	//取得土地利用图层（地类图斑）
+
+	// -------------------取得地图要素图层----------------------
+	// 取得土地利用图层（地类图斑）
 	@RequestMapping(value = "/get_FeatureLayerURLs")
 	@ResponseBody
 	public Map<String, Object> getFeatureLayerURLs(
-			@RequestParam("LayerGroups") String[] LayerGroups
-			)throws SQLException {
+			@RequestParam("LayerGroups") String[] LayerGroups)
+			throws SQLException {
 		String[] groups = new String[LayerGroups.length];
-		for(int i =0;i<LayerGroups.length;i++){
+		for (int i = 0; i < LayerGroups.length; i++) {
 			groups[i] = Encoder.encode(LayerGroups[i]);
 		}
 		return this.mapServcie.getFeatureLayerURLList(groups);
 		//
 	}
 
-	//--------------------地图要素属性中英文对照--------------------------------
+	// --------------------地图要素属性中英文对照--------------------------------
 	@RequestMapping(value = "/get_MapAttrNameIndex")
 	@ResponseBody
 	public Map<String, Object> handle_MapAttrNameIndex(
@@ -110,15 +147,16 @@ public class SystemManageMapController {
 	@RequestMapping(value = "/del_MapAttrNameIndex")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
-	public void del_MapAttrNameIndex(@RequestParam("ids") String[] ids) throws IOException {
+	public void del_MapAttrNameIndex(@RequestParam("ids") String[] ids)
+			throws IOException {
 		this.mapServcie.deleteMapAttrNameIndex(ids);
 	}
 
 	// 添加
-	@RequestMapping(value = "/add_MapAttrNameIndex",method=RequestMethod.POST)
+	@RequestMapping(value = "/add_MapAttrNameIndex", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> add_MapAttrNameIndex(@RequestBody UtilFieldnameIndex nameIndex)
-			throws IOException {
+	public Map<String, Object> add_MapAttrNameIndex(
+			@RequestBody UtilFieldnameIndex nameIndex) throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			this.mapServcie.addMapAttrNameIndex(nameIndex);
@@ -132,11 +170,11 @@ public class SystemManageMapController {
 	}
 
 	// 修改
-	@RequestMapping(value = "/update_MapAttrNameIndex",method=RequestMethod.POST)
+	@RequestMapping(value = "/update_MapAttrNameIndex", method = RequestMethod.POST)
 	// ,method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> update_MapAttrNameIndex(@RequestBody UtilFieldnameIndex nameIndex)
-			throws IOException {
+	public Map<String, Object> update_MapAttrNameIndex(
+			@RequestBody UtilFieldnameIndex nameIndex) throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			this.mapServcie.updateMapAttrNameIndex(nameIndex);

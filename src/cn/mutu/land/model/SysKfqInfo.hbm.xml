@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-12 12:42:32 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.SysKfqInfo" table="sys_kfq_info" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="int">
+            <column name="pid" not-null="true">
+                <comment>&#184;&#184;&#189;&#218;&#181;&#227;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="50" not-null="true">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="isCity" type="byte">
+            <column name="is_city" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#206;&#170;&#191;&#170;&#183;&#162;&#199;&#248;</comment>
+            </column>
+        </property>
+        <property name="enable" type="byte">
+            <column name="enable" not-null="true">
+                <comment>&#202;&#199;&#183;&#241;&#198;&#244;&#211;&#195;</comment>
+            </column>
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="200">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

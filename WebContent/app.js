@@ -46,7 +46,9 @@ Ext.application({
         'enterprise_IntensityAlertModel',
         'enterprise_expirealertModel',
         'survey_dataManager',
-        'sys_MapAttrNameIndexModel'
+        'sys_MapAttrNameIndexModel',
+        'sys_treeModel',
+        'sys_KfqInfoModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -54,7 +56,6 @@ Ext.application({
         'systemManageMapTreeStore',
         'notice_columnsStore',
         'systemMapFeatureLayerStore',
-        'thematic_LCCT_KFQStore',
         'tmematic_LCCT_StartYearStore',
         'tmematic_LCCT_EndYearStore',
         'MyArrayStore',
@@ -93,7 +94,12 @@ Ext.application({
         'survey_dataManagerStore',
         'thematic_LCCT_ChartStore',
         'kfqZoneTreeStore',
-        'sys_MapAttrNameIndexStore'
+        'sys_MapAttrNameIndexStore',
+        'sys_TreeStore',
+        'sys_MapKfqTypeStore',
+        'sys_MapKfqNameStore',
+        'thematic_LCCT_KFQStore',
+        'sys_MapKfqMapStore'
     ],
     views: [
         'MainView',
