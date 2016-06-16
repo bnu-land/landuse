@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-16 22:17:13 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.BusinessMap" table="business_map" catalog="landuse">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="proCode" type="string">
+            <column name="pro_code" length="20" />
+        </property>
+        <property name="uploadUser" type="string">
+            <column name="upload_user" length="20" />
+        </property>
+        <property name="leftCoor" type="double">
+            <column name="left_coor" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rightCoor" type="double">
+            <column name="right_coor" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="upCoor" type="double">
+            <column name="up_coor" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="bottomCoor" type="double">
+            <column name="bottom_coor" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="isPass" type="int">
+            <column name="is_pass" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

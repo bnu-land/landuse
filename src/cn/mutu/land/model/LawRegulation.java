@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-6-11 12:24:29 by Hibernate Tools 4.0.0
+// Generated 2016-6-16 22:17:12 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -27,14 +27,18 @@ public class LawRegulation implements java.io.Serializable {
 	private String description;
 	private String lawContent;
 	private String lawEditor;
-	private Integer readCount;
+	private int readCount;
 
 	public LawRegulation() {
 	}
 
+	public LawRegulation(int readCount) {
+		this.readCount = readCount;
+	}
+
 	public LawRegulation(String lawType, String lawTitle, Date publishDate,
 			String publishDept, String description, String lawContent,
-			String lawEditor, Integer readCount) {
+			String lawEditor, int readCount) {
 		this.lawType = lawType;
 		this.lawTitle = lawTitle;
 		this.publishDate = publishDate;
@@ -120,12 +124,12 @@ public class LawRegulation implements java.io.Serializable {
 		this.lawEditor = lawEditor;
 	}
 
-	@Column(name = "read_count")
-	public Integer getReadCount() {
+	@Column(name = "read_count", nullable = false)
+	public int getReadCount() {
 		return this.readCount;
 	}
 
-	public void setReadCount(Integer readCount) {
+	public void setReadCount(int readCount) {
 		this.readCount = readCount;
 	}
 

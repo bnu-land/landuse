@@ -23,7 +23,7 @@
 	</div>
 
 		<h4>Schema landuse.default</h4>
-		<h2>Table law_regulation</h2>
+		<h2>Table business_photo</h2>
 
 			<p></p>
 
@@ -86,83 +86,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_law_type">
-								law_type
-							</a>
-						</td>
-						<td>
-							varchar(30)
-						</td>
-						<td>
-							30
-						</td>
-						<td>
-							19
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							true
-						</td>
-						<td>
-							false
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#column_detail_law_title">
-								law_title
-							</a>
-						</td>
-						<td>
-							varchar(100)
-						</td>
-						<td>
-							100
-						</td>
-						<td>
-							19
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							true
-						</td>
-						<td>
-							false
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#column_detail_publish_date">
-								publish_date
-							</a>
-						</td>
-						<td>
-							date
-						</td>
-						<td>
-							10
-						</td>
-						<td>
-							19
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							true
-						</td>
-						<td>
-							false
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#column_detail_publish_dept">
-								publish_dept
+							<a href="#column_detail_pro_code">
+								pro_code
 							</a>
 						</td>
 						<td>
@@ -186,15 +111,15 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_description">
-								description
+							<a href="#column_detail_up_date">
+								up_date
 							</a>
 						</td>
 						<td>
-							varchar(300)
+							datetime
 						</td>
 						<td>
-							300
+							19
 						</td>
 						<td>
 							19
@@ -211,8 +136,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_law_content">
-								law_content
+							<a href="#column_detail_photo_path">
+								photo_path
 							</a>
 						</td>
 						<td>
@@ -236,15 +161,15 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_law_editor">
-								law_editor
+							<a href="#column_detail_photo_title">
+								photo_title
 							</a>
 						</td>
 						<td>
-							varchar(20)
+							varchar(50)
 						</td>
 						<td>
-							20
+							50
 						</td>
 						<td>
 							19
@@ -261,8 +186,8 @@
 					</tr>
 					<tr>
 						<td>
-							<a href="#column_detail_read_count">
-								read_count
+							<a href="#column_detail_is_pass">
+								is_pass
 							</a>
 						</td>
 						<td>
@@ -279,6 +204,31 @@
 						</td>
 						<td>
 							false
+						</td>
+						<td>
+							false
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="#column_detail_other">
+								other
+							</a>
+						</td>
+						<td>
+							varchar(65535)
+						</td>
+						<td>
+							65,535
+						</td>
+						<td>
+							19
+						</td>
+						<td>
+							2
+						</td>
+						<td>
+							true
 						</td>
 						<td>
 							false
@@ -375,97 +325,13 @@
 						<strong>Unique:</strong> true
 					</li>
 					<li>
-						<strong>Comment:</strong> id
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_law_type">law_type</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> varchar(30)
-					</li>
-					<li>
-						<strong>Length:</strong> 30
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> true
-					</li>
-					<li>
-						<strong>Unique:</strong> false
-					</li>
-					<li>
-						<strong>Comment:</strong> lay type
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_law_title">law_title</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> varchar(100)
-					</li>
-					<li>
-						<strong>Length:</strong> 100
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> true
-					</li>
-					<li>
-						<strong>Unique:</strong> false
-					</li>
-					<li>
-						<strong>Comment:</strong> title
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_publish_date">publish_date</h3>
-				
-				<ul>
-					<li>
-						<strong>Type:</strong> date
-					</li>
-					<li>
-						<strong>Length:</strong> 10
-					</li>
-					<li>
-						<strong>Precision:</strong> 19
-					</li>
-					<li>
-						<strong>Scale:</strong> 2
-					</li>
-					<li>
-						<strong>Nullable:</strong> true
-					</li>
-					<li>
-						<strong>Unique:</strong> false
-					</li>
-					<li>
-						<strong>Comment:</strong> date
-					</li>
-				</ul>
-
-
-				<hr/>
-				<h3 id="column_detail_publish_dept">publish_dept</h3>
+				<h3 id="column_detail_pro_code">pro_code</h3>
 				
 				<ul>
 					<li>
@@ -487,20 +353,20 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> publish department
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_description">description</h3>
+				<h3 id="column_detail_up_date">up_date</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> varchar(300)
+						<strong>Type:</strong> datetime
 					</li>
 					<li>
-						<strong>Length:</strong> 300
+						<strong>Length:</strong> 19
 					</li>
 					<li>
 						<strong>Precision:</strong> 19
@@ -515,13 +381,13 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> law abstract
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_law_content">law_content</h3>
+				<h3 id="column_detail_photo_path">photo_path</h3>
 				
 				<ul>
 					<li>
@@ -543,20 +409,20 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> law content
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_law_editor">law_editor</h3>
+				<h3 id="column_detail_photo_title">photo_title</h3>
 				
 				<ul>
 					<li>
-						<strong>Type:</strong> varchar(20)
+						<strong>Type:</strong> varchar(50)
 					</li>
 					<li>
-						<strong>Length:</strong> 20
+						<strong>Length:</strong> 50
 					</li>
 					<li>
 						<strong>Precision:</strong> 19
@@ -571,13 +437,13 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> who edite this law
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 
 
 				<hr/>
-				<h3 id="column_detail_read_count">read_count</h3>
+				<h3 id="column_detail_is_pass">is_pass</h3>
 				
 				<ul>
 					<li>
@@ -599,7 +465,35 @@
 						<strong>Unique:</strong> false
 					</li>
 					<li>
-						<strong>Comment:</strong> ÔÄ¶ÁÁ¿
+						<strong>Comment:</strong> 
+					</li>
+				</ul>
+
+
+				<hr/>
+				<h3 id="column_detail_other">other</h3>
+				
+				<ul>
+					<li>
+						<strong>Type:</strong> varchar(65535)
+					</li>
+					<li>
+						<strong>Length:</strong> 65,535
+					</li>
+					<li>
+						<strong>Precision:</strong> 19
+					</li>
+					<li>
+						<strong>Scale:</strong> 2
+					</li>
+					<li>
+						<strong>Nullable:</strong> true
+					</li>
+					<li>
+						<strong>Unique:</strong> false
+					</li>
+					<li>
+						<strong>Comment:</strong> 
 					</li>
 				</ul>
 

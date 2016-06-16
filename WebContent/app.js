@@ -46,7 +46,8 @@ Ext.application({
         'enterprise_IntensityAlertModel',
         'enterprise_expirealertModel',
         'survey_dataManager',
-        'sys_MapAttrNameIndexModel'
+        'sys_MapAttrNameIndexModel',
+        'businessMapModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -93,7 +94,8 @@ Ext.application({
         'survey_dataManagerStore',
         'thematic_LCCT_ChartStore',
         'kfqZoneTreeStore',
-        'sys_MapAttrNameIndexStore'
+        'sys_MapAttrNameIndexStore',
+        'Business_mapStore'
     ],
     views: [
         'MainView',

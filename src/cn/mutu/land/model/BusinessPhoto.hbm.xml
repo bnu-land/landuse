@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-6-16 22:17:13 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.BusinessPhoto" table="business_photo" catalog="landuse">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="proCode" type="string">
+            <column name="pro_code" length="50" />
+        </property>
+        <property name="upDate" type="timestamp">
+            <column name="up_date" length="19" />
+        </property>
+        <property name="photoPath" type="string">
+            <column name="photo_path" length="65535" />
+        </property>
+        <property name="photoTitle" type="string">
+            <column name="photo_title" length="50" />
+        </property>
+        <property name="isPass" type="int">
+            <column name="is_pass" not-null="true" />
+        </property>
+        <property name="other" type="string">
+            <column name="other" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

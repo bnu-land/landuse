@@ -2,9 +2,9 @@ package cn.mutu.land.model;
 
 // Generated 2016-6-11 12:24:30 by Hibernate Tools 4.0.0
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
  * @see cn.mutu.land.model.NoticeNews
  * @author Hibernate Tools
  */
-@Stateless
+//@Stateless
 public class NoticeNewsHome {
 
 	private static final Log log = LogFactory.getLog(NoticeNewsHome.class);

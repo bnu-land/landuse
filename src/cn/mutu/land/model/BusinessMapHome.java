@@ -9,20 +9,20 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Home object for domain model class LawRegulation.
- * @see cn.mutu.land.model.LawRegulation
+ * Home object for domain model class BusinessMap.
+ * @see cn.mutu.land.model.BusinessMap
  * @author Hibernate Tools
  */
 @Stateless
-public class LawRegulationHome {
+public class BusinessMapHome {
 
-	private static final Log log = LogFactory.getLog(LawRegulationHome.class);
+	private static final Log log = LogFactory.getLog(BusinessMapHome.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(LawRegulation transientInstance) {
-		log.debug("persisting LawRegulation instance");
+	public void persist(BusinessMap transientInstance) {
+		log.debug("persisting BusinessMap instance");
 		try {
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
@@ -32,8 +32,8 @@ public class LawRegulationHome {
 		}
 	}
 
-	public void remove(LawRegulation persistentInstance) {
-		log.debug("removing LawRegulation instance");
+	public void remove(BusinessMap persistentInstance) {
+		log.debug("removing BusinessMap instance");
 		try {
 			entityManager.remove(persistentInstance);
 			log.debug("remove successful");
@@ -43,10 +43,10 @@ public class LawRegulationHome {
 		}
 	}
 
-	public LawRegulation merge(LawRegulation detachedInstance) {
-		log.debug("merging LawRegulation instance");
+	public BusinessMap merge(BusinessMap detachedInstance) {
+		log.debug("merging BusinessMap instance");
 		try {
-			LawRegulation result = entityManager.merge(detachedInstance);
+			BusinessMap result = entityManager.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -55,11 +55,10 @@ public class LawRegulationHome {
 		}
 	}
 
-	public LawRegulation findById(Integer id) {
-		log.debug("getting LawRegulation instance with id: " + id);
+	public BusinessMap findById(int id) {
+		log.debug("getting BusinessMap instance with id: " + id);
 		try {
-			LawRegulation instance = entityManager
-					.find(LawRegulation.class, id);
+			BusinessMap instance = entityManager.find(BusinessMap.class, id);
 			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {

@@ -22,9 +22,7 @@ Ext.define('MyApp.view.business_uploadMap', {
         'Ext.button.Button',
         'Ext.form.field.Text',
         'Ext.grid.Panel',
-        'Ext.grid.column.Number',
-        'Ext.grid.column.Date',
-        'Ext.grid.column.Boolean',
+        'Ext.grid.column.RowNumberer',
         'Ext.grid.View'
     ],
 
@@ -127,26 +125,42 @@ Ext.define('MyApp.view.business_uploadMap', {
             collapsed: true,
             collapsible: true,
             title: '数据浏览',
+            store: 'Business_mapStore',
             columns: [
                 {
-                    xtype: 'gridcolumn',
+                    xtype: 'rownumberer',
                     dataIndex: 'string',
-                    text: 'String'
+                    text: '序号'
                 },
                 {
-                    xtype: 'numbercolumn',
-                    dataIndex: 'number',
-                    text: 'Number'
+                    xtype: 'gridcolumn',
+                    dataIndex: 'proCode',
+                    text: '项目编号'
                 },
                 {
-                    xtype: 'datecolumn',
-                    dataIndex: 'date',
-                    text: 'Date'
+                    xtype: 'gridcolumn',
+                    dataIndex: 'uploadUser',
+                    text: '上传用户'
                 },
                 {
-                    xtype: 'booleancolumn',
-                    dataIndex: 'bool',
-                    text: 'Boolean'
+                    xtype: 'gridcolumn',
+                    dataIndex: 'leftCoor',
+                    text: '西至坐标'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'rightCoor',
+                    text: '东至坐标'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'upCoor',
+                    text: '北至坐标'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'buttomCoor',
+                    text: '南至坐标'
                 }
             ]
         }

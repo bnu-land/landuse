@@ -229,11 +229,26 @@
                 "collapsible": true,
                 "height": 150,
                 "layout|region": "south",
+                "store": "Business_mapStore",
                 "title": "数据浏览"
             },
             "name": "MyGridPanel2",
             "designerId": "d0a2a7aa-8249-4220-81df-d3e6a0df7d81",
             "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "序号"
+                    },
+                    "name": "MyRowNumberer2",
+                    "designerId": "81e0a2c1-270e-4883-8ac1-cf748281c7e8"
+                },
                 {
                     "type": "Ext.grid.column.Column",
                     "reference": {
@@ -242,53 +257,81 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "string",
-                        "text": "String"
+                        "dataIndex": "proCode",
+                        "text": "项目编号"
                     },
                     "name": "MyColumn8",
-                    "designerId": "81e0a2c1-270e-4883-8ac1-cf748281c7e8"
-                },
-                {
-                    "type": "Ext.grid.column.Number",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "number",
-                        "text": "Number"
-                    },
-                    "name": "MyNumberColumn",
                     "designerId": "19387d2c-8448-4904-9d14-e5b72bd4a74d"
                 },
                 {
-                    "type": "Ext.grid.column.Date",
+                    "type": "Ext.grid.column.Column",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "date",
-                        "text": "Date"
+                        "dataIndex": "uploadUser",
+                        "text": "上传用户"
                     },
-                    "name": "MyDateColumn2",
+                    "name": "MyColumn10",
                     "designerId": "c4db459d-4e16-47de-b4cc-039b299f0309"
                 },
                 {
-                    "type": "Ext.grid.column.Boolean",
+                    "type": "Ext.grid.column.Column",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "bool",
-                        "text": "Boolean"
+                        "dataIndex": "leftCoor",
+                        "text": "西至坐标"
                     },
-                    "name": "MyBooleanColumn",
+                    "name": "MyColumn11",
                     "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "rightCoor",
+                        "text": "东至坐标"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "upCoor",
+                        "text": "北至坐标"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "d3199210-5de6-403b-b3af-dfcd32c0648b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "buttomCoor",
+                        "text": "南至坐标"
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "dab79206-4852-4c0b-ae56-202a6b6c20ad"
                 },
                 {
                     "type": "Ext.grid.View",
