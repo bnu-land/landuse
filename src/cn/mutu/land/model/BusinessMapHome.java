@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-6-16 22:17:14 by Hibernate Tools 4.0.0
+// Generated 2016-6-16 22:18:50 by Hibernate Tools 4.0.0
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
