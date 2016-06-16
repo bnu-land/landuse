@@ -40,7 +40,7 @@ Ext.define('MyApp.model.businessMapModel', {
             name: 'upCoor'
         },
         {
-            name: 'buttomCoor'
+            name: 'bottomCoor'
         },
         {
             name: 'isPass'

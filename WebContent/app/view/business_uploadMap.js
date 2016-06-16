@@ -125,6 +125,7 @@ Ext.define('MyApp.view.business_uploadMap', {
             collapsed: true,
             collapsible: true,
             title: '数据浏览',
+            autoLoad: true,
             store: 'Business_mapStore',
             columns: [
                 {
@@ -159,7 +160,7 @@ Ext.define('MyApp.view.business_uploadMap', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'buttomCoor',
+                    dataIndex: 'bottomCoor',
                     text: '南至坐标'
                 }
             ]

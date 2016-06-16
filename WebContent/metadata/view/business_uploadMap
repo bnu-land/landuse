@@ -224,6 +224,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoLoad": true,
                 "autoScroll": true,
                 "collapsed": true,
                 "collapsible": true,
@@ -327,7 +328,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "buttomCoor",
+                        "dataIndex": "bottomCoor",
                         "text": "南至坐标"
                     },
                     "name": "MyColumn12",

@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.store.Business_mapStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.Business_mapStore',
 
     requires: [
         'MyApp.model.businessMapModel',
