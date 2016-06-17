@@ -34,7 +34,8 @@
             "survey_dataManager",
             "sys_MapAttrNameIndexModel",
             "sys_treeModel",
-            "sys_KfqInfoModel"
+            "sys_KfqInfoModel",
+            "businessMapModel"
         ],
         "name": "MyApp",
         "stores": [
@@ -86,7 +87,8 @@
             "sys_MapKfqTypeStore",
             "sys_MapKfqNameStore",
             "thematic_LCCT_KFQStore",
-            "sys_MapKfqMapStore"
+            "sys_MapKfqMapStore",
+            "Business_mapStore"
         ],
         "views": [
             "MainView",
@@ -152,7 +154,10 @@
             "intensityuse_IntensityScoreCalculation",
             "system_Log",
             "sys_MapAttrNameIndexWindow",
-            "sys_MapAddAttrNameIndexWindow"
+            "sys_MapAddAttrNameIndexWindow",
+            "business_message",
+            "business_uploadPhoto",
+            "business_uploadMap"
         ]
     },
     "name": "Application",

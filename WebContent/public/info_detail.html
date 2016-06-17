@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>对外发布信息平台</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Beijing Normal University" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/cjc.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="jquery/1.9.1/jquery.min.js"></script>
+    <script src="jquery/1.9.1/jquery.js"></script>
+    <style type="text/css">
+    .redlf {
+        font-weight: bold;
+        color: #F00;
+    }
+    
+    .boldlf {
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <!-- <hr style="height:10px;border:none;border-top:10px groove skyblue;" /> -->
+    <!--   <div class="navbar navbar-up navbar-static-top">
+
+    </div> -->
+    <div class="main mainbg">
+        <div class="container bg-white">
+            <div class="slider-hover col-md-12">
+                <img src="image/login_top_left.png" class="img-responsive" width="100%" />
+                <img src="image/toptitle.png" class="img-responsive" width="100%" />
+            </div>
+            <div class="subbody-b col-md-10">
+                <div id="detail" class="subbody-b-content">
+                    
+                </div>
+            </div>
+            <div class="subbody-c col-md-2 bg-blue col-sm-12">
+                <div class="sidebar">
+                    <div class="col-md-12 col-sm-4 nopadding">
+                        <span class="morelinks">快速登录</span>
+                        <span>
+                            <a href="http://localhost:8080/landuse/login.jsp;jsessionid=044B503019BFB72A28FD9FE342662864" target="_blank">数据管理用户登录</a> </span>
+                        <span><a href="http://localhost:8080/landuse/login.jsp;jsessionid=044B503019BFB72A28FD9FE342662864" target="_blank" target="_blank">企业用户登录</a></span>
+                        <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+                    </div>
+                    <div class="col-md-12 col-sm-4 nopadding">
+                        <span class="morelinks">常用链接</span>
+                        <span>　<a href="http://www.hljlr.gov.cn/hljgtzyt/zwgk/tzgg/201510/t20151016_119652.htm" target="_blank">黑龙江省国土资源厅</a>
+                        </span>
+                        <span>
+                        <a href="http://old.mlr.gov.cn/" target="_blank">中华人民共和国国土资源部</a></span>
+                        <span><a href="http://xqb.bnu.edu.cn/xiaoguo.html" target="_blank">新校区建设指挥部</a></span>
+                        <span>
+                                <a href="http://xyh.bnu.edu.cn/bnuxy/" target="_blank">校友总会</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://xuefeng.bnu.edu.cn/" target="_blank">学风建设</a>
+                            </span>
+                        <span><a href="http://www.bnu.edu.cn/jsjyjykx/52918.html">教师教育机构</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.bnu.edu.cn/jsjyjykx/52919.html">教育科学期刊</a></span>
+                        <span>&nbsp;<a href="http://xinqing100.bnu.edu.cn/" target="_blank">京师心晴</a></span>
+                        <span><a href="http://ipv6te.bnu.edu.cn/" target="_blank">IPv6教师教育创新支持系统</a></span>
+                    </div>
+                    <div style="clear:both">
+                        <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+                        <div class="footercontant  row">
+                            <div class="footercontantline col-md-12">
+                                <span class="col-md-10">&copy; Copyright 北京世级九州软件有限公司　地址：北京市海淀区永庄北路9号7号院206 　</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var islaw = false;
+var url = null;
+var thisurl = document.URL;
+console.log(thisurl);
+var getval = thisurl.split('?')[1];
+console.log(getval);
+var showval = getval.split("=")[1];
+console.log(showval);
+var get_value = getval.split("=")[0];
+if (get_value != "notice_id") {
+    url = "http://localhost:8080/landuse/get_laws?_dc=1465479261629&searchKeyword=&page=1&start=0&limit=25";
+    $.ajax({
+
+        url: url,
+        success: function(result) {
+
+            var data = result.root;
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].publishDate == null) {
+                    data[i].publishDate = "未发布";
+                }
+
+                if (data[i].id == showval) {
+                    console.log(data[i].publishDate);
+
+                    var law_word = "<h2>" + data[i].lawTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:"+data[i].readCount+"次</span></div><div class='zhengwen_lf'>" + data[i].lawContent + "</div><br><div style='text-align: right'>" + data[i].publishDept + "<br>"
+                    data[i].lawEditor + "&nbsp;&nbsp;&nbsp;&nbsp;</div><br>";
+                    $("#detail").append(law_word);
+                     $.ajax({
+
+                        url:"http://localhost:8080/landuse/update_readCount?id="+showval+"&page=1&start=0&limit=25",
+                        success:function(resultvalue){
+                            console.log(resultvalue.success);
+                        }
+                    })
+
+                }
+            }
+
+        }
+    });
+
+} else {
+    url = "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=&page=1&start=0&limit=25";
+    $.ajax({
+
+        url: url,
+        success: function(result) {
+
+            var data = result.root;
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].publishDate == null) {
+                    data[i].publishDate = "未发布";
+                }
+
+                if (data[i].id == showval) {
+                    console.log(data[i].publishDate);
+
+                    var notice_word = "<h2>" + data[i].noticeTitle + "<h2><hr style='height:10px;border:none;border-top:10px groove skyblue;'/><div class='postmeta'>发布时间：" + data[i].publishDate + "<span>&nbsp;&nbsp;阅读:"+data[i].readCount+"次</span></div><div class='zhengwen_lf'>" + data[i].noticeContent + "</div><br><div style='text-align: right'>" + data[i].noticeAuthor + "&nbsp;&nbsp;&nbsp;&nbsp;</div><br>";
+                    $("#detail").append(notice_word);
+                    $.ajax({
+
+                        url:"http://localhost:8080/landuse/update_noticeReadCount?id="+showval+"&page=1&start=0&limit=25",
+                        success:function(resultvalue){
+                            console.log(resultvalue.success);
+                        }
+                    })
+
+                }
+            }
+
+        }
+    });
+};
+
+
+</script>
+
+</html>

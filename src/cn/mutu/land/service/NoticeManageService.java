@@ -117,7 +117,26 @@ public class NoticeManageService {
 			e.printStackTrace();
 		}
 	}
+	// 更新阅读次数
+		public Map<String, Object> updateNoticeRead(String id) {
+			String hql = "UPDATE NoticeNews as notice";
+			if (!id.equals("")) {
+				String setStr = " SET notice.readCount=notice.readCount+1";
+				String hql2 = setStr+" WHERE notice.id=" + id;
+				//  +" limit 0,3"
+				hql += hql2;
+			}		
+			
+			org.hibernate.Query query = sessionFactory.getCurrentSession()
+					.createQuery(hql).setMaxResults(10);
+			
+			query.executeUpdate();
 
+			Map<String, Object> myMapResult = new TreeMap<String, Object>();
+			
+			myMapResult.put("success", true);
+			return myMapResult;
+		}
 	// --------------Columns---------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getNoticeColumnsList() {

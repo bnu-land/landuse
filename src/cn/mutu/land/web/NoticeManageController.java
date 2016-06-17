@@ -104,7 +104,16 @@ public class NoticeManageController {
 		}
 		return result;
 	}
-
+	// 更新阅读次数
+	@RequestMapping(value = "/update_noticeReadCount")
+	@ResponseBody
+	public Map<String, Object> updateReadCount(
+			@RequestParam("id") String id)
+			throws SQLException {
+		id = Encoder.encode(id);
+		return this.noticeService.updateNoticeRead(id);
+		//
+	}
 	// -------------------------columns----------------------------
 	@RequestMapping(value = "/get_NoticeColumns")
 	@ResponseBody

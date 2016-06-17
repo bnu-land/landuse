@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-6-8 20:28:03 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-6-11 12:24:30 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.LawTypes" table="law_types" catalog="landuse">
         <id name="id" type="java.lang.Integer">

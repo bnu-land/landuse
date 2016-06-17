@@ -53,6 +53,7 @@ public class LawManagerService {
 		}
 	}
 
+
 	// 编辑更新角色权限信息
 	public void updateLaw(LawRegulation law) {
 		Session session = sessionFactory.getCurrentSession();
@@ -76,7 +77,44 @@ public class LawManagerService {
 			e.printStackTrace();
 		}
 	}
-	
+	// 获取相关栏目的前十条法律法规
+	public Map<String, Object> updateRead(String id) {
+		String hql = "UPDATE LawRegulation as law";
+		if (!id.equals("")) {
+			String setStr = " SET law.readCount=law.readCount+1";
+			String hql2 = setStr+" WHERE law.id=" + id;
+			//  +" limit 0,3"
+			hql += hql2;
+		}		
+		
+		org.hibernate.Query query = sessionFactory.getCurrentSession()
+				.createQuery(hql).setMaxResults(10);
+		query.executeUpdate();
+
+		Map<String, Object> myMapResult = new TreeMap<String, Object>();
+		
+		myMapResult.put("success", true);
+		return myMapResult;
+	}
+	//获取相关栏目的前十条法律法规
+		public Map<String, Object> get10LawRegulationList(String lawType) {
+			String hql = "FROM LawRegulation as law";
+			if (!lawType.equals("")) {
+				String likeStr = " like '%" + lawType + "%'";
+				String hql2 = " WHERE law.lawType" + likeStr;
+				//  +" limit 0,3"
+				hql += hql2;
+			}		
+			List<LawRegulation> results = null;
+			org.hibernate.Query query = sessionFactory.getCurrentSession()
+					.createQuery(hql).setMaxResults(10);
+			results = (List<LawRegulation>) query.list();
+			Map<String, Object> myMapResult = new TreeMap<String, Object>();
+			myMapResult.put("root", results);
+			myMapResult.put("success", true);
+			return myMapResult;
+		}
+
 	//--------------types---------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getLawTypesList() {

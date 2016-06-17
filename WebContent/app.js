@@ -48,7 +48,8 @@ Ext.application({
         'survey_dataManager',
         'sys_MapAttrNameIndexModel',
         'sys_treeModel',
-        'sys_KfqInfoModel'
+        'sys_KfqInfoModel',
+        'businessMapModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -99,7 +100,8 @@ Ext.application({
         'sys_MapKfqTypeStore',
         'sys_MapKfqNameStore',
         'thematic_LCCT_KFQStore',
-        'sys_MapKfqMapStore'
+        'sys_MapKfqMapStore',
+        'Business_mapStore'
     ],
     views: [
         'MainView',
@@ -165,7 +167,10 @@ Ext.application({
         'intensityuse_IntensityScoreCalculation',
         'system_Log',
         'sys_MapAttrNameIndexWindow',
-        'sys_MapAddAttrNameIndexWindow'
+        'sys_MapAddAttrNameIndexWindow',
+        'business_message',
+        'business_uploadPhoto',
+        'business_uploadMap'
     ],
     name: 'MyApp',
 

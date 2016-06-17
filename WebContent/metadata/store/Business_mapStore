@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userAlias": "Business_mapStore",
+        "designer|userClassName": "Business_mapStore",
+        "model": "businessMapModel",
+        "storeId": "Business_mapStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "10408d17-ccfc-44a3-aca2-2f8d79e6f621",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{",
+                    "    searchKeyword:\"\"",
+                    "}"
+                ],
+                "url": "get_maps"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "c6ac861a-9af2-4b63-baea-b6d05e56f487",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader1",
+                    "designerId": "385d6203-5a6e-475c-b11f-8fa58d31b20e"
+                }
+            ]
+        }
+    ]
+}

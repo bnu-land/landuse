@@ -1,0 +1,350 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_uploadMap",
+        "designer|userClassName": "business_uploadMap",
+        "height": 551,
+        "layout": "border",
+        "title": "企业上传地图数据",
+        "width": 704
+    },
+    "name": "MyPanel7",
+    "designerId": "e341950a-ea6f-418f-8da7-8defc044f2da",
+    "viewControllerInstanceId": "c18be0dd-f15b-4b1c-b69f-4217ef371da7",
+    "viewModelInstanceId": "704a2783-bf16-450f-b145-ee2df28383e6",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 10,
+                "dock": null,
+                "layout": "absolute",
+                "layout|region": "west",
+                "title": "信息录入",
+                "width": 440
+            },
+            "name": "MyPanel18",
+            "designerId": "0744d6ba-7fab-4b6f-892e-ab0eb4d35fa5",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 200,
+                        "layout|y": 410,
+                        "text": "提交审核"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "79fbec5a-8a45-4261-95b0-d28ba9d73ae2"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 63,
+                        "layout|y": 413,
+                        "text": "保存预览"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "425b19e4-71d9-426e-b89e-d3bd94612656"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "北坐标",
+                        "labelWidth": 50,
+                        "layout|x": 90,
+                        "layout|y": 160,
+                        "width": 200
+                    },
+                    "name": "MyTextField7",
+                    "designerId": "7678cbfe-ad4f-4add-acf0-6d34688ad222"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "西坐标",
+                        "labelWidth": 50,
+                        "layout|x": 0,
+                        "layout|y": 240,
+                        "width": 200
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "d506276c-7af6-45f1-9700-6f6393632fe3"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "东坐标",
+                        "labelWidth": 50,
+                        "layout|x": 210,
+                        "layout|y": 240,
+                        "width": 200
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "b0008ee2-127e-4f84-bfbd-80871e20ed8f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "南坐标",
+                        "labelWidth": 50,
+                        "layout|x": 90,
+                        "layout|y": 330,
+                        "width": 200
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "b2372a1a-bf7d-432e-bf31-1bc411ebe7cf"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "企业用户",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 100,
+                        "width": 290
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "1a2a3a95-06d7-4816-bcea-6013d8b73f11"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "项目编号",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 40,
+                        "width": 290
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "31a42751-e98b-4f3c-bda4-4e4b6f79c020"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseDirection": "right",
+                "collapsible": false,
+                "dock": null,
+                "html": [
+                    "<div id=\"map\"></div>"
+                ],
+                "layout|region": "center",
+                "title": "地图预览",
+                "titleAlign": "center"
+            },
+            "name": "MyPanel7",
+            "designerId": "4f850e05-9ddd-4efc-9c2f-0108befbc3ca",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onPanelBeforeRender",
+                        "implHandler": [
+                            "//加入地图的js文件",
+                            "var head = document.getElementsByTagName('head')[0];",
+                            "var script= document.createElement(\"script\");",
+                            "script.type = \"text/javascript\";",
+                            "script.src=\"mapjs/homeMap.js\";",
+                            "head.appendChild(script);"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onPanelBeforeRender",
+                    "designerId": "d15ae6ff-1ced-4a82-9cec-20e461c6273a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoScroll": true,
+                "collapsed": true,
+                "collapsible": true,
+                "height": 150,
+                "layout|region": "south",
+                "store": "Business_mapStore",
+                "title": "数据浏览"
+            },
+            "name": "MyGridPanel2",
+            "designerId": "d0a2a7aa-8249-4220-81df-d3e6a0df7d81",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "序号"
+                    },
+                    "name": "MyRowNumberer2",
+                    "designerId": "81e0a2c1-270e-4883-8ac1-cf748281c7e8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "proCode",
+                        "text": "项目编号"
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "19387d2c-8448-4904-9d14-e5b72bd4a74d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "uploadUser",
+                        "text": "上传用户"
+                    },
+                    "name": "MyColumn10",
+                    "designerId": "c4db459d-4e16-47de-b4cc-039b299f0309"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "leftCoor",
+                        "text": "西至坐标"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "rightCoor",
+                        "text": "东至坐标"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "upCoor",
+                        "text": "北至坐标"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "d3199210-5de6-403b-b3af-dfcd32c0648b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "bottomCoor",
+                        "text": "南至坐标"
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "dab79206-4852-4c0b-ae56-202a6b6c20ad"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "ffa1ced0-a5ca-4bc0-90ad-29c51e2734b2"
+                }
+            ]
+        }
+    ]
+}

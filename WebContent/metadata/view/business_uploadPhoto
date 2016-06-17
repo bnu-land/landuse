@@ -1,0 +1,278 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_uploadPhoto",
+        "designer|userClassName": "business_uploadPhoto",
+        "height": 491,
+        "layout": "border",
+        "title": "企业上传图片数据",
+        "width": 959
+    },
+    "name": "MyPanel7",
+    "designerId": "50569405-4656-4e14-956a-e72ea79bd132",
+    "viewControllerInstanceId": "908e75be-8058-4e65-a4d4-2f3a15a40c7c",
+    "viewModelInstanceId": "3d204037-351f-4431-b826-6beb3f9e6acb",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 10,
+                "dock": null,
+                "layout": "absolute",
+                "layout|region": "west",
+                "title": "图片信息录入",
+                "width": 450
+            },
+            "name": "MyPanel19",
+            "designerId": "87202b40-8c70-46e6-916f-6ecc203daf63",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 270,
+                        "layout|y": 340,
+                        "text": "提交审核"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "730a03d3-0753-4ce0-80ad-93a7eae07541"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "备注",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 250,
+                        "width": 360
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "7316cfd7-db6b-4466-87f3-18dbd19e3cf0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "图片标题",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 140
+                    },
+                    "name": "MyTextField10",
+                    "designerId": "4220dfff-47b2-4871-b2ab-74288b3137aa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 360,
+                        "layout|y": 130,
+                        "text": "预览图片-->"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "f4e7398f-89d0-4c6e-86fa-ea4ce5eb0634"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "buttonText": "选择图片",
+                        "fieldLabel": "上传图片",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 90,
+                        "width": 400
+                    },
+                    "name": "MyFileUpload",
+                    "designerId": "4f57fb05-519b-43b7-b85d-0d6ca9238ad7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "上传用户",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 190
+                    },
+                    "name": "MyTextField9",
+                    "designerId": "8f0d67c7-982b-4ab2-affe-92c904552879"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "项目编号",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 40
+                    },
+                    "name": "MyTextField8",
+                    "designerId": "2ca14a62-a310-458f-a4c6-eedb00f923fd"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "animCollapse": false,
+                "collapseDirection": "left",
+                "collapseFirst": false,
+                "collapsed": false,
+                "collapsible": false,
+                "dock": null,
+                "layout": "border",
+                "layout|region": "center",
+                "title": "图片预览",
+                "titleAlign": "center",
+                "titleCollapse": false
+            },
+            "name": "MyPanel17",
+            "designerId": "ac2d9ad7-d617-40ed-b375-fb112691cba8",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|region": "west",
+                        "title": "图片列表",
+                        "width": 300
+                    },
+                    "name": "MyGridPanel3",
+                    "designerId": "b5480723-a43f-49ae-a880-7efa685a5a37",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "string",
+                                "text": "String"
+                            },
+                            "name": "MyColumn9",
+                            "designerId": "bf1acb85-d9b4-4e47-ad5a-0263aaffdc11"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "number",
+                                "text": "Number"
+                            },
+                            "name": "MyNumberColumn3",
+                            "designerId": "4293ced0-9743-4e91-887a-996c62593ff6"
+                        },
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "date",
+                                "text": "Date"
+                            },
+                            "name": "MyDateColumn3",
+                            "designerId": "c5e76050-4205-43a4-b5d3-ffc15478b7c5"
+                        },
+                        {
+                            "type": "Ext.grid.column.Boolean",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "bool",
+                                "text": "Boolean"
+                            },
+                            "name": "MyBooleanColumn1",
+                            "designerId": "e08020a8-50c8-46ca-a65e-bcef00b0f156"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView3",
+                            "designerId": "3500f6eb-7cf6-4e5b-a023-e0dd513c6bbf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "layout|region": "center",
+                        "src": "D:\\xiao"
+                    },
+                    "name": "MyImg2",
+                    "designerId": "ccf545d3-a746-4bb8-a037-e59cdaf305f7"
+                }
+            ]
+        }
+    ]
+}
