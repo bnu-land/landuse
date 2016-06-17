@@ -286,7 +286,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "leftCoor",
+                        "dataIndex": "westCoor",
                         "text": "西至坐标"
                     },
                     "name": "MyColumn11",
@@ -300,7 +300,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "rightCoor",
+                        "dataIndex": "eastCoor",
                         "text": "东至坐标"
                     },
                     "name": "MyColumn14",
@@ -314,7 +314,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "upCoor",
+                        "dataIndex": "northCoor",
                         "text": "北至坐标"
                     },
                     "name": "MyColumn13",
@@ -328,7 +328,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "bottomCoor",
+                        "dataIndex": "southCoor",
                         "text": "南至坐标"
                     },
                     "name": "MyColumn12",

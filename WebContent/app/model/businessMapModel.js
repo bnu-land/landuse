@@ -31,16 +31,16 @@ Ext.define('MyApp.model.businessMapModel', {
             name: 'uploadUser'
         },
         {
-            name: 'leftCoor'
+            name: 'westCoor'
         },
         {
-            name: 'rightCoor'
+            name: 'eastCoor'
         },
         {
-            name: 'upCoor'
+            name: 'northCoor'
         },
         {
-            name: 'bottomCoor'
+            name: 'southCoor'
         },
         {
             name: 'isPass'

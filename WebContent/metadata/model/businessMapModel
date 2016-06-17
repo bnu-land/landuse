@@ -58,7 +58,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "leftCoor"
+                "name": "westCoor"
             },
             "name": "MyField41",
             "designerId": "e09e7dd9-201a-44db-a57f-dc2761a0dc45"
@@ -71,7 +71,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "rightCoor"
+                "name": "eastCoor"
             },
             "name": "MyField30",
             "designerId": "92451361-04ec-47d6-9db9-b5370dbad910"
@@ -84,7 +84,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "upCoor"
+                "name": "northCoor"
             },
             "name": "MyField42",
             "designerId": "c4da197c-664c-4d61-965b-759956598991"
@@ -97,7 +97,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "bottomCoor"
+                "name": "southCoor"
             },
             "name": "MyField43",
             "designerId": "941e3b7d-9293-4be6-93a3-5821baba82df"

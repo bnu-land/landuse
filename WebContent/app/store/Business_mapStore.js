@@ -38,7 +38,8 @@ Ext.define('MyApp.store.Business_mapStore', {
                 },
                 url: 'get_maps',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    rootProperty: 'root'
                 }
             }
         }, cfg)]);
