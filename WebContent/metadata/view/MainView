@@ -171,6 +171,7 @@
             "codeClass": null,
             "userConfig": {
                 "collapseDirection": "left",
+                "id": "mainLeftMenuPanel",
                 "itemId": "menuPanel",
                 "layout": "accordion",
                 "layout|collapseMode": null,
@@ -1545,6 +1546,37 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMenuPanelBeforeRender",
+                        "implHandler": [
+                            "// retrieve all direct children which are Ext.Panels within myCt",
+                            "var children = component.query('panel');",
+                            "for(var index in children){",
+                            "    var child = children[index];",
+                            "    if(child && child.xtype=='panel'){",
+                            "        var title = child.title;",
+                            "        if(title=='企业动态监控'){",
+                            "            child.setHidden(true);",
+                            "        }",
+                            "        console.log(index,title);",
+                            "    }",
+                            "",
+                            "}",
+                            ""
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onMenuPanelBeforeRender",
+                    "designerId": "da005f7a-b65d-4d7a-a559-5f5215382f35"
                 }
             ]
         },

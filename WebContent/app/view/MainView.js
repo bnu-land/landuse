@@ -84,6 +84,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'west',
             split: true,
+            id: 'mainLeftMenuPanel',
             itemId: 'menuPanel',
             width: 250,
             layout: 'accordion',
@@ -574,7 +575,10 @@ Ext.define('MyApp.view.MainView', {
                         }
                     ]
                 }
-            ]
+            ],
+            listeners: {
+                beforerender: 'onMenuPanelBeforeRender'
+            }
         },
         {
             xtype: 'panel',
@@ -676,6 +680,23 @@ Ext.define('MyApp.view.MainView', {
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
         mainView.add(Ext.widget(xtype));
+    },
+
+    onMenuPanelBeforeRender: function(component, eOpts) {
+        // retrieve all direct children which are Ext.Panels within myCt
+        var children = component.query('panel');
+        for(var index in children){
+            var child = children[index];
+            if(child && child.xtype=='panel'){
+                var title = child.title;
+                if(title=='企业动态监控'){
+                    child.setHidden(true);
+                }
+                console.log(index,title);
+            }
+
+        }
+
     },
 
     onMainViewAfterRender: function(component, eOpts) {
