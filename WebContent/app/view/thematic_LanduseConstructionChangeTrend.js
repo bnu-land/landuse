@@ -71,15 +71,29 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
             items: [
                 {
                     xtype: 'combobox',
+                    id: 'thematicLCCT_KfqTypeCombo',
+                    width: 200,
+                    fieldLabel: '开发区级别',
+                    labelWidth: 80,
+                    displayField: 'kfqName',
+                    store: 'sys_MapKfqTypeStore',
+                    valueField: 'id',
+                    listeners: {
+                        change: 'onThematicLCCT_KfqTypeComboChange',
+                        afterrender: 'onThematicLCCT_KfqTypeComboAfterRender'
+                    }
+                },
+                {
+                    xtype: 'combobox',
                     id: 'thematicLCCT_KFQCombo',
                     renderData: 'return [\n    {"name": "2016","value": "2016"},\n    {"name": "2015","value": "2015"},\n    {"name": "2014","value": "2014"},\n    {"name": "2013","value": "2013"},\n    {"name": "2012","value": "2012"},\n    {"name": "2011","value": "2011"},\n    {"name": "2010","value": "2010"}\n];',
                     width: 250,
                     fieldLabel: '开发区',
                     labelWidth: 60,
                     autoLoadOnValue: true,
-                    displayField: 'name',
-                    store: 'thematic_LCCT_KFQStore',
-                    valueField: 'value'
+                    displayField: 'kfqName',
+                    store: 'sys_MapKfqNameStore',
+                    valueField: 'id'
                 },
                 {
                     xtype: 'combobox',
@@ -126,6 +140,21 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         script.type = "text/javascript";
         script.src="echarts/thematic_LanduseConstructionChangeTrend.js";
         head.appendChild(script);
+    },
+
+    onThematicLCCT_KfqTypeComboChange: function(field, newValue, oldValue, eOpts) {
+        var store = Ext.StoreMgr.get('sys_MapKfqNameStore'); //获得store对象
+        store.load({
+            params: { pid: newValue }
+        });
+        var nameCombo = Ext.getCmp('thematicLCCT_KFQCombo');
+        nameCombo.reset();
+    },
+
+    onThematicLCCT_KfqTypeComboAfterRender: function(component, eOpts) {
+        var store = component.getStore();
+        var model = store.getAt(0);
+        component.select(model);
     },
 
     onPanelAfterRender: function(component, eOpts) {

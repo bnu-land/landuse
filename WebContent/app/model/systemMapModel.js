@@ -22,6 +22,15 @@ Ext.define('MyApp.model.systemMapModel', {
 
     fields: [
         {
+            name: 'id'
+        },
+        {
+            name: 'pid'
+        },
+        {
+            name: 'kfqName'
+        },
+        {
             name: 'mapId'
         },
         {
