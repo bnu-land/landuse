@@ -285,35 +285,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "leftCoor",
-                        "text": "西至坐标"
-                    },
-                    "name": "MyColumn11",
-                    "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "rightCoor",
-                        "text": "东至坐标"
-                    },
-                    "name": "MyColumn14",
-                    "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "upCoor",
+                        "dataIndex": "northCoor",
                         "text": "北至坐标"
                     },
                     "name": "MyColumn13",
@@ -327,7 +299,35 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "buttomCoor",
+                        "dataIndex": "westCoor",
+                        "text": "西至坐标"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "eastCoor",
+                        "text": "东至坐标"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "southCoor",
                         "text": "南至坐标"
                     },
                     "name": "MyColumn12",

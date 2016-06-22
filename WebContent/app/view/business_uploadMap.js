@@ -144,22 +144,22 @@ Ext.define('MyApp.view.business_uploadMap', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'leftCoor',
-                    text: '西至坐标'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'rightCoor',
-                    text: '东至坐标'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'upCoor',
+                    dataIndex: 'northCoor',
                     text: '北至坐标'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'buttomCoor',
+                    dataIndex: 'westCoor',
+                    text: '西至坐标'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'eastCoor',
+                    text: '东至坐标'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'southCoor',
                     text: '南至坐标'
                 }
             ]

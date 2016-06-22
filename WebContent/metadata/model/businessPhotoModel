@@ -6,10 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "businessMapModel"
+        "designer|userClassName": "businessPhotoModel"
     },
-    "name": "MyModel",
-    "designerId": "465157fd-f053-4753-9d2a-6c72ea31a60f",
+    "name": "businessMapModel1",
+    "designerId": "0799c22b-28fa-44c4-be67-25a1cb63e314",
     "cn": [
         {
             "type": "Ext.data.field.Field",
@@ -22,7 +22,7 @@
                 "name": "id"
             },
             "name": "MyField14",
-            "designerId": "c9f2632b-2a69-4d87-9d4d-be7e669da10e"
+            "designerId": "df72e370-80d7-4fad-a550-2fc17ae46d6e"
         },
         {
             "type": "Ext.data.field.Field",
@@ -35,7 +35,7 @@
                 "name": "proCode"
             },
             "name": "MyField28",
-            "designerId": "c3dee96e-064b-4f39-be06-4233e6b27a10"
+            "designerId": "1ba9eb2f-ccb0-41e4-80cb-3d18fca6a738"
         },
         {
             "type": "Ext.data.field.Field",
@@ -48,7 +48,7 @@
                 "name": "uploadUser"
             },
             "name": "MyField29",
-            "designerId": "a96bf04e-2234-4f2a-b002-befe6849b7f8"
+            "designerId": "bb54aff2-a20c-4c46-8b6d-f89f47cbc70f"
         },
         {
             "type": "Ext.data.field.Field",
@@ -58,10 +58,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "westCoor"
+                "name": "upDate"
             },
             "name": "MyField41",
-            "designerId": "e09e7dd9-201a-44db-a57f-dc2761a0dc45"
+            "designerId": "a3dc688d-1d07-461b-bbda-abf49744bf08"
         },
         {
             "type": "Ext.data.field.Field",
@@ -71,10 +71,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "eastCoor"
+                "name": "photoPath"
             },
             "name": "MyField30",
-            "designerId": "92451361-04ec-47d6-9db9-b5370dbad910"
+            "designerId": "6a34cb97-d41c-46fd-b8f9-db3d9a6e1ad6"
         },
         {
             "type": "Ext.data.field.Field",
@@ -84,10 +84,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "northCoor"
+                "name": "photoTitle"
             },
             "name": "MyField42",
-            "designerId": "c4da197c-664c-4d61-965b-759956598991"
+            "designerId": "ecd18408-c0a4-4f30-b459-9389eed410c8"
         },
         {
             "type": "Ext.data.field.Field",
@@ -97,10 +97,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "southCoor"
+                "name": "other"
             },
             "name": "MyField43",
-            "designerId": "941e3b7d-9293-4be6-93a3-5821baba82df"
+            "designerId": "a67b1e44-5c3f-48be-b1b2-c1a2705e2be8"
         },
         {
             "type": "Ext.data.field.Field",
@@ -113,7 +113,7 @@
                 "name": "isPass"
             },
             "name": "MyField44",
-            "designerId": "2233e7a2-c825-4f9e-a5fb-aa572fb673bf"
+            "designerId": "16e3505f-5f0a-4bb5-80c4-a138062a9543"
         }
     ]
 }

@@ -1,30 +1,41 @@
 package cn.mutu.land.model;
 
-// Generated 2016-6-16 22:18:50 by Hibernate Tools 4.0.0
+// Generated 2016-6-22 17:21:40 by Hibernate Tools 4.0.0
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.List;
+import javax.naming.InitialContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
 
 /**
  * Home object for domain model class LawRegulation.
  * @see cn.mutu.land.model.LawRegulation
  * @author Hibernate Tools
  */
-@Stateless
 public class LawRegulationHome {
 
 	private static final Log log = LogFactory.getLog(LawRegulationHome.class);
 
-	@PersistenceContext
-	private EntityManager entityManager;
+	private final SessionFactory sessionFactory = getSessionFactory();
+
+	protected SessionFactory getSessionFactory() {
+		try {
+			return (SessionFactory) new InitialContext()
+					.lookup("SessionFactory");
+		} catch (Exception e) {
+			log.error("Could not locate SessionFactory in JNDI", e);
+			throw new IllegalStateException(
+					"Could not locate SessionFactory in JNDI");
+		}
+	}
 
 	public void persist(LawRegulation transientInstance) {
 		log.debug("persisting LawRegulation instance");
 		try {
-			entityManager.persist(transientInstance);
+			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
 		} catch (RuntimeException re) {
 			log.error("persist failed", re);
@@ -32,13 +43,35 @@ public class LawRegulationHome {
 		}
 	}
 
-	public void remove(LawRegulation persistentInstance) {
-		log.debug("removing LawRegulation instance");
+	public void attachDirty(LawRegulation instance) {
+		log.debug("attaching dirty LawRegulation instance");
 		try {
-			entityManager.remove(persistentInstance);
-			log.debug("remove successful");
+			sessionFactory.getCurrentSession().saveOrUpdate(instance);
+			log.debug("attach successful");
 		} catch (RuntimeException re) {
-			log.error("remove failed", re);
+			log.error("attach failed", re);
+			throw re;
+		}
+	}
+
+	public void attachClean(LawRegulation instance) {
+		log.debug("attaching clean LawRegulation instance");
+		try {
+			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
+			log.debug("attach successful");
+		} catch (RuntimeException re) {
+			log.error("attach failed", re);
+			throw re;
+		}
+	}
+
+	public void delete(LawRegulation persistentInstance) {
+		log.debug("deleting LawRegulation instance");
+		try {
+			sessionFactory.getCurrentSession().delete(persistentInstance);
+			log.debug("delete successful");
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
 			throw re;
 		}
 	}
@@ -46,7 +79,8 @@ public class LawRegulationHome {
 	public LawRegulation merge(LawRegulation detachedInstance) {
 		log.debug("merging LawRegulation instance");
 		try {
-			LawRegulation result = entityManager.merge(detachedInstance);
+			LawRegulation result = (LawRegulation) sessionFactory
+					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -55,15 +89,35 @@ public class LawRegulationHome {
 		}
 	}
 
-	public LawRegulation findById(Integer id) {
+	public LawRegulation findById(java.lang.Integer id) {
 		log.debug("getting LawRegulation instance with id: " + id);
 		try {
-			LawRegulation instance = entityManager
-					.find(LawRegulation.class, id);
-			log.debug("get successful");
+			LawRegulation instance = (LawRegulation) sessionFactory
+					.getCurrentSession().get(
+							"cn.mutu.land.model.LawRegulation", id);
+			if (instance == null) {
+				log.debug("get successful, no instance found");
+			} else {
+				log.debug("get successful, instance found");
+			}
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	public List findByExample(LawRegulation instance) {
+		log.debug("finding LawRegulation instance by example");
+		try {
+			List results = sessionFactory.getCurrentSession()
+					.createCriteria("cn.mutu.land.model.LawRegulation")
+					.add(Example.create(instance)).list();
+			log.debug("find by example successful, result size: "
+					+ results.size());
+			return results;
+		} catch (RuntimeException re) {
+			log.error("find by example failed", re);
 			throw re;
 		}
 	}

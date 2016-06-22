@@ -8,12 +8,12 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
-        "designer|userClassName": "Business_mapStore",
-        "model": "businessMapModel",
-        "storeId": "Business_mapStore"
+        "designer|userClassName": "Business_photoStore",
+        "model": "businessPhotoModel",
+        "storeId": "Business_photoStore"
     },
-    "name": "MyJsonStore",
-    "designerId": "10408d17-ccfc-44a3-aca2-2f8d79e6f621",
+    "name": "Business_mapStore1",
+    "designerId": "3d997d68-15b3-4016-9ff4-45d119a5b6ff",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -28,10 +28,10 @@
                     "    searchKeyword:\"\"",
                     "}"
                 ],
-                "url": "get_maps"
+                "url": "get_photos"
             },
             "name": "MyAjaxProxy1",
-            "designerId": "c6ac861a-9af2-4b63-baea-b6d05e56f487",
+            "designerId": "e3cd660c-5db1-4a2c-bf22-6ebcf5c1fcd0",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -44,7 +44,7 @@
                         "rootProperty": "root"
                     },
                     "name": "MyJsonReader1",
-                    "designerId": "385d6203-5a6e-475c-b11f-8fa58d31b20e"
+                    "designerId": "ddfa4ec9-2e8e-47de-8c8b-17cd5503b1b4"
                 }
             ]
         }

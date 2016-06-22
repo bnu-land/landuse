@@ -183,12 +183,27 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|region": "west",
+                        "store": "Business_photoStore",
                         "title": "图片列表",
                         "width": 300
                     },
                     "name": "MyGridPanel3",
                     "designerId": "b5480723-a43f-49ae-a880-7efa685a5a37",
                     "cn": [
+                        {
+                            "type": "Ext.grid.column.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "string",
+                                "text": "序号"
+                            },
+                            "name": "MyRowNumberer3",
+                            "designerId": "bf1acb85-d9b4-4e47-ad5a-0263aaffdc11"
+                        },
                         {
                             "type": "Ext.grid.column.Column",
                             "reference": {
@@ -197,25 +212,25 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "string",
-                                "text": "String"
+                                "dataIndex": "photoTitle",
+                                "text": "图片标题"
                             },
                             "name": "MyColumn9",
-                            "designerId": "bf1acb85-d9b4-4e47-ad5a-0263aaffdc11"
+                            "designerId": "4293ced0-9743-4e91-887a-996c62593ff6"
                         },
                         {
-                            "type": "Ext.grid.column.Number",
+                            "type": "Ext.grid.column.Column",
                             "reference": {
                                 "name": "columns",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "number",
-                                "text": "Number"
+                                "dataIndex": "uploadUser",
+                                "text": "上传用户"
                             },
-                            "name": "MyNumberColumn3",
-                            "designerId": "4293ced0-9743-4e91-887a-996c62593ff6"
+                            "name": "MyColumn15",
+                            "designerId": "c5e76050-4205-43a4-b5d3-ffc15478b7c5"
                         },
                         {
                             "type": "Ext.grid.column.Date",
@@ -225,25 +240,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "date",
-                                "text": "Date"
+                                "dataIndex": "upDate",
+                                "text": "上传时间"
                             },
-                            "name": "MyDateColumn3",
-                            "designerId": "c5e76050-4205-43a4-b5d3-ffc15478b7c5"
-                        },
-                        {
-                            "type": "Ext.grid.column.Boolean",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "bool",
-                                "text": "Boolean"
-                            },
-                            "name": "MyBooleanColumn1",
-                            "designerId": "e08020a8-50c8-46ca-a65e-bcef00b0f156"
+                            "name": "MyDateColumn",
+                            "designerId": "11d64af1-def3-4439-b132-caba1536ca22"
                         },
                         {
                             "type": "Ext.grid.View",
@@ -267,7 +268,7 @@
                     "userConfig": {
                         "dock": null,
                         "layout|region": "center",
-                        "src": "D:\\xiao"
+                        "src": "images/login/login_center_left.jpg"
                     },
                     "name": "MyImg2",
                     "designerId": "ccf545d3-a746-4bb8-a037-e59cdaf305f7"

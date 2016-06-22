@@ -251,6 +251,7 @@ select.select-xs {
 }
 .boxtitle {
 	padding: 0 0 20px 0;
+	
 	/*background: url(../imgs/boxtitle-bg.png) 0 0px repeat-x;*/
 }
 .boxtitle span.title {
@@ -263,10 +264,12 @@ select.select-xs {
 }
 .boxtitle a.more {
 	float: right;
-	background: url(../imgs/more.png) 0 0 no-repeat;
+	/*background: url(list01.png) 0 0 no-repeat;*/
 	text-indent: -999999px;
 	width: 50px;
 	height: 25px;
+	color: pink;
+	text-align: right;
 }
 
 .nomargintop {
@@ -287,6 +290,7 @@ select.select-xs {
 }
 
 .boxlist {
+	height: 200px;
 
 }
 .boxlist ul {
@@ -428,7 +432,7 @@ select.select-xs {
 }
 /* SUBPAGE */
 .subtitle {
-	width: 100%;
+	/*width: 100%;*/
 	font-size: 36px;
 	font-family: KaiTi;
 	line-height: 85px;
@@ -573,6 +577,16 @@ select.select-xs {
 	margin-right: 5px;
 }
 .subbody-b-list ul {
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 20px 0 0 0;
+}
+.subbody-b-list_chen{
+	height: 200px;
+}
+.subbody-b-list_chen ul {
+	
 	list-style: none;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;

@@ -23,9 +23,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
         'Ext.form.field.TextArea',
         'Ext.form.field.File',
         'Ext.grid.Panel',
-        'Ext.grid.column.Number',
+        'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
-        'Ext.grid.column.Boolean',
         'Ext.grid.View',
         'Ext.Img'
     ],
@@ -116,33 +115,34 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     region: 'west',
                     width: 300,
                     title: '图片列表',
+                    store: 'Business_photoStore',
                     columns: [
                         {
-                            xtype: 'gridcolumn',
+                            xtype: 'rownumberer',
                             dataIndex: 'string',
-                            text: 'String'
+                            text: '序号'
                         },
                         {
-                            xtype: 'numbercolumn',
-                            dataIndex: 'number',
-                            text: 'Number'
+                            xtype: 'gridcolumn',
+                            dataIndex: 'photoTitle',
+                            text: '图片标题'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'uploadUser',
+                            text: '上传用户'
                         },
                         {
                             xtype: 'datecolumn',
-                            dataIndex: 'date',
-                            text: 'Date'
-                        },
-                        {
-                            xtype: 'booleancolumn',
-                            dataIndex: 'bool',
-                            text: 'Boolean'
+                            dataIndex: 'upDate',
+                            text: '上传时间'
                         }
                     ]
                 },
                 {
                     xtype: 'image',
                     region: 'center',
-                    src: 'D:%5Cxiao'
+                    src: 'images/login/login_center_left.jpg'
                 }
             ]
         }

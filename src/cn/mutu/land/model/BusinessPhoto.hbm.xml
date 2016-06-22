@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-6-16 22:18:50 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-6-22 17:21:40 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.BusinessPhoto" table="business_photo" catalog="landuse">
         <id name="id" type="int">
@@ -11,11 +11,14 @@
         <property name="proCode" type="string">
             <column name="pro_code" length="50" />
         </property>
+        <property name="uploadUser" type="string">
+            <column name="upload_User" length="50" />
+        </property>
         <property name="upDate" type="timestamp">
             <column name="up_date" length="19" />
         </property>
         <property name="photoPath" type="string">
-            <column name="photo_path" length="65535" />
+            <column name="photo_path" length="300" />
         </property>
         <property name="photoTitle" type="string">
             <column name="photo_title" length="50" />
@@ -24,7 +27,7 @@
             <column name="is_pass" not-null="true" />
         </property>
         <property name="other" type="string">
-            <column name="other" length="65535" />
+            <column name="other" length="300" />
         </property>
     </class>
 </hibernate-mapping>
