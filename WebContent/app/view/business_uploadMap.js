@@ -125,7 +125,6 @@ Ext.define('MyApp.view.business_uploadMap', {
             collapsed: true,
             collapsible: true,
             title: '数据浏览',
-            autoLoad: true,
             store: 'Business_mapStore',
             columns: [
                 {
@@ -145,7 +144,6 @@ Ext.define('MyApp.view.business_uploadMap', {
                 },
                 {
                     xtype: 'gridcolumn',
-<<<<<<< HEAD
                     dataIndex: 'northCoor',
                     text: '北至坐标'
                 },
@@ -158,20 +156,6 @@ Ext.define('MyApp.view.business_uploadMap', {
                     xtype: 'gridcolumn',
                     dataIndex: 'eastCoor',
                     text: '东至坐标'
-=======
-                    dataIndex: 'westCoor',
-                    text: '西至坐标'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'eastCoor',
-                    text: '东至坐标'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'northCoor',
-                    text: '北至坐标'
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
                 },
                 {
                     xtype: 'gridcolumn',

@@ -19,45 +19,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "id"
-            },
-            "name": "MyField8",
-            "designerId": "8824b092-154b-4af4-9ab2-f77e7f951b6a"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "pid"
-            },
-            "name": "MyField9",
-            "designerId": "0a35ed7d-c2f9-43a0-b756-30894a7e28ca"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "kfqName"
-            },
-            "name": "MyField10",
-            "designerId": "06ab47e7-ac05-4f9b-b7cd-96a38b077f5c"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "name": "mapId"
             },
             "name": "MyField",

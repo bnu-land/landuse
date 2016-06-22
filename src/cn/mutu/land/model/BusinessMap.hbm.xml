@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<<<<<<< HEAD
-<!-- Generated 2016-6-22 17:21:40 by Hibernate Tools 4.0.0 -->
-=======
+
 <!-- Generated 2016-6-17 22:26:09 by Hibernate Tools 4.0.0 -->
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
+
 <hibernate-mapping>
     <class name="cn.mutu.land.model.BusinessMap" table="business_map" catalog="landuse">
         <id name="id" type="java.lang.Integer">

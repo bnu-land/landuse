@@ -224,7 +224,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "autoLoad": true,
                 "autoScroll": true,
                 "collapsed": true,
                 "collapsible": true,
@@ -286,13 +285,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-<<<<<<< HEAD
                         "dataIndex": "northCoor",
                         "text": "北至坐标"
-=======
-                        "dataIndex": "westCoor",
-                        "text": "西至坐标"
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
                     },
                     "name": "MyColumn13",
                     "designerId": "d3199210-5de6-403b-b3af-dfcd32c0648b"
@@ -305,13 +299,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-<<<<<<< HEAD
                         "dataIndex": "westCoor",
                         "text": "西至坐标"
-=======
-                        "dataIndex": "eastCoor",
-                        "text": "东至坐标"
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
                     },
                     "name": "MyColumn11",
                     "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
@@ -324,13 +313,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-<<<<<<< HEAD
                         "dataIndex": "eastCoor",
                         "text": "东至坐标"
-=======
-                        "dataIndex": "northCoor",
-                        "text": "北至坐标"
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
                     },
                     "name": "MyColumn14",
                     "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"

@@ -47,14 +47,8 @@ Ext.application({
         'enterprise_expirealertModel',
         'survey_dataManager',
         'sys_MapAttrNameIndexModel',
-<<<<<<< HEAD
         'businessMapModel',
         'businessPhotoModel'
-=======
-        'sys_treeModel',
-        'sys_KfqInfoModel',
-        'businessMapModel'
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
     ],
     stores: [
         'systemManageMapStore',
@@ -62,6 +56,7 @@ Ext.application({
         'systemManageMapTreeStore',
         'notice_columnsStore',
         'systemMapFeatureLayerStore',
+        'thematic_LCCT_KFQStore',
         'tmematic_LCCT_StartYearStore',
         'tmematic_LCCT_EndYearStore',
         'MyArrayStore',
@@ -101,17 +96,8 @@ Ext.application({
         'thematic_LCCT_ChartStore',
         'kfqZoneTreeStore',
         'sys_MapAttrNameIndexStore',
-<<<<<<< HEAD
         'Business_mapStore',
         'Business_photoStore'
-=======
-        'sys_TreeStore',
-        'sys_MapKfqTypeStore',
-        'sys_MapKfqNameStore',
-        'thematic_LCCT_KFQStore',
-        'sys_MapKfqMapStore',
-        'Business_mapStore'
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
     ],
     views: [
         'MainView',

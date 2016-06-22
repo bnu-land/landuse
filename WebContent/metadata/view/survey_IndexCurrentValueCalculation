@@ -64,7 +64,7 @@
                                 "fieldLabel": "选择地区",
                                 "id": "survey_KfqArea_Combo",
                                 "layout|flex": null,
-                                "store": null,
+                                "store": "thematic_LCCT_KFQStore",
                                 "submitValue": false,
                                 "valueField": "value"
                             },

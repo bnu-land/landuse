@@ -8,7 +8,6 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
-        "designer|userAlias": "Business_mapStore",
         "designer|userClassName": "Business_mapStore",
         "model": "businessMapModel",
         "storeId": "Business_mapStore"

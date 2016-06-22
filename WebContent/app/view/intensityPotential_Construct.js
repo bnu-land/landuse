@@ -49,6 +49,7 @@ Ext.define('MyApp.view.intensityPotential_Construct', {
                     name: 'kfqName',
                     submitValue: false,
                     displayField: 'name',
+                    store: 'thematic_LCCT_KFQStore',
                     valueField: 'value',
                     listeners: {
                         change: 'onComboboxChange1'

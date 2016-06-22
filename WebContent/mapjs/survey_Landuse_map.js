@@ -132,6 +132,7 @@ require([
 
                     var feature = event.graphic;
                     var attr = feature.attributes;
+                    // console.log("attr:",attr);
                     extInfoWindowGrid.setSource(attr);
                     extInfoWindowGrid.setStore(extInfoWindowGrid.getStore());
 

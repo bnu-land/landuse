@@ -505,7 +505,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'system_MapManageTree',
+                                    id: 'system_MapManage',
                                     hideOnClick: false,
                                     text: '地图管理'
                                 },

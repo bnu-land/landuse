@@ -112,7 +112,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "id",
+                        "dataIndex": "description",
                         "text": "备注",
                         "width": 200
                     },

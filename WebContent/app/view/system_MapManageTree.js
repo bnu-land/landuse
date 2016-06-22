@@ -20,53 +20,30 @@ Ext.define('MyApp.view.system_MapManageTree', {
     requires: [
         'Ext.tree.Panel',
         'Ext.tree.View',
-        'Ext.tree.Column',
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
         'Ext.button.Button',
-        'Ext.toolbar.Separator'
+        'Ext.toolbar.Separator',
+        'Ext.tree.Column'
     ],
 
     height: 588,
-    width: 931,
+    width: 786,
     layout: 'fit',
     title: '地图管理',
-    defaultListenerScope: true,
 
     items: [
         {
             xtype: 'treepanel',
-            autoScroll: true,
-            height: 250,
-            id: 'system_MapManageTreeGrid',
-            width: 400,
-            collapsible: true,
+            id: 'system_MapManageTree',
             store: 'systemManageMapTreeStore',
-            folderSort: true,
-            rootVisible: false,
-            useArrows: true,
             viewConfig: {
-                rootVisible: false
+
             },
-            columns: [
-                {
-                    xtype: 'treecolumn',
-                    width: 200,
-                    dataIndex: 'kfqName',
-                    text: 'Nodes'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 300,
-                    dataIndex: 'mapName',
-                    text: 'name'
-                }
-            ],
             dockedItems: [
                 {
                     xtype: 'toolbar',
                     dock: 'top',
-                    id: '',
                     items: [
                         {
                             xtype: 'textfield',
@@ -103,40 +80,29 @@ Ext.define('MyApp.view.system_MapManageTree', {
                     ]
                 }
             ],
-            listeners: {
-                beforerender: 'onSystem_MapManageTreeGridBeforeRender'
-            }
-        }
-    ],
-
-    onSystem_MapManageTreeGridBeforeRender: function(component, eOpts) {
-        var store = Ext.create('Ext.data.TreeStore', {
-                root: {
-                    expanded: true,
-                    children: [{
-                        text: "detention",
-                        leaf: true
-                    }, {
-                        text: "homework",
-                        expanded: false,
-                        children: [{
-                            text: "book report",
-                            leaf: true
-                        }, {
-                            text: "alegrbra",
-                            leaf: true
-                        }]
-                    }, {
-                        text: "buy lottery tickets",
-                        leaf: true
-                    }]
+            columns: [
+                {
+                    xtype: 'treecolumn',
+                    dataIndex: 'name',
+                    text: '名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'key',
+                    text: '索引键值'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'url',
+                    text: '地图链接'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'description',
+                    text: '描述'
                 }
-            });
-
-        //var store = Ext.StoreMgr.get('sys_TreeStore');
-        //console.log("Store:",store);
-        //component.setStore(store);
-
-    }
+            ]
+        }
+    ]
 
 });

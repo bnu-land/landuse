@@ -47,26 +47,12 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                     items: [
                         {
                             xtype: 'combobox',
-                            id: 'thematicLCC_KfqTypeCombo',
-                            width: 200,
-                            fieldLabel: '开发区级别',
-                            labelWidth: 80,
-                            displayField: 'kfqName',
-                            store: 'sys_MapKfqTypeStore',
-                            valueField: 'id',
-                            listeners: {
-                                change: 'onThematicLCC_KfqTypeComboChange'
-                            }
-                        },
-                        {
-                            xtype: 'combobox',
-                            id: 'thematicLCC_KfqNameCombo',
-                            width: 300,
-                            fieldLabel: '开发区名称',
-                            labelWidth: 80,
-                            displayField: 'kfqName',
-                            store: 'sys_MapKfqNameStore',
-                            valueField: 'id'
+                            id: 'thematicLCC_LayerCombo',
+                            width: 350,
+                            fieldLabel: '选择开发区',
+                            displayField: 'mapName',
+                            store: 'systemMapFeatureLayerStore',
+                            valueField: 'mapUrl'
                         }
                     ]
                 }
@@ -157,15 +143,6 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
             ]
         }
     ],
-
-    onThematicLCC_KfqTypeComboChange: function(field, newValue, oldValue, eOpts) {
-        var store = Ext.StoreMgr.get('sys_MapKfqNameStore'); //获得store对象
-        store.load({
-            params: { kfqId: newValue }
-        });
-        var nameCombo = Ext.getCmp('thematicLCC_KfqNameCombo');
-        nameCombo.reset();
-    },
 
     onPanelAfterRender1: function(component, eOpts) {
         var head = document.getElementsByTagName('head')[0];

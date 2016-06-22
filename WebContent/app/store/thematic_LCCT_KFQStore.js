@@ -15,12 +15,9 @@
 
 Ext.define('MyApp.store.thematic_LCCT_KFQStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.thematic_LCCT_KFQStore',
 
     requires: [
-        'MyApp.model.sys_KfqInfoModel',
-        'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.field.Field'
     ],
 
     constructor: function(cfg) {
@@ -28,20 +25,44 @@ Ext.define('MyApp.store.thematic_LCCT_KFQStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'thematic_LCCT_KFQStore',
-            autoLoad: true,
-            autoSync: true,
-            model: 'MyApp.model.sys_KfqInfoModel',
-            proxy: {
-                type: 'ajax',
-                extraParams: {
-                    searchKeyword: ''
+            data: [
+                {
+                    name: '宾西',
+                    value: 'binxi'
                 },
-                url: 'get_SysKfqType',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'root'
+                {
+                    name: '海林',
+                    value: 'hailin'
+                },
+                {
+                    name: '利民',
+                    value: 'limin'
+                },
+                {
+                    name: '牡丹江',
+                    value: 'mudanjiang'
+                },
+                {
+                    name: '绥芬河保税区',
+                    value: 'suifenhe'
+                },
+                {
+                    name: '绥芬河市合作区',
+                    value: 'suifenheshi'
+                },
+                {
+                    name: '绥化',
+                    value: 'suihua'
                 }
-            }
+            ],
+            fields: [
+                {
+                    name: 'name'
+                },
+                {
+                    name: 'value'
+                }
+            ]
         }, cfg)]);
     }
 });

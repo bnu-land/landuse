@@ -12,7 +12,7 @@
         "id": null,
         "layout": "fit",
         "title": "地图管理",
-        "width": 931
+        "width": 786
     },
     "name": "system_RightManage1",
     "designerId": "5e9ab70a-617b-497c-90bd-e3137d3d7351",
@@ -27,22 +27,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "autoScroll": true,
-                "collapsible": true,
-                "folderSort": true,
-                "height": 250,
-                "id": "system_MapManageTreeGrid",
-                "rootVisible": false,
+                "id": "system_MapManageTree",
                 "store": "systemManageMapTreeStore",
-                "title": null,
-                "useArrows": true,
-                "width": 400
+                "title": null
             },
-            "name": "TreeGrid",
-            "designerId": "fe7d5d92-38df-40e7-9d14-2d29e6c51568",
-            "isBuiltIn": true,
-            "iconCls": "icon-treegridpanel",
-            "autoName": "TreeGrid",
+            "name": "MyTreePanel",
+            "designerId": "4c8c1207-c8cf-4e02-9668-e5f325b18238",
             "cn": [
                 {
                     "type": "Ext.tree.View",
@@ -51,42 +41,8 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootVisible": false
-                    },
-                    "name": "MyTreeView1",
-                    "designerId": "0c482e37-1bfe-4c5c-b8f9-dc0d4f1270ec"
-                },
-                {
-                    "type": "Ext.tree.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "kfqName",
-                        "flex": null,
-                        "text": "Nodes",
-                        "width": 200
-                    },
-                    "name": "MyTreeColumn1",
-                    "designerId": "da3e5abc-2e2b-45b3-83ad-2f48016b26e8"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "mapName",
-                        "text": "name",
-                        "width": 300
-                    },
-                    "name": "MyColumn",
-                    "designerId": "2d095a90-0190-40a6-9fd6-d78636823eec"
+                    "name": "MyTreeView",
+                    "designerId": "4dd66f47-85a1-4704-8af6-136236af4daa"
                 },
                 {
                     "type": "Ext.toolbar.Toolbar",
@@ -96,8 +52,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": "top",
-                        "id": ""
+                        "dock": "top"
                     },
                     "name": "MyToolbar",
                     "designerId": "d57c558a-aba0-425d-90ca-14c971413983",
@@ -208,48 +163,60 @@
                     ]
                 },
                 {
-                    "type": "basiceventbinding",
+                    "type": "Ext.tree.Column",
                     "reference": {
-                        "name": "listeners",
+                        "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onSystem_MapManageTreeGridBeforeRender",
-                        "implHandler": [
-                            "var store = Ext.create('Ext.data.TreeStore', {",
-                            "        root: {",
-                            "            expanded: true,",
-                            "            children: [{",
-                            "                text: \"detention\",",
-                            "                leaf: true",
-                            "            }, {",
-                            "                text: \"homework\",",
-                            "                expanded: false,",
-                            "                children: [{",
-                            "                    text: \"book report\",",
-                            "                    leaf: true",
-                            "                }, {",
-                            "                    text: \"alegrbra\",",
-                            "                    leaf: true",
-                            "                }]",
-                            "            }, {",
-                            "                text: \"buy lottery tickets\",",
-                            "                leaf: true",
-                            "            }]",
-                            "        }",
-                            "    });",
-                            "",
-                            "//var store = Ext.StoreMgr.get('sys_TreeStore');",
-                            "//console.log(\"Store:\",store);",
-                            "//component.setStore(store);",
-                            ""
-                        ],
-                        "name": "beforerender",
-                        "scope": "me"
+                        "dataIndex": "name",
+                        "text": "名称"
                     },
-                    "name": "onSystem_MapManageTreeGridBeforeRender",
-                    "designerId": "a8a8e6ed-5de4-4dad-b858-1b6d21b83bb2"
+                    "name": "MyTreeColumn",
+                    "designerId": "4b6a81b3-c802-4e9b-aaca-659adb68adad"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "key",
+                        "text": "索引键值"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "cdc377aa-ce6a-4c21-866d-2ee607e59580"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "url",
+                        "text": "地图链接"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "84c24d20-1bc0-440f-a6bd-5628c10193c8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "描述"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "caa67154-ce79-4f2d-b453-b1e5a195d43a"
                 }
             ]
         }

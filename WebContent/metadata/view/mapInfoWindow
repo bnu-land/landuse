@@ -58,7 +58,7 @@
                             "var nameIndex = {};",
                             "for(var i in nameIndexRecords){",
                             "    var name = nameIndexRecords[i].data;",
-                            "    nameIndex[name.enName] = name.cnName;",
+                            "    nameIndex[name.enName] = name.cnName;    ",
                             "}",
                             "",
                             "//替换",

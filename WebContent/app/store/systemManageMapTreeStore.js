@@ -15,7 +15,6 @@
 
 Ext.define('MyApp.store.systemManageMapTreeStore', {
     extend: 'Ext.data.TreeStore',
-    alias: 'store.systemManageMapTreeStore',
 
     requires: [
         'MyApp.model.systemMapModel',
@@ -29,35 +28,14 @@ Ext.define('MyApp.store.systemManageMapTreeStore', {
         me.callParent([Ext.apply({
             groupField: 'id',
             storeId: 'systemManageMapTreeStore',
-            autoLoad: true,
-            autoSync: true,
             model: 'MyApp.model.systemMapModel',
-            defaultRootId: 'children',
-            defaultRootText: 'children',
-            root: {
-                expanded: false
-            },
+            rootVisible: true,
             proxy: {
                 type: 'ajax',
-                url: 'get_systemManageMapTree',
                 reader: {
                     type: 'json'
                 }
-            },
-            listeners: {
-                load: {
-                    fn: me.onTreeStoreLoad,
-                    scope: me
-                }
             }
         }, cfg)]);
-    },
-
-    onTreeStoreLoad: function(treestore, records, successful, operation, node, eOpts) {
-        //var jsonData = Ext.pluck(treestore.data.items, 'data'); //从store获取数据
-        //var store = Ext.StoreMgr.get('sys_TreeStore');
-        //store.setRoot(jsonData);
-        //console.log("json:",jsonData);
     }
-
 });

@@ -59,9 +59,9 @@ store.on('load', function(store, records, successful, operation, eOpts) {
     var column2 = getColumnValue(echartsData, 2); //第一列的数据
 
 
-    // console.log("echartData:", echartsData);
-    // console.log("column1:", column1);
-    // console.log("column2:", column2);
+    console.log("echartData:", echartsData);
+    console.log("column1:", column1);
+    console.log("column2:", column2);
 
     if (!column1 || !column2) {
         return;

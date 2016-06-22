@@ -57,62 +57,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "displayField": "kfqName",
-                                "fieldLabel": "开发区级别",
-                                "id": "thematicLCC_KfqTypeCombo",
-                                "labelWidth": 80,
+                                "displayField": "mapName",
+                                "fieldLabel": "选择开发区",
+                                "id": "thematicLCC_LayerCombo",
                                 "layout|flex": null,
-                                "store": "sys_MapKfqTypeStore",
-                                "valueField": "id",
-                                "width": 200
+                                "store": "systemMapFeatureLayerStore",
+                                "valueField": "mapUrl",
+                                "width": 350
                             },
-                            "name": "MyComboBox1",
-                            "designerId": "06e77f2c-be9a-4cf0-8c0b-03a9530da852",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onThematicLCC_KfqTypeComboChange",
-                                        "implHandler": [
-                                            "var store = Ext.StoreMgr.get('sys_MapKfqNameStore'); //获得store对象",
-                                            "store.load({",
-                                            "    params: { kfqId: newValue }",
-                                            "});",
-                                            "var nameCombo = Ext.getCmp('thematicLCC_KfqNameCombo');",
-                                            "nameCombo.reset();"
-                                        ],
-                                        "name": "change",
-                                        "scope": "me"
-                                    },
-                                    "name": "onThematicLCC_KfqTypeComboChange",
-                                    "designerId": "abeac74e-f1f3-4c6b-bf35-d2c63bc72923"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.form.field.ComboBox",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "displayField": "kfqName",
-                                "fieldLabel": "开发区名称",
-                                "id": "thematicLCC_KfqNameCombo",
-                                "labelWidth": 80,
-                                "layout|flex": null,
-                                "store": "sys_MapKfqNameStore",
-                                "valueField": "id",
-                                "width": 300
-                            },
-                            "name": "MyComboBox5",
-                            "designerId": "28753344-c351-4a55-86e9-bb307ff63483"
+                            "name": "MyComboBox",
+                            "designerId": "aaf48b70-cbc2-4a60-976c-4a9b68cb0f5d"
                         }
                     ]
                 },

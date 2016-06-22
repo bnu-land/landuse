@@ -60,6 +60,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
                             fieldLabel: '选择地区',
                             submitValue: false,
                             displayField: 'name',
+                            store: 'thematic_LCCT_KFQStore',
                             valueField: 'value',
                             listeners: {
                                 change: 'onComboboxChange'

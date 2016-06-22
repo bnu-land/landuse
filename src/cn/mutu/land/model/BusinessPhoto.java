@@ -1,10 +1,6 @@
 package cn.mutu.land.model;
 
-<<<<<<< HEAD
-// Generated 2016-6-22 17:21:39 by Hibernate Tools 4.0.0
-=======
-// Generated 2016-6-16 22:53:53 by Hibernate Tools 4.0.0
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
+
 
 import java.util.Date;
 
@@ -59,7 +55,7 @@ public class BusinessPhoto implements java.io.Serializable {
 		this.proCode = proCode;
 	}
 
-<<<<<<< HEAD
+
 	public String getUploadUser() {
 		return this.uploadUser;
 	}
@@ -68,8 +64,8 @@ public class BusinessPhoto implements java.io.Serializable {
 		this.uploadUser = uploadUser;
 	}
 
-=======
->>>>>>> c827f56ad6128fb79072d22195127b46b34209dc
+
+
 	public Date getUpDate() {
 		return this.upDate;
 	}
