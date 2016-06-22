@@ -233,7 +233,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                             },
                                             {
                                                 xtype: 'gridcolumn',
-                                                width: 200,
+                                                width: 300,
                                                 dataIndex: 'rightName',
                                                 text: '权限名称'
                                             },
@@ -300,7 +300,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                                     if(index>=0){
                                                         substr = rightName.substring(index+6,rightName.length);
                                                     }
-                                                    Ext.Msg.confirm('您正在删除', '权限："' + substr + '"，权限代码为："'+record.get('url')+'"，<br/> 确认删除？', getResult);
+                                                    Ext.Msg.confirm('您正在删除', '权限："' + substr + '"，<br/> 确认删除？', getResult);
 
                                                     function getResult(confirm)
                                                     {
@@ -436,6 +436,8 @@ Ext.define('MyApp.view.system_RightManage', {
                     if(index >= 0){
                         var substr = rightName.substring(index+6,rightName.length);
                         rightNameField.setValue(substr);
+                    }else{
+                        rightNameField.setValue(rightName);
                     }
                     break;
             }

@@ -689,9 +689,9 @@ Ext.define('MyApp.view.MainView', {
             var child = children[index];
             if(child && child.xtype=='panel'){
                 var title = child.title;
-                if(title=='企业动态监控'){
-                    child.setHidden(true);
-                }
+                //if(title=='企业动态监控'){
+                //    child.setHidden(true);
+                //}
                 console.log(index,title);
             }
 

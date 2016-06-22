@@ -21,6 +21,7 @@ Ext.define('MyApp.view.db_RightInfoWindow', {
         'MyApp.view.db_RightInfoWindowViewModel',
         'Ext.form.Panel',
         'Ext.form.field.Text',
+        'Ext.form.field.Hidden',
         'Ext.form.field.Checkbox',
         'Ext.form.field.HtmlEditor',
         'Ext.toolbar.Toolbar',
@@ -65,11 +66,10 @@ Ext.define('MyApp.view.db_RightInfoWindow', {
                     width: 400,
                     fieldLabel: '权限名称',
                     labelWidth: 70,
-                    name: 'rightName',
-                    submitValue: false
+                    name: 'rightName'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'hiddenfield',
                     id: 'w_rightUrl',
                     width: 400,
                     fieldLabel: '权限代码',
