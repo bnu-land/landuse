@@ -19,9 +19,11 @@ Ext.define('MyApp.view.business_uploadPhoto', {
 
     requires: [
         'MyApp.view.business_uploadPhotoViewModel',
+        'Ext.form.Panel',
         'Ext.button.Button',
         'Ext.form.field.TextArea',
         'Ext.form.field.File',
+        'Ext.form.field.Hidden',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
@@ -39,14 +41,45 @@ Ext.define('MyApp.view.business_uploadPhoto', {
 
     items: [
         {
-            xtype: 'panel',
+            xtype: 'form',
             region: 'west',
-            width: 450,
+            id: 'photo_info',
+            width: '40%',
             layout: 'absolute',
             title: '图片信息录入',
+            jsonSubmit: true,
+            url: 'add_picture',
             items: [
                 {
                     xtype: 'button',
+                    handler: function() {
+                        var myform = Ext.getCmp('photo_info').getForm();
+                        if (myform.isValid())
+                        {
+                            console.log("控件有效");
+                            myform.submit({
+                                //url : 'add_law',
+                                success : function (form, action)
+                                {
+                                    console.log("成功进入");
+                                    Ext.Msg.alert('成功', '图片上传成功。');
+                                    var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象
+                                    mystore.reload();
+                                    var xtype = 'business_uploadPhoto';
+                                    var mainView = Ext.getCmp('mainView');
+                                    mainView.removeAll();
+                                    mainView.add(Ext.widget(xtype));
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '图片上传失败，请重试。');
+                                }
+                            });
+                        }
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
+                    },
                     x: 270,
                     y: 340,
                     text: '提交审核'
@@ -57,14 +90,16 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     y: 250,
                     width: 360,
                     fieldLabel: '备注',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'other'
                 },
                 {
                     xtype: 'textfield',
                     x: 30,
                     y: 140,
                     fieldLabel: '图片标题',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'photoTitle'
                 },
                 {
                     xtype: 'button',
@@ -79,6 +114,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     width: 400,
                     fieldLabel: '上传图片',
                     labelWidth: 70,
+                    name: 'photoPath',
+                    allowBlank: false,
                     buttonText: '选择图片'
                 },
                 {
@@ -86,14 +123,38 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     x: 30,
                     y: 190,
                     fieldLabel: '上传用户',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'uploadUser'
                 },
                 {
                     xtype: 'textfield',
                     x: 30,
                     y: 40,
                     fieldLabel: '项目编号',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'proCode'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    x: 340,
+                    y: 238,
+                    fieldLabel: 'ID',
+                    name: 'id'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    x: 326,
+                    y: 234,
+                    fieldLabel: 'Label',
+                    name: 'upDate'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    x: 355,
+                    y: 237,
+                    fieldLabel: 'Label',
+                    name: 'isPass',
+                    value: 0
                 }
             ]
         },
@@ -113,7 +174,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                 {
                     xtype: 'gridpanel',
                     region: 'west',
-                    width: 300,
+                    width: '50%',
                     title: '图片列表',
                     store: 'Business_photoStore',
                     columns: [

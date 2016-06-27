@@ -19,6 +19,7 @@ Ext.define('MyApp.view.business_uploadMap', {
 
     requires: [
         'MyApp.view.business_uploadMapViewModel',
+        'Ext.form.Panel',
         'Ext.button.Button',
         'Ext.form.field.Text',
         'Ext.grid.Panel',
@@ -37,14 +38,43 @@ Ext.define('MyApp.view.business_uploadMap', {
 
     items: [
         {
-            xtype: 'panel',
+            xtype: 'form',
             region: 'west',
+            id: 'map_info',
             width: 440,
             layout: 'absolute',
-            title: '信息录入',
+            url: 'add_map',
             items: [
                 {
                     xtype: 'button',
+                    handler: function() {
+                        var myform = Ext.getCmp('map_info').getForm();
+                        if (myform.isValid())
+                        {
+                            console.log("控件有效");
+                            myform.submit({
+                                //url : 'add_map',
+                                success : function (form, action)
+                                {
+                                    console.log("成功进入");
+                                    Ext.Msg.alert('成功', '地图四至信息上传成功。');
+                                    var mystore = Ext.StoreMgr.get('Business_mapStore'); //获得store对象
+                                    mystore.reload();
+                                    var xtype = 'business_uploadMap';
+                                    var mainView = Ext.getCmp('mainView');
+                                    mainView.removeAll();
+                                    mainView.add(Ext.widget(xtype));
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '地图四至信息上传失败，请重试。');
+                                }
+                            });
+                        }
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
+                    },
                     x: 200,
                     y: 410,
                     text: '提交审核'
@@ -61,7 +91,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 160,
                     width: 200,
                     fieldLabel: '北坐标',
-                    labelWidth: 50
+                    labelWidth: 50,
+                    name: 'northCoor'
                 },
                 {
                     xtype: 'textfield',
@@ -69,7 +100,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 240,
                     width: 200,
                     fieldLabel: '西坐标',
-                    labelWidth: 50
+                    labelWidth: 50,
+                    name: 'westCoor'
                 },
                 {
                     xtype: 'textfield',
@@ -77,7 +109,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 240,
                     width: 200,
                     fieldLabel: '东坐标',
-                    labelWidth: 50
+                    labelWidth: 50,
+                    name: 'eastCoor'
                 },
                 {
                     xtype: 'textfield',
@@ -85,7 +118,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 330,
                     width: 200,
                     fieldLabel: '南坐标',
-                    labelWidth: 50
+                    labelWidth: 50,
+                    name: 'southCoor'
                 },
                 {
                     xtype: 'textfield',
@@ -93,7 +127,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 100,
                     width: 290,
                     fieldLabel: '企业用户',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'uploadUser'
                 },
                 {
                     xtype: 'textfield',
@@ -101,7 +136,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     y: 40,
                     width: 290,
                     fieldLabel: '项目编号',
-                    labelWidth: 70
+                    labelWidth: 70,
+                    name: 'proCode'
                 }
             ]
         },

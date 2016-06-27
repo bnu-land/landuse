@@ -19,7 +19,7 @@
     "viewModelInstanceId": "3d204037-351f-4431-b826-6beb3f9e6acb",
     "cn": [
         {
-            "type": "Ext.panel.Panel",
+            "type": "Ext.form.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -28,12 +28,15 @@
             "userConfig": {
                 "designer|snapToGrid": 10,
                 "dock": null,
+                "id": "photo_info",
+                "jsonSubmit": true,
                 "layout": "absolute",
                 "layout|region": "west",
                 "title": "图片信息录入",
-                "width": 450
+                "url": "add_picture",
+                "width": "40%"
             },
-            "name": "MyPanel19",
+            "name": "MyForm2",
             "designerId": "87202b40-8c70-46e6-916f-6ecc203daf63",
             "cn": [
                 {
@@ -49,7 +52,50 @@
                         "text": "提交审核"
                     },
                     "name": "MyButton9",
-                    "designerId": "730a03d3-0753-4ce0-80ad-93a7eae07541"
+                    "designerId": "730a03d3-0753-4ce0-80ad-93a7eae07541",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var myform = Ext.getCmp('photo_info').getForm();",
+                                    "if (myform.isValid())",
+                                    "{",
+                                    "    console.log(\"控件有效\");",
+                                    "    myform.submit({",
+                                    "        //url : 'add_law',",
+                                    "        success : function (form, action)",
+                                    "        {",
+                                    "            console.log(\"成功进入\");",
+                                    "            Ext.Msg.alert('成功', '图片上传成功。');",
+                                    "            var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象",
+                                    "            mystore.reload();",
+                                    "            var xtype = 'business_uploadPhoto';",
+                                    "            var mainView = Ext.getCmp('mainView');",
+                                    "            mainView.removeAll();",
+                                    "            mainView.add(Ext.widget(xtype));",
+                                    "        },",
+                                    "        failure: function(form, action){",
+                                    "            Ext.Msg.alert('失败', '图片上传失败，请重试。');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "29d0ab90-627d-44b1-853e-ffea4df22149"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.TextArea",
@@ -63,6 +109,7 @@
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 250,
+                        "name": "other",
                         "width": 360
                     },
                     "name": "MyTextArea",
@@ -79,7 +126,8 @@
                         "fieldLabel": "图片标题",
                         "labelWidth": 70,
                         "layout|x": 30,
-                        "layout|y": 140
+                        "layout|y": 140,
+                        "name": "photoTitle"
                     },
                     "name": "MyTextField10",
                     "designerId": "4220dfff-47b2-4871-b2ab-74288b3137aa"
@@ -107,11 +155,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "buttonText": "选择图片",
                         "fieldLabel": "上传图片",
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 90,
+                        "name": "photoPath",
                         "width": 400
                     },
                     "name": "MyFileUpload",
@@ -128,7 +178,8 @@
                         "fieldLabel": "上传用户",
                         "labelWidth": 70,
                         "layout|x": 30,
-                        "layout|y": 190
+                        "layout|y": 190,
+                        "name": "uploadUser"
                     },
                     "name": "MyTextField9",
                     "designerId": "8f0d67c7-982b-4ab2-affe-92c904552879"
@@ -144,10 +195,62 @@
                         "fieldLabel": "项目编号",
                         "labelWidth": 70,
                         "layout|x": 30,
-                        "layout|y": 40
+                        "layout|y": 40,
+                        "name": "proCode"
                     },
                     "name": "MyTextField8",
                     "designerId": "2ca14a62-a310-458f-a4c6-eedb00f923fd"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "ID",
+                        "layout|x": 340,
+                        "layout|y": 238,
+                        "name": "id"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "4e83f7ea-086a-4426-9c0b-cfe0603a2a9f"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "layout|x": 326,
+                        "layout|y": 234,
+                        "name": "upDate"
+                    },
+                    "name": "MyHiddenField3",
+                    "designerId": "8c1b2a29-71fb-4bb4-9cac-0e8770fde206"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "layout|x": 355,
+                        "layout|y": 237,
+                        "name": "isPass",
+                        "value": [
+                            "0"
+                        ]
+                    },
+                    "name": "MyHiddenField4",
+                    "designerId": "05a28bb5-de3b-4d9a-8f4e-7c360216a24c"
                 }
             ]
         },
@@ -185,7 +288,7 @@
                         "layout|region": "west",
                         "store": "Business_photoStore",
                         "title": "图片列表",
-                        "width": 300
+                        "width": "50%"
                     },
                     "name": "MyGridPanel3",
                     "designerId": "b5480723-a43f-49ae-a880-7efa685a5a37",
