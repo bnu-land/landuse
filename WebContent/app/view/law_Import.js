@@ -106,7 +106,8 @@ Ext.define('MyApp.view.law_Import', {
                             width: '40%',
                             fieldLabel: '法律标题',
                             name: 'lawTitle',
-                            allowBlank: false
+                            allowBlank: false,
+                            blankText: '不能为空'
                         },
                         {
                             xtype: 'combobox',

@@ -14,7 +14,7 @@ import cn.mutu.land.model.BusinessPhoto;
 
 
 @Service
-public class BusinessPhotoManagerService {
+public class BusinessPhotosManagerService {
 	private SessionFactory sessionFactory;
 
 	@Autowired
@@ -23,11 +23,11 @@ public class BusinessPhotoManagerService {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getBusinessPhotoList(String searchKeyword) {
+	public Map<String, Object> getBusinessPhotosList(String searchKeyword) {
 		String hql = "FROM BusinessPhoto as photo";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE photo.photoTitle" + likeStr 
+			String hql2 = " WHERE photo.ProCode" + likeStr 
 					+ "OR photo.uploadUser" + likeStr;
 			hql += hql2;
 		}		
@@ -35,10 +35,10 @@ public class BusinessPhotoManagerService {
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
 		results = (List<BusinessPhoto>) query.list();
-		Map<String, Object> myPhotoResult = new TreeMap<String, Object>();
-		myPhotoResult.put("root", results);
-		myPhotoResult.put("success", true);
-		return myPhotoResult;
+		Map<String, Object> myMapResult = new TreeMap<String, Object>();
+		myMapResult.put("root", results);
+		myMapResult.put("success", true);
+		return myMapResult;
 	}
 	
 	public void addPhotos(BusinessPhoto photo) {

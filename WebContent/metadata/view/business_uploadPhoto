@@ -33,7 +33,7 @@
                 "layout": "absolute",
                 "layout|region": "west",
                 "title": "图片信息录入",
-                "url": "add_picture",
+                "url": "addPhotos",
                 "width": "40%"
             },
             "name": "MyForm2",
@@ -65,11 +65,13 @@
                                 "fn": "handler",
                                 "implHandler": [
                                     "var myform = Ext.getCmp('photo_info').getForm();",
+                                    "//var path=Ext.widget('photoPath').value;",
                                     "if (myform.isValid())",
                                     "{",
                                     "    console.log(\"控件有效\");",
+                                    "    //console.log(path.toString());",
                                     "    myform.submit({",
-                                    "        //url : 'add_law',",
+                                    "        //url : 'add_picture',",
                                     "        success : function (form, action)",
                                     "        {",
                                     "            console.log(\"成功进入\");",
@@ -155,13 +157,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "allowBlank": false,
                         "buttonText": "选择图片",
+                        "designer|displayName": "photoPath",
                         "fieldLabel": "上传图片",
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 90,
-                        "name": "photoPath",
+                        "name": "photoPath1",
                         "width": 400
                     },
                     "name": "MyFileUpload",
@@ -200,57 +202,6 @@
                     },
                     "name": "MyTextField8",
                     "designerId": "2ca14a62-a310-458f-a4c6-eedb00f923fd"
-                },
-                {
-                    "type": "Ext.form.field.Hidden",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "ID",
-                        "layout|x": 340,
-                        "layout|y": 238,
-                        "name": "id"
-                    },
-                    "name": "MyHiddenField1",
-                    "designerId": "4e83f7ea-086a-4426-9c0b-cfe0603a2a9f"
-                },
-                {
-                    "type": "Ext.form.field.Hidden",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Label",
-                        "layout|x": 326,
-                        "layout|y": 234,
-                        "name": "upDate"
-                    },
-                    "name": "MyHiddenField3",
-                    "designerId": "8c1b2a29-71fb-4bb4-9cac-0e8770fde206"
-                },
-                {
-                    "type": "Ext.form.field.Hidden",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Label",
-                        "layout|x": 355,
-                        "layout|y": 237,
-                        "name": "isPass",
-                        "value": [
-                            "0"
-                        ]
-                    },
-                    "name": "MyHiddenField4",
-                    "designerId": "05a28bb5-de3b-4d9a-8f4e-7c360216a24c"
                 }
             ]
         },

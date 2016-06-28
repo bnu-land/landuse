@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-
+// Generated 2016-6-28 9:56:27 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class BusinessPhoto implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private String proCode;
 	private String uploadUser;
 	private Date upDate;
@@ -21,15 +21,12 @@ public class BusinessPhoto implements java.io.Serializable {
 	public BusinessPhoto() {
 	}
 
-	public BusinessPhoto(int id, int isPass) {
-		this.id = id;
+	public BusinessPhoto(int isPass) {
 		this.isPass = isPass;
 	}
 
-	public BusinessPhoto(int id, String proCode, String uploadUser,
-			Date upDate, String photoPath, String photoTitle, int isPass,
-			String other) {
-		this.id = id;
+	public BusinessPhoto(String proCode, String uploadUser, Date upDate,
+			String photoPath, String photoTitle, int isPass, String other) {
 		this.proCode = proCode;
 		this.uploadUser = uploadUser;
 		this.upDate = upDate;
@@ -39,11 +36,11 @@ public class BusinessPhoto implements java.io.Serializable {
 		this.other = other;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -55,7 +52,6 @@ public class BusinessPhoto implements java.io.Serializable {
 		this.proCode = proCode;
 	}
 
-
 	public String getUploadUser() {
 		return this.uploadUser;
 	}
@@ -63,8 +59,6 @@ public class BusinessPhoto implements java.io.Serializable {
 	public void setUploadUser(String uploadUser) {
 		this.uploadUser = uploadUser;
 	}
-
-
 
 	public Date getUpDate() {
 		return this.upDate;

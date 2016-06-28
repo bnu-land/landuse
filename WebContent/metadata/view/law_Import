@@ -214,6 +214,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "allowBlank": false,
+                                "blankText": "不能为空",
                                 "fieldLabel": "法律标题",
                                 "height": 30,
                                 "layout|flex": null,

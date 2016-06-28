@@ -41,8 +41,9 @@ Ext.define('MyApp.view.business_uploadMap', {
             xtype: 'form',
             region: 'west',
             id: 'map_info',
-            width: 440,
+            width: 461,
             layout: 'absolute',
+            jsonSubmit: true,
             url: 'add_map',
             items: [
                 {
@@ -90,36 +91,40 @@ Ext.define('MyApp.view.business_uploadMap', {
                     x: 90,
                     y: 160,
                     width: 200,
-                    fieldLabel: '北坐标',
-                    labelWidth: 50,
-                    name: 'northCoor'
+                    fieldLabel: '北至坐标',
+                    labelWidth: 60,
+                    name: 'northCoor',
+                    emptyText: '经度,纬度'
                 },
                 {
                     xtype: 'textfield',
                     x: 0,
                     y: 240,
-                    width: 200,
-                    fieldLabel: '西坐标',
-                    labelWidth: 50,
-                    name: 'westCoor'
+                    width: 220,
+                    fieldLabel: '西至坐标',
+                    labelWidth: 60,
+                    name: 'westCoor',
+                    emptyText: '经度,纬度'
                 },
                 {
                     xtype: 'textfield',
-                    x: 210,
+                    x: 230,
                     y: 240,
                     width: 200,
-                    fieldLabel: '东坐标',
-                    labelWidth: 50,
-                    name: 'eastCoor'
+                    fieldLabel: '东至坐标',
+                    labelWidth: 60,
+                    name: 'eastCoor',
+                    emptyText: '经度,纬度'
                 },
                 {
                     xtype: 'textfield',
                     x: 90,
                     y: 330,
                     width: 200,
-                    fieldLabel: '南坐标',
-                    labelWidth: 50,
-                    name: 'southCoor'
+                    fieldLabel: '南至坐标',
+                    labelWidth: 60,
+                    name: 'southCoor',
+                    emptyText: '经度,纬度'
                 },
                 {
                     xtype: 'textfield',

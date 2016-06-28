@@ -23,7 +23,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
         'Ext.button.Button',
         'Ext.form.field.TextArea',
         'Ext.form.field.File',
-        'Ext.form.field.Hidden',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
@@ -48,17 +47,19 @@ Ext.define('MyApp.view.business_uploadPhoto', {
             layout: 'absolute',
             title: '图片信息录入',
             jsonSubmit: true,
-            url: 'add_picture',
+            url: 'addPhotos',
             items: [
                 {
                     xtype: 'button',
                     handler: function() {
                         var myform = Ext.getCmp('photo_info').getForm();
+                        //var path=Ext.widget('photoPath').value;
                         if (myform.isValid())
                         {
                             console.log("控件有效");
+                            //console.log(path.toString());
                             myform.submit({
-                                //url : 'add_law',
+                                //url : 'add_picture',
                                 success : function (form, action)
                                 {
                                     console.log("成功进入");
@@ -114,8 +115,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     width: 400,
                     fieldLabel: '上传图片',
                     labelWidth: 70,
-                    name: 'photoPath',
-                    allowBlank: false,
+                    name: 'photoPath1',
                     buttonText: '选择图片'
                 },
                 {
@@ -133,28 +133,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     fieldLabel: '项目编号',
                     labelWidth: 70,
                     name: 'proCode'
-                },
-                {
-                    xtype: 'hiddenfield',
-                    x: 340,
-                    y: 238,
-                    fieldLabel: 'ID',
-                    name: 'id'
-                },
-                {
-                    xtype: 'hiddenfield',
-                    x: 326,
-                    y: 234,
-                    fieldLabel: 'Label',
-                    name: 'upDate'
-                },
-                {
-                    xtype: 'hiddenfield',
-                    x: 355,
-                    y: 237,
-                    fieldLabel: 'Label',
-                    name: 'isPass',
-                    value: 0
                 }
             ]
         },

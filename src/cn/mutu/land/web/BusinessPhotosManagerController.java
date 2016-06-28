@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.BusinessPhoto;
-import cn.mutu.land.service.BusinessPhotoManagerService;
+import cn.mutu.land.service.BusinessPhotosManagerService;
 
 @Controller
-public class BusinessPhotoManagerController {
+public class BusinessPhotosManagerController {
 
-	private BusinessPhotoManagerService photoService;
+	private BusinessPhotosManagerService photoService;
 
 	@Autowired
-	public BusinessPhotoManagerController(BusinessPhotoManagerService photoService) {
+	public BusinessPhotosManagerController(BusinessPhotosManagerService photoService) {
 		this.photoService = photoService;
 	}
 
@@ -35,7 +35,7 @@ public class BusinessPhotoManagerController {
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
-		return this.photoService.getBusinessPhotoList(searchKeyword);
+		return this.photoService.getBusinessPhotosList(searchKeyword);
 		//
 	}
 
@@ -47,7 +47,7 @@ public class BusinessPhotoManagerController {
 		}
 
 	// 添加用户信息
-	@RequestMapping(value = "/add_picture",method=RequestMethod.POST)
+	@RequestMapping(value = "/addPhotos",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addPhotos(@RequestBody BusinessPhoto photo)
 			throws IOException {

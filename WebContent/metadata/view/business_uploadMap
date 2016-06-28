@@ -29,10 +29,11 @@
                 "designer|snapToGrid": 10,
                 "dock": null,
                 "id": "map_info",
+                "jsonSubmit": true,
                 "layout": "absolute",
                 "layout|region": "west",
                 "url": "add_map",
-                "width": 440
+                "width": 461
             },
             "name": "MyForm3",
             "designerId": "0744d6ba-7fab-4b6f-892e-ab0eb4d35fa5",
@@ -118,8 +119,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "北坐标",
-                        "labelWidth": 50,
+                        "emptyText": "经度,纬度",
+                        "fieldLabel": "北至坐标",
+                        "labelWidth": 60,
                         "layout|x": 90,
                         "layout|y": 160,
                         "name": "northCoor",
@@ -136,12 +138,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "西坐标",
-                        "labelWidth": 50,
+                        "emptyText": "经度,纬度",
+                        "fieldLabel": "西至坐标",
+                        "labelWidth": 60,
                         "layout|x": 0,
                         "layout|y": 240,
                         "name": "westCoor",
-                        "width": 200
+                        "width": 220
                     },
                     "name": "MyTextField6",
                     "designerId": "d506276c-7af6-45f1-9700-6f6393632fe3"
@@ -154,9 +157,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "东坐标",
-                        "labelWidth": 50,
-                        "layout|x": 210,
+                        "emptyText": "经度,纬度",
+                        "fieldLabel": "东至坐标",
+                        "labelWidth": 60,
+                        "layout|x": 230,
                         "layout|y": 240,
                         "name": "eastCoor",
                         "width": 200
@@ -172,8 +176,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "南坐标",
-                        "labelWidth": 50,
+                        "emptyText": "经度,纬度",
+                        "fieldLabel": "南至坐标",
+                        "labelWidth": 60,
                         "layout|x": 90,
                         "layout|y": 330,
                         "name": "southCoor",
