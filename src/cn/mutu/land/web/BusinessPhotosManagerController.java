@@ -47,7 +47,7 @@ public class BusinessPhotosManagerController {
 		}
 
 	// 添加用户信息
-	@RequestMapping(value = "/addPhotos",method=RequestMethod.POST)
+	@RequestMapping(value = "/add_Photos",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addPhotos(@RequestBody BusinessPhoto photo)
 			throws IOException {

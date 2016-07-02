@@ -47,7 +47,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
             layout: 'absolute',
             title: '图片信息录入',
             jsonSubmit: true,
-            url: 'addPhotos',
+            url: 'add_Photos',
             items: [
                 {
                     xtype: 'button',
@@ -115,7 +115,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     width: 400,
                     fieldLabel: '上传图片',
                     labelWidth: 70,
-                    name: 'photoPath1',
+                    name: 'photoPath',
+                    submitValue: true,
                     buttonText: '选择图片'
                 },
                 {
@@ -152,7 +153,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                 {
                     xtype: 'gridpanel',
                     region: 'west',
-                    width: '50%',
+                    width: '30%',
                     title: '图片列表',
                     store: 'Business_photoStore',
                     columns: [

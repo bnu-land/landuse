@@ -33,7 +33,7 @@
                 "layout": "absolute",
                 "layout|region": "west",
                 "title": "图片信息录入",
-                "url": "addPhotos",
+                "url": "add_Photos",
                 "width": "40%"
             },
             "name": "MyForm2",
@@ -163,7 +163,8 @@
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 90,
-                        "name": "photoPath1",
+                        "name": "photoPath",
+                        "submitValue": true,
                         "width": 400
                     },
                     "name": "MyFileUpload",
@@ -239,7 +240,7 @@
                         "layout|region": "west",
                         "store": "Business_photoStore",
                         "title": "图片列表",
-                        "width": "50%"
+                        "width": "30%"
                     },
                     "name": "MyGridPanel3",
                     "designerId": "b5480723-a43f-49ae-a880-7efa685a5a37",
