@@ -71,10 +71,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "westCoorw"
+            },
+            "name": "MyField4",
+            "designerId": "3d282a97-fc90-43a8-bd09-7a9650621921"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "eastCoor"
             },
             "name": "MyField30",
             "designerId": "92451361-04ec-47d6-9db9-b5370dbad910"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "eastCoorw"
+            },
+            "name": "MyField7",
+            "designerId": "d3ae72a0-412d-4409-9c17-11b33bc28c3b"
         },
         {
             "type": "Ext.data.field.Field",
@@ -97,10 +123,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "northCoorw"
+            },
+            "name": "MyField8",
+            "designerId": "e98af7bf-9930-4ff5-b636-4b1d403403a0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "southCoor"
             },
             "name": "MyField43",
             "designerId": "941e3b7d-9293-4be6-93a3-5821baba82df"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "southCoorw"
+            },
+            "name": "MyField9",
+            "designerId": "f3fbbc1a-c357-4eaa-84aa-34ba41cf4d31"
         },
         {
             "type": "Ext.data.field.Field",

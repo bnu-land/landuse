@@ -119,13 +119,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyText": "经度,纬度",
+                        "emptyText": "经度",
                         "fieldLabel": "北至坐标",
                         "labelWidth": 60,
                         "layout|x": 90,
                         "layout|y": 160,
                         "name": "northCoor",
-                        "width": 200
+                        "width": 140
                     },
                     "name": "MyTextField7",
                     "designerId": "7678cbfe-ad4f-4add-acf0-6d34688ad222"
@@ -138,13 +138,32 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyText": "经度,纬度",
-                        "fieldLabel": "西至坐标",
+                        "emptyText": "纬度",
+                        "fieldLabel": "",
                         "labelWidth": 60,
-                        "layout|x": 0,
+                        "layout|x": 240,
+                        "layout|y": 160,
+                        "name": "northCoorw",
+                        "width": 80
+                    },
+                    "name": "MyTextField12",
+                    "designerId": "d88a43e9-0ce4-464d-9543-47ff0e2c6f28"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "纬度",
+                        "fieldLabel": "",
+                        "labelWidth": 60,
+                        "layout|x": 150,
                         "layout|y": 240,
-                        "name": "westCoor",
-                        "width": 220
+                        "name": "westCoorw",
+                        "width": 80
                     },
                     "name": "MyTextField6",
                     "designerId": "d506276c-7af6-45f1-9700-6f6393632fe3"
@@ -157,13 +176,32 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyText": "经度,纬度",
+                        "emptyText": "经度",
+                        "fieldLabel": "西至坐标",
+                        "labelWidth": 60,
+                        "layout|x": 0,
+                        "layout|y": 240,
+                        "name": "westCoor",
+                        "width": 140
+                    },
+                    "name": "MyTextField11",
+                    "designerId": "5bf643ec-2fc8-49e2-ab20-158965cc7b98"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "经度",
                         "fieldLabel": "东至坐标",
                         "labelWidth": 60,
                         "layout|x": 230,
                         "layout|y": 240,
                         "name": "eastCoor",
-                        "width": 200
+                        "width": 140
                     },
                     "name": "MyTextField5",
                     "designerId": "b0008ee2-127e-4f84-bfbd-80871e20ed8f"
@@ -176,16 +214,54 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyText": "经度,纬度",
+                        "emptyText": "纬度",
+                        "fieldLabel": null,
+                        "labelWidth": 60,
+                        "layout|x": 380,
+                        "layout|y": 240,
+                        "name": "eastCoorw",
+                        "width": 80
+                    },
+                    "name": "MyTextField13",
+                    "designerId": "d364cdec-5a82-47af-be8d-93db06cd0272"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "经度",
                         "fieldLabel": "南至坐标",
                         "labelWidth": 60,
                         "layout|x": 90,
                         "layout|y": 330,
                         "name": "southCoor",
-                        "width": 200
+                        "width": 140
                     },
                     "name": "MyTextField4",
                     "designerId": "b2372a1a-bf7d-432e-bf31-1bc411ebe7cf"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "纬度",
+                        "fieldLabel": "",
+                        "labelWidth": 60,
+                        "layout|x": 240,
+                        "layout|y": 330,
+                        "name": "southCoorw",
+                        "width": 80
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "ae000076-ec86-46e8-89d3-4034924cafa9"
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -340,8 +416,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "northCoor",
-                        "text": "北至坐标"
+                        "dataIndex": "westCoor",
+                        "text": "北至坐标经度"
                     },
                     "name": "MyColumn13",
                     "designerId": "d3199210-5de6-403b-b3af-dfcd32c0648b"
@@ -354,8 +430,22 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "northCoorw",
+                        "text": "北至坐标纬度"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "dbf2f576-5d89-40d0-94a2-bae32c966e9b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "westCoor",
-                        "text": "西至坐标"
+                        "text": "西至坐标经度"
                     },
                     "name": "MyColumn11",
                     "designerId": "20f0b197-90cc-4d43-8242-ac7ab95cf2bb"
@@ -368,8 +458,22 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "westCoorw",
+                        "text": "西至坐标纬度"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "bf954bfb-64ff-4ec7-bea2-52e5fbf1a35a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "eastCoor",
-                        "text": "东至坐标"
+                        "text": "东至坐标经度"
                     },
                     "name": "MyColumn14",
                     "designerId": "1a064393-02cf-438e-988c-ea8f83bb0626"
@@ -382,11 +486,39 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "eastCoorw",
+                        "text": "东至坐标纬度"
+                    },
+                    "name": "MyColumn16",
+                    "designerId": "fbba8b4d-7630-4533-a578-f91a7ab1ed13"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "southCoor",
-                        "text": "南至坐标"
+                        "text": "南至坐标经度"
                     },
                     "name": "MyColumn12",
                     "designerId": "dab79206-4852-4c0b-ae56-202a6b6c20ad"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "southCoorw",
+                        "text": "南至坐标纬度"
+                    },
+                    "name": "MyColumn17",
+                    "designerId": "bf084eb3-f360-44bd-8478-83a536ddfe2f"
                 },
                 {
                     "type": "Ext.grid.View",

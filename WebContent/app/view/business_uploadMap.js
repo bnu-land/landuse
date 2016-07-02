@@ -90,41 +90,80 @@ Ext.define('MyApp.view.business_uploadMap', {
                     xtype: 'textfield',
                     x: 90,
                     y: 160,
-                    width: 200,
+                    width: 140,
                     fieldLabel: '北至坐标',
                     labelWidth: 60,
                     name: 'northCoor',
-                    emptyText: '经度,纬度'
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 240,
+                    y: 160,
+                    width: 80,
+                    fieldLabel: '',
+                    labelWidth: 60,
+                    name: 'northCoorw',
+                    emptyText: '纬度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 150,
+                    y: 240,
+                    width: 80,
+                    fieldLabel: '',
+                    labelWidth: 60,
+                    name: 'westCoorw',
+                    emptyText: '纬度'
                 },
                 {
                     xtype: 'textfield',
                     x: 0,
                     y: 240,
-                    width: 220,
+                    width: 140,
                     fieldLabel: '西至坐标',
                     labelWidth: 60,
                     name: 'westCoor',
-                    emptyText: '经度,纬度'
+                    emptyText: '经度'
                 },
                 {
                     xtype: 'textfield',
                     x: 230,
                     y: 240,
-                    width: 200,
+                    width: 140,
                     fieldLabel: '东至坐标',
                     labelWidth: 60,
                     name: 'eastCoor',
-                    emptyText: '经度,纬度'
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 380,
+                    y: 240,
+                    width: 80,
+                    labelWidth: 60,
+                    name: 'eastCoorw',
+                    emptyText: '纬度'
                 },
                 {
                     xtype: 'textfield',
                     x: 90,
                     y: 330,
-                    width: 200,
+                    width: 140,
                     fieldLabel: '南至坐标',
                     labelWidth: 60,
                     name: 'southCoor',
-                    emptyText: '经度,纬度'
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 240,
+                    y: 330,
+                    width: 80,
+                    fieldLabel: '',
+                    labelWidth: 60,
+                    name: 'southCoorw',
+                    emptyText: '纬度'
                 },
                 {
                     xtype: 'textfield',
@@ -185,23 +224,43 @@ Ext.define('MyApp.view.business_uploadMap', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'northCoor',
-                    text: '北至坐标'
+                    dataIndex: 'westCoor',
+                    text: '北至坐标经度'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'northCoorw',
+                    text: '北至坐标纬度'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'westCoor',
-                    text: '西至坐标'
+                    text: '西至坐标经度'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'westCoorw',
+                    text: '西至坐标纬度'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'eastCoor',
-                    text: '东至坐标'
+                    text: '东至坐标经度'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'eastCoorw',
+                    text: '东至坐标纬度'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'southCoor',
-                    text: '南至坐标'
+                    text: '南至坐标经度'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'southCoorw',
+                    text: '南至坐标纬度'
                 }
             ]
         }

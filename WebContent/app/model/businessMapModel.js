@@ -34,13 +34,25 @@ Ext.define('MyApp.model.businessMapModel', {
             name: 'westCoor'
         },
         {
+            name: 'westCoorw'
+        },
+        {
             name: 'eastCoor'
+        },
+        {
+            name: 'eastCoorw'
         },
         {
             name: 'northCoor'
         },
         {
+            name: 'northCoorw'
+        },
+        {
             name: 'southCoor'
+        },
+        {
+            name: 'southCoorw'
         },
         {
             name: 'isPass'
