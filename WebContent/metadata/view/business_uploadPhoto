@@ -65,11 +65,14 @@
                                 "fn": "handler",
                                 "implHandler": [
                                     "var myform = Ext.getCmp('photo_info').getForm();",
+                                    "var choose=Ext.getCmp('choosePicture').value;",
+                                    "var photo_path=Ext.getCmp('photo_path');",
                                     "//var path=Ext.widget('photoPath').value;",
                                     "if (myform.isValid())",
                                     "{",
                                     "    console.log(\"控件有效\");",
-                                    "    //console.log(path.toString());",
+                                    "    ",
+                                    "    console.log(choose);",
                                     "    myform.submit({",
                                     "        //url : 'add_picture',",
                                     "        success : function (form, action)",
@@ -150,6 +153,29 @@
                     "designerId": "f4e7398f-89d0-4c6e-86fa-ea4ce5eb0634"
                 },
                 {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "blankText": "此项不能为空",
+                        "designer|displayName": "photoPath",
+                        "emptyText": "选择本地图片路径",
+                        "fieldLabel": "上传图片",
+                        "id": "photo_path",
+                        "labelWidth": 70,
+                        "layout|x": 30,
+                        "layout|y": 90,
+                        "maxLengthText": "The maximum length for this field is {200}",
+                        "name": "photoPath",
+                        "width": 400
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "ef40b135-7772-46a5-958d-a5d09c3a0163"
+                },
+                {
                     "type": "Ext.form.field.File",
                     "reference": {
                         "name": "items",
@@ -157,14 +183,17 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "blankText": "此项不能为空",
                         "buttonText": "选择图片",
-                        "designer|displayName": "photoPath",
+                        "designer|displayName": "choosePhoto",
+                        "emptyText": "选择本地图片路径",
                         "fieldLabel": "上传图片",
+                        "id": "choosePicture",
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 90,
-                        "name": "photoPath",
-                        "submitValue": true,
+                        "maxLengthText": "The maximum length for this field is {200}",
+                        "name": "choosePhoto",
                         "width": 400
                     },
                     "name": "MyFileUpload",

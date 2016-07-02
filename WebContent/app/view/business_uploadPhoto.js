@@ -53,11 +53,14 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     xtype: 'button',
                     handler: function() {
                         var myform = Ext.getCmp('photo_info').getForm();
+                        var choose=Ext.getCmp('choosePicture').value;
+                        var photo_path=Ext.getCmp('photo_path');
                         //var path=Ext.widget('photoPath').value;
                         if (myform.isValid())
                         {
                             console.log("控件有效");
-                            //console.log(path.toString());
+
+                            console.log(choose);
                             myform.submit({
                                 //url : 'add_picture',
                                 success : function (form, action)
@@ -109,14 +112,30 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     text: '预览图片-->'
                 },
                 {
-                    xtype: 'filefield',
+                    xtype: 'textfield',
                     x: 30,
                     y: 90,
+                    id: 'photo_path',
                     width: 400,
                     fieldLabel: '上传图片',
                     labelWidth: 70,
                     name: 'photoPath',
-                    submitValue: true,
+                    blankText: '此项不能为空',
+                    emptyText: '选择本地图片路径',
+                    maxLengthText: 'The maximum length for this field is {200}'
+                },
+                {
+                    xtype: 'filefield',
+                    x: 30,
+                    y: 90,
+                    id: 'choosePicture',
+                    width: 400,
+                    fieldLabel: '上传图片',
+                    labelWidth: 70,
+                    name: 'choosePhoto',
+                    blankText: '此项不能为空',
+                    emptyText: '选择本地图片路径',
+                    maxLengthText: 'The maximum length for this field is {200}',
                     buttonText: '选择图片'
                 },
                 {
