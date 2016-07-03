@@ -168,6 +168,7 @@ public class SystemManageMapService {
 
 		Map<String, Object> myMapResult = new TreeMap<String, Object>();
 		myMapResult.put("expanded", true);
+		myMapResult.put("text", ".");
 		myMapResult.put("children", jsonList);
 
 		// 转换为json
@@ -197,7 +198,7 @@ public class SystemManageMapService {
 						pJSON.add(zoneMap);
 					}
 				}
-				typeMap.put("expanded", false);
+				typeMap.put("expanded", true);
 				// pMap.put("cls", "folder");
 				typeMap.put("children", pJSON);
 				newJSON.add(typeMap);

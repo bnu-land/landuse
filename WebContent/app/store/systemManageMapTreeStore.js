@@ -32,16 +32,15 @@ Ext.define('MyApp.store.systemManageMapTreeStore', {
             autoLoad: true,
             autoSync: true,
             model: 'MyApp.model.systemMapModel',
+            folderSort: true,
             defaultRootId: 'children',
             defaultRootText: 'children',
-            root: {
-                expanded: false
-            },
             proxy: {
                 type: 'ajax',
                 url: 'get_systemManageMapTree',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    typeProperty: 'children'
                 }
             },
             listeners: {

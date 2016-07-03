@@ -136,7 +136,6 @@ Ext.application({
         'achievement_DataImportDatabase',
         'achievement_DataIBrowse',
         'achievement_DataIEdit',
-        'system_MenuManage',
         'system_DepartmentManage',
         'system_RightManage',
         'system_MapManageTree',
@@ -170,7 +169,8 @@ Ext.application({
         'sys_MapAddAttrNameIndexWindow',
         'business_message',
         'business_uploadPhoto',
-        'business_uploadMap'
+        'business_uploadMap',
+        'system_MenuManage'
     ],
     name: 'MyApp',
 
