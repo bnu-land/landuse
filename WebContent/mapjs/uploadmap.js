@@ -9,7 +9,14 @@ require([
         "esri/layers/ArcGISDynamicMapServiceLayer",
         "dojo/on",
         "esri/dijit/BasemapToggle",
-       
+        
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/TextSymbol",
+        
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
         "dojo/domReady!"],
     function (Map, ArcGISDynamicMapServiceLayer,on,BasemapToggle,Polygon, SimpleLineSymbol, SimpleFillSymbol, TextSymbol) {
         //初始区域
@@ -23,10 +30,28 @@ require([
         });
         var map = new Map("map",{
             logo:false,
-           
+            center:[126.79451,45.71626]
             
         });
+        var polygonSymbol=new SimpleFillSymbol();
+        var text = new TextSymbol("要上传的开发区域");
+        text.font.setSize("20pt");
         
+        function addPolygon(){
+        	var polygon=new Polygon({
+        		"rings":[
+        		         [
+        		            [126.79351, 45.71626],
+        	                [126.79451, 45.71726],
+        	                [126.79551, 45.71626],
+        	                [126.79451, 45.71526]
+        		          ]
+        		         ],
+        	});
+        	 var point =new Point(126.79451,45.71626);
+        	 map.graphics.add(new Graphic(polygon, polygonSymbol));
+        	 map.graphics.add(new Graphic(point, text));
+        }
         //----------------------加载天地图--------------------------
         // 地图
         dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {

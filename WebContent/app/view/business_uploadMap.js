@@ -275,7 +275,7 @@ Ext.define('MyApp.view.business_uploadMap', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/homeMap.js";
+        script.src="mapjs/uploadmap.js";
         head.appendChild(script);
     }
 

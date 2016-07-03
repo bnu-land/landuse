@@ -1,126 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html>  
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no">
     
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-    <title>Maps Toolbar</title>
-    
+    <title>Edit Tools</title>
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/nihilo/nihilo.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
     <style>
-      html, body, #mainWindow {
-        font-family: sans-serif; 
-        height: 100%; 
-        width: 100%; 
-      }
-      html, body {
-        margin: 0; 
+       html, body, #map {
+        height: 100%;
+        margin: 0;
         padding: 0;
       }
-      #header {
-        height: 80px; 
-        overflow: auto;
-        padding: 0.5em;
-      }
+      
     </style>
-    
+
     <script src="https://js.arcgis.com/3.17/"></script>
     <script>
-      var map, toolbar, symbol, geomTask;
+      /**
+ * Created by WUCAN on 2015/5/23.
+ */
+var WKID = 4326;
 
-      require([
-        "esri/map", 
-        "esri/toolbars/draw",
+
+require([
+        "esri/map",
+        "esri/layers/ArcGISDynamicMapServiceLayer",
+        "dojo/on",
+        "esri/dijit/BasemapToggle",
         "esri/graphic",
-
-        "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol",
         "esri/symbols/SimpleFillSymbol",
-
-        "dojo/parser", "dijit/registry",
-
-        "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
-        "dijit/form/Button", "dijit/WidgetSet", "dojo/domReady!"
-      ], function(
-        Map, Draw, Graphic,
-        SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol,
-        parser, registry
-      ) {
-        parser.parse();
-
-        map = new Map("map", {
-          basemap: "streets",
-          center: [-15.469, 36.428],
-          zoom: 3
-        });
+        "esri/symbols/TextSymbol",
         
-        map.on("load", createToolbar);
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
+        "dojo/domReady!"],
+    function (Map, ArcGISDynamicMapServiceLayer,on,BasemapToggle,Point,Graphic,Polygon, SimpleLineSymbol, SimpleFillSymbol, TextSymbol) {
+        //初始区域
+        var initExtent = new esri.geometry.Extent({
+            //"xmin": 127.1441,"ymin": 45.5246,"xmax": 127.8857,"ymax": 45.9402,
+            "xmin": 125.23171785583497,
+            "ymin": 44.636857092285155,
+            "xmax": 128.35732820739747,
+            "ymax": 46.795670568847655,
+            "spatialReference": {"wkid": WKID}
+        });
+        var map = new Map("map",{
+            logo:false,
+            center:[126.79451,45.71626],
+             zoom: 13
+        });
+        var polygonSymbol=new SimpleFillSymbol();
+        var text = new TextSymbol("要上传的开发区域");
+       // text.font.setSize("20pt");
+        //map.on("load",addPolygon);
+        function addPolygon(){
+            var polygon=new Polygon({
+                "rings":[
+                         [
+                            [126.69351, 45.71626],
+                            [126.79451, 45.81726],
+                            [126.89551, 45.71626],
+                            [126.79451, 45.61526]
+                          ]
+                         ],
+            });
+             var point =new Point(126.79451,45.71626);
+             map.graphics.add(new Graphic(polygon, polygonSymbol));
+             map.graphics.add(new Graphic(point, text));
+        }
+        //----------------------加载天地图--------------------------
+        // 地图
+        dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {
+            constructor: function () {
+                this.spatialReference = new esri.SpatialReference({wkid: WKID});
+                this.initialExtent = (this.fullExtent =
+                    new esri.geometry.Extent(-180.0, -90.0, 180.0, 90.0, this.spatialReference));
+                this.tileInfo = new esri.layers.TileInfo({
+                    "rows": 256,
+                    "cols": 256,
+                    "compressionQuality": 0,
+                    "origin": {"x": -180, "y": 90},
+                    "spatialReference": {"wkid": WKID},
+                    "lods": [
+                        {"level": 0, "resolution": 0.703125, "scale": 295497593.05875},
+                        {"level": 1, "resolution": 0.3515625, "scale": 147748796.529375},
+                        {"level": 2, "resolution": 0.17578125, "scale": 73874398.264688},
+                        {"level": 3, "resolution": 0.087890625, "scale": 36937199.132344},
+                        {"level": 4, "resolution": 0.0439453125, "scale": 18468599.566172},
+                        {"level": 5, "resolution": 0.02197265625, "scale": 9234299.783086},
+                        {"level": 6, "resolution": 0.010986328125, "scale": 4617149.891543},
+                        {"level": 7, "resolution": 0.0054931640625, "scale": 2308574.945771},
+                        {"level": 8, "resolution": 0.00274658203125, "scale": 1154287.472886},
+                        {"level": 9, "resolution": 0.001373291015625, "scale": 577143.736443},
+                        {"level": 10, "resolution": 0.0006866455078125, "scale": 288571.86822143558},
+                        {"level": 11, "resolution": 0.00034332275390625, "scale": 144285.93411071779},
+                        {"level": 12, "resolution": 0.000171661376953125, "scale": 72142.967055358895},
+                        {"level": 13, "resolution": 8.58306884765625e-005, "scale": 36071.483527679447},
+                        {"level": 14, "resolution": 4.291534423828125e-005, "scale": 18035.741763839724},
+                        {"level": 15, "resolution": 2.1457672119140625e-005, "scale": 9017.8708819198619},
+                        {"level": 16, "resolution": 1.0728836059570313e-005, "scale": 4508.9354409599309},
+                        {"level": 17, "resolution": 5.3644180297851563e-006, "scale": 2254.4677204799655}]
+                });
+                this.loaded = true;
+                this.onLoad(this);
+            },
+            getTileUrl: function (level, row, col) {
+                var levelMap = "";
+                if (level < 10) {
+                    levelMap = "A0512_EMap";
+                } else if (level < 12) {
+                    levelMap = "B0627_EMap1112";
+                } else if (level < 18) {
+                    levelMap = "siwei0608";
+                }
+                return "http://t1.tianditu.cn/DataServer?T=vec_c&" + levelMap + "&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
+            }
+        });
+        //文字标注
 
-        // loop through all dijits, connect onClick event
-        // listeners for buttons to activate drawing tools
-        registry.forEach(function(d) {
-          // d is a reference to a dijit
-          // could be a layout container or a button
-          if ( d.declaredClass === "dijit.form.Button" ) {
-            d.on("click", activateTool);
-          }
+        dojo.declare("TianDiBiaoZhuMapServiceLayer", TianDiTiledMapServiceLayer, {
+            getTileUrl: function (level, row, col) {
+                return "http://t1.tianditu.cn/DataServer?T=cva_c&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
+            }
         });
 
-        function activateTool() {
-          var tool = this.label.toUpperCase().replace(/ /g, "_");
-          toolbar.activate(Draw[tool]);
-          map.hideZoomSlider();
-        }
+        //影像地图
+        dojo.declare("TianDiYXMapServiceLayer", TianDiTiledMapServiceLayer, {
+            getTileUrl: function (level, row, col) {//wmts
+                return "http://t1.tianditu.cn/DataServer?T=img_c&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
+            }
+        });
 
-        function createToolbar(themap) {
-          toolbar = new Draw(map);
-          toolbar.on("draw-end", addToMap);
-        }
+        map.addLayer(new TianDiTiledMapServiceLayer());
+        map.addLayer(new TianDiBiaoZhuMapServiceLayer());
 
-        function addToMap(evt) {
-          var symbol;
-          toolbar.deactivate();
-          map.showZoomSlider();
-          switch (evt.geometry.type) {
-            case "point":
-            case "multipoint":
-              symbol = new SimpleMarkerSymbol();
-              break;
-            case "polyline":
-              symbol = new SimpleLineSymbol();
-              break;
-            default:
-              symbol = new SimpleFillSymbol();
-              break;
-          }
-          var graphic = new Graphic(evt.geometry, symbol);
-          map.graphics.add(graphic);
+        map.setExtent(initExtent);
+
+        on(map, "extent-change", onExtentChange);       //范围变化
+        on(map,"load",addPolygon);
+        function onExtentChange(delta, extent, levelChange, lod) {
+            //console.log(delta);
         }
-      });
+        var toggle = new BasemapToggle({
+            map: map//,
+            //basemap: "satellite"
+        }, "BasemapToggle");
+        toggle.startup();
+       
+        console.log("sdfasdf");
+
+    });
     </script>
   </head>
-  <body class="nihilo">
-
-  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
-    <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
-      <span>Draw:<br /></span>
-      <button data-dojo-type="dijit/form/Button">Point</button>
-      <button data-dojo-type="dijit/form/Button">Multi Point</button>
-      <button data-dojo-type="dijit/form/Button">Line</button>
-      <button data-dojo-type="dijit/form/Button">Polyline</button>
-      <button data-dojo-type="dijit/form/Button">Polygon</button>
-      <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
-      <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
-      
-      <button data-dojo-type="dijit/form/Button">Arrow</button>
-      <button data-dojo-type="dijit/form/Button">Triangle</button>
-      <button data-dojo-type="dijit/form/Button">Circle</button>
-      <button data-dojo-type="dijit/form/Button">Ellipse</button>
-    </div>
-    <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+  
+  <body >
+  <div id="map">
   </div>
-
   </body>
+
 </html>

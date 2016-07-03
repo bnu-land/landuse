@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="http://js.arcgis.com/4.0/dojox/widget/ColorPicker/ColorPicker.css">   -->
    <!--  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
 <script src="https://js.arcgis.com/4.0/"></script> -->
-
+<link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/nihilo/nihilo.css">
 <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
 <script src="https://js.arcgis.com/3.17/"></script>
   <!--   <script src="http://js.arcgis.com/4.0/esri/Graphic.js"></script> -->
@@ -30,7 +30,7 @@
 </div>
 
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var map;
 
       require(["esri/map", "dojo/domReady!"], function(Map) {
@@ -40,32 +40,87 @@
           zoom: 13
         });
       });
-</script>
+</script> -->
 <script type="text/javascript">
 //画圆画多边形 ArcGIS API for JavaScript  
 var map ;
-function drawCircle(lon,lat,radius){
-    setCircle(lon,lat,radius);
-}
-require([  "dojo/domReady!",
-         "esri/geometry/Circle",  
-     "esri/geometry/Polygon",  
-     "esri/map",  
-     "esri/layers/GraphicsLayer",  
-     "esri/Graphic" ,
-     "esri/symbols/SimpleFillSymbol" ,
-  "esri/symbols/SimpleLineSymbol" 
-    ],function(Circle,Polygon,GraphicsLayer,Map,SimpleFillSymbol,SimpleLineSymbol){  
+
+require([ "esri/map", 
+        "esri/toolbars/edit",
+        "esri/graphic",
+
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
+
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/TextSymbol",
+
+        "dojo/_base/event",
+        "dojo/parser",
+        "dojo/dom", 
+        "dojo/dom-style", 
+        "dijit/registry", 
+        "dijit/Menu",
+
+        "dijit/form/ToggleButton",
+        "dijit/form/DropDownButton",
+        "dijit/CheckedMenuItem",
+        "dijit/layout/BorderContainer", 
+        "dijit/layout/ContentPane", 
+        "dojo/domReady!"
+    ],function(Map, Edit, Graphic,
+        Point, Polyline, Polygon,
+        SimpleLineSymbol, SimpleFillSymbol, TextSymbol,
+        event, parser, dom, domStyle, registry, Menu){  
       
         map = new Map("map",{  
-        basemap:"topo",
-        center:[-122.45, 37.75],  
+        basemap:"streets",
+        center:[126.79451,45.71626],  
         //slider:false,  
-        Zoom: 13,  
+        zoom: 13,  
         //fadeOnZoom: true  
     });  
+        parser.parse();
 
-    var graLayer = new GraphicsLayer();  
+      //  domStyle.set(registry.byId("mainWindow").domNode, "visibility", "visible");
+
+        map.on("load", addGraphics);
+
+function addGraphics() {
+          //add pre-defined geometries to map
+          var polygonSymbol = new SimpleFillSymbol();
+          var polylineSymbol = new SimpleLineSymbol();
+          var text = new TextSymbol("要上传的开发区域");
+          text.font.setSize("20pt");
+
+          
+          var polygon = new Polygon({
+            "rings": [
+              [
+                            [126.69351, 45.71626],
+                            [126.79451, 45.81726],
+                            [126.89551, 45.71626],
+                            [126.79451, 45.61526]
+                
+              ]
+            ],
+            /*"spatialReference": {
+              "wkid": 102100
+            }*/
+          });
+          
+          var point = new Point(126.79451,45.71626);
+
+          //map.graphics.add(new Graphic(polyline, polylineSymbol));
+          map.graphics.add(new Graphic(polygon, polygonSymbol));
+          //map.graphics.add(new Graphic(arrow, polygonSymbol));
+          //map.graphics.add(new Graphic(triangle, polygonSymbol));
+          map.graphics.add(new Graphic(point, text));
+        }
+
+    /*var graLayer = new GraphicsLayer();  
       
     //画圆  Circle类  
     //定义要画的图形的线条颜色  
@@ -84,7 +139,7 @@ require([  "dojo/domReady!",
         var graphic = new Graphic(circle);  
         graLayer.add(graphic);  
     }  
-      
+      */
     //画多边形  Polygon  
     /*function setPolygon(){  
         var polygon = new Polygon(new SpatialReference({wkid:4326}));  

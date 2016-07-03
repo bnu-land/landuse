@@ -9537,8 +9537,8 @@
     },
     "inspectorState": {
         "topInstance": "e341950a-ea6f-418f-8da7-8defc044f2da",
-        "selectedInstance": "d0a2a7aa-8249-4220-81df-d3e6a0df7d81"
+        "selectedInstance": "d15ae6ff-1ced-4a82-9cec-20e461c6273a"
     },
-    "editMode": "design",
+    "editMode": "code",
     "userSettings": {}
 }
