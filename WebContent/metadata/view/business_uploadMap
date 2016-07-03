@@ -6,9 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoScroll": true,
         "designer|userAlias": "business_uploadMap",
         "designer|userClassName": "business_uploadMap",
-        "height": 551,
+        "height": 792,
         "layout": "border",
         "title": "企业上传地图数据",
         "width": 704
@@ -26,14 +27,16 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "designer|snapToGrid": 10,
                 "dock": null,
                 "id": "map_info",
                 "jsonSubmit": true,
                 "layout": "absolute",
                 "layout|region": "west",
+                "title": "地图数据录入",
                 "url": "add_map",
-                "width": 461
+                "width": 474
             },
             "name": "MyForm3",
             "designerId": "0744d6ba-7fab-4b6f-892e-ab0eb4d35fa5",
@@ -356,9 +359,10 @@
             "codeClass": null,
             "userConfig": {
                 "autoScroll": true,
-                "collapsed": true,
-                "collapsible": true,
-                "height": 150,
+                "collapsed": false,
+                "collapsible": false,
+                "enableColumnHide": false,
+                "height": 180,
                 "layout|region": "south",
                 "store": "Business_mapStore",
                 "title": "数据浏览"

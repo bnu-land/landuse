@@ -1,1117 +1,126 @@
-<!DOCTYPE HTML>
-<html lang="zh-cn" class="skin-dark">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Maps Toolbar</title>
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+    <style>
+      html, body, #mainWindow {
+        font-family: sans-serif; 
+        height: 100%; 
+        width: 100%; 
+      }
+      html, body {
+        margin: 0; 
+        padding: 0;
+      }
+      #header {
+        height: 80px; 
+        overflow: auto;
+        padding: 0.5em;
+      }
+    </style>
+    
+    <script src="https://js.arcgis.com/3.17/"></script>
+    <script>
+      var map, toolbar, symbol, geomTask;
 
-<head>
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=//cnc.qzs.qq.com/qzone/v6/troubleshooter/noscript.html" />
-    </noscript>
-    <meta charset="UTF-8" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>叶 有时会落 [http://434485356.qzone.qq.com]</title>
-    <meta name="keywords" content="QQ空间,黄钻,免费装扮,开心农场,QQ农场,QQ牧场" />
-    <meta name="description" content="祝君有梦为马，随处可栖。" />
-    <link rel="apple-touch-icon" href="//qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad-retina.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="//qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="//qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="//qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad-retina.png">
-    <link rel="icon" sizes="any" mask href="//qzonestyle.gtimg.cn/qzone/v8/img/Qzone.svg">
-    <meta name="theme-color" content="#FFC028">
-    <script type="text/javascript">
-    var g_domain = "qq.com";
+      require([
+        "esri/map", 
+        "esri/toolbars/draw",
+        "esri/graphic",
 
-    document.domain = g_domain;
-    var _s_ = new Date(),
-        g_T = {},
-        siDomain = "cnc.qzonestyle.gtimg.cn",
-        imgcacheDomain = "cnc.qzs." + g_domain,
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
 
-        g_iUin = 434485356,
-        g_iLoginUin = 434485356;
+        "dojo/parser", "dijit/registry",
 
+        "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
+        "dijit/form/Button", "dijit/WidgetSet", "dojo/domReady!"
+      ], function(
+        Map, Draw, Graphic,
+        SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol,
+        parser, registry
+      ) {
+        parser.parse();
 
-
-    g_T.fwp = [_s_];
-
-    window.g_dms = {
-        'u.qzone.qq.com': 1,
-        'base.s2.qzone.qq.com': 1,
-        'base.s8.qzone.qq.com': 1,
-        'base.qzone.qq.com': 1,
-        'r.qzone.qq.com': 1,
-        'rsh.qzone.qq.com': 1,
-        'ic2.cnc.qzone.qq.com': 1,
-        'ic2.edu.qzone.qq.com': 1,
-        'ic2.qzone.qq.com': 1,
-        'ic2.s1.qzone.qq.com': 1,
-        'ic2.s11.qzone.qq.com': 1,
-        'ic2.s12.qzone.qq.com': 1,
-        'ic2.s2.qzone.qq.com': 1,
-        'ic2.s21.qzone.qq.com': 1,
-        'ic2.s5.qzone.qq.com': 1,
-        'ic2.s51.qzone.qq.com': 1,
-        'ic2.s6.qzone.qq.com': 1,
-        'ic2.s7.qzone.qq.com': 1,
-        'ic2.s8.qzone.qq.com': 1,
-        'ic2.qzone.qq.com': 1,
-        'xalist.photo.qzone.qq.com': 1,
-        'hzalist.photo.qzone.qq.com': 1,
-        'alist.photo.qzone.qq.com': 1,
-        'shalist.photo.qzone.qq.com': 1,
-        'plist.photo.qzone.qq.com': 1,
-        'xaplist.photo.qzone.qq.com': 1,
-        'hzplist.photo.qzone.qq.com': 1,
-        'gzplist.photo.qzone.qq.com': 1,
-        'shplist.photo.qzone.qq.com': 1,
-        'photo.qzone.qq.com': 1,
-        'xa.photo.qzone.qq.com': 1,
-        'hz.photo.qzone.qq.com': 1,
-        'gz.photo.qzone.qq.com': 1,
-        'shanghai.photo.qzone.qq.com': 1,
-        'app.photo.qzone.qq.com': 1,
-        'b.qzone.qq.com': 1,
-        'b1.cnc.qzone.qq.com': 1,
-        'b1.edu.qzone.qq.com': 1,
-        'b1.qzone.qq.com': 1,
-        'b11.cnc.qzone.qq.com': 1,
-        'b11.edu.qzone.qq.com': 1,
-        'b11.qzone.qq.com': 1,
-        'b1.ctc.qzone.qq.com': 1,
-        'b11.ctc.qzone.qq.com': 1,
-        'b.ctc.qzone.qq.com': 1,
-        'b.edu.qzone.qq.com': 1,
-        'fav.qzone.qq.com': 1,
-        'sns.qzone.qq.com': 1,
-        'm.qzone.qq.com': 1,
-        'snsapp.qzone.qq.com': 1,
-        'taotao.qzone.qq.com': 1,
-        'w.qzone.qq.com': 1,
-        'g.qzone.qq.com': 1
-    };
-
-    window.g_sdms = {
-        'taotao.qq.com': 1,
-        'taotao.qzone.qq.com': 1,
-        'b.qzone.qq.com': 1,
-        'b11.qzone.qq.com': 1,
-        'b1.qzone.qq.com': 1,
-        'br.qzone.qq.com': 1,
-        'm.qzone.qq.com': 1
-    };
-
-
-    window.g_proto = 'https:';
-
-    document.namespaces && document.namespaces.add && (document.namespaces.add('qz', location.protocol + '//qzone.qq.com/'), document.namespaces.add('x', location.protocol + '//qzone.qq.com/'));
-
-    var QZFL = {},
-        QZFF_M_img_ribr = [];
-    QZFL.event = {
-        getEvent: function(evt) {
-            var evt = window.event || evt,
-                c, cnt;
-            if (!evt && window.Event) {
-                c = arguments.callee;
-                cnt = 0;
-                while (c) {
-                    if ((evt = c.arguments[0]) && typeof(evt.srcElement) != "undefined") {
-                        break;
-                    } else if (cnt > 9) {
-                        break;
-                    }
-                    c = c.caller;
-                    ++cnt;
-                }
-            }
-            return evt;
-        },
-        getTarget: function(evt) {
-            var e = QZFL.event.getEvent(evt);
-            if (e) {
-                return e.srcElement || e.target;
-            }
-            return null;
-        }
-    };
-    QZFL.object = {
-        getType: function(o) {
-            return o === null ? 'null' : (o === undefined ? 'undefined' : Object.prototype.toString.call(o).slice(8, -1).toLowerCase());
-        }
-    };
-    QZFL.media = {
-        reduceImgByRule: function(ew, eh, opts, cb) {
-            QZFF_M_img_ribr.push(QZFL.event.getTarget());
-        },
-        adjustImageSize: function(w, h, s, cb, ecb) {
-            var op = {
-                trueSrc: s,
-                callback: function(o, type, ew, eh, p) {
-                    (QZFL.object.getType(cb) == "function") && cb(o, ew, eh, null, p.ow, p.oh, p);
-                },
-                errCallback: ecb
-            };
-            QZFL.media.reduceImage(0, w, h, op);
-        },
-        reduceImage: function(type, ew, eh, opts) {
-            var rd = function(o, t, ew, eh, p, cb) {
-                var rl, k;
-                if (p.rate == 1) {
-                    p.direction[0] = (ew > eh ? 'height' : 'width');
-                    p.direction[1] = (ew > eh ? 'width' : 'height');
-                }
-                rl = (p.direction[t] == "width" ? ew : eh);
-                t ? (((rl > p.shortSize) ? (rl = p.shortSize) : 1) && (p.k = p.shortSize / rl)) : (((rl > p.longSize) ? (rl = p.longSize) : 1) && (p.k = p.longSize / rl));
-                o.setAttribute(p.direction[t], rl);
-                (QZFL.object.getType(cb) == "function") && cb(o, t, ew, eh, p);
-            };
-            opts = opts || {};
-            opts.img = (opts.img && (typeof(opts.img.nodeName) != 'undefined' || typeof(opts.img.nodeType) != 'undefined') ? opts.img : QZFL.event.getTarget());
-            opts.img.onload = null;
-            opts.trueSrc && (opts.img.src = opts.trueSrc);
-            if (opts.img) {
-                if (!(opts.direction && opts.rate && opts.longSize && opts.shortSize)) {
-                    r = QZFL.media.getImageInfo(function(o, p) {
-                        if (!o || !p) {
-                            return;
-                        }
-                        rd(opts.img, type, ew, eh, p, opts.callback)
-                    }, opts);
-                } else {
-                    rd(opts.img, type, ew, eh, opts, opts.callback)
-                }
-            }
-        },
-        getImageInfo: function(callback, opts) {
-            var gif = function(img, cb, opts) {
-                if (img) {
-                    var _w = opts.ow || img.width,
-                        _h = opts.oh || img.height,
-                        r, ls, ss, d;
-                    if (_w && _h) {
-                        if (_w >= _h) {
-                            ls = _w;
-                            ss = _h;
-                            d = ["width", "height"];
-                        } else {
-                            ls = _h;
-                            ss = _w;
-                            d = ["height", "width"];
-                        }
-                        r = {
-                            direction: d,
-                            rate: ls / ss,
-                            longSize: ls,
-                            shortSize: ss
-                        };
-                        r.ow = _w;
-                        r.oh = _h;
-                    }
-                    (QZFL.object.getType(cb) == "function") && cb(img, r, opts);
-                }
-            };
-            opts = opts || {};
-            if (QZFL.object.getType(opts.trueSrc) == "string") {
-                var _i = new Image();
-                _i.onload = (function(ele, cb, p) {
-                    return function() {
-                        gif(ele, cb, p);
-                        ele = ele.onerror = ele.onload = null;
-                    };
-                })(_i, callback, opts);
-
-                _i.onerror = (function(ele, cb, p) {
-                    return function() {
-                        if (typeof(p.errCallback) == 'function') {
-                            p.errCallback();
-                        }
-                        ele = ele.onerror = ele.onload = null;
-                    };
-                })(_i, callback, opts);
-
-                _i.src = opts.trueSrc;
-            } else if (opts.img && opts.img.nodeType == 1) {
-                gif(opts.img, callback, opts);
-            }
-        }
-    };
-
-
-    function restXHTML(s) {
-        return s.replace(/&amp;|&lt;|&gt;|&apos;|&#0?39;|&quot;/g, function(a) {
-            switch (a) {
-                case "&amp;":
-                    return "&";
-                case "&lt;":
-                    return "<";
-                case "&gt;":
-                    return ">";
-                case "&apos;":
-                case "&#39;":
-                case "&#039;":
-                    return "\x27";
-                case "&quot;":
-                    return "\x22";
-            }
+        map = new Map("map", {
+          basemap: "streets",
+          center: [-15.469, 36.428],
+          zoom: 3
         });
-    }
-    </script>
-    <link href="//cnc.qzonestyle.gtimg.cn/aoi/old-qz_qzone_lv.css" rel="stylesheet" />
-    <link href="//cnc.qzonestyle.gtimg.cn/aoi/skin/25.css" rel="stylesheet" />
-    <link href="//cnc.qzonestyle.gtimg.cn/aoi/profile.css" rel="stylesheet" />
-    <style id="mainJSBg" type="text/css">
-    .background-container {
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-attachment: scroll;
-        background-image: url(//cnc.i.gtimg.cn/qzone/space_item/orig/3/72019_top.jpg);
-    }
-    
-    .bg-body {
-        background-image: url(//cnc.i.gtimg.cn/qzone/space_item/orig/3/72019_bg.jpg);
-        background-repeat: repeat;
-    }
-    </style>
-    <style id="mainJSTitleBar" type="text/css">
-    .layout-head-inner {
-        height: 250px;
-    }
-    </style>
-    <style type="text/css">
+        
+        map.on("load", createToolbar);
 
-    </style>
-    <style type="text/css" id="dynamicStyle">
-    .ownermode {
-        display: ;
-    }
-    
-    .clientmode {
-        display: none;
-    }
-    
-    .editmode {
-        display: none;
-    }
-    
-    .customoff {
-        display: ;
-    }
-    
-    .alphamode {
-        display: none;
-    }
-    </style>
-    <link rel="alternate" type="application/rss+xml" title="RSS news feed" href="http://feeds.qzone.qq.com/cgi-bin/cgi_rss_out?uin=434485356" />
-    <link rel="Shortcut Icon" href="//cnc.qzonestyle.gtimg.cn/aoi/img/logo/favicon.ico?max_age=31536000" type="image/x-icon" />
-    <!--[if IE]><base href="//cnc.qzs.qq.com/"></base><![endif]-->
-    <!--[if !(IE)]><!-->
-    <base href="//cnc.qzs.qq.com/" />
-    <!--<![endif]-->
-    <!--[if IE]>
-<script type="text/javascript">
-    function toAbsURL(s) { 
-     var l = location, h, p, f, i; 
-     if (/^\w+:/.test(s)) { 
-       return s; 
-     } 
-     h = l.protocol + '//' + l.host + (l.port!=''?(':' + l.port):''); 
-     if (s.indexOf('/') == 0) { 
-       return h + s; 
-     } 
-     p = l.pathname.replace(/\/[^\/]*$/, ''); 
-     f = s.match(/\.\.\//g); 
-     if (f) { 
-       s = s.substring(f.length * 3); 
-       for (i = f.length; i--;) { 
-         p = p.substring(0, p.lastIndexOf('/')); 
-       } 
-     } 
-     return h + p + '/' + s; 
-   }
-
-
-    var base = document.getElementsByTagName('base')[0];
-    base.href = toAbsURL(base.href);
-</script>
-<![endif]-->
-</head>
-
-<body class="os-win7 bg-body ">
-    <div class="top-fix-bar">
-        <div class="top-fix-inner">
-            <div class="top-fix-container" id="QZ_Toolbar_Container">
-                <div class="top-fix-wrap">
-                    <a class="logo" href="//qzone.qq.com/" title="QQ空间">QQ空间</a>
-                    <ul class="top-nav">
-                        <li class="nav-list" id="tb_ic_li">
-                            <div class="nav-list-inner">
-                                <a id="aIcenter" class="" href="//user.qzone.qq.com/434485356/infocenter?via=toolbar" accesskey="1"><i class="ui-icon icon-icenter"></i><span>个人中心</span></a>
-                            </div>
-                        </li>
-                        <li class="nav-list" id="tb_index_li">
-                            <div class="nav-list-inner">
-                                <a id="aMainPage" href="//user.qzone.qq.com/434485356/main" class="homepage-link a-link " accesskey="z"><i class="ui-icon icon-homepage"></i><span>我的主页</span><i class="drop-down-arrow"></i></a>
-                            </div>
-                            <div class="nav-drop-down" id="tb_menu_panel" style="display:none;">
-                                <div class="side-area">
-                                    <div class="homepage-link">
-                                        <a class="link-icon" href="//user.qzone.qq.com/434485356/main"><i class="icon-homepage"></i></a>
-                                        <a class="link-text" href="//user.qzone.qq.com/434485356/main">主页</a>
-                                    </div>
-                                </div>
-                                <div class="main-area">
-                                    <div class="main-application">
-                                        <ul class="main-application-list clearfix" id="tb_menu_list">
-                                            <li class="menu_item_2">
-                                                <a href="javascript:;"><i class="icon-blog"></i></a>
-                                                <a class="app-name">日志</a>
-                                            </li>
-                                            <li class="menu_item_4">
-                                                <a href="javascript:;"><i class="icon-album"></i></a>
-                                                <a class="app-name">相册</a>
-                                            </li>
-                                            <li class="menu_item_311">
-                                                <a href="javascript:;"><i class="icon-say"></i></a>
-                                                <a class="app-name">说说</a>
-                                            </li>
-                                            <li class="menu_item_202">
-                                                <a href="javascript:;"><i class="icon-share"></i></a>
-                                                <a class="app-name">分享</a>
-                                            </li>
-                                            <li class="menu_item_219">
-                                                <a href="javascript:;"><i class="icon-timeline"></i></a>
-                                                <a class="app-name">时光轴</a>
-                                            </li>
-                                            <li class="menu_item_847">
-                                                <a href="javascript:;"><i class="icon-video"></i></a>
-                                                <a class="app-name">视频</a>
-                                            </li>
-                                            <li class="menu_item_305">
-                                                <a href="javascript:;"><i class="icon-music"></i></a>
-                                                <a class="app-name">音乐</a>
-                                            </li>
-                                            <li class="menu_item_334">
-                                                <a href="javascript:;"><i class="icon-message-book"></i></a>
-                                                <a class="app-name">留言板</a>
-                                            </li>
-                                            <li class="menu_item_1">
-                                                <a href="javascript:;"><i class="icon-personal"></i></a>
-                                                <a class="app-name">个人档</a>
-                                            </li>
-                                            <li class="menu_item_907">
-                                                <a href="javascript:;"><i class="icon-collect"></i></a>
-                                                <a class="app-name">收藏</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-list" id="tb_friend_li">
-                            <div class="nav-list-inner">
-                                <a id="aMyFriends" href="//user.qzone.qq.com/434485356/myhome/friends/index" class="friends-link a-link"><i class="ui-icon icon-friend"></i><span>好友</span><i class="drop-down-arrow"></i></a>
-                            </div>
-                            <div class="nav-drop-down friends-drop-down" id="friends-drop-down" style="display: none;">
-                                <div class="side-area">
-                                    <div class="friends-link">
-                                        <a href="javascript:" class="link-icon"><i class="icon-friends"></i></a>
-                                        <a href="javascript:" class="link-text">寻找好友</a>
-                                    </div>
-                                    <div class="friends-relation">
-                                        <a href="javascript:" class="link-icon"><i class="icon-relation"></i></a>
-                                        <a href="javascript:" class="link-text">亲密度</a>
-                                    </div>
-                                </div>
-                                <div class="main-area">
-                                    <div class="mod-friends-topbar">
-                                        <div class="inner">
-                                            <div class="hd">
-                                                <h3>最近联络的好友</h3>
-                                                <div class="friends-search-topbar ">
-                                                    <input type="text" placeholder="搜索好友" id="friend_search_input">
-                                                    <button><i class="ui-icon sp-top-search"></i></button>
-                                                </div>
-                                                <div class="friends-results-topbar" style="display:none">
-                                                    <ul class="results-list-topbar qz-scrollbar" id="search_friend_result"></ul>
-                                                    <p class="null" style="display:none">没有找到相关用户</p>
-                                                </div>
-                                            </div>
-                                            <div class="bd">
-                                                <ul class="friends-list-topbar clearfix" id="friends-list-topbar"></ul>
-                                            </div>
-                                            <div class="ft"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-list" id="tb_app_li">
-                            <div class="nav-list-inner">
-                                <a id="aAppstore" href="//user.qzone.qq.com/434485356/appstore" class="application-link a-link"><i class="ui-icon icon-application"></i><span>游戏</span><i class="drop-down-arrow"></i></a>
-                            </div>
-                            <div class="nav-drop-down application-drop-down" id="tb_app_wall" style="display:none;">
-                                <div class="side-area">
-                                    <div class="application-shop">
-                                        <a class="link-icon" href="//user.qzone.qq.com/434485356/apppoints?via=QZ.APPWALL.APPCENTER"><i class="icon-shop"></i></a>
-                                        <a class="link-text" href="//user.qzone.qq.com/434485356/apppoints?via=QZ.APPWALL.APPCENTER">积分商城</a>
-                                    </div>
-                                </div>
-                                <div class="main-area">
-                                    <div class="main-application">
-                                        <ul id="tb_recent_app_list" class="main-application-list clearfix"></ul>
-                                    </div>
-                                    <div class="publicity-msg" style="display: none;">
-                                        <a id="tb_qboss_text_ad" href="javascript:;" target="_blank"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-list" id="tb_dress_li">
-                            <div class="nav-list-inner">
-                                <a id="aMall" class="dress-up-link a-link" href="//rc.qzone.qq.com/onekeydressup"><i class="ui-icon icon-dress-up"></i><span>装扮</span><i class="drop-down-arrow"></i></a>
-                            </div>
-                            <div class="nav-drop-down dress-drop-down" id="tb_dress_panel" style="display:none;"></div>
-                        </li>
-                    </ul>
-                    <div class="user-info">
-                        <a class="user-home" href="//user.qzone.qq.com/434485356/main">
-                            <img class="user-avatar" src="//qlogo1.store.qq.com/qzone/434485356/434485356/30?1349433563" alt="您的头像">
-                            <span class="user-name textoverflow">豆豆</span>
-                        </a>
-                        <a id="tb_logout" class="logout-new" href="javascript:;" title="退出"><i class="ui-icon icon-logout"></i></a>
-                        <div id="tb_setting_li" class="user-setting">
-                            <i id="tb_setting_i" class="drop-down-arrow"></i>
-                            <div class="user-drop-down" id="tb_setting_panel" style="display:none;">
-                                <b class="white-line"></b>
-                                <div class="drop-down-setting">
-                                    <a type="info" href="javascript:;">修改资料</a>
-                                    <a type="dress" href="javascript:;">主页排版</a>
-                                    <a type="set" href="javascript:;">空间设置</a>
-                                    <a type="auth" href="javascript:;">权限设置</a>
-                                </div>
-                                <a target="_blank" class="online-service" href="http://service.qq.com/special_auto/qzone.html" id="aHelpCenter">帮助中心</a>
-                                <a href="http://support.qq.com/discuss/46_1.shtml" target="_blank" title="意见反馈">意见反馈</a>
-                                <a href="http://guanjia.qq.com/user/?ADTAG=media.outenter.qzone" target="_blank" title="安全防护" id="securityDefence" onclick="TCISD && TCISD.hotClick('toolbar.houseKeeper', 'user.qzone.qq.com')">安全防护</a>
-                            </div>
-                        </div>
-                        <a href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=self&amp;aid=zone.tbarshuang" id="tb_vip_li" target="_blank" class="vip-setting"><i class="ui-icon icon-vip"></i></a>
-                    </div>
-                    <!-- 顶部搜索框 默认放出 2014-04-22 markqin -->
-                    <div class="top-search">
-                        <div class="search-box">
-                            <input class="search-input" type="text" placeholder="用户/游戏/动态">
-                            <!--搜索框默认态-->
-                            <a href="javascript:;" class="search-button"><i class="ui-icon icon-search"></i></a>
-                        </div>
-                        <div class="search-drop-down" id="search_smart_panel_navigation_bar" style="display:none">
-                            <div id="search_smart_search_loading" class="waiting-box" style="display:none">
-                                <img src="//qzonestyle.gtimg.cn/aoi/img/loading2.gif" alt="等待图标" />
-                            </div>
-                            <div id="search_smart_search_list">
-                                <div class="result-box r-modle j-default-result-list" style="display:none">
-                                    <a href="//user.qzone.qq.com/UIN/infocenter?qz_referrer=special&clickReport=searchSpecial" class="result-list">
-                                        <div class="avatar"><i class="ui-icon icon-ts-special"></i></div>
-                                        <div class="result-details">
-                                            <p class="info">特别关心</p>
-                                        </div>
-                                    </a>
-                                    <a href="//user.qzone.qq.com/UIN/myhome/friends/ofpmd?clickReport=searchMaybeKnow" class="result-list">
-                                        <div class="avatar"><i class="ui-icon icon-ts-qq"></i></div>
-                                        <div class="result-details">
-                                            <p class="info">可能认识的人</p>
-                                        </div>
-                                    </a>
-                                    <a href="//user.qzone.qq.com/UIN/myhome/217?clickReport=searchAuthenQzone" class="result-list">
-                                        <div class="avatar"><i class="ui-icon icon-ts-approve"></i></div>
-                                        <div class="result-details">
-                                            <p class="info">认证空间</p>
-                                        </div>
-                                    </a>
-                                    <a href="//rc.qzone.qq.com/appstore?via=qzonesearchbar&clickReport=searchApp" class="result-list">
-                                        <div class="avatar"><i class="ui-icon icon-ts-app"></i></div>
-                                        <div class="result-details">
-                                            <p class="info">游戏应用</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="smart-result-list" style="display:none"></div>
-                            </div>
-                            <a id="search_smart_search_more" class="search-for-friends" style="display:none" href="javascript:;">
-                                <span>查看更多</span><i class="more-icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="music-container" id="tb_music_li">
-                        <div class="music-panel">
-                            <a class="music-play" href="javascript:;"><i class="ui-icon ico-music-stop"></i></a>
-                            <b class="music-dynamic"><i class="ui-icon ico-music-dynamic"></i></b>
-                        </div>
-                        <div id="tb_music_panel" class="music-drop-down" style="display:none;">
-                            <div class="drop-down-container">
-                                <div class="background-music">
-                                    <i class="icon-qq-music"></i>
-                                    <b>我的背景音乐</b>
-                                    <div class="setting-box">
-                                        <a href="javascript:;" class="music-setting">设置</a>
-                                    </div>
-                                </div>
-                                <div class="music-list">
-                                    <div class="music-scroll-container">
-                                        <div style="top:0" class="music-choose">
-                                        </div>
-                                    </div>
-                                    <b class="scroll-bar-container">
-                                    <b style="top:0" class="scroll-bar"></b>
-                                    </b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vip-drop-down" id="tb_vip_panel" style="display:none;">
-                        <b class="white-line"></b>
-                        <div class="drop-down-setting">
-                            <a id="aPayBySelf" href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=self&amp;aid=zone.tbarshuang" target="_blank">开通黄钻</a>
-                            <a id="aPayByYear" href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=self&aid=zone.tbarshuangnf&paytime=year" target="_blank">开年费黄钻</a>
-                            <a id="aPayByFriend" href="javascript:;">向好友索取</a>
-                            <a id="aPayToFriend" target="_blank" href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=send&aid=zone.tbar.send&ADTAG=pay.service.qzone.send&u=0">赠送给好友</a>
-                            <a id="aVipHome" target="_blank" href="http://vip.qzone.com/?login=qq">黄钻官网</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="background-container" id="layBackground">
-        <div class="layout-content">
-            <div class="layout-head  ">
-                <div class="layout-head-inner" id="headContainer">
-                    <div class="head-info">
-                        <h1 class="head-title" id="top_head_title"><span class="title-text">叶   有时会落</span>
-                     
-                </h1>
-                        <div class="head-description">
-                            <span class="description-text" id="QZ_Space_Desc">祝君有梦为马，随处可栖。</span>
-                        </div>
-                    </div>
-                    <div class="head-detail">
-                        <div class="head-detail-name">
-                            <span class="user-name textoverflow">豆豆</span>
-                            <span class="user-vip-info">
-                              
-                               
-                            </span>
-                        </div>
-                        <div class="head-detail-info clearfix">
-                            <!-- 未开通黄钻的用户成长信息不可见 -->
-                            <div class="detail-info-level">
-                                <a id="diamon" data-year="" data-super="0" class="f_user_vip qz_ichotclick " target="_blank" href="http://pay.qq.com/ipay/index.shtml?n=12&c=xxjzgw,xxjzghh&aid=info.nickname&ch=qdqb,kj" style="cursor:pointer;">
-                                    <i class="qz_vip_icon_l qz_vip_icon_l_gray_1"></i></a>
-                            </div>
-                            <div class="detail-info-con">
-                                <div class="qz-progress-bar  qz-progress-bar-gray">
-                                    <div class="progress-bar-info">
-                                        <span class="txt-value">成长值<b class="count">1</b></span><span class="txt-speed">成长速度<b class="count">-10点/天</b></span>
-                                    </div>
-                                    <div class="progress-bar-panel">
-                                        <div class="progress-bar-count" style="width:0%"><span class="count">0%</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-vip-info">
-                                <a class="qz-btn-vip qz-btn-vip-fee" title="续费黄钻" href="http://pay.qq.com/ipay/index.shtml?n=3&c=xxjzgw,xxjzghh&aid=info.nickname&ch=qdqb,kj" target="_blank"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--挂件-->
-                    <div class="layout-shop-item" id="QZ_Shop_Items_Container">
-                        <div class="shop-item" id="menuContainer" style="width: px; height: 32px; left: 150px; top: 252px; ">
-                            <div class="head-nav">
-                                <ul class="head-nav-menu">
-                                    <li class="menu_item_N1"><span class="arr"></span><a href="javascript:;" title="主页" tabindex="1" accesskey="z">主页</a></li>
-                                    <li class="menu_item_2"><span class="arr"></span><a href="javascript:;" title="日志" tabindex="1" accesskey="r">日志</a></li>
-                                    <li class="menu_item_4"><span class="arr"></span><a href="javascript:;" title="相册" tabindex="1" accesskey="4">相册</a></li>
-                                    <li class="menu_item_334"><span class="arr"></span><a href="javascript:;" title="留言板" tabindex="1">留言板</a></li>
-                                    <li class="menu_item_311"><span class="arr"></span><a href="javascript:;" title="说说" tabindex="1" accesskey="6">说说</a></li>
-                                    <li class="menu_item_1"><span class="arr"></span><a href="javascript:;" title="个人档" tabindex="1" accesskey="1">个人档</a></li>
-                                    <li class="menu_item_305"><span class="arr"></span><a href="javascript:;" title="音乐" tabindex="1">音乐</a></li>
-                                    <li class="menu_item_219"><span class="arr"></span><a href="javascript:;" title="时光轴" tabindex="1">时光轴</a></li>
-                                    <li class="menu_item_more"><span class="arr"></span><a href="javascript:;" title="更多" tabindex="1">更多</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layout-nav">
-                <div class="layout-nav-inner">
-                    <div class="head-avatar">
-                        <a id="QM_OwnerInfo_ModifyIcon" title="修改头像" href="javascript:;"><img src="//qlogo1.store.qq.com/qzone/434485356/434485356/100?1349433563" class="user-avatar" id="QM_OwnerInfo_Icon"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="layout-background">
-                <div class="layout-body">
-                    <div id="pageContent" class="qz-grid none">
-                    </div>
-                    <div id="pageApp" class="layout-app mod_wrap">
-                        <div class="mod_wrap_inner">
-                            <div class="mod_wrap_bd">
-                                <div class="mod_wrap_iframe" id="app_container" style="min-height:435px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="page3rdApp" class="layout-app none" style="min-height:750px;"></div>
-                </div>
-                <div class="layout-copyright">
-                    <p><a href="http://z.qzone.com/" onclick="TCISD && TCISD.hotClick('bottomqzoneapp', 'user.qzone.com')" target="_blank">空间手机版</a> | <a href="http://vip.qzone.com/" onclick="TCISD && TCISD.hotClick('threefromendofpage', 'guangxi.vip.qzone.com', 'main')" target="_blank">黄钻贵族</a> | <a href="http://user.qzone.qq.com/20050606" target="_blank">官方Qzone</a> | <a href="http://connect.qq.com/" target="_blank">QQ互联</a> | <a href="http://page.opensns.qq.com/" target="_blank">认证服务</a> | <a href="http://blog.qq.com/" target="_blank">腾讯博客</a> | <a href="http://service.qq.com/special_auto/qzone.html" target="_blank">腾讯客服</a> | <a href="http://qzone.qq.com/web/tk.html" target="_blank">QQ空间服务协议</a> | <a href="http://wiki.open.qq.com/wiki/Tencent_Open_Platform_Complaint_Guidelines" target="_blank">Complaint Guidelines</a> | <a href="http://www.qq.com/culture.shtml" target="_blank">粤网文[2011]0483-070号</a></p>
-                    <p>Copyright &copy; 2005 - 2016 Tencent.<a href="http://www.tencent.com/en-us/le/copyrightstatement.shtml" target="_blank">All Rights Reserved.</a></p>
-                    <p>腾讯公司 <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank">版权所有</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="fix-layout">
-        <div class="gb-operation-area" id="_returnTop_layout_inner">
-            <a href="javascript:;" id="goto_top_btn" class="gb-operation-button return-top"> <i class="gb-operation-icon" title="返回顶部"></i> <span class="gb-operation-text">顶部</span> </a>
-        </div>
-    </div>
-    <script type="text/javascript">
-    g_T.fwp[4] = new Date();
-    var g_V = {
-        qz: '_v8_2.1.49',
-        jq: '2.0.3',
-        sea: '2.1.1',
-        core_ic: '50108',
-        fp: '60521',
-        ic: '50215',
-        popcss: '?d=140918103710',
-        delay: '-151215174036',
-        req: '60526',
-        ci: '_20131225'
-    };
-
-
-    var g_isPreview = 0;
-    var g_ISP = {
-            p: "4",
-            i: "4",
-            f: "2",
-            c: '114.255.218.17'
-        },
-        g_type = "M",
-        g_Set = "s21.",
-        g_ICSet = "s21.",
-        g_SPrefix = "cnc.",
-        g_SPrefix_Server = "cnc.",
-        g_DPrefix = "cnc.",
-        g_dns_name = "",
-        g_UserBitmap = "18d09d800102c281",
-        g_LoginBitmap = "18d09d800102c281",
-        g_UserunimBitmap = "0818008c00000300",
-        g_Bitmap_3rd = "0000000000000000",
-        g_IZone_Flag = +"1",
-        g_diyTitle = "",
-        g_SceneID = 341,
-        g_neatstyle = 0,
-        g_7DDressNo = 0,
-        g_StyleID = "25",
-        g_fullMode = 6,
-        g_Mode = "ofp",
-        g_frameStyle = 0,
-        g_version = 8,
-        g_isFriend = 0,
-        g_NowTime = 1467465582,
-        g_StaticFlag = "0",
-        g_isDirectApp = 1,
-        ownermode = (g_iLoginUin == g_iUin),
-        ownerProfileSummary = ["豆豆",
-            1,
-            24,
-            "中国@北京@海淀",
-            "叶   有时会落",
-            "祝君有梦为马，随处可栖。",
-            "1992-6-10",
-            "0008000000000000"
-        ],
-        g_isOFP = "2",
-        g_isHideTitle = "0",
-        g_icLayout = "0",
-        g_isFromPengYou = "",
-        g_isBrandQzone = "",
-        g_isFamousQzone = "",
-        g_xwMode = "",
-        g_needDec = 1,
-        g_isFastPav = 1,
-        g_scenarioidle = "1536",
-        g_isBGScroll = 0,
-        g_TransparentLevel = 256,
-        g_Dressup = {
-            items: [{
-                type: 347,
-                itemno: 94914,
-                posx: 708,
-                posy: 30,
-                posz: 0,
-                height: 0,
-                width: 0,
-                flag: 0
-            }, {
-                type: 13,
-                itemno: 1,
-                posx: 140,
-                posy: 252,
-                posz: 0,
-                height: 32,
-                width: 528,
-                flag: 1
-            }, {
-                type: 19,
-                itemno: 1,
-                posx: 0,
-                posy: 0,
-                posz: 0,
-                height: 250,
-                width: 0,
-                flag: 0
-            }, {
-                type: 1,
-                itemno: 72019,
-                posx: 0,
-                posy: 0,
-                posz: 0,
-                height: 0,
-                width: 0,
-                flag: 31
-            }],
-            windows: [{
-                appid: 4,
-                mode: 2,
-                posx: 2,
-                posy: 15,
-                posz: 0,
-                height: 148,
-                width: 220,
-                wndid: 1
-            }, {
-                appid: 847,
-                mode: 2,
-                posx: 2,
-                posy: 180,
-                posz: 1,
-                height: 95,
-                width: 220,
-                wndid: 1
-            }, {
-                appid: 2,
-                mode: 2,
-                posx: 2,
-                posy: 275,
-                posz: 2,
-                height: 328,
-                width: 220,
-                wndid: 1
-            }, {
-                appid: 333,
-                mode: 2,
-                posx: 2,
-                posy: 620,
-                posz: 3,
-                height: 108,
-                width: 220,
-                wndid: 1
-            }, {
-                appid: 218,
-                mode: 2,
-                posx: 2,
-                posy: 0,
-                posz: 4,
-                height: 0,
-                width: 0,
-                wndid: 1
-            }]
-        },
-        g_isLite = 0,
-        g_SeoAppId = '0',
-        g_like_number = +"4",
-        g_supportWebp = +'0',
-        g_yPos = +'',
-        g_portraitTime = +'1349433563',
-        g_loginPortraitTime = +'1349433563',
-        g_OSClass = "os-win7",
-        g_applistWallNum = parseInt("0" || "0", 10),
-        g_photowall = [];
-    g_isStarVip = +"0",
-        g_isStarVipYear = +"0",
-        g_iStarVipLevel = +"0",
-
-
-        g_photowall_layout = null;
-
-
-
-
-    g_iEmoji = [],
-        g_PreData = {
-            app: {
-                ret: 0,
-                data: {},
-                flag: 1
-            },
-            flower: {
-                ret: 0,
-                score: +"6659",
-                gardener: +"32"
-            },
-            qbossData: {
-
-            },
-            hat: {
-                ret: -1,
-                id: +""
-            }
-        },
-
-        g_app_identifier = '4',
-        qlogoDomain = "store.qq.com",
-        g_starstamp_pic = +'1467436863',
-        g_moreModules = ["v8/dress/otherview_v8", "v8/core/state"],
-        g_diffModules = {
-            'engine': "_ex"
-        },
-        G_Param = {};
-    G_Param.qz_referrer = '';
-
-    g_weather = {};
-
-    g_weather['ipcity'] = {
-        'country': '中国',
-        'province': '北京',
-        'city': '北京',
-        'temp': '29',
-        'weather': '雷阵雨',
-        'day': '0',
-        'pm2d5': ''
-    };
-
-    g_weather['save'] = {
-        'country': '中国',
-        'province': '山东',
-        'city': '泰安',
-        'temp': '27',
-        'weather': '多云',
-        'day': '0',
-        'pm2d5': ''
-    };
-
-    var g_BLOG_LOCATION_PREFIX, g_BLOG_LOCATION_LOGIN_PREFIX;
-
-
-    g_BLOG_LOCATION_PREFIX = "b1";
-    g_BLOG_LOCATION_LOGIN_PREFIX = "b1";
-
-
-
-    (function() {
-        var ua = {},
-            agent = navigator.userAgent;
-        if (window.ActiveXObject || window.msIsStaticHTML) {
-            ua.ie = 6;
-            (window.XMLHttpRequest || (agent.indexOf('MSIE 7.0') > -1)) && (ua.ie = 7);
-            (window.XDomainRequest || (agent.indexOf('Trident/4.0') > -1)) && (ua.ie = 8);
-            (agent.indexOf('Trident/5.0') > -1) && (ua.ie = 9);
-            (agent.indexOf('Trident/6.0') > -1) && (ua.ie = 10);
-            (agent.indexOf('Trident/7.0') > -1) && (ua.ie = 11);
-
-            if (ua.ie == 6 || ua.ie == 7 || ua.ie == 8) {
-                g_V.jq = '1.10.2';
-            }
-        }
-    })();
-    </script>
-    <script type="text/javascript" src="//cnc.qzonestyle.gtimg.cn/ac/qzone/qzfl/qzfl_v8_2.1.49.js"></script>
-    <script type="text/javascript" src="//cnc.qzonestyle.gtimg.cn/ac/lib/seajs/sea-2.1.1.js"></script>
-    <script type="text/javascript" src="//cnc.qzonestyle.gtimg.cn/c/=/qzone/v8/core/seajs_config.js,/qzone/v8/engine/plugin-combo.js?max_age=31536001"></script>
-    <script type="text/javascript" src="//cnc.qzonestyle.gtimg.cn/qzone/v8/core/app.js"></script>
-    <script type="text/javascript">
-    (function() {
-        var _i = new Image(),
-            _r = Math.random(),
-            _re = new RegExp("(?:^|;+|\\s+)_qz_fix=([^;]*)"),
-            m = document.cookie.match(_re),
-            _v = !m ? "" : m[1],
-            _ph = '//pinghot.qq.com/pingd?dm=homeact.qzone.qq.com.hot&url=/troubleshooter&tt=-&hottag=guanjia.qzonestyle.',
-            _phe = '&hotx=9999&hoty=9999&rand=' + _r;
-        _i.onerror = function() {
-            var _t = new Image();
-            if (_v > 0) {
-                document.getElementById('trs_tip').innerHTML = '如果您看到这个提示，说明QQ空间仍然无法正常打开，请您返回空间小助手，进行<a href="http://user.qzone.qq.com/troubleshooter#secondfix" title="空间小助手"><strong>深度修复</strong></a>';
-                _t.src = _ph + 'badagain' + _phe;
-            } else {
-                _t.src = _ph + 'bad' + _phe;
-            }
-            var _d = document.createElement("div");
-            _d.innerHTML = '<iframe frameborder="0" style="width:1px;height:1px;" src="http://user.qzone.qq.com/troubleshooter?traytip"></iframe>';
-            document.body.appendChild(_d);
-        };
-        _i.onload = function() {
-            if (_v == 2) {
-                var _t = new Image();
-                _t.src = _ph + 'fixed' + _phe;
-            }
-        };
-        _i.src = '//' + siDomain + '/ac/qzone_v5/client/year_vip_icon.png?i=' + _r;
-    })();
-    QZFL.event.onDomReady(function() {
-        g_T.fwp[3] = new Date();
-    });
-
-
-
-    var fsimg = document.getElementById("full_background_img");
-    if (fsimg) {
-        window.adjust_full_screen_skin = function() {
-            var bg = document.getElementById('full_background'),
-                bg_img = document.getElementById('full_background_img'),
-                cw = QZFL.dom.getClientWidth(),
-                ch = QZFL.dom.getClientHeight(),
-                iw = bg_img.width,
-                ih = bg_img.height;
-
-            bg.style.width = cw + "px";
-            bg.style.height = ch + "px";
-
-            if (cw / ch > iw / ih) {
-                var new_h = cw * ih / iw,
-                    imgTop = (ch - new_h) / 2;
-                bg_img.style.width = cw + "px";
-                bg_img.style.height = new_h + "px";
-                bg_img.style.top = "";
-                bg_img.style.left = "";
-            } else {
-                var new_w = ch * iw / ih,
-                    imgLeft = (cw - new_w) / 2;
-                bg_img.style.width = new_w + "px";
-                bg_img.style.height = ch + "px";
-                bg_img.style.left = imgLeft + "px";
-                bg_img.style.top = "";
-            }
-        };
-        if (!QZONE.shop || !QZONE.shop.initDressUp) {
-            var url = fsimg.getAttribute("data-src");
-            fsimg.onload = adjust_full_screen_skin;
-            fsimg.src = url;
-        }
-    }
-
-    var mc = document.getElementById('menuContainer');
-    var oldGuideMap = {
-        N2: "myhome",
-        3: "305",
-        5: "4",
-        6: "306",
-        7: "1",
-        8: "3",
-        10: "311",
-        11: "323",
-        13: "338",
-        14: "myhome",
-        15: "yellowgrade",
-        17: "333",
-        18: "340"
-    };
-    var isDefaultMenu = '1' == 1,
-        isCustom = '1' & 2 > 0,
-        isMobile = (window.ua && (ua.isiPhone || ua.isiPad)),
-        lst;
-    window.getHotTagPrefix = function() {
-        var env = window.g_app_identifier != "" ? 'app' : (window.g_isOFP == "0" ? 'home' : 'center');
-
-        return env + 'click' + (window.ownermode ? "-host" : "-guest");
-    };
-    window.custom_menu_swf = function(id) {
-        if (QZFL.userAgent.chrome || QZFL.userAgent.safari) {
-            var _cbi = document.getElementById('_chrome_bug_input');
-            if (!_cbi) {
-                var _laybg = document.getElementById('layBackground');
-                QZFL.dom.createElementIn("input", _laybg, false, {
-                    id: "_chrome_bug_input",
-                    type: 'text',
-                    style: "border:1px;width:1px;position:absolute;left:-10px;"
-                });
-                _cbi = document.getElementById('_chrome_bug_input');
-            }
-            _cbi.focus();
-        }
-
-        if (id != 'close') {
-            id = (!isCustom && !isDefaultMenu && !isMobile) ? (oldGuideMap[id] || id) : id;
-            if (id == "-1" || id == "N1") {
-                id = "main";
-            }
-            if (id == '5' || id == '7') {
-                id = oldGuideMap[id];
-            }
-            var _p = getHotTagPrefix();
-            window.TCISD && TCISD.hotClick("menu_v8." + _p + ".appid_" + id, "8.qzone.qq.com");
-            if (id == '219') {
-                if (QZONE.music && typeof(QZONE.music.switchPage) == "function") {
-                    QZONE.music.switchPage();
-                }
-                setTimeout(function() {
-                    location.href = '//user.qzone.qq.com/' + g_iUin + '/main?mode=gfp_timeline';
-                }, 50);
-            } else {
-                QZONE.FrontPage.toApp("/" + id);
-            }
-        }
-        return false;
-    };
-    if (!QZONE.shop || !QZONE.shop.initDressUp) {
-        mc && QZFL.event.delegate(mc, 'li', 'click', function(e) {
-            QZFL.event.preventDefault(e);
-            this.className = this.className.replace(/_\-1/, '_N1');
-            var appid = this.className.match(/menu_item_([A-Z0-9\-]*)/i);
-            appid && appid[1] && custom_menu_swf(appid[1]);
-            if (lst) {
-                QZFL.css.removeClassName(lst, 'cur');
-            }
-            lst = this;
-            QZFL.css.addClassName(lst, 'cur');
+        // loop through all dijits, connect onClick event
+        // listeners for buttons to activate drawing tools
+        registry.forEach(function(d) {
+          // d is a reference to a dijit
+          // could be a layout container or a button
+          if ( d.declaredClass === "dijit.form.Button" ) {
+            d.on("click", activateTool);
+          }
         });
-        mc && mc.setAttribute('reged', '1');
-    }
 
-    (function() {
-        try {
-            if (parent != self && (parent.document.domain != document.domain || (document.referrer && !/^http(s)?:\/\/[.\w-]+\.qq\.com\//i.test(document.referrer)))) {
-                throw new Error("can't be iframed");
-            }
-        } catch (e) {
-            window.open(location.href, "_top");
+        function activateTool() {
+          var tool = this.label.toUpperCase().replace(/ /g, "_");
+          toolbar.activate(Draw[tool]);
+          map.hideZoomSlider();
         }
-    })();
-    /**
-     * β 增加新接口 获取通过URL传递的参数值
-     * @param {String} name 参数的名称
-     */
-    var getParameter = function(url, name) {
-        var r = new RegExp("(\\?|#|&)" + name + "=([^&#]*)(&|#|$)"),
-            m = url.match(r);
-        return (!m ? "" : m[2]);
-    };
-    //上报用iframe嵌套qzone的用户
-    var qq = getParameter(location.href, 'qzoneInIframe');
-    if (qq) {
-        TCISD.stringStat(1000100, {
-            bid: 108146,
-            rc: 'QQ:' + qq
-        }, {
-            reportRate: 1
-        });
-    }
-    var clickReport = getParameter(location.href, 'clickReport');
-    if (window.TCISD && window.TCISD.pv) {
-        TCISD.pv('user.qzone.qq.com', clickReport);
-    }
-    </script>
-</body>
 
+        function createToolbar(themap) {
+          toolbar = new Draw(map);
+          toolbar.on("draw-end", addToMap);
+        }
+
+        function addToMap(evt) {
+          var symbol;
+          toolbar.deactivate();
+          map.showZoomSlider();
+          switch (evt.geometry.type) {
+            case "point":
+            case "multipoint":
+              symbol = new SimpleMarkerSymbol();
+              break;
+            case "polyline":
+              symbol = new SimpleLineSymbol();
+              break;
+            default:
+              symbol = new SimpleFillSymbol();
+              break;
+          }
+          var graphic = new Graphic(evt.geometry, symbol);
+          map.graphics.add(graphic);
+        }
+      });
+    </script>
+  </head>
+  <body class="nihilo">
+
+  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
+    <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+      <span>Draw:<br /></span>
+      <button data-dojo-type="dijit/form/Button">Point</button>
+      <button data-dojo-type="dijit/form/Button">Multi Point</button>
+      <button data-dojo-type="dijit/form/Button">Line</button>
+      <button data-dojo-type="dijit/form/Button">Polyline</button>
+      <button data-dojo-type="dijit/form/Button">Polygon</button>
+      <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+      <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+      
+      <button data-dojo-type="dijit/form/Button">Arrow</button>
+      <button data-dojo-type="dijit/form/Button">Triangle</button>
+      <button data-dojo-type="dijit/form/Button">Circle</button>
+      <button data-dojo-type="dijit/form/Button">Ellipse</button>
+    </div>
+    <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+  </div>
+
+  </body>
 </html>

@@ -30,7 +30,8 @@ Ext.define('MyApp.view.business_uploadMap', {
     viewModel: {
         type: 'business_uploadmap'
     },
-    height: 551,
+    autoScroll: true,
+    height: 792,
     width: 704,
     layout: 'border',
     title: '企业上传地图数据',
@@ -40,9 +41,11 @@ Ext.define('MyApp.view.business_uploadMap', {
         {
             xtype: 'form',
             region: 'west',
+            autoScroll: true,
             id: 'map_info',
-            width: 461,
+            width: 474,
             layout: 'absolute',
+            title: '地图数据录入',
             jsonSubmit: true,
             url: 'add_map',
             items: [
@@ -201,10 +204,11 @@ Ext.define('MyApp.view.business_uploadMap', {
             xtype: 'gridpanel',
             region: 'south',
             autoScroll: true,
-            height: 150,
-            collapsed: true,
-            collapsible: true,
+            height: 180,
+            collapsed: false,
+            collapsible: false,
             title: '数据浏览',
+            enableColumnHide: false,
             store: 'Business_mapStore',
             columns: [
                 {

@@ -4,30 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <script type="text/javascript" src="jQuery1.9.js"></script>
+   <!--  <script type="text/javascript" src="jQuery1.9.js"></script> -->
+    <!-- <link rel="stylesheet" href="http://js.arcgis.com/4.0/dijit/themes/claro/claro.css">  
+    <link rel="stylesheet" href="http://js.arcgis.com/4.0/dojox/widget/ColorPicker/ColorPicker.css">   -->
+   <!--  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+<script src="https://js.arcgis.com/4.0/"></script> -->
+
+<link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+<script src="https://js.arcgis.com/3.17/"></script>
+  <!--   <script src="http://js.arcgis.com/4.0/esri/Graphic.js"></script> -->
+<style>
+      html, body, #map {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      </style>
 </head>
 
 <body>
-
-<div id= "noticeTitle" class="abcd" value=""><span></span></div>
-
-<div id= "noticeAuthor"></div>
-<div id= "publishDate"></div>
-<div id= "noticeContent"></div>
+<!-- //<button onclick="setCircle(-122.45,37.75,200)">画圆</button> -->
+<button onclick="setCircle(-122.45,37.75,200)">画圆</button> 
+<div id= "map" >
+    
+</div>
 
 </body>
 <script type="text/javascript">
-$.ajax({
-    url: "http://localhost:8080/landuse/get_NoticeNews?_dc=1465456417022&searchKeyword=&noticeState=1&page=1&start=0&limit=25",
-    success: function(result) {
-        console.log("result:",result);
-        var data = result.root;
-        $('span').html(data[2].noticeTitle);
-        $('#noticeAuthor').html(data[2].noticeAuthor);
-        $('#publishDate').html(data[2].publishDate);
-        $('#noticeContent').html(data[2].noticeContent);
-    }
-});
+    var map;
+
+      require(["esri/map", "dojo/domReady!"], function(Map) {
+        map = new Map("map1", {
+          basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+          center: [-122.45, 37.75], // longitude, latitude
+          zoom: 13
+        });
+      });
+</script>
+<script type="text/javascript">
+//画圆画多边形 ArcGIS API for JavaScript  
+var map ;
+function drawCircle(lon,lat,radius){
+    setCircle(lon,lat,radius);
+}
+require([  "dojo/domReady!",
+         "esri/geometry/Circle",  
+     "esri/geometry/Polygon",  
+     "esri/map",  
+     "esri/layers/GraphicsLayer",  
+     "esri/Graphic" ,
+     "esri/symbols/SimpleFillSymbol" ,
+  "esri/symbols/SimpleLineSymbol" 
+    ],function(Circle,Polygon,GraphicsLayer,Map,SimpleFillSymbol,SimpleLineSymbol){  
+      
+        map = new Map("map",{  
+        basemap:"topo",
+        center:[-122.45, 37.75],  
+        //slider:false,  
+        Zoom: 13,  
+        //fadeOnZoom: true  
+    });  
+
+    var graLayer = new GraphicsLayer();  
+      
+    //画圆  Circle类  
+    //定义要画的图形的线条颜色  
+    //var symbol = new SimpleFillSymbol().setOutline(new SimpleLineSymbol().setWidth(0,1).setColor(new Color([128,128,128]))) ;//   setColor(null).outline.setColor("red");  
+      
+    // lon 经度 lat纬度（圆的中心点） radius 半径  
+    function setCircle(lon,lat,radius){  
+        var pt = new Point(lon,lat,map.spatialReference);  
+        var radius = radius;  
+        var circle = new Circle({  
+            crenter: pt,  
+            geodesic: true,  
+            radius: radius  
+        });  
+          
+        var graphic = new Graphic(circle);  
+        graLayer.add(graphic);  
+    }  
+      
+    //画多边形  Polygon  
+    /*function setPolygon(){  
+        var polygon = new Polygon(new SpatialReference({wkid:4326}));  
+        //添加多边形的各个角的顶点坐标，注意：首尾要链接，也就是说，第一个点和最后一个点要一致  
+        polygon.addRing([[-180,-90],[-180,90],[180,90],[180,-90],[-180,-90]]);  
+        var graphic = new Graphic(circle);  
+        graLayer.add(graphic);  
+    }  */
+    //创建地图服务图层  
+    /*var tiledMapServiceLayer = new ArcGISTiledMapServiceLayer("http://server.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer");  
+    map.addLayer(tiledMapServiceLayer);  
+    map.addLayer(graLayer);  
+    //打开地图  
+    map.centerAndZoom(new Point(-81.3765, 28.54175),6);  */
+});  
 </script>
 
 </html>
