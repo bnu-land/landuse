@@ -1296,6 +1296,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_MenuManage",
                                         "text": "系统菜单管理"

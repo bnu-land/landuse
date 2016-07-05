@@ -80,6 +80,22 @@ Ext.define('MyApp.view.system_RightManage', {
                                                 listeners: {
                                                     click: 'onButtonClick21'
                                                 }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '编辑角色',
+                                                listeners: {
+                                                    click: 'onButtonClick212'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '删除角色',
+                                                listeners: {
+                                                    click: 'onButtonClick2121'
+                                                }
                                             }
                                         ]
                                     }
@@ -87,6 +103,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                 items: [
                                     {
                                         xtype: 'gridpanel',
+                                        id: 'system_roleManageGrid',
                                         store: 'uRoleInfoStore',
                                         columns: [
                                             {
@@ -374,6 +391,66 @@ Ext.define('MyApp.view.system_RightManage', {
         var win = Ext.widget('db_RoleInfoAddWindow');
         win.show();
 
+    },
+
+    onButtonClick212: function(button, e, eOpts) {
+
+
+        //获取数据
+        var records = Ext.getCmp('system_roleManageGrid').getSelection();
+        if (records.length === 0){
+            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+            return;
+        } else if(records.length >1){
+            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+            return;
+        }
+        //启动窗口
+        var win = Ext.widget('db_RoleInfoEditWindow');
+        win.show();
+
+        //改变Ajax url
+        var form = Ext.getCmp('db_RoleInfoEditWindowForm').getForm();
+        form.loadRecord(records[0]);
+
+
+    },
+
+    onButtonClick2121: function(button, e, eOpts) {
+        var grid = Ext.getCmp('system_roleManageGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能 一条信息。');
+            return;
+        }
+        var record = records[0];
+
+        Ext.Msg.confirm('您正在删除', '角色：' + record.get('roleNameCn') + '，角色类别为：'+record.get('roleName')+'，<br/> 确认删除？', getResult);
+        function getResult(confirm)
+        {
+            if (confirm == "yes"){
+                var roleId = record.get("roleId");
+                Ext.Ajax.request(
+                {
+                    url : 'del_RoleInfoById',
+                    params :
+                    {
+                        roleId : roleId
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        var mystore = Ext.StoreMgr.get('uRoleInfoStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
     },
 
     onButtonClick31: function(button, e, eOpts) {

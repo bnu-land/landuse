@@ -482,6 +482,7 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_MenuManage',
                                     hideOnClick: false,
                                     text: '系统菜单管理'

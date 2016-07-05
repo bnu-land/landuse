@@ -32,8 +32,11 @@
     "viewOrderMap": {
         "view": [
             "39fabf71-d317-4e34-a1af-0b4f3406a08d",
+            "b581d339-b475-4b93-995c-78368670b6a0",
             "d5204c95-22af-40e4-ba16-b1dffb6b6bff",
+            "34b73cf0-c19b-4e8f-9063-d68d06f9969e",
             "5591ba9f-a9ae-4dfb-b930-484e710c177a",
+            "b0babc82-bce8-4ba0-9842-7d140ff63222",
             "ac9a080c-1e30-43d5-98eb-d560a7100674",
             "7f06fefb-78a7-4a73-96dd-2b01f8703e2c",
             "7b18d1e1-5511-4ff4-a61e-f2e204518c0b",
@@ -183,7 +186,8 @@
             "315687c4-db43-4c8e-95f5-d2d255edc615",
             "1bd28a43-f34e-40fc-91a6-505380bafe62",
             "f7cedde1-45cb-4239-8821-00559370d536",
-            "10408d17-ccfc-44a3-aca2-2f8d79e6f621"
+            "10408d17-ccfc-44a3-aca2-2f8d79e6f621",
+            "dd226142-f77c-42a5-93cd-0983057752e6"
         ],
         "controller": [],
         "model": [

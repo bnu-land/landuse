@@ -100,6 +100,7 @@ Ext.define('MyApp.view.system_UserManage', {
                     {
                         xtype: 'gridpanel',
                         autoScroll: true,
+                        id: 'system_userManagerGrid',
                         store: 'uUserInfoStore',
                         columns: [
                             {
@@ -278,16 +279,23 @@ Ext.define('MyApp.view.system_UserManage', {
     },
 
     onButtonClick21: function(button, e, eOpts) {
-        if (colIndex === undefined || colIndex < 2) {
+        var grid = Ext.getCmp('system_userManagerGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能编辑一条信息。');
             return;
         }
+
         var win = Ext.widget('db_UserInfoWindow');
         win.show();
 
         //var form = Ext.widget('db_UserWindowForm');
         var form = Ext.getCmp('db_UserWindowForm');
         console.log("form:",form);
-        form.loadRecord(record);
+        form.loadRecord(records[0]);
 
 
         //对显示的结果进行处理
@@ -307,7 +315,18 @@ Ext.define('MyApp.view.system_UserManage', {
     },
 
     onButtonClick211: function(button, e, eOpts) {
-        Ext.Msg.confirm('您正在删除', '用户：' + record.get('trueName') + '，用户编号为：'+record.get('userId')+'，<br/> 确认删除？', getResult);
+        var grid = Ext.getCmp('system_userManagerGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能 一条信息。');
+            return;
+        }
+        var record = records[0];
+
+        Ext.Msg.confirm('您正在删除', '用户：' + record.get('userName') + '，用户编号为：'+record.get('userId')+'，<br/> 确认删除？', getResult);
         function getResult(confirm)
         {
             console.log('confirm:', confirm);
