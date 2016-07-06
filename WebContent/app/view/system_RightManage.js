@@ -22,6 +22,7 @@ Ext.define('MyApp.view.system_RightManage', {
         'Ext.tab.Tab',
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
+        'Ext.toolbar.Separator',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Boolean',
@@ -95,6 +96,17 @@ Ext.define('MyApp.view.system_RightManage', {
                                                 text: '删除角色',
                                                 listeners: {
                                                     click: 'onButtonClick2121'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'tbseparator'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '角色权限设置',
+                                                listeners: {
+                                                    click: 'onButtonClick21211'
                                                 }
                                             }
                                         ]
@@ -451,6 +463,49 @@ Ext.define('MyApp.view.system_RightManage', {
                 });
             }
         }
+    },
+
+    onButtonClick21211: function(button, e, eOpts) {
+        var win = Ext.widget('db_RoleRightSettingWindow');
+
+        var grid = Ext.getCmp('system_roleManageGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一个角色进行权限设置。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能设置一个角色。');
+            return;
+        }
+        var record = records[0];
+
+        win.show();
+
+        var roleNameCnField = Ext.getCmp('db_roleRightSet_RoleField');
+        if(roleNameCnField){
+            roleNameCnField.setValue(record.get('roleNameCn'));
+        }
+        var roleNameField = Ext.getCmp('db_roleRightSet_RoleNameField');
+        if(roleNameField){
+            roleNameField.setValue(record.get('roleName'));
+        }
+        var roleId = record.get('roleId');
+        var roleIdField = Ext.getCmp('db_roleRightSet_RoleIdField');
+        if(roleIdField){
+            roleIdField.setValue(roleId);
+        }
+
+        Ext.Ajax.request({
+            url: 'get_RoleRight',
+            params: {
+                "roleId": roleId
+            },
+            success: function(xhr) {
+                var json = Ext.decode(xhr.responseText);
+                console.log(json.root);
+            },
+            failure: function() { console.log('failure'); }
+        });
     },
 
     onButtonClick31: function(button, e, eOpts) {

@@ -323,6 +323,93 @@
                                             "designerId": "40287981-4a67-410b-8a91-6db922394014"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.toolbar.Separator",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null
+                                    },
+                                    "name": "MySeparator",
+                                    "designerId": "1f63e1dc-4c38-4043-ac12-8374c25aad4f"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/add.png",
+                                        "layout|flex": null,
+                                        "text": "角色权限设置"
+                                    },
+                                    "name": "MyButton4",
+                                    "designerId": "8eb0c8c0-dc47-42f5-9aea-4df4fb8b1273",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onButtonClick21211",
+                                                "implHandler": [
+                                                    "var win = Ext.widget('db_RoleRightSettingWindow');",
+                                                    "",
+                                                    "var grid = Ext.getCmp('system_roleManageGrid');",
+                                                    "var records = grid.getSelection();",
+                                                    "if (records.length === 0) {",
+                                                    "    Ext.Msg.alert('提示', '请选择一个角色进行权限设置。');",
+                                                    "    return;",
+                                                    "} else if (records.length > 1) {",
+                                                    "    Ext.Msg.alert('提示', '每次只能设置一个角色。');",
+                                                    "    return;",
+                                                    "}",
+                                                    "var record = records[0];",
+                                                    "",
+                                                    "win.show();",
+                                                    "",
+                                                    "var roleNameCnField = Ext.getCmp('db_roleRightSet_RoleField');",
+                                                    "if(roleNameCnField){",
+                                                    "    roleNameCnField.setValue(record.get('roleNameCn'));",
+                                                    "}",
+                                                    "var roleNameField = Ext.getCmp('db_roleRightSet_RoleNameField');",
+                                                    "if(roleNameField){",
+                                                    "    roleNameField.setValue(record.get('roleName'));",
+                                                    "}",
+                                                    "var roleId = record.get('roleId');",
+                                                    "var roleIdField = Ext.getCmp('db_roleRightSet_RoleIdField');",
+                                                    "if(roleIdField){",
+                                                    "    roleIdField.setValue(roleId);",
+                                                    "}",
+                                                    "",
+                                                    "Ext.Ajax.request({",
+                                                    "    url: 'get_RoleRight',",
+                                                    "    params: {",
+                                                    "        \"roleId\": roleId",
+                                                    "    },",
+                                                    "    success: function(xhr) {",
+                                                    "        var json = Ext.decode(xhr.responseText);",
+                                                    "        console.log(json.root);",
+                                                    "    },",
+                                                    "    failure: function() { console.log('failure'); }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onButtonClick21211",
+                                            "designerId": "cbee0883-4d6b-4af2-a979-1a7ebc08eb2d"
+                                        }
+                                    ]
                                 }
                             ]
                         },

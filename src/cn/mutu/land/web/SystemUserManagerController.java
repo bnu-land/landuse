@@ -234,10 +234,10 @@ public class SystemUserManagerController {
 		@RequestMapping(value = "/get_RoleRight")
 		@ResponseBody
 		public Map<String, Object> getRoleRight(
-				@RequestParam("searchKeyword") String searchKeyword)
+				@RequestParam("roleId") String roleId)
 				throws IOException {
-			searchKeyword = Encoder.encode(searchKeyword);
-			return this.systemUserManagerService.getRoleRightList(searchKeyword);
+			roleId = Encoder.encode(roleId);
+			return this.systemUserManagerService.getRoleRightList(roleId);
 		}
 
 		// 删除角色权限信息
@@ -251,9 +251,9 @@ public class SystemUserManagerController {
 		// 添加角色权限信息
 		@RequestMapping(value = "/add_RoleRight")
 		@ResponseBody
-		public Map<String, Object> addRoleRight(@RequestBody URoleRight roleRight)
+		public Map<String, Object> addRoleRight(@RequestParam("roleId") String roleId, @RequestParam("rightIds") String[] rightIds)
 				throws IOException {
-			this.systemUserManagerService.addRoleRight(roleRight);
+			this.systemUserManagerService.addRoleRight(roleId,rightIds);
 			Map<String, Object> roleRightResults = new HashMap<String, Object>();
 			roleRightResults.put("success", true);
 			roleRightResults.put("msg", ",successfully saved");

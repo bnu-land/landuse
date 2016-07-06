@@ -102,7 +102,8 @@ Ext.application({
         'thematic_LCCT_KFQStore',
         'sys_MapKfqMapStore',
         'Business_mapStore',
-        'system_roleNameStore'
+        'system_roleNameStore',
+        'uRoleRightByIdStore'
     ],
     views: [
         'MainView',
@@ -173,7 +174,8 @@ Ext.application({
         'business_uploadMap',
         'system_MenuManage',
         'db_RoleInfoAddWindow',
-        'db_RoleInfoEditWindow'
+        'db_RoleInfoEditWindow',
+        'db_RoleRightSettingWindow'
     ],
     name: 'MyApp',
 

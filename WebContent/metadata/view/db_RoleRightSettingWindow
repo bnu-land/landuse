@@ -1,0 +1,283 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_RoleRightSettingWindow",
+        "designer|userClassName": "db_RoleRightSettingWindow",
+        "height": 400,
+        "id": "db_RoleRightSettingWindow",
+        "layout": "fit",
+        "title": "角色权限设置",
+        "width": 651
+    },
+    "name": "db_RoleInfoEditWindow1",
+    "designerId": "715a5ee0-908e-4b51-a20b-e49f14f75a13",
+    "viewControllerInstanceId": "e5056910-2e82-478a-a13c-94c5f761600c",
+    "viewModelInstanceId": "1ba7da21-c26d-4edd-b601-873e84d2a2e8",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "id": "db_roleRightSettingGrid",
+                "store": "uRightInfoStore",
+                "title": null
+            },
+            "name": "MyGridPanel",
+            "designerId": "45739578-ed85-4b78-94cd-a4563ef17521",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "rightName",
+                        "text": "权限名称",
+                        "width": 300
+                    },
+                    "name": "MyColumn138",
+                    "designerId": "29d977cf-ffda-4f38-9c54-84311b63d2c7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "description",
+                        "text": "描述",
+                        "width": 200
+                    },
+                    "name": "MyColumn141",
+                    "designerId": "c42ab2e3-983b-44ab-8d4c-d3c176c9f405"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView25",
+                    "designerId": "754d7465-9723-46b3-aee3-d27ee86d68c6"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": "Ext.selection.CheckboxModel",
+                    "userConfig": {
+                        "designer|displayName": null
+                    },
+                    "name": "MyCheckboxSelectionModel18",
+                    "designerId": "f974718d-8dc7-49ff-801a-35dd260cc6d1"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "eb6a4a6b-bfac-4ac4-9ef4-e0951c4d353a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "为角色："
+                            },
+                            "name": "MyLabel3",
+                            "designerId": "52cbed57-a7c9-4213-ad10-2977d391ab1d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "hidden": true,
+                                "id": "db_roleRightSet_RoleIdField",
+                                "labelWidth": null,
+                                "layout|flex": null,
+                                "readOnly": true,
+                                "width": 100
+                            },
+                            "name": "MyTextField",
+                            "designerId": "9bf6a607-f81d-46a4-b7d6-5fb0f90e3653"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "id": "db_roleRightSet_RoleField",
+                                "labelWidth": null,
+                                "layout|flex": null,
+                                "readOnly": true,
+                                "width": 100
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "f0274266-c588-42e5-9ffd-344cb75fad56"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "设置权限。该角色具有："
+                            },
+                            "name": "MyLabel5",
+                            "designerId": "f418fac4-3aa5-4a0b-ac50-b3c37222809a"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "displayName",
+                                "fieldLabel": null,
+                                "id": "db_roleRightSet_RoleNameField",
+                                "labelWidth": null,
+                                "layout|flex": null,
+                                "readOnly": true,
+                                "store": "system_roleNameStore",
+                                "valueField": "roleName",
+                                "width": 140
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "3e5e2ccb-7892-4253-a26b-a452eacd23ee"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "权限。"
+                            },
+                            "name": "MyLabel4",
+                            "designerId": "30a5e67d-5767-4dcd-b868-3edfa781b037"
+                        },
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill1",
+                            "designerId": "5458e963-20a3-46df-9c4d-2e1c72962044"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "保存设置"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "1287642c-ed58-4ae3-8c77-4b20811a0597",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('db_RoleRightSettingWindow');",
+                                            "var grid = Ext.getCmp('db_roleRightSettingGrid');",
+                                            "var records = grid.getSelection();",
+                                            "var rightIds = [];",
+                                            "for(var i in records){",
+                                            "    rightIds.push(records[i].get('rightId'));",
+                                            "}",
+                                            "var roleId;",
+                                            "var roleIdField = Ext.getCmp('db_roleRightSet_RoleIdField');",
+                                            "if(roleIdField){",
+                                            "    roleId = roleIdField.getValue();",
+                                            "}",
+                                            "if(rightIds.length === 0 || !roleId){",
+                                            "    Ext.Msg.alert('失败', '保存失败，设置错误。');",
+                                            "}",
+                                            "",
+                                            "Ext.Ajax.request({",
+                                            "    url: 'add_RoleRight',",
+                                            "    params: {",
+                                            "        \"roleId\" : roleId,",
+                                            "        \"rightIds\":rightIds",
+                                            "    },",
+                                            "    success: function(){",
+                                            "        Ext.Msg.alert('成功', '角色权限设置成功！。');",
+                                            "        win.close();",
+                                            "    },",
+                                            "    failure: function(){console.log('failure');}",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "b7269538-7394-4788-8285-bafffb198035"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
