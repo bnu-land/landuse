@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.SQLQuery;
@@ -33,12 +34,79 @@ import com.google.gson.GsonBuilder;
 
 @Service
 public class SystemUserManagerService {
-
-	private SessionFactory sessionFactory;
-
 	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	private SessionFactory sessionFactory;
+	@Autowired
+	private HttpServletRequest request;
+
+	// -----------------------------当前登录信息---------------------------
+	// 当前登录用户
+	public String getCurrentUser() {
+		String userName = request.getUserPrincipal().getName();
+		return userName;
+	}
+
+	// 当前用户权限（返回权限String）
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> getCurrentUserRight() {
+		Map<String, Object> map = new TreeMap<String, Object>();
+		try {
+			// 当前系统登录用户
+			String userName = request.getUserPrincipal().getName();
+			if (userName == null || userName.equals("")) {
+				throw new Exception("当前登录用户未找到。");
+			} else {
+				String sql = "select ri.right_name " + "from u_right_info ri "
+						+ "where ri.right_id in" + "(SELECT rr.right_id "
+						+ "from u_role_right rr " + "where rr.role_id = "
+						+ "(SELECT ur.roleid " + "from u_user_role ur "
+						+ "where ur.username = '" + userName + "'))";
+				SQLQuery query = sessionFactory.getCurrentSession()
+						.createSQLQuery(sql);
+				List<Object> list = query.list();
+				if (list.size() == 0 || list == null) {
+					throw new Exception("当前用户无访问权限。");
+				}
+
+				Map<String, Object> tmap = new TreeMap<String, Object>();
+				for (Object object : list) {
+					tmap.put((String) object, true);
+				}
+				map.put("root", tmap);
+				map.put("success", true);
+			}
+		} catch (Exception ex) {
+			map.put("success", false);
+		}
+		return map;
+
+	}
+
+	// 当前用户权限（返回权限URightInfo）
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> getCurrentUserRightList(String roleId) {
+		Map<String, Object> map = new TreeMap<String, Object>();
+		try {
+			// 当前系统登录用户
+			
+			if (roleId == null || roleId.equals("")) {
+				throw new Exception("请输入角色编号。");
+			} else {
+				String sql = "select * from u_right_info ri "
+						+ "where ri.right_id in" + "(SELECT rr.right_id "
+						+ "from u_role_right rr " + "where rr.role_id ="+roleId+" )";
+				SQLQuery query = sessionFactory.getCurrentSession()
+						.createSQLQuery(sql);
+				List<URightInfo> list = query.list();						
+				map.put("root", list);
+				map.put("success", true);
+			}
+		} catch (Exception ex) {
+			map.put("root", null);
+			map.put("success", false);
+		}
+		return map;
+
 	}
 
 	// -----------------------------用户信息userInfo---------------------------
@@ -385,8 +453,8 @@ public class SystemUserManagerService {
 	// 查询角色权限信息
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getRoleRightList(String roleId) {
-		String hql = "FROM URoleRight where roleId = "+roleId;
-		
+		String hql = "FROM URoleRight where roleId = " + roleId;
+
 		List<URoleRight> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);

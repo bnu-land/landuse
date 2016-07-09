@@ -136,6 +136,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "html": "<%= request.getSession().getAttribute(\"currentUser\"); %>",
                                 "layout|flex": null,
                                 "text": "用户"
                             },
@@ -191,6 +192,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "itemId": null,
                         "title": "企业动态监控"
                     },
@@ -292,6 +294,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "专题统计分析"
                     },
                     "name": "MyPanel4",
@@ -406,6 +409,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "土地利用现状调查"
                     },
                     "name": "MyPanel9",
@@ -535,6 +539,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "集约利用评价"
                     },
                     "name": "MyPanel8",
@@ -648,6 +653,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "集约潜力测算"
                     },
                     "name": "MyPanel5",
@@ -761,6 +767,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "任务管理"
                     },
                     "name": "MyPanel10",
@@ -874,6 +881,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "通知通告发布"
                     },
                     "name": "MyPanel11",
@@ -988,6 +996,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "法律法规查询"
                     },
                     "name": "MyPanel12",
@@ -1086,6 +1095,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "成果数据管理"
                     },
                     "name": "MyPanel14",
@@ -1184,6 +1194,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "成果数据上报"
                     },
                     "name": "MyPanel13",
@@ -1267,6 +1278,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "hideMode": null,
                         "title": "系统管理维护"
                     },
@@ -1457,6 +1469,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "hideMode": null,
                         "title": "企业数据管理"
                     },
@@ -1558,20 +1571,32 @@
                     "userConfig": {
                         "fn": "onMenuPanelBeforeRender",
                         "implHandler": [
-                            "// retrieve all direct children which are Ext.Panels within myCt",
-                            "var children = component.query('panel');",
-                            "for(var index in children){",
-                            "    var child = children[index];",
-                            "    if(child && child.xtype=='panel'){",
-                            "        var title = child.title;",
-                            "        //if(title=='企业动态监控'){",
-                            "        //    child.setHidden(true);",
-                            "        //}",
-                            "        console.log(index,title);",
-                            "    }",
                             "",
-                            "}",
-                            ""
+                            "Ext.Ajax.request({",
+                            "    url: 'get_currentUserRight',",
+                            "    success: function(response) {",
+                            "        var result = JSON.parse(response.responseText);",
+                            "        if (result.success) {",
+                            "            var rightMap = result.root;",
+                            "            var children = component.query('panel');",
+                            "            for (var index in children) {",
+                            "                var child = children[index];",
+                            "                if (child && child.xtype == 'panel') {",
+                            "                    var title = child.title;",
+                            "                    var isShow = rightMap[title];",
+                            "                    if (isShow) {",
+                            "                        child.setHidden(false);",
+                            "                    }",
+                            "                }",
+                            "            }",
+                            "        } else {",
+                            "            console.log(\"errorrr.\");",
+                            "        }",
+                            "    },",
+                            "    failure: function(conn, response, options, eOpts) {",
+                            "        console.log(\"请求错误。\");",
+                            "    }",
+                            "});"
                         ],
                         "name": "beforerender",
                         "scope": "me"

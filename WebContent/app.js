@@ -103,7 +103,8 @@ Ext.application({
         'sys_MapKfqMapStore',
         'Business_mapStore',
         'system_roleNameStore',
-        'uRoleRightByIdStore'
+        'uRoleRightByIdStore',
+        'uRightInfoCurUserStore'
     ],
     views: [
         'MainView',

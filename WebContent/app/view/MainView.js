@@ -68,6 +68,7 @@ Ext.define('MyApp.view.MainView', {
                         },
                         {
                             xtype: 'label',
+                            html: '<%= request.getSession().getAttribute("currentUser"); %>',
                             text: '用户'
                         },
                         {
@@ -92,6 +93,7 @@ Ext.define('MyApp.view.MainView', {
             items: [
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '企业动态监控',
                     items: [
                         {
@@ -128,6 +130,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '专题统计分析',
                     items: [
                         {
@@ -169,6 +172,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '土地利用现状调查',
                     items: [
                         {
@@ -216,6 +220,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '集约利用评价',
                     items: [
                         {
@@ -256,6 +261,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '集约潜力测算',
                     items: [
                         {
@@ -296,6 +302,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '任务管理',
                     items: [
                         {
@@ -336,6 +343,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '通知通告发布',
                     items: [
                         {
@@ -377,6 +385,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '法律法规查询',
                     items: [
                         {
@@ -411,6 +420,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '成果数据管理',
                     items: [
                         {
@@ -445,6 +455,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '成果数据上报',
                     items: [
                         {
@@ -473,6 +484,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '系统管理维护',
                     items: [
                         {
@@ -544,6 +556,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '企业数据管理',
                     items: [
                         {
@@ -684,20 +697,32 @@ Ext.define('MyApp.view.MainView', {
     },
 
     onMenuPanelBeforeRender: function(component, eOpts) {
-        // retrieve all direct children which are Ext.Panels within myCt
-        var children = component.query('panel');
-        for(var index in children){
-            var child = children[index];
-            if(child && child.xtype=='panel'){
-                var title = child.title;
-                //if(title=='企业动态监控'){
-                //    child.setHidden(true);
-                //}
-                console.log(index,title);
+
+        Ext.Ajax.request({
+            url: 'get_currentUserRight',
+            success: function(response) {
+                var result = JSON.parse(response.responseText);
+                if (result.success) {
+                    var rightMap = result.root;
+                    var children = component.query('panel');
+                    for (var index in children) {
+                        var child = children[index];
+                        if (child && child.xtype == 'panel') {
+                            var title = child.title;
+                            var isShow = rightMap[title];
+                            if (isShow) {
+                                child.setHidden(false);
+                            }
+                        }
+                    }
+                } else {
+                    console.log("errorrr.");
+                }
+            },
+            failure: function(conn, response, options, eOpts) {
+                console.log("请求错误。");
             }
-
-        }
-
+        });
     },
 
     onMainViewAfterRender: function(component, eOpts) {
