@@ -506,7 +506,7 @@ Ext.define('MyApp.view.system_RightManage', {
                     for(var re in records){
                         var index = gridSore.indexOf(records[re]);
                         console.log("index:",index);
-                         rightGrid.getSelectionModel().select(index,true,true);
+                        rightGrid.getSelectionModel().select(index,true,true);
                     }
 
 

@@ -8,6 +8,7 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
+        "designer|userAlias": "uUserRoleStore",
         "designer|userClassName": "uUserRoleStore",
         "model": "uUserRoleModel",
         "pageSize": null,

@@ -129,6 +129,21 @@
                             "designerId": "d7d06b86-5255-48bd-8c91-760f39ef4434"
                         },
                         {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "db_userRoleSettingUserNameLbl",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "ecb2a800-9eef-4a16-9bc1-d20f1d84ddad"
+                        },
+                        {
                             "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",
@@ -152,7 +167,7 @@
                                     "userConfig": {
                                         "fn": "handler",
                                         "implHandler": [
-                                            "var win = Ext.getCmp('db_UserRoleSettingWindow');\r",
+                                            "var win = Ext.getCmp('db_UserRoleSettingWindow');",
                                             "win.close();"
                                         ]
                                     },
@@ -170,7 +185,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "width": 30
+                                "width": 10
                             },
                             "name": "MySpacer2",
                             "designerId": "cc7d022f-f9fd-44fc-8193-dcb2c87e69ac"
@@ -190,21 +205,60 @@
                             "designerId": "77b5d64e-3da5-44ee-9e39-6d2efebef7e8",
                             "cn": [
                                 {
-                                    "type": "basicfunction",
+                                    "type": "basiceventbinding",
                                     "reference": {
-                                        "name": "items",
+                                        "name": "listeners",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "hanlder",
+                                        "fn": "onButtonClick",
                                         "implHandler": [
-                                            "var win = Ext.getCmp('db_UserRoleSettingWindow');\r",
-                                            ""
-                                        ]
+                                            "var win = Ext.getCmp('db_UserRoleSettingWindow');",
+                                            "",
+                                            "",
+                                            "var grid = Ext.getCmp('db_UserRoleSettingWindowForm');",
+                                            "var records = grid.getSelection();",
+                                            "if (records.length === 0) {",
+                                            "    Ext.Msg.alert('提示', '请选择一个用户角色。');",
+                                            "    return;",
+                                            "} else if (records.length > 1) {",
+                                            "    Ext.Msg.alert('提示', '每个用户只有一个角色。');",
+                                            "    return;",
+                                            "}",
+                                            "var record = records[0];",
+                                            "",
+                                            "var userName= Ext.getCmp('db_userRoleSettingUserNameLbl').getValue();",
+                                            "var roleId = record.get('roleId');",
+                                            "Ext.Msg.confirm('您正在设置', '用户：' + userName + '为：'+record.get('roleNameCn')+'角色，<br/> 确认设置？', getResult);",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'update_UserRole',",
+                                            "            params :",
+                                            "            {",
+                                            "                username : userName,",
+                                            "                roleid : roleId",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '角色设置成功。');",
+                                            "                var mystore = Ext.StoreMgr.get('uUserRoleStore');",
+                                            "                mystore.load();",
+                                            "                win.close();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
                                     },
-                                    "name": "hanlder",
-                                    "designerId": "8a305f3f-45b1-400f-a94b-004be6bcd7e5"
+                                    "name": "onButtonClick",
+                                    "designerId": "b7723fb1-298a-4e68-9d27-6b5b0d50de4b"
                                 }
                             ]
                         }

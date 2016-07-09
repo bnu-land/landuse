@@ -5,12 +5,12 @@ var title = "土地利用结构变化趋势";
 var store = Ext.data.StoreManager.get(storeId);
 var echartsData;
 
-//判断store是否为空
+// 判断store是否为空
 if (!store) {
     retrun;
 }
 
-//获得图表类型
+// 获得图表类型
 function getLegendName(dataArr) {
     var legendNames = [];
     for (var i in dataArr) {
@@ -22,20 +22,20 @@ function getLegendName(dataArr) {
 // 获取柱状图数据种类
 function getLegendType(dataArr) {
     if (dataArr && dataArr[0]) {
-        return Object.keys(dataArr[0]); //取二级属性的名称
+        return Object.keys(dataArr[0]); // 取二级属性的名称
     }
 }
 
 // 获取数组列的数值
 function arrayColumn(arr, n) {
 
-    return arr.map(x => x[n]);
+    return arr.map(x[n]);
 }
 
 function getColumnValue(dataArr, index) {
     var colValues = [];
     if (dataArr && Object.keys(dataArr[0]).length > index + 1) {
-        var keyNames = Object.keys(dataArr[0]); //取二级属性的名称
+        var keyNames = Object.keys(dataArr[0]); // 取二级属性的名称
 
         for (var i in dataArr) {
             var colName = keyNames[index];
@@ -46,17 +46,17 @@ function getColumnValue(dataArr, index) {
     return colValues;
 }
 
-//当store的数据重新加载时
+// 当store的数据重新加载时
 store.on('load', function(store, records, successful, operation, eOpts) {
     // echartsData = store.data.items;
-    var jsonData = Ext.pluck(store.data.items, 'data'); //从store获取数据
+    var jsonData = Ext.pluck(store.data.items, 'data'); // 从store获取数据
     var echartsData = Object.keys(jsonData).map(function(k) {
         return jsonData[k]
     });
-    var echartsLegend = getLegendName(echartsData); //横坐标
+    var echartsLegend = getLegendName(echartsData); // 横坐标
     var echartsLegendType = getLegendType(echartsData); // 横坐标数据类型
-    var column1 = getColumnValue(echartsData, 1); //第一列的数据
-    var column2 = getColumnValue(echartsData, 2); //第一列的数据
+    var column1 = getColumnValue(echartsData, 1); // 第一列的数据
+    var column2 = getColumnValue(echartsData, 2); // 第一列的数据
 
 
     // console.log("echartData:", echartsData);
@@ -70,7 +70,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById(echartDivId));
 
-    // myChart.showLoading();  //显示加载图标
+    // myChart.showLoading(); //显示加载图标
 
     // 指定图表的配置项和数据
     option = {

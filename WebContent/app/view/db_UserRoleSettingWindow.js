@@ -24,6 +24,7 @@ Ext.define('MyApp.view.db_UserRoleSettingWindow', {
         'Ext.grid.View',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
+        'Ext.form.field.Text',
         'Ext.button.Button',
         'Ext.toolbar.Spacer',
         'Ext.selection.CheckboxModel'
@@ -37,6 +38,7 @@ Ext.define('MyApp.view.db_UserRoleSettingWindow', {
     width: 467,
     layout: 'fit',
     title: '用户角色设置',
+    defaultListenerScope: true,
 
     initConfig: function(instanceConfig) {
         var me = this,
@@ -81,6 +83,11 @@ Ext.define('MyApp.view.db_UserRoleSettingWindow', {
                                         xtype: 'tbfill'
                                     },
                                     {
+                                        xtype: 'textfield',
+                                        id: 'db_userRoleSettingUserNameLbl',
+                                        fieldLabel: 'Label'
+                                    },
+                                    {
                                         xtype: 'button',
                                         handler: function() {
                                             var win = Ext.getCmp('db_UserRoleSettingWindow');
@@ -90,15 +97,14 @@ Ext.define('MyApp.view.db_UserRoleSettingWindow', {
                                     },
                                     {
                                         xtype: 'tbspacer',
-                                        width: 30
+                                        width: 10
                                     },
                                     {
                                         xtype: 'button',
-                                        hanlder: function() {
-                                            var win = Ext.getCmp('db_UserRoleSettingWindow');
-
-                                        },
-                                        text: '确定'
+                                        text: '确定',
+                                        listeners: {
+                                            click: 'onButtonClick'
+                                        }
                                     }
                                 ]
                             }
@@ -113,6 +119,48 @@ Ext.define('MyApp.view.db_UserRoleSettingWindow', {
             me.getConfigurator().merge(me, config, instanceConfig);
         }
         return me.callParent([config]);
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+        var win = Ext.getCmp('db_UserRoleSettingWindow');
+
+
+        var grid = Ext.getCmp('db_UserRoleSettingWindowForm');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一个用户角色。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每个用户只有一个角色。');
+            return;
+        }
+        var record = records[0];
+
+        var userName= Ext.getCmp('db_userRoleSettingUserNameLbl').getValue();
+        var roleId = record.get('roleId');
+        Ext.Msg.confirm('您正在设置', '用户：' + userName + '为：'+record.get('roleNameCn')+'角色，<br/> 确认设置？', getResult);
+        function getResult(confirm)
+        {
+            if (confirm == "yes"){
+                Ext.Ajax.request(
+                {
+                    url : 'update_UserRole',
+                    params :
+                    {
+                        username : userName,
+                        roleid : roleId
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '角色设置成功。');
+                        var mystore = Ext.StoreMgr.get('uUserRoleStore');
+                        mystore.load();
+                        win.close();
+                    },
+                    failure : function (response){
+                    }
+                });
+            }
+        }
     }
 
 });

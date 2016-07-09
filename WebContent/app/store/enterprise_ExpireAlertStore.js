@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.store.enterprise_ExpireAlertStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.enterprise_ExpireAlertStore',
 
     requires: [
         'MyApp.model.enterprise_expirealertModel',
@@ -33,7 +34,8 @@ Ext.define('MyApp.store.enterprise_ExpireAlertStore', {
             proxy: {
                 type: 'ajax',
                 extraParams: {
-                    searchKeyword: ''
+                    searchKeyword: '',
+                    inmonths: ''
                 },
                 url: 'get_EntExpireAlert',
                 reader: {

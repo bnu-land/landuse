@@ -192,7 +192,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "itemId": null,
                         "title": "企业动态监控"
                     },
@@ -294,7 +293,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "专题统计分析"
                     },
                     "name": "MyPanel4",
@@ -409,7 +407,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "土地利用现状调查"
                     },
                     "name": "MyPanel9",
@@ -539,7 +536,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "集约利用评价"
                     },
                     "name": "MyPanel8",
@@ -653,7 +649,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "集约潜力测算"
                     },
                     "name": "MyPanel5",
@@ -767,7 +762,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "任务管理"
                     },
                     "name": "MyPanel10",
@@ -881,7 +875,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "通知通告发布"
                     },
                     "name": "MyPanel11",
@@ -996,7 +989,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "法律法规查询"
                     },
                     "name": "MyPanel12",
@@ -1095,7 +1087,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "成果数据管理"
                     },
                     "name": "MyPanel14",
@@ -1194,7 +1185,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "title": "成果数据上报"
                     },
                     "name": "MyPanel13",
@@ -1278,7 +1268,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "hideMode": null,
                         "title": "系统管理维护"
                     },
@@ -1469,7 +1458,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "hideMode": null,
                         "title": "企业数据管理"
                     },
@@ -1572,6 +1560,7 @@
                         "fn": "onMenuPanelBeforeRender",
                         "implHandler": [
                             "",
+                            "console.log(\"权限管理开始..\");",
                             "Ext.Ajax.request({",
                             "    url: 'get_currentUserRight',",
                             "    success: function(response) {",
@@ -1584,8 +1573,8 @@
                             "                if (child && child.xtype == 'panel') {",
                             "                    var title = child.title;",
                             "                    var isShow = rightMap[title];",
-                            "                    if (isShow) {",
-                            "                        child.setHidden(false);",
+                            "                    if (!isShow || isShow=='undefined') {",
+                            "                        child.setHidden(true);",
                             "                    }",
                             "                }",
                             "            }",

@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.store.uUserRoleStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.uUserRoleStore',
 
     requires: [
         'MyApp.model.uUserRoleModel',

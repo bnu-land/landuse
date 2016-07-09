@@ -849,10 +849,14 @@ public class SystemUserManagerService {
 
 	// 添加角色权限信息
 	@SuppressWarnings("unchecked")
-	public void updateUserRole(String username, String[] roleName) {
+	public void updateUserRole(String username, int roleId) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			session.save(roleName[0]);
+			UUserRole ur = new UUserRole();
+			ur.setId(null);
+			ur.setUsername(username);
+			ur.setRoleid(roleId);
+			session.saveOrUpdate(ur);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}

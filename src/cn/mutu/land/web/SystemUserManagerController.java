@@ -240,11 +240,11 @@ public class SystemUserManagerController {
 	@ResponseBody
 	public Map<String, Object> updateUserRole(
 			@RequestParam("username") String username,
-			@RequestParam("userRole") String[] userRole) throws IOException {
-		this.systemUserManagerService.updateUserRole(username, userRole);
+			@RequestParam("roleid") int roleId) throws IOException {
+		this.systemUserManagerService.updateUserRole(username, roleId);
 		Map<String, Object> roleRightResults = new HashMap<String, Object>();
 		roleRightResults.put("success", true);
-		roleRightResults.put("msg", ",successfully saved");
+		roleRightResults.put("msg", "successfully saved");
 		return (roleRightResults);
 	}
 

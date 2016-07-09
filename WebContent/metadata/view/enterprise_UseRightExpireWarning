@@ -12,6 +12,7 @@
             "<div id=\"map\" ></div>"
         ],
         "id": null,
+        "layout": "fit",
         "title": "企业使用权到期预警"
     },
     "name": "enterprise_IntensityDynamicMonitor1",
@@ -205,7 +206,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "已到期企业"
+                                "text": "全部企业"
                             },
                             "name": "MyButton3",
                             "designerId": "cbc9f9c2-87a0-437c-afe2-3e941daf2991",
@@ -220,7 +221,14 @@
                                     "userConfig": {
                                         "fn": "onButtonClick2",
                                         "implHandler": [
-                                            "var store = Ext.getCmp('enterprise_IntensityAlertStore');",
+                                            "var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        inmonths: ''",
+                                            "    }",
+                                            "});",
                                             ""
                                         ],
                                         "name": "click",
@@ -228,6 +236,48 @@
                                     },
                                     "name": "onButtonClick2",
                                     "designerId": "42857f2d-89c4-48d1-abf6-00ce0f298733"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "已到期企业"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "9f2c5acd-a1a2-459f-b813-45fd47fef59a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick21",
+                                        "implHandler": [
+                                            "var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        inmonths: 0",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick21",
+                                    "designerId": "637ceb74-a9e7-4d76-9189-965efab67882"
                                 }
                             ]
                         },
@@ -254,6 +304,17 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fn": "onButtonClick11",
+                                        "implHandler": [
+                                            "var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        inmonths: 3",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
                                         "name": "click",
                                         "scope": "me"
                                     },

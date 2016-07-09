@@ -35,19 +35,21 @@ public class EnterpriseDynamicMonitorController {
 		@RequestMapping(value = "/get_EntLandIntensity")
 		@ResponseBody
 		public Map<String, Object> getEntIntensity(
-				@RequestParam("searchKeyword") String searchKeyword)
+				@RequestParam("searchKeyword") String searchKeyword,
+				@RequestParam("code") String code)
 				throws SQLException {
 			searchKeyword = Encoder.encode(searchKeyword);
-			return this.entServcie.getEntLandIntensity();
+			return this.entServcie.getEntLandIntensity(searchKeyword,code);
 		}
 
 		// --------------------企业到期预警--------------------------------
 			@RequestMapping(value = "/get_EntExpireAlert")
 			@ResponseBody
 			public Map<String, Object> getEntExpireAlert(
-					@RequestParam("searchKeyword") String searchKeyword)
+					@RequestParam("searchKeyword") String searchKeyword,
+					@RequestParam("inmonths") Integer inmonths)
 					throws SQLException {
 				searchKeyword = Encoder.encode(searchKeyword);
-				return this.entServcie.getEntExpireAlert();
+				return this.entServcie.getEntExpireAlert(searchKeyword,inmonths);
 			}
 }

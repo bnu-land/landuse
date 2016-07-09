@@ -28,6 +28,7 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
     ],
 
     html: '<div id="map" ></div>',
+    layout: 'fit',
     title: '企业使用权到期预警',
     defaultListenerScope: true,
 
@@ -90,9 +91,16 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
                         },
                         {
                             xtype: 'button',
-                            text: '已到期企业',
+                            text: '全部企业',
                             listeners: {
                                 click: 'onButtonClick2'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: '已到期企业',
+                            listeners: {
+                                click: 'onButtonClick21'
                             }
                         },
                         {
@@ -109,11 +117,38 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
     ],
 
     onButtonClick2: function(button, e, eOpts) {
-        var store = Ext.getCmp('enterprise_IntensityAlertStore');
+        var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params: {
+                searchKeyword: '',
+                inmonths: ''
+            }
+        });
+
+    },
+
+    onButtonClick21: function(button, e, eOpts) {
+        var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params: {
+                searchKeyword: '',
+                inmonths: 0
+            }
+        });
 
     },
 
     onButtonClick11: function(button, e, eOpts) {
+        var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params: {
+                searchKeyword: '',
+                inmonths: 3
+            }
+        });
 
     }
 
