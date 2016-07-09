@@ -39,7 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 90,
-            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
+            html: '<!-- <h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1> -->',
             itemId: 'headerPanel',
             dockedItems: [
                 {
