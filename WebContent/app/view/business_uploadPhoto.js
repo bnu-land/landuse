@@ -203,9 +203,11 @@ Ext.define('MyApp.view.business_uploadPhoto', {
     ],
 
     onChoosePictureChange: function(filefield, value, eOpts) {
-        var title_photo=Ext.getCmp("title_photo");
-        var name=value.Substring(value.lastindex("\\"));
-        title_photo.value=name;
+        var title_photo = Ext.getCmp("title_photo");
+        var name = value.substring(value.lastIndexOf("\\") + 1, value.lastIndexOf("."));
+        console.log(name);
+        title_photo.setValue(name);
+
     }
 
 });

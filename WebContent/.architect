@@ -10048,15 +10048,15 @@
     },
     "tabState": {
         "openTabs": [
-            "application"
+            "50569405-4656-4e14-956a-e72ea79bd132"
         ]
     },
     "canvasState": {
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "application",
-        "selectedInstance": "application"
+        "topInstance": "50569405-4656-4e14-956a-e72ea79bd132",
+        "selectedInstance": "a54e8037-1f92-4792-addc-d93c17f55ccf"
     },
     "editMode": "code",
     "userSettings": {}
