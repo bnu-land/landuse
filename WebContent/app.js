@@ -48,7 +48,8 @@ Ext.application({
         'survey_dataManager',
         'sys_MapAttrNameIndexModel',
         'businessMapModel',
-        'businessPhotoModel'
+        'businessPhotoModel',
+        'sys_KfqInfoModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -97,7 +98,15 @@ Ext.application({
         'kfqZoneTreeStore',
         'sys_MapAttrNameIndexStore',
         'Business_mapStore',
-        'Business_photoStore'
+        'Business_photoStore',
+        'sys_TreeStore',
+        'sys_MapKfqTypeStore',
+        'sys_MapKfqNameStore',
+        'thematic_LCCT_KFQStore',
+        'sys_MapKfqMapStore',
+        'system_roleNameStore',
+        'uRoleRightByIdStore',
+        'uRightInfoCurUserStore'
     ],
     views: [
         'MainView',
@@ -132,7 +141,6 @@ Ext.application({
         'achievement_DataImportDatabase',
         'achievement_DataIBrowse',
         'achievement_DataIEdit',
-        'system_MenuManage',
         'system_DepartmentManage',
         'system_RightManage',
         'system_MapManageTree',
@@ -166,7 +174,11 @@ Ext.application({
         'sys_MapAddAttrNameIndexWindow',
         'business_message',
         'business_uploadPhoto',
-        'business_uploadMap'
+        'business_uploadMap',
+        'system_MenuManage',
+        'db_RoleInfoAddWindow',
+        'db_RoleInfoEditWindow',
+        'db_RoleRightSettingWindow'
     ],
     name: 'MyApp',
 

@@ -17,29 +17,49 @@ Ext.define('MyApp.model.systemMapModel', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'Ext.data.field.Field'
+        'Ext.data.field.String',
+        'Ext.data.field.Integer'
     ],
 
     fields: [
         {
+            type: 'string',
+            name: 'id'
+        },
+        {
+            type: 'int',
+            name: 'pid'
+        },
+        {
+            type: 'string',
+            name: 'kfqName'
+        },
+        {
+            type: 'int',
             name: 'mapId'
         },
         {
+            type: 'int',
             name: 'mapPid'
         },
         {
+            type: 'string',
             name: 'mapGroup'
         },
         {
+            type: 'string',
             name: 'mapName'
         },
         {
+            type: 'string',
             name: 'mapKey'
         },
         {
+            type: 'string',
             name: 'mapUrl'
         },
         {
+            type: 'string',
             name: 'description'
         }
     ]

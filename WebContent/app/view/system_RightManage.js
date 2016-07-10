@@ -22,6 +22,7 @@ Ext.define('MyApp.view.system_RightManage', {
         'Ext.tab.Tab',
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
+        'Ext.toolbar.Separator',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Boolean',
@@ -80,6 +81,33 @@ Ext.define('MyApp.view.system_RightManage', {
                                                 listeners: {
                                                     click: 'onButtonClick21'
                                                 }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '编辑角色',
+                                                listeners: {
+                                                    click: 'onButtonClick212'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '删除角色',
+                                                listeners: {
+                                                    click: 'onButtonClick2121'
+                                                }
+                                            },
+                                            {
+                                                xtype: 'tbseparator'
+                                            },
+                                            {
+                                                xtype: 'button',
+                                                icon: 'images/table/add.png',
+                                                text: '角色权限设置',
+                                                listeners: {
+                                                    click: 'onButtonClick21211'
+                                                }
                                             }
                                         ]
                                     }
@@ -87,6 +115,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                 items: [
                                     {
                                         xtype: 'gridpanel',
+                                        id: 'system_roleManageGrid',
                                         store: 'uRoleInfoStore',
                                         columns: [
                                             {
@@ -233,7 +262,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                             },
                                             {
                                                 xtype: 'gridcolumn',
-                                                width: 200,
+                                                width: 300,
                                                 dataIndex: 'rightName',
                                                 text: '权限名称'
                                             },
@@ -300,7 +329,7 @@ Ext.define('MyApp.view.system_RightManage', {
                                                     if(index>=0){
                                                         substr = rightName.substring(index+6,rightName.length);
                                                     }
-                                                    Ext.Msg.confirm('您正在删除', '权限："' + substr + '"，权限代码为："'+record.get('url')+'"，<br/> 确认删除？', getResult);
+                                                    Ext.Msg.confirm('您正在删除', '权限："' + substr + '"，<br/> 确认删除？', getResult);
 
                                                     function getResult(confirm)
                                                     {
@@ -376,6 +405,120 @@ Ext.define('MyApp.view.system_RightManage', {
 
     },
 
+    onButtonClick212: function(button, e, eOpts) {
+
+
+        //获取数据
+        var records = Ext.getCmp('system_roleManageGrid').getSelection();
+        if (records.length === 0){
+            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+            return;
+        } else if(records.length >1){
+            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+            return;
+        }
+        //启动窗口
+        var win = Ext.widget('db_RoleInfoEditWindow');
+        win.show();
+
+        //改变Ajax url
+        var form = Ext.getCmp('db_RoleInfoEditWindowForm').getForm();
+        form.loadRecord(records[0]);
+
+
+    },
+
+    onButtonClick2121: function(button, e, eOpts) {
+        var grid = Ext.getCmp('system_roleManageGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能 一条信息。');
+            return;
+        }
+        var record = records[0];
+
+        Ext.Msg.confirm('您正在删除', '角色：' + record.get('roleNameCn') + '，角色类别为：'+record.get('roleName')+'，<br/> 确认删除？', getResult);
+        function getResult(confirm)
+        {
+            if (confirm == "yes"){
+                var roleId = record.get("roleId");
+                Ext.Ajax.request(
+                {
+                    url : 'del_RoleInfoById',
+                    params :
+                    {
+                        roleId : roleId
+                    },
+                    success : function (response){
+                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                        var mystore = Ext.StoreMgr.get('uRoleInfoStore');
+                        mystore.load();
+                    },
+                    failure : function (response){
+                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                    }
+                });
+            }
+        }
+    },
+
+    onButtonClick21211: function(button, e, eOpts) {
+        var win = Ext.widget('db_RoleRightSettingWindow');
+
+        var grid = Ext.getCmp('system_roleManageGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一个角色进行权限设置。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能设置一个角色。');
+            return;
+        }
+        var record = records[0];
+
+        win.show();
+
+        var roleNameCnField = Ext.getCmp('db_roleRightSet_RoleField');
+        if (roleNameCnField) {
+            roleNameCnField.setValue(record.get('roleNameCn'));
+        }
+        var roleNameField = Ext.getCmp('db_roleRightSet_RoleNameField');
+        if (roleNameField) {
+            roleNameField.setValue(record.get('roleName'));
+        }
+        var roleId = record.get('roleId');
+        var roleIdField = Ext.getCmp('db_roleRightSet_RoleIdField');
+        if (roleIdField) {
+            roleIdField.setValue(roleId);
+        }
+
+        if(roleId){
+            var rightGrid = Ext.getCmp('db_roleRightSettingGrid');
+            var gridSore = rightGrid.getStore();
+            var store = Ext.StoreMgr.get('uRightInfoCurUserStore'); //获得store对象
+            //在load事件中添加参数
+            store.load({
+                params :{'roleId' : roleId},
+                callback: function(records, operation, success) {
+                    for(var re in records){
+                        var index = gridSore.indexOf(records[re]);
+                        console.log("index:",index);
+                        rightGrid.getSelectionModel().select(index,true,true);
+                    }
+
+
+                    console.log("records:",records);
+                    //rightGrid.getSelectionModel().select(records,true,true);
+                    //rightGrid.getSelectionModel().selectAll(true);
+                }
+            });
+        }
+
+    },
+
     onButtonClick31: function(button, e, eOpts) {
         var getKeyword = Ext.getCmp('searchKeyword_RightInfo').getValue();
         //console.log("keyword:",getKeyword);
@@ -436,6 +579,8 @@ Ext.define('MyApp.view.system_RightManage', {
                     if(index >= 0){
                         var substr = rightName.substring(index+6,rightName.length);
                         rightNameField.setValue(substr);
+                    }else{
+                        rightNameField.setValue(rightName);
                     }
                     break;
             }

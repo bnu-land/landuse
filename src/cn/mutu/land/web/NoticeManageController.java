@@ -47,9 +47,9 @@ public class NoticeManageController {
 	// 移除到草稿箱
 	@RequestMapping(value = "/del_NoticeToDraft")
 	@ResponseBody
-	public void noticeToDraftById(@RequestParam("news") NoticeNews news)
+	public void noticeToDraftById(@RequestParam("id") String id)
 			throws IOException {
-		this.noticeService.noticeToDraft(news);
+		this.noticeService.noticeToDraft(id);
 	}
 
 	// 移除到删除

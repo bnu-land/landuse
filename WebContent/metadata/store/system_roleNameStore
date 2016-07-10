@@ -1,0 +1,51 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    { \"displayName\": \"查询\", \"roleName\": \"ROLE_OPER\" },",
+            "    { \"displayName\": \"查询、添加、更新\", \"roleName\": \"ROLE_USER\" },",
+            "    { \"displayName\": \"查询、添加、更新、删除\", \"roleName\": \"ROLE_ADMIN\" }",
+            "]",
+            ""
+        ],
+        "designer|userAlias": "system_roleNameStore",
+        "designer|userClassName": "system_roleNameStore",
+        "storeId": "system_roleNameStore"
+    },
+    "name": "MyStore",
+    "designerId": "dd226142-f77c-42a5-93cd-0983057752e6",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "displayName"
+            },
+            "name": "MyString",
+            "designerId": "e8ce08c2-3020-4178-a06e-049ae500403d"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "roleName"
+            },
+            "name": "MyString1",
+            "designerId": "58c1a354-f9f6-479e-aa27-16d367e6be2e"
+        }
+    ]
+}

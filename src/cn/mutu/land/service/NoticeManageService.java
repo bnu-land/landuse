@@ -1,5 +1,8 @@
 package cn.mutu.land.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -60,6 +63,10 @@ public class NoticeManageService {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			// System.out.println("id:"+sysMap.getMapId());
+			Calendar ca = Calendar.getInstance();
+			Date nowDate = ca.getTime(); // 当前时间
+			notice.setReadCount(0);
+			notice.setPublishDate(nowDate);
 			session.saveOrUpdate(notice);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -70,6 +77,9 @@ public class NoticeManageService {
 	public void updateNotice(NoticeNews notice) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
+			Calendar ca = Calendar.getInstance();
+			Date nowDate = ca.getTime(); // 当前时间
+			notice.setEditDate(nowDate);
 			session.saveOrUpdate(notice);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -77,12 +87,13 @@ public class NoticeManageService {
 	}
 
 	// 移除到草稿箱
-	public void noticeToDraft(NoticeNews news) {
-		// System.out.println("roleId:" + roleId);
+	public void noticeToDraft(String id) {
 		NoticeNews result = null;
 		Session session = sessionFactory.getCurrentSession();
-		try {			
-			news.setNoticeState(1);
+		try {		
+			result = (NoticeNews) session.get(NoticeNews.class,
+					Integer.parseInt(id));
+			result.setNoticeState(1);
 			session.saveOrUpdate(result);
 		} catch (Exception e) {
 			e.printStackTrace();

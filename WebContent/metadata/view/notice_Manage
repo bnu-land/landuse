@@ -142,6 +142,20 @@
                                     "designerId": "011f2218-c4d5-43ed-be28-70158715910a"
                                 },
                                 {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "readCount",
+                                        "text": "阅读量"
+                                    },
+                                    "name": "MyColumn23",
+                                    "designerId": "28784ccd-47f4-4244-b3f4-347de2f3d27d"
+                                },
+                                {
                                     "type": "Ext.grid.column.Date",
                                     "reference": {
                                         "name": "columns",
@@ -405,11 +419,11 @@
                                                             "//获取数据",
                                                             "var records = Ext.getCmp('notice_NewsManageGrid').getSelection();",
                                                             "if (records.length === 0){",
-                                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
-                                                            "   return;",
+                                                            "    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                                            "    return;",
                                                             "}else if(records.length >1){",
-                                                            "   Ext.Msg.alert('提示', '每次只能删除一条文章。');",
-                                                            "   return;",
+                                                            "    Ext.Msg.alert('提示', '每次只能删除一条文章。');",
+                                                            "    return;",
                                                             "}",
                                                             "var id = records[0].get(\"id\");",
                                                             "var columnName= records[0].get(\"noticeTitle\");",
@@ -422,21 +436,21 @@
                                                             "    console.log('confirm:', confirm);",
                                                             "    if (confirm == \"yes\"){",
                                                             "        Ext.Ajax.request(",
-                                                            "        {",
-                                                            "            url : 'del_NoticeToDraft',",
-                                                            "            params :",
                                                             "            {",
-                                                            "                news : record",
-                                                            "            },",
-                                                            "            success : function (response){",
-                                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
-                                                            "                var mystore = Ext.StoreMgr.get('notice_newsStore');",
-                                                            "                mystore.load();",
-                                                            "            },",
-                                                            "            failure : function (response){",
-                                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
-                                                            "            }",
-                                                            "        });",
+                                                            "                url : 'del_NoticeToDraft',",
+                                                            "                params :",
+                                                            "                {",
+                                                            "                    id : record.get('id')",
+                                                            "                },",
+                                                            "                success : function (response){",
+                                                            "                    Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                                            "                    var mystore = Ext.StoreMgr.get('notice_newsStore');",
+                                                            "                    mystore.load();",
+                                                            "                },",
+                                                            "                failure : function (response){",
+                                                            "                    Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                                            "                }",
+                                                            "            });",
                                                             "    }",
                                                             "}"
                                                         ]

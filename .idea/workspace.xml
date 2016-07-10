@@ -1,91 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b194091-1eba-496a-9ad1-3e8258292f93" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\WebContent\app\model\land_indexWeightModel1.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\WebContent\metadata\model\land_indexWeightModel1" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\ConfigReader.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\HibernateUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\HtmlConverter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\SpringContextHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\Wmf2Png.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\Word2Html.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\abts_freemarker2doc.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\abts_freemarker2html.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\config.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\freemarker2doc.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\freemarker2doc22.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\build\classes\cn\mutu\land\common\freemarker2html.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\ConfigReader.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\HibernateUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\HtmlConverter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\SpringContextHolder.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\Wmf2Png.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\Word2Html.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\abts_freemarker2doc.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\abts_freemarker2html.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\config.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\freemarker2doc.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\freemarker2doc22.ftl" afterPath="" />
-      <change type="DELETED" beforePath="D:\Develop\Workspace\STS34\landuse\src\cn\mutu\land\common\freemarker2html.ftl" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/web/LanduseCalculationController.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/web/LanduseCalculationController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/LanduseCalculationService.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/LanduseCalculationService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMap.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMapHome.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMapHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/SystemUserManagerService$1.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/SystemUserManagerService$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/SystemUserManagerService$2.class" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/service/SystemUserManagerService$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WebContent.xds" afterPath="$PROJECT_DIR$/WebContent/WebContent.xds" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/images/login/login_center_left.jpg" afterPath="$PROJECT_DIR$/WebContent/images/login/login_center_left.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/images/login/login_top_left.png" afterPath="$PROJECT_DIR$/WebContent/images/login/login_top_left.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/.architect" afterPath="$PROJECT_DIR$/WebContent/.architect" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/metadata/Application" afterPath="$PROJECT_DIR$/WebContent/metadata/Application" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/web/LanduseCalculationController.java" afterPath="$PROJECT_DIR$/src/cn/mutu/land/web/LanduseCalculationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/service/LanduseCalculationService.java" afterPath="$PROJECT_DIR$/src/cn/mutu/land/service/LanduseCalculationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/app/view/MainView.js" afterPath="$PROJECT_DIR$/WebContent/app/view/MainView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/metadata/view/MainView" afterPath="$PROJECT_DIR$/WebContent/metadata/view/MainView" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/service/SystemManageMapService.java" afterPath="$PROJECT_DIR$/src/cn/mutu/land/service/SystemManageMapService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMap.hbm.xml" afterPath="$PROJECT_DIR$/build/classes/cn/mutu/land/model/SystemMap.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMap.hbm.xml" afterPath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMap.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/entities/cn/mutu/land/model/SystemMap.html" afterPath="$PROJECT_DIR$/build/classes/entities/cn/mutu/land/model/SystemMap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/cn/mutu/land/model/SystemMap.html" afterPath="$PROJECT_DIR$/src/entities/cn/mutu/land/model/SystemMap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMap.java" afterPath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMapHome.java" afterPath="$PROJECT_DIR$/src/cn/mutu/land/model/SystemMapHome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/entities/allentities.html" afterPath="$PROJECT_DIR$/build/classes/entities/allentities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/allentities.html" afterPath="$PROJECT_DIR$/src/entities/allentities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/tables/alltables.html" afterPath="$PROJECT_DIR$/build/classes/tables/alltables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tables/alltables.html" afterPath="$PROJECT_DIR$/src/tables/alltables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/app.js" afterPath="$PROJECT_DIR$/WebContent/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/entities/cn/mutu/land/model/entities.html" afterPath="$PROJECT_DIR$/build/classes/entities/cn/mutu/land/model/entities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/cn/mutu/land/model/entities.html" afterPath="$PROJECT_DIR$/src/entities/cn/mutu/land/model/entities.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/build/classes/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/resources/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/build/classes/resources/hibernate.reveng.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/src/resources/hibernate.reveng.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/homeMap.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/homeMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/app/view/homePanel.js" afterPath="$PROJECT_DIR$/WebContent/app/view/homePanel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/metadata/view/homePanel" afterPath="$PROJECT_DIR$/WebContent/metadata/view/homePanel" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/index.html" afterPath="$PROJECT_DIR$/WebContent/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/app/view/intensityPotential_Manage.js" afterPath="$PROJECT_DIR$/WebContent/app/view/intensityPotential_Manage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/metadata/view/intensityPotential_Manage" afterPath="$PROJECT_DIR$/WebContent/metadata/view/intensityPotential_Manage" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/log4j.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/login.jsp" afterPath="$PROJECT_DIR$/WebContent/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/map.html" afterPath="$PROJECT_DIR$/WebContent/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/tables/landuse.default/summary.html" afterPath="$PROJECT_DIR$/build/classes/tables/landuse.default/summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tables/landuse.default/summary.html" afterPath="$PROJECT_DIR$/src/tables/landuse.default/summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/tables/landuse.default/system_map.html" afterPath="$PROJECT_DIR$/build/classes/tables/landuse.default/system_map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tables/landuse.default/system_map.html" afterPath="$PROJECT_DIR$/src/tables/landuse.default/system_map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/tables/landuse.default/tables.html" afterPath="$PROJECT_DIR$/build/classes/tables/landuse.default/tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tables/landuse.default/tables.html" afterPath="$PROJECT_DIR$/src/tables/landuse.default/tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/testMap.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/testMap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map_copy.js" afterPath="$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map_copy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="5b194091-1eba-496a-9ad1-3e8258292f93" name="Default" comment="" />
     <ignored path="landuse.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,38 +16,39 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="landuse" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="homeMap.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebContent/mapjs/homeMap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8761468" vertical-offset="1108" max-vertical-offset="2016">
-              <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/cn/mutu/land/web/EnterpriseDynamicMonitorController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="32" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -151,8 +71,12 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,7 +105,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -195,27 +119,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapjs" />
+              <option name="myItemId" value="cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mutu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="land" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landuse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landuse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mutu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="land" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="FullScreen" value="false" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -224,46 +188,26 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
-    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
-      <setting name="configLocationType" value="CONFIG_FILE" />
-      <setting name="settingsFile" value="" />
-      <setting name="serverType" value="INTERNAL" />
-      <setting name="preferredDebugBrowser" value="Liebao" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" value="" />
-      <option name="executablePath" />
-      <option name="filePath" />
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
+      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
     </configuration>
-    <list size="0" />
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -272,32 +216,46 @@
       <changelist id="5b194091-1eba-496a-9ad1-3e8258292f93" name="Default" comment="" />
       <created>1432348887174</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1432348887174</updated>
+      <workItem from="1466054863842" duration="246000" />
+      <workItem from="1467275583196" duration="82000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="328000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2833032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -311,373 +269,371 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5904">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_expansion_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="1854">
+        <state relative-caret-position="0">
           <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_construct_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1746">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_intension_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1710">
+        <state relative-caret-position="0">
           <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_expansion_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1854">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_expansion_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2466">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_IndexCurrentValueCalculation_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2034">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_IndexCurrentValueCalculation_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2034">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1111" max-vertical-offset="4824">
+        <state relative-caret-position="0">
           <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2137" max-vertical-offset="5670">
+        <state relative-caret-position="0">
           <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3707" max-vertical-offset="6012">
+        <state relative-caret-position="0">
           <caret line="216" column="35" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4338">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1111" max-vertical-offset="4824">
+        <state relative-caret-position="0">
           <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2137" max-vertical-offset="5670">
+        <state relative-caret-position="0">
           <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3707" max-vertical-offset="6012">
+        <state relative-caret-position="0">
           <caret line="216" column="35" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4338">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1111" max-vertical-offset="4824">
+        <state relative-caret-position="0">
           <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2137" max-vertical-offset="5670">
+        <state relative-caret-position="0">
           <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6012">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1111" max-vertical-offset="4824">
+        <state relative-caret-position="0">
           <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2137" max-vertical-offset="5670">
+        <state relative-caret-position="0">
           <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5670">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1111" max-vertical-offset="4824">
+        <state relative-caret-position="0">
           <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4338">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2581" max-vertical-offset="4662">
+        <state relative-caret-position="0">
           <caret line="176" column="19" selection-start-line="176" selection-start-column="19" selection-end-line="176" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4086">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4662">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1638">
+        <state relative-caret-position="0">
           <caret line="76" column="87" selection-start-line="76" selection-start-column="83" selection-end-line="76" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4806">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1944">
+        <state relative-caret-position="0">
           <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/testMap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="576">
+        <state relative-caret-position="0">
           <caret line="17" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/homeMap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1872">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2052">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/mapjs/testMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="608">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1944">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/testMap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="576">
+        <state relative-caret-position="0">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/mapjs/testMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/enterprise_IntensityDynamicMonitor_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="466" max-vertical-offset="2898">
+        <state relative-caret-position="0">
           <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/homeMap_copy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1872">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_construct_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1746">
+        <state relative-caret-position="0">
           <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map_copy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.126021" vertical-offset="0" max-vertical-offset="1674">
+        <state relative-caret-position="0">
           <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionContrast_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20689656" vertical-offset="756" max-vertical-offset="5940">
+        <state relative-caret-position="0">
           <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/thematic_LanduseConstructionChangeTrend_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8832116" vertical-offset="3516" max-vertical-offset="4338">
+        <state relative-caret-position="0">
           <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/testMap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31034482" vertical-offset="0" max-vertical-offset="870">
+        <state relative-caret-position="0">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_TypicalEnterprise_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54022986" vertical-offset="682" max-vertical-offset="6048">
+        <state relative-caret-position="0">
           <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_Landuse_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54022986" vertical-offset="682" max-vertical-offset="5706">
+        <state relative-caret-position="0">
           <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/survey_IndexCurrentValueCalculation_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7241379" vertical-offset="462" max-vertical-offset="2466">
+        <state relative-caret-position="0">
           <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_manager_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8413793" vertical-offset="0" max-vertical-offset="1818">
+        <state relative-caret-position="0">
           <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_expansion_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.737931" vertical-offset="60" max-vertical-offset="1854">
+        <state relative-caret-position="0">
           <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/intensity_intension_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5241379" vertical-offset="246" max-vertical-offset="1710">
+        <state relative-caret-position="0">
           <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/mutu/land/web/EnterpriseDynamicMonitorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/mapjs/homeMap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8761468" vertical-offset="1108" max-vertical-offset="2016">
+        <state relative-caret-position="773">
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -67,14 +67,13 @@
                         "inputType": null,
                         "labelWidth": 70,
                         "name": "rightName",
-                        "submitValue": false,
                         "width": 400
                     },
                     "name": "MyTextField21",
                     "designerId": "7ceb620b-27d4-422e-a3f3-d7fd40bfe996"
                 },
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.Hidden",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -87,7 +86,7 @@
                         "name": "url",
                         "width": 400
                     },
-                    "name": "MyTextField22",
+                    "name": "MyHiddenField3",
                     "designerId": "1a90d433-ff8f-45b4-9c36-13e7da43e3f1"
                 },
                 {

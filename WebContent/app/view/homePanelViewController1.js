@@ -15,5 +15,5 @@
 
 Ext.define('MyApp.view.homePanelViewController1', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.enterprise_landusepropertychangemonitor'
+    alias: 'controller.system_menumanage'
 });

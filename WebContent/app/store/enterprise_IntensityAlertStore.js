@@ -34,7 +34,8 @@ Ext.define('MyApp.store.enterprise_IntensityAlertStore', {
             proxy: {
                 type: 'ajax',
                 extraParams: {
-                    searchKeyword: ''
+                    searchKeyword: '',
+                    code: ''
                 },
                 url: 'get_EntLandIntensity',
                 reader: {

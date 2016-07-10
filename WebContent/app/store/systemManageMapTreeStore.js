@@ -29,11 +29,12 @@ Ext.define('MyApp.store.systemManageMapTreeStore', {
             groupField: 'id',
             storeId: 'systemManageMapTreeStore',
             model: 'MyApp.model.systemMapModel',
-            rootVisible: true,
+            folderSort: true,
             proxy: {
                 type: 'ajax',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    typeProperty: 'children'
                 }
             }
         }, cfg)]);

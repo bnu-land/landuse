@@ -1,0 +1,276 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "db_RoleInfoEditWindow",
+        "designer|userClassName": "db_RoleInfoEditWindow",
+        "height": 314,
+        "id": "db_RoleInfoEditWindow",
+        "layout": "fit",
+        "title": "编辑角色信息",
+        "width": 630
+    },
+    "name": "db_RoleInfoAddWindow1",
+    "designerId": "b581d339-b475-4b93-995c-78368670b6a0",
+    "viewControllerInstanceId": "b0babc82-bce8-4ba0-9842-7d140ff63222",
+    "viewModelInstanceId": "34b73cf0-c19b-4e8f-9063-d68d06f9969e",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "id": "db_RoleInfoEditWindowForm",
+                "jsonSubmit": true,
+                "layout": "vbox",
+                "title": null
+            },
+            "name": "MyForm3",
+            "designerId": "bbb47a6e-1015-4753-be07-75eab4654767",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "角色名称",
+                        "hidden": true,
+                        "id": "wEdit_roleId",
+                        "inputType": null,
+                        "labelWidth": 70,
+                        "name": "roleId",
+                        "width": 400
+                    },
+                    "name": "MyTextField18",
+                    "designerId": "8e7e5800-ab37-4f6b-aff6-d86f7373ab32"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "角色名称",
+                        "id": "wEdit_roleNameCn",
+                        "inputType": null,
+                        "labelWidth": 70,
+                        "name": "roleNameCn",
+                        "width": 400
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "93d1891a-7741-4eb7-8eea-7c7b4ad019d0"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoadOnValue": true,
+                        "displayField": "displayName",
+                        "fieldLabel": "角色权限",
+                        "id": "wEdit_roleName",
+                        "labelWidth": 70,
+                        "name": "roleName",
+                        "store": "system_roleNameStore",
+                        "valueField": "roleName",
+                        "width": 400
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "d8f808b5-643c-49e0-99c2-937ea7b9d837"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": null,
+                        "checked": true,
+                        "fieldLabel": "是否启用",
+                        "id": "wEdit_role_enabled",
+                        "inputValue": "1",
+                        "labelWidth": 70,
+                        "name": "enabled",
+                        "uncheckedValue": "0"
+                    },
+                    "name": "MyCheckbox2",
+                    "designerId": "eb284b07-7cab-4cac-a57f-ee698c0dbce2"
+                },
+                {
+                    "type": "Ext.form.field.HtmlEditor",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "角色介绍",
+                        "height": 130,
+                        "id": "wEdit_role_description",
+                        "labelWidth": 70,
+                        "name": "description"
+                    },
+                    "name": "MyHtmlEditor3",
+                    "designerId": "b810b193-cf51-4f5d-a097-e6a4f5007d86"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "layout|flex": 1
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "b9abd788-520b-4f0d-a583-80b70df3ab44",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill4",
+                            "designerId": "92a23284-0c05-401f-86bb-4d752da32b68"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "93f516d7-2691-4e28-9688-e17f88cd9e0d",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('db_RoleInfoAddWindow');",
+                                            "win.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "8c10199c-a42e-4bd6-87b8-9645f1a255a6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySpacer4",
+                            "designerId": "fe4e446e-a6c8-4af7-8db5-9d3ebdbf8444"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确认修改"
+                            },
+                            "name": "MyButton13",
+                            "designerId": "c4af12d1-21f7-466c-9327-37ea0c2aa01d",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('db_RoleInfoEditWindow');",
+                                            "var myform = Ext.getCmp('db_RoleInfoEditWindowForm');",
+                                            "",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    myform.submit({",
+                                            "        url : 'update_RoleInfo',",
+                                            "",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '角色信息更新成功');",
+                                            "",
+                                            "            var mystore = Ext.StoreMgr.get('uRoleInfoStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "            win.close();",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '角色信息更新失败');",
+                                            "            win.close();",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}",
+                                            "",
+                                            "return;"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "a68eaa3b-5188-47f1-9639-bfb044eb3b6c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

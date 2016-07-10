@@ -39,7 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 90,
-            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
+            html: '<!-- <h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1> -->',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -68,6 +68,7 @@ Ext.define('MyApp.view.MainView', {
                         },
                         {
                             xtype: 'label',
+                            html: '<%= request.getSession().getAttribute("currentUser"); %>',
                             text: '用户'
                         },
                         {
@@ -84,6 +85,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'west',
             split: true,
+            id: 'mainLeftMenuPanel',
             itemId: 'menuPanel',
             width: 250,
             layout: 'accordion',
@@ -481,6 +483,7 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_MenuManage',
                                     hideOnClick: false,
                                     text: '系统菜单管理'
@@ -574,7 +577,10 @@ Ext.define('MyApp.view.MainView', {
                         }
                     ]
                 }
-            ]
+            ],
+            listeners: {
+                beforerender: 'onMenuPanelBeforeRender'
+            }
         },
         {
             xtype: 'panel',
@@ -676,6 +682,36 @@ Ext.define('MyApp.view.MainView', {
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
         mainView.add(Ext.widget(xtype));
+    },
+
+    onMenuPanelBeforeRender: function(component, eOpts) {
+
+        console.log("权限管理开始..");
+        Ext.Ajax.request({
+            url: 'get_currentUserRight',
+            success: function(response) {
+                var result = JSON.parse(response.responseText);
+                if (result.success) {
+                    var rightMap = result.root;
+                    var children = component.query('panel');
+                    for (var index in children) {
+                        var child = children[index];
+                        if (child && child.xtype == 'panel') {
+                            var title = child.title;
+                            var isShow = rightMap[title];
+                            if (!isShow || isShow=='undefined') {
+                                child.setHidden(true);
+                            }
+                        }
+                    }
+                } else {
+                    console.log("errorrr.");
+                }
+            },
+            failure: function(conn, response, options, eOpts) {
+                console.log("请求错误。");
+            }
+        });
     },
 
     onMainViewAfterRender: function(component, eOpts) {

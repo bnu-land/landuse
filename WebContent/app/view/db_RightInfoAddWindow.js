@@ -22,6 +22,7 @@ Ext.define('MyApp.view.db_RightInfoAddWindow', {
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.form.field.Text',
+        'Ext.form.field.Hidden',
         'Ext.form.field.Checkbox',
         'Ext.form.field.HtmlEditor',
         'Ext.toolbar.Toolbar',
@@ -82,17 +83,15 @@ Ext.define('MyApp.view.db_RightInfoAddWindow', {
                             fieldLabel: '权限名称',
                             labelWidth: 70,
                             name: 'rightName',
-                            submitValue: false,
                             validateBlank: true
                         },
                         {
-                            xtype: 'textfield',
+                            xtype: 'hiddenfield',
                             id: 'wAdd_rightUrl',
                             width: 400,
                             fieldLabel: '权限地址',
                             labelWidth: 70,
-                            name: 'url',
-                            validateBlank: true
+                            name: 'url'
                         },
                         {
                             xtype: 'checkboxfield',

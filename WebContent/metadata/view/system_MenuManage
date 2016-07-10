@@ -8,13 +8,137 @@
     "userConfig": {
         "designer|userAlias": "system_MenuManage",
         "designer|userClassName": "system_MenuManage",
-        "height": 588,
+        "html": [
+            "<div id=\"map\"></div>"
+        ],
         "id": null,
-        "title": "系统菜单管理",
-        "width": 786
+        "layout": "border",
+        "title": "主页"
     },
-    "name": "task_Report3",
-    "designerId": "ad73cd77-e51a-47e4-974c-da8647f1fc23",
-    "viewControllerInstanceId": "945b4f12-090c-4dff-be41-d30f19d65f45",
-    "viewModelInstanceId": "d00cd9e8-815c-4bb5-a434-4994e01841c7"
+    "name": "homePanel1",
+    "designerId": "11c87905-ef78-41c3-86c4-9885f815bd16",
+    "viewControllerInstanceId": "99fc52eb-016b-48bb-8b87-f23e77cbfd00",
+    "viewModelInstanceId": "47313ecd-90a7-4d23-8c66-7086a37b8b04",
+    "cn": [
+        {
+            "type": "Ext.tree.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsible": true,
+                "height": 308,
+                "layout|region": "north",
+                "rootVisible": false,
+                "store": "systemManageMapTreeStore",
+                "title": "My Tree Grid Panel",
+                "useArrows": true
+            },
+            "name": "TreeGrid1",
+            "designerId": "8924eb8c-f833-48c1-a37e-ff31e0535db7",
+            "isBuiltIn": true,
+            "iconCls": "icon-treegridpanel",
+            "autoName": "TreeGrid",
+            "cn": [
+                {
+                    "type": "Ext.tree.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTreeView",
+                    "designerId": "341340ea-9c6f-4b8b-b77d-6a8b0fccc114"
+                },
+                {
+                    "type": "Ext.tree.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqName",
+                        "flex": 1,
+                        "text": "Nodes",
+                        "width": 300
+                    },
+                    "name": "MyTreeColumn",
+                    "designerId": "1c04fb80-731f-4128-bfcd-969732dc7030"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mapName",
+                        "text": "Value"
+                    },
+                    "name": "MyColumn15",
+                    "designerId": "c843a0a9-aaf7-4389-bb79-92876fe6af8e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.tree.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "store": "systemManageMapTreeStore",
+                "title": "My Tree Panel"
+            },
+            "name": "MyTreePanel",
+            "designerId": "1a66c7d7-57a6-4981-850c-93c78daa6e19",
+            "cn": [
+                {
+                    "type": "Ext.tree.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTreeView2",
+                    "designerId": "3f8a5a42-75d1-4a75-8df0-b9f451170cca"
+                },
+                {
+                    "type": "Ext.tree.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqName",
+                        "text": "MyTreeColumn2",
+                        "width": 200
+                    },
+                    "name": "MyTreeColumn2",
+                    "designerId": "bb0b84f5-ddcb-49ee-a7a5-2453c21bba64"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "mapName",
+                        "text": "MyColumn1"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "1fc1f808-1a87-4dab-8cd1-ff767fc469ae"
+                }
+            ]
+        }
+    ]
 }

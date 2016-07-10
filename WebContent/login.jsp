@@ -74,7 +74,7 @@ body{margin:0; padding:0; font-size:9pt;}
 
 <div id="login">
     <div id="top">
-        <div id="top_left"><img src="images/login/login_top_left.png"/></div>
+        <!-- <div id="top_left"><img src="images/login/login_top_left.png"/></div> -->
     </div>
 
     <div id="center">

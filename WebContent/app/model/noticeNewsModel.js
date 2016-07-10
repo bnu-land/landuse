@@ -50,6 +50,9 @@ Ext.define('MyApp.model.noticeNewsModel', {
         },
         {
             name: 'description'
+        },
+        {
+            name: 'readCount'
         }
     ]
 });

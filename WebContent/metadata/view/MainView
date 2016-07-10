@@ -26,7 +26,7 @@
             "userConfig": {
                 "height": 90,
                 "html": [
-                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
+                    "<!-- <h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1> -->"
                 ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
@@ -136,6 +136,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "html": "<%= request.getSession().getAttribute(\"currentUser\"); %>",
                                 "layout|flex": null,
                                 "text": "用户"
                             },
@@ -171,6 +172,7 @@
             "codeClass": null,
             "userConfig": {
                 "collapseDirection": "left",
+                "id": "mainLeftMenuPanel",
                 "itemId": "menuPanel",
                 "layout": "accordion",
                 "layout|collapseMode": null,
@@ -1295,6 +1297,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_MenuManage",
                                         "text": "系统菜单管理"
@@ -1545,6 +1548,50 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMenuPanelBeforeRender",
+                        "implHandler": [
+                            "",
+                            "console.log(\"权限管理开始..\");",
+                            "Ext.Ajax.request({",
+                            "    url: 'get_currentUserRight',",
+                            "    success: function(response) {",
+                            "        var result = JSON.parse(response.responseText);",
+                            "        if (result.success) {",
+                            "            var rightMap = result.root;",
+                            "            var children = component.query('panel');",
+                            "            for (var index in children) {",
+                            "                var child = children[index];",
+                            "                if (child && child.xtype == 'panel') {",
+                            "                    var title = child.title;",
+                            "                    var isShow = rightMap[title];",
+                            "                    if (!isShow || isShow=='undefined') {",
+                            "                        child.setHidden(true);",
+                            "                    }",
+                            "                }",
+                            "            }",
+                            "        } else {",
+                            "            console.log(\"errorrr.\");",
+                            "        }",
+                            "    },",
+                            "    failure: function(conn, response, options, eOpts) {",
+                            "        console.log(\"请求错误。\");",
+                            "    }",
+                            "});"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onMenuPanelBeforeRender",
+                    "designerId": "da005f7a-b65d-4d7a-a559-5f5215382f35"
                 }
             ]
         },

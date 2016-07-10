@@ -7,9 +7,9 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "systemManageMapTreeStore",
+        "folderSort": true,
         "groupField": "id",
         "model": "systemMapModel",
-        "rootVisible": true,
         "storeId": "systemManageMapTreeStore"
     },
     "name": "MyTreeStore",
@@ -36,7 +36,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rootProperty": null
+                        "rootProperty": null,
+                        "typeProperty": "children"
                     },
                     "name": "MyJsonReader1",
                     "designerId": "1f2e6209-a46a-4cdb-9bfe-934665bdf779"

@@ -67,6 +67,11 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    dataIndex: 'qymc',
+                    text: '企业名称'
+                },
+                {
+                    xtype: 'gridcolumn',
                     dataIndex: 'qydz',
                     text: '企业地址'
                 },
@@ -157,20 +162,31 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                     dock: 'top',
                     items: [
                         {
-                            xtype: 'textfield'
+                            xtype: 'textfield',
+                            id: 'ent_intensityMonitor_SearchField'
                         },
                         {
                             xtype: 'button',
-                            text: '搜索'
+                            text: '搜索',
+                            listeners: {
+                                click: 'onButtonClick3'
+                            }
                         },
                         {
                             xtype: 'tbseparator'
                         },
                         {
                             xtype: 'button',
-                            text: '高集约度企业',
+                            text: '全部',
                             listeners: {
                                 click: 'onButtonClick'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: '低集约度企业',
+                            listeners: {
+                                click: 'onButtonClick2'
                             }
                         },
                         {
@@ -178,6 +194,13 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                             text: '中集约度企业',
                             listeners: {
                                 click: 'onButtonClick1'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            text: '高集约度企业',
+                            listeners: {
+                                click: 'onButtonClick11'
                             }
                         }
                     ]
@@ -190,12 +213,68 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
 
     },
 
+    onButtonClick3: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: keyword,
+                code : ''
+            }
+        });
+
+    },
+
     onButtonClick: function(button, e, eOpts) {
-        var store = Ext.getCmp('enterprise_IntensityAlertStore');
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: '',
+                code : ''
+            }
+        });
+
+    },
+
+    onButtonClick2: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: '',
+                code : '1'
+            }
+        });
 
     },
 
     onButtonClick1: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: '',
+                code : '2'
+            }
+        });
+
+    },
+
+    onButtonClick11: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: '',
+                code : '3'
+            }
+        });
 
     }
 

@@ -17,8 +17,66 @@ Ext.define('MyApp.view.system_MenuManage', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.system_MenuManage',
 
-    height: 588,
-    width: 786,
-    title: '系统菜单管理'
+    requires: [
+        'Ext.tree.Panel',
+        'Ext.tree.View',
+        'Ext.tree.Column'
+    ],
+
+    html: '<div id="map"></div>',
+    layout: 'border',
+    title: '主页',
+
+    items: [
+        {
+            xtype: 'treepanel',
+            region: 'north',
+            height: 308,
+            collapsible: true,
+            title: 'My Tree Grid Panel',
+            store: 'systemManageMapTreeStore',
+            rootVisible: false,
+            useArrows: true,
+            viewConfig: {
+
+            },
+            columns: [
+                {
+                    xtype: 'treecolumn',
+                    width: 300,
+                    dataIndex: 'kfqName',
+                    text: 'Nodes',
+                    flex: 1
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'mapName',
+                    text: 'Value'
+                }
+            ]
+        },
+        {
+            xtype: 'treepanel',
+            region: 'center',
+            title: 'My Tree Panel',
+            store: 'systemManageMapTreeStore',
+            viewConfig: {
+
+            },
+            columns: [
+                {
+                    xtype: 'treecolumn',
+                    width: 200,
+                    dataIndex: 'kfqName',
+                    text: 'MyTreeColumn2'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'mapName',
+                    text: 'MyColumn1'
+                }
+            ]
+        }
+    ]
 
 });

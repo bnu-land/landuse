@@ -22,6 +22,7 @@ Ext.define('MyApp.view.system_UserManage', {
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
         'Ext.button.Button',
+        'Ext.toolbar.Separator',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Action',
@@ -88,6 +89,17 @@ Ext.define('MyApp.view.system_UserManage', {
                     listeners: {
                         click: 'onButtonClick211'
                     }
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/attr.png',
+                    text: '角色设置',
+                    listeners: {
+                        click: 'onButtonClick3'
+                    }
                 }
             ]
         }
@@ -100,6 +112,7 @@ Ext.define('MyApp.view.system_UserManage', {
                     {
                         xtype: 'gridpanel',
                         autoScroll: true,
+                        id: 'system_userManagerGrid',
                         store: 'uUserInfoStore',
                         columns: [
                             {
@@ -122,28 +135,7 @@ Ext.define('MyApp.view.system_UserManage', {
                             {
                                 xtype: 'actioncolumn',
                                 handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
-                                    var win = Ext.widget('db_UserRoleSettingWindow');
-                                    win.show();
 
-                                    //查询该用户的所有用户
-                                    Ext.Ajax.request(
-                                    {
-                                        url : 'del_UserInfoById',
-                                        params :
-                                        {
-                                            userId : userId
-                                        },
-                                        success : function (response){
-                                            Ext.Msg.alert('成功提示', '记录删除成功。');
-                                            //successResult();
-                                            var mystore = Ext.StoreMgr.get('uUserInfoStore');
-                                            mystore.load();
-                                        },
-                                        failure : function (response){
-                                            //failedResult();
-                                            // Ext.Msg.alert('失败提示', '记录删除失败。');
-                                        }
-                                    });
 
 
 
@@ -278,16 +270,23 @@ Ext.define('MyApp.view.system_UserManage', {
     },
 
     onButtonClick21: function(button, e, eOpts) {
-        if (colIndex === undefined || colIndex < 2) {
+        var grid = Ext.getCmp('system_userManagerGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能编辑一条信息。');
             return;
         }
+
         var win = Ext.widget('db_UserInfoWindow');
         win.show();
 
         //var form = Ext.widget('db_UserWindowForm');
         var form = Ext.getCmp('db_UserWindowForm');
         console.log("form:",form);
-        form.loadRecord(record);
+        form.loadRecord(records[0]);
 
 
         //对显示的结果进行处理
@@ -307,7 +306,18 @@ Ext.define('MyApp.view.system_UserManage', {
     },
 
     onButtonClick211: function(button, e, eOpts) {
-        Ext.Msg.confirm('您正在删除', '用户：' + record.get('trueName') + '，用户编号为：'+record.get('userId')+'，<br/> 确认删除？', getResult);
+        var grid = Ext.getCmp('system_userManagerGrid');
+        var records = grid.getSelection();
+        if (records.length === 0) {
+            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+            return;
+        } else if (records.length > 1) {
+            Ext.Msg.alert('提示', '每次只能 一条信息。');
+            return;
+        }
+        var record = records[0];
+
+        Ext.Msg.confirm('您正在删除', '用户：' + record.get('userName') + '，用户编号为：'+record.get('userId')+'，<br/> 确认删除？', getResult);
         function getResult(confirm)
         {
             console.log('confirm:', confirm);
@@ -334,6 +344,26 @@ Ext.define('MyApp.view.system_UserManage', {
                 });
             }
         }
+    },
+
+    onButtonClick3: function(button, e, eOpts) {
+         var grid = Ext.getCmp('system_userManagerGrid');
+         var records = grid.getSelection();
+         if (records.length === 0) {
+             Ext.Msg.alert('提示', '请选择一个用户进行角色设置。');
+             return;
+         } else if (records.length > 1) {
+             Ext.Msg.alert('提示', '每次只能设置一个用户。');
+             return;
+         }
+         var record = records[0];
+
+        var userName = record.get('userName');
+
+         var win = Ext.widget('db_UserRoleSettingWindow');
+         win.show();
+
+        Ext.getCmp('db_userRoleSettingUserNameLbl').setValue(userName);
     },
 
     onGridpanelCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {

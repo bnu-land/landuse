@@ -8,6 +8,7 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
+        "designer|userAlias": "enterprise_ExpireAlertStore",
         "designer|userClassName": "enterprise_ExpireAlertStore",
         "model": "enterprise_expirealertModel",
         "storeId": "enterprise_ExpireAlertStore"
@@ -25,7 +26,8 @@
             "userConfig": {
                 "extraParams": [
                     "{",
-                    "    searchKeyword: ''",
+                    "    searchKeyword: '',",
+                    "    inmonths: ''",
                     "}"
                 ],
                 "url": "get_EntExpireAlert"

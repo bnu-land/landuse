@@ -112,7 +112,6 @@
                                 "inputType": null,
                                 "labelWidth": 70,
                                 "name": "rightName",
-                                "submitValue": false,
                                 "validateBlank": true,
                                 "width": 400
                             },
@@ -120,7 +119,7 @@
                             "designerId": "b00eb82c-782c-4c76-ac5b-80634382b74f"
                         },
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Hidden",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -131,10 +130,9 @@
                                 "id": "wAdd_rightUrl",
                                 "labelWidth": 70,
                                 "name": "url",
-                                "validateBlank": true,
                                 "width": 400
                             },
-                            "name": "MyTextField43",
+                            "name": "MyHiddenField1",
                             "designerId": "60cbb7f1-b889-4adc-8609-20bbe0c922dc"
                         },
                         {

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_menumanage",
+        "designer|userClassName": "homePanelViewController1"
+    },
+    "name": "homePanelViewController1",
+    "designerId": "99fc52eb-016b-48bb-8b87-f23e77cbfd00"
+}

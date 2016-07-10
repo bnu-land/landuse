@@ -20,7 +20,7 @@ Ext.define('MyApp.view.db_RoleInfoAddWindow', {
     requires: [
         'MyApp.view.db_RoleInfoAddWindowViewModel',
         'Ext.form.Panel',
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
         'Ext.form.field.Checkbox',
         'Ext.form.field.HtmlEditor',
         'Ext.toolbar.Toolbar',
@@ -32,7 +32,7 @@ Ext.define('MyApp.view.db_RoleInfoAddWindow', {
     viewModel: {
         type: 'db_RoleInfoAddWindow'
     },
-    height: 316,
+    height: 314,
     id: 'db_RoleInfoAddWindow',
     width: 630,
     layout: 'fit',
@@ -52,20 +52,32 @@ Ext.define('MyApp.view.db_RoleInfoAddWindow', {
             items: [
                 {
                     xtype: 'textfield',
+                    hidden: true,
+                    id: 'wAdd_roleId',
+                    width: 400,
+                    fieldLabel: '角色名称',
+                    labelWidth: 70,
+                    name: 'roleId'
+                },
+                {
+                    xtype: 'textfield',
                     id: 'wAdd_roleNameCn',
                     width: 400,
                     fieldLabel: '角色名称',
                     labelWidth: 70,
-                    name: 'roleNameCn',
-                    submitValue: false
+                    name: 'roleNameCn'
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'combobox',
                     id: 'wAdd_roleName',
                     width: 400,
-                    fieldLabel: '角色代码',
+                    fieldLabel: '角色权限',
                     labelWidth: 70,
-                    name: 'roleName'
+                    name: 'roleName',
+                    autoLoadOnValue: true,
+                    displayField: 'displayName',
+                    store: 'system_roleNameStore',
+                    valueField: 'roleName'
                 },
                 {
                     xtype: 'checkboxfield',
@@ -79,7 +91,7 @@ Ext.define('MyApp.view.db_RoleInfoAddWindow', {
                 },
                 {
                     xtype: 'htmleditor',
-                    height: 150,
+                    height: 130,
                     id: 'wAdd_role_description',
                     fieldLabel: '角色介绍',
                     labelWidth: 70,
@@ -137,14 +149,14 @@ Ext.define('MyApp.view.db_RoleInfoAddWindow', {
                 url : 'add_RoleInfo',
                 success : function (form, action)
                 {
-                    Ext.Msg.alert('成功', '角色信息更新成功');
+                    Ext.Msg.alert('成功', '角色信息添加成功');
 
                     var mystore = Ext.StoreMgr.get('uRoleInfoStore'); //获得store对象
                     mystore.reload();
                     win.close();
                 },
                 failure: function(form, action){
-                    Ext.Msg.alert('失败', '角色信息更新失败');
+                    Ext.Msg.alert('失败', '角色信息添加失败');
                     win.close();
                 }
             });
