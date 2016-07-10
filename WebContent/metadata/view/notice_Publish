@@ -313,6 +313,36 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "hidden",
+                        "layout|anchor": "100%",
+                        "name": "readCount"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "5f1e06fc-0315-43a5-96ec-933281363e66"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "hidden",
+                        "layout|anchor": "100%",
+                        "name": "publishDate"
+                    },
+                    "name": "MyHiddenField3",
+                    "designerId": "a17806ab-e300-4470-a12d-69557135161f"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "hidden",
                         "id": "notice_publish_stateField",
                         "layout|anchor": "100%",
                         "name": "noticeState",

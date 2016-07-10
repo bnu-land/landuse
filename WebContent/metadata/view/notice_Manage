@@ -142,6 +142,20 @@
                                     "designerId": "011f2218-c4d5-43ed-be28-70158715910a"
                                 },
                                 {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "readCount",
+                                        "text": "阅读量"
+                                    },
+                                    "name": "MyColumn23",
+                                    "designerId": "28784ccd-47f4-4244-b3f4-347de2f3d27d"
+                                },
+                                {
                                     "type": "Ext.grid.column.Date",
                                     "reference": {
                                         "name": "columns",
@@ -426,7 +440,7 @@
                                                             "            url : 'del_NoticeToDraft',",
                                                             "            params :",
                                                             "            {",
-                                                            "                news : record",
+                                                            "                id : record.get('id')",
                                                             "            },",
                                                             "            success : function (response){",
                                                             "                Ext.Msg.alert('成功提示', '记录删除成功。');",

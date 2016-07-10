@@ -171,6 +171,18 @@ Ext.define('MyApp.view.notice_Publish', {
                 {
                     xtype: 'hiddenfield',
                     anchor: '100%',
+                    fieldLabel: 'hidden',
+                    name: 'readCount'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    fieldLabel: 'hidden',
+                    name: 'publishDate'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
                     id: 'notice_publish_stateField',
                     fieldLabel: 'hidden',
                     name: 'noticeState',

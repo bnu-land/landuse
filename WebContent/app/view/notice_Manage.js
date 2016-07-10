@@ -79,6 +79,11 @@ Ext.define('MyApp.view.notice_Manage', {
                                     format: 'Y-m-d'
                                 },
                                 {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'readCount',
+                                    text: '阅读量'
+                                },
+                                {
                                     xtype: 'datecolumn',
                                     width: 100,
                                     dataIndex: 'editDate',
@@ -191,7 +196,7 @@ Ext.define('MyApp.view.notice_Manage', {
                                                             url : 'del_NoticeToDraft',
                                                             params :
                                                             {
-                                                                news : record
+                                                                id : record.get('id')
                                                             },
                                                             success : function (response){
                                                                 Ext.Msg.alert('成功提示', '记录删除成功。');
