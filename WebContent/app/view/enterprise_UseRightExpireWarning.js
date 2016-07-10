@@ -80,11 +80,15 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
                     dock: 'top',
                     items: [
                         {
-                            xtype: 'textfield'
+                            xtype: 'textfield',
+                            id: 'ent_useRightExpire_searchField'
                         },
                         {
                             xtype: 'button',
-                            text: '搜索'
+                            text: '搜索',
+                            listeners: {
+                                click: 'onButtonClick'
+                            }
                         },
                         {
                             xtype: 'tbseparator'
@@ -115,6 +119,19 @@ Ext.define('MyApp.view.enterprise_UseRightExpireWarning', {
             ]
         }
     ],
+
+    onButtonClick: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_useRightExpire_searchField').getValue();
+        var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load({
+            params: {
+                searchKeyword: keyword,
+                inmonths: ''
+            }
+        });
+
+    },
 
     onButtonClick2: function(button, e, eOpts) {
         var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象

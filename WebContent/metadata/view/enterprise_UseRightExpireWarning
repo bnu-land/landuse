@@ -165,6 +165,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": null,
+                                "id": "ent_useRightExpire_searchField",
                                 "layout|flex": null
                             },
                             "name": "MyTextField",
@@ -182,7 +183,36 @@
                                 "text": "搜索"
                             },
                             "name": "MyButton2",
-                            "designerId": "70efdcf7-8f8f-446f-a3a5-4ce70cc7e13b"
+                            "designerId": "70efdcf7-8f8f-446f-a3a5-4ce70cc7e13b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_useRightExpire_searchField').getValue();",
+                                            "var mystore = Ext.StoreMgr.get('enterprise_ExpireAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load({",
+                                            "    params: {",
+                                            "        searchKeyword: keyword,",
+                                            "        inmonths: ''",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "13fb44b8-0f55-4c91-9c1d-dd75d79179cd"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.toolbar.Separator",

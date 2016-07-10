@@ -26,7 +26,8 @@
             "userConfig": {
                 "extraParams": [
                     "{",
-                    "    searchKeyword: ''",
+                    "    searchKeyword: '',",
+                    "    code: ''",
                     "}"
                 ],
                 "url": "get_EntLandIntensity"

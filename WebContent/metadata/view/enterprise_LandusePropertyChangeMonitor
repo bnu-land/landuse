@@ -279,6 +279,7 @@
                         "layout": "border",
                         "layout|flex": 1,
                         "layout|region": "center",
+                        "manageHeight": false,
                         "title": null
                     },
                     "name": "MyPanel8",

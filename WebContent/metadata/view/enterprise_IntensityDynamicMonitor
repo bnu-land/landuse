@@ -130,6 +130,20 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "qymc",
+                        "text": "企业名称"
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "ca6ed961-cc9a-433f-843d-d3bd8148eaa9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "qydz",
                         "text": "企业地址"
                     },
@@ -392,6 +406,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": null,
+                                "id": "ent_intensityMonitor_SearchField",
                                 "layout|flex": null
                             },
                             "name": "MyTextField",
@@ -409,7 +424,36 @@
                                 "text": "搜索"
                             },
                             "name": "MyButton2",
-                            "designerId": "5181f7d2-2778-4ef5-8a82-9184334452e2"
+                            "designerId": "5181f7d2-2778-4ef5-8a82-9184334452e2",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick3",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: keyword,",
+                                            "        code : ''",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick3",
+                                    "designerId": "67aa0ff7-a7b9-4256-9831-b77e7708cb0e"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.toolbar.Separator",
@@ -433,7 +477,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "layout|flex": null,
-                                "text": "高集约度企业"
+                                "text": "全部"
                             },
                             "name": "MyButton3",
                             "designerId": "9b58a2e6-91ff-4aa0-bde1-bc3eab774c98",
@@ -448,7 +492,15 @@
                                     "userConfig": {
                                         "fn": "onButtonClick",
                                         "implHandler": [
-                                            "var store = Ext.getCmp('enterprise_IntensityAlertStore');",
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        code : ''",
+                                            "    }",
+                                            "});",
                                             ""
                                         ],
                                         "name": "click",
@@ -456,6 +508,49 @@
                                     },
                                     "name": "onButtonClick",
                                     "designerId": "8d10c526-8dff-4c1b-a1cc-7f0924b61df7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "低集约度企业"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "796bdf6f-ac58-4192-8114-759b52d46452",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick2",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        code : '1'",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick2",
+                                    "designerId": "01c3dd61-e068-4c77-99a3-74a41180ef46"
                                 }
                             ]
                         },
@@ -482,11 +577,66 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        code : '2'",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
                                         "name": "click",
                                         "scope": "me"
                                     },
                                     "name": "onButtonClick1",
                                     "designerId": "bb13e736-b6fd-49f6-b896-3d19c4ca65a7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "高集约度企业"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "36af7421-8ef3-44ff-91e8-2c448723025a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick11",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        code : '3'",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick11",
+                                    "designerId": "d96b21aa-3e69-4496-bac4-5a5ac7d92400"
                                 }
                             ]
                         }

@@ -17,12 +17,8 @@ import cn.mutu.land.model.EntQyjyd;
 
 @Service
 public class EnterpriseDynamicMonitorService {
-	private SessionFactory sessionFactory;
-
 	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getEntLanduseChangeList(String searchKeyword) {
@@ -47,12 +43,28 @@ public class EnterpriseDynamicMonitorService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getEntLandIntensity(String keyword,String code) {
+	public Map<String, Object> getEntLandIntensity(String keyword,
+			String intensitcode) {
 		String hql = "FROM EntQyjyd as ent";
-		if(keyword!= null && !keyword.equals("")){
-			
-		}else{
-			
+		if (keyword != null && !keyword.equals("")) {
+			hql = "FROM EntQyjyd as e WHERE e.kfqmc like '%" + keyword
+					+ "%' OR e.qymc LIKE '%" + keyword + "%' OR e.hylb LIKE '%"
+					+ keyword + "%'";
+		} else if (intensitcode != null && !intensitcode.equals("")) {
+			String rjlFrom = "0";
+			String rjlTo = "1000";
+			if (intensitcode.equals("1")) { // 低容积率
+				rjlFrom = "0";
+				rjlTo = "1";
+			} else if (intensitcode.equals("2")) { // 中等容积率
+				rjlFrom = "1";
+				rjlTo = "2.5";
+			} else if (intensitcode.equals("3")) {
+				rjlFrom = "2.5";
+				rjlTo = "1000";
+			}
+			hql = "FROM EntQyjyd as e WHERE e.rjl >= " + rjlFrom + " AND e.rjl <"
+					+ rjlTo;
 		}
 		System.out.print("sql:" + hql);
 		List<EntQyjyd> results = null;
