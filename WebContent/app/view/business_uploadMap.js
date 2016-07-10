@@ -31,7 +31,7 @@ Ext.define('MyApp.view.business_uploadMap', {
         type: 'business_uploadmap'
     },
     autoScroll: true,
-    height: 792,
+    height: 675,
     width: 704,
     layout: 'border',
     title: '企业上传地图数据',
@@ -79,103 +79,120 @@ Ext.define('MyApp.view.business_uploadMap', {
                             Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                         }
                     },
-                    x: 200,
-                    y: 410,
+                    x: 300,
+                    y: 240,
                     text: '提交审核'
                 },
                 {
                     xtype: 'button',
-                    x: 63,
-                    y: 413,
+                    handler: function() {
+                        //加入地图的js文件
+                        var head = document.getElementsByTagName('head')[0];
+                        var script= document.createElement("script");
+                        script.type = "text/javascript";
+                        script.src="mapjs/uploadmap.js";
+                        head.appendChild(script);
+                    },
+                    x: 300,
+                    y: 200,
                     text: '保存预览'
                 },
                 {
                     xtype: 'textfield',
-                    x: 90,
-                    y: 160,
+                    x: 30,
+                    y: 120,
                     width: 140,
                     fieldLabel: '北至坐标',
                     labelWidth: 60,
                     name: 'northCoor',
+                    value: 126.79451,
                     emptyText: '经度'
                 },
                 {
                     xtype: 'textfield',
-                    x: 240,
-                    y: 160,
+                    x: 180,
+                    y: 120,
                     width: 80,
                     fieldLabel: '',
                     labelWidth: 60,
                     name: 'northCoorw',
+                    value: 45.71726,
                     emptyText: '纬度'
                 },
                 {
                     xtype: 'textfield',
-                    x: 150,
-                    y: 240,
+                    x: 180,
+                    y: 160,
                     width: 80,
                     fieldLabel: '',
                     labelWidth: 60,
                     name: 'westCoorw',
-                    emptyText: '纬度'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 0,
-                    y: 240,
-                    width: 140,
-                    fieldLabel: '西至坐标',
-                    labelWidth: 60,
-                    name: 'westCoor',
-                    emptyText: '经度'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 230,
-                    y: 240,
-                    width: 140,
-                    fieldLabel: '东至坐标',
-                    labelWidth: 60,
-                    name: 'eastCoor',
-                    emptyText: '经度'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 380,
-                    y: 240,
-                    width: 80,
-                    labelWidth: 60,
-                    name: 'eastCoorw',
-                    emptyText: '纬度'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 90,
-                    y: 330,
-                    width: 140,
-                    fieldLabel: '南至坐标',
-                    labelWidth: 60,
-                    name: 'southCoor',
-                    emptyText: '经度'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 240,
-                    y: 330,
-                    width: 80,
-                    fieldLabel: '',
-                    labelWidth: 60,
-                    name: 'southCoorw',
+                    value: 45.71626,
                     emptyText: '纬度'
                 },
                 {
                     xtype: 'textfield',
                     x: 30,
-                    y: 100,
+                    y: 160,
+                    width: 140,
+                    fieldLabel: '西至坐标',
+                    labelWidth: 60,
+                    name: 'westCoor',
+                    value: 126.79351,
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 30,
+                    y: 200,
+                    width: 140,
+                    fieldLabel: '东至坐标',
+                    labelWidth: 60,
+                    name: 'eastCoor',
+                    value: 126.79551,
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 180,
+                    y: 200,
+                    width: 80,
+                    labelWidth: 60,
+                    name: 'eastCoorw',
+                    value: 45.71626,
+                    emptyText: '纬度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 30,
+                    y: 240,
+                    width: 140,
+                    fieldLabel: '南至坐标',
+                    labelWidth: 60,
+                    name: 'southCoor',
+                    value: 126.79451,
+                    emptyText: '经度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 180,
+                    y: 240,
+                    width: 80,
+                    fieldLabel: '',
+                    labelWidth: 60,
+                    name: 'southCoorw',
+                    value: 45.71526,
+                    emptyText: '纬度'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 30,
+                    y: 80,
                     width: 290,
                     fieldLabel: '企业用户',
                     labelWidth: 70,
-                    name: 'uploadUser'
+                    name: 'uploadUser',
+                    value: '用户'
                 },
                 {
                     xtype: 'textfield',
@@ -184,7 +201,8 @@ Ext.define('MyApp.view.business_uploadMap', {
                     width: 290,
                     fieldLabel: '项目编号',
                     labelWidth: 70,
-                    name: 'proCode'
+                    name: 'proCode',
+                    value: '20160710****'
                 }
             ]
         },
@@ -204,7 +222,7 @@ Ext.define('MyApp.view.business_uploadMap', {
             xtype: 'gridpanel',
             region: 'south',
             autoScroll: true,
-            height: 180,
+            height: 170,
             collapsed: false,
             collapsible: false,
             title: '数据浏览',
@@ -275,7 +293,7 @@ Ext.define('MyApp.view.business_uploadMap', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/uploadmap.js";
+        script.src="mapjs/homeMap.js";
         head.appendChild(script);
     }
 

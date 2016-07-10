@@ -115,6 +115,9 @@
                         "layout|x": 30,
                         "layout|y": 250,
                         "name": "other",
+                        "value": [
+                            "无"
+                        ],
                         "width": 360
                     },
                     "name": "MyTextArea",
@@ -129,6 +132,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "图片标题",
+                        "id": "title_photo",
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 140,
@@ -153,29 +157,6 @@
                     "designerId": "f4e7398f-89d0-4c6e-86fa-ea4ce5eb0634"
                 },
                 {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "blankText": "此项不能为空",
-                        "designer|displayName": "photoPath",
-                        "emptyText": "选择本地图片路径",
-                        "fieldLabel": "上传图片",
-                        "id": "photo_path",
-                        "labelWidth": 70,
-                        "layout|x": 30,
-                        "layout|y": 90,
-                        "maxLengthText": "The maximum length for this field is {200}",
-                        "name": "photoPath",
-                        "width": 400
-                    },
-                    "name": "MyTextField16",
-                    "designerId": "ef40b135-7772-46a5-958d-a5d09c3a0163"
-                },
-                {
                     "type": "Ext.form.field.File",
                     "reference": {
                         "name": "items",
@@ -197,7 +178,29 @@
                         "width": 400
                     },
                     "name": "MyFileUpload",
-                    "designerId": "4f57fb05-519b-43b7-b85d-0d6ca9238ad7"
+                    "designerId": "4f57fb05-519b-43b7-b85d-0d6ca9238ad7",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onChoosePictureChange",
+                                "implHandler": [
+                                    "var title_photo=Ext.getCmp(\"title_photo\");",
+                                    "var name=value.Substring(value.lastindex(\"\\\\\"));",
+                                    "title_photo.value=name;"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onChoosePictureChange",
+                            "designerId": "a54e8037-1f92-4792-addc-d93c17f55ccf"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -211,7 +214,10 @@
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 190,
-                        "name": "uploadUser"
+                        "name": "uploadUser",
+                        "value": [
+                            "企业用户"
+                        ]
                     },
                     "name": "MyTextField9",
                     "designerId": "8f0d67c7-982b-4ab2-affe-92c904552879"
@@ -228,7 +234,10 @@
                         "labelWidth": 70,
                         "layout|x": 30,
                         "layout|y": 40,
-                        "name": "proCode"
+                        "name": "proCode",
+                        "value": [
+                            "20160710****"
+                        ]
                     },
                     "name": "MyTextField8",
                     "designerId": "2ca14a62-a310-458f-a4c6-eedb00f923fd"

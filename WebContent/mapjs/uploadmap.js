@@ -35,7 +35,7 @@ require([
         });
         var polygonSymbol=new SimpleFillSymbol();
         var text = new TextSymbol("要上传的开发区域");
-        text.font.setSize("20pt");
+       // text.font.setSize("20pt");
         
         function addPolygon(){
         	var polygon=new Polygon({

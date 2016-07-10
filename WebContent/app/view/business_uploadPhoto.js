@@ -37,6 +37,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
     width: 959,
     layout: 'border',
     title: '企业上传图片数据',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -95,12 +96,14 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     width: 360,
                     fieldLabel: '备注',
                     labelWidth: 70,
-                    name: 'other'
+                    name: 'other',
+                    value: '无'
                 },
                 {
                     xtype: 'textfield',
                     x: 30,
                     y: 140,
+                    id: 'title_photo',
                     fieldLabel: '图片标题',
                     labelWidth: 70,
                     name: 'photoTitle'
@@ -110,19 +113,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     x: 360,
                     y: 130,
                     text: '预览图片-->'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 30,
-                    y: 90,
-                    id: 'photo_path',
-                    width: 400,
-                    fieldLabel: '上传图片',
-                    labelWidth: 70,
-                    name: 'photoPath',
-                    blankText: '此项不能为空',
-                    emptyText: '选择本地图片路径',
-                    maxLengthText: 'The maximum length for this field is {200}'
                 },
                 {
                     xtype: 'filefield',
@@ -136,7 +126,10 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     blankText: '此项不能为空',
                     emptyText: '选择本地图片路径',
                     maxLengthText: 'The maximum length for this field is {200}',
-                    buttonText: '选择图片'
+                    buttonText: '选择图片',
+                    listeners: {
+                        change: 'onChoosePictureChange'
+                    }
                 },
                 {
                     xtype: 'textfield',
@@ -144,7 +137,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     y: 190,
                     fieldLabel: '上传用户',
                     labelWidth: 70,
-                    name: 'uploadUser'
+                    name: 'uploadUser',
+                    value: '企业用户'
                 },
                 {
                     xtype: 'textfield',
@@ -152,7 +146,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                     y: 40,
                     fieldLabel: '项目编号',
                     labelWidth: 70,
-                    name: 'proCode'
+                    name: 'proCode',
+                    value: '20160710****'
                 }
             ]
         },
@@ -205,6 +200,12 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                 }
             ]
         }
-    ]
+    ],
+
+    onChoosePictureChange: function(filefield, value, eOpts) {
+        var title_photo=Ext.getCmp("title_photo");
+        var name=value.Substring(value.lastindex("\\"));
+        title_photo.value=name;
+    }
 
 });

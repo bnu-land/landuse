@@ -6,11 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|snapToGrid": 10,
         "designer|userAlias": "business_message",
         "designer|userClassName": "business_message",
         "height": 488,
-        "layout": "absolute",
+        "layout": "border",
         "title": "企业预警与通知",
         "width": 729
     },
@@ -20,68 +19,390 @@
     "viewModelInstanceId": "62d64b7c-24ce-4ca1-97bf-2a5aa5b0a893",
     "cn": [
         {
-            "type": "Ext.Img",
+            "type": "Ext.panel.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "height": 201,
-                "layout|x": 130,
-                "layout|y": 110,
-                "src": "images/ico/warning_ico.jpg",
-                "width": 201
+                "layout|region": "west",
+                "layout|split": true,
+                "title": "",
+                "width": "50%"
             },
-            "name": "MyImg",
-            "designerId": "9ac81d4e-9128-40de-be97-09fd9eebc3ca"
+            "name": "MyPanel16",
+            "designerId": "95da9dbd-cbb6-45a1-9ac2-fed265d1907a",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "height": "50%",
+                        "id": "notice_NewsManageGrid1",
+                        "store": "notice_newsStore",
+                        "title": "新闻速递"
+                    },
+                    "name": "MyGridPanel4",
+                    "designerId": "06a0d8b4-a687-48d4-b5eb-cdd112fe9189",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "noticeTitle",
+                                "text": "标题",
+                                "width": 250
+                            },
+                            "name": "MyColumn6",
+                            "designerId": "3323d0ae-319b-42a5-873a-beb8c3a3f14c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "noticeAuthor",
+                                "text": "作者"
+                            },
+                            "name": "MyColumn7",
+                            "designerId": "6e21d52d-b0af-4908-8ae5-7b5a959ff37c"
+                        },
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "publishDate",
+                                "format": "Y-m-d",
+                                "text": "发表时间",
+                                "width": 100
+                            },
+                            "name": "MyDateColumn",
+                            "designerId": "107606bb-c1cb-43c3-b95e-93eaa14940a1"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "91b0f103-f437-4c0e-bbbc-948a65e303f4"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "name": "MyToolbar1",
+                            "designerId": "b6d3db58-677d-4920-bcf9-3cfb3a64dc44",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "href": "http://localhost:8080/landuse/public/more.html?title=news",
+                                        "icon": "images/table/search.png",
+                                        "layout|flex": null,
+                                        "text": "查看更多"
+                                    },
+                                    "name": "MyButton",
+                                    "designerId": "59cb8a2a-99d5-4bce-9011-1e1478baac7c"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.selection.CheckboxModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyCheckboxSelectionModel",
+                            "designerId": "3b4a9005-8e83-4f31-8bd9-0dbd07b50fcf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "height": 223,
+                        "id": "notice_NewsManageGrid2",
+                        "store": "notice_newsStore",
+                        "title": "通知公告"
+                    },
+                    "name": "MyGridPanel5",
+                    "designerId": "0b9e4029-2e08-47e9-9a55-8b1e81089c02",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "noticeTitle",
+                                "text": "标题",
+                                "width": 250
+                            },
+                            "name": "MyColumn6",
+                            "designerId": "d124e762-7c10-48de-b3ab-3fa961673b43"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "noticeAuthor",
+                                "text": "作者"
+                            },
+                            "name": "MyColumn7",
+                            "designerId": "a2d5a361-373a-4c91-a19d-6b6043e769ee"
+                        },
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "publishDate",
+                                "format": "Y-m-d",
+                                "text": "发表时间",
+                                "width": 100
+                            },
+                            "name": "MyDateColumn",
+                            "designerId": "9544433c-aec8-4862-9413-27e59d7088c4"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "1dc1f6ba-d864-4d6d-8a14-792c3b1ae51a"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "name": "MyToolbar1",
+                            "designerId": "bbf1f321-05b3-4cff-bcaa-d60cc120dfdb",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "href": "http://localhost:8080/landuse/public/more.html?title=notice",
+                                        "icon": "images/table/search.png",
+                                        "layout|flex": null,
+                                        "text": "查看更多"
+                                    },
+                                    "name": "MyButton",
+                                    "designerId": "6fb1691a-0d59-4a43-b42c-83b147857e44"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.selection.CheckboxModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyCheckboxSelectionModel",
+                            "designerId": "853ba2f0-368e-46fa-b83c-9d40b28c6b64"
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "type": "Ext.Img",
+            "type": "Ext.panel.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "height": 201,
-                "layout|x": 530,
-                "layout|y": 110,
-                "src": "images/ico/message_ico.jpg",
-                "width": 201
+                "layout|region": "center"
             },
-            "name": "MyImg1",
-            "designerId": "c9feda33-7ad2-44f3-b541-138e368eb507"
-        },
-        {
-            "type": "Ext.form.Label",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "layout|x": 190,
-                "layout|y": 60,
-                "text": "我的预警通知"
-            },
-            "name": "MyLabel3",
-            "designerId": "0da1f55c-12a7-4a78-93a6-afe011028c84"
-        },
-        {
-            "type": "Ext.form.Label",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "layout|x": 580,
-                "layout|y": 60,
-                "text": "我的消息通知"
-            },
-            "name": "MyLabel4",
-            "designerId": "170fa472-70e3-4d34-b896-64c368d275cb"
+            "name": "MyPanel22",
+            "designerId": "acf53a2e-71bc-470d-9d98-34ccc26d581d",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 158,
+                        "layout": "absolute",
+                        "title": "企业用地集约度"
+                    },
+                    "name": "MyPanel19",
+                    "designerId": "4a83f3fc-5166-40ea-ac60-3334be97b93a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "当前企业用地集约度为",
+                                "labelWidth": 140,
+                                "layout|x": 40,
+                                "layout|y": 40,
+                                "width": 250
+                            },
+                            "name": "MyTextField15",
+                            "designerId": "f542e6e0-34e9-4d66-b3a5-107d10ba1cbd",
+                            "cn": [
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "alert(\"当前企业集约度为87\");"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "6572e53f-b624-4645-b4d0-4c128d262ce1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 151,
+                        "layout": "absolute",
+                        "title": "企业用地到期提醒"
+                    },
+                    "name": "MyPanel20",
+                    "designerId": "75dd9667-2ae2-49fd-b2f4-bead46b795d3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "企业用地到期土地",
+                                "labelWidth": 140,
+                                "layout|x": 40,
+                                "layout|y": 40,
+                                "width": 250
+                            },
+                            "name": "MyTextField17",
+                            "designerId": "190686b9-36c3-463d-b37a-df39be95b3b5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 147,
+                        "layout": "absolute",
+                        "title": "数据上报任务到期提醒"
+                    },
+                    "name": "MyPanel21",
+                    "designerId": "5cf898c6-59f9-445e-b8b7-126a9c11a18c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "企业数据上报任务到期",
+                                "labelWidth": 140,
+                                "layout|x": 40,
+                                "layout|y": 40,
+                                "width": 250
+                            },
+                            "name": "MyTextField18",
+                            "designerId": "d2a599c6-a566-4f59-bdae-bc53008cde9a"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
