@@ -1,5 +1,5 @@
 var map = new BMap.Map("map");
-    map.centerAndZoom(new BMap.Point(126.79451,45.71626), 14);
+    map.centerAndZoom(new BMap.Point(126.79451,45.71626), 16);
     map.addControl(new BMap.NavigationControl());    //地图平移缩放控件PC端默认位于地图左上方，它包含控制地图的平移和缩放的功能。移动端提供缩放控件，默认位于地图右下方。
     map.addControl(new BMap.OverviewMapControl());   //添加缩略地图控件，默认位于地图右下方，是一个可折叠的缩略地图。
     map.addControl(new BMap.ScaleControl());     //比例尺控件，默认位于地图左下方，显示地图的比例关系。

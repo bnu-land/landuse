@@ -26,6 +26,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "layout": "border",
                 "layout|region": "west",
                 "layout|split": true,
                 "title": "",
@@ -43,8 +44,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "autoScroll": true,
-                        "height": "50%",
                         "id": "notice_NewsManageGrid1",
+                        "layout|region": "center",
                         "store": "notice_newsStore",
                         "title": "新闻速递"
                     },
@@ -158,8 +159,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "autoScroll": true,
-                        "height": 223,
+                        "height": "50%",
                         "id": "notice_NewsManageGrid2",
+                        "layout|region": "north",
                         "store": "notice_newsStore",
                         "title": "通知公告"
                     },
@@ -307,6 +309,9 @@
                                 "labelWidth": 140,
                                 "layout|x": 40,
                                 "layout|y": 40,
+                                "value": [
+                                    "87.3"
+                                ],
                                 "width": 250
                             },
                             "name": "MyTextField15",
@@ -360,6 +365,9 @@
                                 "labelWidth": 140,
                                 "layout|x": 40,
                                 "layout|y": 40,
+                                "value": [
+                                    "2"
+                                ],
                                 "width": 250
                             },
                             "name": "MyTextField17",
@@ -395,6 +403,9 @@
                                 "labelWidth": 140,
                                 "layout|x": 40,
                                 "layout|y": 40,
+                                "value": [
+                                    "上报地图信息"
+                                ],
                                 "width": 250
                             },
                             "name": "MyTextField18",

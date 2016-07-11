@@ -192,8 +192,8 @@ $.ajax({
             success: function(result) {
 
                 var data = result.root;
-                $("#first_title").html("新闻速递");
-                $("#local").html("当前位置： <a href='homeIndex.html'>首页</a> &raquo; 新闻速递");
+                $("#first_title").html("土地政策");
+                $("#local").html("当前位置： <a href='homeIndex.html'>首页</a> &raquo; 土地政策");
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].publishDate == null) {
                         data[i].publishDate = "未发布";

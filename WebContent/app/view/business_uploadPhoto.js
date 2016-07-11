@@ -41,113 +41,151 @@ Ext.define('MyApp.view.business_uploadPhoto', {
 
     items: [
         {
-            xtype: 'form',
+            xtype: 'panel',
             region: 'west',
-            id: 'photo_info',
-            width: '40%',
-            layout: 'absolute',
-            title: '图片信息录入',
-            jsonSubmit: true,
-            url: 'add_Photos',
+            split: true,
+            width: '50%',
+            layout: 'border',
+            title: '',
             items: [
                 {
-                    xtype: 'button',
-                    handler: function() {
-                        var myform = Ext.getCmp('photo_info').getForm();
-                        var choose=Ext.getCmp('choosePicture').value;
-                        var photo_path=Ext.getCmp('photo_path');
-                        //var path=Ext.widget('photoPath').value;
-                        if (myform.isValid())
+                    xtype: 'form',
+                    region: 'north',
+                    autoScroll: true,
+                    height: '50%',
+                    id: 'photo_info',
+                    layout: 'absolute',
+                    title: '图片信息录入',
+                    jsonSubmit: true,
+                    url: 'add_Photos',
+                    items: [
                         {
-                            console.log("控件有效");
-
-                            console.log(choose);
-                            myform.submit({
-                                //url : 'add_picture',
-                                success : function (form, action)
+                            xtype: 'button',
+                            handler: function() {
+                                var myform = Ext.getCmp('photo_info').getForm();
+                                var choose=Ext.getCmp('choosePicture').value;
+                                var photo_path=Ext.getCmp('photo_path');
+                                //var path=Ext.widget('photoPath').value;
+                                if (myform.isValid())
                                 {
-                                    console.log("成功进入");
-                                    Ext.Msg.alert('成功', '图片上传成功。');
-                                    var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象
-                                    mystore.reload();
-                                    var xtype = 'business_uploadPhoto';
-                                    var mainView = Ext.getCmp('mainView');
-                                    mainView.removeAll();
-                                    mainView.add(Ext.widget(xtype));
-                                },
-                                failure: function(form, action){
-                                    Ext.Msg.alert('失败', '图片上传失败，请重试。');
+                                    console.log("控件有效");
+
+                                    console.log(choose);
+                                    myform.submit({
+                                        //url : 'add_picture',
+                                        success : function (form, action)
+                                        {
+                                            console.log("成功进入");
+                                            Ext.Msg.alert('成功', '图片上传成功。');
+                                            var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象
+                                            mystore.reload();
+                                            var xtype = 'business_uploadPhoto';
+                                            var mainView = Ext.getCmp('mainView');
+                                            mainView.removeAll();
+                                            mainView.add(Ext.widget(xtype));
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '图片上传失败，请重试。');
+                                        }
+                                    });
                                 }
-                            });
-                        }
-                        else
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
+                            x: 270,
+                            y: 340,
+                            text: '提交审核'
+                        },
                         {
-                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                            xtype: 'textareafield',
+                            x: 30,
+                            y: 250,
+                            width: 360,
+                            fieldLabel: '备注',
+                            labelWidth: 70,
+                            name: 'other',
+                            value: '无'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 30,
+                            y: 140,
+                            id: 'title_photo',
+                            fieldLabel: '图片标题',
+                            labelWidth: 70,
+                            name: 'photoTitle'
+                        },
+                        {
+                            xtype: 'filefield',
+                            x: 30,
+                            y: 90,
+                            id: 'choosePicture',
+                            width: 400,
+                            fieldLabel: '上传图片',
+                            labelWidth: 70,
+                            name: 'choosePhoto',
+                            blankText: '此项不能为空',
+                            emptyText: '选择本地图片路径',
+                            maxLengthText: 'The maximum length for this field is {200}',
+                            buttonText: '选择图片',
+                            listeners: {
+                                change: 'onChoosePictureChange'
+                            }
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 30,
+                            y: 190,
+                            fieldLabel: '上传用户',
+                            labelWidth: 70,
+                            name: 'uploadUser',
+                            value: '企业用户'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 30,
+                            y: 40,
+                            fieldLabel: '项目编号',
+                            labelWidth: 70,
+                            name: 'proCode',
+                            value: '20160710****'
                         }
-                    },
-                    x: 270,
-                    y: 340,
-                    text: '提交审核'
+                    ]
                 },
                 {
-                    xtype: 'textareafield',
-                    x: 30,
-                    y: 250,
-                    width: 360,
-                    fieldLabel: '备注',
-                    labelWidth: 70,
-                    name: 'other',
-                    value: '无'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 30,
-                    y: 140,
-                    id: 'title_photo',
-                    fieldLabel: '图片标题',
-                    labelWidth: 70,
-                    name: 'photoTitle'
-                },
-                {
-                    xtype: 'button',
-                    x: 360,
-                    y: 130,
-                    text: '预览图片-->'
-                },
-                {
-                    xtype: 'filefield',
-                    x: 30,
-                    y: 90,
-                    id: 'choosePicture',
-                    width: 400,
-                    fieldLabel: '上传图片',
-                    labelWidth: 70,
-                    name: 'choosePhoto',
-                    blankText: '此项不能为空',
-                    emptyText: '选择本地图片路径',
-                    maxLengthText: 'The maximum length for this field is {200}',
-                    buttonText: '选择图片',
-                    listeners: {
-                        change: 'onChoosePictureChange'
-                    }
-                },
-                {
-                    xtype: 'textfield',
-                    x: 30,
-                    y: 190,
-                    fieldLabel: '上传用户',
-                    labelWidth: 70,
-                    name: 'uploadUser',
-                    value: '企业用户'
-                },
-                {
-                    xtype: 'textfield',
-                    x: 30,
-                    y: 40,
-                    fieldLabel: '项目编号',
-                    labelWidth: 70,
-                    name: 'proCode',
-                    value: '20160710****'
+                    xtype: 'gridpanel',
+                    region: 'center',
+                    autoScroll: true,
+                    title: '图片列表',
+                    store: 'Business_photoStore',
+                    columns: [
+                        {
+                            xtype: 'rownumberer',
+                            width: 60,
+                            dataIndex: 'string',
+                            text: '序号'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 200,
+                            defaultWidth: 200,
+                            dataIndex: 'photoTitle',
+                            text: '图片标题'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'uploadUser',
+                            text: '上传用户'
+                        },
+                        {
+                            xtype: 'datecolumn',
+                            width: 159,
+                            dataIndex: 'upDate',
+                            text: '上传时间'
+                        }
+                    ]
                 }
             ]
         },
@@ -164,35 +202,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
             titleAlign: 'center',
             titleCollapse: false,
             items: [
-                {
-                    xtype: 'gridpanel',
-                    region: 'west',
-                    width: '30%',
-                    title: '图片列表',
-                    store: 'Business_photoStore',
-                    columns: [
-                        {
-                            xtype: 'rownumberer',
-                            dataIndex: 'string',
-                            text: '序号'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'photoTitle',
-                            text: '图片标题'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'uploadUser',
-                            text: '上传用户'
-                        },
-                        {
-                            xtype: 'datecolumn',
-                            dataIndex: 'upDate',
-                            text: '上传时间'
-                        }
-                    ]
-                },
                 {
                     xtype: 'image',
                     region: 'center',

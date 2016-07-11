@@ -61,7 +61,7 @@
                         <span id="landchange" class="title">土地动态</span>
                          <a  class="more" href="more.html?title=landchange">查看更多</a>
                     </div>
-                    <div class="subbody-b-list" style="height:200px;">
+                    <div class="subbody-b-list" style="height:250px;">
                         <ul id="landchange_noticeTitle" class="">
                         </ul>
                     </div>
@@ -80,7 +80,7 @@
                         <span id="landlaw" class="title">土地政策</span>
                          <a  class="more" href="more.html?title=landlaw">查看更多</a>
                     </div>
-                    <div class="subbody-b-list" style="height:200px;">
+                    <div class="subbody-b-list" style="height:250px;">
                         <ul id="landlaw_noticeTitle" class="">
                         </ul>
                     </div>
@@ -118,7 +118,7 @@
             </div>
             <hr style="height:10px;border:none;border-top:10px groove skyblue;" />
             <div>
-
+ 
                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
@@ -141,7 +141,7 @@
                                 <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
                                     <tbody>
                                         <tr id="lawtr">
-                                            <td class='boxtitle' align='left' width='50%' height='31'><span class="title">信息标题</span></td>
+                                            <td class='boxtitle' align='left' width='50%' height='31'><span class="title">标题</span></td>
                                             <td class='boxtitle' align='middle' width='20%' height='31'><span class="title">阅读量</span></td>
                                             <td class='boxtitle' align='middle' width='30%' height='31'><span class="title">发布时间</span></td>
                                         </tr>
@@ -193,6 +193,7 @@ $.ajax({
     }
 
 });
+var i1,i2,i3,i4;
 $.ajax({
 
 
@@ -204,17 +205,33 @@ $.ajax({
 
         var data = result.root;
         var i = 0;
+        
+        i1=i3=i4=i2=0;
         for (i; i < data.length; i++) {
             if (data[i].publishDate == null) {
-                data[i].publishDate = "未发布";
+                data[i].publishDate = "2016-4-3";
             }
             console.log("新闻：" + data[i].publishDate);
             console.log(data[i].noticeTitle);
             console.log(data[i].noticeColumn);
-            getNotice(data[i], "新闻速递", "news_noticeTitle");
-            getNotice(data[i], "通知公告", "notice_noticeTitle");
-            getNotice(data[i], "土地动态", "landchange_noticeTitle");
-            getNotice(data[i], "土地政策", "landlaw_noticeTitle");
+
+
+
+
+
+
+
+
+
+
+
+            if(getNotice(data[i], "新闻速递", "news_noticeTitle",i1)){
+                i1++;
+
+            };
+            if(getNotice(data[i], "通知公告", "notice_noticeTitle",i2)){i2++;};
+            if(getNotice(data[i], "土地动态", "landchange_noticeTitle",i3)){i3++;};
+            if(getNotice(data[i], "土地政策", "landlaw_noticeTitle",i4)){i4++;};
 
         };
 
@@ -251,13 +268,17 @@ function law_list(lawtype) {
 
 };
 
-function getNotice(dataMsg, titles, addMsg) {
-    if (dataMsg.noticeColumn == titles) {
+ function getNotice(dataMsg, titles, addMsg,count) {
+    
+    if (dataMsg.noticeColumn == titles&&count<5 ) {
         console.log(titles + "绑定ID：" + dataMsg.id.toString());
         var Msg_title = "<li><a class='aa' href='info_detail.html?notice_id=" + dataMsg.id + "'><span >" + dataMsg.noticeTitle + "</span><span class='pull-right'>阅读"+dataMsg.readCount+"次" + dataMsg.publishDate + "</span></a></li>";
         $("#" + addMsg).append(Msg_title);
+        return true;
 
     }
+    else
+        return false;
 
 };
 //显示前10条记录

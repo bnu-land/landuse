@@ -42,12 +42,13 @@ Ext.define('MyApp.view.business_message', {
             region: 'west',
             split: true,
             width: '50%',
+            layout: 'border',
             title: '',
             items: [
                 {
                     xtype: 'gridpanel',
+                    region: 'center',
                     autoScroll: true,
-                    height: '50%',
                     id: 'notice_NewsManageGrid1',
                     title: '新闻速递',
                     store: 'notice_newsStore',
@@ -91,8 +92,9 @@ Ext.define('MyApp.view.business_message', {
                 },
                 {
                     xtype: 'gridpanel',
+                    region: 'north',
                     autoScroll: true,
-                    height: 223,
+                    height: '50%',
                     id: 'notice_NewsManageGrid2',
                     title: '通知公告',
                     store: 'notice_newsStore',
@@ -155,7 +157,8 @@ Ext.define('MyApp.view.business_message', {
                             y: 40,
                             width: 250,
                             fieldLabel: '当前企业用地集约度为',
-                            labelWidth: 140
+                            labelWidth: 140,
+                            value: 87.3
                         }
                     ]
                 },
@@ -171,7 +174,8 @@ Ext.define('MyApp.view.business_message', {
                             y: 40,
                             width: 250,
                             fieldLabel: '企业用地到期土地',
-                            labelWidth: 140
+                            labelWidth: 140,
+                            value: 2
                         }
                     ]
                 },
@@ -187,7 +191,8 @@ Ext.define('MyApp.view.business_message', {
                             y: 40,
                             width: 250,
                             fieldLabel: '企业数据上报任务到期',
-                            labelWidth: 140
+                            labelWidth: 140,
+                            value: '上报地图信息'
                         }
                     ]
                 }
