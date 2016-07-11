@@ -178,7 +178,9 @@ Ext.application({
         'system_MenuManage',
         'db_RoleInfoAddWindow',
         'db_RoleInfoEditWindow',
-        'db_RoleRightSettingWindow'
+        'db_RoleRightSettingWindow',
+        'enterprise_uploadMapCheck',
+        'enterprise_uploadMapCheckResultWindow'
     ],
     name: 'MyApp',
 

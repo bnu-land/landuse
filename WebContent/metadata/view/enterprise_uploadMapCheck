@@ -1,0 +1,472 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "enterprise_uploadMapCheck",
+        "designer|userClassName": "enterprise_uploadMapCheck",
+        "height": 675,
+        "layout": "border",
+        "title": "企业上传地图数据",
+        "width": 879
+    },
+    "name": "business_uploadMap1",
+    "designerId": "e12358d0-11cc-4cd7-b3e7-e39a6572c2c4",
+    "viewControllerInstanceId": "f67a769a-e148-45bf-ba73-2b029a474704",
+    "viewModelInstanceId": "35e27102-339c-45a8-8d91-82ff3b0644b6",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseDirection": "right",
+                "collapsible": false,
+                "dock": null,
+                "html": [
+                    "<div id=\"map\"></div>"
+                ],
+                "layout|region": "center",
+                "title": "地图预览"
+            },
+            "name": "MyPanel7",
+            "designerId": "d78af84c-9226-4b93-8bc0-6c6346896758",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onPanelBeforeRender",
+                        "implHandler": [
+                            "//加入地图的js文件",
+                            "var head = document.getElementsByTagName('head')[0];",
+                            "var script= document.createElement(\"script\");",
+                            "script.type = \"text/javascript\";",
+                            "script.src=\"mapjs/uploadmap.js\";",
+                            "head.appendChild(script);"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onPanelBeforeRender",
+                    "designerId": "72d11d2f-8720-4545-bf8f-8ec123cdb59a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "collapsed": false,
+                "collapsible": false,
+                "enableColumnHide": false,
+                "height": "50%",
+                "id": "ent_uploadInfoCheckGrid",
+                "layout|region": "north",
+                "store": "Business_mapStore",
+                "title": null
+            },
+            "name": "MyGridPanel2",
+            "designerId": "2dd052d9-4eb6-4f07-9779-0cc41e116f59",
+            "cn": [
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel1",
+                    "designerId": "5d3bf1f8-0349-435c-a3f4-763389cf35f6"
+                },
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "序号"
+                    },
+                    "name": "MyRowNumberer2",
+                    "designerId": "c5281520-16dd-43ee-9c71-c5e4bc696127"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "proCode",
+                        "text": "项目编号"
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "1d0ad763-0be3-4cc6-aad9-7ca999674562"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "uploadUser",
+                        "text": "上传用户"
+                    },
+                    "name": "MyColumn10",
+                    "designerId": "b05b0caf-0832-4159-9390-2247536f3f02"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "isPass",
+                        "text": "审核结果"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "f1f3e5af-c9c6-4b44-9590-ab66be0aec7b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "checkResult",
+                        "text": "审核批语"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "c23a544a-50f3-4f3a-ab21-5ab7104c0f6f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "westCoor",
+                        "text": "北至坐标经度"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "9785f5ba-4178-4c1e-b492-9b48d57d2ff8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "northCoorw",
+                        "text": "北至坐标纬度"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "2344d7d7-cf56-4196-84aa-00c23731e204"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "westCoor",
+                        "text": "西至坐标经度"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "47bef30b-eb84-4142-9e35-bd18419e33c4"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "westCoorw",
+                        "text": "西至坐标纬度"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "d386bb3a-fc01-4fa3-9285-7a699c644ecc"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "eastCoor",
+                        "text": "东至坐标经度"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "8e71e91a-00a3-4c78-8431-7706a876ae29"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "eastCoorw",
+                        "text": "东至坐标纬度"
+                    },
+                    "name": "MyColumn16",
+                    "designerId": "08f19210-cbb7-4c3f-8a67-850891c5abd0"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "southCoor",
+                        "text": "南至坐标经度"
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "c5b9aad7-440a-41cc-a7e2-15673a9e1314"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "southCoorw",
+                        "text": "南至坐标纬度"
+                    },
+                    "name": "MyColumn17",
+                    "designerId": "38d270c9-89d9-41b0-bdec-fc3cd64c9384"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView2",
+                    "designerId": "9a188bcc-30c1-41e8-ba10-2888c4d8fecb"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "1410f4e8-e085-4791-b6ab-38b326410fa2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": null,
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "ad70e1ea-e1ea-42b9-931f-19edd9d51777"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "搜索"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "66751a8d-391c-479a-9799-5d50017534d1"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MySeparator1",
+                            "designerId": "4249e7e4-c894-4132-8652-01e2b3127959"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "通过"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "1a1fcd13-74e0-43b4-ab30-089cd3e8ddde",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var grid = Ext.getCmp('ent_uploadInfoCheckGrid');",
+                                            "var records = grid.getSelection();",
+                                            "if (records.length === 0) {",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后进行审核。');",
+                                            "    return;",
+                                            "}",
+                                            "var ids = [];",
+                                            "for (var re in records) {",
+                                            "    var record = records[re];",
+                                            "    ids.push(record.get('id'));",
+                                            "}",
+                                            "//执行通过或拒绝",
+                                            "Ext.Ajax.request({",
+                                            "    url: 'set_EntUploadCheckPass',",
+                                            "    params: {",
+                                            "        \"ids\": ids,",
+                                            "        \"isPass\": 1",
+                                            "    },",
+                                            "    success: function() {",
+                                            "        Ext.Msg.alert('成功', '企业信息通过审核！');",
+                                            "        grid.getStore().reload();",
+                                            "    },",
+                                            "    failure: function() {",
+                                            "        Ext.Msg.alert('失败', '审核失败，可能由网络问题造成，请刷新重试。');",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "bdecb8aa-645d-4804-bec5-ca5a7705c045"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "不通过"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "06a3d1b5-9ac1-4933-a044-b96f359e5295",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('ent_uploadInfoCheckGrid').getSelection();",
+                                            "if (records.length === 0) {",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后进行审核。');",
+                                            "    return;",
+                                            "}",
+                                            "var ids = [];",
+                                            "for (var re in records) {",
+                                            "    var record = records[re];",
+                                            "    ids.push(record.get('id'));",
+                                            "}",
+                                            "//执行通过或拒绝",
+                                            "Ext.Ajax.request({",
+                                            "    url: 'set_EntUploadCheckPass',",
+                                            "    params: {",
+                                            "        \"ids\": ids,",
+                                            "        \"isPass\": 2",
+                                            "    },",
+                                            "    success: function() {",
+                                            "        //启动窗口",
+                                            "        var win = Ext.widget('enterprise_uploadMapCheckResultWindow');",
+                                            "        win.show();",
+                                            "    },",
+                                            "    failure: function() {",
+                                            "        Ext.Msg.alert('失败', '审核失败，可能由网络问题造成，请刷新重试。');",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "10618aa4-520f-4caf-9eb6-2d082f0c9b1d"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

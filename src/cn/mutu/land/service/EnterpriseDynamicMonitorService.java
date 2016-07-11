@@ -3,23 +3,28 @@ package cn.mutu.land.service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.mutu.land.model.BusinessMap;
 import cn.mutu.land.model.EntDxqyydPda;
 import cn.mutu.land.model.EntExpirealert;
 import cn.mutu.land.model.EntQyjyd;
+import cn.mutu.land.model.LandKfqType;
 
 @Service
 public class EnterpriseDynamicMonitorService {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	// --------------------企业用地性质变更监控--------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getEntLanduseChangeList(String searchKeyword) {
 		String hql = "FROM EntDxqyydPda as ent";
@@ -42,6 +47,7 @@ public class EnterpriseDynamicMonitorService {
 		return myMapResult;
 	}
 
+	// --------------------企业集约度监控--------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getEntLandIntensity(String keyword,
 			String intensitcode) {
@@ -63,8 +69,8 @@ public class EnterpriseDynamicMonitorService {
 				rjlFrom = "2.5";
 				rjlTo = "1000";
 			}
-			hql = "FROM EntQyjyd as e WHERE e.rjl >= " + rjlFrom + " AND e.rjl <"
-					+ rjlTo;
+			hql = "FROM EntQyjyd as e WHERE e.rjl >= " + rjlFrom
+					+ " AND e.rjl <" + rjlTo;
 		}
 		System.out.print("sql:" + hql);
 		List<EntQyjyd> results = null;
@@ -77,6 +83,7 @@ public class EnterpriseDynamicMonitorService {
 		return myMapResult;
 	}
 
+	// --------------------企业到期预警--------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getEntExpireAlert(String keyword,
 			Integer inMonths) {
@@ -115,6 +122,48 @@ public class EnterpriseDynamicMonitorService {
 		myMapResult.put("root", results);
 		myMapResult.put("success", true);
 		return myMapResult;
+	}
+
+	// --------------------企业信息审核--------------------------------
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> setEntUploadCheckPass(String[] ids, int isPass) {
+		BusinessMap result = null;
+		Map<String, Object> map = new HashMap<>();
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			for (String id : ids) {
+				result = (BusinessMap) session.get(BusinessMap.class,
+						Integer.parseInt(id));
+				result.setIsPass(isPass);
+				session.saveOrUpdate(result);
+				map.put("success", true);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("success", false);
+		}
+		return map;
+	}
+
+	// --------------------企业信息审核结果--------------------------------
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> setEntUploadCheckResult(String[] ids, String checkResult) {
+		BusinessMap result = null;
+		Map<String, Object> map = new HashMap<>();
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			for (String id : ids) {
+				result = (BusinessMap) session.get(BusinessMap.class,
+						Integer.parseInt(id));
+				result.setCheckResult(checkResult);
+				session.saveOrUpdate(result);
+				map.put("success", true);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("success", false);
+		}
+		return map;
 	}
 
 }

@@ -26,7 +26,7 @@
             "userConfig": {
                 "height": 90,
                 "html": [
-                    "<!-- <h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1> -->"
+                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
                 ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
@@ -295,6 +295,22 @@
                                     },
                                     "name": "MyMenuItem2",
                                     "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideMode": "visibility",
+                                        "hideOnClick": false,
+                                        "id": "enterprise_uploadMapCheck",
+                                        "text": "企业上传信息审核"
+                                    },
+                                    "name": "MyMenuItem23",
+                                    "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
                                 },
                                 {
                                     "type": "basiceventbinding",
@@ -798,6 +814,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "任务管理"
                     },
                     "name": "MyPanel10",

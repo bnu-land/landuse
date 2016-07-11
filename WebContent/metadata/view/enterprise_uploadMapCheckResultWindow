@@ -1,0 +1,194 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_uploadMapCheckResultWindow",
+        "designer|userClassName": "enterprise_uploadMapCheckResultWindow",
+        "height": 188,
+        "id": "enterprise_uploadMapCheckResultWindow",
+        "layout": "fit",
+        "title": "审核结果",
+        "width": 445
+    },
+    "name": "system_MapAddWindow1",
+    "designerId": "ae9918b3-6ef9-4bad-b98f-df737012b4ac",
+    "viewControllerInstanceId": "53a92a67-d3aa-405d-9903-9ffee7b51526",
+    "viewModelInstanceId": "fd45e3ed-721c-46bf-91e3-7249e83880af",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "system_MapAddForm1",
+                "jsonSubmit": true,
+                "modelValidation": false,
+                "title": null,
+                "url": "add_Map"
+            },
+            "name": "MyForm",
+            "designerId": "432e72cc-b804-420d-9e9c-134b1fd313b0",
+            "cn": [
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "审核批语",
+                        "height": 100,
+                        "id": "ent_uploadInfoCheckRestlField",
+                        "labelAlign": "right",
+                        "labelWidth": 80,
+                        "layout|anchor": "100%",
+                        "name": "result"
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "6cf752fc-ee00-4cf0-8f45-1cefba3b49e5"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "a2ac4bff-b0d7-4aa2-b960-6aea163deb0d",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "916184ac-6eeb-4003-b4d0-a0b762b10938"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "4dcb3c84-59de-4057-968d-2ed24716cd65",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "var win  = Ext.getCmp('enterprise_uploadMapCheckResultWindow');",
+                                            "win.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "15e1e488-50a3-4667-9eff-fcb699a95708"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确定"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "56a87c51-cbbd-41a4-9ad7-be41fd4a8435",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('enterprise_uploadMapCheckResultWindow');",
+                                            "",
+                                            "// 审核结果",
+                                            "var checkResult = Ext.getCmp('ent_uploadInfoCheckRestlField').getValue();",
+                                            "if(!checkResult || checkResult === \"\"){",
+                                            "    win.close();",
+                                            "    return;",
+                                            "}",
+                                            "//审核记录",
+                                            "var records = Ext.getCmp('ent_uploadInfoCheckGrid').getSelection();",
+                                            "if (records.length === 0) {",
+                                            "    return;",
+                                            "}",
+                                            "var ids = [];",
+                                            "for (var re in records) {",
+                                            "    var record = records[re];",
+                                            "    ids.push(record.get('id'));",
+                                            "}",
+                                            "",
+                                            "// 执行审核",
+                                            "Ext.Ajax.request({",
+                                            "    url: 'set_EntUploadCheckResult',",
+                                            "    params: {",
+                                            "        \"ids\": ids,",
+                                            "        \"checkResult\": checkResult",
+                                            "    },",
+                                            "    success: function() {",
+                                            "        //启动窗口",
+                                            "        win.close();",
+                                            "        Ext.Msg.alert('成功', '企业信息审核完成。');",
+                                            "    },",
+                                            "    failure: function() {",
+                                            "        Ext.Msg.alert('失败', '审核失败，可能由网络问题造成，请刷新重试。');",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "503e0d1d-e593-4a60-ba41-a0fcc97c7e89"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

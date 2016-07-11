@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_uploadmapcheck",
+        "designer|userClassName": "business_uploadMapViewController1"
+    },
+    "name": "business_uploadMapViewController1",
+    "designerId": "f67a769a-e148-45bf-ba73-2b029a474704"
+}
