@@ -162,12 +162,14 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'thematic_LanuseIntensityTrend',
                                     hideOnClick: false,
                                     text: '土地利用集约度趋势分析'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'thematic_LanuseIntensityPotentialTrend',
                                     hideOnClick: false,
                                     text: '土地集约利用潜力趋势分析'
@@ -197,6 +199,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'survey_DataManager',
                                     hideOnClick: false,
                                     text: '调查数据管理'

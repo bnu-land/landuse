@@ -404,6 +404,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "thematic_LanuseIntensityTrend",
                                         "text": "土地利用集约度趋势分析"
@@ -419,6 +420,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "thematic_LanuseIntensityPotentialTrend",
                                         "text": "土地集约利用潜力趋势分析"
@@ -503,6 +505,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "survey_DataManager",
                                         "text": "调查数据管理"
