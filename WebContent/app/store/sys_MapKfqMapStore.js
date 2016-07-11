@@ -35,7 +35,7 @@ Ext.define('MyApp.store.sys_MapKfqMapStore', {
                 extraParams: {
                     kfqId: '1'
                 },
-                url: 'get_SysKfqName',
+                url: 'get_SysKfqMap',
                 reader: {
                     type: 'json',
                     rootProperty: 'root'

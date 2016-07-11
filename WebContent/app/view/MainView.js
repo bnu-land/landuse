@@ -69,7 +69,11 @@ Ext.define('MyApp.view.MainView', {
                         {
                             xtype: 'label',
                             html: '<%= request.getSession().getAttribute("currentUser"); %>',
-                            text: '用户'
+                            id: 'mainview_curUernameLabel',
+                            text: '用户',
+                            listeners: {
+                                render: 'onMainview_curUernameLabelRender'
+                            }
                         },
                         {
                             xtype: 'button',
@@ -496,15 +500,15 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'system_DepartmentManage',
-                                    hideOnClick: false,
-                                    text: '部门信息管理'
-                                },
-                                {
-                                    xtype: 'menuitem',
                                     id: 'system_RightManage',
                                     hideOnClick: false,
                                     text: '系统权限管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'system_DepartmentManage',
+                                    hideOnClick: false,
+                                    text: '部门信息管理'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -598,6 +602,25 @@ Ext.define('MyApp.view.MainView', {
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
         mainView.add(Ext.widget(xtype));
+    },
+
+    onMainview_curUernameLabelRender: function(component, eOpts) {
+        Ext.Ajax.request({
+            url: 'get_currentUsername',
+            success: function(response) {
+                var username = response.responseText;
+                if (username) {
+                    Ext.getCmp('mainview_curUernameLabel').text = username;
+                    //component.text = username;
+                    //console.log("username:",username);
+                } else {
+                    //console.log("errorrr.");
+                }
+            },
+            failure: function(conn, response, options, eOpts) {
+                console.log("请求错误。");
+            }
+        });
     },
 
     onMenu1Click: function(menu, item, e, eOpts) {

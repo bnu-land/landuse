@@ -137,11 +137,47 @@
                             "codeClass": null,
                             "userConfig": {
                                 "html": "<%= request.getSession().getAttribute(\"currentUser\"); %>",
+                                "id": "mainview_curUernameLabel",
                                 "layout|flex": null,
                                 "text": "用户"
                             },
                             "name": "MyLabel2",
-                            "designerId": "1e55bc71-7106-4856-a595-46c5857f6362"
+                            "designerId": "1e55bc71-7106-4856-a595-46c5857f6362",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMainview_curUernameLabelRender",
+                                        "implHandler": [
+                                            "Ext.Ajax.request({",
+                                            "    url: 'get_currentUsername',",
+                                            "    success: function(response) {",
+                                            "        var username = response.responseText;",
+                                            "        if (username) {",
+                                            "            Ext.getCmp('mainview_curUernameLabel').text = username;",
+                                            "            //component.text = username;",
+                                            "            //console.log(\"username:\",username);",
+                                            "        } else {",
+                                            "            //console.log(\"errorrr.\");",
+                                            "        }",
+                                            "    },",
+                                            "    failure: function(conn, response, options, eOpts) {",
+                                            "        console.log(\"请求错误。\");",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMainview_curUernameLabelRender",
+                                    "designerId": "44104fc9-4ab6-4e60-965b-6d0fe3974738"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.button.Button",
@@ -1329,11 +1365,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "system_DepartmentManage",
-                                        "text": "部门信息管理"
+                                        "id": "system_RightManage",
+                                        "text": "系统权限管理"
                                     },
-                                    "name": "MyMenuItem8",
-                                    "designerId": "ebc74e2e-7216-4d2a-b69f-707e9c339873"
+                                    "name": "MyMenuItem14",
+                                    "designerId": "e753412b-dcef-41fc-9157-645a1b7a4e5e"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -1344,11 +1380,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "system_RightManage",
-                                        "text": "系统权限管理"
+                                        "id": "system_DepartmentManage",
+                                        "text": "部门信息管理"
                                     },
-                                    "name": "MyMenuItem14",
-                                    "designerId": "e753412b-dcef-41fc-9157-645a1b7a4e5e"
+                                    "name": "MyMenuItem8",
+                                    "designerId": "ebc74e2e-7216-4d2a-b69f-707e9c339873"
                                 },
                                 {
                                     "type": "Ext.menu.Item",

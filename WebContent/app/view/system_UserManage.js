@@ -364,6 +364,17 @@ Ext.define('MyApp.view.system_UserManage', {
          win.show();
 
         Ext.getCmp('db_userRoleSettingUserNameLbl').setValue(userName);
+
+        var gridSetting = Ext.get('db_UserRoleSettingWindowForm');
+        var gridSore = grid.getStore();
+        var recordTo = gridSore.queryRecords('username', userName);
+        if (recordTo && recordTo.length > 0) {
+            var index = gridSore.indexOf(recordTo[0]);
+            console.log("index:", index);
+            if (index > 0) {
+                gridSetting.getSelectionModel().select(index, true, true);
+            }
+        }
     },
 
     onGridpanelCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
