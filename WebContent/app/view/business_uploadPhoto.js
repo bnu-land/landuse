@@ -22,7 +22,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
         'Ext.form.Panel',
         'Ext.button.Button',
         'Ext.form.field.TextArea',
-        'Ext.form.field.File',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
@@ -63,8 +62,8 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                             xtype: 'button',
                             handler: function() {
                                 var myform = Ext.getCmp('photo_info').getForm();
-                                var choose=Ext.getCmp('choosePicture').value;
-                                var photo_path=Ext.getCmp('photo_path');
+                                var choose=Ext.getCmp('photoPath').value;
+                                //var photo_path=Ext.getCmp('photo_path');
                                 //var path=Ext.widget('photoPath').value;
                                 if (myform.isValid())
                                 {
@@ -118,23 +117,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                             name: 'photoTitle'
                         },
                         {
-                            xtype: 'filefield',
-                            x: 30,
-                            y: 90,
-                            id: 'choosePicture',
-                            width: 400,
-                            fieldLabel: '上传图片',
-                            labelWidth: 70,
-                            name: 'choosePhoto',
-                            blankText: '此项不能为空',
-                            emptyText: '选择本地图片路径',
-                            maxLengthText: 'The maximum length for this field is {200}',
-                            buttonText: '选择图片',
-                            listeners: {
-                                change: 'onChoosePictureChange'
-                            }
-                        },
-                        {
                             xtype: 'textfield',
                             x: 30,
                             y: 190,
@@ -151,6 +133,20 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                             labelWidth: 70,
                             name: 'proCode',
                             value: '20160710****'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 30,
+                            y: 90,
+                            id: 'photoPath',
+                            width: 390,
+                            fieldLabel: '上传图片',
+                            labelWidth: 70,
+                            name: 'photoPath',
+                            inputType: 'file',
+                            listeners: {
+                                change: 'onFilesChange'
+                            }
                         }
                     ]
                 },
@@ -205,18 +201,31 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                 {
                     xtype: 'image',
                     region: 'center',
+                    id: 'photo_preview',
                     src: 'images/login/login_center_left.jpg'
                 }
             ]
         }
     ],
 
-    onChoosePictureChange: function(filefield, value, eOpts) {
+    onFilesChange: function(field, newValue, oldValue, eOpts) {
         var title_photo = Ext.getCmp("title_photo");
-        var name = value.substring(value.lastIndexOf("\\") + 1, value.lastIndexOf("."));
+        var photoPreview=Ext.getCmp("photo_preview");
+        //var photoFiles=document.getElementById("photo_files")
+        var url="images/login/"+newValue.substring(newValue.lastIndexOf("\\")+1);
+        var name = newValue.substring(newValue.lastIndexOf("\\")+1, newValue.lastIndexOf("."));
         console.log(name);
         title_photo.setValue(name);
 
+        //url = window.URL.createObjectURL(this.field);
+        console.log(url);
+        photoPreview.setSrc(url);
+        /*//加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");"images/login/meat.jpg"
+        script.type = "text/javascript";
+        script.src="mapjs/uploadPhoto.js";
+        head.appendChild(script);*/
     }
 
 });
