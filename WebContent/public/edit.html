@@ -13,8 +13,8 @@ if(docObj.files &&docObj.files[0])
 {
 //火狐下，直接设img属性
 imgObjPreview.style.display = 'block';
-imgObjPreview.style.width = '150px';
-imgObjPreview.style.height = '180px'; 
+imgObjPreview.style.width = '300px';
+imgObjPreview.style.height = '360px'; 
 //imgObjPreview.src = docObj.files[0].getAsDataURL();
  
 //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
@@ -28,8 +28,8 @@ docObj.select();
 var imgSrc = document.selection.createRange().text;
 var localImagId = document.getElementById("localImag");
 //必须设置初始大小
-localImagId.style.width = "150px";
-localImagId.style.height = "180px";
+localImagId.style.width = "300px";
+localImagId.style.height = "360px";
 //图片异常的捕捉，防止用户修改后缀来伪造图片
 try{
 localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
@@ -54,11 +54,11 @@ return true;
 <tbody>
 <tr>
 <td height="101" align="center">
-<div id="localImag"><img id="preview" src="http://blog.chuangling.net/Public/images/top.jpg" width="150" height="180" style="display: block; width: 150px; height: 180px;"></div>
+<div id="localImag"><img id="preview" src="http://blog.chuangling.net/Public/images/top.jpg" width="300" height="360" style="display: block; width: 300px; height: 360px;"></div>
 </td>
 </tr>
 <tr>
-<td align="center" style="padding-top:10px;"><input type="file" name="file" id="doc" style="width:150px;" onchange="javascript:setImagePreview();"></td>
+<td align="center" style="padding-top:10px;"><input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();"></td>
 </tr>
 </tbody>
 </table>
