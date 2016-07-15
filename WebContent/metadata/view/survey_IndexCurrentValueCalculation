@@ -11,7 +11,7 @@
         "height": 588,
         "id": null,
         "layout": "anchor",
-        "title": "指标现状值计算",
+        "title": "",
         "width": 924
     },
     "name": "survey_TypicalEnterprise1",
@@ -30,6 +30,7 @@
                 "bodyPadding": 10,
                 "designer|snapToGrid": 10,
                 "height": 250,
+                "hidden": true,
                 "id": "survey_IndexCurrentValue_Form",
                 "jsonSubmit": true,
                 "layout": "absolute",

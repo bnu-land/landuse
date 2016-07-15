@@ -17,8 +17,133 @@ Ext.define('MyApp.view.achievement_DataIEdit', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataIEdit',
 
+    requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.toolbar.Separator'
+    ],
+
     height: 588,
+    html: '<div id = "map" style = "width=100%;height:100%;"></div>',
     width: 786,
-    title: '成果数据编辑'
+    title: '成果数据编辑',
+    defaultListenerScope: true,
+
+    listeners: {
+        afterrender: 'onPanelAfterRender'
+    },
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'textfield',
+                    id: 'noticeNews_SearchText1'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var searchKeyword = Ext.getCmp('noticeNews_SearchText').getValue();
+                        var mystore = Ext.StoreMgr.get('notice_newsStore'); //获得store对象
+                        //在load事件中添加参数
+                        mystore.load({
+                            params :{searchKeyword : searchKeyword}
+                        });
+                    },
+                    icon: 'images/table/search.png',
+                    text: '查询'
+                },
+                {
+                    xtype: 'button',
+                    icon: 'images/table/preview.png',
+                    text: '全局'
+                },
+                {
+                    xtype: 'tbseparator'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        //获取数据
+                        var records = Ext.getCmp('notice_NewsManageGrid').getSelection();
+                        if (records.length === 0){
+                            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+                            return;
+                        } else if(records.length >1){
+                            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+                            return;
+                        }
+                        //启动窗口
+                        var xtype = 'notice_Publish';
+                        var mainView = Ext.getCmp('mainView');
+                        mainView.removeAll();
+                        mainView.add(Ext.widget(xtype));
+
+                        //改变Ajax url
+                        var form = Ext.getCmp('notice_PublishForm').getForm();
+                        form.loadRecord(records[0]);
+                        form.url = 'update_NoticeNews';
+                    },
+                    icon: 'images/table/edit.png',
+                    text: '启动编辑'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        //获取数据
+                        var records = Ext.getCmp('notice_NewsManageGrid').getSelection();
+                        if (records.length === 0){
+                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                            return;
+                        }else if(records.length >1){
+                            Ext.Msg.alert('提示', '每次只能删除一条文章。');
+                            return;
+                        }
+                        var id = records[0].get("id");
+                        var columnName= records[0].get("noticeTitle");
+                        Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']。<br/> 确认删除？', getResult);
+
+                        var record = records[0];
+
+                        function getResult(confirm)
+                        {
+                            console.log('confirm:', confirm);
+                            if (confirm == "yes"){
+                                Ext.Ajax.request(
+                                {
+                                    url : 'del_NoticeToDraft',
+                                    params :
+                                    {
+                                        id : record.get('id')
+                                    },
+                                    success : function (response){
+                                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                                        var mystore = Ext.StoreMgr.get('notice_newsStore');
+                                        mystore.load();
+                                    },
+                                    failure : function (response){
+                                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    icon: 'images/table/save.png',
+                    text: '保存'
+                }
+            ]
+        }
+    ],
+
+    onPanelAfterRender: function(component, eOpts) {
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/homeMap.js";
+        head.appendChild(script);
+    }
 
 });

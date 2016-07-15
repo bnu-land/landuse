@@ -310,30 +310,12 @@
                                 "layout|x": 40,
                                 "layout|y": 40,
                                 "value": [
-                                    "87.3"
+                                    "83.21"
                                 ],
                                 "width": 250
                             },
                             "name": "MyTextField15",
-                            "designerId": "f542e6e0-34e9-4d66-b3a5-107d10ba1cbd",
-                            "cn": [
-                                {
-                                    "type": "basicfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "alert(\"当前企业集约度为87\");"
-                                        ]
-                                    },
-                                    "name": "handler",
-                                    "designerId": "6572e53f-b624-4645-b4d0-4c128d262ce1"
-                                }
-                            ]
+                            "designerId": "f542e6e0-34e9-4d66-b3a5-107d10ba1cbd"
                         }
                     ]
                 },
@@ -404,7 +386,7 @@
                                 "layout|x": 40,
                                 "layout|y": 40,
                                 "value": [
-                                    "上报地图信息"
+                                    "上报地图数据"
                                 ],
                                 "width": 250
                             },

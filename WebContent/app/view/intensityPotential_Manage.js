@@ -93,7 +93,7 @@ Ext.define('MyApp.view.intensityPotential_Manage', {
 
                         Ext.getCmp('manager_isCalculated').setValue(true);
                     },
-                    text: '结构潜力测算'
+                    text: '管理潜力测算'
                 },
                 {
                     xtype: 'button',

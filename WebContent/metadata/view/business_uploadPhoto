@@ -29,12 +29,87 @@
                 "layout": "border",
                 "layout|region": "west",
                 "layout|split": true,
-                "title": "",
+                "title": null,
                 "width": "50%"
             },
-            "name": "MyPanel",
-            "designerId": "1bb49067-f600-4b8b-b950-e82b7e2d4ab8",
+            "name": "MyPanel18",
+            "designerId": "17411621-5e0e-41d2-bf26-1efae5d03e97",
             "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 91,
+                        "layout": "absolute",
+                        "layout|region": "north",
+                        "title": "图片信息录入"
+                    },
+                    "name": "MyPanel23",
+                    "designerId": "2a618c39-1ed4-4fc9-9735-eec14002e733",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "blankText": "此项不能为空",
+                                "designer|displayName": "photoPath1",
+                                "emptyText": "选择本地图片路径",
+                                "fieldLabel": "上传图片",
+                                "id": "photoPath",
+                                "inputType": "file",
+                                "labelWidth": 70,
+                                "layout|x": 30,
+                                "layout|y": 10,
+                                "maxLengthText": "The maximum length for this field is {200}",
+                                "name": "photoPath1",
+                                "submitValue": false,
+                                "width": 400
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "4f57fb05-519b-43b7-b85d-0d6ca9238ad7",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onChoosePictureChange",
+                                        "implHandler": [
+                                            "var title_photo = Ext.getCmp(\"title_photo\");",
+                                            "var photoPreview=Ext.getCmp(\"photo_preview\");",
+                                            "var pathText=Ext.getCmp(\"photoPath1\");",
+                                            "//var photoFiles=document.getElementById(\"photo_files\")",
+                                            "var url=\"images/login/\"+newValue.substring(newValue.lastIndexOf(\"\\\\\")+1);",
+                                            "var name = newValue.substring(newValue.lastIndexOf(\"\\\\\")+1, newValue.lastIndexOf(\".\"));",
+                                            "console.log(name);",
+                                            "title_photo.setValue(name);",
+                                            "pathText.setValue(newValue);",
+                                            "//url = window.URL.createObjectURL(this.field);",
+                                            "console.log(url);",
+                                            "photoPreview.setSrc(url);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onChoosePictureChange",
+                                    "designerId": "a54e8037-1f92-4792-addc-d93c17f55ccf"
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     "type": "Ext.form.Panel",
                     "reference": {
@@ -43,7 +118,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "autoScroll": true,
                         "designer|snapToGrid": 10,
                         "dock": null,
                         "height": "50%",
@@ -51,7 +125,7 @@
                         "jsonSubmit": true,
                         "layout": "absolute",
                         "layout|region": "north",
-                        "title": "图片信息录入",
+                        "title": null,
                         "url": "add_Photos"
                     },
                     "name": "MyForm2",
@@ -65,8 +139,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|x": 270,
-                                "layout|y": 340,
+                                "layout|x": 400,
+                                "layout|y": 190,
                                 "text": "提交审核"
                             },
                             "name": "MyButton9",
@@ -83,14 +157,14 @@
                                         "fn": "handler",
                                         "implHandler": [
                                             "var myform = Ext.getCmp('photo_info').getForm();",
-                                            "var choose=Ext.getCmp('photoPath').value;",
+                                            "//var choose=Ext.getCmp('choosePicture').value;",
                                             "//var photo_path=Ext.getCmp('photo_path');",
                                             "//var path=Ext.widget('photoPath').value;",
                                             "if (myform.isValid())",
                                             "{",
                                             "    console.log(\"控件有效\");",
                                             "",
-                                            "   console.log(choose);",
+                                            "    //sconsole.log(choose);",
                                             "    myform.submit({",
                                             "        //url : 'add_picture',",
                                             "        success : function (form, action)",
@@ -131,7 +205,7 @@
                                 "fieldLabel": "备注",
                                 "labelWidth": 70,
                                 "layout|x": 30,
-                                "layout|y": 250,
+                                "layout|y": 170,
                                 "name": "other",
                                 "value": [
                                     "无"
@@ -153,7 +227,7 @@
                                 "id": "title_photo",
                                 "labelWidth": 70,
                                 "layout|x": 30,
-                                "layout|y": 140,
+                                "layout|y": 130,
                                 "name": "photoTitle"
                             },
                             "name": "MyTextField10",
@@ -170,7 +244,7 @@
                                 "fieldLabel": "上传用户",
                                 "labelWidth": 70,
                                 "layout|x": 30,
-                                "layout|y": 190,
+                                "layout|y": 80,
                                 "name": "uploadUser",
                                 "value": [
                                     "企业用户"
@@ -190,7 +264,7 @@
                                 "fieldLabel": "项目编号",
                                 "labelWidth": 70,
                                 "layout|x": 30,
-                                "layout|y": 40,
+                                "layout|y": 0,
                                 "name": "proCode",
                                 "value": [
                                     "20160710****"
@@ -207,53 +281,40 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "上传图片",
-                                "id": "photoPath",
-                                "inputType": "file",
+                                "blankText": "此项不能为空",
+                                "designer|displayName": "photoPath",
+                                "emptyText": "本地图片路径",
+                                "fieldLabel": "图片路径",
+                                "id": "photoPath1",
                                 "labelWidth": 70,
                                 "layout|x": 30,
-                                "layout|y": 90,
+                                "layout|y": 40,
+                                "maxLengthText": "The maximum length for this field is {200}",
                                 "name": "photoPath",
-                                "width": 390
+                                "submitValue": false,
+                                "width": 400
                             },
-                            "name": "MyTextField",
-                            "designerId": "fab0b6cd-d835-450e-b077-f8cc23043d05",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onFilesChange",
-                                        "implHandler": [
-                                            "var title_photo = Ext.getCmp(\"title_photo\");",
-                                            "var photoPreview=Ext.getCmp(\"photo_preview\");",
-                                            "//var photoFiles=document.getElementById(\"photo_files\")",
-                                            "var url=\"images/login/\"+newValue.substring(newValue.lastIndexOf(\"\\\\\")+1);",
-                                            "var name = newValue.substring(newValue.lastIndexOf(\"\\\\\")+1, newValue.lastIndexOf(\".\"));",
-                                            "console.log(name);",
-                                            "title_photo.setValue(name);",
-                                            "",
-                                            "//url = window.URL.createObjectURL(this.field);",
-                                            "console.log(url);",
-                                            "photoPreview.setSrc(url);",
-                                            "/*//加入地图的js文件",
-                                            "var head = document.getElementsByTagName('head')[0];",
-                                            "var script= document.createElement(\"script\");\"images/login/meat.jpg\"",
-                                            "script.type = \"text/javascript\";",
-                                            "script.src=\"mapjs/uploadPhoto.js\";",
-                                            "head.appendChild(script);*/"
-                                        ],
-                                        "name": "change",
-                                        "scope": "me"
-                                    },
-                                    "name": "onFilesChange",
-                                    "designerId": "a61269bb-9ed1-49d7-a84d-f867b5c5bb2b"
-                                }
-                            ]
+                            "name": "MyTextField2",
+                            "designerId": "6f43d478-c0eb-46aa-928a-c287ac7ce294"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "日期",
+                                "format": "Y-m-d",
+                                "labelWidth": 30,
+                                "layout|x": 280,
+                                "layout|y": 80,
+                                "name": "upDate",
+                                "width": 170
+                            },
+                            "name": "MyDateField",
+                            "designerId": "73ce507a-7c17-491a-a084-93460dec1282"
                         }
                     ]
                 },
@@ -265,7 +326,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "autoScroll": true,
                         "layout|region": "center",
                         "store": "Business_photoStore",
                         "title": "图片列表"
@@ -327,8 +387,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "upDate",
-                                "text": "上传时间",
-                                "width": 159
+                                "text": "上传时间"
                             },
                             "name": "MyDateColumn",
                             "designerId": "11d64af1-def3-4439-b132-caba1536ca22"

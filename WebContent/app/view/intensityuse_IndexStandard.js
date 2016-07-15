@@ -164,7 +164,7 @@ Ext.define('MyApp.view.intensityuse_IndexStandard', {
                                 url : 'add_indexWeight',
                                 success : function (form, action)
                                 {
-                                    Ext.Msg.alert('成功', '专家打分记录汇总保存成功。');
+                                    Ext.Msg.alert('成功', '标准化处理结果保存成功。');
                                     form.reset();
                                 },
                                 failure: function(form, action){

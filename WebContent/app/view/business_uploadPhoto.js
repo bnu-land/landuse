@@ -22,6 +22,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
         'Ext.form.Panel',
         'Ext.button.Button',
         'Ext.form.field.TextArea',
+        'Ext.form.field.Date',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Date',
@@ -45,16 +46,40 @@ Ext.define('MyApp.view.business_uploadPhoto', {
             split: true,
             width: '50%',
             layout: 'border',
-            title: '',
             items: [
+                {
+                    xtype: 'panel',
+                    region: 'north',
+                    height: 91,
+                    layout: 'absolute',
+                    title: '图片信息录入',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            x: 30,
+                            y: 10,
+                            id: 'photoPath',
+                            width: 400,
+                            fieldLabel: '上传图片',
+                            labelWidth: 70,
+                            name: 'photoPath1',
+                            submitValue: false,
+                            inputType: 'file',
+                            blankText: '此项不能为空',
+                            emptyText: '选择本地图片路径',
+                            maxLengthText: 'The maximum length for this field is {200}',
+                            listeners: {
+                                change: 'onChoosePictureChange'
+                            }
+                        }
+                    ]
+                },
                 {
                     xtype: 'form',
                     region: 'north',
-                    autoScroll: true,
                     height: '50%',
                     id: 'photo_info',
                     layout: 'absolute',
-                    title: '图片信息录入',
                     jsonSubmit: true,
                     url: 'add_Photos',
                     items: [
@@ -62,14 +87,14 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                             xtype: 'button',
                             handler: function() {
                                 var myform = Ext.getCmp('photo_info').getForm();
-                                var choose=Ext.getCmp('photoPath').value;
+                                //var choose=Ext.getCmp('choosePicture').value;
                                 //var photo_path=Ext.getCmp('photo_path');
                                 //var path=Ext.widget('photoPath').value;
                                 if (myform.isValid())
                                 {
                                     console.log("控件有效");
 
-                                    console.log(choose);
+                                    //sconsole.log(choose);
                                     myform.submit({
                                         //url : 'add_picture',
                                         success : function (form, action)
@@ -93,14 +118,14 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                                     Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                                 }
                             },
-                            x: 270,
-                            y: 340,
+                            x: 400,
+                            y: 190,
                             text: '提交审核'
                         },
                         {
                             xtype: 'textareafield',
                             x: 30,
-                            y: 250,
+                            y: 170,
                             width: 360,
                             fieldLabel: '备注',
                             labelWidth: 70,
@@ -110,7 +135,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                         {
                             xtype: 'textfield',
                             x: 30,
-                            y: 140,
+                            y: 130,
                             id: 'title_photo',
                             fieldLabel: '图片标题',
                             labelWidth: 70,
@@ -119,7 +144,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                         {
                             xtype: 'textfield',
                             x: 30,
-                            y: 190,
+                            y: 80,
                             fieldLabel: '上传用户',
                             labelWidth: 70,
                             name: 'uploadUser',
@@ -128,7 +153,7 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                         {
                             xtype: 'textfield',
                             x: 30,
-                            y: 40,
+                            y: 0,
                             fieldLabel: '项目编号',
                             labelWidth: 70,
                             name: 'proCode',
@@ -137,23 +162,32 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                         {
                             xtype: 'textfield',
                             x: 30,
-                            y: 90,
-                            id: 'photoPath',
-                            width: 390,
-                            fieldLabel: '上传图片',
+                            y: 40,
+                            id: 'photoPath1',
+                            width: 400,
+                            fieldLabel: '图片路径',
                             labelWidth: 70,
                             name: 'photoPath',
-                            inputType: 'file',
-                            listeners: {
-                                change: 'onFilesChange'
-                            }
+                            submitValue: false,
+                            blankText: '此项不能为空',
+                            emptyText: '本地图片路径',
+                            maxLengthText: 'The maximum length for this field is {200}'
+                        },
+                        {
+                            xtype: 'datefield',
+                            x: 280,
+                            y: 80,
+                            width: 170,
+                            fieldLabel: '日期',
+                            labelWidth: 30,
+                            name: 'upDate',
+                            format: 'Y-m-d'
                         }
                     ]
                 },
                 {
                     xtype: 'gridpanel',
                     region: 'center',
-                    autoScroll: true,
                     title: '图片列表',
                     store: 'Business_photoStore',
                     columns: [
@@ -177,7 +211,6 @@ Ext.define('MyApp.view.business_uploadPhoto', {
                         },
                         {
                             xtype: 'datecolumn',
-                            width: 159,
                             dataIndex: 'upDate',
                             text: '上传时间'
                         }
@@ -208,24 +241,19 @@ Ext.define('MyApp.view.business_uploadPhoto', {
         }
     ],
 
-    onFilesChange: function(field, newValue, oldValue, eOpts) {
+    onChoosePictureChange: function(field, newValue, oldValue, eOpts) {
         var title_photo = Ext.getCmp("title_photo");
         var photoPreview=Ext.getCmp("photo_preview");
+        var pathText=Ext.getCmp("photoPath1");
         //var photoFiles=document.getElementById("photo_files")
         var url="images/login/"+newValue.substring(newValue.lastIndexOf("\\")+1);
         var name = newValue.substring(newValue.lastIndexOf("\\")+1, newValue.lastIndexOf("."));
         console.log(name);
         title_photo.setValue(name);
-
+        pathText.setValue(newValue);
         //url = window.URL.createObjectURL(this.field);
         console.log(url);
         photoPreview.setSrc(url);
-        /*//加入地图的js文件
-        var head = document.getElementsByTagName('head')[0];
-        var script= document.createElement("script");"images/login/meat.jpg"
-        script.type = "text/javascript";
-        script.src="mapjs/uploadPhoto.js";
-        head.appendChild(script);*/
     }
 
 });

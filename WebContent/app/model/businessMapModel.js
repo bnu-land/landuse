@@ -56,6 +56,9 @@ Ext.define('MyApp.model.businessMapModel', {
         },
         {
             name: 'isPass'
+        },
+        {
+            name: 'checkResult'
         }
     ]
 });

@@ -303,7 +303,9 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'mainLanduseDegree',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
+                                                                                    minLengthText: '此项最小长度不得小于 {0}',
                                                                                     maxValue: 0.25,
+                                                                                    minText: '此项最小值不得低于 {0}',
                                                                                     minValue: 0.2
                                                                                 }
                                                                             ]
@@ -322,8 +324,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     name: 'mainLanduseConstruct',
                                                                                     emptyText: '0.25',
                                                                                     hideTrigger: true,
-                                                                                    maxValue: 0.2,
-                                                                                    minValue: 0.15
+                                                                                    maxText: '此项最大值不得超过{0}',
+                                                                                    maxValue: 0.27,
+                                                                                    minText: '此项最小值不得小于{0}',
+                                                                                    minValue: 0.2
                                                                                 }
                                                                             ]
                                                                         },

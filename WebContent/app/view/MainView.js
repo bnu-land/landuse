@@ -39,7 +39,7 @@ Ext.define('MyApp.view.MainView', {
             xtype: 'panel',
             region: 'north',
             height: 90,
-            html: '<!-- <h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1> -->',
+            html: '<h1 style="color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;"> 黑龙江开发区土地利用监测巡检系统</h1>',
             itemId: 'headerPanel',
             dockedItems: [
                 {
@@ -69,7 +69,11 @@ Ext.define('MyApp.view.MainView', {
                         {
                             xtype: 'label',
                             html: '<%= request.getSession().getAttribute("currentUser"); %>',
-                            text: '用户'
+                            id: 'mainview_curUernameLabel',
+                            text: '用户',
+                            listeners: {
+                                render: 'onMainview_curUernameLabelRender'
+                            }
                         },
                         {
                             xtype: 'button',
@@ -119,6 +123,13 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
                                     text: '企业使用权到期预警'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hideMode: 'visibility',
+                                    id: 'enterprise_uploadMapCheck',
+                                    hideOnClick: false,
+                                    text: '企业上传信息审核'
                                 }
                             ],
                             listeners: {
@@ -151,12 +162,14 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'thematic_LanuseIntensityTrend',
                                     hideOnClick: false,
                                     text: '土地利用集约度趋势分析'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'thematic_LanuseIntensityPotentialTrend',
                                     hideOnClick: false,
                                     text: '土地集约利用潜力趋势分析'
@@ -186,6 +199,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'survey_DataManager',
                                     hideOnClick: false,
                                     text: '调查数据管理'
@@ -297,6 +311,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '任务管理',
                     items: [
                         {
@@ -446,6 +461,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    hidden: true,
                     title: '成果数据上报',
                     items: [
                         {
@@ -496,15 +512,15 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'system_DepartmentManage',
-                                    hideOnClick: false,
-                                    text: '部门信息管理'
-                                },
-                                {
-                                    xtype: 'menuitem',
                                     id: 'system_RightManage',
                                     hideOnClick: false,
                                     text: '系统权限管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'system_DepartmentManage',
+                                    hideOnClick: false,
+                                    text: '部门信息管理'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -545,6 +561,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    collapsed: true,
                     title: '企业数据管理',
                     items: [
                         {
@@ -598,6 +615,25 @@ Ext.define('MyApp.view.MainView', {
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
         mainView.add(Ext.widget(xtype));
+    },
+
+    onMainview_curUernameLabelRender: function(component, eOpts) {
+        Ext.Ajax.request({
+            url: 'get_currentUsername',
+            success: function(response) {
+                var username = response.responseText;
+                if (username) {
+                    Ext.getCmp('mainview_curUernameLabel').text = username;
+                    //component.text = username;
+                    //console.log("username:",username);
+                } else {
+                    //console.log("errorrr.");
+                }
+            },
+            failure: function(conn, response, options, eOpts) {
+                console.log("请求错误。");
+            }
+        });
     },
 
     onMenu1Click: function(menu, item, e, eOpts) {

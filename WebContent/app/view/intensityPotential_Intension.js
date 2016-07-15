@@ -158,7 +158,7 @@ Ext.define('MyApp.view.intensityPotential_Intension', {
                             Ext.getCmp('intension_developSumtaxIntension_field').setValue(intension_developSumtaxIntension.toFixed(3));
                         }
                     },
-                    text: '结构潜力测算'
+                    text: '强度潜力测算'
                 },
                 {
                     xtype: 'button',

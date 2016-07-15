@@ -37,7 +37,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
     height: 588,
     width: 924,
     layout: 'anchor',
-    title: '指标现状值计算',
+    title: '',
     defaultListenerScope: true,
 
     items: [
@@ -45,6 +45,7 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
             xtype: 'form',
             anchor: '100%',
             height: 250,
+            hidden: true,
             id: 'survey_IndexCurrentValue_Form',
             layout: 'absolute',
             bodyPadding: 10,

@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>黑龙江开发区土地利用变化监测系统</title>
+<title>黑龙江开发区土地利用监测巡检系统</title>
 <style type="text/css">
 html,body {
 	height: 100%;
@@ -74,7 +74,7 @@ body{margin:0; padding:0; font-size:9pt;}
 
 <div id="login">
     <div id="top">
-        <div id="top_left"><img src="images/login/login_top_left.png"/></div> 
+       <div id="top_left"><img src="images/login/login_top_left.png"/></div>
     </div>
 
     <div id="center">

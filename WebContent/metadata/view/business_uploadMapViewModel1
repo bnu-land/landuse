@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_uploadmapcheck",
+        "designer|userClassName": "business_uploadMapViewModel1"
+    },
+    "name": "business_uploadMapViewModel1",
+    "designerId": "35e27102-339c-45a8-8d91-82ff3b0644b6"
+}

@@ -26,7 +26,7 @@
             "userConfig": {
                 "height": 90,
                 "html": [
-                    "<!-- <h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1> -->"
+                    "<h1 style=\"color:#197bc1;;font-family:Microsoft YaHei;margin:10px 0px 0px 35px;\"> 黑龙江开发区土地利用监测巡检系统</h1>"
                 ],
                 "itemId": "headerPanel",
                 "layout|region": "north",
@@ -137,11 +137,47 @@
                             "codeClass": null,
                             "userConfig": {
                                 "html": "<%= request.getSession().getAttribute(\"currentUser\"); %>",
+                                "id": "mainview_curUernameLabel",
                                 "layout|flex": null,
                                 "text": "用户"
                             },
                             "name": "MyLabel2",
-                            "designerId": "1e55bc71-7106-4856-a595-46c5857f6362"
+                            "designerId": "1e55bc71-7106-4856-a595-46c5857f6362",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMainview_curUernameLabelRender",
+                                        "implHandler": [
+                                            "Ext.Ajax.request({",
+                                            "    url: 'get_currentUsername',",
+                                            "    success: function(response) {",
+                                            "        var username = response.responseText;",
+                                            "        if (username) {",
+                                            "            Ext.getCmp('mainview_curUernameLabel').text = username;",
+                                            "            //component.text = username;",
+                                            "            //console.log(\"username:\",username);",
+                                            "        } else {",
+                                            "            //console.log(\"errorrr.\");",
+                                            "        }",
+                                            "    },",
+                                            "    failure: function(conn, response, options, eOpts) {",
+                                            "        console.log(\"请求错误。\");",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "render",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMainview_curUernameLabelRender",
+                                    "designerId": "44104fc9-4ab6-4e60-965b-6d0fe3974738"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.button.Button",
@@ -261,6 +297,22 @@
                                     "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be"
                                 },
                                 {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideMode": "visibility",
+                                        "hideOnClick": false,
+                                        "id": "enterprise_uploadMapCheck",
+                                        "text": "企业上传信息审核"
+                                    },
+                                    "name": "MyMenuItem23",
+                                    "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
+                                },
+                                {
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -352,6 +404,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "thematic_LanuseIntensityTrend",
                                         "text": "土地利用集约度趋势分析"
@@ -367,6 +420,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "thematic_LanuseIntensityPotentialTrend",
                                         "text": "土地集约利用潜力趋势分析"
@@ -451,6 +505,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "survey_DataManager",
                                         "text": "调查数据管理"
@@ -762,6 +817,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "任务管理"
                     },
                     "name": "MyPanel10",
@@ -1185,6 +1241,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "成果数据上报"
                     },
                     "name": "MyPanel13",
@@ -1329,11 +1386,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "system_DepartmentManage",
-                                        "text": "部门信息管理"
+                                        "id": "system_RightManage",
+                                        "text": "系统权限管理"
                                     },
-                                    "name": "MyMenuItem8",
-                                    "designerId": "ebc74e2e-7216-4d2a-b69f-707e9c339873"
+                                    "name": "MyMenuItem14",
+                                    "designerId": "e753412b-dcef-41fc-9157-645a1b7a4e5e"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -1344,11 +1401,11 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "system_RightManage",
-                                        "text": "系统权限管理"
+                                        "id": "system_DepartmentManage",
+                                        "text": "部门信息管理"
                                     },
-                                    "name": "MyMenuItem14",
-                                    "designerId": "e753412b-dcef-41fc-9157-645a1b7a4e5e"
+                                    "name": "MyMenuItem8",
+                                    "designerId": "ebc74e2e-7216-4d2a-b69f-707e9c339873"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -1458,6 +1515,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "collapsed": true,
                         "hideMode": null,
                         "title": "企业数据管理"
                     },

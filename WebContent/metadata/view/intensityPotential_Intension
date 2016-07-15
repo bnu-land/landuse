@@ -278,7 +278,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "结构潜力测算"
+                        "text": "强度潜力测算"
                     },
                     "name": "MyButton8",
                     "designerId": "40a0b46f-e245-40a4-8e97-3e410884b5e5",

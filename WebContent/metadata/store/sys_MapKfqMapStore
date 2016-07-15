@@ -29,7 +29,7 @@
                     "    kfqId:'1'",
                     "}"
                 ],
-                "url": "get_SysKfqName"
+                "url": "get_SysKfqMap"
             },
             "name": "MyAjaxProxy91",
             "designerId": "3ffe7bda-a678-4ee5-8062-11259885294b",

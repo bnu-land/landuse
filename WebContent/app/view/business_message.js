@@ -150,15 +150,12 @@ Ext.define('MyApp.view.business_message', {
                     items: [
                         {
                             xtype: 'textfield',
-                            handler: function() {
-                                alert("当前企业集约度为87");
-                            },
                             x: 40,
                             y: 40,
                             width: 250,
                             fieldLabel: '当前企业用地集约度为',
                             labelWidth: 140,
-                            value: 87.3
+                            value: 83.21
                         }
                     ]
                 },
@@ -192,7 +189,7 @@ Ext.define('MyApp.view.business_message', {
                             width: 250,
                             fieldLabel: '企业数据上报任务到期',
                             labelWidth: 140,
-                            value: '上报地图信息'
+                            value: '上报地图数据'
                         }
                     ]
                 }
