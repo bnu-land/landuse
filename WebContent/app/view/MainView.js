@@ -97,7 +97,7 @@ Ext.define('MyApp.view.MainView', {
             items: [
                 {
                     xtype: 'panel',
-                    title: '企业动态监控',
+                    title: '开发区动态监控',
                     items: [
                         {
                             xtype: 'menu',
@@ -109,27 +109,27 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'enterprise_LandusePropertyChangeMonitor',
                                     hideOnClick: false,
-                                    text: '企业用地性质变更监控'
+                                    text: '用地性质变更监控'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     id: 'enterprise_IntensityDynamicMonitor',
                                     hideOnClick: false,
-                                    text: '企业集约度动态监控'
+                                    text: '集约度动态监控'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
-                                    text: '企业使用权到期预警'
+                                    text: '使用权到期预警'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-                                    text: '企业上传信息审核'
+                                    text: '上传数据信息审核'
                                 }
                             ],
                             listeners: {
@@ -140,7 +140,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '专题统计分析',
+                    title: '统计分析',
                     items: [
                         {
                             xtype: 'menu',
@@ -208,7 +208,7 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'survey_TypicalEnterprise',
                                     hideOnClick: false,
-                                    text: '典型企业调查'
+                                    text: '企业调查'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -562,7 +562,7 @@ Ext.define('MyApp.view.MainView', {
                 {
                     xtype: 'panel',
                     collapsed: true,
-                    title: '企业数据管理',
+                    title: '开发区数据管理',
                     items: [
                         {
                             xtype: 'menu',
@@ -573,7 +573,7 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'business_message',
                                     hideOnClick: false,
-                                    text: '我的讯息'
+                                    text: '预警咨讯'
                                 },
                                 {
                                     xtype: 'menuitem',
