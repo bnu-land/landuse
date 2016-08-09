@@ -693,7 +693,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/ent_landuseChange_map.js";
+        script.src="mapjs/testMap.js";
         head.appendChild(script);
     }
 

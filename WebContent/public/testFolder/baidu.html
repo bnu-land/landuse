@@ -19,7 +19,7 @@
     var tileLayer = new BMap.TileLayer({
         isTransparentPng: true
     });
-    tileLayer.getTilesUrl = function (tileCoord, zoom) {
+    tileLayer.getTilesUrl = function (tileCoord, d) {
         var x = tileCoord.x;
         var y = tileCoord.y;
         return 'maptile/' + zoom + '/' + x + '/' + y + '.png';

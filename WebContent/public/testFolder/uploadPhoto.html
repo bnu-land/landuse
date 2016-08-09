@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-    <title>Edit Tools</title>
+    <title>地图上画点</title>
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/nihilo/nihilo.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
     <style>
@@ -17,11 +17,29 @@
     </style>
 
     <script src="https://js.arcgis.com/3.17/"></script>
+    <script type="text/javascript" src="http://api.tianditu.com/api?v=4.0"></script> 
+    <!-- <script type="text/javascript" src="addlayer.js"></script> -->
     <script>
+     var map;
+
+            var zoom = 12;
+           function onLoad() {
+
+                map = new T.Map('map', {
+
+                    projection: 'EPSG:4326'
+
+      
+
+                });
+
+                map.centerAndZoom(new T.LngLat(116.40769, 39.89945), zoom);
+
+            } 
       /**
  * Created by WUCAN on 2015/5/23.
  */
-var WKID = 4326;
+/*var WKID = 4326;
 
 
 require([
@@ -75,7 +93,7 @@ require([
         }
         //----------------------加载天地图--------------------------
         // 地图
-       /* dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {
+        dojo.declare("TianDiTiledMapServiceLayer", esri.layers.TiledMapServiceLayer, {
             constructor: function () {
                 this.spatialReference = new esri.SpatialReference({wkid: WKID});
                 this.initialExtent = (this.fullExtent =
@@ -120,7 +138,7 @@ require([
                 }
                 return "http://t1.tianditu.cn/DataServer?T=vec_c&" + levelMap + "&X=" + col + "&Y=" + row + "&L=" + (level * 1 + 1);
             }
-        });*/
+        });
         //文字标注
 
         dojo.declare("TianDiBiaoZhuMapServiceLayer", TianDiTiledMapServiceLayer, {
@@ -154,7 +172,7 @@ require([
        
         console.log("sdfasdf");
 
-    });
+    });*/
     </script>
   </head>
   

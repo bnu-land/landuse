@@ -64,6 +64,7 @@ require([
         
         map = new esri.Map("ent_landuseChange_div", {
             logo: false
+            
         });
 
         //---------Ext JS 事件----------
