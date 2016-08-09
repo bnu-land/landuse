@@ -104,6 +104,7 @@ body{margin:0; padding:0; font-size:9pt;}
             <span class="inf_text">版权信息</span>
             <span class="copyright">Copyright &nbsp; &copy;
                 2014 &nbsp;北京世纪九州软件有限公司 &nbsp;&nbsp; 黑龙江开发区土地利用监测巡检系统 &nbsp; v1.0</span>
+           <!--      黑龙江开发区土地利用监测巡检系统 -->
         </div>
     </div>
 </div>

@@ -3,7 +3,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>By：DragonDean</title>
+    <title>文件上传下载测试</title>
+     <script type="text/javascript" src="jquery/1.9.1/jquery.js"></script>
+    <script src="jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
     //下面用于图片上传预览功能
     function setImagePreview(avalue) {
@@ -108,6 +110,32 @@
             alert("请选择要上传的文件");
         }
     }
+    function downloadFile(url) {   
+        try{ 
+            var elemIF = document.createElement("iframe");   
+            elemIF.src = url;   
+            elemIF.style.display = "none";   
+            document.body.appendChild(elemIF);   
+        }catch(e){ 
+ 
+        } 
+    }
+$.post(url,{param1,param2},function(data){            
+        if(data.code==0){  
+            try{   
+                var a = document.getElementById("downPdf");  
+                a.href=data.url; 
+                console.log(a.href); 
+                a.download=data.fileName;  
+                a.click();  
+            }catch(e){   
+            }   
+        }else{  
+            alert(data.errorMsg);  
+        }                                 
+    });   
+
+
     </script>
 </head>
 
@@ -120,19 +148,26 @@
                 </td>
             </tr>
             <tr>
-                <td align="center" style="padding-top:10px;">
+              <!--   <td align="center" style="padding-top:10px;">
                     <input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();">
-                </td>
+                </td> -->
             </tr>
             <a id="ctl00_ContentPlaceHolder1_DetailsView1_Dlattlist_ctl01_HyperLink1" href="files/0714.docx" target="_blank">黑龙江开发区系统调整报告</a>
+            <!-- <a href="http://210.31.78.71:8080/uploadFiles/00.jpg">下载文件</a> -->
+            <a download="00.jpg" href="" target="blank" id="downPdf">下载文件</a>  
         </tbody>
     </table>
-    <h1>File API Demo</h1>
+     <input type="button" value="下载文件" onClick = "downloadFile('http://210.31.78.71:8080/uploadFiles/00.jpg')">
+    <h1></h1>
     <p>
         <!-- 用于文件上传的表单元素 -->
         <form name="demoForm" id="demoForm" method="post" enctype="multipart/form-data" action="javascript: uploadAndSubmit();">
             <p>选择上传文件:
-                <input type="file" name="file" />
+               <!--  <input type="file" name="file" /> -->
+               <!-- //选择实现了图片上传前的预览 -->
+                <td align="center" style="padding-top:10px;">
+                    <input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();">
+                </td>
             </p>
             <p>
                 <input type="submit" value="确认上传" />

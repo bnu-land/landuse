@@ -13,7 +13,7 @@
    String fn = request.getParameter("fileName"); 
    
    byte[] buf = new byte[1024];
-   File file = new File("d:/" + fn); 
+   File file = new File("g:/MyProject/uploadFiles/" + fn); /**/
    
    BufferedOutputStream fileOut = new BufferedOutputStream(new 
  FileOutputStream(file)); 
