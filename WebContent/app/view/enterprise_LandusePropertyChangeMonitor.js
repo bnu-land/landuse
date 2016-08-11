@@ -69,10 +69,11 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             xtype: 'panel',
             region: 'east',
             split: true,
-            width: 270,
+            width: '25%',
             layout: 'border',
-            collapsed: true,
-            collapsible: true,
+            collapseFirst: false,
+            collapsed: false,
+            collapsible: false,
             title: '企业用地变更详情',
             items: [
                 {
@@ -150,6 +151,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
                             bodyPadding: 10,
                             manageHeight: false,
                             title: '变更前',
+                            titleAlign: 'right',
                             layout: {
                                 type: 'vbox',
                                 align: 'stretch'

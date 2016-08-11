@@ -307,7 +307,7 @@
                                         "hideMode": "visibility",
                                         "hideOnClick": false,
                                         "id": "enterprise_uploadMapCheck",
-                                        "text": "上传数据信息审核"
+                                        "text": "上传数据审核"
                                     },
                                     "name": "MyMenuItem23",
                                     "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
@@ -345,7 +345,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "统计分析"
+                        "title": "专题统计分析"
                     },
                     "name": "MyPanel4",
                     "designerId": "bba14e45-2837-4d8e-a872-662c5091881c",
@@ -376,7 +376,7 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "thematic_LanduseConstructionContrast",
-                                        "text": "土地利用结构对比分析"
+                                        "text": "土地利用结构统计"
                                     },
                                     "name": "MyMenuItem3",
                                     "designerId": "c770dbb5-a50a-473c-8a44-23d286934911"
@@ -523,7 +523,7 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "survey_TypicalEnterprise",
-                                        "text": "企业调查"
+                                        "text": "典型企业调查"
                                     },
                                     "name": "MyMenuItem7",
                                     "designerId": "f74b3af8-0609-4991-9f17-1ca1fd2531d0"
@@ -1209,6 +1209,21 @@
                                     "designerId": "c6d29296-74ec-49ec-9bba-c2406864c7ad"
                                 },
                                 {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "achievement_DataExport",
+                                        "text": "成果资料导出"
+                                    },
+                                    "name": "MyMenuItem25",
+                                    "designerId": "47f12e54-be14-4de3-885a-ae9ec33daf9f"
+                                },
+                                {
                                     "type": "basiceventbinding",
                                     "reference": {
                                         "name": "listeners",
@@ -1430,6 +1445,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_Log",
                                         "text": "系统日志"
@@ -1445,6 +1461,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_DataSearch",
                                         "text": "数据查询"
@@ -1460,6 +1477,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_DataEdit",
                                         "text": "数据编辑"
@@ -1475,6 +1493,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_DataManage",
                                         "text": "数据管理"
@@ -1547,7 +1566,7 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "business_message",
-                                        "text": "预警咨讯"
+                                        "text": "填报进度"
                                     },
                                     "name": "MyMenuItem17",
                                     "designerId": "1d9db772-c27e-438d-87a2-6dbc71b50add"
@@ -1562,7 +1581,7 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "business_uploadPhoto",
-                                        "text": "上传图片信息"
+                                        "text": "数据填报"
                                     },
                                     "name": "MyMenuItem22",
                                     "designerId": "1aff5401-2ae3-4019-bd8b-d6ae2864a7c2"
@@ -1577,10 +1596,26 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "business_uploadMap",
-                                        "text": "上传地图信息"
+                                        "text": "开发区变更"
                                     },
                                     "name": "MyMenuItem18",
                                     "designerId": "85d93acb-77b8-4bc3-ab9f-cacd5b45b16e"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideMode": "visibility",
+                                        "hideOnClick": false,
+                                        "id": "system_test",
+                                        "text": "系统功能测试"
+                                    },
+                                    "name": "MyMenuItem26",
+                                    "designerId": "d6a3f72c-b83a-47d1-bd8b-6cdd167bd0bd"
                                 },
                                 {
                                     "type": "basiceventbinding",

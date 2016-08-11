@@ -129,7 +129,7 @@ Ext.define('MyApp.view.MainView', {
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-                                    text: '上传数据信息审核'
+                                    text: '上传数据审核'
                                 }
                             ],
                             listeners: {
@@ -140,7 +140,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '统计分析',
+                    title: '专题统计分析',
                     items: [
                         {
                             xtype: 'menu',
@@ -152,7 +152,7 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'thematic_LanduseConstructionContrast',
                                     hideOnClick: false,
-                                    text: '土地利用结构对比分析'
+                                    text: '土地利用结构统计'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -208,7 +208,7 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'survey_TypicalEnterprise',
                                     hideOnClick: false,
-                                    text: '企业调查'
+                                    text: '典型企业调查'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -451,6 +451,12 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'achievement_DataIEdit',
                                     hideOnClick: false,
                                     text: '成果数据编辑'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'achievement_DataExport',
+                                    hideOnClick: false,
+                                    text: '成果资料导出'
                                 }
                             ],
                             listeners: {
@@ -530,24 +536,28 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_Log',
                                     hideOnClick: false,
                                     text: '系统日志'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_DataSearch',
                                     hideOnClick: false,
                                     text: '数据查询'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_DataEdit',
                                     hideOnClick: false,
                                     text: '数据编辑'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_DataManage',
                                     hideOnClick: false,
                                     text: '数据管理'
@@ -573,19 +583,26 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'business_message',
                                     hideOnClick: false,
-                                    text: '预警咨讯'
+                                    text: '填报进度'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     id: 'business_uploadPhoto',
                                     hideOnClick: false,
-                                    text: '上传图片信息'
+                                    text: '数据填报'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     id: 'business_uploadMap',
                                     hideOnClick: false,
-                                    text: '上传地图信息'
+                                    text: '开发区变更'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hideMode: 'visibility',
+                                    id: 'system_test',
+                                    hideOnClick: false,
+                                    text: '系统功能测试'
                                 }
                             ],
                             listeners: {

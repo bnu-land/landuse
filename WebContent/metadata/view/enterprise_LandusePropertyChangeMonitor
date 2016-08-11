@@ -105,13 +105,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "collapsed": true,
-                "collapsible": true,
+                "collapseFirst": false,
+                "collapsed": false,
+                "collapsible": false,
                 "layout": "border",
                 "layout|region": "east",
                 "layout|split": true,
                 "title": "企业用地变更详情",
-                "width": 270
+                "width": "25%"
             },
             "name": "MyPanel1",
             "designerId": "1bbfae77-1032-487e-9fab-6f300abbdb17",
@@ -303,7 +304,8 @@
                                 "maxWidth": null,
                                 "minHeight": 1000,
                                 "minWidth": null,
-                                "title": "变更前"
+                                "title": "变更前",
+                                "titleAlign": "right"
                             },
                             "name": "MyForm1",
                             "designerId": "bbea6eaa-d1bd-40cd-baef-1efa7e3c2dd8",
