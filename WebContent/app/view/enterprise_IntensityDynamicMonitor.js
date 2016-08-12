@@ -53,7 +53,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'jyddj',
-                    text: '集约度等级'
+                    text: '集约度分值'
                 },
                 {
                     xtype: 'gridcolumn',
@@ -176,14 +176,11 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                             xtype: 'tbseparator'
                         },
                         {
-                            xtype: 'button',
-                            text: '全部',
-                            listeners: {
-                                click: 'onButtonClick'
-                            }
+                            xtype: 'tbseparator'
                         },
                         {
                             xtype: 'button',
+                            hidden: true,
                             text: '低集约度企业',
                             listeners: {
                                 click: 'onButtonClick2'
@@ -191,6 +188,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                         },
                         {
                             xtype: 'button',
+                            hidden: true,
                             text: '中集约度企业',
                             listeners: {
                                 click: 'onButtonClick1'
@@ -198,9 +196,34 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                         },
                         {
                             xtype: 'button',
+                            hidden: true,
                             text: '高集约度企业',
                             listeners: {
                                 click: 'onButtonClick11'
+                            }
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 150,
+                            fieldLabel: '筛选区间',
+                            labelWidth: 60,
+                            emptyText: '区间最小值'
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 90,
+                            fieldLabel: '',
+                            emptyText: '区间最小值'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '筛选'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '全部',
+                            listeners: {
+                                click: 'onButtonClick'
                             }
                         }
                     ]
@@ -220,19 +243,6 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
         store.load({
             params: {
                 searchKeyword: keyword,
-                code : ''
-            }
-        });
-
-    },
-
-    onButtonClick: function(button, e, eOpts) {
-        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
-        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
-        //在load事件中添加参数
-        store.load({
-            params: {
-                searchKeyword: '',
                 code : ''
             }
         });
@@ -273,6 +283,19 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
             params: {
                 searchKeyword: '',
                 code : '3'
+            }
+        });
+
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+        var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: '',
+                code : ''
             }
         });
 

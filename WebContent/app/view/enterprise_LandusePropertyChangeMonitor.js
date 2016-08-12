@@ -69,6 +69,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             xtype: 'panel',
             region: 'east',
             split: true,
+            autoScroll: true,
             width: '25%',
             layout: 'border',
             collapseFirst: false,

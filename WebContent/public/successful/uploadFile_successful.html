@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html >
+<html >
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,26 +8,28 @@
     <script src="../jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
     //下面用于图片上传预览功能
-
-    //var file=null;
+    //设置全局变量
+    
+    
     function setImagePreview(avalue) {
+
         var docObj = document.getElementById("doc");
         var imgObjPreview = document.getElementById("preview");
-        // var imagepreview=Ext.getCmp("imagePreview");
-        //console.log("ExtJs中的图片预览："+imagepreview);
-        var form1 = document.forms["demoForm"];
-        if (form1["file"].files[0]!=null) {
-            var file1 = form1["file"].files[0];
-            console.log(file1.name);
+        var form=document.forms["demoForm"];
+        var file=form["file"].files[0];
+       // var form1 = document.forms["demoForm"];
+        if (file) {
+            //var file1 = form1["file"].files[0];
+            console.log(file.name);
             var fileSize = 0;
-            if (file1.size > 1024 * 1024)
-                fileSize = (Math.round(file1.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+            if (file.size > 1024 * 1024)
+                fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
             else
-                fileSize = (Math.round(file1.size * 100 / 1024) / 100).toString() + 'KB';
-            document.getElementById('fileName').innerHTML = '名称: ' + file1.name;
+                fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+            document.getElementById('fileName').innerHTML = '名称: ' + file.name;
             document.getElementById('fileSize').innerHTML = '大小: ' + fileSize;
-            document.getElementById('fileType').innerHTML = '类型: ' + file1.type;
-            document.getElementById('fileN').value = file1.name;
+            document.getElementById('fileType').innerHTML = '类型: ' + file.type;
+          
         }
         else
             imgObjPreview.src=null;
@@ -69,7 +71,7 @@
    
     function uploadAndSubmit() {
 
-        var form = document.forms["demoForm"];
+       var form = document.forms["demoForm"];
         if (form["file"].files.length > 0) {
             // 寻找表单域的 <input type="file" ... /> 标签
 
@@ -99,16 +101,11 @@
                     console.log(reader.error);
                 } else {
                     document.getElementById("bytesRead").textContent = file.size;
-                    // 构造 XMLHttpRequest 对象，发送文件 Binary 数据
+                  
                     var xhr = new XMLHttpRequest();
-                    //var userName = document.getElementById("UserName").value;  
-                   
-                     
-                    xhr.open( /* method */ "POST",
-                        /* target url */
-                        "upload.jsp?fileNames=" + file.name, true
-                        /*, async, default to true */
-                    );//两次encodeURI编码  
+                    
+                    xhr.open( "POST", "uploadFile_successful.jsp?fileName="+file.name+"&nn=三农普.docx", true);
+                    //两次encodeURI编码  
                     //浏览器的兼容
                     if (!XMLHttpRequest.prototype.sendAsBinary) {
                         XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
@@ -174,6 +171,7 @@
 </head>
 
 <body>
+
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tbody>
             <tr>
@@ -187,11 +185,11 @@
         <!-- 用于文件上传的表单元素 -->
         <form name="demoForm" id="demoForm" method="post" enctype="multipart/form-data" action="javascript: uploadAndSubmit();">
             <p>选择上传文件:
-                <!--  <input type="file" name="file" /> -->
+               
                 <!-- //选择实现了图片上传前的预览 -->
                 <td align="left" style="padding-top:10px;">
                     <input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();">
-                    <input type="text" name="Name" id="fileN">
+                    
                 </td>
             </p>
             <div id="fileName"></div>
@@ -200,14 +198,13 @@
             <p>
                 <input type="submit" value="确认上传" />
             </p>
+            
         </form>
-        <form action="upload.jsp">
-            <table>
-                <tr>
-                <td><input type="submit" name="runJSP"></td>
-                </tr>
-            </table>
-        </form>
+          <form action="uploadFile_successful.jsp" method="post">
+              <p>
+                <input type="text" name="nn" value="你好.docx" />
+            </p>
+          </form>
         <div>上传进度: <span id="bytesRead">  </span> / <span id="bytesTotal"></span> </div>
         <p>
             <input type="submit" value="预览图片" onclick="imgPreview();" />

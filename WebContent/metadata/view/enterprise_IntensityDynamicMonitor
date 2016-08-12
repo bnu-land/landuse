@@ -89,7 +89,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "jyddj",
-                        "text": "集约度等级"
+                        "text": "集约度分值"
                     },
                     "name": "MyColumn16",
                     "designerId": "50ef9e7a-144d-4e3e-a2fe-40074b193b5b"
@@ -469,47 +469,17 @@
                             "designerId": "89213263-2c43-418c-a1c3-8e0c819aa51a"
                         },
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.toolbar.Separator",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null,
-                                "text": "全部"
+                                "layout|flex": null
                             },
-                            "name": "MyButton3",
-                            "designerId": "9b58a2e6-91ff-4aa0-bde1-bc3eab774c98",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onButtonClick",
-                                        "implHandler": [
-                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
-                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
-                                            "//在load事件中添加参数",
-                                            "store.load({",
-                                            "    params: {",
-                                            "        searchKeyword: '',",
-                                            "        code : ''",
-                                            "    }",
-                                            "});",
-                                            ""
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onButtonClick",
-                                    "designerId": "8d10c526-8dff-4c1b-a1cc-7f0924b61df7"
-                                }
-                            ]
+                            "name": "MySeparator2",
+                            "designerId": "ef8f5c1d-8d1f-4bbf-af8b-0318814e0cbc"
                         },
                         {
                             "type": "Ext.button.Button",
@@ -519,6 +489,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "layout|flex": null,
                                 "text": "低集约度企业"
                             },
@@ -562,6 +533,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "layout|flex": null,
                                 "text": "中集约度企业"
                             },
@@ -605,6 +577,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "layout|flex": null,
                                 "text": "高集约度企业"
                             },
@@ -637,6 +610,97 @@
                                     },
                                     "name": "onButtonClick11",
                                     "designerId": "d96b21aa-3e69-4496-bac4-5a5ac7d92400"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "区间最小值",
+                                "fieldLabel": "筛选区间",
+                                "labelWidth": 60,
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "9259e095-b1e0-4b2d-baf2-60bd53aa8933"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "区间最小值",
+                                "fieldLabel": "",
+                                "labelWidth": null,
+                                "layout|flex": null,
+                                "width": 90
+                            },
+                            "name": "MyTextField33",
+                            "designerId": "00326d15-18fa-4fd6-bb79-e45679023bc1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "筛选"
+                            },
+                            "name": "MyButton10",
+                            "designerId": "ab66ca8b-50ce-4db3-a012-17d34c7ab76f"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "全部"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "9b58a2e6-91ff-4aa0-bde1-bc3eab774c98",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: '',",
+                                            "        code : ''",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "8d10c526-8dff-4c1b-a1cc-7f0924b61df7"
                                 }
                             ]
                         }

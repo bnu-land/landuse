@@ -19,6 +19,7 @@ Ext.define('MyApp.view.system_test', {
 
     requires: [
         'MyApp.view.business_uploadPhotoViewModel1',
+        'Ext.form.field.File',
         'Ext.form.Panel',
         'Ext.button.Button',
         'Ext.form.field.TextArea',
@@ -49,27 +50,19 @@ Ext.define('MyApp.view.system_test', {
                 {
                     xtype: 'panel',
                     region: 'north',
-                    height: 91,
+                    autoScroll: true,
+                    height: 175,
                     layout: 'absolute',
                     title: '图片信息录入',
+                    listeners: {
+                        afterrender: 'onPanelAfterRender1'
+                    },
                     items: [
                         {
-                            xtype: 'textfield',
-                            x: 30,
+                            xtype: 'filefield',
+                            x: 10,
                             y: 10,
-                            id: 'photoPath2',
-                            width: 400,
-                            fieldLabel: '上传图片',
-                            labelWidth: 70,
-                            name: 'photoPath1',
-                            submitValue: false,
-                            inputType: 'file',
-                            blankText: '此项不能为空',
-                            emptyText: '选择本地图片路径',
-                            maxLengthText: 'The maximum length for this field is {200}',
-                            listeners: {
-                                change: 'onChoosePictureChange'
-                            }
+                            fieldLabel: '上传文件'
                         }
                     ]
                 },
@@ -234,7 +227,7 @@ Ext.define('MyApp.view.system_test', {
         {
             xtype: 'panel',
             region: 'east',
-            html: '<p>\n        <!-- 用于文件上传的表单元素 -->\n        <form name="demoForm" id="demoForm" method="post" enctype="multipart/form-data" action="javascript: uploadAndSubmit();">\n            <p>选择上传文件:\n                <!--  <input type="file" name="file" /> -->\n                <!-- //选择实现了图片上传前的预览 -->\n                <td align="center" style="padding-top:10px;">\n                    <input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();">\n                </td>\n            </p>\n            <p>\n                <input type="submit" value="确认上传" />\n            </p>\n        </form>\n        <div>上传进度（B）: <span id="bytesRead"> \n </span> / <span id="bytesTotal"></span>\n        </div>\n    </p>',
+            html: '<p>\n<!-- 用于文件上传的表单元素 -->\n<form name="demoForm" id="demoForm" method="post" enctype="multipart/form-data" action="javascript: uploadAndSubmit();">\n<p>选择上传文件:\n\n<!-- //选择实现了图片上传前的预览 -->\n<td align="left" style="padding-top:10px;">\n<input type="file" name="file" id="doc" style="width:300px;" onchange="javascript:setImagePreview();">\n\n</td>\n</p>\n<div id="fileName"></div>\n<div id="fileSize"></div>\n<div id="fileType"></div>\n<p>\n<input type="submit" value="确认上传" />\n</p>\n\n</form>\n\n<div>上传进度: <span id="bytesRead">  </span> / <span id="bytesTotal"></span> </div>\n<p>\n<input type="submit" value="预览图片" onclick="imgPreview();" />\n</p>\n<p>\n<input type="submit"   value="下载" onclick="funTestDown();"/>\n<a id="download"></a>\n</p>\n</p>',
             width: '40%',
             title: 'My Panel',
             listeners: {
@@ -243,19 +236,40 @@ Ext.define('MyApp.view.system_test', {
         }
     ],
 
-    onChoosePictureChange: function(field, newValue, oldValue, eOpts) {
-        var title_photo = Ext.getCmp("title_photo");
-        var photoPreview=Ext.getCmp("photo_preview");
-        var pathText=Ext.getCmp("photoPath1");
-        //var photoFiles=document.getElementById("photo_files")
-        var url="images/login/"+newValue.substring(newValue.lastIndexOf("\\")+1);
-        var name = newValue.substring(newValue.lastIndexOf("\\")+1, newValue.lastIndexOf("."));
-        console.log(name);
-        title_photo.setValue(name);
-        pathText.setValue(newValue);
-        //url = window.URL.createObjectURL(this.field);
-        console.log(url);
-        photoPreview.setSrc(url);
+    onPanelAfterRender1: function(component, eOpts) {
+        Ext.create('Ext.form.Panel', {
+            title: '上传照片',
+            width: 400,
+            bodyPadding: 10,
+            frame: true,
+            renderTo: Ext.getBody(),
+            items: [{
+                xtype: 'filefield',
+                name: 'photo',
+                fieldLabel: 'Photo',
+                labelWidth: 50,
+                msgTarget: 'side',
+                allowBlank: false,
+                anchor: '100%',
+                buttonText: '选择照片'
+            }],
+
+            buttons: [{
+                text: 'Upload',
+                handler: function() {
+                    var form = this.up('form').getForm();
+                    if(form.isValid()){
+                        form.submit({
+                            url: 'mapjs/uploadFiles.jsp',
+                            waitMsg: '正在上传照片...',
+                            success: function(fp, o) {
+                                Ext.Msg.alert('上传成功', 'Your photo "' + o.result.file + '" has been uploaded.');
+                            }
+                        });
+                    }
+                }
+            }]
+        });
     },
 
     onPanelAfterRender: function(component, eOpts) {

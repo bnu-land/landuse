@@ -24,9 +24,11 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
         'Ext.toolbar.Toolbar',
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
+        'Ext.toolbar.Separator',
+        'Ext.form.Label',
         'Ext.button.Button',
-        'Ext.toolbar.Separator'
+        'Ext.toolbar.TextItem'
     ],
 
     viewModel: {
@@ -36,13 +38,14 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     height: 675,
     width: 879,
     layout: 'border',
-    title: '企业上传地图数据',
+    title: '上报数据审核',
     defaultListenerScope: true,
 
     items: [
         {
             xtype: 'panel',
             region: 'center',
+            hidden: true,
             html: '<div id="map"></div>',
             collapseDirection: 'right',
             collapsible: false,
@@ -67,6 +70,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             columns: [
                 {
                     xtype: 'rownumberer',
+                    width: 63,
                     dataIndex: 'string',
                     text: '序号'
                 },
@@ -137,15 +141,41 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                     dock: 'top',
                     items: [
                         {
-                            xtype: 'textfield'
+                            xtype: 'combobox',
+                            fieldLabel: '选择开发区',
+                            labelWidth: 80
                         },
                         {
-                            xtype: 'button',
-                            icon: 'images/table/search.png',
-                            text: '搜索'
+                            xtype: 'combobox',
+                            width: 150,
+                            fieldLabel: '选择年份',
+                            labelWidth: 60
                         },
                         {
                             xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'label',
+                            text: '操作：'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看基本信息'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看照片'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看位置'
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+                            xtype: 'tbtext',
+                            text: '审核操作：'
                         },
                         {
                             xtype: 'button',

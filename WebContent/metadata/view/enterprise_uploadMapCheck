@@ -11,7 +11,7 @@
         "designer|userClassName": "enterprise_uploadMapCheck",
         "height": 675,
         "layout": "border",
-        "title": "企业上传地图数据",
+        "title": "上报数据审核",
         "width": 879
     },
     "name": "business_uploadMap1",
@@ -30,6 +30,7 @@
                 "collapseDirection": "right",
                 "collapsible": false,
                 "dock": null,
+                "hidden": true,
                 "html": [
                     "<div id=\"map\"></div>"
                 ],
@@ -104,7 +105,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "string",
-                        "text": "序号"
+                        "text": "序号",
+                        "width": 63
                     },
                     "name": "MyRowNumberer2",
                     "designerId": "c5281520-16dd-43ee-9c71-c5e4bc696127"
@@ -301,33 +303,35 @@
                     "designerId": "1410f4e8-e085-4791-b6ab-38b326410fa2",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": null,
+                                "fieldLabel": "选择开发区",
+                                "labelWidth": 80,
                                 "layout|flex": null
                             },
-                            "name": "MyTextField8",
-                            "designerId": "ad70e1ea-e1ea-42b9-931f-19edd9d51777"
+                            "name": "MyComboBox4",
+                            "designerId": "317f38cf-480c-4f96-adde-835a06a0f885"
                         },
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "icon": "images/table/search.png",
+                                "fieldLabel": "选择年份",
+                                "labelWidth": 60,
                                 "layout|flex": null,
-                                "text": "搜索"
+                                "width": 150
                             },
-                            "name": "MyButton8",
-                            "designerId": "66751a8d-391c-479a-9799-5d50017534d1"
+                            "name": "MyComboBox5",
+                            "designerId": "168259e0-edae-4459-a9f3-d4136861b3f9"
                         },
                         {
                             "type": "Ext.toolbar.Separator",
@@ -341,6 +345,89 @@
                             },
                             "name": "MySeparator1",
                             "designerId": "4249e7e4-c894-4132-8652-01e2b3127959"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "操作："
+                            },
+                            "name": "MyLabel3",
+                            "designerId": "4b0937e9-235a-4cdb-8e86-a030412d8a4c"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "查看基本信息"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "9015498e-bcff-4582-94a8-8098f11f0845"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "查看照片"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "797a45a3-7e88-4693-83fa-a937816193e1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "查看位置"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "b06c8c81-a4f9-4446-a4ec-dde65a8b8ddb"
+                        },
+                        {
+                            "type": "Ext.toolbar.Separator",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MySeparator3",
+                            "designerId": "ee90e0d1-786e-41ee-977d-1aa14370b593"
+                        },
+                        {
+                            "type": "Ext.toolbar.TextItem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "审核操作："
+                            },
+                            "name": "MyTextItem",
+                            "designerId": "551facfb-3641-4817-bc59-7d3aeafef889"
                         },
                         {
                             "type": "Ext.button.Button",

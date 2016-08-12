@@ -7,14 +7,31 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% //声明变量和函数。
+  // request.setCharacterEncoding("utf-8");//解决中文乱码问题。
+  /* Protected void processRequest(HttpServletRequest request, HttpServletResponse response)  
+ Throws ServletException, IOException {  
+    response.setContentType("text/html;charset = utf-8");  
+    printWriter out = response.getWriter();  
+    try{  
+         String old = request.getParameter("name");  
+         String name = URLDecoder.decode(old,”utf-8”);  
+             System.out.println(name);  
+             
+        } 
+  }  */
+%>
   <% 
    BufferedInputStream fileIn = new 
    BufferedInputStream(request.getInputStream()); 
-   String fn = request.getParameter("fileName"); 
-  
+   String fn = request.getParameter("fileNames"); 
+   String name=request.getParameter("fileN");
+   //System.out.println(fn);  
+   //String name = URLDecoder.decode(fn,"utf-8"); 
+   //System.out.println(name);  
    byte[] buf = new byte[1024];
    //console.log(fn);
-   File file = new File("G:/MyProject/uploadFiles/"+fn); /**/
+   File file = new File("G:/MyProject/uploadFiles/"+name); /**/
   // File file = new File("http://localhost:8080/landuse/public/image/" + fn); //失败
    BufferedOutputStream fileOut = new BufferedOutputStream(new 
  FileOutputStream(file)); 
@@ -39,6 +56,7 @@
    fileOut.close(); 
    
    out.print(file.getAbsolutePath()); 
+ 
  %>
 </body>
 </html>

@@ -43,8 +43,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "autoScroll": true,
                         "designer|snapToGrid": 10,
-                        "height": 91,
+                        "height": 175,
                         "layout": "absolute",
                         "layout|region": "north",
                         "title": "图片信息录入"
@@ -53,60 +54,69 @@
                     "designerId": "e5338342-e812-4a97-84d3-95bdf967c6a8",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelAfterRender1",
+                                "implHandler": [
+                                    "Ext.create('Ext.form.Panel', {",
+                                    "    title: '上传照片',",
+                                    "    width: 400,",
+                                    "    bodyPadding: 10,",
+                                    "    frame: true,",
+                                    "    renderTo: Ext.getBody(),",
+                                    "    items: [{",
+                                    "        xtype: 'filefield',",
+                                    "        name: 'photo',",
+                                    "        fieldLabel: 'Photo',",
+                                    "        labelWidth: 50,",
+                                    "        msgTarget: 'side',",
+                                    "        allowBlank: false,",
+                                    "        anchor: '100%',",
+                                    "        buttonText: '选择照片'",
+                                    "    }],",
+                                    "",
+                                    "    buttons: [{",
+                                    "        text: 'Upload',",
+                                    "        handler: function() {",
+                                    "            var form = this.up('form').getForm();",
+                                    "            if(form.isValid()){",
+                                    "                form.submit({",
+                                    "                    url: 'mapjs/uploadFiles.jsp',",
+                                    "                    waitMsg: '正在上传照片...',",
+                                    "                    success: function(fp, o) {",
+                                    "                        Ext.Msg.alert('上传成功', 'Your photo \"' + o.result.file + '\" has been uploaded.');",
+                                    "                    }",
+                                    "                });",
+                                    "            }",
+                                    "        }",
+                                    "    }]",
+                                    "});"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "name": "onPanelAfterRender1",
+                            "designerId": "bc1a452b-9fcd-42ae-8044-86c505c5d9e3"
+                        },
+                        {
+                            "type": "Ext.form.field.File",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "blankText": "此项不能为空",
-                                "designer|displayName": "photoPath1",
-                                "emptyText": "选择本地图片路径",
-                                "fieldLabel": "上传图片",
-                                "id": "photoPath2",
-                                "inputType": "file",
-                                "labelWidth": 70,
-                                "layout|x": 30,
-                                "layout|y": 10,
-                                "maxLengthText": "The maximum length for this field is {200}",
-                                "name": "photoPath1",
-                                "submitValue": false,
-                                "width": 400
+                                "fieldLabel": "上传文件",
+                                "layout|x": 10,
+                                "layout|y": 10
                             },
-                            "name": "MyTextField1",
-                            "designerId": "1af1bd43-9dae-49a3-adcd-367eb53fc85c",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onChoosePictureChange",
-                                        "implHandler": [
-                                            "var title_photo = Ext.getCmp(\"title_photo\");",
-                                            "var photoPreview=Ext.getCmp(\"photo_preview\");",
-                                            "var pathText=Ext.getCmp(\"photoPath1\");",
-                                            "//var photoFiles=document.getElementById(\"photo_files\")",
-                                            "var url=\"images/login/\"+newValue.substring(newValue.lastIndexOf(\"\\\\\")+1);",
-                                            "var name = newValue.substring(newValue.lastIndexOf(\"\\\\\")+1, newValue.lastIndexOf(\".\"));",
-                                            "console.log(name);",
-                                            "title_photo.setValue(name);",
-                                            "pathText.setValue(newValue);",
-                                            "//url = window.URL.createObjectURL(this.field);",
-                                            "console.log(url);",
-                                            "photoPreview.setSrc(url);"
-                                        ],
-                                        "name": "change",
-                                        "scope": "me"
-                                    },
-                                    "name": "onChoosePictureChange",
-                                    "designerId": "0ff8871c-da54-45b5-a8f1-ee4f4f223711"
-                                }
-                            ]
+                            "name": "MyFileUpload1",
+                            "designerId": "689e789a-c5b1-4a94-9500-e665e78184e2"
                         }
                     ]
                 },
@@ -442,25 +452,35 @@
             "codeClass": null,
             "userConfig": {
                 "html": [
-                    "   <p>",
-                    "        <!-- 用于文件上传的表单元素 -->",
-                    "        <form name=\"demoForm\" id=\"demoForm\" method=\"post\" enctype=\"multipart/form-data\" action=\"javascript: uploadAndSubmit();\">",
-                    "            <p>选择上传文件:",
-                    "                <!--  <input type=\"file\" name=\"file\" /> -->",
-                    "                <!-- //选择实现了图片上传前的预览 -->",
-                    "                <td align=\"center\" style=\"padding-top:10px;\">",
-                    "                    <input type=\"file\" name=\"file\" id=\"doc\" style=\"width:300px;\" onchange=\"javascript:setImagePreview();\">",
-                    "                </td>",
-                    "            </p>",
-                    "            <p>",
-                    "                <input type=\"submit\" value=\"确认上传\" />",
-                    "            </p>",
-                    "        </form>",
-                    "        <div>上传进度（B）: <span id=\"bytesRead\"> ",
-                    " </span> / <span id=\"bytesTotal\"></span>",
-                    "        </div>",
-                    "    </p>",
-                    "   "
+                    "<p>",
+                    "<!-- 用于文件上传的表单元素 -->",
+                    "<form name=\"demoForm\" id=\"demoForm\" method=\"post\" enctype=\"multipart/form-data\" action=\"javascript: uploadAndSubmit();\">",
+                    "<p>选择上传文件:",
+                    "",
+                    "<!-- //选择实现了图片上传前的预览 -->",
+                    "<td align=\"left\" style=\"padding-top:10px;\">",
+                    "<input type=\"file\" name=\"file\" id=\"doc\" style=\"width:300px;\" onchange=\"javascript:setImagePreview();\">",
+                    "",
+                    "</td>",
+                    "</p>",
+                    "<div id=\"fileName\"></div>",
+                    "<div id=\"fileSize\"></div>",
+                    "<div id=\"fileType\"></div>",
+                    "<p>",
+                    "<input type=\"submit\" value=\"确认上传\" />",
+                    "</p>",
+                    "",
+                    "</form>",
+                    "",
+                    "<div>上传进度: <span id=\"bytesRead\">  </span> / <span id=\"bytesTotal\"></span> </div>",
+                    "<p>",
+                    "<input type=\"submit\" value=\"预览图片\" onclick=\"imgPreview();\" />",
+                    "</p>",
+                    "<p>",
+                    "<input type=\"submit\"   value=\"下载\" onclick=\"funTestDown();\"/>",
+                    "<a id=\"download\"></a>",
+                    "</p>",
+                    "</p>"
                 ],
                 "layout|region": "east",
                 "title": "My Panel",
