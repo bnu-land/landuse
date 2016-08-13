@@ -33,7 +33,7 @@ Ext.define('MyApp.view.system_test', {
     viewModel: {
         type: 'system_test'
     },
-    height: 491,
+    height: 518,
     width: 959,
     layout: 'border',
     title: '企业上传图片数据',

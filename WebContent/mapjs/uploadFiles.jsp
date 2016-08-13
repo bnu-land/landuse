@@ -17,7 +17,7 @@
    String fn = request.getParameter("fileName"); 
    
    byte[] buf = new byte[1024];
-   
+   out.print(request.)
    File file = new File("G:/MyProject/uploadFiles/"+fn); /**/ 
 
    BufferedOutputStream fileOut = new BufferedOutputStream(new 

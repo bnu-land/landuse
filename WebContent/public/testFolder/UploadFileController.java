@@ -19,11 +19,11 @@ public class UploadFileController {
 	public UploadFileController(UploadFileService photoService) {
 		this.uploadService = photoService;
 	}
-	@RequestMapping(value = "/post_file")
+	/*@RequestMapping(value = "/post_file")
 	@ResponseBody
 	public void uploadFile(@RequestParam("file") String filename) throws IOException {
-		this.uploadService.fileUpload(request, response, filename);
-	}
+		//this.uploadService.fileUpload(request, response, filename);
+	}*/
 
 
 }

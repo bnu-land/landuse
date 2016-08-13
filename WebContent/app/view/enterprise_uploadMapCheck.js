@@ -43,22 +43,9 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
 
     items: [
         {
-            xtype: 'panel',
-            region: 'center',
-            hidden: true,
-            html: '<div id="map"></div>',
-            collapseDirection: 'right',
-            collapsible: false,
-            title: '地图预览',
-            listeners: {
-                beforerender: 'onPanelBeforeRender'
-            }
-        },
-        {
             xtype: 'gridpanel',
-            region: 'north',
+            region: 'center',
             autoScroll: true,
-            height: '50%',
             id: 'ent_uploadInfoCheckGrid',
             collapsed: false,
             collapsible: false,
@@ -196,15 +183,6 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             ]
         }
     ],
-
-    onPanelBeforeRender: function(component, eOpts) {
-        //加入地图的js文件
-        var head = document.getElementsByTagName('head')[0];
-        var script= document.createElement("script");
-        script.type = "text/javascript";
-        script.src="mapjs/uploadmap.js";
-        head.appendChild(script);
-    },
 
     onButtonClick: function(button, e, eOpts) {
         //获取数据

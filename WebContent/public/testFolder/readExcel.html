@@ -8,12 +8,14 @@
   <meta name="Keywords" content="">  
   <meta name="Description" content="">  
   <script type="text/javascript">  
+  //只适合IE浏览器
         function ReadExcel() {  
            var tempStr = "";  
            //得到文件路径的值  
            var filePath = document.getElementById("upfile").value;  
            //创建操作EXCEL应用程序的实例  
-           var oXL = new ActiveXObject("Excel.application");  
+          var oXL = new ActiveXObject("Excel.application");  
+           // var oXL = new ActiveXObject("Word.application"); 
             //打开指定路径的excel文件  
            var oWB = oXL.Workbooks.open(filePath);  
            //操作第一个sheet(从一开始，而非零)  

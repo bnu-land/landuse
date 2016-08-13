@@ -20,52 +20,6 @@
     "viewModelInstanceId": "35e27102-339c-45a8-8d91-82ff3b0644b6",
     "cn": [
         {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "collapseDirection": "right",
-                "collapsible": false,
-                "dock": null,
-                "hidden": true,
-                "html": [
-                    "<div id=\"map\"></div>"
-                ],
-                "layout|region": "center",
-                "title": "地图预览"
-            },
-            "name": "MyPanel7",
-            "designerId": "d78af84c-9226-4b93-8bc0-6c6346896758",
-            "cn": [
-                {
-                    "type": "basiceventbinding",
-                    "reference": {
-                        "name": "listeners",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "onPanelBeforeRender",
-                        "implHandler": [
-                            "//加入地图的js文件",
-                            "var head = document.getElementsByTagName('head')[0];",
-                            "var script= document.createElement(\"script\");",
-                            "script.type = \"text/javascript\";",
-                            "script.src=\"mapjs/uploadmap.js\";",
-                            "head.appendChild(script);"
-                        ],
-                        "name": "beforerender",
-                        "scope": "me"
-                    },
-                    "name": "onPanelBeforeRender",
-                    "designerId": "72d11d2f-8720-4545-bf8f-8ec123cdb59a"
-                }
-            ]
-        },
-        {
             "type": "Ext.grid.Panel",
             "reference": {
                 "name": "items",
@@ -77,9 +31,8 @@
                 "collapsed": false,
                 "collapsible": false,
                 "enableColumnHide": false,
-                "height": "50%",
                 "id": "ent_uploadInfoCheckGrid",
-                "layout|region": "north",
+                "layout|region": "center",
                 "store": "Business_mapStore",
                 "title": null
             },

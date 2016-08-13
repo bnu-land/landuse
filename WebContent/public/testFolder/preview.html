@@ -1,0 +1,87 @@
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery网页层预览效果</title>  
+<!-- <script type="text/javascript" src="jquery-1.4.4.min.js" ></script> -->  
+<script src="../jquery/1.9.1/jquery.min.js"></script>
+<script>  
+  $(document).ready(function(){  
+  
+    /** 点击预览 **/  
+    $("#btnview").click(function(){  
+      $("#viewbackground").css({visibility:"visible"});  
+      $("#viewbackground").show();  
+    });  
+  
+    /** 点击关闭预览 **/  
+    $("#btncloseview").click(function(){  
+      $("#viewbackground").hide();  
+      /** 重构iframe，否则刷新时会加载最后一次打开的页面 **/  
+      $("#viewscan").html("<iframe name=\"dataframe\" id=\"dataframe\" frameborder=\"0\" height=\"100%\" width=\"100%\"></iframe>");  
+    });  
+  
+  });  
+</script>  
+  
+<style>  
+  body  
+  {  
+    font-size: 12px;  
+    text-align:center;  
+    margin:0 auto;  
+    /** font-family:simhei; **/  
+  }  
+  
+  /** 预览层背景 **/  
+  #viewbackground  
+  {  
+    width:100%;  
+    height:100%;  
+    top: 0px;  
+    left:0px;  
+    position:absolute;  
+    z-index:999999; /** 最高层，防止处于底层 **/  
+    /** filter:alpha(opacity=50); **//** 透明处理 **/  
+    background: #FFFFFF;  
+    visibility:hidden;  
+  }  
+  /** 预览部分 **/  
+  #viewscan  
+  {  
+    width:100%;  
+    height:96%;  
+  }  
+  /** 顶部 **/  
+  #viewtools  
+  {  
+    border:1px solid #81c5ff;  
+    background: #f0f7fa;  
+    height: 25px;  
+    width:100%;  
+    top: 0px;  
+    left: 0px;  
+    position:absolute;  
+  }  
+</style>  
+</head>  
+  
+<body>  
+  
+<!-- 预览页 -->  
+<div id="viewbackground">  
+  <div id="viewtools">  
+      <b>JavaEye Java编程 Spring框架 AJAX技术 Agile敏捷软件开发 ruby on rails实践 - JavaEye做最棒的软件开发交流社区</b>  
+      <input type="button" value="关闭预览" id="btncloseview" />  
+  </div>  
+  <br/><br/>  
+  <div id="viewscan">  
+    <iframe name="dataframe" id="dataframe" frameborder="0" height="100%" width="100%"></iframe>  
+  </div>  
+</div>  
+  
+<br/>  
+  <a href="http://www.csdn.net/" target="dataframe" id="btnview">预览</a>  
+<br/>  
+  
+</body>  
+</html>  
