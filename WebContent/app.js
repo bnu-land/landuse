@@ -180,12 +180,10 @@ Ext.application({
         'db_RoleInfoEditWindow',
         'db_RoleRightSettingWindow',
         'enterprise_uploadMapCheck',
-<<<<<<< HEAD
-        'enterprise_uploadMapCheckResultWindow'
-=======
+
         'enterprise_uploadMapCheckResultWindow',
         'system_test'
->>>>>>> cdb
+
     ],
     name: 'MyApp',
 

@@ -122,22 +122,18 @@ Ext.define('MyApp.view.MainView', {
                                     hideMode: 'visibility',
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
-<<<<<<< HEAD
-                                    text: '企业使用权到期预警'
-=======
+
                                     text: '使用权到期预警'
->>>>>>> cdb
+
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-<<<<<<< HEAD
-                                    text: '企业上传信息审核'
-=======
+
                                     text: '上传数据审核'
->>>>>>> cdb
+
                                 }
                             ],
                             listeners: {
