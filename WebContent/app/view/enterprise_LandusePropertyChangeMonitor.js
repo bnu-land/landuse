@@ -69,10 +69,12 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             xtype: 'panel',
             region: 'east',
             split: true,
-            width: 270,
+            autoScroll: true,
+            width: '25%',
             layout: 'border',
-            collapsed: true,
-            collapsible: true,
+            collapseFirst: false,
+            collapsed: false,
+            collapsible: false,
             title: '企业用地变更详情',
             items: [
                 {
@@ -150,6 +152,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
                             bodyPadding: 10,
                             manageHeight: false,
                             title: '变更前',
+                            titleAlign: 'right',
                             layout: {
                                 type: 'vbox',
                                 align: 'stretch'
@@ -693,7 +696,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/ent_landuseChange_map.js";
+        script.src="mapjs/testMap.js";
         head.appendChild(script);
     }
 

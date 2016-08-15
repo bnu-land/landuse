@@ -120,7 +120,7 @@
                                                     "userConfig": {
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "var combo = Ext.getCmp('intensity_ideal_kfqAreaText');",
+                                                            "var combo = Ext.getCmp('intensity_ideal_kfqTypeText');",
                                                             "var comboValue = combo.getValue();",
                                                             "var comboRawValue = combo.getRawValue();",
                                                             "if(!comboValue){",
@@ -1781,7 +1781,7 @@
                                                     "userConfig": {
                                                         "fn": "handler",
                                                         "implHandler": [
-                                                            "var combo = Ext.getCmp('intensity_ideal_kfqAreaText');",
+                                                            "var combo = Ext.getCmp('intensity_ideal_kfqTypeText');",
                                                             "var comboValue = combo.getValue();",
                                                             "var comboRawValue = combo.getRawValue();",
                                                             "if(!comboValue){",

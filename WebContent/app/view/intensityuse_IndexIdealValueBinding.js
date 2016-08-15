@@ -72,7 +72,7 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
                                         {
                                             xtype: 'button',
                                             handler: function() {
-                                                var combo = Ext.getCmp('intensity_ideal_kfqAreaText');
+                                                var combo = Ext.getCmp('intensity_ideal_kfqTypeText');
                                                 var comboValue = combo.getValue();
                                                 var comboRawValue = combo.getRawValue();
                                                 if(!comboValue){
@@ -850,7 +850,7 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
                                         {
                                             xtype: 'button',
                                             handler: function() {
-                                                var combo = Ext.getCmp('intensity_ideal_kfqAreaText');
+                                                var combo = Ext.getCmp('intensity_ideal_kfqTypeText');
                                                 var comboValue = combo.getValue();
                                                 var comboRawValue = combo.getRawValue();
                                                 if(!comboValue){

@@ -17,8 +17,104 @@ Ext.define('MyApp.view.achievement_DataImportDatabase', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.achievement_DataImportDatabase',
 
+    requires: [
+        'Ext.form.field.File',
+        'Ext.button.Button',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Number',
+        'Ext.grid.column.Date',
+        'Ext.grid.column.Boolean',
+        'Ext.grid.View'
+    ],
+
     height: 588,
     width: 786,
-    title: '成果数据入库'
+    layout: 'border',
+    title: '成果数据入库',
+    defaultListenerScope: true,
+
+    items: [
+        {
+            xtype: 'panel',
+            region: 'north',
+            split: true,
+            height: 116,
+            layout: 'absolute',
+            title: '',
+            items: [
+                {
+                    xtype: 'filefield',
+                    x: 70,
+                    y: 40,
+                    width: 400,
+                    fieldLabel: '选择入库成果数据',
+                    labelWidth: 120,
+                    buttonText: '浏览'
+                },
+                {
+                    xtype: 'button',
+                    x: 520,
+                    y: 40,
+                    text: '确定上传'
+                }
+            ]
+        },
+        {
+            xtype: 'panel',
+            region: 'center',
+            layout: 'border',
+            title: '',
+            items: [
+                {
+                    xtype: 'gridpanel',
+                    region: 'west',
+                    split: true,
+                    autoScroll: true,
+                    width: '50%',
+                    title: '电子表格数据预览',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'string',
+                            text: 'String'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            dataIndex: 'number',
+                            text: 'Number'
+                        },
+                        {
+                            xtype: 'datecolumn',
+                            dataIndex: 'date',
+                            text: 'Date'
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            dataIndex: 'bool',
+                            text: 'Boolean'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    region: 'center',
+                    html: '<div id = "map" style = "width=100%;height:100%;"></div>',
+                    title: '地理矢量数据预览',
+                    listeners: {
+                        afterrender: 'onPanelAfterRender'
+                    }
+                }
+            ]
+        }
+    ],
+
+    onPanelAfterRender: function(component, eOpts) {
+        //加入地图的js文件
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="mapjs/homeMap.js";
+        head.appendChild(script);
+    }
 
 });

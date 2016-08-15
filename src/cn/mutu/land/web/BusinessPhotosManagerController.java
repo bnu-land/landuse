@@ -3,8 +3,12 @@ package cn.mutu.land.web;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +42,19 @@ public class BusinessPhotosManagerController {
 		return this.photoService.getBusinessPhotosList(searchKeyword);
 		//
 	}
-
+	/*@RequestMapping(value = "/post_File")
+	@ResponseBody
+	public void uploadFile(
+			@RequestParam("action") String action)
+			throws IOException {
+		if(action.equals("importWord")){
+			int maxPostSize=1000*1024*1024;
+			FileItemFactory factory= new DiskFileItemFactory();
+			ServletFileUpload servletFileUpload = new ServletFileUpload(factory); 
+			servletFileUpload.setSizeMax(maxPostSize); 
+			List fileItems = servletFileUpload.parseRequest(request);
+		}
+	}*/
 	// 删除
 	@RequestMapping(value = "/del_photo")
 		@ResponseBody

@@ -24,9 +24,17 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
         'Ext.toolbar.Toolbar',
+<<<<<<< HEAD
         'Ext.form.field.Text',
         'Ext.button.Button',
         'Ext.toolbar.Separator'
+=======
+        'Ext.form.field.ComboBox',
+        'Ext.toolbar.Separator',
+        'Ext.form.Label',
+        'Ext.button.Button',
+        'Ext.toolbar.TextItem'
+>>>>>>> cdb
     ],
 
     viewModel: {
@@ -36,11 +44,16 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     height: 675,
     width: 879,
     layout: 'border',
+<<<<<<< HEAD
     title: '企业上传地图数据',
+=======
+    title: '上报数据审核',
+>>>>>>> cdb
     defaultListenerScope: true,
 
     items: [
         {
+<<<<<<< HEAD
             xtype: 'panel',
             region: 'center',
             html: '<div id="map"></div>',
@@ -56,6 +69,11 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             region: 'north',
             autoScroll: true,
             height: '50%',
+=======
+            xtype: 'gridpanel',
+            region: 'center',
+            autoScroll: true,
+>>>>>>> cdb
             id: 'ent_uploadInfoCheckGrid',
             collapsed: false,
             collapsible: false,
@@ -67,6 +85,10 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             columns: [
                 {
                     xtype: 'rownumberer',
+<<<<<<< HEAD
+=======
+                    width: 63,
+>>>>>>> cdb
                     dataIndex: 'string',
                     text: '序号'
                 },
@@ -137,17 +159,55 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                     dock: 'top',
                     items: [
                         {
+<<<<<<< HEAD
                             xtype: 'textfield'
                         },
                         {
                             xtype: 'button',
                             icon: 'images/table/search.png',
                             text: '搜索'
+=======
+                            xtype: 'combobox',
+                            fieldLabel: '选择开发区',
+                            labelWidth: 80
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 150,
+                            fieldLabel: '选择年份',
+                            labelWidth: 60
                         },
                         {
                             xtype: 'tbseparator'
                         },
                         {
+                            xtype: 'label',
+                            text: '操作：'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看基本信息'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看照片'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '查看位置'
+>>>>>>> cdb
+                        },
+                        {
+                            xtype: 'tbseparator'
+                        },
+                        {
+<<<<<<< HEAD
+=======
+                            xtype: 'tbtext',
+                            text: '审核操作：'
+                        },
+                        {
+>>>>>>> cdb
                             xtype: 'button',
                             text: '通过',
                             listeners: {
@@ -167,6 +227,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
         }
     ],
 
+<<<<<<< HEAD
     onPanelBeforeRender: function(component, eOpts) {
         //加入地图的js文件
         var head = document.getElementsByTagName('head')[0];
@@ -176,6 +237,8 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
         head.appendChild(script);
     },
 
+=======
+>>>>>>> cdb
     onButtonClick: function(button, e, eOpts) {
         //获取数据
         var grid = Ext.getCmp('ent_uploadInfoCheckGrid');

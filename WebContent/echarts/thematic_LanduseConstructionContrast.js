@@ -1,5 +1,5 @@
 var storeId = "thematic_LCC_PieStore";
-var echartDivId = "thematic_LanduseConstructionContrast_echart";
+var echartDivId = "thematic_LanduseConstructionContrast_echart";//陈修改7.12
 var title = "土地利用结构对比";
 
 var store = Ext.data.StoreManager.get(storeId);

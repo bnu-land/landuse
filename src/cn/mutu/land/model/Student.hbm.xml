@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-7-23 10:47:59 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.Student" table="student" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="stuCode" type="string">
+            <column name="stu_code" length="10" />
+        </property>
+        <property name="stuName" type="string">
+            <column name="stu_name" length="50" />
+        </property>
+        <property name="stuMale" type="string">
+            <column name="stu_male" length="10" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birth_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

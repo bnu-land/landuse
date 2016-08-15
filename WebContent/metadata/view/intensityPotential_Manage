@@ -140,7 +140,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "结构潜力测算"
+                        "text": "管理潜力测算"
                     },
                     "name": "MyButton8",
                     "designerId": "1e96b24b-44a3-4aa5-9ffc-f6aa66d23cfd",

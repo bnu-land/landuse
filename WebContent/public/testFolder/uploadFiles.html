@@ -1,0 +1,51 @@
+<!-- oscar999  -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="oscar999">
+    <script type="text/javascript" src="../jquery/1.9.1/jquery.js"></script>
+     <script src="../jquery/1.9.1/jquery.min.js"></script>
+    <title></title>
+    <script>
+    //写入文件
+    function writeFile(path) {
+      // body...
+      var fso=new ActiveXObject(Scripting.FileSystemObject); 
+    var f=fso.createtextfile(path,2,true); 
+    f.writeLine("wo shi di yi hang"); 
+    f.close();
+    };
+    function readFile(path){
+        var s;
+        var fso=new ActiveXObject(Scripting.FileSystemObject);
+        var f=fso.openTextfile(path,1,true);
+        while(!f.AtEndOfStream)
+        {
+          s+=f.Readline();
+        }
+        f.close();
+     document.getElementById("aa").innerHTML=s; 
+    }
+    
+    </script>
+</head>
+
+<body>
+<div id="aa"></div> 
+<input type="submit" value="开始读取" onclick="readFile('G:/123.txt');">
+    <input type="file" id="file" onchange="handleFiles(this.files)" />
+    <div id="filecontent"></div>
+    <input type="file" id="doc" onchange="readFile(docUrl);"/>
+    <input type="text" id="in" name="in" />
+    <input type="button" value="Write!" onclick="writeFile('F:/Appserv/www/12.txt',document.getElementByIdx_x('in').value);" />
+    <br>
+    <br>
+    <input type="button" value="Read!" onclick="document.getElementById('show').value=readFile('D:/地物编码表.txt');" />
+    <br>
+    <textarea id="show" name="show" cols="100" rows="20">
+    </textarea>
+</body>
+
+</html>

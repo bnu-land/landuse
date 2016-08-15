@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "system_test",
+        "designer|userClassName": "business_uploadPhotoViewController1"
+    },
+    "name": "business_uploadPhotoViewController1",
+    "designerId": "ae53d7c3-f928-4cbe-bb89-9612e9610b16"
+}
