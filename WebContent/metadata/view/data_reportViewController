@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "data_report",
+        "designer|userClassName": "data_reportViewController"
+    },
+    "designerId": "27243c6f-b7c0-4f68-a0c6-7dd2ff45f378"
+}

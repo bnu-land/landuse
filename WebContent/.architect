@@ -8706,8 +8706,45 @@
             "id": "f67a769a-e148-45bf-ba73-2b029a474704"
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         "store": true,
 =======
+=======
+        "e9ad9df2-bee9-4a94-b822-c4fc601bd358": {
+            "id": "e9ad9df2-bee9-4a94-b822-c4fc601bd358"
+        },
+        "e121ee14-54c5-40ae-a897-22f9f3ac4fb5": {
+            "id": "e121ee14-54c5-40ae-a897-22f9f3ac4fb5"
+        },
+        "da4f3c74-308f-4ff9-b86d-864c5c7dc6d9": {
+            "id": "da4f3c74-308f-4ff9-b86d-864c5c7dc6d9"
+        },
+        "f0c09c26-921d-48ce-bcab-9e5babed111b": {
+            "id": "f0c09c26-921d-48ce-bcab-9e5babed111b",
+            "cn": [
+                {
+                    "id": "45f41e3d-92b0-4a6f-9d83-c827bdad8448",
+                    "cn": [
+                        {
+                            "id": "c7ec0ea4-8b30-4d18-8c9d-4413b3a05765"
+                        },
+                        {
+                            "id": "064de92e-5e7b-4786-8355-ef4c06e16809"
+                        },
+                        {
+                            "id": "f226d9d8-b7c3-46bb-a5e9-cc4c4aff0ce0"
+                        }
+                    ]
+                }
+            ]
+        },
+        "9c8ec1c4-627b-4eeb-9aff-a910fe82e618": {
+            "id": "9c8ec1c4-627b-4eeb-9aff-a910fe82e618"
+        },
+        "27243c6f-b7c0-4f68-a0c6-7dd2ff45f378": {
+            "id": "27243c6f-b7c0-4f68-a0c6-7dd2ff45f378"
+        },
+>>>>>>> cdb
         "store": false,
 >>>>>>> cdb
         "bade62ce-35ea-4339-aa39-7a9d9469ab3a": {
@@ -9378,7 +9415,7 @@
                 }
             ]
         },
-        "model": true,
+        "model": false,
         "7c62d278-b87b-4506-8a76-0a8cac8e048f": {
             "id": "7c62d278-b87b-4506-8a76-0a8cac8e048f",
             "cn": [
@@ -10553,6 +10590,7 @@
             "e3b46322-ca13-4099-9fe8-52fca7f77d4f",
             "4f47a5d7-8f85-4664-9c25-6d719cc25380",
             "d61cdbaf-90ca-4c30-879a-a5aaecec48ce",
+<<<<<<< HEAD
             "9aabb849-3716-4fa3-abd6-825a1dfbf061"
 >>>>>>> cdb
         ]
@@ -10567,6 +10605,19 @@
 =======
         "topInstance": "e3b46322-ca13-4099-9fe8-52fca7f77d4f",
         "selectedInstance": "7cc5c809-9094-4faf-bd69-6c03d5e6d069"
+>>>>>>> cdb
+=======
+            "9aabb849-3716-4fa3-abd6-825a1dfbf061",
+            "e9ad9df2-bee9-4a94-b822-c4fc601bd358",
+            "f0c09c26-921d-48ce-bcab-9e5babed111b"
+        ]
+    },
+    "canvasState": {
+        "topInstance": "f0c09c26-921d-48ce-bcab-9e5babed111b"
+    },
+    "inspectorState": {
+        "topInstance": "f0c09c26-921d-48ce-bcab-9e5babed111b",
+        "selectedInstance": "f226d9d8-b7c3-46bb-a5e9-cc4c4aff0ce0"
 >>>>>>> cdb
     },
     "editMode": "design",

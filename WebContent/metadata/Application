@@ -167,12 +167,15 @@
             "db_RoleInfoEditWindow",
             "db_RoleRightSettingWindow",
             "enterprise_uploadMapCheck",
-<<<<<<< HEAD
-            "enterprise_uploadMapCheckResultWindow"
-=======
+
             "enterprise_uploadMapCheckResultWindow",
-            "system_test"
->>>>>>> cdb
+
+    
+
+            "system_test",
+            "business_info",
+            "data_report"
+
         ]
     },
     "name": "Application",
