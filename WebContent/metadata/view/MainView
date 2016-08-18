@@ -1565,7 +1565,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_message",
+                                        "id": "bus_info",
                                         "text": "填报进度"
                                     },
                                     "name": "MyMenuItem17",

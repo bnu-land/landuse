@@ -35,7 +35,8 @@
             "sys_MapAttrNameIndexModel",
             "businessMapModel",
             "businessPhotoModel",
-            "sys_KfqInfoModel"
+            "sys_KfqInfoModel",
+            "BusinessInfoModel"
         ],
         "name": "MyApp",
         "stores": [
@@ -89,11 +90,11 @@
             "sys_TreeStore",
             "sys_MapKfqTypeStore",
             "sys_MapKfqNameStore",
-            "thematic_LCCT_KFQStore",
             "sys_MapKfqMapStore",
             "system_roleNameStore",
             "uRoleRightByIdStore",
-            "uRightInfoCurUserStore"
+            "uRightInfoCurUserStore",
+            "BusinessInfo"
         ],
         "views": [
             "MainView",
@@ -159,7 +160,6 @@
             "system_Log",
             "sys_MapAttrNameIndexWindow",
             "sys_MapAddAttrNameIndexWindow",
-            "business_message",
             "business_uploadPhoto",
             "business_uploadMap",
             "system_MenuManage",
@@ -170,7 +170,8 @@
             "enterprise_uploadMapCheckResultWindow",
             "system_test",
             "business_info",
-            "data_report"
+            "data_report",
+            "bus_info"
         ]
     },
     "name": "Application",

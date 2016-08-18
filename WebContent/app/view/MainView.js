@@ -581,7 +581,7 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_message',
+                                    id: 'bus_info',
                                     hideOnClick: false,
                                     text: '填报进度'
                                 },

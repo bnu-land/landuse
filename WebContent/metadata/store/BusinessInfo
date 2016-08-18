@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "BusinessInfo",
+        "model": "BusinessInfoModel",
+        "storeId": "BusinessInfo"
+    },
+    "name": "MyJsonStore",
+    "designerId": "c29a06b2-12ba-44e4-a117-3ca8ef483364",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:''}"
+                ],
+                "url": "get_infomation"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "efc0c563-a580-4ade-9b4b-13f208ca4c93",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "6c05fe8a-7855-43e5-8ec7-d755abbf0856"
+                }
+            ]
+        }
+    ]
+}
