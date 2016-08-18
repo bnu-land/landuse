@@ -122,18 +122,14 @@ Ext.define('MyApp.view.MainView', {
                                     hideMode: 'visibility',
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
-
                                     text: '使用权到期预警'
-
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-
                                     text: '上传数据审核'
-
                                 }
                             ],
                             listeners: {

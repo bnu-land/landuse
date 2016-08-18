@@ -26,8 +26,8 @@ Ext.define('MyApp.view.data_report', {
     viewModel: {
         type: 'data_report'
     },
-    height: 484,
-    width: 541,
+    height: 588,
+    width: 810,
     title: '数据填报',
 
     dockedItems: [

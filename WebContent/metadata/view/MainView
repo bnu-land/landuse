@@ -307,11 +307,7 @@
                                         "hideMode": "visibility",
                                         "hideOnClick": false,
                                         "id": "enterprise_uploadMapCheck",
-<<<<<<< HEAD
-                                        "text": "企业上传信息审核"
-=======
                                         "text": "上传数据审核"
->>>>>>> cdb
                                     },
                                     "name": "MyMenuItem23",
                                     "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"

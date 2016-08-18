@@ -180,13 +180,10 @@ Ext.application({
         'db_RoleInfoEditWindow',
         'db_RoleRightSettingWindow',
         'enterprise_uploadMapCheck',
-
         'enterprise_uploadMapCheckResultWindow',
-
         'system_test',
         'business_info',
         'data_report'
-
     ],
     name: 'MyApp',
 

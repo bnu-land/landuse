@@ -1056,6 +1056,7 @@
                         },
                         {
                             "id": "4b54cbb4-2552-4e4b-bde3-f24a77857a49",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "85832588-dcf7-48d1-a471-c22920867cd3",
@@ -8567,17 +8568,6 @@
             "id": "e12358d0-11cc-4cd7-b3e7-e39a6572c2c4",
             "cn": [
                 {
-<<<<<<< HEAD
-                    "id": "d78af84c-9226-4b93-8bc0-6c6346896758",
-                    "cn": [
-                        {
-                            "id": "72d11d2f-8720-4545-bf8f-8ec123cdb59a"
-                        }
-                    ]
-                },
-                {
-=======
->>>>>>> cdb
                     "id": "2dd052d9-4eb6-4f07-9779-0cc41e116f59",
                     "cn": [
                         {
@@ -8629,24 +8619,15 @@
                             "id": "1410f4e8-e085-4791-b6ab-38b326410fa2",
                             "cn": [
                                 {
-<<<<<<< HEAD
-                                    "id": "ad70e1ea-e1ea-42b9-931f-19edd9d51777"
-                                },
-                                {
-                                    "id": "66751a8d-391c-479a-9799-5d50017534d1"
-=======
                                     "id": "317f38cf-480c-4f96-adde-835a06a0f885"
                                 },
                                 {
                                     "id": "168259e0-edae-4459-a9f3-d4136861b3f9"
->>>>>>> cdb
                                 },
                                 {
                                     "id": "4249e7e4-c894-4132-8652-01e2b3127959"
                                 },
                                 {
-<<<<<<< HEAD
-=======
                                     "id": "4b0937e9-235a-4cdb-8e86-a030412d8a4c"
                                 },
                                 {
@@ -8665,7 +8646,6 @@
                                     "id": "551facfb-3641-4817-bc59-7d3aeafef889"
                                 },
                                 {
->>>>>>> cdb
                                     "id": "1a1fcd13-74e0-43b4-ab30-089cd3e8ddde",
                                     "cn": [
                                         {
@@ -8692,12 +8672,8 @@
             "expanded": false
         },
         "35e27102-339c-45a8-8d91-82ff3b0644b6": {
-<<<<<<< HEAD
-            "id": "35e27102-339c-45a8-8d91-82ff3b0644b6"
-=======
             "id": "35e27102-339c-45a8-8d91-82ff3b0644b6",
             "expanded": false
->>>>>>> cdb
         },
         "c18be0dd-f15b-4b1c-b69f-4217ef371da7": {
             "id": "c18be0dd-f15b-4b1c-b69f-4217ef371da7"
@@ -8705,11 +8681,6 @@
         "f67a769a-e148-45bf-ba73-2b029a474704": {
             "id": "f67a769a-e148-45bf-ba73-2b029a474704"
         },
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "store": true,
-=======
-=======
         "e9ad9df2-bee9-4a94-b822-c4fc601bd358": {
             "id": "e9ad9df2-bee9-4a94-b822-c4fc601bd358"
         },
@@ -8744,9 +8715,7 @@
         "27243c6f-b7c0-4f68-a0c6-7dd2ff45f378": {
             "id": "27243c6f-b7c0-4f68-a0c6-7dd2ff45f378"
         },
->>>>>>> cdb
         "store": false,
->>>>>>> cdb
         "bade62ce-35ea-4339-aa39-7a9d9469ab3a": {
             "id": "bade62ce-35ea-4339-aa39-7a9d9469ab3a",
             "cn": [
@@ -10577,9 +10546,6 @@
             "e12358d0-11cc-4cd7-b3e7-e39a6572c2c4",
             "ccf11f1b-c72a-44fc-9803-344ace6f3349",
             "ae9918b3-6ef9-4bad-b98f-df737012b4ac",
-<<<<<<< HEAD
-            "160514b0-07fd-4f66-8240-4ce75caac37b"
-=======
             "160514b0-07fd-4f66-8240-4ce75caac37b",
             "6fe34b61-04d3-4cf1-9857-b00c3ef6ec64",
             "50569405-4656-4e14-956a-e72ea79bd132",
@@ -10590,36 +10556,18 @@
             "e3b46322-ca13-4099-9fe8-52fca7f77d4f",
             "4f47a5d7-8f85-4664-9c25-6d719cc25380",
             "d61cdbaf-90ca-4c30-879a-a5aaecec48ce",
-<<<<<<< HEAD
-            "9aabb849-3716-4fa3-abd6-825a1dfbf061"
->>>>>>> cdb
-        ]
-    },
-    "canvasState": {
-        "topInstance": "160514b0-07fd-4f66-8240-4ce75caac37b"
-    },
-    "inspectorState": {
-<<<<<<< HEAD
-        "topInstance": "160514b0-07fd-4f66-8240-4ce75caac37b",
-        "selectedInstance": "160514b0-07fd-4f66-8240-4ce75caac37b"
-=======
-        "topInstance": "e3b46322-ca13-4099-9fe8-52fca7f77d4f",
-        "selectedInstance": "7cc5c809-9094-4faf-bd69-6c03d5e6d069"
->>>>>>> cdb
-=======
             "9aabb849-3716-4fa3-abd6-825a1dfbf061",
             "e9ad9df2-bee9-4a94-b822-c4fc601bd358",
             "f0c09c26-921d-48ce-bcab-9e5babed111b"
         ]
     },
     "canvasState": {
-        "topInstance": "f0c09c26-921d-48ce-bcab-9e5babed111b"
+        "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "f0c09c26-921d-48ce-bcab-9e5babed111b",
-        "selectedInstance": "f226d9d8-b7c3-46bb-a5e9-cc4c4aff0ce0"
->>>>>>> cdb
+        "topInstance": "ccf11f1b-c72a-44fc-9803-344ace6f3349",
+        "selectedInstance": "ccf11f1b-c72a-44fc-9803-344ace6f3349"
     },
-    "editMode": "design",
+    "editMode": "code",
     "userSettings": {}
 }
