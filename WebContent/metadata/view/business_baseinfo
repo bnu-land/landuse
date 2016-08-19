@@ -1,0 +1,316 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "business_baseinfo",
+        "designer|userClassName": "business_baseinfo",
+        "height": 489,
+        "id": "",
+        "layout": "border",
+        "title": "数据填报进度",
+        "width": 615
+    },
+    "name": "MyPanel7",
+    "designerId": "6f142af3-0f4e-483e-8ef2-4d5a9d92854a",
+    "viewControllerInstanceId": "dc64bb39-6a3d-4438-9bae-e91d89395a42",
+    "viewModelInstanceId": "1095bd55-5516-455c-84b2-3c65336efd34",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 10,
+                "height": 150,
+                "layout": "absolute",
+                "layout|region": "north",
+                "title": ""
+            },
+            "name": "MyPanel19",
+            "designerId": "68b85237-7573-4d23-b0c7-8cceea258a5b"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "title": "企业信息列表"
+            },
+            "name": "MyPanel7",
+            "designerId": "6ead3db8-fbe1-401f-878e-84c4678b0104",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "businessInfoGrid",
+                        "store": "BusinessInfo",
+                        "title": ""
+                    },
+                    "name": "MyGridPanel4",
+                    "designerId": "5aee3d1f-38bf-4238-a574-6402ab81b10f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoShow": true,
+                                "dataIndex": "",
+                                "text": "",
+                                "width": 33
+                            },
+                            "name": "MyRowNumberer5",
+                            "designerId": "cef71fec-b0ee-473c-b939-652b43b0eb34"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "businessId",
+                                "text": "企业代码"
+                            },
+                            "name": "MyColumn23",
+                            "designerId": "34bd80e8-6094-4a07-96ff-ec66c02eb579"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "businessName",
+                                "id": "businessName",
+                                "text": "企业名称"
+                            },
+                            "name": "MyColumn24",
+                            "designerId": "a4e0c9ec-d854-4ac7-ad9d-d1b6151e1e0e"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "businessAddress",
+                                "text": "企业地址"
+                            },
+                            "name": "MyColumn25",
+                            "designerId": "329e510b-8ceb-4ae0-aa52-2cb9293c892b"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "businessWorker",
+                                "text": "企业人数"
+                            },
+                            "name": "MyColumn26",
+                            "designerId": "8153b787-a75d-4ee2-8460-f3bc39f760f4"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "f1204004-49d3-438f-9827-2af730be323c"
+                        },
+                        {
+                            "type": "Ext.selection.CheckboxModel",
+                            "reference": {
+                                "name": "selModel",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyCheckboxSelectionModel2",
+                            "designerId": "b0397041-679a-4205-997c-ee8be29752da"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar6",
+                    "designerId": "65886030-aaa2-4d93-a024-d5eb8a258aac",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField34",
+                            "designerId": "0eaebaea-7179-4a82-b303-e92ad03038cc"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "搜索"
+                            },
+                            "name": "MyButton16",
+                            "designerId": "4b22ae83-1114-4e2f-8325-ba70767bb8d1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "新增"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "5ba3daf4-6f13-49bc-9a7c-bea75c41ea81",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var win=Ext.widget(\"db_businessinfo\");//db_UserInfoAddWindow1",
+                                            "console.log(win);",
+                                            "//var win=Ext.getCmp('add_Business');",
+                                            "win.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "6bafd6e2-0251-4421-9508-6e1a0147d3da"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "清除"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "547ed280-c9a3-4fcf-b32a-fba9357e1921",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var records = Ext.getCmp('businessInfoGrid').getSelection();",
+                                            "if (records.length === 0){",
+                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "   return;",
+                                            "}else if(records.length >1){",
+                                            "   Ext.Msg.alert('提示', '每次只能删除一条记录。');",
+                                            "   return;",
+                                            "}",
+                                            "var id = records[0].get(\"id\");",
+                                            "var columnName= records[0].get(\"businessName\");",
+                                            "Ext.Msg.confirm('提示', '您正在删除<br/>[' +columnName+']。<br/> 确认删除？', getResult);",
+                                            "",
+                                            "",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        Ext.Ajax.request(",
+                                            "        {",
+                                            "            url : 'del_business_info',",
+                                            "            params :",
+                                            "            {",
+                                            "                id : id",
+                                            "            },",
+                                            "            success : function (response){",
+                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                var mystore = Ext.StoreMgr.get('BusinessInfo');",
+                                            "                mystore.load();",
+                                            "            },",
+                                            "            failure : function (response){",
+                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "            }",
+                                            "        });",
+                                            "    }",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "cd1bf60d-dfdc-4689-b2e3-3b2fbbe9f3d0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

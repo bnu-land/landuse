@@ -63,7 +63,7 @@
                             "userConfig": {
                                 "fn": "onPanelAfterRender1",
                                 "implHandler": [
-                                    "Ext.create('Ext.form.Panel', {",
+                                    "/*Ext.create('Ext.form.Panel', {",
                                     "    title: '上传照片',",
                                     "    width: 400,",
                                     "    bodyPadding: 10,",
@@ -95,7 +95,7 @@
                                     "            }",
                                     "        }",
                                     "    }]",
-                                    "});"
+                                    "});*/"
                                 ],
                                 "name": "afterrender",
                                 "scope": "me"

@@ -82,16 +82,92 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区级别",
+                                "id": "ent_landuse_gradeCombo",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','国家级','省级','示范区']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 181
+                            },
+                            "name": "MyComboBox6",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "9735d46b-1833-4c4a-8cd5-1f0355e4cc89"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区类型",
+                                "id": "ent_landuse_typeCombo",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','工业主导型','产城融合型']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox7",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "2e0daf09-89b6-4938-827a-c297a5a517a9"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
                                 "displayField": "mapName",
                                 "fieldLabel": "选择开发区",
                                 "id": "ent_landusePropertyChangeXZQ_Combo",
+                                "labelWidth": 80,
                                 "layout|flex": null,
                                 "store": "systemMap_QYYD_Store",
                                 "valueField": "mapUrl",
-                                "width": 350
+                                "width": 220
                             },
                             "name": "MyComboBox",
                             "designerId": "4a162357-18cc-4b51-846b-9bde12f35019"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "选择年份",
+                                "id": "ent_landuse_yearCombo",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['2016','2015','2014','2013','2012','2011','2010']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox5",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "ffac288a-4d86-4e4d-a75e-5aaf97e65003"
                         }
                     ]
                 }

@@ -237,7 +237,7 @@ Ext.define('MyApp.view.system_test', {
     ],
 
     onPanelAfterRender1: function(component, eOpts) {
-        Ext.create('Ext.form.Panel', {
+        /*Ext.create('Ext.form.Panel', {
             title: '上传照片',
             width: 400,
             bodyPadding: 10,
@@ -269,7 +269,7 @@ Ext.define('MyApp.view.system_test', {
                     }
                 }
             }]
-        });
+        });*/
     },
 
     onPanelAfterRender: function(component, eOpts) {

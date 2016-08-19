@@ -155,7 +155,7 @@
                             "userConfig": {
                                 "fn": "onButtonClick2",
                                 "implHandler": [
-                                    "var win = Ext.widget('db_UserInfoAddWindow');\r",
+                                    "var win = Ext.widget('db_UserInfoAddWindow');//db_UserInfoAddWindow",
                                     "win.show();"
                                 ],
                                 "name": "click",
@@ -174,7 +174,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "icon": "images/table/add.png",
+                        "icon": "images/table/edit.png",
                         "layout|flex": null,
                         "text": "编辑用户"
                     },
@@ -241,7 +241,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "icon": "images/table/add.png",
+                        "icon": "images/table/delete.png",
                         "layout|flex": null,
                         "text": "删除用户"
                     },

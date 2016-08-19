@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-8-18 22:56:35 by Hibernate Tools 4.0.0
+// Generated 2016-8-19 13:19:47 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -11,13 +11,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class BusInfo.
- * @see cn.mutu.land.model.BusInfo
+ * Home object for domain model class BusinessInfo.
+ * @see cn.mutu.land.model.BusinessInfo
  * @author Hibernate Tools
  */
-public class BusInfoHome {
+public class BusinessInfoHome {
 
-	private static final Log log = LogFactory.getLog(BusInfoHome.class);
+	private static final Log log = LogFactory.getLog(BusinessInfoHome.class);
 
 	private final SessionFactory sessionFactory = getSessionFactory();
 
@@ -32,8 +32,8 @@ public class BusInfoHome {
 		}
 	}
 
-	public void persist(BusInfo transientInstance) {
-		log.debug("persisting BusInfo instance");
+	public void persist(BusinessInfo transientInstance) {
+		log.debug("persisting BusinessInfo instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +43,8 @@ public class BusInfoHome {
 		}
 	}
 
-	public void attachDirty(BusInfo instance) {
-		log.debug("attaching dirty BusInfo instance");
+	public void attachDirty(BusinessInfo instance) {
+		log.debug("attaching dirty BusinessInfo instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +54,8 @@ public class BusInfoHome {
 		}
 	}
 
-	public void attachClean(BusInfo instance) {
-		log.debug("attaching clean BusInfo instance");
+	public void attachClean(BusinessInfo instance) {
+		log.debug("attaching clean BusinessInfo instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -65,8 +65,8 @@ public class BusInfoHome {
 		}
 	}
 
-	public void delete(BusInfo persistentInstance) {
-		log.debug("deleting BusInfo instance");
+	public void delete(BusinessInfo persistentInstance) {
+		log.debug("deleting BusinessInfo instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,11 +76,11 @@ public class BusInfoHome {
 		}
 	}
 
-	public BusInfo merge(BusInfo detachedInstance) {
-		log.debug("merging BusInfo instance");
+	public BusinessInfo merge(BusinessInfo detachedInstance) {
+		log.debug("merging BusinessInfo instance");
 		try {
-			BusInfo result = (BusInfo) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			BusinessInfo result = (BusinessInfo) sessionFactory
+					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -89,11 +89,12 @@ public class BusInfoHome {
 		}
 	}
 
-	public BusInfo findById(java.lang.Integer id) {
-		log.debug("getting BusInfo instance with id: " + id);
+	public BusinessInfo findById(java.lang.Integer id) {
+		log.debug("getting BusinessInfo instance with id: " + id);
 		try {
-			BusInfo instance = (BusInfo) sessionFactory.getCurrentSession()
-					.get("cn.mutu.land.model.BusInfo", id);
+			BusinessInfo instance = (BusinessInfo) sessionFactory
+					.getCurrentSession().get("cn.mutu.land.model.BusinessInfo",
+							id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -106,11 +107,11 @@ public class BusInfoHome {
 		}
 	}
 
-	public List findByExample(BusInfo instance) {
-		log.debug("finding BusInfo instance by example");
+	public List findByExample(BusinessInfo instance) {
+		log.debug("finding BusinessInfo instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession()
-					.createCriteria("cn.mutu.land.model.BusInfo")
+					.createCriteria("cn.mutu.land.model.BusinessInfo")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

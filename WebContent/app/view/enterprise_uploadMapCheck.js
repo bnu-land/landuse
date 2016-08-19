@@ -129,15 +129,64 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                     items: [
                         {
                             xtype: 'combobox',
-                            fieldLabel: '选择开发区',
-                            labelWidth: 80
+                            id: 'ent_check_gradeCombo',
+                            width: 181,
+                            fieldLabel: '开发区级别',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '国家级',
+                                '省级',
+                                '示范区'
+                            ],
+                            valueField: 'mapUrl'
                         },
                         {
                             xtype: 'combobox',
-                            width: 150,
-                            fieldLabel: '选择年份',
-                            labelWidth: 60
+                            id: 'ent_check_typeCombo',
+                            width: 190,
+                            fieldLabel: '开发区类型',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '工业主导型',
+                                '产城融合型'
+                            ],
+                            valueField: 'mapUrl'
                         },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_landusePropertyCheck_Combo',
+                            width: 220,
+                            fieldLabel: '选择开发区',
+                            labelWidth: 80,
+                            displayField: 'mapName',
+                            store: 'systemMap_QYYD_Store',
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_check_yearCombo',
+                            width: 190,
+                            fieldLabel: '选择年份',
+                            labelWidth: 80,
+                            store: [
+                                '2016',
+                                '2015',
+                                '2014',
+                                '2013',
+                                '2012',
+                                '2011',
+                                '2010'
+                            ],
+                            valueField: 'mapUrl'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
                         {
                             xtype: 'tbseparator'
                         },

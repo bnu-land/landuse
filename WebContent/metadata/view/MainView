@@ -1565,7 +1565,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "bus_info",
+                                        "id": "business_baseinfo",
                                         "text": "填报进度"
                                     },
                                     "name": "MyMenuItem17",
@@ -1580,7 +1580,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_uploadPhoto",
+                                        "id": "business_dataReport",
                                         "text": "数据填报"
                                     },
                                     "name": "MyMenuItem22",

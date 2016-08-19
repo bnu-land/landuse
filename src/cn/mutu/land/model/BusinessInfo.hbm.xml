@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-8-19 13:19:47 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.BusinessInfo" table="business_info" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="businessId" type="java.lang.Integer">
+            <column name="business_id" />
+        </property>
+        <property name="businessName" type="string">
+            <column name="business_name" length="200" />
+        </property>
+        <property name="businessAddress" type="string">
+            <column name="business_address" length="200" />
+        </property>
+        <property name="businessZdcode" type="java.lang.Integer">
+            <column name="business_ZDcode" />
+        </property>
+        <property name="businessEvalueRange" type="string">
+            <column name="business_evalue_range" length="20" />
+        </property>
+        <property name="businessIndustryType" type="string">
+            <column name="business_industry_type" length="200" />
+        </property>
+        <property name="businessIndustryCode" type="java.lang.Integer">
+            <column name="business_industry_code" />
+        </property>
+        <property name="businessWorker" type="java.lang.Integer">
+            <column name="business_worker" />
+        </property>
+        <property name="businessKfq" type="string">
+            <column name="business_KFQ" length="50" />
+        </property>
+        <property name="businessKfqCode" type="java.lang.Integer">
+            <column name="business_KFQ_code" />
+        </property>
+        <property name="businessKfqType" type="string">
+            <column name="business_KFQ_type" length="20" />
+        </property>
+        <property name="businessDevArea" type="int">
+            <column name="business_dev_area" not-null="true" />
+        </property>
+        <property name="businessAdvance" type="int">
+            <column name="business_advance" not-null="true" />
+        </property>
+        <property name="businessPreInvestment" type="double">
+            <column name="business_pre_investment" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessActInvestment" type="double">
+            <column name="business_act_investment" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessIncome" type="double">
+            <column name="business_income" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessProduct" type="double">
+            <column name="business_product" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessTax" type="double">
+            <column name="business_tax" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessArea" type="double">
+            <column name="business_area" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessArea1" type="double">
+            <column name="business_area_1" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="businessArea2" type="java.lang.Double">
+            <column name="business_area_2" precision="22" scale="0" />
+        </property>
+        <property name="businessArea3" type="java.lang.Double">
+            <column name="business_area_3" precision="22" scale="0" />
+        </property>
+        <property name="businessArea4" type="java.lang.Double">
+            <column name="business_area_4" precision="22" scale="0" />
+        </property>
+        <property name="businessArea5" type="java.lang.Double">
+            <column name="business_area_5" precision="22" scale="0" />
+        </property>
+        <property name="businessArea6" type="java.lang.Double">
+            <column name="business_area_6" precision="22" scale="0" />
+        </property>
+        <property name="businessArea7" type="java.lang.Double">
+            <column name="business_area_7" precision="22" scale="0" />
+        </property>
+        <property name="businessBuildingArea" type="java.lang.Double">
+            <column name="business_building_area" precision="22" scale="0" />
+        </property>
+        <property name="businessPlotRatio" type="java.lang.Double">
+            <column name="business_plot_ratio" precision="22" scale="0" />
+        </property>
+        <property name="businessOutdoorArea" type="java.lang.Double">
+            <column name="business_outdoor_area" precision="22" scale="0" />
+        </property>
+        <property name="businessBuildingCoeficient" type="java.lang.Double">
+            <column name="business_building_coeficient" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

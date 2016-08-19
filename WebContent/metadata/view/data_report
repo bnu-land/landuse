@@ -9,6 +9,7 @@
         "designer|userAlias": "data_report",
         "designer|userClassName": "data_report",
         "height": 588,
+        "layout": "border",
         "title": "数据填报",
         "width": 810
     },
@@ -53,7 +54,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "上传照片"
+                        "text": "填写照片信息"
                     },
                     "name": "MyButton14",
                     "designerId": "064de92e-5e7b-4786-8355-ef4c06e16809"
@@ -67,12 +68,27 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "上传位置"
+                        "text": "填写位置信息"
                     },
                     "name": "MyButton15",
                     "designerId": "f226d9d8-b7c3-46bb-a5e9-cc4c4aff0ce0"
                 }
             ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "layout|region": "center",
+                "title": "填写企业信息"
+            },
+            "name": "MyForm4",
+            "designerId": "61e9dff3-8fa8-4b05-8bd7-970dffe17eac"
         }
     ]
 }

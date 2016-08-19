@@ -20,7 +20,8 @@ Ext.define('MyApp.view.data_report', {
     requires: [
         'MyApp.view.data_reportViewModel',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.Panel'
     ],
 
     viewModel: {
@@ -28,6 +29,7 @@ Ext.define('MyApp.view.data_report', {
     },
     height: 588,
     width: 810,
+    layout: 'border',
     title: '数据填报',
 
     dockedItems: [
@@ -41,13 +43,21 @@ Ext.define('MyApp.view.data_report', {
                 },
                 {
                     xtype: 'button',
-                    text: '上传照片'
+                    text: '填写照片信息'
                 },
                 {
                     xtype: 'button',
-                    text: '上传位置'
+                    text: '填写位置信息'
                 }
             ]
+        }
+    ],
+    items: [
+        {
+            xtype: 'form',
+            region: 'center',
+            bodyPadding: 10,
+            title: '填写企业信息'
         }
     ]
 

@@ -76,7 +76,7 @@ Ext.define('MyApp.view.system_UserManage', {
                 },
                 {
                     xtype: 'button',
-                    icon: 'images/table/add.png',
+                    icon: 'images/table/edit.png',
                     text: '编辑用户',
                     listeners: {
                         click: 'onButtonClick21'
@@ -84,7 +84,7 @@ Ext.define('MyApp.view.system_UserManage', {
                 },
                 {
                     xtype: 'button',
-                    icon: 'images/table/add.png',
+                    icon: 'images/table/delete.png',
                     text: '删除用户',
                     listeners: {
                         click: 'onButtonClick211'
@@ -265,7 +265,7 @@ Ext.define('MyApp.view.system_UserManage', {
     },
 
     onButtonClick2: function(button, e, eOpts) {
-        var win = Ext.widget('db_UserInfoAddWindow');
+        var win = Ext.widget('db_UserInfoAddWindow');//db_UserInfoAddWindow
         win.show();
     },
 

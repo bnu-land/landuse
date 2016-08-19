@@ -22,16 +22,97 @@ Ext.define('MyApp.model.BusinessInfoModel', {
 
     fields: [
         {
-            name: 'busWorker'
+            name: 'id'
         },
         {
-            name: 'busId'
+            name: 'businessId'
         },
         {
-            name: 'busName'
+            name: 'businessName'
         },
         {
-            name: 'busAddress'
+            name: 'businessAddress'
+        },
+        {
+            name: 'businessZdcode'
+        },
+        {
+            name: 'businessEvalueRange'
+        },
+        {
+            name: 'businessIndustryType'
+        },
+        {
+            name: 'businessIndustryCode'
+        },
+        {
+            name: 'businessWorker'
+        },
+        {
+            name: 'businessKfq'
+        },
+        {
+            name: 'businessKfqCode'
+        },
+        {
+            name: 'businessKfqType'
+        },
+        {
+            name: 'businessDevArea'
+        },
+        {
+            name: 'businessAdvance'
+        },
+        {
+            name: 'businessPreInvestment'
+        },
+        {
+            name: 'businessActInvestment'
+        },
+        {
+            name: 'businessIncome'
+        },
+        {
+            name: 'businessProduct'
+        },
+        {
+            name: 'businessTax'
+        },
+        {
+            name: 'businessArea'
+        },
+        {
+            name: 'businessArea1'
+        },
+        {
+            name: 'businessArea2'
+        },
+        {
+            name: 'businessArea3'
+        },
+        {
+            name: 'businessArea4'
+        },
+        {
+            name: 'businessArea5'
+        },
+        {
+            name: 'businessArea6'
+        },
+        {
+            name: 'businessArea7'
+        },
+        {
+            name: 'businessBuildingArea'
+        },
+        {
+            name: 'businessPlotRatio'
+        },
+        {
+            name: 'businessOutdoorArea'
+        },
+        {
+            name: 'businessBuildingCoeficient'
         }
     ]
 });

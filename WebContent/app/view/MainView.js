@@ -581,13 +581,13 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'bus_info',
+                                    id: 'business_baseinfo',
                                     hideOnClick: false,
                                     text: '填报进度'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_uploadPhoto',
+                                    id: 'business_dataReport',
                                     hideOnClick: false,
                                     text: '数据填报'
                                 },

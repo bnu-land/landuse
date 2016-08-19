@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "bus_info",
-        "designer|userClassName": "bus_infoViewModel"
+        "designer|userAlias": "business_baseinfo",
+        "designer|userClassName": "business_baseinfoViewModel"
     },
     "designerId": "1095bd55-5516-455c-84b2-3c65336efd34"
 }

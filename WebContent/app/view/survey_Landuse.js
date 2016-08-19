@@ -41,6 +41,9 @@ Ext.define('MyApp.view.survey_Landuse', {
             id: 'survey_Landuse_MapPanel',
             layout: 'fit',
             title: '',
+            listeners: {
+                afterrender: 'onPanelAfterRender1'
+            },
             dockedItems: [
                 {
                     xtype: 'toolbar',
@@ -48,19 +51,61 @@ Ext.define('MyApp.view.survey_Landuse', {
                     items: [
                         {
                             xtype: 'combobox',
+                            id: 'ent_check_gradeCombo2',
+                            width: 181,
+                            fieldLabel: '开发区级别',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '国家级',
+                                '省级',
+                                '示范区'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_check_typeCombo2',
+                            width: 190,
+                            fieldLabel: '开发区类型',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '工业主导型',
+                                '产城融合型'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
                             id: 'survey_Landuse_LayerCombo',
-                            width: 350,
+                            width: 250,
                             fieldLabel: '选择开发区',
+                            labelWidth: 80,
                             displayField: 'mapName',
                             store: 'systemMapFeatureLayerStore',
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_check_yearCombo2',
+                            width: 190,
+                            fieldLabel: '选择年份',
+                            labelWidth: 80,
+                            store: [
+                                '2016',
+                                '2015',
+                                '2014',
+                                '2013',
+                                '2012',
+                                '2011',
+                                '2010'
+                            ],
                             valueField: 'mapUrl'
                         }
                     ]
                 }
-            ],
-            listeners: {
-                afterrender: 'onPanelAfterRender1'
-            }
+            ]
         },
         {
             xtype: 'gridpanel',

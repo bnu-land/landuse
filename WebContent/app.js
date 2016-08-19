@@ -184,7 +184,8 @@ Ext.application({
         'system_test',
         'business_info',
         'data_report',
-        'bus_info'
+        'business_baseinfo',
+        'db_businessinfo'
     ],
     name: 'MyApp',
 

@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
+
 import cn.mutu.land.common.Encoder;
+import cn.mutu.land.model.BusinessInfo;
 import cn.mutu.land.model.BusinessMap;
 import cn.mutu.land.model.LawRegulation;
 import cn.mutu.land.model.LawTypes;
@@ -50,16 +52,16 @@ public class BusinessInfoManagerController {
 		@ResponseBody
 		public void delNoticeById(@RequestParam("id") String id) throws IOException {
 			this.mapService.deleteMap(id);
-		}
+		}*/
 
 	// 添加用户信息
-	@RequestMapping(value = "/add_map",method=RequestMethod.POST)
+	@RequestMapping(value = "/add_BusinessInfo",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addMap(@RequestBody BusinessMap map)
+	public Map<String, Object> addInfo(@RequestBody BusinessInfo info)
 			throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {			     	
-			this.mapService.addMap(map);
+			this.infoService.addInfo(info);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");
 		} catch (Exception er) {
@@ -68,7 +70,7 @@ public class BusinessInfoManagerController {
 		}
 		return result;
 	}
-*/
+
 	/*// 修改用户信息
 	@RequestMapping(value = "/update_law", method = RequestMethod.POST)
 	// ,method=RequestMethod.POST)
@@ -116,13 +118,13 @@ public class BusinessInfoManagerController {
 		return this.lawService.getLawTypesList();
 	}
 */
-	/*// 删除用户信息
-	@RequestMapping(value = "/del_LawTypeById")
+	// 删除用户信息
+	@RequestMapping(value = "/del_business_info")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
 	public void delUserById(@RequestParam("id") String id) throws IOException {
-		this.lawService.deleteLawTypes(id);
-	}*/
+		this.infoService.deleteInfo(id);
+	}
 
 	/*// 添加用户信息
 	@RequestMapping(value = "/add_LawType")

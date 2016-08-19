@@ -54,11 +54,56 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
                     items: [
                         {
                             xtype: 'combobox',
+                            id: 'ent_landuse_gradeCombo',
+                            width: 181,
+                            fieldLabel: '开发区级别',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '国家级',
+                                '省级',
+                                '示范区'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_landuse_typeCombo',
+                            width: 190,
+                            fieldLabel: '开发区类型',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '工业主导型',
+                                '产城融合型'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
                             id: 'ent_landusePropertyChangeXZQ_Combo',
-                            width: 350,
+                            width: 220,
                             fieldLabel: '选择开发区',
+                            labelWidth: 80,
                             displayField: 'mapName',
                             store: 'systemMap_QYYD_Store',
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_landuse_yearCombo',
+                            width: 190,
+                            fieldLabel: '选择年份',
+                            labelWidth: 80,
+                            store: [
+                                '2016',
+                                '2015',
+                                '2014',
+                                '2013',
+                                '2012',
+                                '2011',
+                                '2010'
+                            ],
                             valueField: 'mapUrl'
                         }
                     ]

@@ -9,8 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.mutu.land.model.BusInfo;
-import cn.mutu.land.model.BusinessMap;
+import cn.mutu.land.model.BusinessInfo;
 
 
 
@@ -25,45 +24,45 @@ public class BusinessInfoManagerService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getBusinessInfoList(String searchKeyword) {
-		String hql = "FROM BusInfo as info";
+		String hql = "FROM BusinessInfo as info";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
 			String hql2 = " WHERE info.busId" + likeStr 
 					+ "OR info.busName" + likeStr;
 			hql += hql2;
 		}		
-		List<BusInfo> results = null;
+		List<BusinessInfo> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
-		results = (List<BusInfo>) query.list();
+		results = (List<BusinessInfo>) query.list();
 		Map<String, Object> myMapResult = new TreeMap<String, Object>();
 		myMapResult.put("root", results);
 		myMapResult.put("success", true);
 		return myMapResult;
 	}
-	/*
-	public void addMaps(BusinessMap map) {
+	
+	public void addInfo(BusinessInfo info) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			//System.out.println("id:"+sysMap.getMapId());
-			session.saveOrUpdate(map);
+			session.saveOrUpdate(info);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 	}
-	public void deleteMap(String id) {
+	public void deleteInfo(String id) {
 		// System.out.println("roleId:" + roleId);
-		BusinessMap result = null;
+		BusinessInfo result = null;
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			result = (BusinessMap) session.get(BusinessMap.class,
+			result = (BusinessInfo) session.get(BusinessInfo.class,
 					Integer.parseInt(id));
 			session.delete(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+/*
 	public void addMap(BusinessMap map) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

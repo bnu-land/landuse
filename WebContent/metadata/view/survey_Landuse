@@ -40,40 +40,6 @@
             "designerId": "0c4e288a-7f0f-4178-b6a9-f8a6b2f4a47a",
             "cn": [
                 {
-                    "type": "Ext.toolbar.Toolbar",
-                    "reference": {
-                        "name": "dockedItems",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dock": "top"
-                    },
-                    "name": "MyToolbar1",
-                    "designerId": "4ed02262-da70-40f6-9fbb-dfafe9d5b083",
-                    "cn": [
-                        {
-                            "type": "Ext.form.field.ComboBox",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "displayField": "mapName",
-                                "fieldLabel": "选择开发区",
-                                "id": "survey_Landuse_LayerCombo",
-                                "layout|flex": null,
-                                "store": "systemMapFeatureLayerStore",
-                                "valueField": "mapUrl",
-                                "width": 350
-                            },
-                            "name": "MyComboBox",
-                            "designerId": "27980048-ed61-45ae-b986-571d3b01c9f2"
-                        }
-                    ]
-                },
-                {
                     "type": "basiceventbinding",
                     "reference": {
                         "name": "listeners",
@@ -95,6 +61,116 @@
                     },
                     "name": "onPanelAfterRender1",
                     "designerId": "7fc3ebd6-ef63-4590-ae75-9087de8f98d0"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "05e2acb7-21d0-44e4-876e-dd6928dabf41",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区级别",
+                                "id": "ent_check_gradeCombo2",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','国家级','省级','示范区']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 181
+                            },
+                            "name": "MyComboBox6",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "be2e8f9a-fd56-40e9-805c-ee2a41ddb6e6"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区类型",
+                                "id": "ent_check_typeCombo2",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','工业主导型','产城融合型']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox7",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "cc380d25-4e4f-4000-9d7c-d89a763ec353"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "mapName",
+                                "fieldLabel": "选择开发区",
+                                "id": "survey_Landuse_LayerCombo",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": "systemMapFeatureLayerStore",
+                                "valueField": "mapUrl",
+                                "width": 250
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "27980048-ed61-45ae-b986-571d3b01c9f2"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "选择年份",
+                                "id": "ent_check_yearCombo2",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['2016','2015','2014','2013','2012','2011','2010']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox4",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "f33eb0b8-a595-41bd-a389-578168a4e17b"
+                        }
+                    ]
                 }
             ]
         },
