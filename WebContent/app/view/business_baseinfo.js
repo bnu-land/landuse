@@ -72,11 +72,13 @@ Ext.define('MyApp.view.business_baseinfo', {
                         {
                             xtype: 'gridcolumn',
                             id: 'businessName',
+                            width: 204,
                             dataIndex: 'businessName',
                             text: '企业名称'
                         },
                         {
                             xtype: 'gridcolumn',
+                            width: 184,
                             dataIndex: 'businessAddress',
                             text: '企业地址'
                         },
@@ -163,7 +165,7 @@ Ext.define('MyApp.view.business_baseinfo', {
     ],
 
     onButtonClick: function(button, e, eOpts) {
-        var win=Ext.widget("db_businessinfo");//db_UserInfoAddWindow1
+        var win=Ext.widget("mywindow");//db_businessinfo
         console.log(win);
         //var win=Ext.getCmp('add_Business');
         win.show();

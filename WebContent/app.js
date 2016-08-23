@@ -185,7 +185,8 @@ Ext.application({
         'business_info',
         'data_report',
         'business_baseinfo',
-        'db_businessinfo'
+        'db_businessinfo',
+        'mywindow'
     ],
     name: 'MyApp',
 

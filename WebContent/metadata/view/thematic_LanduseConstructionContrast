@@ -11,8 +11,8 @@
         "height": 671,
         "id": null,
         "layout": "border",
-        "title": "土地利用结构对比分析",
-        "width": 786
+        "title": "土地利用结构统计分析",
+        "width": 888
     },
     "name": "MyPanel6",
     "designerId": "1abf2f29-1a39-41a9-ba51-ab69c1b227ef",
@@ -46,9 +46,59 @@
                     "userConfig": {
                         "dock": "top"
                     },
-                    "name": "MyToolbar1",
-                    "designerId": "3f566af9-28dc-4140-8f73-aa887a48e8b2",
+                    "name": "MyToolbar4",
+                    "designerId": "792e3757-fe2e-4a49-8eb2-08a610b2f7ce",
                     "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区级别",
+                                "id": "ent_check_gradeCombo3",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','国家级','省级','示范区']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 181
+                            },
+                            "name": "MyComboBox6",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "c19be898-e40c-448a-aeec-fc2bc7e80785"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "开发区类型",
+                                "id": "ent_check_typeCombo3",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['全部','工业主导型','产城融合型']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox7",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "448e3fb6-8a14-4461-9cf5-5f36f92f5795"
+                        },
                         {
                             "type": "Ext.form.field.ComboBox",
                             "reference": {
@@ -60,13 +110,126 @@
                                 "displayField": "mapName",
                                 "fieldLabel": "选择开发区",
                                 "id": "thematicLCC_LayerCombo",
+                                "labelWidth": 80,
                                 "layout|flex": null,
                                 "store": "systemMapFeatureLayerStore",
                                 "valueField": "mapUrl",
-                                "width": 350
+                                "width": 268
                             },
                             "name": "MyComboBox",
                             "designerId": "aaf48b70-cbc2-4a60-976c-4a9b68cb0f5d"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": null,
+                                "fieldLabel": "统计年份",
+                                "id": "ent_check_yearCombo3",
+                                "labelWidth": 80,
+                                "layout|flex": null,
+                                "store": [
+                                    "['2016','2015','2014','2013','2012','2011','2010']"
+                                ],
+                                "valueField": "mapUrl",
+                                "width": 190
+                            },
+                            "name": "MyComboBox4",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "de31fb29-acb2-4165-9450-a3724bd4bb0a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "3f566af9-28dc-4140-8f73-aa887a48e8b2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "统计图表：",
+                                "layout|flex": null,
+                                "store": [
+                                    "['柱状图','饼图']"
+                                ],
+                                "value": "饼图"
+                            },
+                            "name": "MyComboBox1",
+                            "configAlternates": {
+                                "store": "array",
+                                "value": "string"
+                            },
+                            "designerId": "aaee0365-3ba1-4deb-b8f9-dd4b5ddc1246",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxChange",
+                                        "implHandler": [
+                                            "if(newValue==\"柱状图\"){",
+                                            "console.log(newValue);",
+                                            "}"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxChange",
+                                    "designerId": "ba48d0f3-d29d-45b5-a3c8-555a63c24598"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 20
+                            },
+                            "name": "MySpacer2",
+                            "designerId": "9c942201-c853-41b1-96c8-31c2539424b4"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "导出Excel"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "033dc233-5bf5-4ea4-8aae-8b469bd1824a"
                         }
                     ]
                 },
@@ -104,7 +267,7 @@
                                     "var head = document.getElementsByTagName('head')[0];",
                                     "var script= document.createElement(\"script\");",
                                     "script.type = \"text/javascript\";",
-                                    "script.src=\"echarts/thematic_LanduseConstructionContrast.js\";",
+                                    "script.src=\"echarts/thematic_LanduseConstructionContrast_histogram.js\";//thematic_LanduseConstructionContrast.js\";",
                                     "head.appendChild(script);"
                                 ],
                                 "name": "afterrender",

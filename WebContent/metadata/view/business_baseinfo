@@ -105,7 +105,8 @@
                             "userConfig": {
                                 "dataIndex": "businessName",
                                 "id": "businessName",
-                                "text": "企业名称"
+                                "text": "企业名称",
+                                "width": 204
                             },
                             "name": "MyColumn24",
                             "designerId": "a4e0c9ec-d854-4ac7-ad9d-d1b6151e1e0e"
@@ -119,7 +120,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "businessAddress",
-                                "text": "企业地址"
+                                "text": "企业地址",
+                                "width": 184
                             },
                             "name": "MyColumn25",
                             "designerId": "329e510b-8ceb-4ae0-aa52-2cb9293c892b"
@@ -227,7 +229,7 @@
                                     "userConfig": {
                                         "fn": "onButtonClick",
                                         "implHandler": [
-                                            "var win=Ext.widget(\"db_businessinfo\");//db_UserInfoAddWindow1",
+                                            "var win=Ext.widget(\"mywindow\");//db_businessinfo",
                                             "console.log(win);",
                                             "//var win=Ext.getCmp('add_Business');",
                                             "win.show();"

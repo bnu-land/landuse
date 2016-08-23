@@ -20,6 +20,8 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
     requires: [
         'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
+        'Ext.toolbar.Spacer',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Number',
@@ -27,9 +29,9 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
     ],
 
     height: 671,
-    width: 786,
+    width: 888,
     layout: 'border',
-    title: '土地利用结构对比分析',
+    title: '土地利用结构统计分析',
     defaultListenerScope: true,
 
     items: [
@@ -47,12 +49,83 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                     items: [
                         {
                             xtype: 'combobox',
+                            id: 'ent_check_gradeCombo3',
+                            width: 181,
+                            fieldLabel: '开发区级别',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '国家级',
+                                '省级',
+                                '示范区'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_check_typeCombo3',
+                            width: 190,
+                            fieldLabel: '开发区类型',
+                            labelWidth: 80,
+                            store: [
+                                '全部',
+                                '工业主导型',
+                                '产城融合型'
+                            ],
+                            valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
                             id: 'thematicLCC_LayerCombo',
-                            width: 350,
+                            width: 268,
                             fieldLabel: '选择开发区',
+                            labelWidth: 80,
                             displayField: 'mapName',
                             store: 'systemMapFeatureLayerStore',
                             valueField: 'mapUrl'
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'ent_check_yearCombo3',
+                            width: 190,
+                            fieldLabel: '统计年份',
+                            labelWidth: 80,
+                            store: [
+                                '2016',
+                                '2015',
+                                '2014',
+                                '2013',
+                                '2012',
+                                '2011',
+                                '2010'
+                            ],
+                            valueField: 'mapUrl'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            fieldLabel: '统计图表：',
+                            value: '饼图',
+                            store: [
+                                '柱状图',
+                                '饼图'
+                            ],
+                            listeners: {
+                                change: 'onComboboxChange'
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 20
+                        },
+                        {
+                            xtype: 'button',
+                            text: '导出Excel'
                         }
                     ]
                 }
@@ -144,11 +217,17 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
         }
     ],
 
+    onComboboxChange: function(field, newValue, oldValue, eOpts) {
+        if(newValue=="柱状图"){
+        console.log(newValue);
+        }
+    },
+
     onPanelAfterRender1: function(component, eOpts) {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="echarts/thematic_LanduseConstructionContrast.js";
+        script.src="echarts/thematic_LanduseConstructionContrast_histogram.js";//thematic_LanduseConstructionContrast.js";
         head.appendChild(script);
     },
 
