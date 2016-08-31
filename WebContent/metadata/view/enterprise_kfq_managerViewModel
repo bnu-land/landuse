@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "enterprise_kfq_manager",
+        "designer|userClassName": "enterprise_kfq_managerViewModel"
+    },
+    "designerId": "bc5962d2-2682-43c9-902a-31ac9608ec01"
+}

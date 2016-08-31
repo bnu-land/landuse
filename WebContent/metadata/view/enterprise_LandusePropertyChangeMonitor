@@ -25,6 +25,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "collapsed": false,
                 "collapsible": false,
                 "html": [

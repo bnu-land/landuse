@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "taskModel"
+    },
+    "name": "MyModel",
+    "designerId": "555715d1-af10-4cac-a48f-a22b441d7edf",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField67",
+            "designerId": "267f3fef-7867-4763-996f-3b4f0e4699a5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "taskComment"
+            },
+            "name": "MyField68",
+            "designerId": "395194ef-756b-408d-ac8b-404631fcea6e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "taskFinish"
+            },
+            "name": "MyField69",
+            "designerId": "5d022fdb-d5cd-4c35-9aca-794a715b07bf"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "taskWindow"
+            },
+            "name": "MyField70",
+            "designerId": "511540c2-e901-458c-97b5-fcfe24202829"
+        }
+    ]
+}

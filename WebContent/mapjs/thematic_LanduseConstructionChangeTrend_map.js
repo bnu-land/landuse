@@ -45,10 +45,11 @@ require([
     var columnsArr = [];
     var gridStore;
     var yFieldsOfChart = [];
-
+ 
     //初始化选择图层
     var KFQCombo = Ext.getCmp('thematicLCCT_KFQCombo');
     var submitButton = Ext.getCmp('thematicLCCT_SubmitButton');
+    var kfqname=KFQCombo.getValue();
     //图层选择变化时
     if (KFQCombo) {
         KFQCombo.on('change', onKFQComboChange);
@@ -62,6 +63,7 @@ require([
     }
 
     function onKFQComboChange(comboBox, newValue, oldValue, eOpts) {
+    	kfqname=newValue;
         var kfqName = newValue;
         var startYear = Ext.getCmp('thematicLCCT_StartYearCombo').getValue();
         yearNum = startYear;
@@ -143,7 +145,7 @@ require([
             autoLoad: true
         });
 
-        var newYField = 'Y' + yearNum;
+        var newYField = kfqname + yearNum;//'Y'
         yFieldsOfChart.push(newYField);
 
         //统计
@@ -204,6 +206,8 @@ require([
         // echarts
         var chartStore = Ext.data.StoreManager.get('thematic_LCCT_ChartStore');
         chartStore.setData(gridStore.data.items);
+        //打印store里面的数据
+        console.log("内容："+gridStore.data.items);
         chartStore.reload();
 
         yearNum++;

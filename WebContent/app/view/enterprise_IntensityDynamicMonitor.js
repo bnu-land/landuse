@@ -52,7 +52,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'jyddj',
+                    dataIndex: 'jydfz',
                     text: '集约度分值'
                 },
                 {

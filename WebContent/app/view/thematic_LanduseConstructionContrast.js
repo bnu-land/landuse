@@ -22,6 +22,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Spacer',
         'Ext.button.Button',
+        'Ext.form.Label',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Number',
@@ -126,6 +127,34 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                         {
                             xtype: 'button',
                             text: '导出Excel'
+                        },
+                        {
+                            xtype: 'label',
+                            text: '切换统计视图：'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function() {
+                                var pan=Ext.getCmp("chart_panel");
+
+                                if(this.getText()=="柱状图")
+                                {
+                                    pan.removeAll();
+                                    pan.add(Ext.widget("chart_bar"));
+                                    this.setText("饼状图");
+                                    console.log(this.getText());
+                                }
+                                //if(this.getText()=="饼状图")
+                                else
+                                {
+                                    pan.removeAll();
+                                    pan.add(Ext.widget("chart_pie"));
+                                    this.setText("柱状图");
+                                    console.log(this.getText());
+                                }
+                            },
+                            text: '柱状图',
+                            value: '柱状图'
                         }
                     ]
                 }
@@ -133,26 +162,20 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
             items: [
                 {
                     xtype: 'panel',
-                    region: 'west',
-                    split: true,
-                    html: '<div id = "thematic_LanduseConstructionContrast_echart" class="echartsDiv"></div>',
-                    width: 591,
-                    layout: 'fit',
-                    title: '统计图表',
-                    listeners: {
-                        afterrender: 'onPanelAfterRender1'
-                    }
-                },
-                {
-                    xtype: 'panel',
                     region: 'center',
-                    split: true,
-                    html: '<div id = "thematic_LanduseConstructionContrast_div" class="MapDiv"></div>',
-                    id: 'thematic_LanduseConstructionContrast_MapPanel',
-                    title: '开发区地图',
-                    listeners: {
-                        afterrender: 'onPanelAfterRender'
-                    }
+                    id: 'chart_panel',
+                    layout: 'fit',
+                    title: '',
+                    items: [
+                        {
+                            xtype: 'panel',
+                            html: '<div id = "thematic_LanduseConstructionContrast_echart" class="echartsDiv"></div>',
+                            title: '统计图表',
+                            listeners: {
+                                afterrender: 'onPanelAfterRender1'
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -161,7 +184,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
             region: 'center',
             split: true,
             id: 'thematic_LanduseConstructionContrastGrid',
-            title: '属性数据',
+            title: '属性信息',
             columns: [
                 {
                     xtype: 'rownumberer'
@@ -214,6 +237,18 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
                     text: '地类面积'
                 }
             ]
+        },
+        {
+            xtype: 'panel',
+            region: 'west',
+            hidden: true,
+            html: '<div id = "thematic_LanduseConstructionContrast_div" class="MapDiv"></div>',
+            id: 'thematic_LanduseConstructionContrast_MapPanel',
+            width: 150,
+            title: '开发区地图',
+            listeners: {
+                afterrender: 'onPanelAfterRender'
+            }
         }
     ],
 
@@ -227,7 +262,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionContrast', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="echarts/thematic_LanduseConstructionContrast_histogram.js";//thematic_LanduseConstructionContrast.js";
+        script.src="echarts/thematic_LanduseConstructionContrast.js";//thematic_LanduseConstructionContrast.js";
         head.appendChild(script);
     },
 

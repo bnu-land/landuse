@@ -19,9 +19,10 @@ Ext.define('MyApp.view.business_baseinfo', {
 
     requires: [
         'MyApp.view.business_baseinfoViewModel',
+        'Ext.form.FieldSet',
         'Ext.grid.Panel',
-        'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
+        'Ext.grid.column.RowNumberer',
         'Ext.selection.CheckboxModel',
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Text',
@@ -31,25 +32,66 @@ Ext.define('MyApp.view.business_baseinfo', {
     viewModel: {
         type: 'business_baseinfo'
     },
-    height: 489,
+    height: 468,
     id: '',
-    width: 615,
+    width: 762,
     layout: 'border',
-    title: '数据填报进度',
+    title: '任务通知动态',
     defaultListenerScope: true,
 
     items: [
         {
             xtype: 'panel',
             region: 'north',
-            height: 150,
+            split: true,
+            height: 182,
             layout: 'absolute',
-            title: ''
+            title: '',
+            items: [
+                {
+                    xtype: 'fieldset',
+                    x: 30,
+                    y: 10,
+                    height: 120,
+                    width: 660,
+                    layout: 'absolute',
+                    title: '【数据填报】',
+                    items: [
+                        {
+                            xtype: 'gridpanel',
+                            height: 120,
+                            width: 600,
+                            columnLines: false,
+                            rowLines: false,
+                            store: 'taskStore',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    width: '80%',
+                                    dataIndex: 'taskComment',
+                                    text: '任务详情'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    width: '20%',
+                                    dataIndex: 'taskFinish',
+                                    text: '任务完成情况'
+                                }
+                            ],
+                            listeners: {
+                                cellclick: 'onGridpanelCellClick'
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
             xtype: 'panel',
             region: 'center',
-            title: '企业信息列表',
+            split: false,
+            autoScroll: true,
+            title: '宗地信息列表',
             items: [
                 {
                     xtype: 'gridpanel',
@@ -163,6 +205,22 @@ Ext.define('MyApp.view.business_baseinfo', {
             ]
         }
     ],
+
+    onGridpanelCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
+        var win=record.get('taskWindow');
+        if(record.get('taskFinish')=="0")
+        {
+            var mainview=Ext.getCmp("mainView");
+            mainview.removeAll();
+            mainview.add(Ext.widget(win));
+        }
+        else
+        {
+            Ext.Msg.alert("提示消息","");
+        }
+        console.log(win);
+        console.log(record.get("taskComment"));
+    },
 
     onButtonClick: function(button, e, eOpts) {
         var win=Ext.widget("mywindow");//db_businessinfo

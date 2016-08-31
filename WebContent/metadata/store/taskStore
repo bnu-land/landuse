@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "taskStore",
+        "model": "taskModel",
+        "storeId": "taskStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f01cc95c-9a09-4a1a-9b25-ab61c733d786",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:''}"
+                ],
+                "url": "get_task"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "fb9ea563-c1f0-4386-9179-0e36f17ddb4d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "5cd20905-9480-4c0e-8f62-5cf55fbc3244"
+                }
+            ]
+        }
+    ]
+}

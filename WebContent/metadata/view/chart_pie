@@ -1,0 +1,47 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "chart_pie",
+        "designer|userClassName": "chart_pie",
+        "height": 452,
+        "html": [
+            "<div id = \"thematic_LanduseConstructionContrast_echart\" class=\"echartsDiv\"></div>"
+        ],
+        "id": "chart_bar1",
+        "title": "统计图表——饼状图",
+        "width": 821
+    },
+    "name": "bar_chart1",
+    "designerId": "e0cd86b0-2bd6-4c1c-ac97-54ba240f7b4c",
+    "viewControllerInstanceId": "2631a61e-5d3c-40be-93ed-87151c69c9ba",
+    "viewModelInstanceId": "74de83fa-77ca-49bb-8e3a-306c3b71d885",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender11",
+                "implHandler": [
+                    "var head = document.getElementsByTagName('head')[0];",
+                    "var script= document.createElement(\"script\");",
+                    "script.type = \"text/javascript\";",
+                    "script.src=\"echarts/thematic_LanduseConstructionContrast.js\";//thematic_LanduseConstructionContrast.js\";",
+                    "head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender11",
+            "designerId": "a793285b-25fa-477b-ad91-5c176dfdd1ed"
+        }
+    ]
+}

@@ -97,7 +97,7 @@ Ext.define('MyApp.model.enterprise_IntensityAlertModel', {
             name: 'bz'
         },
         {
-            name: 'jyddj'
+            name: 'jydfz'
         }
     ]
 });

@@ -70,7 +70,7 @@ Ext.define('MyApp.view.MainView', {
                             xtype: 'label',
                             html: '<%= request.getSession().getAttribute("currentUser"); %>',
                             id: 'mainview_curUernameLabel',
-                            text: '用户',
+                            text: 'admin',
                             listeners: {
                                 render: 'onMainview_curUernameLabelRender'
                             }
@@ -97,6 +97,48 @@ Ext.define('MyApp.view.MainView', {
             items: [
                 {
                     xtype: 'panel',
+                    collapsed: true,
+                    title: '开发区数据管理',
+                    items: [
+                        {
+                            xtype: 'menu',
+                            floating: false,
+                            itemId: 'menu3',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_baseinfo',
+                                    hideOnClick: false,
+                                    text: '任务动态'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_dataReport',
+                                    hideOnClick: false,
+                                    text: '数据填报'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'business_uploadMap',
+                                    hideOnClick: false,
+                                    text: '开发区变更'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hideMode: 'visibility',
+                                    id: 'system_test',
+                                    hideOnClick: false,
+                                    text: '系统功能测试'
+                                }
+                            ],
+                            listeners: {
+                                click: 'onMenu3Click9'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
                     title: '开发区动态监控',
                     items: [
                         {
@@ -109,27 +151,34 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'enterprise_LandusePropertyChangeMonitor',
                                     hideOnClick: false,
-                                    text: '用地性质变更监控'
+                                    text: '宗地用地性质变更监控'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     id: 'enterprise_IntensityDynamicMonitor',
                                     hideOnClick: false,
-                                    text: '集约度动态监控'
+                                    text: '开发区集约度动态监控'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
-                                    text: '使用权到期预警'
+                                    text: '宗地使用权到期预警'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-                                    text: '上传数据审核'
+                                    text: '开发区填报数据审核'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hideMode: 'visibility',
+                                    id: 'enterprise_kfq_manager',
+                                    hideOnClick: false,
+                                    text: '开发区信息管理'
                                 }
                             ],
                             listeners: {
@@ -568,48 +617,6 @@ Ext.define('MyApp.view.MainView', {
                             }
                         }
                     ]
-                },
-                {
-                    xtype: 'panel',
-                    collapsed: true,
-                    title: '开发区数据管理',
-                    items: [
-                        {
-                            xtype: 'menu',
-                            floating: false,
-                            itemId: 'menu3',
-                            items: [
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'business_baseinfo',
-                                    hideOnClick: false,
-                                    text: '填报进度'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'business_dataReport',
-                                    hideOnClick: false,
-                                    text: '数据填报'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'business_uploadMap',
-                                    hideOnClick: false,
-                                    text: '开发区变更'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    hideMode: 'visibility',
-                                    id: 'system_test',
-                                    hideOnClick: false,
-                                    text: '系统功能测试'
-                                }
-                            ],
-                            listeners: {
-                                click: 'onMenu3Click9'
-                            }
-                        }
-                    ]
                 }
             ],
             listeners: {
@@ -651,6 +658,13 @@ Ext.define('MyApp.view.MainView', {
                 console.log("请求错误。");
             }
         });
+    },
+
+    onMenu3Click9: function(menu, item, e, eOpts) {
+        var xtype = item.id;
+        var mainView = Ext.getCmp('mainView');
+        mainView.removeAll();
+        mainView.add(Ext.widget(xtype));
     },
 
     onMenu1Click: function(menu, item, e, eOpts) {
@@ -724,13 +738,6 @@ Ext.define('MyApp.view.MainView', {
     },
 
     onMenu3Click8: function(menu, item, e, eOpts) {
-        var xtype = item.id;
-        var mainView = Ext.getCmp('mainView');
-        mainView.removeAll();
-        mainView.add(Ext.widget(xtype));
-    },
-
-    onMenu3Click9: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();

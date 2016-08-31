@@ -92,6 +92,8 @@ require([
         }
 
         // --------------------- Extjs ---------
+        
+        //当
         function onComboBoxChange(comboBox, newValue, oldValue, eOpts) {
             //加载图层
             var url = comboBox.getValue();

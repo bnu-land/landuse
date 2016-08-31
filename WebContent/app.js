@@ -50,7 +50,8 @@ Ext.application({
         'businessMapModel',
         'businessPhotoModel',
         'sys_KfqInfoModel',
-        'BusinessInfoModel'
+        'BusinessInfoModel',
+        'taskModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -107,7 +108,8 @@ Ext.application({
         'system_roleNameStore',
         'uRoleRightByIdStore',
         'uRightInfoCurUserStore',
-        'BusinessInfo'
+        'BusinessInfo',
+        'taskStore'
     ],
     views: [
         'MainView',
@@ -182,11 +184,13 @@ Ext.application({
         'enterprise_uploadMapCheck',
         'enterprise_uploadMapCheckResultWindow',
         'system_test',
-        'business_info',
         'data_report',
         'business_baseinfo',
         'db_businessinfo',
-        'mywindow'
+        'mywindow',
+        'enterprise_kfq_manager',
+        'chart_bar',
+        'chart_pie'
     ],
     name: 'MyApp',
 

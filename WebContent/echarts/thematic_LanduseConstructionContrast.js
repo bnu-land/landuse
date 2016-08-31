@@ -23,7 +23,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
     // echartsData = store.data.items;
     var echartsData = Ext.pluck(store.data.items, 'data'); //从store获取数据
     var echartsLegend = getLegendName(echartsData);
-
+    console.log(echartsData);
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById(echartDivId));
 
@@ -41,7 +41,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
         },
         legend: {
             orient: 'vertical',
-            x: 'left',
+            x: 'top',
             data: echartsLegend
         },        
         toolbox: {

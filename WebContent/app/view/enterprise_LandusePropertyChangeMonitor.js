@@ -40,6 +40,7 @@ Ext.define('MyApp.view.enterprise_LandusePropertyChangeMonitor', {
             xtype: 'panel',
             region: 'center',
             split: true,
+            autoScroll: true,
             html: '<div id="ent_landuseChange_div" class="MapDiv" ></div>',
             id: 'ent_landusePropertyChangeMapPanel',
             collapsed: false,

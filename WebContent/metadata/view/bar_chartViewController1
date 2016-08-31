@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "chart_pie",
+        "designer|userClassName": "bar_chartViewController1"
+    },
+    "name": "bar_chartViewController1",
+    "designerId": "2631a61e-5d3c-40be-93ed-87151c69c9ba"
+}

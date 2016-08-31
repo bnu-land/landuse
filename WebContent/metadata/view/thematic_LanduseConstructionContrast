@@ -230,6 +230,69 @@
                             },
                             "name": "MyButton4",
                             "designerId": "033dc233-5bf5-4ea4-8aae-8b469bd1824a"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "切换统计视图："
+                            },
+                            "name": "MyLabel9",
+                            "designerId": "9bfa1bd1-5206-41a0-8fa4-7fe5772b6b98"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "柱状图",
+                                "value": "柱状图"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "4f666200-2fc6-4ee8-87be-a6967f03c3f8",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var pan=Ext.getCmp(\"chart_panel\");",
+                                            "",
+                                            "if(this.getText()==\"柱状图\")",
+                                            "{",
+                                            "    pan.removeAll();",
+                                            "    pan.add(Ext.widget(\"chart_bar\"));",
+                                            "    this.setText(\"饼状图\");",
+                                            "    console.log(this.getText());",
+                                            "}",
+                                            "//if(this.getText()==\"饼状图\")",
+                                            "else",
+                                            "    {",
+                                            "         pan.removeAll();",
+                                            "         pan.add(Ext.widget(\"chart_pie\"));",
+                                            "         this.setText(\"柱状图\");",
+                                            "        console.log(this.getText());",
+                                            "    }"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "7c8b0907-97e8-458d-811c-6243b85f8707"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -241,85 +304,55 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": null,
-                        "html": [
-                            "<div id = \"thematic_LanduseConstructionContrast_echart\" class=\"echartsDiv\"></div>"
-                        ],
+                        "id": "chart_panel",
                         "layout": "fit",
-                        "layout|region": "west",
-                        "layout|split": true,
-                        "title": "统计图表",
-                        "width": 591
-                    },
-                    "name": "MyPanel16",
-                    "designerId": "20f9f28e-a1ef-4a37-8755-14189f597f21",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onPanelAfterRender1",
-                                "implHandler": [
-                                    "var head = document.getElementsByTagName('head')[0];",
-                                    "var script= document.createElement(\"script\");",
-                                    "script.type = \"text/javascript\";",
-                                    "script.src=\"echarts/thematic_LanduseConstructionContrast_histogram.js\";//thematic_LanduseConstructionContrast.js\";",
-                                    "head.appendChild(script);"
-                                ],
-                                "name": "afterrender",
-                                "scope": "me"
-                            },
-                            "name": "onPanelAfterRender1",
-                            "designerId": "53a0e592-1eda-492b-9bda-7d19a60337f7"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dock": null,
-                        "html": [
-                            "<div id = \"thematic_LanduseConstructionContrast_div\" class=\"MapDiv\"></div>"
-                        ],
-                        "id": "thematic_LanduseConstructionContrast_MapPanel",
                         "layout|region": "center",
-                        "layout|split": true,
-                        "title": "开发区地图"
+                        "title": ""
                     },
-                    "name": "MyPanel7",
-                    "designerId": "39263a5b-87bf-4f4a-b685-e7c216d186e8",
+                    "name": "MyPanel20",
+                    "designerId": "bb06dd8f-9e3a-43b7-8b5c-210059bae2b3",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "Ext.panel.Panel",
                             "reference": {
-                                "name": "listeners",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onPanelAfterRender",
-                                "implHandler": [
-                                    "//加入地图的js文件",
-                                    "var head = document.getElementsByTagName('head')[0];",
-                                    "var script= document.createElement(\"script\");",
-                                    "script.type = \"text/javascript\";",
-                                    "script.src=\"mapjs/thematic_LanduseConstructionContrast_map.js\";",
-                                    "head.appendChild(script);"
+                                "designer|displayName": "pie_table",
+                                "dock": null,
+                                "html": [
+                                    "<div id = \"thematic_LanduseConstructionContrast_echart\" class=\"echartsDiv\"></div>"
                                 ],
-                                "name": "afterrender",
-                                "scope": "me"
+                                "title": "统计图表"
                             },
-                            "name": "onPanelAfterRender",
-                            "designerId": "885099e4-d489-446c-a68f-49fc59b58159"
+                            "name": "MyPanel16",
+                            "designerId": "20f9f28e-a1ef-4a37-8755-14189f597f21",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onPanelAfterRender1",
+                                        "implHandler": [
+                                            "var head = document.getElementsByTagName('head')[0];",
+                                            "var script= document.createElement(\"script\");",
+                                            "script.type = \"text/javascript\";",
+                                            "script.src=\"echarts/thematic_LanduseConstructionContrast.js\";//thematic_LanduseConstructionContrast.js\";",
+                                            "head.appendChild(script);"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onPanelAfterRender1",
+                                    "designerId": "53a0e592-1eda-492b-9bda-7d19a60337f7"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -336,7 +369,7 @@
                 "id": "thematic_LanduseConstructionContrastGrid",
                 "layout|region": "center",
                 "layout|split": true,
-                "title": "属性数据"
+                "title": "属性信息"
             },
             "name": "MyGridPanel",
             "designerId": "1ed41fb6-2bee-4f06-81d2-6c8b1b6d0c76",
@@ -479,6 +512,51 @@
                     "codeClass": null,
                     "name": "MyGridView",
                     "designerId": "a0c36cb4-af71-48a9-8098-d9d62afcd45f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "html": [
+                    "<div id = \"thematic_LanduseConstructionContrast_div\" class=\"MapDiv\"></div>"
+                ],
+                "id": "thematic_LanduseConstructionContrast_MapPanel",
+                "layout|region": "west",
+                "title": "开发区地图",
+                "width": 150
+            },
+            "name": "MyPanel7",
+            "designerId": "68be6f1d-3006-46e8-a343-0b6f29c3ccf4",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onPanelAfterRender",
+                        "implHandler": [
+                            "//加入地图的js文件",
+                            "var head = document.getElementsByTagName('head')[0];",
+                            "var script= document.createElement(\"script\");",
+                            "script.type = \"text/javascript\";",
+                            "script.src=\"mapjs/thematic_LanduseConstructionContrast_map.js\";",
+                            "head.appendChild(script);"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onPanelAfterRender",
+                    "designerId": "885099e4-d489-446c-a68f-49fc59b58159"
                 }
             ]
         }

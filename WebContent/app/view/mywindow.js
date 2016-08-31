@@ -34,7 +34,7 @@ Ext.define('MyApp.view.mywindow', {
     id: 'mywindow',
     width: 400,
     layout: 'border',
-    title: '新增企业',
+    title: '新增宗地信息',
 
     items: [
         {

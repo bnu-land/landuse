@@ -8,11 +8,11 @@
     "userConfig": {
         "designer|userAlias": "business_baseinfo",
         "designer|userClassName": "business_baseinfo",
-        "height": 489,
+        "height": 468,
         "id": "",
         "layout": "border",
-        "title": "数据填报进度",
-        "width": 615
+        "title": "任务通知动态",
+        "width": 762
     },
     "name": "MyPanel7",
     "designerId": "6f142af3-0f4e-483e-8ef2-4d5a9d92854a",
@@ -28,13 +28,127 @@
             "codeClass": null,
             "userConfig": {
                 "designer|snapToGrid": 10,
-                "height": 150,
+                "height": 182,
                 "layout": "absolute",
                 "layout|region": "north",
+                "layout|split": true,
                 "title": ""
             },
             "name": "MyPanel19",
-            "designerId": "68b85237-7573-4d23-b0c7-8cceea258a5b"
+            "designerId": "68b85237-7573-4d23-b0c7-8cceea258a5b",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 10,
+                        "height": 120,
+                        "layout": "absolute",
+                        "layout|x": 30,
+                        "layout|y": 10,
+                        "title": "【数据填报】",
+                        "width": 660
+                    },
+                    "name": "MyFieldSet",
+                    "designerId": "eefb27e2-5fde-4302-a0a6-62d25e6e9f17",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "columnLines": false,
+                                "height": 120,
+                                "rowLines": false,
+                                "store": "taskStore",
+                                "title": null,
+                                "width": 600
+                            },
+                            "name": "MyGridPanel1",
+                            "designerId": "79124f0a-4dc6-491e-8c78-484bb5f0ef1c",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "taskComment",
+                                        "text": "任务详情",
+                                        "width": "80%"
+                                    },
+                                    "name": "MyColumn",
+                                    "designerId": "501be7a2-fb49-4c3e-9c56-08c4a4aa908c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "taskFinish",
+                                        "text": "任务完成情况",
+                                        "width": "20%"
+                                    },
+                                    "name": "MyColumn1",
+                                    "designerId": "abf61425-c3d4-408c-8541-21bd03bdad23"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView4",
+                                    "designerId": "9e213a35-d60b-4b26-8a89-fb0b0eb51530"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onGridpanelCellClick",
+                                        "implHandler": [
+                                            "var win=record.get('taskWindow');",
+                                            "if(record.get('taskFinish')==\"0\")",
+                                            "{",
+                                            "    var mainview=Ext.getCmp(\"mainView\");",
+                                            "    mainview.removeAll();",
+                                            "    mainview.add(Ext.widget(win));",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert(\"提示消息\",\"\");",
+                                            "}",
+                                            "console.log(win);",
+                                            "console.log(record.get(\"taskComment\"));"
+                                        ],
+                                        "name": "cellclick",
+                                        "scope": "me"
+                                    },
+                                    "name": "onGridpanelCellClick",
+                                    "designerId": "47e35fa1-f431-4306-bdf2-a5bbff7d0376"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "type": "Ext.panel.Panel",
@@ -44,8 +158,10 @@
             },
             "codeClass": null,
             "userConfig": {
+                "autoScroll": true,
                 "layout|region": "center",
-                "title": "企业信息列表"
+                "layout|split": false,
+                "title": "宗地信息列表"
             },
             "name": "MyPanel7",
             "designerId": "6ead3db8-fbe1-401f-878e-84c4678b0104",

@@ -11,6 +11,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
-        <mapping resource="cn/mutu/land/model/BusinessInfo.hbm.xml" />
+        <mapping resource="cn/mutu/land/model/TaskInfo.hbm.xml" />
+        <mapping resource="cn/mutu/land/model/EntQyjyd.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

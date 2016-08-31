@@ -11,7 +11,7 @@
         "height": 211,
         "id": "mywindow",
         "layout": "border",
-        "title": "新增企业",
+        "title": "新增宗地信息",
         "width": 400
     },
     "name": "MyWindow",
