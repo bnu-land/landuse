@@ -1171,6 +1171,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataImportDatabase",
                                         "text": "成果数据入库"
@@ -1187,6 +1188,22 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
+                                        "id": "achievement_DataImportDB",
+                                        "text": "成果数据入库"
+                                    },
+                                    "name": "MyMenuItem24",
+                                    "designerId": "0ef50528-a883-4781-bd54-508d96840fd3"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
                                         "id": "achievement_DataIBrowse",
                                         "text": "成果数据浏览"
                                     },
@@ -1201,6 +1218,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataIEdit",
                                         "text": "成果数据编辑"

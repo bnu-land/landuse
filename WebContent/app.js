@@ -50,7 +50,8 @@ Ext.application({
         'businessMapModel',
         'businessPhotoModel',
         'sys_KfqInfoModel',
-        'BusinessInfoModel'
+        'BusinessInfoModel',
+        'achievementFileModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -107,7 +108,9 @@ Ext.application({
         'system_roleNameStore',
         'uRoleRightByIdStore',
         'uRightInfoCurUserStore',
-        'BusinessInfo'
+        'BusinessInfo',
+        'achievementFileStore',
+        'achievementFileUploadStore'
     ],
     views: [
         'MainView',
@@ -184,7 +187,9 @@ Ext.application({
         'system_test',
         'business_info',
         'data_report',
-        'bus_info'
+        'bus_info',
+        'achievement_DataImportDB',
+        'achievement_DataExport'
     ],
     name: 'MyApp',
 

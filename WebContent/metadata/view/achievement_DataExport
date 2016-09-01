@@ -1,0 +1,631 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "achievement_DataExport",
+        "designer|userClassName": "achievement_DataExport",
+        "height": 441,
+        "title": "成果数据导出",
+        "width": 1007
+    },
+    "name": "MyPanel7",
+    "designerId": "d565d1f3-dc8e-4f14-9da8-c57352e2ca43",
+    "viewControllerInstanceId": "b9e8dad1-b340-4833-9b5c-4f4fe179b586",
+    "viewModelInstanceId": "5f0dfa9d-3cca-4911-b38d-1469e1306597",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 0,
+                "designer|snapToGrid": 10,
+                "dock": "top",
+                "height": 40,
+                "id": "queryFileForm",
+                "layout": "absolute",
+                "title": "",
+                "width": 150
+            },
+            "name": "MyForm",
+            "designerId": "4952613c-c18b-46c9-a33c-314aa7189f1e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "开发区",
+                        "id": "kfqnameText",
+                        "labelWidth": 50,
+                        "layout|x": null,
+                        "layout|y": 10,
+                        "name": "kfqname",
+                        "width": 280
+                    },
+                    "name": "MyTextField",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "2bbc8583-7cdd-4d00-807d-a88981bf4678"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "年度",
+                        "id": "kfqyearText",
+                        "labelWidth": 40,
+                        "layout|x": 300,
+                        "layout|y": 10,
+                        "name": "kfqyear",
+                        "store": "landKfqTypeComboStore",
+                        "width": 140
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "39a7c6c3-b26e-40e2-91ce-0ae2759d4f4f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onKfqyearTextChange",
+                                "implHandler": [
+                                    "var kfqname=Ext.getCmp('kfqnameText').value;",
+                                    "console.log(kfqname);",
+                                    "if(kfqname==\"\")return;",
+                                    "var kfqyear=newValue;",
+                                    "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
+                                    "mystore.reload({",
+                                    "    params:{",
+                                    "           kfqname:kfqname,",
+                                    "           kfqyear:kfqyear",
+                                    "}",
+                                    "});"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onKfqyearTextChange",
+                            "designerId": "8ac90438-aa14-49b6-b9e9-94d7434dd3eb"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "layout|x": 460,
+                        "layout|y": 10,
+                        "text": "查询"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "14997550-66a1-48be-9c52-a7e857293fa8",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var kfqname=Ext.getCmp('kfqnameText').value;",
+                                    "var kfqyear=Ext.getCmp('kfqyearText').value;      ",
+                                    "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
+                                    "mystore.reload({",
+                                    "   params:{",
+                                    "        kfqname:kfqname,",
+                                    "        kfqyear:kfqyear",
+                                    "   }",
+                                    "});"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "afaecba4-9e93-4c00-9b96-d8a45bf75c6d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 530,
+                        "layout|y": 10,
+                        "text": "导出"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "e09ef358-b0f0-420c-95b0-2fbcc574667c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "store": "achievementFileStore",
+                "title": ""
+            },
+            "name": "MyGridPanel1",
+            "designerId": "1b5f5903-17b5-4f66-a311-0eba282da3c0",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "defaultWidth": null,
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "text": null
+                    },
+                    "name": "MyRowNumberer4",
+                    "designerId": "fdc794e2-64f7-4330-90e8-290e642d31d6"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqName",
+                        "text": "开发区"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "74257afd-2187-4742-9592-466698638fd1"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqYear",
+                        "text": "年份"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "c3920631-643a-45f1-83fe-4af7703462ec"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "filetype",
+                        "text": "数据类型"
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "7119d76b-0eff-4928-997e-5ccf81633dc2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "filename",
+                        "text": "文件名",
+                        "width": 200
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "baabbe1b-b4a3-4c07-a523-06f6dc6c6f7c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "filesize",
+                        "text": "文件大小"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "d1825e4d-02ad-4326-be91-5ce383ee747e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "uploader",
+                        "text": "上传人"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "c7d24a2c-cf06-4842-8a6a-e945dffe9a90"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "uploadTime",
+                        "text": "上传时间",
+                        "width": 180
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "e106b81f-e937-4783-919e-a7934915b9eb"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "readCount",
+                        "icon": "images/table/search.png",
+                        "text": "预览",
+                        "width": 80
+                    },
+                    "name": "MyActionColumn",
+                    "designerId": "6fcef06f-3851-4d66-878a-da8c20898eeb",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png"
+                            },
+                            "name": "MyActionColumnItem1",
+                            "designerId": "0b3ebec4-96c1-4cde-a440-ecdb9ce2eb96",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "",
+                                            "                                var nwin = window.open();",
+                                            "                                var filepath=record.get('filepath');",
+                                            "                                var filename=record.get('filename');",
+                                            "                                console.log(filepath);",
+                                            "                                Ext.Ajax.request(",
+                                            "                                {",
+                                            "                                    url : 'achieve/read_word',",
+                                            "                                    params :",
+                                            "                                    {filepath:filepath,",
+                                            "                                     filename:filename},",
+                                            "                                    success : function (response){",
+                                            "                                        console.log(\"read word success\");",
+                                            "                                        console.log(JSON.stringify(response.responseText));",
+                                            "                                        //me.openUrl(response.responseText);",
+                                            "                                        if(response.responseText!=null)nwin.location=response.responseText;",
+                                            "                                    },",
+                                            "                                    failure : function (response){",
+                                            "                                        //failedResult();",
+                                            "                                        Ext.Msg.alert('失败提示', '读取文件失败');",
+                                            "                                    }",
+                                            "                                });"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "496682cf-54a9-44d1-a267-96e4622cd90b"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "noticeState",
+                        "icon": "images/table/delete.png",
+                        "text": "删除",
+                        "width": 80
+                    },
+                    "name": "MyActionColumn1",
+                    "designerId": "d591a224-658f-429a-8066-a854457659f7",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "edfe0cc7-a996-478e-a3ae-bc7aed0c77dd",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "",
+                                            "                                var id=record.get('id');",
+                                            "",
+                                            "                                console.log(id);",
+                                            "                                Ext.Ajax.request(",
+                                            "                                {",
+                                            "                                    url : 'achieve/delete_file',",
+                                            "                                    params :",
+                                            "                                    {id:id},",
+                                            "                                    success : function (response){",
+                                            "                                        console.log(\"delete file success\");",
+                                            "                                        console.log(JSON.stringify(response.responseText));",
+                                            "                                        var re=response.responseText;",
+                                            "                                        if(re==\"true\"){",
+                                            "                                            Ext.Msg.alert('提示', '删除文件成功');",
+                                            "                                            var kfqname=Ext.getCmp('kfqnameText').value;",
+                                            "                                            var kfqyear=Ext.getCmp('kfqyearText').value;",
+                                            "                                            var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
+                                            "                                            mystore.reload({",
+                                            "                                                params:{",
+                                            "                                                    kfqname:kfqname,",
+                                            "                                                    kfqyear:kfqyear",
+                                            "                                                }",
+                                            "                                            });",
+                                            "                                        }else{",
+                                            "                                            Ext.Msg.alert('提示', '删除文件失败');",
+                                            "                                        }",
+                                            "",
+                                            "                                    },",
+                                            "                                    failure : function (response){",
+                                            "                                        //failedResult();",
+                                            "                                        Ext.Msg.alert('提示', '删除文件失败');",
+                                            "                                    }",
+                                            "                                });"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "d6244e85-dd1e-40c9-b9d9-98fe1926afc4"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "noticeState",
+                        "icon": "images/table/save.png",
+                        "text": "导出",
+                        "width": 80
+                    },
+                    "name": "MyActionColumn3",
+                    "designerId": "c59eefa6-1375-4cd3-99b3-817ccaff9a94",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "8a201cbb-b8ca-497c-8492-d767d11eacd4",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "",
+                                            "                                var id=record.get('id');",
+                                            "                                var filepath=record.get('filepath');",
+                                            "                                var filename=record.get('filename');",
+                                            "                                console.log(id);",
+                                            "                                var url=\"achieve/export_file?filename=\"+filename+\"&filepath=\"+filepath;",
+                                            "                                window.open(url);"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "1eaa1317-2f5a-4f71-89a0-4f7e0b9fb492"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "noticeState",
+                        "text": "导出",
+                        "width": 80
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "43756488-8161-4777-bc78-05f959473450",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var filepath=record.get('filepath');",
+                                    "var filename=record.get('filename');",
+                                    "return '<a href=achieve/export_file?filepath='+filepath+\"&filename=\"+filename+\">导出</a>\";"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "0e74f448-9e5d-493e-8039-30a7370a332b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "7bf681fe-6c0c-4f4b-80b4-0b5d2a3c3774"
+                },
+                {
+                    "type": "Ext.grid.feature.Grouping",
+                    "reference": {
+                        "name": "features",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "groupByText": null,
+                        "hideGroupedHeader": true,
+                        "startCollapsed": true
+                    },
+                    "name": "MyGroupingFeature",
+                    "designerId": "5abb3d8c-0e3a-4900-bf24-448bd9be6728",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "groupHeaderTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "groupHeaderTpl",
+                                "implHandler": [
+                                    "{name}({rows.length} 个)"
+                                ]
+                            },
+                            "name": "groupHeaderTpl",
+                            "designerId": "18d8f536-b3f9-4520-8e8b-5a2984c5cd49"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
