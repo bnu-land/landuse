@@ -11,11 +11,7 @@
         "designer|userClassName": "enterprise_uploadMapCheck",
         "height": 675,
         "layout": "border",
-<<<<<<< HEAD
-        "title": "企业上传地图数据",
-=======
         "title": "上报数据审核",
->>>>>>> cdb
         "width": 879
     },
     "name": "business_uploadMap1",
@@ -24,54 +20,6 @@
     "viewModelInstanceId": "35e27102-339c-45a8-8d91-82ff3b0644b6",
     "cn": [
         {
-<<<<<<< HEAD
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "collapseDirection": "right",
-                "collapsible": false,
-                "dock": null,
-                "html": [
-                    "<div id=\"map\"></div>"
-                ],
-                "layout|region": "center",
-                "title": "地图预览"
-            },
-            "name": "MyPanel7",
-            "designerId": "d78af84c-9226-4b93-8bc0-6c6346896758",
-            "cn": [
-                {
-                    "type": "basiceventbinding",
-                    "reference": {
-                        "name": "listeners",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "onPanelBeforeRender",
-                        "implHandler": [
-                            "//加入地图的js文件",
-                            "var head = document.getElementsByTagName('head')[0];",
-                            "var script= document.createElement(\"script\");",
-                            "script.type = \"text/javascript\";",
-                            "script.src=\"mapjs/uploadmap.js\";",
-                            "head.appendChild(script);"
-                        ],
-                        "name": "beforerender",
-                        "scope": "me"
-                    },
-                    "name": "onPanelBeforeRender",
-                    "designerId": "72d11d2f-8720-4545-bf8f-8ec123cdb59a"
-                }
-            ]
-        },
-        {
-=======
->>>>>>> cdb
             "type": "Ext.grid.Panel",
             "reference": {
                 "name": "items",
@@ -83,14 +31,8 @@
                 "collapsed": false,
                 "collapsible": false,
                 "enableColumnHide": false,
-<<<<<<< HEAD
-                "height": "50%",
-                "id": "ent_uploadInfoCheckGrid",
-                "layout|region": "north",
-=======
                 "id": "ent_uploadInfoCheckGrid",
                 "layout|region": "center",
->>>>>>> cdb
                 "store": "Business_mapStore",
                 "title": null
             },
@@ -116,12 +58,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "string",
-<<<<<<< HEAD
-                        "text": "序号"
-=======
                         "text": "序号",
                         "width": 63
->>>>>>> cdb
                     },
                     "name": "MyRowNumberer2",
                     "designerId": "c5281520-16dd-43ee-9c71-c5e4bc696127"
@@ -318,27 +256,13 @@
                     "designerId": "1410f4e8-e085-4791-b6ab-38b326410fa2",
                     "cn": [
                         {
-<<<<<<< HEAD
-                            "type": "Ext.form.field.Text",
-=======
                             "type": "Ext.form.field.ComboBox",
->>>>>>> cdb
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-<<<<<<< HEAD
-                                "fieldLabel": null,
-                                "layout|flex": null
-                            },
-                            "name": "MyTextField8",
-                            "designerId": "ad70e1ea-e1ea-42b9-931f-19edd9d51777"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-=======
                                 "fieldLabel": "选择开发区",
                                 "labelWidth": 80,
                                 "layout|flex": null
@@ -348,21 +272,12 @@
                         },
                         {
                             "type": "Ext.form.field.ComboBox",
->>>>>>> cdb
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-<<<<<<< HEAD
-                                "icon": "images/table/search.png",
-                                "layout|flex": null,
-                                "text": "搜索"
-                            },
-                            "name": "MyButton8",
-                            "designerId": "66751a8d-391c-479a-9799-5d50017534d1"
-=======
                                 "fieldLabel": "选择年份",
                                 "labelWidth": 60,
                                 "layout|flex": null,
@@ -370,7 +285,6 @@
                             },
                             "name": "MyComboBox5",
                             "designerId": "168259e0-edae-4459-a9f3-d4136861b3f9"
->>>>>>> cdb
                         },
                         {
                             "type": "Ext.toolbar.Separator",
@@ -386,8 +300,6 @@
                             "designerId": "4249e7e4-c894-4132-8652-01e2b3127959"
                         },
                         {
-<<<<<<< HEAD
-=======
                             "type": "Ext.form.Label",
                             "reference": {
                                 "name": "items",
@@ -471,7 +383,6 @@
                             "designerId": "551facfb-3641-4817-bc59-7d3aeafef889"
                         },
                         {
->>>>>>> cdb
                             "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",

@@ -1,0 +1,123 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bus_info",
+        "designer|userClassName": "bus_info",
+        "height": 471,
+        "id": "",
+        "layout": "border",
+        "title": "数据填报状态",
+        "width": 615
+    },
+    "name": "MyPanel7",
+    "designerId": "6f142af3-0f4e-483e-8ef2-4d5a9d92854a",
+    "viewControllerInstanceId": "dc64bb39-6a3d-4438-9bae-e91d89395a42",
+    "viewModelInstanceId": "1095bd55-5516-455c-84b2-3c65336efd34",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 10,
+                "height": 150,
+                "layout": "absolute",
+                "layout|region": "north",
+                "title": ""
+            },
+            "name": "MyPanel19",
+            "designerId": "68b85237-7573-4d23-b0c7-8cceea258a5b"
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "store": "BusinessInfo",
+                "title": "企业信息列表"
+            },
+            "name": "MyGridPanel4",
+            "designerId": "5aee3d1f-38bf-4238-a574-6402ab81b10f",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "busId",
+                        "text": "企业代码"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "34bd80e8-6094-4a07-96ff-ec66c02eb579"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "busName",
+                        "text": "企业名称"
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "a4e0c9ec-d854-4ac7-ad9d-d1b6151e1e0e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "busAddress",
+                        "text": "企业地址"
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "329e510b-8ceb-4ae0-aa52-2cb9293c892b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "busWorker",
+                        "text": "企业人数"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "8153b787-a75d-4ee2-8460-f3bc39f760f4"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView1",
+                    "designerId": "f1204004-49d3-438f-9827-2af730be323c"
+                }
+            ]
+        }
+    ]
+}

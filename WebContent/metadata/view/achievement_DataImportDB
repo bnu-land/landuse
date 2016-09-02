@@ -1,0 +1,64 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "achievement_DataImportDB",
+        "designer|userClassName": "achievement_DataImportDB",
+        "height": 405,
+        "layout": "border",
+        "title": "成果数据入库",
+        "width": 1049
+    },
+    "name": "MyPanel7",
+    "designerId": "ff47536a-86f6-40ec-a76d-0ed94993aeeb",
+    "viewControllerInstanceId": "1584269b-3115-4a1e-be83-83f025d7ccbb",
+    "viewModelInstanceId": "882c5d2a-5c5d-47a6-b120-eee56f606f94",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": [
+                    "<iframe src='office/uploadfiles.html'scrolling='yes' frameborder=0 width=100% height=100%></iframe>"
+                ],
+                "id": "uploadform",
+                "layout|region": "center",
+                "title": null
+            },
+            "name": "MyForm1",
+            "designerId": "2ca90eca-b481-4085-9abb-4be5dd06d412"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "//加入的js文件",
+                    "//var head = document.getElementsByTagName('head')[0];",
+                    "//var script= document.createElement(\"script\");",
+                    "//script.type = \"text/javascript\";",
+                    "//script.src=\"office/uploadfiles.js\";",
+                    "//head.appendChild(script);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "c85e3c5e-54ca-4b04-9ee8-6fc5735b1b4d"
+        }
+    ]
+}

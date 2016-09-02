@@ -1,0 +1,14 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "achievementFileUploadStore",
+        "model": "achievementFileModel",
+        "storeId": "achievementFileUploadStore"
+    },
+    "designerId": "5efd2f1b-00fc-4081-8f95-ce023307f282"
+}

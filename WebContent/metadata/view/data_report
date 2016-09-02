@@ -8,9 +8,9 @@
     "userConfig": {
         "designer|userAlias": "data_report",
         "designer|userClassName": "data_report",
-        "height": 484,
+        "height": 588,
         "title": "数据填报",
-        "width": 541
+        "width": 810
     },
     "name": "MyPanel7",
     "designerId": "f0c09c26-921d-48ce-bcab-9e5babed111b",

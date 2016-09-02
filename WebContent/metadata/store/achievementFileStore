@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "achievementFileStore",
+        "groupField": "groupFilepath",
+        "model": "achievementFileModel",
+        "storeId": "achievementFileStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "2a476229-99d3-4d79-a212-7bfe59f6453e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:''}"
+                ],
+                "url": "achieve/get_achievefileInfo"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "1ab3ecff-8dfe-4ec9-89cf-a08b3d8829a5",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "44090d5c-d401-4c2c-b9f1-27d05134109f"
+                }
+            ]
+        }
+    ]
+}

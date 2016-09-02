@@ -122,18 +122,14 @@ Ext.define('MyApp.view.MainView', {
                                     hideMode: 'visibility',
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
-
                                     text: '使用权到期预警'
-
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
                                     id: 'enterprise_uploadMapCheck',
                                     hideOnClick: false,
-
                                     text: '上传数据审核'
-
                                 }
                             ],
                             listeners: {
@@ -440,18 +436,27 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'achievement_DataImportDatabase',
                                     hideOnClick: false,
                                     text: '成果数据入库'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    id: 'achievement_DataImportDB',
+                                    hideOnClick: false,
+                                    text: '成果数据入库'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'achievement_DataIBrowse',
                                     hideOnClick: false,
                                     text: '成果数据浏览'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'achievement_DataIEdit',
                                     hideOnClick: false,
                                     text: '成果数据编辑'
@@ -585,7 +590,7 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_message',
+                                    id: 'bus_info',
                                     hideOnClick: false,
                                     text: '填报进度'
                                 },

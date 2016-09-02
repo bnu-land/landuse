@@ -24,13 +24,11 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
         'Ext.toolbar.Toolbar',
-
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Separator',
         'Ext.form.Label',
         'Ext.button.Button',
         'Ext.toolbar.TextItem'
-
     ],
 
     viewModel: {
@@ -40,18 +38,14 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     height: 675,
     width: 879,
     layout: 'border',
-
     title: '上报数据审核',
-
     defaultListenerScope: true,
 
     items: [
         {
-
             xtype: 'gridpanel',
             region: 'center',
             autoScroll: true,
-
             id: 'ent_uploadInfoCheckGrid',
             collapsed: false,
             collapsible: false,
@@ -63,9 +57,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             columns: [
                 {
                     xtype: 'rownumberer',
-
                     width: 63,
-
                     dataIndex: 'string',
                     text: '序号'
                 },
@@ -136,7 +128,6 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                     dock: 'top',
                     items: [
                         {
-
                             xtype: 'combobox',
                             fieldLabel: '选择开发区',
                             labelWidth: 80
@@ -165,18 +156,15 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                         {
                             xtype: 'button',
                             text: '查看位置'
-
                         },
                         {
                             xtype: 'tbseparator'
                         },
                         {
-
                             xtype: 'tbtext',
                             text: '审核操作：'
                         },
                         {
-
                             xtype: 'button',
                             text: '通过',
                             listeners: {
@@ -195,7 +183,6 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
             ]
         }
     ],
-
 
     onButtonClick: function(button, e, eOpts) {
         //获取数据

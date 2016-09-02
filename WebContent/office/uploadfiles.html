@@ -1,0 +1,280 @@
+<!DOCTYPE html>                        
+<html>
+<head>
+<script src="http://localhost:8080/appLib/extjs/5.1.1/build/ext-all.js"></script>
+<script
+	src="http://localhost:8080/appLib/extjs/5.1.1/build/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
+<!-- <link rel="stylesheet"
+	href="http://localhost:8080/appLib/extjs/5.1.1/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css"> -->
+ <link rel="stylesheet"
+	href="http://localhost:8080/appLib/extjs/5.1.1/build/packages/ext-theme-crisp/build/resources/ext-theme-crisp-all.css"> 
+<!-- <script type="text/javascript" src="../public/jquery/1.9.1/jquery.js"></script>
+    <script src="../public/jquery/1.9.1/jquery.min.js"></script> -->
+<script src="../public/jquery/1.7/jquery.js"></script>
+<script src="../public/jquery/1.7/jquery.form.js"></script>    
+    <script src="./uploadfiles.js"></script>	
+<style>
+	.font{
+		font-size:12px;
+	}
+	.toolbar{
+		height: 25px;
+		width: 200px;
+		margin: 10px,10px,10px,10px;
+	}
+
+	body { padding: 10px }
+	form { display: block; margin: 1px ;width:700px;background:#eee; border-radius: 10px; padding: 5px }
+	
+	.progress { position:relative; width:700px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px;}
+	.percent { position:absolute; display:inline-block; top:3px; left:52%; }
+	.spinner {
+	  margin:  auto;
+	  width: 150px;
+	  text-align: center;
+	  position:absolute; display:inline-block; top:3px; left:36%;
+	}
+	 
+	.spinner > div {
+	  width: 10px;
+	  height: 10px;
+	  background-color: #67CF22;
+	  margin:  auto;
+	  border-radius: 100%;
+	  display: inline-block;
+	  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+	  animation: bouncedelay 1.4s infinite ease-in-out;
+	  /* Prevent first frame from flickering when animation starts */
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+	}
+	 
+	.spinner .bounce1 {
+	  -webkit-animation-delay: -0.32s;
+	  animation-delay: -0.32s;
+	}
+	 
+	.spinner .bounce2 {
+	  -webkit-animation-delay: -0.16s;
+	  animation-delay: -0.16s;
+	}
+	 
+	@-webkit-keyframes bouncedelay {
+	  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+	  40% { -webkit-transform: scale(1.0) }
+	}
+	 
+	@keyframes bouncedelay {
+	  0%, 80%, 100% {
+	    transform: scale(0.0);
+	    -webkit-transform: scale(0.0);
+	  } 40% {
+	    transform: scale(1.0);
+	    -webkit-transform: scale(1.0);
+	  }
+	}	
+</style>
+</head>
+<body>
+
+<form id="uploadFileForm" class="font" method="post" enctype="multipart/form-data" action="../achieve/add_uploadfile">
+	<span class="font"> 选择开发区 </span>
+	<select class="toolbar" id="kfqname" name="kfqname">
+	<option value="宾西经济技术开发区">宾西经济技术开发区</option>
+	<option value="利民经济技术开发区">利民经济技术开发区</option>
+	</select>
+	
+	<span class="font"  > 年度 </span>
+	<select class="toolbar" id="kfqyear"  style="width: 60px;" name="kfqyear">
+	<option value="2012">2012</option>
+	<option value="2013">2013</option>
+	<option value="2014">2014</option>
+	<option value="2015">2015</option>
+	<option value="2016">2016</option>
+	<option value="2017">2017</option>
+	<option value="2018">2018</option>
+	<option value="2019">2019</option>
+	<option value="2020">2020</option>
+	<option value="2021">2021</option>
+	<option value="2022">2022</option>
+	<option value="2023">2023</option>
+	</select>
+	
+	<input class="toolbar" type="file" name="file" webkitdirectory mozdirectory lang="en-us" />
+	<input id="filepaths" type="text" name="filepaths" hidden/>
+	<span id="totalsize"  name="totalsize" disabled="disabled"></span>
+	<input type="submit" value="上传">
+	
+</form>
+<div id="waitingUploadGridPanel" style="width: 100%"></div>
+    <div class="progress">
+        <div class="bar">
+          <div class="spinner" style="display: none">
+			  <div class="bounce1"></div>
+			  <div class="bounce2"></div>
+			  <div class="bounce3"></div>
+		  </div>
+        </div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+	<!-- 创建gird -->
+	<script>
+		var store = Ext.create('Ext.data.Store', {
+		    storeId:'waitingUploadStore',
+		    fields:['filename', 'filesize', 'filepath'],
+		    groupField: 'filepath',
+		    data: {'files':[
+		    ]},
+		    proxy: {
+		        type: 'memory',
+		        reader: {
+		            type: 'json',
+		            root: 'files'
+		        }
+		    }
+		});
+		
+		var grid=Ext.create('Ext.grid.Panel', {
+		    title: '',
+		    store: Ext.data.StoreManager.lookup('waitingUploadStore'),
+		    columns: [
+				{ xtype:'rownumberer'},
+		        { text: '文件夹',     dataIndex: 'filepath' },
+		        { text: '文件名', dataIndex: 'filename' ,width:580},
+		        { text: '文件大小', dataIndex: 'filesize' ,width:80}
+		        	        
+		    ],
+		    features: [{
+		        ftype:'grouping',
+		        hideGroupedHeader: true,
+		        startCollapsed: true,
+                groupHeaderTpl: [
+                  '{name}({rows.length} 个)'
+               ]
+		    }],
+		    width: 700,
+		    height: 400,
+		    renderTo: 'waitingUploadGridPanel'
+		});	
+	</script>
+
+<!-- 	//文件信息读取-->
+	<script>
+		var filespath=[];
+		var filesname=[];
+		var filessize=[];
+		var totalFileSize=0;
+		var inps = document.querySelectorAll('input');
+		[].forEach.call(inps, function(inp) {
+			inp.onchange = function(e) {
+					var files=this.files;
+					 //进度归零
+					  var bar = $('.bar');
+					  var percent = $('.percent');
+					  var status = $('#status');
+					  var spinner=$('.spinner');
+			          bar.width(0);
+			          percent.html("0%");		    		  
+		    		  spinner.hide();
+		    		  					
+					 var data=[];
+					 totalFileSize=0;
+					 if(files.length>0){
+						 //获取文件信息
+						 for(var i=0;i<files.length;i++){
+							 //文件路径
+							 var filepath=files[i].webkitRelativePath;
+							 filepath=filepath.substr(0,filepath.lastIndexOf("/"));//去除文件名
+							 filespath[i]=filepath;
+							 
+							 filesname[i]=files[i].name; 
+							 filessize[i]=getFilesize(files[i].size);
+							 
+							 totalFileSize+=files[i].size;
+							 var m={ filename:files[i].name ,  filesize:filessize[i], filepath: filepath };
+							 data[i]=m;
+						}
+						 status.html("等待上传");
+			         }else{
+			        	 $('#uploadFileForm').clearForm();
+			        	 $('#uploadFileForm').resetForm();
+			        	 $('#uploadFileForm .file').clearFields();
+			        	 status.html("请选择文件");
+					 }
+					//重置store
+					 grid.reconfigure(store);
+					 store.setData(data);
+					//store.reload();
+					 //文件总大小
+					 console.log(getFilesize(totalFileSize));
+					 document.getElementById("totalsize").innerHTML="总计"+getFilesize(totalFileSize);
+					 //文件路径放入form
+					 document.getElementById("filepaths").value=filespath;
+			 
+				};
+			});
+
+			//表单提交 
+			(function() {
+				var bar = $('.bar');
+				var percent = $('.percent');
+				var status = $('#status');
+				var spinner=$('.spinner');
+		    	$("#uploadFileForm").ajaxForm({ 
+		    	    beforeSend: function() {
+			    	    console.log("beforeSend");
+			    	    console.log(status.html());
+			    	    if(status.html()=="请选择文件"||status.html()=="")	{
+							alert("请选择文件");				    	    
+							return;
+				    	 }		    	    
+			    	    status.html("正在上传，请稍后...");
+			            var percentVal = '0%';
+			            bar.width(percentVal);
+			            percent.html(percentVal);
+			            spinner.show();
+		    	    },
+		    	    uploadProgress: function(event, position, total, percentComplete) {
+		    	    	console.log(percentComplete, position, total);
+			    	    if(status.html()=="请选择文件"||status.html()=="")	{
+							return;
+				    	 }
+		    	    	if(percentComplete>90)
+			    	    	percentComplete=95;
+		    	    	else if(percentComplete>85)
+			    	    	percentComplete=85;
+		    	        var percentVal = percentComplete + '%';
+		    	        bar.width(percentVal);
+		    	        percent.html(percentVal);
+		    	    },
+		    	    success: function() {
+			    	    console.log("success");
+		    	    },
+		    		complete: function(xhr) {
+		    			if(xhr.responseText.length>10){
+		    				status.html("请选择文件");
+		    				return;
+			    		}
+			            var percentVal = '100%';
+			            spinner.hide();
+			            bar.width(percentVal);
+			            percent.html(percentVal);			            
+			            status.html(xhr.responseText);
+		    		}				    	
+		    	});
+			})();
+			 
+			//转换文件大小格式
+			function getFilesize(size){
+				if(size>=500000)//500kb
+					return (size/1000000.0).toFixed(2)+"MB";
+				else if(size>=100)//0.1kb
+					return (size/1000.0).toFixed(1)+"KB";
+				else return size.toFixed(1)+"B";
+			}
+	</script>
+</body>
+</html>

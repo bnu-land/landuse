@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BusinessInfoModel"
+    },
+    "name": "MyModel",
+    "designerId": "ac43ecee-33ab-44b7-95c5-4c67b6bcb630",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "busWorker"
+            },
+            "name": "MyField33",
+            "designerId": "f8da997c-11e1-48ca-89c5-28d048fef9f9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "busId"
+            },
+            "name": "MyField34",
+            "designerId": "11e530a5-65c2-4133-b5ea-a1e9fac5cdf5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "busName"
+            },
+            "name": "MyField35",
+            "designerId": "be56ff39-8b34-45f1-8fbb-f084b1ba8314"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "busAddress"
+            },
+            "name": "MyField36",
+            "designerId": "6fee855b-2097-479d-a649-f1fe11ddbb50"
+        }
+    ]
+}

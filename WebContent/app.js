@@ -49,7 +49,9 @@ Ext.application({
         'sys_MapAttrNameIndexModel',
         'businessMapModel',
         'businessPhotoModel',
-        'sys_KfqInfoModel'
+        'sys_KfqInfoModel',
+        'BusinessInfoModel',
+        'achievementFileModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -102,11 +104,13 @@ Ext.application({
         'sys_TreeStore',
         'sys_MapKfqTypeStore',
         'sys_MapKfqNameStore',
-        'thematic_LCCT_KFQStore',
         'sys_MapKfqMapStore',
         'system_roleNameStore',
         'uRoleRightByIdStore',
-        'uRightInfoCurUserStore'
+        'uRightInfoCurUserStore',
+        'BusinessInfo',
+        'achievementFileStore',
+        'achievementFileUploadStore'
     ],
     views: [
         'MainView',
@@ -172,7 +176,6 @@ Ext.application({
         'system_Log',
         'sys_MapAttrNameIndexWindow',
         'sys_MapAddAttrNameIndexWindow',
-        'business_message',
         'business_uploadPhoto',
         'business_uploadMap',
         'system_MenuManage',
@@ -180,13 +183,13 @@ Ext.application({
         'db_RoleInfoEditWindow',
         'db_RoleRightSettingWindow',
         'enterprise_uploadMapCheck',
-
         'enterprise_uploadMapCheckResultWindow',
-
         'system_test',
         'business_info',
-        'data_report'
-
+        'data_report',
+        'bus_info',
+        'achievement_DataImportDB',
+        'achievement_DataExport'
     ],
     name: 'MyApp',
 

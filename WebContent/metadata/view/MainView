@@ -307,11 +307,7 @@
                                         "hideMode": "visibility",
                                         "hideOnClick": false,
                                         "id": "enterprise_uploadMapCheck",
-<<<<<<< HEAD
-                                        "text": "企业上传信息审核"
-=======
                                         "text": "上传数据审核"
->>>>>>> cdb
                                     },
                                     "name": "MyMenuItem23",
                                     "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
@@ -1175,6 +1171,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataImportDatabase",
                                         "text": "成果数据入库"
@@ -1191,6 +1188,22 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
+                                        "id": "achievement_DataImportDB",
+                                        "text": "成果数据入库"
+                                    },
+                                    "name": "MyMenuItem24",
+                                    "designerId": "0ef50528-a883-4781-bd54-508d96840fd3"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
                                         "id": "achievement_DataIBrowse",
                                         "text": "成果数据浏览"
                                     },
@@ -1205,6 +1218,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataIEdit",
                                         "text": "成果数据编辑"
@@ -1569,7 +1583,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_message",
+                                        "id": "bus_info",
                                         "text": "填报进度"
                                     },
                                     "name": "MyMenuItem17",
