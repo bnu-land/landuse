@@ -436,7 +436,6 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    hidden: true,
                                     id: 'achievement_DataImportDatabase',
                                     hideOnClick: false,
                                     text: '成果数据入库'
@@ -449,14 +448,12 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    hidden: true,
                                     id: 'achievement_DataIBrowse',
                                     hideOnClick: false,
                                     text: '成果数据浏览'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    hidden: true,
                                     id: 'achievement_DataIEdit',
                                     hideOnClick: false,
                                     text: '成果数据编辑'
@@ -476,7 +473,6 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    hidden: true,
                     title: '成果数据上报',
                     items: [
                         {

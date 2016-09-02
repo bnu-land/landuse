@@ -25,9 +25,9 @@ public class FileUploadController {
 	@RequestMapping(value = "/file_upload")
 	@ResponseBody
 	public Map<String, Object> fileUpload(HttpServletRequest request,
-			HttpServletResponse response, @RequestParam("type") String type)
+			HttpServletResponse response, @RequestParam("filetype") String type)
 			throws SQLException {
-		return this.fileUploadService.fileUpload(request, response);
+		return this.fileUploadService.fileUpload(request, response,type);
 		//
 	}
 }

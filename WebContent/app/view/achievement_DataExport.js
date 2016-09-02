@@ -34,7 +34,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
         type: 'achievement_dataexport'
     },
     autoScroll: true,
-    height: 441,
+    height: 756,
     width: 1007,
     title: '成果数据导出',
     defaultListenerScope: true,
@@ -257,12 +257,11 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                         var filepath=record.get('filepath');
                         var filename=record.get('filename');
-                        console.log(filename);
-                        return '<a href=achieve/export_file?filename='+filename+"&filepath="+filepath+">下载</a>";
+                        return '<a href=achieve/export_file?filepath='+filepath+"&filename="+filename+">导出</a>";
                     },
                     width: 80,
                     dataIndex: 'noticeState',
-                    text: '下载'
+                    text: '导出'
                 }
             ],
             features: [

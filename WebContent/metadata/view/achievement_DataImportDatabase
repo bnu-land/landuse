@@ -27,59 +27,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|snapToGrid": 10,
-                "height": 116,
-                "layout": "absolute",
-                "layout|region": "north",
-                "layout|split": true,
-                "title": ""
-            },
-            "name": "MyPanel24",
-            "designerId": "d9f0f1ac-4a60-4260-859e-3cffb1ef6476",
-            "cn": [
-                {
-                    "type": "Ext.form.field.File",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "buttonText": "浏览",
-                        "fieldLabel": "选择入库成果数据",
-                        "labelWidth": 120,
-                        "layout|x": 70,
-                        "layout|y": 40,
-                        "width": 400
-                    },
-                    "name": "MyFileUpload",
-                    "designerId": "d4ce8835-6f9c-4290-8cf5-5927a36c346f"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|x": 520,
-                        "layout|y": 40,
-                        "text": "确定上传"
-                    },
-                    "name": "MyButton7",
-                    "designerId": "3b00a828-44d8-4971-9955-db996b98b967"
-                }
-            ]
-        },
-        {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "layout": "border",
                 "layout|region": "center",
                 "title": ""
@@ -215,6 +162,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 91,
+                "html": [
+                    "<input type=\"file\" name=\"file\" id=\"file_dataImport\" multiple id=\"file\" />"
+                ],
+                "layout|region": "north",
+                "title": "My Panel"
+            },
+            "name": "MyPanel7",
+            "designerId": "b5c01f4a-73de-457e-a595-19eb94431556"
         }
     ]
 }

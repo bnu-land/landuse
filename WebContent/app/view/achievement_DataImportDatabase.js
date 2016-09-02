@@ -18,8 +18,6 @@ Ext.define('MyApp.view.achievement_DataImportDatabase', {
     alias: 'widget.achievement_DataImportDatabase',
 
     requires: [
-        'Ext.form.field.File',
-        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
         'Ext.grid.column.Date',
@@ -34,31 +32,6 @@ Ext.define('MyApp.view.achievement_DataImportDatabase', {
     defaultListenerScope: true,
 
     items: [
-        {
-            xtype: 'panel',
-            region: 'north',
-            split: true,
-            height: 116,
-            layout: 'absolute',
-            title: '',
-            items: [
-                {
-                    xtype: 'filefield',
-                    x: 70,
-                    y: 40,
-                    width: 400,
-                    fieldLabel: '选择入库成果数据',
-                    labelWidth: 120,
-                    buttonText: '浏览'
-                },
-                {
-                    xtype: 'button',
-                    x: 520,
-                    y: 40,
-                    text: '确定上传'
-                }
-            ]
-        },
         {
             xtype: 'panel',
             region: 'center',
@@ -105,6 +78,13 @@ Ext.define('MyApp.view.achievement_DataImportDatabase', {
                     }
                 }
             ]
+        },
+        {
+            xtype: 'panel',
+            region: 'north',
+            height: 91,
+            html: '<input type="file" name="file" id="file_dataImport" multiple id="file" />',
+            title: 'My Panel'
         }
     ],
 

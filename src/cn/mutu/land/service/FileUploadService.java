@@ -27,7 +27,7 @@ public class FileUploadService {
 
 	// 文件上传
 	public Map<String, Object> fileUpload(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response,String type) {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		Map<String, Object> myMapResult = new TreeMap<String, Object>();
 		try {
@@ -61,7 +61,7 @@ public class FileUploadService {
 							// 定义上传路径
 							String folderPath = request.getSession()
 									.getServletContext()
-									.getRealPath("/files/");
+									.getRealPath("/resources/" + type);
 							File folder = new File(folderPath);
 							if (!folder.exists()) {
 								folder.mkdir();
@@ -73,7 +73,8 @@ public class FileUploadService {
 
 							} catch (IllegalStateException | IOException e) {
 								// TODO Auto-generated catch block
-								throw new Exception();
+								myMapResult.put("root", false);
+								myMapResult.put("success", false);
 							}
 						}
 					}
@@ -83,7 +84,7 @@ public class FileUploadService {
 					// System.out.println(finaltime - pre);
 				}
 			}
-			String filePath = "images/" + fileName;
+			String filePath = "/resources/" + type + "/" + fileName;
 
 			myMapResult.put("root", filePath);
 			myMapResult.put("success", true);
