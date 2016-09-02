@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bus_informationview",
+        "designer|userClassName": "zd_informationViewModel1"
+    },
+    "name": "zd_informationViewModel1",
+    "designerId": "e6949a85-70e6-4be0-8adc-866d01bb9f25"
+}

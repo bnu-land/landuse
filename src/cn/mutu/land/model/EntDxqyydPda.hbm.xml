@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-12-14 14:54:49 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-2 19:11:27 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.EntDxqyydPda" table="ent_dxqyyd_pda" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -29,7 +29,7 @@
             </column>
         </property>
         <property name="tbbh" type="string">
-            <column name="TBBH" length="20" not-null="true">
+            <column name="TBBH" length="20">
                 <comment>&#205;&#188;&#176;&#223;&#177;&#224;&#186;&#197;</comment>
             </column>
         </property>
@@ -180,6 +180,36 @@
             <column name="SHYJ" length="300">
                 <comment>&#201;&#243;&#186;&#203;&#210;&#226;&#188;&#251;</comment>
             </column>
+        </property>
+        <property name="zdbh" type="string">
+            <column name="ZDBH" length="10" />
+        </property>
+        <property name="sbnf" type="string">
+            <column name="SBNF" length="15" />
+        </property>
+        <property name="kfqlx" type="string">
+            <column name="KFQLX" length="20" />
+        </property>
+        <property name="photosPath" type="string">
+            <column name="PhotosPath" length="200" />
+        </property>
+        <property name="photosName" type="string">
+            <column name="PhotosName" length="20" />
+        </property>
+        <property name="tbrq" type="string">
+            <column name="TBRQ" length="35" />
+        </property>
+        <property name="filePath" type="string">
+            <column name="FilePath" length="200" />
+        </property>
+        <property name="isinfo" type="java.lang.Integer">
+            <column name="ISINFO" />
+        </property>
+        <property name="isphoto" type="java.lang.Integer">
+            <column name="ISPHOTO" />
+        </property>
+        <property name="ismap" type="java.lang.Integer">
+            <column name="ISMAP" />
         </property>
     </class>
 </hibernate-mapping>

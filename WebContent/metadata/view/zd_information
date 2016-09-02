@@ -1,0 +1,686 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "zd_information",
+        "designer|userClassName": "zd_information",
+        "height": 450,
+        "title": "My Panel",
+        "width": 654
+    },
+    "name": "MyPanel22",
+    "designerId": "e284b21b-5164-4e90-9bb7-994b35bbfa96",
+    "viewControllerInstanceId": "e25cd0c9-5c87-4f6d-bf5a-685b5f8776f9",
+    "viewModelInstanceId": "e81329e3-4ed7-450b-88c3-0b5c5f81365d",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar4",
+            "designerId": "581475e6-e17f-4971-bc08-519cc17aa094",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "",
+                        "id": "searchKeyword_zdInfo",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField33",
+                    "designerId": "12be7a13-17cc-470c-8497-ce6b20fe4d76"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "",
+                        "layout|flex": null,
+                        "text": "搜索"
+                    },
+                    "name": "MyButton11",
+                    "designerId": "99117a2f-1795-48a4-8b9c-6980e7eb6943",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();",
+                                    "console.log(\"keyword:\",getKeyword);",
+                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                    "//在load事件中添加参数",
+                                    "mystore.load(",
+                                    "    {",
+                                    "        params :",
+                                    "        {",
+                                    "            searchKeyword : getKeyword",
+                                    "        }",
+                                    "    }",
+                                    ");"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "4d9b3956-583d-44c1-b15c-ef3b9c27e783"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刷新"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "9f61fd6a-a80e-4c2e-8a4f-a11f03930ad2",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "Ext.getCmp('searchKeyword_zdInfo').setValue('');",
+                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                    "mystore.load();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "21bd5679-67a0-4f19-b07c-bd0b3f0bed27"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "添加宗地信息"
+                    },
+                    "name": "MyButton17",
+                    "designerId": "194582a9-4a39-4c85-bb4f-785bf2d175f4",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var win = Ext.widget('add_zdinnfo');",
+                                    "console.log(win);",
+                                    "win.show();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "a18d5707-489d-4a98-bf1e-dfb1f1dde34f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "编辑宗地信息"
+                    },
+                    "name": "MyButton18",
+                    "designerId": "47d39d05-4dd9-46f4-a55b-6d311b67da84",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "//获取数据",
+                                    "var models = Ext.getCmp('zd_info').getSelection();",
+                                    "if (models.length === 0){",
+                                    "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                    "    return;",
+                                    "} else if(models.length >1){",
+                                    "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                    "    return;",
+                                    "}",
+                                    "//启动窗口",
+                                    "var win = Ext.widget('update_zdinnfo');",
+                                    "win.setTitle('修改宗地信息');",
+                                    "win.show();",
+                                    "",
+                                    "//改变Ajax url",
+                                    "var form = Ext.getCmp('update_zdwidinfo').getForm();",
+                                    "form.loadRecord(models[0]);",
+                                    "form.url = 'update_zdInfo';         "
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "fe3a057e-6803-4ff6-85cf-be3602afcb73"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "zd_info",
+                "store": "zd_infoStore",
+                "title": ""
+            },
+            "name": "MyGridPanel",
+            "designerId": "ede06d89-24ed-4717-ab25-256dea6b2802",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "zdId",
+                        "text": "序号",
+                        "width": 66
+                    },
+                    "name": "MyRowNumberer",
+                    "designerId": "ecf4acbf-ac6f-4860-bd04-74bd1427a3d2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqmc",
+                        "text": "开发区名称"
+                    },
+                    "name": "MyColumn20",
+                    "designerId": "36992c6f-34c8-408d-9068-215713e36736"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqpjfw",
+                        "text": "开发区评价范围"
+                    },
+                    "name": "MyColumn21",
+                    "designerId": "88c83075-4ab1-4053-8b71-628630413ec0"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqpjlx",
+                        "text": "开发区评价类型"
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "59e8707b-b640-44dc-8449-afd57449ca03"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tbbh",
+                        "text": "图斑编号"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "ea55eddd-5d8a-453e-b876-170b2ee0e46a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "dlmc",
+                        "text": "地类名称"
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "f5f4bd0a-f820-4b9b-9475-2fbb0188e68e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "dlmj",
+                        "text": "地类面积"
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "9edd4168-3ad6-4a4f-9c9b-e959d9b8b3a2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "qs",
+                        "text": "权属"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "5b90009f-e208-45e3-828b-1fce5e072d9f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gysj",
+                        "text": "供应时间"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "1c59a064-dfd6-46c7-926e-5e9af5690dac"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gylx",
+                        "text": "供应类型"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "cec12b1a-b003-4458-bff1-cfb0622dcc63"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tdzpg",
+                        "text": "土地招拍佳情况"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "b32f8d1b-38c2-4ba2-ae96-befbba2433dd"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "synx",
+                        "text": "使用年限"
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "9c1acad2-cd10-495e-9d75-d8cd6c316a12"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tdsyz",
+                        "text": "土地使用者"
+                    },
+                    "name": "MyColumn31",
+                    "designerId": "386a23d3-29df-4ffa-8298-ea1b34dbf8dd"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "jzmj",
+                        "text": "建筑面积(平方米)"
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "f9c9d924-dbab-45df-86ee-7558c9bf6b9e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "jzjdmj",
+                        "text": "建筑基地面积(平方米)"
+                    },
+                    "name": "MyColumn33",
+                    "designerId": "b94ad88a-4918-4c4d-995b-be4010daa856"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "jdzmj",
+                        "text": "建筑物、构筑物基底及露天堆场、露天操作场地的总面积（平方米）"
+                    },
+                    "name": "MyColumn34",
+                    "designerId": "f12c8bb5-5b7c-4930-91ad-b79b05eee699"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gxlb",
+                        "text": "高新技术产业用地类别"
+                    },
+                    "name": "MyColumn35",
+                    "designerId": "66959ea9-cc1a-4ac6-a586-5531fca22aba"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gxydmj",
+                        "text": "高新技术产业用地面积(公顷）"
+                    },
+                    "name": "MyColumn36",
+                    "designerId": "0769d5e1-ec09-4927-929e-a5740080a31e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gxzsbl",
+                        "text": "高新技术产业用地面积折算比例 "
+                    },
+                    "name": "MyColumn37",
+                    "designerId": "6eb48a5c-48d2-4528-8195-397e5da4fe7f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gxsr",
+                        "text": "高新技术产业收入（万元）"
+                    },
+                    "name": "MyColumn38",
+                    "designerId": "fc6403a6-a2d5-4232-9104-3e5b3b826ee5"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gxss",
+                        "text": "高新技术产业税收（万元）"
+                    },
+                    "name": "MyColumn39",
+                    "designerId": "31e5e27b-ca37-4bf5-9a57-e43d9d431461"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ghyt",
+                        "text": "规划用途"
+                    },
+                    "name": "MyColumn40",
+                    "designerId": "c9425523-6aa4-4e30-abfb-7b945b918cb6"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "pzyt",
+                        "text": "批准用途"
+                    },
+                    "name": "MyColumn46",
+                    "designerId": "c19e7153-1130-4add-b35f-6bc0a75d1d4d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tdxzqk",
+                        "text": "土地闲置情况"
+                    },
+                    "name": "MyColumn47",
+                    "designerId": "01fd55f5-6f57-4824-a21b-b6e689ad306f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "rdyj",
+                        "text": "认定依据"
+                    },
+                    "name": "MyColumn48",
+                    "designerId": "4dfe8c34-684d-4c0b-825b-fe622108f552"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gdzctzze",
+                        "text": "工业企业、工业物流企业固定资产投资总额(万元）"
+                    },
+                    "name": "MyColumn41",
+                    "designerId": "21b7478e-aef0-42a5-a4b8-50e2406c1905"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "esssze",
+                        "text": "二、三产业税收总额（万元/年）"
+                    },
+                    "name": "MyColumn42",
+                    "designerId": "05785c27-19ae-45ba-9113-ae8cce67920f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "qyzsr",
+                        "text": "工业企业工业物流企业总收入（万元/年）"
+                    },
+                    "name": "MyColumn43",
+                    "designerId": "cda9d4ee-f597-4d6e-baa3-58b283b21bc6"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "qyssze",
+                        "text": "工业企业工业物流企业税收总额（万元/年）"
+                    },
+                    "name": "MyColumn45",
+                    "designerId": "509223b3-7e03-4e02-86c2-45cfb8dfcf85"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "bz",
+                        "text": "备注"
+                    },
+                    "name": "MyColumn44",
+                    "designerId": "b44bcee5-eac1-4c31-964a-21797c0e5af0"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "2bb790f8-57bb-4afa-85d0-a70618cbab7f"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel4",
+                    "designerId": "057897ae-6b9b-42b3-a07f-3fd6979e48c9"
+                }
+            ]
+        }
+    ]
+}

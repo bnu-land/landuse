@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "update_zdinnfo",
+        "designer|userClassName": "add_zdinnfoViewController1"
+    },
+    "name": "add_zdinnfoViewController1",
+    "designerId": "86412c66-dbd3-423b-b80e-10f18c2611f3"
+}

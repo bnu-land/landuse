@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.mutu.land.model.BusinessInfo;
 import cn.mutu.land.model.BusinessPhoto;
 
 
@@ -27,8 +28,8 @@ public class BusinessPhotosManagerService {
 		String hql = "FROM BusinessPhoto as photo";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE photo.ProCode" + likeStr 
-					+ "OR photo.uploadUser" + likeStr;
+			String hql2 = " WHERE photo.businessName" + likeStr 
+					+ "OR photo.photoTitle" + likeStr;
 			hql += hql2;
 		}		
 		List<BusinessPhoto> results = null;
@@ -50,7 +51,20 @@ public class BusinessPhotosManagerService {
 			System.out.println(er.getMessage());
 		}
 	}
-	public void deletePhotos(String id) {
+//	public void deletePhotos(String id) {
+//		// System.out.println("roleId:" + roleId);
+//		BusinessPhoto result = null;
+//		Session session = sessionFactory.getCurrentSession();
+//		try {
+//			result = (BusinessPhoto) session.get(BusinessPhoto.class,
+//					Integer.parseInt(id));
+//
+//			session.delete(result);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+	public void deletePhoto(String id) {
 		// System.out.println("roleId:" + roleId);
 		BusinessPhoto result = null;
 		Session session = sessionFactory.getCurrentSession();

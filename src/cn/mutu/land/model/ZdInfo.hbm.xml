@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-2 19:11:27 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.ZdInfo" table="zd_info" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="mbbsm" type="int">
+            <column name="MBBSM" not-null="true" />
+        </property>
+        <property name="ysdm" type="string">
+            <column name="YSDM" length="10" />
+        </property>
+        <property name="kfqdm" type="string">
+            <column name="KFQDM" length="7" />
+        </property>
+        <property name="kfqmc" type="string">
+            <column name="KFQMC" length="60" />
+        </property>
+        <property name="kfqpjfw" type="string">
+            <column name="KFQPJFW" length="10" />
+        </property>
+        <property name="kfqpjlx" type="string">
+            <column name="KFQPJLX" length="10" />
+        </property>
+        <property name="tbbh" type="string">
+            <column name="TBBH" length="20" />
+        </property>
+        <property name="dlmc" type="string">
+            <column name="DLMC" length="26" />
+        </property>
+        <property name="dldm" type="string">
+            <column name="DLDM" length="3" />
+        </property>
+        <property name="dlmj" type="double">
+            <column name="DLMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="tdxzqk" type="string">
+            <column name="TDXZQK" length="2" />
+        </property>
+        <property name="qs" type="string">
+            <column name="QS" length="4" />
+        </property>
+        <property name="gysj" type="string">
+            <column name="GYSJ" length="6" />
+        </property>
+        <property name="gylx" type="string">
+            <column name="GYLX" length="28" />
+        </property>
+        <property name="gydm" type="string">
+            <column name="GYDM" length="3" />
+        </property>
+        <property name="tdzpg" type="string">
+            <column name="TDZPG" length="2" />
+        </property>
+        <property name="synx" type="string">
+            <column name="SYNX" length="6" />
+        </property>
+        <property name="tdsyz" type="string">
+            <column name="TDSYZ" length="60" />
+        </property>
+        <property name="pzyt" type="string">
+            <column name="PZYT" length="26" />
+        </property>
+        <property name="pzdm" type="string">
+            <column name="PZDM" length="3" />
+        </property>
+        <property name="ghyt" type="string">
+            <column name="GHYT" length="26" />
+        </property>
+        <property name="ghdm" type="string">
+            <column name="GHDM" length="3" />
+        </property>
+        <property name="ghjzmj" type="double">
+            <column name="GHJZMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="ghjdmj" type="double">
+            <column name="GHJDMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="ghrjl" type="double">
+            <column name="GHRJL" precision="5" not-null="true" />
+        </property>
+        <property name="ghjzmd" type="double">
+            <column name="GHJZMD" precision="6" not-null="true" />
+        </property>
+        <property name="bz" type="string">
+            <column name="BZ" length="200" />
+        </property>
+        <property name="rdyj" type="string">
+            <column name="RDYJ" length="100" />
+        </property>
+        <property name="dlmc1" type="string">
+            <column name="DLMC1" length="26" />
+        </property>
+        <property name="dldm1" type="string">
+            <column name="DLDM1" length="3" />
+        </property>
+        <property name="dlmj1" type="double">
+            <column name="DLMJ1" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="dlmc2" type="string">
+            <column name="DLMC2" length="26" />
+        </property>
+        <property name="dldm2" type="string">
+            <column name="DLDM2" length="3" />
+        </property>
+        <property name="dlmj2" type="double">
+            <column name="DLMJ2" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="jdzmj" type="double">
+            <column name="JDZMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="gxlb" type="string">
+            <column name="GXLB" length="4" />
+        </property>
+        <property name="gxdm" type="string">
+            <column name="GXDM" length="2" />
+        </property>
+        <property name="gxydmj" type="double">
+            <column name="GXYDMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="gxzsbl" type="double">
+            <column name="GXZSBL" precision="6" not-null="true" />
+        </property>
+        <property name="gxsr" type="double">
+            <column name="GXSR" precision="15" not-null="true" />
+        </property>
+        <property name="gxss" type="double">
+            <column name="GXSS" precision="15" not-null="true" />
+        </property>
+        <property name="jzmj" type="double">
+            <column name="JZMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="jzjdmj" type="double">
+            <column name="JZJDMJ" precision="15" scale="4" not-null="true" />
+        </property>
+        <property name="gdzctzze" type="double">
+            <column name="GDZCTZZE" precision="15" not-null="true" />
+        </property>
+        <property name="esssze" type="double">
+            <column name="ESSSZE" precision="15" not-null="true" />
+        </property>
+        <property name="qyzsr" type="double">
+            <column name="QYZSR" precision="15" not-null="true" />
+        </property>
+        <property name="qyssze" type="double">
+            <column name="QYSSZE" precision="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

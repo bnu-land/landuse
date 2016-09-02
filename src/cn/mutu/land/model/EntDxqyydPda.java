@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2015-12-14 14:54:48 by Hibernate Tools 4.0.0
+// Generated 2016-9-2 19:11:26 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -44,12 +44,18 @@ public class EntDxqyydPda implements java.io.Serializable {
 	private Date cjsj;
 	private Integer shzt;
 	private String shyj;
+	private String zdbh;
+	private String sbnf;
+	private String kfqlx;
+	private String photosPath;
+	private String photosName;
+	private String tbrq;
+	private String filePath;
+	private Integer isinfo;
+	private Integer isphoto;
+	private Integer ismap;
 
 	public EntDxqyydPda() {
-	}
-
-	public EntDxqyydPda(String tbbh) {
-		this.tbbh = tbbh;
 	}
 
 	public EntDxqyydPda(Integer mbbsm, String ysdm, String kfqdm, String kfqmc,
@@ -58,7 +64,10 @@ public class EntDxqyydPda implements java.io.Serializable {
 			Double zsr, Double zcz, Double ssze, Double qyydmj, Double cfpt,
 			Double xzbg, Double ltcd, Double nbyld, Double dltcc, Double ld,
 			Double qt, Double zjzmj, Double rjl, Double jdzmj, Double jzxs,
-			String bz, String cjr, Date cjsj, Integer shzt, String shyj) {
+			String bz, String cjr, Date cjsj, Integer shzt, String shyj,
+			String zdbh, String sbnf, String kfqlx, String photosPath,
+			String photosName, String tbrq, String filePath, Integer isinfo,
+			Integer isphoto, Integer ismap) {
 		this.mbbsm = mbbsm;
 		this.ysdm = ysdm;
 		this.kfqdm = kfqdm;
@@ -93,6 +102,16 @@ public class EntDxqyydPda implements java.io.Serializable {
 		this.cjsj = cjsj;
 		this.shzt = shzt;
 		this.shyj = shyj;
+		this.zdbh = zdbh;
+		this.sbnf = sbnf;
+		this.kfqlx = kfqlx;
+		this.photosPath = photosPath;
+		this.photosName = photosName;
+		this.tbrq = tbrq;
+		this.filePath = filePath;
+		this.isinfo = isinfo;
+		this.isphoto = isphoto;
+		this.ismap = ismap;
 	}
 
 	public Integer getId() {
@@ -373,6 +392,86 @@ public class EntDxqyydPda implements java.io.Serializable {
 
 	public void setShyj(String shyj) {
 		this.shyj = shyj;
+	}
+
+	public String getZdbh() {
+		return this.zdbh;
+	}
+
+	public void setZdbh(String zdbh) {
+		this.zdbh = zdbh;
+	}
+
+	public String getSbnf() {
+		return this.sbnf;
+	}
+
+	public void setSbnf(String sbnf) {
+		this.sbnf = sbnf;
+	}
+
+	public String getKfqlx() {
+		return this.kfqlx;
+	}
+
+	public void setKfqlx(String kfqlx) {
+		this.kfqlx = kfqlx;
+	}
+
+	public String getPhotosPath() {
+		return this.photosPath;
+	}
+
+	public void setPhotosPath(String photosPath) {
+		this.photosPath = photosPath;
+	}
+
+	public String getPhotosName() {
+		return this.photosName;
+	}
+
+	public void setPhotosName(String photosName) {
+		this.photosName = photosName;
+	}
+
+	public String getTbrq() {
+		return this.tbrq;
+	}
+
+	public void setTbrq(String tbrq) {
+		this.tbrq = tbrq;
+	}
+
+	public String getFilePath() {
+		return this.filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public Integer getIsinfo() {
+		return this.isinfo;
+	}
+
+	public void setIsinfo(Integer isinfo) {
+		this.isinfo = isinfo;
+	}
+
+	public Integer getIsphoto() {
+		return this.isphoto;
+	}
+
+	public void setIsphoto(Integer isphoto) {
+		this.isphoto = isphoto;
+	}
+
+	public Integer getIsmap() {
+		return this.ismap;
+	}
+
+	public void setIsmap(Integer ismap) {
+		this.ismap = ismap;
 	}
 
 }

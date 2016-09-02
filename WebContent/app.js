@@ -194,7 +194,8 @@ Ext.application({
         'chart_bar',
         'chart_pie',
         'win_kfqinfo_add',
-        'kfqChangeWindow'
+        'kfqChangeWindow',
+        'zd_information'
     ],
     name: 'MyApp',
 

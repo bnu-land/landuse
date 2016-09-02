@@ -25,40 +25,13 @@ Ext.define('MyApp.model.businessMapModel', {
             name: 'id'
         },
         {
-            name: 'proCode'
+            name: 'mapPath'
         },
         {
-            name: 'uploadUser'
+            name: 'businessName'
         },
         {
-            name: 'westCoor'
-        },
-        {
-            name: 'westCoorw'
-        },
-        {
-            name: 'eastCoor'
-        },
-        {
-            name: 'eastCoorw'
-        },
-        {
-            name: 'northCoor'
-        },
-        {
-            name: 'northCoorw'
-        },
-        {
-            name: 'southCoor'
-        },
-        {
-            name: 'southCoorw'
-        },
-        {
-            name: 'isPass'
-        },
-        {
-            name: 'checkResult'
+            name: 'businessUploaddate'
         }
     ]
 });

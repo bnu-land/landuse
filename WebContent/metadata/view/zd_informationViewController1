@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bus_informationview",
+        "designer|userClassName": "zd_informationViewController1"
+    },
+    "name": "zd_informationViewController1",
+    "designerId": "bc4cb6d8-878b-4dc2-9ee5-cd714a6f635f"
+}

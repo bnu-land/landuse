@@ -22,28 +22,25 @@ Ext.define('MyApp.model.businessPhotoModel', {
 
     fields: [
         {
-            name: 'id'
-        },
-        {
-            name: 'proCode'
-        },
-        {
-            name: 'uploadUser'
-        },
-        {
-            name: 'upDate'
-        },
-        {
             name: 'photoPath'
         },
         {
             name: 'photoTitle'
         },
         {
-            name: 'other'
+            name: 'id'
         },
         {
-            name: 'isPass'
+            name: 'businessName'
+        },
+        {
+            name: 'businessKfq'
+        },
+        {
+            name: 'businessUploaddate'
+        },
+        {
+            name: 'currrentDate'
         }
     ]
 });

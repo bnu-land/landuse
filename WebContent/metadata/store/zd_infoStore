@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "zd_infoStore",
+        "model": "zdinformationModel",
+        "storeId": "zd_infoStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "2d292af6-c0d9-4e63-b17d-83d6cfd36c85",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:\"\"}"
+                ],
+                "url": "get_zdinfo"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "96e023d1-e8c2-4b80-a73e-07eb464bdfdd",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "3da5bac5-e8fa-4f3d-b24c-a70d99f96da6"
+                }
+            ]
+        }
+    ]
+}

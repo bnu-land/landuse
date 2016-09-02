@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-7-2 19:41:04 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-2 19:11:27 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.BusinessPhoto" table="business_photo" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -15,7 +15,7 @@
             <column name="upload_User" length="50" />
         </property>
         <property name="upDate" type="string">
-            <column name="up_date" length="50" />
+            <column name="up_date" length="50" not-null="true" />
         </property>
         <property name="photoPath" type="string">
             <column name="photo_path" length="300" />

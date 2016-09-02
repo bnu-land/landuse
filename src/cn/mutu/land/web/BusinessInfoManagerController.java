@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
+
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.BusinessInfo;
 import cn.mutu.land.model.BusinessMap;
+import cn.mutu.land.model.BusinessPhoto;
 import cn.mutu.land.model.LawRegulation;
 import cn.mutu.land.model.LawTypes;
 import cn.mutu.land.service.BusinessInfoManagerService;
@@ -37,39 +39,89 @@ public class BusinessInfoManagerController {
 
 	// --------------------内容发布-------------------------
 	// 查询
-	@RequestMapping(value = "/get_infomation")
+	@RequestMapping(value = "/get_info")
 	@ResponseBody
-	public Map<String, Object> getInfoList(
+	public Map<String, Object> getLawsList(
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.infoService.getBusinessInfoList(searchKeyword);
 		//
 	}
-/*
+
+//	// 删除
+//	@RequestMapping(value = "/del_map")
+//		@ResponseBody
+//		public void delNoticeById(@RequestParam("id") String id) throws IOException {
+//			this.mapService.deleteMap(id);
+//		}
+	
 	// 删除
-	@RequestMapping(value = "/del_map")
-		@ResponseBody
-		public void delNoticeById(@RequestParam("id") String id) throws IOException {
-			this.mapService.deleteMap(id);
-		}*/
+		@RequestMapping(value = "/del_info")
+			@ResponseBody
+			public void delNoticeById(@RequestParam("businessId") String businessId) throws IOException {
+				this.infoService.deleteinfo(businessId);
+			}
+		
+//		// 删除
+//				@RequestMapping(value = "/del_infos")
+//					@ResponseBody
+//					public void delNoticeByIds(@RequestParam("businessId") String businessId) throws IOException {
+//						this.infoService.deleteinfos(businessId);
+//					}
 
 	// 添加用户信息
-	@RequestMapping(value = "/add_BusinessInfo",method=RequestMethod.POST)
+	@RequestMapping(value = "/add_info",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addInfo(@RequestBody BusinessInfo info)
 			throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
-		try {			     	
-			this.infoService.addInfo(info);
+		try {
+			//System.out.print(info.getBusinessArea());
+			this.infoService.addInfos(info);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");
 		} catch (Exception er) {
+			er.printStackTrace();
 			result.put("failure", true);
 			result.put("msg", ",failed saved");
 		}
 		return result;
 	}
+	
+	// 添加用户信息(练习)
+		@RequestMapping(value = "/add_infos",method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> addInfos(@RequestBody BusinessInfo info)
+				throws IOException {
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {			     	
+				this.infoService.addInfo(info);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}
+		
+//		// 上传企业照片
+//		@RequestMapping(value = "/add_photo",method=RequestMethod.POST)
+//		@ResponseBody
+//		public Map<String, Object> addphto(@RequestBody BusinessPhoto photo)
+//				throws IOException {
+//			Map<String, Object> result = new HashMap<String, Object>();
+//			try {			     	
+//				this.infoService.addphoto(photo);
+//				result.put("success", true);
+//				result.put("msg", ",successfully saved");
+//			} catch (Exception er) {
+//				result.put("failure", true);
+//				result.put("msg", ",failed saved");
+//			}
+//			return result;
+//		}
 
 	/*// 修改用户信息
 	@RequestMapping(value = "/update_law", method = RequestMethod.POST)
@@ -118,13 +170,13 @@ public class BusinessInfoManagerController {
 		return this.lawService.getLawTypesList();
 	}
 */
-	// 删除用户信息
-	@RequestMapping(value = "/del_business_info")
+	/*// 删除用户信息
+	@RequestMapping(value = "/del_LawTypeById")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
 	public void delUserById(@RequestParam("id") String id) throws IOException {
-		this.infoService.deleteInfo(id);
-	}
+		this.lawService.deleteLawTypes(id);
+	}*/
 
 	/*// 添加用户信息
 	@RequestMapping(value = "/add_LawType")

@@ -59,10 +59,10 @@ public class BusinessPhotosManagerController {
 	@RequestMapping(value = "/del_photo")
 		@ResponseBody
 		public void delNoticeById(@RequestParam("id") String id) throws IOException {
-			this.photoService.deletePhotos(id);
+			this.photoService.deletePhoto(id);
 		}
 
-	// 添加用户信息
+	// 添加照片信息
 	@RequestMapping(value = "/add_Photos",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addPhotos(@RequestBody BusinessPhoto photo)

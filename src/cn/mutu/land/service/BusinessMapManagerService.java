@@ -22,13 +22,31 @@ public class BusinessMapManagerService {
 		this.sessionFactory = sessionFactory;
 	}
 	
+//	@SuppressWarnings("unchecked")
+//	public Map<String, Object> getBusinessMapList(String searchKeyword) {
+//		String hql = "FROM BusinessMap as map";
+//		if (!searchKeyword.equals("")) {
+//			String likeStr = " LIKE '%" + searchKeyword + "%' ";
+//			String hql2 = " WHERE map.ProCode" + likeStr 
+//					+ "OR map.uploadUser" + likeStr;
+//			hql += hql2;
+//		}		
+//		List<BusinessMap> results = null;
+//		org.hibernate.Query query = sessionFactory.getCurrentSession()
+//				.createQuery(hql);
+//		results = (List<BusinessMap>) query.list();
+//		Map<String, Object> myMapResult = new TreeMap<String, Object>();
+//		myMapResult.put("root", results);
+//		myMapResult.put("success", true);
+//		return myMapResult;
+//	}
+	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getBusinessMapList(String searchKeyword) {
-		String hql = "FROM BusinessMap as map";
+		String hql = "select info.businessName,info.businessAddress,info.businessZdcode,info.businessEvalueRange,info.businessIndustryType,info.businessIndustryCode FROM BusinessInfo as info,BusinessMap as map";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE map.ProCode" + likeStr 
-					+ "OR map.uploadUser" + likeStr;
+			String hql2 = " WHERE info.businessName = map.businessName" + likeStr ;
 			hql += hql2;
 		}		
 		List<BusinessMap> results = null;
@@ -41,15 +59,15 @@ public class BusinessMapManagerService {
 		return myMapResult;
 	}
 	
-	public void addMaps(BusinessMap map) {
-		Session session = sessionFactory.getCurrentSession();
-		try {
-			//System.out.println("id:"+sysMap.getMapId());
-			session.saveOrUpdate(map);
-		} catch (Exception er) {
-			System.out.println(er.getMessage());
-		}
-	}
+//	public void addMaps(BusinessMap map) {
+//		Session session = sessionFactory.getCurrentSession();
+//		try {
+//			//System.out.println("id:"+sysMap.getMapId());
+//			session.saveOrUpdate(map);
+//		} catch (Exception er) {
+//			System.out.println(er.getMessage());
+//		}
+//	}
 	public void deleteMap(String id) {
 		// System.out.println("roleId:" + roleId);
 		BusinessMap result = null;

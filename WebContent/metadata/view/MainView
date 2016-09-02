@@ -274,7 +274,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_dataReport",
+                                        "id": "zd_information",
                                         "text": "数据填报"
                                     },
                                     "name": "MyMenuItem22",

@@ -53,7 +53,7 @@ public class BusinessMapManagerController {
 	// 添加用户信息
 	@RequestMapping(value = "/add_map",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addMap(@RequestBody BusinessMap map)
+	public Map<String, Object> addMap(@RequestBody BusinessMap map,@RequestParam("id") String id)
 			throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {			     	

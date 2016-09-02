@@ -113,7 +113,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_dataReport',
+                                    id: 'zd_information',
                                     hideOnClick: false,
                                     text: '数据填报'
                                 },

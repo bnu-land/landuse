@@ -1,0 +1,22 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|snapToGrid": 10,
+        "designer|userAlias": "mypanel24",
+        "designer|userClassName": "MyPanel24",
+        "height": 445,
+        "id": "zd_information1",
+        "layout": "absolute",
+        "title": "宗地信息填报",
+        "width": 1010
+    },
+    "name": "MyPanel24",
+    "designerId": "2b552d96-f7bd-40bb-a98f-40f11cba0c75",
+    "viewControllerInstanceId": "c481aba0-05e2-4ae9-b565-5bd4afe176e4",
+    "viewModelInstanceId": "f9d0783a-2ea4-4eb6-b5d4-b1d30655d5e9"
+}

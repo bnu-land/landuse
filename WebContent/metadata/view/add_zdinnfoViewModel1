@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "update_zdinnfo",
+        "designer|userClassName": "add_zdinnfoViewModel1"
+    },
+    "name": "add_zdinnfoViewModel1",
+    "designerId": "08807804-ac29-49f8-85d7-e13f4fa88b2a"
+}
