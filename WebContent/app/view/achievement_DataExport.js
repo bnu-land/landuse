@@ -93,9 +93,20 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'button',
+                    handler: function(button, e) {
+                        var kfqname=Ext.getCmp('kfqnameText').value.trim();
+                        if(kfqname===""){
+                            alert("请输入开发区名称");
+                            return;
+                        }
+                        var kfqyear=Ext.getCmp('kfqyearText').value;
+
+                        var url="achieve/export_file_zip?kfqname="+kfqname+"&kfqyear="+kfqyear;
+                        window.open(url);
+                    },
                     x: 530,
                     y: 10,
-                    text: '导出'
+                    text: '打包导出'
                 }
             ]
         }
@@ -160,13 +171,16 @@ Ext.define('MyApp.view.achievement_DataExport', {
                                 var nwin = window.open();
                                 var filepath=record.get('filepath');
                                 var filename=record.get('filename');
+                                var groupFilepath=record.get('groupFilepath');
                                 console.log(filepath);
                                 Ext.Ajax.request(
                                 {
                                     url : 'achieve/read_word',
                                     params :
                                     {filepath:filepath,
-                                    filename:filename},
+                                        filename:filename,
+                                        groupFilepath:groupFilepath
+                                    },
                                     success : function (response){
                                         console.log("read word success");
                                         console.log(JSON.stringify(response.responseText));
@@ -188,46 +202,52 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     width: 80,
                     dataIndex: 'noticeState',
                     text: '删除',
-                    icon: 'images/table/delete.png',
+                    icon: '',
                     items: [
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
                                 var id=record.get('id');
-
-                                console.log(id);
-                                Ext.Ajax.request(
+                                var filename=record.get('filename');
+                                Ext.Msg.confirm('提示', '确认删除该文件记录<br>'+filename, getResult);
+                                function getResult(confirm)
                                 {
-                                    url : 'achieve/delete_file',
-                                    params :
-                                    {id:id},
-                                    success : function (response){
-                                        console.log("delete file success");
-                                        console.log(JSON.stringify(response.responseText));
-                                        var re=response.responseText;
-                                        if(re=="true"){
-                                            Ext.Msg.alert('提示', '删除文件成功');
-                                            var kfqname=Ext.getCmp('kfqnameText').value;
-                                            var kfqyear=Ext.getCmp('kfqyearText').value;
-                                            var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象
-                                            mystore.reload({
-                                                params:{
-                                                    kfqname:kfqname,
-                                                    kfqyear:kfqyear
+                                    if (confirm == "yes"){
+                                        console.log(id);
+                                        Ext.Ajax.request(
+                                        {
+                                            url : 'achieve/delete_file',
+                                            params :
+                                            {id:id},
+                                            success : function (response){
+                                                console.log("delete file success");
+                                                console.log(JSON.stringify(response.responseText));
+                                                var re=response.responseText;
+                                                if(re=="true"){
+                                                    Ext.Msg.alert('提示', '删除文件成功');
+                                                    var kfqname=Ext.getCmp('kfqnameText').value;
+                                                    var kfqyear=Ext.getCmp('kfqyearText').value;
+                                                    var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象
+                                                    mystore.reload({
+                                                        params:{
+                                                            kfqname:kfqname,
+                                                            kfqyear:kfqyear
+                                                        }
+                                                    });
+                                                }else{
+                                                    Ext.Msg.alert('提示', '删除文件失败');
                                                 }
-                                            });
-                                        }else{
-                                            Ext.Msg.alert('提示', '删除文件失败');
-                                        }
 
-                                    },
-                                    failure : function (response){
-                                        //failedResult();
-                                        Ext.Msg.alert('提示', '删除文件失败');
+                                            },
+                                            failure : function (response){
+                                                //failedResult();
+                                                Ext.Msg.alert('提示', '删除文件失败');
+                                            }
+                                        });
                                     }
-                                });
+                                }
                             },
-                            icon: 'images/table/delete.png'
+                            icon: 'images/table/delete2.png'
                         }
                     ]
                 },
@@ -235,8 +255,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     xtype: 'actioncolumn',
                     width: 80,
                     dataIndex: 'noticeState',
-                    text: '导出',
-                    icon: 'images/table/save.png',
+                    text: '下载',
                     items: [
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
@@ -244,21 +263,23 @@ Ext.define('MyApp.view.achievement_DataExport', {
                                 var id=record.get('id');
                                 var filepath=record.get('filepath');
                                 var filename=record.get('filename');
+                                var groupFilepath=record.get('groupFilepath');
                                 console.log(id);
-                                var url="achieve/export_file?filename="+filename+"&filepath="+filepath;
+                                var url="achieve/export_file?filename="+filename+"&filepath="+filepath+"&groupFilepath="+groupFilepath;
                                 window.open(url);
                             },
-                            icon: 'images/table/delete.png'
+                            icon: 'images/table/download.png'
                         }
                     ]
                 },
                 {
                     xtype: 'gridcolumn',
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                        var filepath=record.get('filepath');
-                        var filename=record.get('filename');
-                        console.log(filename);
-                        return '<a href=achieve/export_file?filename='+filename+"&filepath="+filepath+">下载</a>";
+                        //此方法文件路径中有空格，不适用 用replace方法把空格替换为%20
+                        var filepath=record.get('filepath').replace(/\s+/g,"%20");
+                        var filename=record.get('filename').replace(/\s+/g,"%20");
+                        var groupFilepath=record.get('groupFilepath').replace(/\s+/g,"%20");
+                        return '<a href=achieve/export_file?filepath='+filepath+"&filename="+filename+"&groupFilepath="+groupFilepath+">导出</a>";
                     },
                     width: 80,
                     dataIndex: 'noticeState',
