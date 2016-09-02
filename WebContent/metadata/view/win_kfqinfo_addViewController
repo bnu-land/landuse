@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "win_kfqinfo_add",
+        "designer|userClassName": "win_kfqinfo_addViewController"
+    },
+    "designerId": "45e75779-ba92-4097-a6c0-4b1ca1211158"
+}

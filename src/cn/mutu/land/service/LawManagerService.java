@@ -97,6 +97,7 @@ public class LawManagerService {
 		return myMapResult;
 	}
 	//获取相关栏目的前十条法律法规
+		@SuppressWarnings("unchecked")
 		public Map<String, Object> get10LawRegulationList(String lawType) {
 			String hql = "FROM LawRegulation as law";
 			if (!lawType.equals("")) {

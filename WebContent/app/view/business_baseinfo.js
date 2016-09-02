@@ -22,11 +22,11 @@ Ext.define('MyApp.view.business_baseinfo', {
         'Ext.form.FieldSet',
         'Ext.grid.Panel',
         'Ext.grid.View',
+        'Ext.button.Button',
         'Ext.grid.column.RowNumberer',
         'Ext.selection.CheckboxModel',
         'Ext.toolbar.Toolbar',
-        'Ext.form.field.Text',
-        'Ext.button.Button'
+        'Ext.form.field.Text'
     ],
 
     viewModel: {
@@ -34,7 +34,7 @@ Ext.define('MyApp.view.business_baseinfo', {
     },
     height: 468,
     id: '',
-    width: 762,
+    width: 882,
     layout: 'border',
     title: '任务通知动态',
     defaultListenerScope: true,
@@ -83,6 +83,17 @@ Ext.define('MyApp.view.business_baseinfo', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        Ext.Msg.alert("信息提示","本年度任务已下发至各单位");
+                    },
+                    x: 707,
+                    y: 30,
+                    height: 100,
+                    width: 150,
+                    text: '一键下发评价任务'
                 }
             ]
         },
@@ -208,7 +219,7 @@ Ext.define('MyApp.view.business_baseinfo', {
 
     onGridpanelCellClick: function(tableview, td, cellIndex, record, tr, rowIndex, e, eOpts) {
         var win=record.get('taskWindow');
-        if(record.get('taskFinish')=="0")
+        if(record.get('taskFinish')=="未提交")
         {
             var mainview=Ext.getCmp("mainView");
             mainview.removeAll();
@@ -216,7 +227,7 @@ Ext.define('MyApp.view.business_baseinfo', {
         }
         else
         {
-            Ext.Msg.alert("提示消息","");
+            Ext.Msg.alert("提示消息","数据目前处于【"+record.get('taskFinish')+"】");
         }
         console.log(win);
         console.log(record.get("taskComment"));

@@ -119,16 +119,24 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_uploadMap',
+                                    id: 'enterprise_kfq_manager',
                                     hideOnClick: false,
-                                    text: '开发区变更'
+                                    text: '开发区信息管理'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
+                                    id: 'enterprise_uploadMapCheck',
+                                    hideOnClick: false,
+                                    text: '开发区填报数据审核'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    hideMode: 'visibility',
                                     id: 'system_test',
                                     hideOnClick: false,
-                                    text: '系统功能测试'
+                                    text: '功能测试'
                                 }
                             ],
                             listeners: {
@@ -165,20 +173,6 @@ Ext.define('MyApp.view.MainView', {
                                     id: 'enterprise_UseRightExpireWarning',
                                     hideOnClick: false,
                                     text: '宗地使用权到期预警'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    hideMode: 'visibility',
-                                    id: 'enterprise_uploadMapCheck',
-                                    hideOnClick: false,
-                                    text: '开发区填报数据审核'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    hideMode: 'visibility',
-                                    id: 'enterprise_kfq_manager',
-                                    hideOnClick: false,
-                                    text: '开发区信息管理'
                                 }
                             ],
                             listeners: {

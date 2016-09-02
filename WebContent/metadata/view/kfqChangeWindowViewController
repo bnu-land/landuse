@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "kfqchangewindow",
+        "designer|userClassName": "kfqChangeWindowViewController"
+    },
+    "designerId": "26b7be12-3e83-481a-8573-0ec6e107c381"
+}

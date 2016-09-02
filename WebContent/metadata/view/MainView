@@ -289,8 +289,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_uploadMap",
-                                        "text": "开发区变更"
+                                        "id": "enterprise_kfq_manager",
+                                        "text": "开发区信息管理"
                                     },
                                     "name": "MyMenuItem18",
                                     "designerId": "85d93acb-77b8-4bc3-ab9f-cacd5b45b16e"
@@ -305,8 +305,25 @@
                                     "userConfig": {
                                         "hideMode": "visibility",
                                         "hideOnClick": false,
+                                        "id": "enterprise_uploadMapCheck",
+                                        "text": "开发区填报数据审核"
+                                    },
+                                    "name": "MyMenuItem23",
+                                    "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideMode": "visibility",
+                                        "hideOnClick": false,
                                         "id": "system_test",
-                                        "text": "系统功能测试"
+                                        "text": "功能测试"
                                     },
                                     "name": "MyMenuItem26",
                                     "designerId": "d6a3f72c-b83a-47d1-bd8b-6cdd167bd0bd"
@@ -411,38 +428,6 @@
                                     },
                                     "name": "MyMenuItem2",
                                     "designerId": "07bde0bb-39ef-401d-9e40-e940d68af3be"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideMode": "visibility",
-                                        "hideOnClick": false,
-                                        "id": "enterprise_uploadMapCheck",
-                                        "text": "开发区填报数据审核"
-                                    },
-                                    "name": "MyMenuItem23",
-                                    "designerId": "db4c5b17-4a8e-4c2b-898c-bf663131ae30"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideMode": "visibility",
-                                        "hideOnClick": false,
-                                        "id": "enterprise_kfq_manager",
-                                        "text": "开发区信息管理"
-                                    },
-                                    "name": "MyMenuItem24",
-                                    "designerId": "5d651014-1a09-4803-9b45-4d07caeed6af"
                                 },
                                 {
                                     "type": "basiceventbinding",

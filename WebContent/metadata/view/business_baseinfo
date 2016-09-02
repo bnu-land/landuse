@@ -12,7 +12,7 @@
         "id": "",
         "layout": "border",
         "title": "任务通知动态",
-        "width": 762
+        "width": 882
     },
     "name": "MyPanel7",
     "designerId": "6f142af3-0f4e-483e-8ef2-4d5a9d92854a",
@@ -125,7 +125,7 @@
                                         "fn": "onGridpanelCellClick",
                                         "implHandler": [
                                             "var win=record.get('taskWindow');",
-                                            "if(record.get('taskFinish')==\"0\")",
+                                            "if(record.get('taskFinish')==\"未提交\")",
                                             "{",
                                             "    var mainview=Ext.getCmp(\"mainView\");",
                                             "    mainview.removeAll();",
@@ -133,7 +133,7 @@
                                             "}",
                                             "else",
                                             "{",
-                                            "    Ext.Msg.alert(\"提示消息\",\"\");",
+                                            "    Ext.Msg.alert(\"提示消息\",\"数据目前处于【\"+record.get('taskFinish')+\"】\");",
                                             "}",
                                             "console.log(win);",
                                             "console.log(record.get(\"taskComment\"));"
@@ -145,6 +145,41 @@
                                     "designerId": "47e35fa1-f431-4306-bdf2-a5bbff7d0376"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 100,
+                        "layout|x": 707,
+                        "layout|y": 30,
+                        "text": "一键下发评价任务",
+                        "width": 150
+                    },
+                    "name": "MyButton10",
+                    "designerId": "028738dd-bf7d-468a-b013-1287a6a1178d",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "Ext.Msg.alert(\"信息提示\",\"本年度任务已下发至各单位\");"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "321f43f0-01fc-4c9d-b489-d200f6443273"
                         }
                     ]
                 }

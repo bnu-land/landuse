@@ -1,0 +1,423 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "kfqChangeWindow",
+        "designer|userClassName": "kfqChangeWindow",
+        "height": 609,
+        "id": "kfqChangeWindow",
+        "layout": "border",
+        "title": "开发区变更调整",
+        "titleAlign": "center",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "17716ec4-1050-48a7-9333-0b3a517beab9",
+    "viewControllerInstanceId": "26b7be12-3e83-481a-8573-0ec6e107c381",
+    "viewModelInstanceId": "9be84eb6-d6ae-4c2a-9b4d-bbeed8a78b77",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "kfqChangeForm",
+                "layout|region": "center",
+                "title": null
+            },
+            "name": "MyForm6",
+            "designerId": "6ea22e6e-880e-4522-99d8-b6112b08ac1e",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "",
+                        "width": 373
+                    },
+                    "name": "MyFieldSet21",
+                    "designerId": "4de4ac3b-cb7b-4da6-9e63-578e859345d6",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区名称",
+                                "labelWidth": 150,
+                                "name": "kfqmc",
+                                "width": 325
+                            },
+                            "name": "MyTextField35",
+                            "designerId": "c37c254a-ca11-4456-add9-1e36a9ccbab4"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区级别",
+                                "labelWidth": 150,
+                                "name": "kfqjb",
+                                "width": 325
+                            },
+                            "name": "MyTextField36",
+                            "designerId": "4f33bdb0-ee16-402e-a871-d16c05a73874"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区审批类型",
+                                "labelWidth": 150,
+                                "name": "kfqjb",
+                                "width": 325
+                            },
+                            "name": "MyTextField37",
+                            "designerId": "f7ea13aa-119a-406b-b66a-8bc93e148b30"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区设立时间",
+                                "height": 25,
+                                "labelWidth": 150,
+                                "name": "slsj",
+                                "width": 325
+                            },
+                            "name": "MyTextField43",
+                            "designerId": "f8e80816-79b6-4ab7-9a50-3ecb8cb8b2ae"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区审批单位",
+                                "height": 25,
+                                "labelWidth": 150,
+                                "name": "spdw",
+                                "width": 325
+                            },
+                            "name": "MyTextField39",
+                            "designerId": "eaa33fc3-5c84-4ab2-a0cf-a9e29f1b444f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区管理机构",
+                                "height": 25,
+                                "labelWidth": 150,
+                                "name": "gljg",
+                                "width": 325
+                            },
+                            "name": "MyTextField40",
+                            "designerId": "18eb9f5d-3f0c-40cc-a7df-8ea1a15b0f1c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区管理机构地址",
+                                "height": 25,
+                                "labelWidth": 150,
+                                "name": "gljgdz",
+                                "width": 325
+                            },
+                            "name": "MyTextField41",
+                            "designerId": "7128b324-2986-41a3-8ccf-da25119ca858"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区主导产业",
+                                "height": 25,
+                                "labelWidth": 150,
+                                "name": "zdcy",
+                                "width": 325
+                            },
+                            "name": "MyTextField42",
+                            "designerId": "4572b22c-78d8-49de-a646-ce888b841d52"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区依法审批土地总面积（hm2）",
+                                "labelWidth": 150,
+                                "name": "sptdzmj"
+                            },
+                            "name": "MyTextField54",
+                            "designerId": "ee23f432-7fca-42a6-8b7e-3e9bdfd09881"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 231,
+                        "title": "变更详情",
+                        "width": 378
+                    },
+                    "name": "MyFieldSet23",
+                    "designerId": "ff7a8cc3-0217-43ed-939e-4c129c748a29",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "批准设立时间",
+                                "layout|anchor": "100%",
+                                "name": "slsj",
+                                "width": 356
+                            },
+                            "name": "MyTextField55",
+                            "designerId": "e6be7c1a-bd4f-4dbb-a959-88f97c5a52ca"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "扩区调整内容",
+                                "layout|anchor": "100%",
+                                "width": 356
+                            },
+                            "name": "MyComboBox8",
+                            "designerId": "188cba69-902b-4821-ad34-d38845253d36"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "调整变更时间",
+                                "layout|anchor": "100%",
+                                "width": 356
+                            },
+                            "name": "MyTextField57",
+                            "designerId": "f199ff93-17f5-4e3b-935d-35cfac1843f6"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "调整面积(hm2)",
+                                "layout|anchor": "100%",
+                                "width": 356
+                            },
+                            "name": "MyTextField58",
+                            "designerId": "2f8cad62-15ff-4f89-973f-a0a9949944da"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "总面积(hm2)",
+                                "layout|anchor": "100%",
+                                "width": 356
+                            },
+                            "name": "MyTextField59",
+                            "designerId": "0447b32f-01fc-412f-8ec2-7cb4afa6dfac"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "fieldLabel": "登记人员",
+                                "layout|anchor": "100%",
+                                "name": "register",
+                                "width": 356
+                            },
+                            "name": "MyTextField60",
+                            "designerId": "696011a8-eef1-4c49-952c-02ded668fa05"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "fieldLabel": "登记时间",
+                                "layout|anchor": "100%",
+                                "name": "registerTime",
+                                "width": 356
+                            },
+                            "name": "MyTextField61",
+                            "designerId": "60533654-a73d-4b9e-9768-6a3dec6bcd0a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar8",
+            "designerId": "17219cdc-038a-4929-91bf-c87ef80f0f74",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill1",
+                    "designerId": "dd14a8f2-94cf-41f2-8c86-6e9ef19aa8aa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "取消调整"
+                    },
+                    "name": "MyButton21",
+                    "designerId": "535d8bb4-2906-4e9a-bd2b-e4a95028e913",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var win= Ext.getCmp('kfqChangeWindow');",
+                                    "Ext.Msg.confirm(\"提示\",\"确定取消本次变更操作？\",getResult);",
+                                    "",
+                                    "function getResult(confirm)",
+                                    "{",
+                                    "    console.log('confirm:', confirm);",
+                                    "    if (confirm == \"yes\"){",
+                                    "        win.close();",
+                                    "}",
+                                    "}",
+                                    "",
+                                    "",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "3c8d9d7f-87de-43d0-8e45-9b66f0ee9243"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "确认调整"
+                    },
+                    "name": "MyButton22",
+                    "designerId": "ed38dded-f66d-4fd8-9357-091a2a791702"
+                }
+            ]
+        }
+    ]
+}

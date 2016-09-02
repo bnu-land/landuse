@@ -32,9 +32,11 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
     viewModel: {
         type: 'enterprise_kfq_manager'
     },
-    height: 612,
+    height: 589,
     width: 1051,
+    layout: 'border',
     title: '开发区信息管理',
+    defaultListenerScope: true,
 
     dockedItems: [
         {
@@ -43,15 +45,42 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
             items: [
                 {
                     xtype: 'textfield',
-                    id: 'txt_serch_key',
+                    id: 'txt_search_key',
                     width: 120,
-                    fieldLabel: ''
+                    fieldLabel: '',
+                    emptyText: '请输入搜索关键字'
                 },
                 {
                     xtype: 'button',
+                    handler: function(button, e) {
+                        var getKeyword = Ext.getCmp('txt_search_key').getValue();
+                        console.log("keyword:",getKeyword);
+                        var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                        //在load事件中添加参数
+                        mystore.load(
+                        {
+                            params :
+                            {
+                                searchKeyword : getKeyword
+                            }
+                        }
+                        );
+
+                    },
                     id: 'but_search',
                     icon: 'images/table/search.png',
                     text: '搜索'
+                },
+                {
+                    xtype: 'button',
+                    handler: function(button, e) {
+                        Ext.getCmp('txt_search_key').setValue('');
+                        var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                        mystore.load();
+                    },
+                    id: 'refresh_button',
+                    icon: 'images/table/refresh.png',
+                    text: '刷新'
                 },
                 {
                     xtype: 'combobox',
@@ -59,12 +88,6 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                     width: 181,
                     fieldLabel: '开发区级别',
                     labelWidth: 80,
-                    store: [
-                        '全部',
-                        '国家级',
-                        '省级',
-                        '示范区'
-                    ],
                     valueField: 'mapUrl'
                 },
                 {
@@ -82,14 +105,20 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                 },
                 {
                     xtype: 'combobox',
-                    id: 'ent_landusePropertyChangeXZQ_Combo1',
+                    id: 'kfqInfo_selectKfq_Combo',
                     width: 220,
                     fieldLabel: '选择开发区',
                     labelWidth: 80,
-                    valueField: 'mapUrl'
+                    displayField: 'kfqmc',
+                    store: 'kfqInfoStore',
+                    valueField: 'kfqmc',
+                    listeners: {
+                        change: 'onEnt_landusePropertyChangeXZQ_Combo1Change'
+                    }
                 },
                 {
                     xtype: 'combobox',
+                    hidden: true,
                     id: 'ent_landuse_yearCombo1',
                     width: 190,
                     fieldLabel: '选择年份',
@@ -107,9 +136,44 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                 },
                 {
                     xtype: 'button',
+                    handler: function() {
+                        var win=Ext.widget('win_kfqinfo_add');
+                        win.show();
+                    },
                     itemId: 'but_add',
                     icon: 'images/table/add.png',
                     text: '新增开发区'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        var grid = Ext.getCmp('kfqInfo_grid');
+                        var records = grid.getSelection();
+                        if (records.length === 0) {
+                            Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');
+                            return;
+                        } else if (records.length > 1) {
+                            Ext.Msg.alert('提示', '每次只能编辑一条信息。');
+                            return;
+                        }
+
+                        var win = Ext.widget('kfqChangeWindow');
+                        win.show();
+
+                        //var form = Ext.widget('db_UserWindowForm');
+                        var form = Ext.getCmp('kfqChangeForm');
+                        console.log("form:",form);
+                        form.loadRecord(records[0]);
+
+
+                        //var form = Ext.getCmp('form_kfqinfo_add').getForm();
+                        //form.loadRecord(record);
+
+                    },
+                    id: 'changeButton',
+                    itemId: '',
+                    icon: 'images/table/edit.png',
+                    text: '变更'
                 }
             ]
         }
@@ -121,8 +185,10 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                 items: [
                     {
                         xtype: 'gridpanel',
-                        height: 127,
-                        id: 'form_kfqinfo_grid',
+                        region: 'center',
+                        id: 'kfqInfo_grid',
+                        columnLines: true,
+                        store: 'kfqInfoStore',
                         columns: [
                             {
                                 xtype: 'rownumberer',
@@ -131,69 +197,15 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                                 text: '序号'
                             },
                             {
-                                xtype: 'gridcolumn',
-                                width: 120,
-                                dataIndex: 'roleNameCn',
-                                text: '开发区名称'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 96,
-                                dataIndex: 'roleName',
-                                text: '开发区级别'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区审批类型'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 116,
-                                dataIndex: 'roleName',
-                                text: '开发区设立时间'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区审批单位'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区管理机构'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区管理机构地址'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区主导产业'
-                            },
-                            {
-                                xtype: 'gridcolumn',
-                                width: 150,
-                                dataIndex: 'roleName',
-                                text: '开发区依法审批土地总面积（hm2）'
-                            },
-                            {
                                 xtype: 'actioncolumn',
                                 handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
                                     if (colIndex === undefined || colIndex < 2) {
                                         return;
                                     }
-                                    var win = Ext.widget('db_RoleInfoWindow');
+                                    var win = Ext.widget('kfqChangeWindow');
                                     win.show();
 
-                                    var form = Ext.getCmp('db_RoleInfoWindowForm').getForm();
+                                    var form = Ext.getCmp('kfqChangeForm').getForm();
                                     form.loadRecord(record);
 
                                 },
@@ -235,6 +247,60 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                                 dataIndex: 'date',
                                 text: '撤区',
                                 icon: 'images/table/delete.png'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 120,
+                                dataIndex: 'kfqmc',
+                                text: '开发区名称'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 96,
+                                dataIndex: 'kfqjb',
+                                text: '开发区级别'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 120,
+                                dataIndex: 'kfqsplx',
+                                text: '开发区审批类型'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 116,
+                                dataIndex: 'slsj',
+                                text: '开发区设立时间'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 150,
+                                dataIndex: 'spdw',
+                                text: '开发区审批单位'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 150,
+                                dataIndex: 'gljg',
+                                text: '开发区管理机构'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 150,
+                                dataIndex: 'gljgdz',
+                                text: '开发区管理机构地址'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 150,
+                                dataIndex: 'zdcy',
+                                text: '开发区主导产业'
+                            },
+                            {
+                                xtype: 'gridcolumn',
+                                width: 150,
+                                dataIndex: 'sptdzmj',
+                                text: '开发区依法审批土地总面积（hm2）'
                             }
                         ],
                         selModel: Ext.create('Ext.selection.CheckboxModel', {
@@ -247,6 +313,20 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
             me.getConfigurator().merge(me, config, instanceConfig);
         }
         return me.callParent([config]);
+    },
+
+    onEnt_landusePropertyChangeXZQ_Combo1Change: function(field, newValue, oldValue, eOpts) {
+        var store = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+        var projectId = Ext.getCmp('kfqInfo_selectKfq_Combo').getRawValue();
+        var storeId = store.getStoreId();
+        var grid = Ext.getCmp('kfqInfo_grid');
+        store.load({
+            params :{
+                searchKeyword : projectId,
+                isExpertMark:'1'
+            }
+        });
+        grid.reconfigure(store);
     }
 
 });

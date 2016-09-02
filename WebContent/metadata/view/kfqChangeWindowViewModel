@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "kfqchangewindow",
+        "designer|userClassName": "kfqChangeWindowViewModel"
+    },
+    "designerId": "9be84eb6-d6ae-4c2a-9b4d-bbeed8a78b77"
+}

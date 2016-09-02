@@ -51,7 +51,8 @@ Ext.application({
         'businessPhotoModel',
         'sys_KfqInfoModel',
         'BusinessInfoModel',
-        'taskModel'
+        'taskModel',
+        'kfqInfoModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -109,7 +110,8 @@ Ext.application({
         'uRoleRightByIdStore',
         'uRightInfoCurUserStore',
         'BusinessInfo',
-        'taskStore'
+        'taskStore',
+        'kfqInfoStore'
     ],
     views: [
         'MainView',
@@ -190,7 +192,9 @@ Ext.application({
         'mywindow',
         'enterprise_kfq_manager',
         'chart_bar',
-        'chart_pie'
+        'chart_pie',
+        'win_kfqinfo_add',
+        'kfqChangeWindow'
     ],
     name: 'MyApp',
 

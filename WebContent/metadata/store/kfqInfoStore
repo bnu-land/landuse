@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "kfqInfoStore",
+        "model": "kfqInfoModel",
+        "storeId": "kfqInfoStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "0db8b193-1c87-49c6-b391-c4aee2b88a31",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:''}"
+                ],
+                "url": "get_kfqinfo"
+            },
+            "name": "MyAjaxProxy4",
+            "designerId": "924c047a-0eb6-4cc4-8691-f5d1f9abac46",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader4",
+                    "designerId": "a891acb0-a42b-440e-82f3-aabea2a5de65"
+                }
+            ]
+        }
+    ]
+}

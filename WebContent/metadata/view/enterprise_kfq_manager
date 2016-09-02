@@ -8,7 +8,8 @@
     "userConfig": {
         "designer|userAlias": "enterprise_kfq_manager",
         "designer|userClassName": "enterprise_kfq_manager",
-        "height": 612,
+        "height": 589,
+        "layout": "border",
         "title": "开发区信息管理",
         "width": 1051
     },
@@ -38,8 +39,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "emptyText": "请输入搜索关键字",
                         "fieldLabel": "",
-                        "id": "txt_serch_key",
+                        "id": "txt_search_key",
                         "labelWidth": null,
                         "layout|flex": null,
                         "width": 120
@@ -61,7 +63,81 @@
                         "text": "搜索"
                     },
                     "name": "MyButton5",
-                    "designerId": "5dfef30e-e459-4bef-8ad5-1a607af456e5"
+                    "designerId": "5dfef30e-e459-4bef-8ad5-1a607af456e5",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var getKeyword = Ext.getCmp('txt_search_key').getValue();",
+                                    "console.log(\"keyword:\",getKeyword);",
+                                    "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "//在load事件中添加参数",
+                                    "mystore.load(",
+                                    "{",
+                                    "    params :",
+                                    "    {",
+                                    "        searchKeyword : getKeyword",
+                                    "    }",
+                                    "}",
+                                    ");",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "aa1c67ce-34c5-43dc-95d8-21a5c8423540"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/refresh.png",
+                        "id": "refresh_button",
+                        "layout|flex": null,
+                        "text": "刷新"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "9825a6fd-0452-4b53-a573-2da9ffc8e3e9",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "Ext.getCmp('txt_search_key').setValue('');",
+                                    "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "mystore.load();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "97137496-48c0-42ac-89b7-1558541a7cd4"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -76,9 +152,7 @@
                         "id": "ent_landuse_gradeCombo1",
                         "labelWidth": 80,
                         "layout|flex": null,
-                        "store": [
-                            "['全部','国家级','省级','示范区']"
-                        ],
+                        "store": null,
                         "valueField": "mapUrl",
                         "width": 181
                     },
@@ -121,17 +195,47 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": null,
+                        "displayField": "kfqmc",
                         "fieldLabel": "选择开发区",
-                        "id": "ent_landusePropertyChangeXZQ_Combo1",
+                        "id": "kfqInfo_selectKfq_Combo",
                         "labelWidth": 80,
                         "layout|flex": null,
-                        "store": null,
-                        "valueField": "mapUrl",
+                        "store": "kfqInfoStore",
+                        "valueField": "kfqmc",
                         "width": 220
                     },
                     "name": "MyComboBox",
-                    "designerId": "8daaf7b6-b123-4046-8929-515fe3a7ec85"
+                    "designerId": "8daaf7b6-b123-4046-8929-515fe3a7ec85",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onEnt_landusePropertyChangeXZQ_Combo1Change",
+                                "implHandler": [
+                                    "var store = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "var projectId = Ext.getCmp('kfqInfo_selectKfq_Combo').getRawValue();",
+                                    "var storeId = store.getStoreId();",
+                                    "var grid = Ext.getCmp('kfqInfo_grid');",
+                                    "store.load({",
+                                    "    params :{",
+                                    "        searchKeyword : projectId,",
+                                    "        isExpertMark:'1'",
+                                    "    }",
+                                    "});",
+                                    "grid.reconfigure(store);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onEnt_landusePropertyChangeXZQ_Combo1Change",
+                            "designerId": "d0f3dc59-a716-45c4-8ed0-716e3ea6a37e"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -143,6 +247,7 @@
                     "userConfig": {
                         "displayField": null,
                         "fieldLabel": "选择年份",
+                        "hidden": true,
                         "id": "ent_landuse_yearCombo1",
                         "labelWidth": 80,
                         "layout|flex": null,
@@ -172,7 +277,82 @@
                         "text": "新增开发区"
                     },
                     "name": "MyButton6",
-                    "designerId": "22e18175-1c28-4a63-ae34-017d7988db3e"
+                    "designerId": "22e18175-1c28-4a63-ae34-017d7988db3e",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var win=Ext.widget('win_kfqinfo_add');",
+                                    "win.show();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "6daff7c1-a513-4f52-8536-f3c5f438378c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "images/table/edit.png",
+                        "id": "changeButton",
+                        "itemId": "",
+                        "layout|flex": null,
+                        "text": "变更"
+                    },
+                    "name": "MyButton11",
+                    "designerId": "0cf77a35-782c-4071-823e-4834d168e57f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var grid = Ext.getCmp('kfqInfo_grid');",
+                                    "var records = grid.getSelection();",
+                                    "if (records.length === 0) {",
+                                    "    Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');",
+                                    "    return;",
+                                    "} else if (records.length > 1) {",
+                                    "    Ext.Msg.alert('提示', '每次只能编辑一条信息。');",
+                                    "    return;",
+                                    "}",
+                                    "",
+                                    "var win = Ext.widget('kfqChangeWindow');",
+                                    "win.show();",
+                                    "",
+                                    "//var form = Ext.widget('db_UserWindowForm');",
+                                    "var form = Ext.getCmp('kfqChangeForm');",
+                                    "console.log(\"form:\",form);",
+                                    "form.loadRecord(records[0]);",
+                                    "",
+                                    "",
+                                    "//var form = Ext.getCmp('form_kfqinfo_add').getForm();",
+                                    "//form.loadRecord(record);",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "d67fdd27-7c83-4742-831a-c992806e0416"
+                        }
+                    ]
                 }
             ]
         },
@@ -184,9 +364,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 127,
-                "id": "form_kfqinfo_grid",
-                "store": null,
+                "columnLines": true,
+                "id": "kfqInfo_grid",
+                "layout|region": "center",
+                "store": "kfqInfoStore",
                 "title": null
             },
             "name": "MyGridPanel2",
@@ -207,141 +388,6 @@
                     },
                     "name": "MyRowNumberer18",
                     "designerId": "ef1be0d2-8b9e-46cf-aa1d-9a8ae1198c38"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleNameCn",
-                        "text": "开发区名称",
-                        "width": 120
-                    },
-                    "name": "MyColumn135",
-                    "designerId": "549a45d4-3c03-4b9c-9c99-da96ea99ea07"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区级别",
-                        "width": 96
-                    },
-                    "name": "MyColumn136",
-                    "designerId": "74069b69-38d6-4f16-ab77-7e34fe325d2f"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区审批类型",
-                        "width": 150
-                    },
-                    "name": "MyColumn14",
-                    "designerId": "7fea3b6f-86b5-4935-a0e8-0f1900dc82ab"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区设立时间",
-                        "width": 116
-                    },
-                    "name": "MyColumn18",
-                    "designerId": "2a532963-c627-495f-ad23-22f6dad1808f"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区审批单位",
-                        "width": 150
-                    },
-                    "name": "MyColumn19",
-                    "designerId": "3d274d42-cb80-421e-a967-9a80274845ef"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区管理机构",
-                        "width": 150
-                    },
-                    "name": "MyColumn20",
-                    "designerId": "b386e4d3-8370-49c2-b82f-d60914d5c1d3"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区管理机构地址",
-                        "width": 150
-                    },
-                    "name": "MyColumn21",
-                    "designerId": "ea115f90-e908-4bd0-acc1-3620f17c3d00"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区主导产业",
-                        "width": 150
-                    },
-                    "name": "MyColumn22",
-                    "designerId": "2d893670-05cd-4903-8cb1-9ebe521d0860"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "roleName",
-                        "text": "开发区依法审批土地总面积（hm2）",
-                        "width": 150
-                    },
-                    "name": "MyColumn27",
-                    "designerId": "040115b6-e970-4685-aa79-1d9a9fee4c8c"
                 },
                 {
                     "type": "Ext.grid.column.Action",
@@ -381,14 +427,14 @@
                                 ],
                                 "fn": "handler",
                                 "implHandler": [
-                                    "if (colIndex === undefined || colIndex < 2) {\r",
-                                    "    return;\r",
-                                    "}\r",
-                                    "var win = Ext.widget('db_RoleInfoWindow');\r",
-                                    "win.show();\r",
-                                    "\r",
-                                    "var form = Ext.getCmp('db_RoleInfoWindowForm').getForm();\r",
-                                    "form.loadRecord(record);\r",
+                                    "if (colIndex === undefined || colIndex < 2) {",
+                                    "    return;",
+                                    "}",
+                                    "var win = Ext.widget('kfqChangeWindow');",
+                                    "win.show();",
+                                    "",
+                                    "var form = Ext.getCmp('kfqChangeForm').getForm();",
+                                    "form.loadRecord(record);",
                                     ""
                                 ]
                             },
@@ -463,6 +509,141 @@
                             "designerId": "3d83c64c-89e8-4e1a-9674-c66682ef586e"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqmc",
+                        "text": "开发区名称",
+                        "width": 120
+                    },
+                    "name": "MyColumn135",
+                    "designerId": "549a45d4-3c03-4b9c-9c99-da96ea99ea07"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqjb",
+                        "text": "开发区级别",
+                        "width": 96
+                    },
+                    "name": "MyColumn136",
+                    "designerId": "74069b69-38d6-4f16-ab77-7e34fe325d2f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqsplx",
+                        "text": "开发区审批类型",
+                        "width": 120
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "7fea3b6f-86b5-4935-a0e8-0f1900dc82ab"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "slsj",
+                        "text": "开发区设立时间",
+                        "width": 116
+                    },
+                    "name": "MyColumn18",
+                    "designerId": "2a532963-c627-495f-ad23-22f6dad1808f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "spdw",
+                        "text": "开发区审批单位",
+                        "width": 150
+                    },
+                    "name": "MyColumn19",
+                    "designerId": "3d274d42-cb80-421e-a967-9a80274845ef"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gljg",
+                        "text": "开发区管理机构",
+                        "width": 150
+                    },
+                    "name": "MyColumn20",
+                    "designerId": "b386e4d3-8370-49c2-b82f-d60914d5c1d3"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "gljgdz",
+                        "text": "开发区管理机构地址",
+                        "width": 150
+                    },
+                    "name": "MyColumn21",
+                    "designerId": "ea115f90-e908-4bd0-acc1-3620f17c3d00"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "zdcy",
+                        "text": "开发区主导产业",
+                        "width": 150
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "2d893670-05cd-4903-8cb1-9ebe521d0860"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "sptdzmj",
+                        "text": "开发区依法审批土地总面积（hm2）",
+                        "width": 150
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "040115b6-e970-4685-aa79-1d9a9fee4c8c"
                 },
                 {
                     "type": "Ext.grid.View",

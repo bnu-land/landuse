@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-9-1 17:15:45 by Hibernate Tools 4.0.0
+// Generated 2016-9-1 22:42:43 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -11,13 +11,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class EntQyjyd.
- * @see cn.mutu.land.model.EntQyjyd
+ * Home object for domain model class KfqInfomation.
+ * @see cn.mutu.land.model.KfqInfomation
  * @author Hibernate Tools
  */
-public class EntQyjydHome {
+public class KfqInfomationHome {
 
-	private static final Log log = LogFactory.getLog(EntQyjydHome.class);
+	private static final Log log = LogFactory.getLog(KfqInfomationHome.class);
 
 	private final SessionFactory sessionFactory = getSessionFactory();
 
@@ -32,8 +32,8 @@ public class EntQyjydHome {
 		}
 	}
 
-	public void persist(EntQyjyd transientInstance) {
-		log.debug("persisting EntQyjyd instance");
+	public void persist(KfqInfomation transientInstance) {
+		log.debug("persisting KfqInfomation instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +43,8 @@ public class EntQyjydHome {
 		}
 	}
 
-	public void attachDirty(EntQyjyd instance) {
-		log.debug("attaching dirty EntQyjyd instance");
+	public void attachDirty(KfqInfomation instance) {
+		log.debug("attaching dirty KfqInfomation instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +54,8 @@ public class EntQyjydHome {
 		}
 	}
 
-	public void attachClean(EntQyjyd instance) {
-		log.debug("attaching clean EntQyjyd instance");
+	public void attachClean(KfqInfomation instance) {
+		log.debug("attaching clean KfqInfomation instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -65,8 +65,8 @@ public class EntQyjydHome {
 		}
 	}
 
-	public void delete(EntQyjyd persistentInstance) {
-		log.debug("deleting EntQyjyd instance");
+	public void delete(KfqInfomation persistentInstance) {
+		log.debug("deleting KfqInfomation instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,11 +76,11 @@ public class EntQyjydHome {
 		}
 	}
 
-	public EntQyjyd merge(EntQyjyd detachedInstance) {
-		log.debug("merging EntQyjyd instance");
+	public KfqInfomation merge(KfqInfomation detachedInstance) {
+		log.debug("merging KfqInfomation instance");
 		try {
-			EntQyjyd result = (EntQyjyd) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			KfqInfomation result = (KfqInfomation) sessionFactory
+					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -89,11 +89,12 @@ public class EntQyjydHome {
 		}
 	}
 
-	public EntQyjyd findById(java.lang.Integer id) {
-		log.debug("getting EntQyjyd instance with id: " + id);
+	public KfqInfomation findById(java.lang.Integer id) {
+		log.debug("getting KfqInfomation instance with id: " + id);
 		try {
-			EntQyjyd instance = (EntQyjyd) sessionFactory.getCurrentSession()
-					.get("cn.mutu.land.model.EntQyjyd", id);
+			KfqInfomation instance = (KfqInfomation) sessionFactory
+					.getCurrentSession().get(
+							"cn.mutu.land.model.KfqInfomation", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -106,11 +107,11 @@ public class EntQyjydHome {
 		}
 	}
 
-	public List findByExample(EntQyjyd instance) {
-		log.debug("finding EntQyjyd instance by example");
+	public List findByExample(KfqInfomation instance) {
+		log.debug("finding KfqInfomation instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession()
-					.createCriteria("cn.mutu.land.model.EntQyjyd")
+					.createCriteria("cn.mutu.land.model.KfqInfomation")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
