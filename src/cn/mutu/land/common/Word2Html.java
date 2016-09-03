@@ -138,12 +138,10 @@ public class Word2Html {
 		String[] temp=filePathName.split("/");
 		String filename=temp[temp.length-1];
 		String resultPath=null;
-		try{
-			 
-			
+		try{			
 			String randomName = getOnlyId();
 			//转换后html中图片src的链接
-			final String baseUrl =outfilePath+"/wordpic/"+randomName+"/";
+			final String baseUrl =outfilePath+"/"+randomName+"/";
 			File dirF = new File(baseUrl);
 			if(!dirF.exists()||!dirF.isDirectory()){
 				dirF.mkdirs();
@@ -181,11 +179,36 @@ public class Word2Html {
 	  
 	        TransformerFactory tf = TransformerFactory.newInstance();  
 	        Transformer serializer = tf.newTransformer();  
-	        serializer.setOutputProperty(OutputKeys.ENCODING, "GB2312");  
+	        serializer.setOutputProperty(OutputKeys.ENCODING, "utf-8");  
 	        serializer.setOutputProperty(OutputKeys.INDENT, "yes");  
 	        serializer.setOutputProperty(OutputKeys.METHOD, "html");  
 	        serializer.transform(domSource, streamResult);  
 	        out.close();  
+	        //读取文件
+			BufferedReader in1 = new BufferedReader(new FileReader(
+					resultPath));
+			String str="";
+			String content="";
+			int l=outfilePath.length()+2;
+			while ((str = in1.readLine()) != null) {						
+				content+=str.replaceAll("<img src=(.{"+(l-20)+","+(l+20)+"})word03.","<img src=\"");						
+			}
+			if(content.indexOf("<img")!=-1){
+				System.out.println(content.substring(content.indexOf("<img")));
+				FileOutputStream fos=new FileOutputStream(resultPath);
+				BufferedWriter bw = null;
+				bw = new BufferedWriter(new OutputStreamWriter(fos, "utf-8"));
+				bw.write(content);
+				in1.close();
+				try {
+					if (bw != null)
+						bw.close();
+					if (fos != null)
+						fos.close();
+				} catch (IOException ie) {
+					ie.printStackTrace();
+				}	        
+			}else in1.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -234,13 +257,31 @@ public class Word2Html {
 					XHTMLConverter.getInstance()
 							.convert(document, out, options);
 					if(out!=null)out.close();
-//					BufferedReader in1 = new BufferedReader(new FileReader(
-//							"D:\\test\\33.html"));
-//					String str;
-//					while ((str = in1.readLine()) != null) {
-//						System.out.println(str);
-//					}
-//					in1.close();
+					BufferedReader in1 = new BufferedReader(new FileReader(
+							resultPath));
+					String str="";
+					String content="";
+					int l=outfilePath.length()+2;
+					while ((str = in1.readLine()) != null) {						
+						content+=str.replaceAll("<img src=(.{"+(l-20)+","+(l+20)+"})word07.","<img src=\"");						
+					}
+					if(content.indexOf("<img")!=-1){
+						System.out.println(content.substring(content.indexOf("<img")));
+						FileOutputStream fos=new FileOutputStream(file);
+						BufferedWriter bw = null;
+						bw = new BufferedWriter(new OutputStreamWriter(fos, "utf-8"));
+						in1.close();
+						bw.write(content);						
+						try {
+							if (bw != null)
+								bw.close();
+							if (fos != null)
+								fos.close();
+						} catch (IOException ie) {
+							ie.printStackTrace();
+						}
+					}else in1.close();
+					//writeFile(str,resultPath);
 					// file.delete();
 				} else {
 					System.out.println("Enter only MS Office 2007+ files");

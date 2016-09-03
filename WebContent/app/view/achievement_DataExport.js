@@ -51,24 +51,51 @@ Ext.define('MyApp.view.achievement_DataExport', {
             title: '',
             items: [
                 {
-                    xtype: 'textfield',
+                    xtype: 'combobox',
+                    x: 25,
                     y: 10,
                     id: 'kfqnameText',
                     width: 280,
                     fieldLabel: '开发区',
                     labelWidth: 50,
-                    name: 'kfqname'
+                    name: 'kfqname',
+                    store: [
+                        '宾西经济技术开发区',
+                        '利民经济技术开发区'
+                    ]
                 },
                 {
                     xtype: 'combobox',
-                    x: 300,
+                    x: 325,
                     y: 10,
                     id: 'kfqyearText',
                     width: 140,
                     fieldLabel: '年度',
                     labelWidth: 40,
                     name: 'kfqyear',
-                    store: 'landKfqTypeComboStore',
+                    store: [
+                        2010,
+                        2011,
+                        2012,
+                        2013,
+                        2014,
+                        2015,
+                        2016,
+                        2017,
+                        2018,
+                        2019,
+                        2020,
+                        2021,
+                        2022,
+                        2023,
+                        2024,
+                        2025,
+                        2026,
+                        2027,
+                        2028,
+                        2029,
+                        2030
+                    ],
                     listeners: {
                         change: 'onKfqyearTextChange'
                     }
@@ -86,9 +113,8 @@ Ext.define('MyApp.view.achievement_DataExport', {
                             }
                         });
                     },
-                    x: 460,
+                    x: 490,
                     y: 10,
-                    hidden: true,
                     text: '查询'
                 },
                 {
@@ -104,7 +130,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                         var url="achieve/export_file_zip?kfqname="+kfqname+"&kfqyear="+kfqyear;
                         window.open(url);
                     },
-                    x: 530,
+                    x: 560,
                     y: 10,
                     text: '打包导出'
                 }
@@ -123,16 +149,19 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 200,
                     dataIndex: 'kfqName',
                     text: '开发区'
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 60,
                     dataIndex: 'kfqYear',
                     text: '年份'
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 80,
                     dataIndex: 'filetype',
                     text: '数据类型'
                 },
@@ -154,13 +183,13 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 180,
+                    width: 160,
                     dataIndex: 'uploadTime',
                     text: '上传时间'
                 },
                 {
                     xtype: 'actioncolumn',
-                    width: 80,
+                    width: 60,
                     dataIndex: 'readCount',
                     text: '预览',
                     icon: 'images/table/search.png',
@@ -199,7 +228,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    width: 80,
+                    width: 60,
                     dataIndex: 'noticeState',
                     text: '删除',
                     icon: '',
@@ -253,6 +282,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    hidden: true,
                     width: 80,
                     dataIndex: 'noticeState',
                     text: '下载',
@@ -281,7 +311,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                         var groupFilepath=record.get('groupFilepath').replace(/\s+/g,"%20");
                         return '<a href=achieve/export_file?filepath='+filepath+"&filename="+filename+"&groupFilepath="+groupFilepath+">导出</a>";
                     },
-                    width: 80,
+                    width: 60,
                     dataIndex: 'noticeState',
                     text: '下载'
                 }
