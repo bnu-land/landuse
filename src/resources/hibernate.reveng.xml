@@ -11,6 +11,9 @@
 	<table-filter match-name="ent_dxqyyd_pda" match-catalog="landuse"></table-filter>
 	<table-filter match-name="zd_info" match-catalog="landuse"></table-filter>
 
-	<table-filter match-name="achievement_file" match-catalog="landuse"></table-filter>
+	<table-filter match-name="achievement_file"
+		match-catalog="landuse">
+	</table-filter>
+	<table-filter match-name="ent_qyjyd" match-catalog="landuse"></table-filter>
 
 </hibernate-reverse-engineering>

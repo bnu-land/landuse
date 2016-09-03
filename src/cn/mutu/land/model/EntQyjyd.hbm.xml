@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-1 17:15:44 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-3 14:07:21 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.EntQyjyd" table="ent_qyjyd" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -138,7 +138,7 @@
         </property>
         <property name="jydfz" type="string">
             <column name="JYDFZ" length="10">
-                <comment>&#188;&#175;&#212;&#188;&#182;&#200;&#183;&#214;&#214;&#181;</comment>
+                <comment>&#188;&#175;&#212;&#188;&#182;&#200;&#181;&#200;&#188;&#182;</comment>
             </column>
         </property>
     </class>

@@ -17,6 +17,7 @@
         <mapping resource="cn/mutu/land/model/ZdInfo.hbm.xml" />
         <mapping resource="cn/mutu/land/model/BusinessMap.hbm.xml" />
         <mapping resource="cn/mutu/land/model/BusinessPhoto.hbm.xml" />
+        <mapping resource="cn/mutu/land/model/EntQyjyd.hbm.xml" />
         <mapping resource="cn/mutu/land/model/AchievementFile.hbm.xml" />
         <mapping resource="cn/mutu/land/model/KfqInfomation.hbm.xml" />
     </session-factory>
