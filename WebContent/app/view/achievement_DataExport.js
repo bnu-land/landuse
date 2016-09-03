@@ -34,7 +34,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
         type: 'achievement_dataexport'
     },
     autoScroll: true,
-    height: 441,
+    height: 756,
     width: 1007,
     title: '成果数据导出',
     defaultListenerScope: true,
@@ -275,15 +275,21 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 {
                     xtype: 'gridcolumn',
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+<<<<<<< HEAD
                         //此方法文件路径中有空格，不适用 用replace方法把空格替换为%20
                         var filepath=record.get('filepath').replace(/\s+/g,"%20");
                         var filename=record.get('filename').replace(/\s+/g,"%20");
                         var groupFilepath=record.get('groupFilepath').replace(/\s+/g,"%20");
                         return '<a href=achieve/export_file?filepath='+filepath+"&filename="+filename+"&groupFilepath="+groupFilepath+">导出</a>";
+=======
+                        var filepath=record.get('filepath');
+                        var filename=record.get('filename');
+                        return '<a href=achieve/export_file?filepath='+filepath+"&filename="+filename+">导出</a>";
+>>>>>>> wc
                     },
                     width: 80,
                     dataIndex: 'noticeState',
-                    text: '下载'
+                    text: '导出'
                 }
             ],
             features: [
