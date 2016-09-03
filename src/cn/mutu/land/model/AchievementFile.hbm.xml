@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-3 13:13:06 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.AchievementFile" table="achievement_file" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="filename" type="string">
+            <column name="filename" length="100" not-null="true" />
+        </property>
+        <property name="filepath" type="string">
+            <column name="filepath" not-null="true" />
+        </property>
+        <property name="uploadTime" type="string">
+            <column name="upload_time" length="30" not-null="true" />
+        </property>
+        <property name="uploader" type="string">
+            <column name="uploader" length="50" not-null="true" />
+        </property>
+        <property name="isDelete" type="boolean">
+            <column name="is_delete" not-null="true" />
+        </property>
+        <property name="filetype" type="string">
+            <column name="filetype" length="15" not-null="true" />
+        </property>
+        <property name="filesize" type="string">
+            <column name="filesize" length="20" not-null="true" />
+        </property>
+        <property name="kfqName" type="string">
+            <column name="kfq_name" length="100" not-null="true" />
+        </property>
+        <property name="kfqYear" type="string">
+            <column name="kfq_year" length="10" not-null="true" />
+        </property>
+        <property name="groupFilepath" type="string">
+            <column name="group_filepath" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_dataimportdb",
+        "designer|userClassName": "achievement_DataImportDBViewModel"
+    },
+    "designerId": "882c5d2a-5c5d-47a6-b120-eee56f606f94"
+}

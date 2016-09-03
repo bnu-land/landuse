@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-2 19:11:27 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-3 13:13:06 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.BusinessInfo" table="business_info" catalog="landuse">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
-            <generator class="identity" />
-        </id>
-        <property name="businessId" type="java.lang.Integer">
+        <id name="businessId" type="int">
             <column name="business_id" />
-        </property>
+            <generator class="assigned" />
+        </id>
         <property name="businessName" type="string">
             <column name="business_name" length="200" />
         </property>

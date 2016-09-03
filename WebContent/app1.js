@@ -55,7 +55,8 @@ Ext.application({
         'zdinformationModel',
         'BusinessInfoModel',
         'taskModel',
-        'kfqInfoModel'
+        'kfqInfoModel',
+        'achievementFileModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -117,7 +118,9 @@ Ext.application({
         'kfqInfoStore',
 	    'BusinessInfo',
         'bussinessinformation',
-        'zd_infoStore'
+        'zd_infoStore',
+        'achievementFileStore',
+        'achievementFileUploadStore'
     ],
     views: [
         'MainView',
@@ -208,7 +211,9 @@ Ext.application({
         'zd_information',
 	 'add_zdinnfo',
         'update_zdinnfo',
-        'bus_informationView'
+        'bus_informationView',
+        'achievement_DataImportDB',
+        'achievement_DataExport'
     ],
     name: 'MyApp',
 

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_dataexport",
+        "designer|userClassName": "achievement_DataExportViewController"
+    },
+    "designerId": "b9e8dad1-b340-4833-9b5c-4f4fe179b586"
+}

@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-9-2 19:11:28 by Hibernate Tools 4.0.0
+// Generated 2016-9-3 13:13:07 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -89,7 +89,7 @@ public class BusinessInfoHome {
 		}
 	}
 
-	public BusinessInfo findById(java.lang.Integer id) {
+	public BusinessInfo findById(int id) {
 		log.debug("getting BusinessInfo instance with id: " + id);
 		try {
 			BusinessInfo instance = (BusinessInfo) sessionFactory

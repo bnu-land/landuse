@@ -51,8 +51,12 @@ Ext.application({
         'businessPhotoModel',
         'sys_KfqInfoModel',
         'BusinessInfoModel',
+
         'taskModel',
-        'kfqInfoModel'
+        'kfqInfoModel',
+
+        'achievementFileModel'
+
     ],
     stores: [
         'systemManageMapStore',
@@ -110,8 +114,13 @@ Ext.application({
         'uRoleRightByIdStore',
         'uRightInfoCurUserStore',
         'BusinessInfo',
+
         'taskStore',
-        'kfqInfoStore'
+        'kfqInfoStore',
+
+        'achievementFileStore',
+        'achievementFileUploadStore'
+
     ],
     views: [
         'MainView',
@@ -187,6 +196,7 @@ Ext.application({
         'enterprise_uploadMapCheckResultWindow',
         'system_test',
         'data_report',
+
         'business_baseinfo',
         'db_businessinfo',
         'mywindow',
@@ -195,7 +205,12 @@ Ext.application({
         'chart_pie',
         'win_kfqinfo_add',
         'kfqChangeWindow',
-        'zd_information'
+        'zd_information',
+
+        
+        'achievement_DataImportDB',
+        'achievement_DataExport'
+
     ],
     name: 'MyApp',
 
