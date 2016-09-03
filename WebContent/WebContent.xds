@@ -17,7 +17,7 @@
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "buildShouldOverwriteIndex": false,
-        "generateArchitectVersion": true,
+        "generateArchitectVersion": false,
         "spacesToIndent": 4,
         "lineEnding": "CRLF",
         "genTimestamps": false,

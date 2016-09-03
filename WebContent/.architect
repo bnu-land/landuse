@@ -9710,7 +9710,6 @@
         },
         "e284b21b-5164-4e90-9bb7-994b35bbfa96": {
             "id": "e284b21b-5164-4e90-9bb7-994b35bbfa96",
-            "expanded": false,
             "cn": [
                 {
                     "id": "581475e6-e17f-4971-bc08-519cc17aa094",
@@ -12142,8 +12141,10 @@
     },
     "inspectorState": {
         "topInstance": "e284b21b-5164-4e90-9bb7-994b35bbfa96",
-        "selectedInstance": "ede06d89-24ed-4717-ab25-256dea6b2802"
+        "selectedInstance": "e284b21b-5164-4e90-9bb7-994b35bbfa96"
     },
     "editMode": "design",
-    "userSettings": {}
+    "userSettings": {
+        "no-cmd": true
+    }
 }

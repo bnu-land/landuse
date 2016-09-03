@@ -50,6 +50,9 @@ Ext.application({
         'businessMapModel',
         'businessPhotoModel',
         'sys_KfqInfoModel',
+	    'BusinessInfoModel',
+        'businessinformationmodel',
+        'zdinformationModel',
         'BusinessInfoModel',
         'taskModel',
         'kfqInfoModel'
@@ -111,7 +114,10 @@ Ext.application({
         'uRightInfoCurUserStore',
         'BusinessInfo',
         'taskStore',
-        'kfqInfoStore'
+        'kfqInfoStore',
+	    'BusinessInfo',
+        'bussinessinformation',
+        'zd_infoStore'
     ],
     views: [
         'MainView',
@@ -177,6 +183,7 @@ Ext.application({
         'system_Log',
         'sys_MapAttrNameIndexWindow',
         'sys_MapAddAttrNameIndexWindow',
+        'business_message',
         'business_uploadPhoto',
         'business_uploadMap',
         'system_MenuManage',
@@ -186,7 +193,10 @@ Ext.application({
         'enterprise_uploadMapCheck',
         'enterprise_uploadMapCheckResultWindow',
         'system_test',
+        'business_info',
         'data_report',
+        'bus_info',
+        'qy_addinformation',
         'business_baseinfo',
         'db_businessinfo',
         'mywindow',
@@ -195,7 +205,10 @@ Ext.application({
         'chart_pie',
         'win_kfqinfo_add',
         'kfqChangeWindow',
-        'zd_information'
+        'zd_information',
+	 'add_zdinnfo',
+        'update_zdinnfo',
+        'bus_informationView'
     ],
     name: 'MyApp',
 
