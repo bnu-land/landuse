@@ -283,7 +283,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     },
                     width: 80,
                     dataIndex: 'noticeState',
-                    text: '导出'
+                    text: '下载'
                 }
             ],
             features: [

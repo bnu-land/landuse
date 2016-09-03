@@ -1171,6 +1171,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataImportDatabase",
                                         "text": "成果数据入库"
@@ -1201,6 +1202,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataIBrowse",
                                         "text": "成果数据浏览"
@@ -1216,6 +1218,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "achievement_DataIEdit",
                                         "text": "成果数据编辑"
@@ -1271,6 +1274,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "title": "成果数据上报"
                     },
                     "name": "MyPanel13",
