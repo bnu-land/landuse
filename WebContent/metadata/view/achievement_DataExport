@@ -39,7 +39,7 @@
             "designerId": "4952613c-c18b-46c9-a33c-314aa7189f1e",
             "cn": [
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -49,12 +49,15 @@
                         "fieldLabel": "开发区",
                         "id": "kfqnameText",
                         "labelWidth": 50,
-                        "layout|x": null,
+                        "layout|x": 25,
                         "layout|y": 10,
                         "name": "kfqname",
+                        "store": [
+                            "['宾西经济技术开发区','利民经济技术开发区']"
+                        ],
                         "width": 280
                     },
-                    "name": "MyTextField",
+                    "name": "MyComboBox",
                     "configAlternates": {
                         "store": "array"
                     },
@@ -71,13 +74,18 @@
                         "fieldLabel": "年度",
                         "id": "kfqyearText",
                         "labelWidth": 40,
-                        "layout|x": 300,
+                        "layout|x": 325,
                         "layout|y": 10,
                         "name": "kfqyear",
-                        "store": "landKfqTypeComboStore",
+                        "store": [
+                            "[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]"
+                        ],
                         "width": 140
                     },
                     "name": "MyComboBox1",
+                    "configAlternates": {
+                        "store": "array"
+                    },
                     "designerId": "39a7c6c3-b26e-40e2-91ce-0ae2759d4f4f",
                     "cn": [
                         {
@@ -118,8 +126,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
-                        "layout|x": 460,
+                        "layout|x": 490,
                         "layout|y": 10,
                         "text": "查询"
                     },
@@ -164,7 +171,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|x": 530,
+                        "layout|x": 560,
                         "layout|y": 10,
                         "text": "打包导出"
                     },
@@ -243,7 +250,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "kfqName",
-                        "text": "开发区"
+                        "text": "开发区",
+                        "width": 200
                     },
                     "name": "MyColumn23",
                     "designerId": "74257afd-2187-4742-9592-466698638fd1"
@@ -257,7 +265,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "kfqYear",
-                        "text": "年份"
+                        "text": "年份",
+                        "width": 60
                     },
                     "name": "MyColumn",
                     "designerId": "c3920631-643a-45f1-83fe-4af7703462ec"
@@ -271,7 +280,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "filetype",
-                        "text": "数据类型"
+                        "text": "数据类型",
+                        "width": 80
                     },
                     "name": "MyColumn24",
                     "designerId": "7119d76b-0eff-4928-997e-5ccf81633dc2"
@@ -329,7 +339,7 @@
                     "userConfig": {
                         "dataIndex": "uploadTime",
                         "text": "上传时间",
-                        "width": 180
+                        "width": 160
                     },
                     "name": "MyColumn27",
                     "designerId": "e106b81f-e937-4783-919e-a7934915b9eb"
@@ -345,7 +355,7 @@
                         "dataIndex": "readCount",
                         "icon": "images/table/search.png",
                         "text": "预览",
-                        "width": 80
+                        "width": 60
                     },
                     "name": "MyActionColumn",
                     "designerId": "6fcef06f-3851-4d66-878a-da8c20898eeb",
@@ -427,7 +437,7 @@
                         "dataIndex": "noticeState",
                         "icon": "",
                         "text": "删除",
-                        "width": 80
+                        "width": 60
                     },
                     "name": "MyActionColumn1",
                     "designerId": "d591a224-658f-429a-8066-a854457659f7",
@@ -522,6 +532,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "noticeState",
+                        "hidden": true,
                         "icon": null,
                         "text": "下载",
                         "width": 80
@@ -588,7 +599,7 @@
                     "userConfig": {
                         "dataIndex": "noticeState",
                         "text": "下载",
-                        "width": 80
+                        "width": 60
                     },
                     "name": "MyColumn2",
                     "designerId": "43756488-8161-4777-bc78-05f959473450",
