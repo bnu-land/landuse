@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "zd_information",
-        "designer|userClassName": "zd_informationViewModel"
+        "designer|userAlias": "zdxx_upload",
+        "designer|userClassName": "zdxx_uploadViewModel"
     },
     "designerId": "e81329e3-4ed7-450b-88c3-0b5c5f81365d"
 }

@@ -28,6 +28,8 @@ public class KfqInfoManagerController {
 	@ResponseBody
 	public Map<String, Object> getInfoList(
 			@RequestParam("searchKeyword") String searchKeyword)
+			//@RequestParam("kfqpjlx") String lx,
+			//@RequestParam("kfqjb") String jb)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.infoService.getKfqInfoList(searchKeyword);

@@ -15,5 +15,5 @@
 
 Ext.define('MyApp.view.zd_informationViewController1', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.bus_informationview'
+    alias: 'controller.dxqy_upload'
 });

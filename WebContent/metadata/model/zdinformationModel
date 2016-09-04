@@ -45,6 +45,19 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "tbnf"
+            },
+            "name": "MyField",
+            "designerId": "c9ec575d-67d4-471b-8d8d-8438dfe049eb"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "ysdm"
             },
             "name": "MyField46",

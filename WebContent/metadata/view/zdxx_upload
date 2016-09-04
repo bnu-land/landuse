@@ -6,9 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "zd_information",
-        "designer|userClassName": "zd_information",
+        "designer|userAlias": "zdxx_upload",
+        "designer|userClassName": "zdxx_upload",
         "height": 450,
+        "id": null,
         "title": "宗地信息填报",
         "width": 654
     },
@@ -38,41 +39,23 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "emptyText": "输入搜索关键字",
                         "fieldLabel": "",
                         "id": "searchKeyword_zdInfo",
                         "layout|flex": null
                     },
                     "name": "MyTextField33",
-                    "designerId": "12be7a13-17cc-470c-8497-ce6b20fe4d76"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "id": "",
-                        "layout|flex": null,
-                        "text": "搜索"
-                    },
-                    "name": "MyButton11",
-                    "designerId": "99117a2f-1795-48a4-8b9c-6980e7eb6943",
+                    "designerId": "12be7a13-17cc-470c-8497-ce6b20fe4d76",
                     "cn": [
                         {
-                            "type": "fixedfunction",
+                            "type": "basiceventbinding",
                             "reference": {
-                                "name": "items",
+                                "name": "listeners",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
+                                "fn": "onSearchKeyword_zdInfoChange",
                                 "implHandler": [
                                     "var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();",
                                     "console.log(\"keyword:\",getKeyword);",
@@ -82,14 +65,16 @@
                                     "    {",
                                     "        params :",
                                     "        {",
-                                    "            searchKeyword : getKeyword",
+                                    "            searchKeyword : newValue",
                                     "        }",
                                     "    }",
                                     ");"
-                                ]
+                                ],
+                                "name": "change",
+                                "scope": "me"
                             },
-                            "name": "handler",
-                            "designerId": "4d9b3956-583d-44c1-b15c-ef3b9c27e783"
+                            "name": "onSearchKeyword_zdInfoChange",
+                            "designerId": "f307b2d5-30be-4042-95e2-7b1d900fac43"
                         }
                     ]
                 },
@@ -101,6 +86,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "icon": "images/table/refresh.png",
                         "layout|flex": null,
                         "text": "刷新"
                     },
@@ -139,6 +125,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "icon": "images/table/add.png",
                         "layout|flex": null,
                         "text": "添加宗地信息"
                     },
@@ -177,6 +164,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "icon": "images/table/edit.png",
                         "layout|flex": null,
                         "text": "编辑宗地信息"
                     },
@@ -233,6 +221,7 @@
             "codeClass": null,
             "userConfig": {
                 "id": "zd_info",
+                "sortableColumns": false,
                 "store": "zd_infoStore",
                 "title": ""
             },
@@ -253,6 +242,21 @@
                     },
                     "name": "MyRowNumberer",
                     "designerId": "ecf4acbf-ac6f-4860-bd04-74bd1427a3d2"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tbnf",
+                        "text": "填报年份",
+                        "width": 80
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "bbd04bc4-e838-431a-aa4c-9e4bebd941aa"
                 },
                 {
                     "type": "Ext.grid.column.Column",

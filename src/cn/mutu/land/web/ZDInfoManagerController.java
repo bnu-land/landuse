@@ -2,6 +2,9 @@ package cn.mutu.land.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+
+
 
 
 
@@ -59,19 +65,20 @@ public class ZDInfoManagerController {
 	}
 
 	
-//	// 删除
-//		@RequestMapping(value = "/del_info")
-//			@ResponseBody
-//			public void delNoticeById(@RequestParam("businessId") String businessId) throws IOException {
-//				this.zdinfoService.deleteinfo(businessId);
-//			}
-//		
-//
+	// 删除
+		@RequestMapping(value = "/del_zdinfo")
+			@ResponseBody
+			public void delZdById(@RequestParam("id") String zdId) throws IOException {
+			System.out.print(zdId);	
+			this.zdinfoService.deleteinfo(zdId);
+		
+		}
 	// 添加用户信息
 	@RequestMapping(value = "/add_zdinfo",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> addZdInfo(@RequestBody ZdInfo zdinfo)
 			throws IOException {
+
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {			     	
 			this.zdinfoService.addZdInfos(zdinfo);

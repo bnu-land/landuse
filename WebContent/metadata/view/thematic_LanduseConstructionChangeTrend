@@ -6,9 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoScroll": true,
         "designer|userAlias": "thematic_LanduseConstructionChangeTrend",
         "designer|userClassName": "thematic_LanduseConstructionChangeTrend",
-        "height": 588,
+        "height": 741,
         "id": null,
         "layout": "border",
         "title": "土地利用结构变化趋势分析",
@@ -87,6 +88,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dock": null,
+                        "height": null,
                         "id": "thematic_LCCT_Grid",
                         "store": null,
                         "title": "历年土地利用结构统计数据"

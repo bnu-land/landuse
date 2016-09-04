@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "business_baseinfo",
-        "designer|userClassName": "business_baseinfoViewController"
+        "designer|userAlias": "tasknotice",
+        "designer|userClassName": "taskNoticeViewController"
     },
     "designerId": "dc64bb39-6a3d-4438-9bae-e91d89395a42"
 }

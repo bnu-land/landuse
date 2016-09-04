@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "zd_information",
-        "designer|userClassName": "zd_informationViewController"
+        "designer|userAlias": "zdxx_upload",
+        "designer|userClassName": "zdxx_uploadViewController"
     },
     "designerId": "e25cd0c9-5c87-4f6d-bf5a-685b5f8776f9"
 }

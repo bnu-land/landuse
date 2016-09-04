@@ -95,6 +95,7 @@ public class ZDInfoManagerService {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			//System.out.println("id:"+sysMap.getMapId());
+			//zdinfo.setGysj(gysj);
 			session.save(zdinfo);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -176,18 +177,18 @@ public class ZDInfoManagerService {
 //		}
 //	}
 //	
-//	public void deleteinfo(String businessId) {
-//		// System.out.println("roleId:" + roleId);
-//		BusinessInfo result = null;
-//		Session session = sessionFactory.getCurrentSession();
-//		try {
-//			result = (BusinessInfo) session.get(BusinessInfo.class,
-//					Integer.parseInt(businessId));
-//			session.delete(result);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public void deleteinfo(String zdId) {
+		// System.out.println("roleId:" + roleId);
+		ZdInfo result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {
+		result = (ZdInfo) session.get(ZdInfo.class,
+					Integer.parseInt(zdId));
+			session.delete(result);
+	} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 //	public void deleteinfos(String businessId) {

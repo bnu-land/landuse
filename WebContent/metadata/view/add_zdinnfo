@@ -36,7 +36,7 @@
                 "layout|region": "center",
                 "minWidth": null,
                 "title": "",
-                "url": ""
+                "url": "add_zdinfo"
             },
             "name": "MyForm4",
             "designerId": "8aaa1123-6a30-4603-ad05-80618241fe31",
@@ -193,6 +193,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "供应时间",
+                        "format": "Y-m-d",
                         "layout|x": 300,
                         "layout|y": 100,
                         "name": "gysj",
@@ -599,103 +600,145 @@
                     "designerId": "a41eaac0-cde8-422c-bf41-ac0dca3ff3e0"
                 },
                 {
-                    "type": "Ext.button.Button",
+                    "type": "Ext.toolbar.Toolbar",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "layout|x": 280,
-                        "layout|y": 520,
-                        "text": "取消",
-                        "width": 80
+                        "dock": "bottom",
+                        "layout|x": 96,
+                        "layout|y": 517
                     },
-                    "name": "MyButton19",
-                    "designerId": "276ec794-b131-4fe6-b1ca-a4fa663a5110",
+                    "name": "MyToolbar7",
+                    "designerId": "062b3a66-e22a-49da-852c-80a993cd57a6",
                     "cn": [
                         {
-                            "type": "fixedfunction",
+                            "type": "Ext.toolbar.Fill",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var win = Ext.getCmp('add_zdinfo');",
-                                    "win.close();"
-                                ]
+                                "layout|flex": null
                             },
-                            "name": "handler",
-                            "designerId": "6b998879-2d24-4a1b-8ecd-5d808d8d0188"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|x": 490,
-                        "layout|y": 520,
-                        "text": "确定",
-                        "width": 80
-                    },
-                    "name": "MyButton20",
-                    "designerId": "ec0066a1-0c93-4d2f-a81e-8d6e221593d9",
-                    "cn": [
+                            "name": "MyFill2",
+                            "designerId": "a412296a-7eeb-4716-aa30-eec41898a397"
+                        },
                         {
-                            "type": "fixedfunction",
+                            "type": "Ext.button.Button",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var myform = Ext.getCmp('add_zdwidinfo').getForm();",
-                                    "if (myform.isValid())",
-                                    "{",
-                                    "    console.log('form is ava');",
-                                    "    myform.submit({",
-                                    "        url : 'add_zdinfo',",
-                                    "        success : function (form, action)",
-                                    "        {",
-                                    "            Ext.Msg.alert('成功', '内容添加成功。');",
-                                    "            var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
-                                    "            mystore.reload();",
-                                    "",
-                                    "            var win = Ext.getCmp('add_zdinfo');",
-                                    "            win.close();",
-                                    "",
-                                    "        },",
-                                    "        failure: function(form, action){",
-                                    "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
-                                    "        }",
-                                    "    });",
-                                    "}",
-                                    "else",
-                                    "{",
-                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
-                                    "}"
-                                ]
+                                "layout|flex": null,
+                                "text": "取消",
+                                "width": 80
                             },
-                            "name": "handler",
-                            "designerId": "b0414c1c-ba0c-4ee8-a43d-acfeda254d0e"
+                            "name": "MyButton19",
+                            "designerId": "276ec794-b131-4fe6-b1ca-a4fa663a5110",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('add_zdinfo');",
+                                            "win.close();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "6b998879-2d24-4a1b-8ecd-5d808d8d0188"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySpacer",
+                            "designerId": "bf4d8766-2857-46f8-a97c-3400108d9d48"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "确定",
+                                "width": 80
+                            },
+                            "name": "MyButton20",
+                            "designerId": "ec0066a1-0c93-4d2f-a81e-8d6e221593d9",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var myform = Ext.getCmp('add_zdwidinfo').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    console.log('form is ava');",
+                                            "    myform.submit({",
+                                            "       // url : 'add_zdinfo',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '内容添加成功。');",
+                                            "            var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "",
+                                            "            var win = Ext.getCmp('add_zdinfo');",
+                                            "            win.close();",
+                                            "",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "b0414c1c-ba0c-4ee8-a43d-acfeda254d0e"
+                                }
+                            ]
                         }
                     ]
                 }

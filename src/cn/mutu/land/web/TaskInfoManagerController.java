@@ -18,11 +18,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
+
+
+
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.BusinessInfo;
 import cn.mutu.land.model.BusinessMap;
 import cn.mutu.land.model.LawRegulation;
 import cn.mutu.land.model.LawTypes;
+import cn.mutu.land.model.TaskInfo;
+import cn.mutu.land.model.ZdInfo;
 import cn.mutu.land.service.BusinessInfoManagerService;
 import cn.mutu.land.service.BusinessMapManagerService;
 import cn.mutu.land.service.TaskInfoManagerService;
@@ -46,7 +51,24 @@ public class TaskInfoManagerController {
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.infoService.getTaskInfoList(searchKeyword);
-		//
+		//,@RequestParam("guyt")String gysj
 	}
+	// 下发任务
+		@RequestMapping(value = "/add_task",method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> addTask(@RequestBody TaskInfo taskInfo)
+				throws IOException {		
 
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {			     	
+				this.infoService.addTask(taskInfo);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				er.printStackTrace();
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}
 }

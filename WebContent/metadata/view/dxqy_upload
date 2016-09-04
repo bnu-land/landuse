@@ -7,10 +7,10 @@
     "codeClass": null,
     "userConfig": {
         "designer|snapToGrid": 10,
-        "designer|userAlias": "bus_informationView",
-        "designer|userClassName": "bus_informationView",
+        "designer|userAlias": "dxqy_upload",
+        "designer|userClassName": "dxqy_upload",
         "height": 445,
-        "id": "bus1_information",
+        "id": null,
         "layout": "absolute",
         "title": "典型企业信息填报",
         "width": 1010
@@ -164,10 +164,10 @@
                                 ],
                                 "fn": "handler",
                                 "implHandler": [
-                                    "var xtype = 'qy_addinformation';",
-                                    "var mainView = Ext.getCmp('mainView');",
-                                    "mainView.removeAll();",
-                                    "mainView.add(Ext.widget(xtype));"
+                                    "",
+                                    "var win=Ext.widget('qy_addinformation');",
+                                    "win.show();",
+                                    "//mainView.disable();"
                                 ]
                             },
                             "name": "handler",
@@ -240,7 +240,30 @@
                         "text": "删除典型企业信息"
                     },
                     "name": "MyButton21",
-                    "designerId": "1db300d7-1844-42cb-8f7e-7c0c0a7b2a43"
+                    "designerId": "1db300d7-1844-42cb-8f7e-7c0c0a7b2a43",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "var win =Ext.widget('mytest');",
+                                    "win.show();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "56afaffa-7fd6-4c70-8f85-be2748c4c36a"
+                        }
+                    ]
                 }
             ]
         },

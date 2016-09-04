@@ -27,9 +27,15 @@ public class KfqInfoManagerService {
 		String hql = "FROM KfqInfomation as kfq";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE kfq.kfqmc" + likeStr ;
+			//String likeStr1=" LIKE '%" + jb + "%' ";
+			//String likeStr2=" LIKE '%" + lx + "%' ";
+			//String likeStr3=" LIKE '%" + date + "%' ";
+			//String likeStr4=" LIKE '%" + searchKeyword + "%' ";
+			String hql2 = " WHERE kfq.kfqmc" + likeStr 
 					
-					//+ "OR kfq.taskFinish" + likeStr;
+					+ "OR kfq.kfqjb" + likeStr
+					+ "OR kfq.kfqpjlx" + likeStr;
+					//+ "OR kfq.kfqpjnf" + likeStr1;,String date
 			hql += hql2;
 		}		
 		List<KfqInfomation> results = null;
