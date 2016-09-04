@@ -57,16 +57,18 @@ public class AchieveFileManageService {
 	
 	public String read_word(String filename,String filePath,String rootPath){
 		String filePathName=filePath+filename;
-		if(filename.endsWith(".docx"))
+		if(filename.lastIndexOf(".")==-1)return null;
+		String filetype=filename.substring(filename.lastIndexOf(".")).toLowerCase();
+		System.out.println(filetype);
+		if(filetype.endsWith(".docx"))
 			return Word2Html.word2007tohtml(filePathName, rootPath+"office/word07");
-		else if(filename.endsWith(".doc"))
+		else if(filetype.endsWith(".doc"))
 			return Word2Html.word2003tohtml(filePathName, rootPath+"office/word03");
-		else if(filename.endsWith(".xls")||filename.endsWith(".xlsx"))
+		else if(filetype.endsWith(".xls")||filetype.endsWith(".xlsx"))
 			return Excel2Html.excel2Html(filePathName, rootPath+"office/excel");
-		else if(filename.endsWith(".jpg")||filename.endsWith(".png")){
-			return SaveUploadFile.copyPicture(filePath+filename, rootPath+"office/pic/");
+		else if(filetype.endsWith(".jpg")||filetype.endsWith(".png")){
+			return SaveUploadFile.copyPicture(filetype,filePath+filename, rootPath+"office/pic/");
 		}
-			
 		else return null;
 	}
 	

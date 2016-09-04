@@ -189,14 +189,26 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    width: 60,
                     dataIndex: 'readCount',
+                    width: 60,
                     text: '预览',
                     icon: 'images/table/search.png',
                     items: [
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
+                                var filetype=record.get('filetype').toLowerCase();
+                                var types=['.doc','.jpg','.docx','.png','.shp','.pdf'];
+                                var canread=false;
+                                for(var i=0;i<types.length;i++){
+                                    if(filetype==types[i]){
+                                        canread=true;break;
+                                    }
+                                }
+                                if(!canread){
+                                    Ext.Msg.alert('提示', '暂不支持该类型文件预览');
+                                    return;
+                                }
                                 var nwin = window.open();
                                 var filepath=record.get('filepath');
                                 var filename=record.get('filename');
@@ -214,10 +226,16 @@ Ext.define('MyApp.view.achievement_DataExport', {
                                         console.log("read word success");
                                         console.log(JSON.stringify(response.responseText));
                                         //me.openUrl(response.responseText);
-                                        if(response.responseText!=null)nwin.location=response.responseText;
+                                        var s=response.responseText;
+                                        if(s!=='null'&&s!==''){
+                                        nwin.location=response.responseText;}
+                                        else{
+                                            nwin.close();
+                                            Ext.Msg.alert('失败提示', '读取文件错误');
+                                        }
                                     },
                                     failure : function (response){
-                                        //failedResult();
+                                        nwin.close();
                                         Ext.Msg.alert('失败提示', '读取文件失败');
                                     }
                                 });
