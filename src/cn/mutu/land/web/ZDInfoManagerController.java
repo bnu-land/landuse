@@ -78,9 +78,13 @@ public class ZDInfoManagerController {
 	@ResponseBody
 	public Map<String, Object> addZdInfo(@RequestBody ZdInfo zdinfo)
 			throws IOException {
-
+		String date=zdinfo.getGysj();
+		System.out.println(date);	
+		System.out.println(date.substring(0, 10));	
 		Map<String, Object> result = new HashMap<String, Object>();
-		try {			     	
+		try {
+			
+			zdinfo.setGysj(date.substring(0, 10));
 			this.zdinfoService.addZdInfos(zdinfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");

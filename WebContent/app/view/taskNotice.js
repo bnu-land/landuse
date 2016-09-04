@@ -405,7 +405,7 @@ Ext.define('MyApp.view.taskNotice', {
             return;
         }
         //启动窗口
-        var win = Ext.widget('update_zdinnfo');
+        var win = Ext.widget('add_zdinnfo');
         win.setTitle('查看宗地信息');
         win.show();
 
