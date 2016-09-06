@@ -37,6 +37,7 @@ Ext.define('MyApp.view.add_zdinnfo', {
     width: 825,
     layout: 'border',
     title: '添加宗地信息',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -406,6 +407,7 @@ Ext.define('MyApp.view.add_zdinnfo', {
                                     Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                                 }
                             },
+                            id: 'addZdConfirm',
                             width: 80,
                             text: '确定'
                         }
@@ -413,6 +415,18 @@ Ext.define('MyApp.view.add_zdinnfo', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onAdd_zdinfoAfterRender'
+    },
+
+    onAdd_zdinfoAfterRender: function(component, eOpts) {
+        var title=this.getTitle();
+        var button=Ext.getCmp('addZdConfirm');
+        if(title=="查看宗地信息")
+            {
+                button.setHidden(true);
+            }
+    }
 
 });

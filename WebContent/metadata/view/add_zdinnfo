@@ -687,6 +687,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "addZdConfirm",
                                 "layout|flex": null,
                                 "text": "确定",
                                 "width": 80
@@ -743,6 +744,29 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onAdd_zdinfoAfterRender",
+                "implHandler": [
+                    "var title=this.getTitle();",
+                    "var button=Ext.getCmp('addZdConfirm');",
+                    "if(title==\"查看宗地信息\")",
+                    "    {",
+                    "        button.setHidden(true);",
+                    "    }"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onAdd_zdinfoAfterRender",
+            "designerId": "95c9bfb1-09bd-4669-8577-e7a84a1263c4"
         }
     ]
 }

@@ -14,798 +14,690 @@
  */
 
 Ext.define('MyApp.view.qy_addinformation', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.window.Window',
     alias: 'widget.qy_addinformation',
 
     requires: [
         'MyApp.view.qy_addinformationViewModel',
+        'Ext.tab.Panel',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.RadioGroup',
         'Ext.form.field.Radio',
         'Ext.tab.Tab',
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
         'Ext.Img',
         'Ext.form.field.Date',
         'Ext.form.field.File',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
-        'Ext.selection.CheckboxModel',
-        'Ext.toolbar.Toolbar'
+        'Ext.selection.CheckboxModel'
     ],
 
     viewModel: {
         type: 'qy_addinformation'
     },
-    id: 'panel_info',
-    activeTab: 0,
+    height: 574,
+    width: 821,
+    layout: 'border',
+    title: '典型企业录入',
     defaultListenerScope: true,
 
     items: [
         {
-            xtype: 'form',
-            autoScroll: true,
-            id: 'bus_information',
-            layout: 'absolute',
-            title: '企业信息录入',
-            jsonSubmit: true,
-            url: 'add_info',
+            xtype: 'tabpanel',
+            region: 'center',
+            id: 'panel_info',
+            activeTab: 0,
             items: [
                 {
-                    xtype: 'fieldset',
-                    x: 80,
-                    y: 10,
-                    height: 290,
-                    width: 830,
+                    xtype: 'form',
+                    autoScroll: true,
+                    id: 'bus_information',
                     layout: 'absolute',
-                    title: '企业基本情况',
+                    title: '企业信息录入',
+                    jsonSubmit: true,
+                    url: 'add_info',
                     items: [
                         {
-                            xtype: 'textfield',
-                            x: 60,
+                            xtype: 'fieldset',
+                            x: 80,
                             y: 10,
-                            width: '',
-                            fieldLabel: '企业名称',
-                            name: 'businessName'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 380,
-                            y: 10,
-                            fieldLabel: '企业地址',
-                            name: 'businessAddress'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 50,
-                            fieldLabel: '宗地编号',
-                            name: 'businessZdcode'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 380,
-                            y: 50,
-                            fieldLabel: '所属评价范围',
-                            name: 'businessEvalueRange'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 90,
-                            fieldLabel: '行业类别',
-                            name: 'businessIndustryType'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 380,
-                            y: 90,
-                            fieldLabel: '行业代码',
-                            name: 'businessIndustryCode'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 130,
-                            fieldLabel: '企业人数(人)',
-                            name: 'businessWorker'
-                        },
-                        {
-                            xtype: 'combobox',
-                            x: 380,
-                            y: 130,
-                            width: 200,
-                            fieldLabel: '上报年份',
-                            name: 'businessUploaddate',
-                            store: [
-                                '2016年',
-                                '2015年'
-                            ]
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 170,
-                            fieldLabel: '所属开发区',
-                            name: 'businessKfq'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 380,
-                            y: 170,
-                            fieldLabel: '开发区代码',
-                            name: 'businessKfqCode'
-                        },
-                        {
-                            xtype: 'radiogroup',
-                            x: 60,
-                            y: 210,
-                            width: 400,
-                            fieldLabel: '开发区类型',
-                            items: [
-                                {
-                                    xtype: 'radiofield',
-                                    name: 'businessKfqType',
-                                    boxLabel: '国家级',
-                                    inputValue: '国家级'
-                                },
-                                {
-                                    xtype: 'radiofield',
-                                    autoShow: true,
-                                    name: 'businessKfqType',
-                                    boxLabel: '省级',
-                                    inputValue: '省级'
-                                },
-                                {
-                                    xtype: 'radiofield',
-                                    width: '',
-                                    name: 'businessKfqType',
-                                    boxLabel: '示范区',
-                                    inputValue: '示范区'
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'checkboxfield',
-                            x: 190,
-                            y: 240,
-                            name: 'businessAdvance',
-                            boxLabel: '高新企业',
-                            inputValue: '高新企业'
-                        },
-                        {
-                            xtype: 'checkboxfield',
-                            x: 310,
-                            y: 240,
-                            name: 'businessDevArea',
-                            boxLabel: '划定发展区',
-                            inputValue: '有发展区'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'fieldset',
-                    x: 80,
-                    y: 310,
-                    height: 80,
-                    minHeight: 80,
-                    width: 830,
-                    layout: 'absolute',
-                    title: '企业投入情况',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 15,
-                            fieldLabel: '实际完成累计固定资产投资  (万元)',
-                            labelStyle: '',
-                            labelWidth: 160,
-                            name: 'businessActInvestment'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 450,
-                            y: 20,
-                            fieldLabel: '预计固定资产总投资  (万元)',
-                            labelWidth: 160,
-                            name: 'businessPreInvestment'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'fieldset',
-                    x: 80,
-                    y: 400,
-                    height: 110,
-                    width: 830,
-                    layout: 'absolute',
-                    title: '企业出产情况',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 15,
-                            fieldLabel: '总产值  (万元)',
-                            name: 'businessProduct'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 15,
-                            fieldLabel: '总收入  (万元)',
-                            name: 'businessIncome'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 55,
-                            fieldLabel: '税收总额  (万元)',
-                            name: 'businessTax'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'fieldset',
-                    x: 80,
-                    y: 520,
-                    height: 250,
-                    width: 830,
-                    layout: 'absolute',
-                    title: '企业用地情况',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 15,
-                            fieldLabel: '企业用地面积  (h㎡)',
-                            labelWidth: 150,
-                            name: 'businessArea'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 55,
-                            fieldLabel: '1.厂房及配套用地面积',
-                            labelWidth: 150,
-                            name: 'businessArea1'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 180,
-                            fieldLabel: '7.企业内部行政办公及生活服务设施用地面积',
-                            labelWidth: 150,
-                            name: 'businessArea2'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 95,
-                            fieldLabel: '3.露天堆场、露天操作场地面积',
-                            labelWidth: 150,
-                            name: 'businessArea3'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 95,
-                            fieldLabel: '4.厂区内部预留地面积',
-                            labelWidth: 150,
-                            name: 'businessArea4'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 140,
-                            fieldLabel: '5.企业内部道路停车场面积',
-                            labelWidth: 150,
-                            name: 'businessArea5'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 140,
-                            fieldLabel: '6.绿地面积',
-                            labelWidth: 150,
-                            name: 'businessArea6'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 55,
-                            fieldLabel: '2.其他用地面积',
-                            labelWidth: 150,
-                            name: 'businessArea7'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'fieldset',
-                    x: 80,
-                    y: 780,
-                    height: 140,
-                    width: 830,
-                    layout: 'absolute',
-                    title: '企业建设情况',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 15,
-                            fieldLabel: '总建筑面积',
-                            labelWidth: 150,
-                            name: 'businessBuildingArea'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 55,
-                            fieldLabel: '容积率',
-                            labelWidth: 150,
-                            name: 'businessPlotRatio'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 60,
-                            y: 55,
-                            fieldLabel: '建筑物构筑物基底、露天堆场和露天操作场地总面积',
-                            labelWidth: 150,
-                            name: 'businessOutdoorArea'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 430,
-                            y: 15,
-                            fieldLabel: '建筑系数  (%)',
-                            labelWidth: 150,
-                            name: 'businessBuildingCoeficient'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var myform = Ext.getCmp('bus_information').getForm();
-                        if (myform.isValid())
-                        {
-                            console.log('form is ava');
-                            myform.submit({
-                                //url : 'add_info',
-                                success : function (form, action)
-                                {
-                                    Ext.Msg.alert('成功', '提交成功。');
-                                    var mystore = Ext.StoreMgr.get('bussinessinformation'); //获得store对象
-                                    mystore.reload();
-                                    var xtype = 'information';
-                                    var mainView = Ext.getCmp('mainView');
-                                    mainView.removeAll();
-                                    mainView.add(Ext.widget(xtype));
-                                },
-                                failure: function(form, action){
-                                    Ext.Msg.alert('失败', '提交失败，请重试。');
-                                }
-                            });
-                        }
-                        else
-                        {
-                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
-                        }
-                    },
-                    x: 520,
-                    y: 950,
-                    width: 70,
-                    text: '保存提交'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var tab =Ext.getCmp('panel_info');// 'panel_info';
-                        tab.setActiveTab(1);
-                        // var mainView = Ext.getCmp('bus_information');
-                        // mainView.removeAll();
-                        // //mainView.add(Ext.widget(xtype));
-                        // mainView.add(Ext.getCmp(xtype));
-
-                    },
-                    x: 350,
-                    y: 950,
-                    width: 70,
-                    text: '下一步'
-                }
-            ],
-            tabConfig: {
-                xtype: 'tab',
-                id: 'TabConfig1'
-            }
-        },
-        {
-            xtype: 'panel',
-            layout: 'border',
-            title: '上传企业照片',
-            items: [
-                {
-                    xtype: 'panel',
-                    region: 'center',
-                    split: true,
-                    layout: 'border',
-                    title: '',
-                    items: [
-                        {
-                            xtype: 'panel',
-                            region: 'center',
-                            split: true,
-                            id: 'panel_img',
+                            height: 290,
+                            width: 830,
                             layout: 'absolute',
-                            title: '',
-                            items: [
-                                {
-                                    xtype: 'fieldset',
-                                    height: '100%',
-                                    width: '100%',
-                                    title: '照片预览',
-                                    items: [
-                                        {
-                                            xtype: 'image',
-                                            height: '100%',
-                                            width: '100%',
-                                            src: 'images/login/login_center_left.jpg'
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'form',
-                            region: 'west',
-                            split: true,
-                            autoScroll: true,
-                            id: 'bus_information2',
-                            width: '50%',
-                            layout: 'absolute',
-                            title: '',
-                            jsonSubmit: true,
-                            url: 'add_Photos',
-                            items: [
-                                {
-                                    xtype: 'fieldset',
-                                    x: 30,
-                                    y: 10,
-                                    height: 390,
-                                    width: 380,
-                                    layout: 'absolute',
-                                    title: '填写上传照片信息',
-                                    items: [
-                                        {
-                                            xtype: 'datefield',
-                                            x: 15,
-                                            y: 220,
-                                            width: '',
-                                            fieldLabel: '填报日期',
-                                            name: 'currrentDate'
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            x: 15,
-                                            y: 60,
-                                            fieldLabel: '图片名称',
-                                            name: 'photoTitle'
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            x: 15,
-                                            y: 180,
-                                            width: 275,
-                                            fieldLabel: '上报年份',
-                                            name: 'businessUploaddate'
-                                        },
-                                        {
-                                            xtype: 'filefield',
-                                            x: 15,
-                                            y: 20,
-                                            fieldLabel: '选择照片',
-                                            name: 'photoPath'
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            x: 15,
-                                            y: 100,
-                                            fieldLabel: '企业名称',
-                                            name: 'businessName'
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            x: 15,
-                                            y: 140,
-                                            fieldLabel: '所属开发区',
-                                            name: 'businessKfq',
-                                            editable: false
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            handler: function(button, e) {
-                                                // var xtype = 'bus_information4';
-                                                // var mainView = Ext.getCmp('mainView');
-                                                // mainView.removeAll();
-                                                // mainView.add(Ext.widget(xtype));
-                                                var tab =Ext.getCmp('panel_info');// 'panel_info';
-                                                tab.setActiveTab(2);
-                                            },
-                                            x: 250,
-                                            y: 260,
-                                            width: 80,
-                                            text: '下一步'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            handler: function(button, e) {
-                                                var myform = Ext.getCmp('bus_information2').getForm();
-                                                if (myform.isValid())
-                                                {
-                                                    console.log('form is ava');
-                                                    myform.submit({
-                                                        //url : 'add_info',
-                                                        success : function (form, action)
-                                                        {
-                                                            Ext.Msg.alert('成功', '提交成功。');
-                                                            var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象
-                                                            mystore.reload();
-                                                            var xtype = 'information';
-                                                            var mainView = Ext.getCmp('mainView');
-                                                            mainView.removeAll();
-                                                            mainView.add(Ext.widget(xtype));
-                                                        },
-                                                        failure: function(form, action){
-                                                            Ext.Msg.alert('失败', '提交失败，请重试。');
-                                                        }
-                                                    });
-                                                }
-                                                else
-                                                {
-                                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
-                                                }
-                                            },
-                                            x: 250,
-                                            y: 295,
-                                            width: 80,
-                                            text: '确认上传'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
-                    region: 'south',
-                    split: true,
-                    height: 150,
-                    title: '上传照片列表',
-                    items: [
-                        {
-                            xtype: 'gridpanel',
-                            height: 150,
-                            id: 'photo_infos',
-                            title: '',
-                            store: 'Business_photoStore',
-                            columns: [
-                                {
-                                    xtype: 'rownumberer',
-                                    dataIndex: '',
-                                    text: '序号'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'photoTitle',
-                                    text: '图片名称'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessName',
-                                    text: '企业名称'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessKfq',
-                                    text: '所属开发区'
-                                }
-                            ],
-                            selModel: {
-                                selType: 'checkboxmodel'
-                            }
-                        }
-                    ],
-                    dockedItems: [
-                        {
-                            xtype: 'toolbar',
-                            dock: 'top',
-                            height: 48,
+                            title: '企业基本情况',
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: ''
+                                    x: 60,
+                                    y: 10,
+                                    width: '',
+                                    fieldLabel: '企业名称',
+                                    name: 'businessName'
                                 },
                                 {
-                                    xtype: 'button',
-                                    text: '搜索'
+                                    xtype: 'textfield',
+                                    x: 380,
+                                    y: 10,
+                                    fieldLabel: '企业地址',
+                                    name: 'businessAddress'
                                 },
                                 {
-                                    xtype: 'button',
-                                    text: '编辑'
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 50,
+                                    fieldLabel: '宗地编号',
+                                    name: 'businessZdcode'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 380,
+                                    y: 50,
+                                    fieldLabel: '所属评价范围',
+                                    name: 'businessEvalueRange'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 90,
+                                    fieldLabel: '行业类别',
+                                    name: 'businessIndustryType'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 380,
+                                    y: 90,
+                                    fieldLabel: '行业代码',
+                                    name: 'businessIndustryCode'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 130,
+                                    fieldLabel: '企业人数(人)',
+                                    name: 'businessWorker'
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    x: 380,
+                                    y: 130,
+                                    width: 200,
+                                    fieldLabel: '上报年份',
+                                    name: 'businessUploaddate',
+                                    store: [
+                                        '2016年',
+                                        '2015年'
+                                    ]
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 170,
+                                    fieldLabel: '所属开发区',
+                                    name: 'businessKfq'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 380,
+                                    y: 170,
+                                    fieldLabel: '开发区代码',
+                                    name: 'businessKfqCode'
+                                },
+                                {
+                                    xtype: 'radiogroup',
+                                    x: 60,
+                                    y: 210,
+                                    width: 400,
+                                    fieldLabel: '开发区类型',
+                                    items: [
+                                        {
+                                            xtype: 'radiofield',
+                                            name: 'businessKfqType',
+                                            boxLabel: '国家级',
+                                            inputValue: '国家级'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            autoShow: true,
+                                            name: 'businessKfqType',
+                                            boxLabel: '省级',
+                                            inputValue: '省级'
+                                        },
+                                        {
+                                            xtype: 'radiofield',
+                                            width: '',
+                                            name: 'businessKfqType',
+                                            boxLabel: '示范区',
+                                            inputValue: '示范区'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    x: 190,
+                                    y: 240,
+                                    name: 'businessAdvance',
+                                    boxLabel: '高新企业',
+                                    inputValue: '高新企业'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    x: 310,
+                                    y: 240,
+                                    name: 'businessDevArea',
+                                    boxLabel: '划定发展区',
+                                    inputValue: '有发展区'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldset',
+                            x: 80,
+                            y: 310,
+                            height: 80,
+                            minHeight: 80,
+                            width: 830,
+                            layout: 'absolute',
+                            title: '企业投入情况',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 15,
+                                    fieldLabel: '实际完成累计固定资产投资  (万元)',
+                                    labelStyle: '',
+                                    labelWidth: 160,
+                                    name: 'businessActInvestment'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 450,
+                                    y: 20,
+                                    fieldLabel: '预计固定资产总投资  (万元)',
+                                    labelWidth: 160,
+                                    name: 'businessPreInvestment'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldset',
+                            x: 80,
+                            y: 400,
+                            height: 110,
+                            width: 830,
+                            layout: 'absolute',
+                            title: '企业出产情况',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 15,
+                                    fieldLabel: '总产值  (万元)',
+                                    name: 'businessProduct'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 15,
+                                    fieldLabel: '总收入  (万元)',
+                                    name: 'businessIncome'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 55,
+                                    fieldLabel: '税收总额  (万元)',
+                                    name: 'businessTax'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldset',
+                            x: 80,
+                            y: 520,
+                            height: 250,
+                            width: 830,
+                            layout: 'absolute',
+                            title: '企业用地情况',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 15,
+                                    fieldLabel: '企业用地面积  (h㎡)',
+                                    labelWidth: 150,
+                                    name: 'businessArea'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 55,
+                                    fieldLabel: '1.厂房及配套用地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea1'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 180,
+                                    fieldLabel: '7.企业内部行政办公及生活服务设施用地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea2'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 95,
+                                    fieldLabel: '3.露天堆场、露天操作场地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea3'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 95,
+                                    fieldLabel: '4.厂区内部预留地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea4'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 140,
+                                    fieldLabel: '5.企业内部道路停车场面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea5'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 140,
+                                    fieldLabel: '6.绿地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea6'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 55,
+                                    fieldLabel: '2.其他用地面积',
+                                    labelWidth: 150,
+                                    name: 'businessArea7'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldset',
+                            x: 80,
+                            y: 780,
+                            height: 140,
+                            width: 830,
+                            layout: 'absolute',
+                            title: '企业建设情况',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 15,
+                                    fieldLabel: '总建筑面积',
+                                    labelWidth: 150,
+                                    name: 'businessBuildingArea'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 55,
+                                    fieldLabel: '容积率',
+                                    labelWidth: 150,
+                                    name: 'businessPlotRatio'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 60,
+                                    y: 55,
+                                    fieldLabel: '建筑物构筑物基底、露天堆场和露天操作场地总面积',
+                                    labelWidth: 150,
+                                    name: 'businessOutdoorArea'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 430,
+                                    y: 15,
+                                    fieldLabel: '建筑系数  (%)',
+                                    labelWidth: 150,
+                                    name: 'businessBuildingCoeficient'
+                                }
+                            ]
+                        }
+                    ],
+                    tabConfig: {
+                        xtype: 'tab',
+                        id: 'TabConfig1'
+                    },
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            x: 562,
+                            y: 463,
+                            dock: 'bottom',
+                            items: [
+                                {
+                                    xtype: 'tbfill'
                                 },
                                 {
                                     xtype: 'button',
                                     handler: function(button, e) {
-                                        var grid = Ext.getCmp('photo_infos');
-                                        var records = grid.getSelection();
-                                        if (records.length === 0) {
-                                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
-                                            return;
-                                        } else if (records.length > 1) {
-                                            Ext.Msg.alert('提示', '每次只能 一条信息。');
-                                            return;
-                                        }
-                                        var record = records[0];
-
-                                        Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，图片名称为：'+record.get('photoTitle')+'，<br/> 确认删除？', getResult);
-                                        function getResult(confirm)
+                                        var myform = Ext.getCmp('bus_information').getForm();
+                                        if (myform.isValid())
                                         {
-                                            console.log('confirm:', confirm);
-                                            if (confirm == "yes"){
-                                                var id = record.get("id");
-                                                console.log('id:',id);
-                                                Ext.Ajax.request(
+                                            console.log('form is ava');
+                                            myform.submit({
+                                                //url : 'add_info',
+                                                success : function (form, action)
                                                 {
-                                                    url : 'del_photo',
-                                                    params :
-                                                    {
-                                                        id : id
-                                                    },
-                                                    success : function (response){
-                                                        Ext.Msg.alert('成功提示', '记录删除成功。');
-                                                        //successResult();
-                                                        var mystore = Ext.StoreMgr.get('Business_photoStore');
-                                                        mystore.load();
-                                                    },
-                                                    failure : function (response){
-                                                        failedResult();
-                                                        Ext.Msg.alert('失败提示', '记录删除失败。');
-                                                    }
-                                                });
-                                            }
+                                                    Ext.Msg.alert('成功', '提交成功。');
+                                                    var mystore = Ext.StoreMgr.get('bussinessinformation'); //获得store对象
+                                                    mystore.reload();
+                                                    var xtype = 'information';
+                                                    var mainView = Ext.getCmp('mainView');
+                                                    mainView.removeAll();
+                                                    mainView.add(Ext.widget(xtype));
+                                                },
+                                                failure: function(form, action){
+                                                    Ext.Msg.alert('失败', '提交失败，请重试。');
+                                                }
+                                            });
+                                        }
+                                        else
+                                        {
+                                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                                         }
                                     },
-                                    text: '删除'
+                                    width: 100,
+                                    icon: 'images/table/upload.png',
+                                    text: '保存提交'
+                                },
+                                {
+                                    xtype: 'button',
+                                    handler: function(button, e) {
+                                        var tab =Ext.getCmp('panel_info');// 'panel_info';
+                                        tab.setActiveTab(1);
+                                        // var mainView = Ext.getCmp('bus_information');
+                                        // mainView.removeAll();
+                                        // //mainView.add(Ext.widget(xtype));
+                                        // mainView.add(Ext.getCmp(xtype));
+
+                                    },
+                                    width: 100,
+                                    icon: 'images/table/go.png',
+                                    text: '下一步'
                                 }
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            xtype: 'panel',
-            layout: 'border',
-            title: '上传企业位置',
-            items: [
+                },
                 {
                     xtype: 'panel',
-                    region: 'center',
-                    split: true,
                     layout: 'border',
-                    title: '',
+                    title: '上传企业照片',
                     items: [
                         {
                             xtype: 'panel',
                             region: 'center',
                             split: true,
-                            id: 'panel_img1',
-                            layout: 'absolute',
+                            layout: 'border',
                             title: '',
                             items: [
                                 {
-                                    xtype: 'fieldset',
-                                    height: '100%',
-                                    width: '100%',
-                                    title: '地图预览',
-                                    listeners: {
-                                        beforerender: 'onFieldsetBeforeRender'
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'form',
-                            region: 'west',
-                            split: true,
-                            autoScroll: true,
-                            id: 'bus_information3',
-                            width: '50%',
-                            layout: 'absolute',
-                            title: '',
-                            jsonSubmit: true,
-                            url: 'add_map',
-                            items: [
-                                {
-                                    xtype: 'fieldset',
-                                    x: 30,
-                                    y: 10,
-                                    height: 310,
-                                    width: 380,
+                                    xtype: 'panel',
+                                    region: 'center',
+                                    split: true,
+                                    id: 'panel_img',
                                     layout: 'absolute',
                                     title: '',
                                     items: [
                                         {
-                                            xtype: 'combobox',
-                                            x: 15,
-                                            y: 130,
-                                            width: 275,
-                                            fieldLabel: '上报年份',
-                                            name: 'businessUploaddate'
-                                        },
-                                        {
-                                            xtype: 'filefield',
-                                            x: 15,
-                                            y: 30,
-                                            fieldLabel: '选择文件',
-                                            name: 'mapPath'
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            x: 15,
-                                            y: 80,
-                                            fieldLabel: '企业名称',
-                                            name: 'businessName'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            handler: function(button, e) {
-                                                // var xtype = 'bus_information4';
-                                                // var mainView = Ext.getCmp('mainView');
-                                                // mainView.removeAll();
-                                                // mainView.add(Ext.widget(xtype));
-                                                var tab =Ext.getCmp('panel_info');// 'panel_info';
-                                                tab.setActiveTab(2);
-                                            },
-                                            x: 250,
-                                            y: 180,
-                                            width: 80,
-                                            text: '预览地图'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            handler: function(button, e) {
-                                                var myform = Ext.getCmp('bus_information3').getForm();
-                                                if (myform.isValid())
+                                            xtype: 'fieldset',
+                                            height: '100%',
+                                            width: '100%',
+                                            title: '照片预览',
+                                            items: [
                                                 {
-                                                    console.log('form is ava');
-                                                    myform.submit({
-                                                        //url : 'add_info',
-                                                        success : function (form, action)
+                                                    xtype: 'image',
+                                                    height: '100%',
+                                                    width: '100%',
+                                                    src: 'images/login/login_center_left.jpg'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'form',
+                                    region: 'west',
+                                    split: true,
+                                    autoScroll: true,
+                                    id: 'bus_information2',
+                                    width: '50%',
+                                    layout: 'absolute',
+                                    title: '',
+                                    jsonSubmit: true,
+                                    url: 'add_Photos',
+                                    items: [
+                                        {
+                                            xtype: 'fieldset',
+                                            x: 30,
+                                            y: 10,
+                                            height: 390,
+                                            width: 380,
+                                            layout: 'absolute',
+                                            title: '填写上传照片信息',
+                                            items: [
+                                                {
+                                                    xtype: 'datefield',
+                                                    x: 15,
+                                                    y: 220,
+                                                    width: '',
+                                                    fieldLabel: '填报日期',
+                                                    name: 'currrentDate'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    x: 15,
+                                                    y: 60,
+                                                    fieldLabel: '图片名称',
+                                                    name: 'photoTitle'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    x: 15,
+                                                    y: 180,
+                                                    width: 275,
+                                                    fieldLabel: '上报年份',
+                                                    name: 'businessUploaddate'
+                                                },
+                                                {
+                                                    xtype: 'filefield',
+                                                    x: 15,
+                                                    y: 20,
+                                                    fieldLabel: '选择照片',
+                                                    name: 'photoPath'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    x: 15,
+                                                    y: 100,
+                                                    fieldLabel: '企业名称',
+                                                    name: 'businessName'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    x: 15,
+                                                    y: 140,
+                                                    fieldLabel: '所属开发区',
+                                                    name: 'businessKfq',
+                                                    editable: false
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, e) {
+                                                        // var xtype = 'bus_information4';
+                                                        // var mainView = Ext.getCmp('mainView');
+                                                        // mainView.removeAll();
+                                                        // mainView.add(Ext.widget(xtype));
+                                                        var tab =Ext.getCmp('panel_info');// 'panel_info';
+                                                        tab.setActiveTab(2);
+                                                    },
+                                                    x: 250,
+                                                    y: 260,
+                                                    width: 80,
+                                                    text: '下一步'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, e) {
+                                                        var myform = Ext.getCmp('bus_information2').getForm();
+                                                        if (myform.isValid())
                                                         {
-                                                            Ext.Msg.alert('成功', '提交成功。');
-                                                            var mystore = Ext.StoreMgr.get('Business_mapStore'); //获得store对象
-                                                            mystore.reload();
-                                                            var xtype = 'information';
-                                                            var mainView = Ext.getCmp('mainView');
-                                                            mainView.removeAll();
-                                                            mainView.add(Ext.widget(xtype));
-                                                        },
-                                                        failure: function(form, action){
-                                                            Ext.Msg.alert('失败', '提交失败，请重试。');
+                                                            console.log('form is ava');
+                                                            myform.submit({
+                                                                //url : 'add_info',
+                                                                success : function (form, action)
+                                                                {
+                                                                    Ext.Msg.alert('成功', '提交成功。');
+                                                                    var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象
+                                                                    mystore.reload();
+                                                                    var xtype = 'information';
+                                                                    var mainView = Ext.getCmp('mainView');
+                                                                    mainView.removeAll();
+                                                                    mainView.add(Ext.widget(xtype));
+                                                                },
+                                                                failure: function(form, action){
+                                                                    Ext.Msg.alert('失败', '提交失败，请重试。');
+                                                                }
+                                                            });
                                                         }
-                                                    });
+                                                        else
+                                                        {
+                                                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                                        }
+                                                    },
+                                                    x: 250,
+                                                    y: 295,
+                                                    width: 80,
+                                                    text: '确认上传'
                                                 }
-                                                else
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'panel',
+                            region: 'south',
+                            split: true,
+                            height: 150,
+                            title: '上传照片列表',
+                            items: [
+                                {
+                                    xtype: 'gridpanel',
+                                    height: 150,
+                                    id: 'photo_infos',
+                                    title: '',
+                                    store: 'Business_photoStore',
+                                    columns: [
+                                        {
+                                            xtype: 'rownumberer',
+                                            dataIndex: '',
+                                            text: '序号'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'photoTitle',
+                                            text: '图片名称'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessName',
+                                            text: '企业名称'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessKfq',
+                                            text: '所属开发区'
+                                        }
+                                    ],
+                                    selModel: {
+                                        selType: 'checkboxmodel'
+                                    }
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    height: 48,
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: ''
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            text: '搜索'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            text: '编辑'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function(button, e) {
+                                                var grid = Ext.getCmp('photo_infos');
+                                                var records = grid.getSelection();
+                                                if (records.length === 0) {
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                                    return;
+                                                } else if (records.length > 1) {
+                                                    Ext.Msg.alert('提示', '每次只能 一条信息。');
+                                                    return;
+                                                }
+                                                var record = records[0];
+
+                                                Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，图片名称为：'+record.get('photoTitle')+'，<br/> 确认删除？', getResult);
+                                                function getResult(confirm)
                                                 {
-                                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                                    console.log('confirm:', confirm);
+                                                    if (confirm == "yes"){
+                                                        var id = record.get("id");
+                                                        console.log('id:',id);
+                                                        Ext.Ajax.request(
+                                                        {
+                                                            url : 'del_photo',
+                                                            params :
+                                                            {
+                                                                id : id
+                                                            },
+                                                            success : function (response){
+                                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                                //successResult();
+                                                                var mystore = Ext.StoreMgr.get('Business_photoStore');
+                                                                mystore.load();
+                                                            },
+                                                            failure : function (response){
+                                                                failedResult();
+                                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                            }
+                                                        });
+                                                    }
                                                 }
                                             },
-                                            x: 250,
-                                            y: 225,
-                                            width: 80,
-                                            text: '确认上报'
+                                            text: '删除'
                                         }
                                     ]
                                 }
@@ -815,121 +707,252 @@ Ext.define('MyApp.view.qy_addinformation', {
                 },
                 {
                     xtype: 'panel',
-                    region: 'south',
-                    split: true,
-                    height: 150,
-                    title: '位置信息',
+                    layout: 'border',
+                    title: '上传企业位置',
                     items: [
                         {
-                            xtype: 'gridpanel',
-                            height: 150,
-                            id: 'map_infos',
+                            xtype: 'panel',
+                            region: 'center',
+                            split: true,
+                            layout: 'border',
                             title: '',
-                            autoLoad: true,
-                            store: 'bussinessinformation',
-                            columns: [
-                                {
-                                    xtype: 'rownumberer',
-                                    dataIndex: '',
-                                    text: '序号'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessName',
-                                    text: '企业名称'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessAddress',
-                                    text: '企业地址'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessZdcode',
-                                    text: '宗地编号'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessEvalueRange',
-                                    text: '所属评价范围'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessIndustryType',
-                                    text: '行业类别'
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'businessIndustryCode',
-                                    text: '行业代码'
-                                }
-                            ],
-                            selModel: {
-                                selType: 'checkboxmodel'
-                            }
-                        }
-                    ],
-                    dockedItems: [
-                        {
-                            xtype: 'toolbar',
-                            dock: 'top',
-                            height: 48,
                             items: [
                                 {
-                                    xtype: 'textfield',
-                                    fieldLabel: ''
-                                },
-                                {
-                                    xtype: 'button',
-                                    text: '搜索'
-                                },
-                                {
-                                    xtype: 'button',
-                                    text: '编辑'
-                                },
-                                {
-                                    xtype: 'button',
-                                    handler: function(button, e) {
-                                        var grid = Ext.getCmp('map_infos');
-                                        var records = grid.getSelection();
-                                        if (records.length === 0) {
-                                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
-                                            return;
-                                        } else if (records.length > 1) {
-                                            Ext.Msg.alert('提示', '每次只能 一条信息。');
-                                            return;
-                                        }
-                                        var record = records[0];
-
-                                        Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，<br/> 确认删除？', getResult);
-                                        function getResult(confirm)
+                                    xtype: 'panel',
+                                    region: 'center',
+                                    split: true,
+                                    id: 'panel_img1',
+                                    layout: 'absolute',
+                                    title: '',
+                                    items: [
                                         {
-                                            console.log('confirm:', confirm);
-                                            if (confirm == "yes"){
-                                                var id = record.get("id");
-                                                console.log('id:',id);
-                                                Ext.Ajax.request(
-                                                {
-                                                    url : 'del_map',
-                                                    params :
-                                                    {
-                                                        id : id
-                                                    },
-                                                    success : function (response){
-                                                        Ext.Msg.alert('成功提示', '记录删除成功。');
-                                                        //successResult();
-                                                        var mystore = Ext.StoreMgr.get('bussinessinformation');
-                                                        mystore.load();
-                                                    },
-                                                    failure : function (response){
-                                                        failedResult();
-                                                        Ext.Msg.alert('失败提示', '记录删除失败。');
-                                                    }
-                                                });
+                                            xtype: 'fieldset',
+                                            height: '100%',
+                                            width: '100%',
+                                            title: '地图预览',
+                                            listeners: {
+                                                beforerender: 'onFieldsetBeforeRender'
                                             }
                                         }
-                                    },
-                                    text: '删除'
+                                    ]
+                                },
+                                {
+                                    xtype: 'form',
+                                    region: 'west',
+                                    split: true,
+                                    autoScroll: true,
+                                    id: 'bus_information3',
+                                    width: '50%',
+                                    layout: 'absolute',
+                                    title: '',
+                                    jsonSubmit: true,
+                                    url: 'add_map',
+                                    items: [
+                                        {
+                                            xtype: 'fieldset',
+                                            x: 30,
+                                            y: 10,
+                                            height: 310,
+                                            width: 380,
+                                            layout: 'absolute',
+                                            title: '',
+                                            items: [
+                                                {
+                                                    xtype: 'combobox',
+                                                    x: 15,
+                                                    y: 130,
+                                                    width: 275,
+                                                    fieldLabel: '上报年份',
+                                                    name: 'businessUploaddate'
+                                                },
+                                                {
+                                                    xtype: 'filefield',
+                                                    x: 15,
+                                                    y: 30,
+                                                    fieldLabel: '选择文件',
+                                                    name: 'mapPath'
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    x: 15,
+                                                    y: 80,
+                                                    fieldLabel: '企业名称',
+                                                    name: 'businessName'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, e) {
+                                                        // var xtype = 'bus_information4';
+                                                        // var mainView = Ext.getCmp('mainView');
+                                                        // mainView.removeAll();
+                                                        // mainView.add(Ext.widget(xtype));
+                                                        var tab =Ext.getCmp('panel_info');// 'panel_info';
+                                                        tab.setActiveTab(2);
+                                                    },
+                                                    x: 250,
+                                                    y: 180,
+                                                    width: 80,
+                                                    text: '预览地图'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, e) {
+                                                        var myform = Ext.getCmp('bus_information3').getForm();
+                                                        if (myform.isValid())
+                                                        {
+                                                            console.log('form is ava');
+                                                            myform.submit({
+                                                                //url : 'add_info',
+                                                                success : function (form, action)
+                                                                {
+                                                                    Ext.Msg.alert('成功', '提交成功。');
+                                                                    var mystore = Ext.StoreMgr.get('Business_mapStore'); //获得store对象
+                                                                    mystore.reload();
+                                                                    var xtype = 'information';
+                                                                    var mainView = Ext.getCmp('mainView');
+                                                                    mainView.removeAll();
+                                                                    mainView.add(Ext.widget(xtype));
+                                                                },
+                                                                failure: function(form, action){
+                                                                    Ext.Msg.alert('失败', '提交失败，请重试。');
+                                                                }
+                                                            });
+                                                        }
+                                                        else
+                                                        {
+                                                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                                        }
+                                                    },
+                                                    x: 250,
+                                                    y: 225,
+                                                    width: 80,
+                                                    text: '确认上报'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'panel',
+                            region: 'south',
+                            split: true,
+                            height: 150,
+                            title: '位置信息',
+                            items: [
+                                {
+                                    xtype: 'gridpanel',
+                                    height: 150,
+                                    id: 'map_infos',
+                                    title: '',
+                                    autoLoad: true,
+                                    store: 'bussinessinformation',
+                                    columns: [
+                                        {
+                                            xtype: 'rownumberer',
+                                            dataIndex: '',
+                                            text: '序号'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessName',
+                                            text: '企业名称'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessAddress',
+                                            text: '企业地址'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessZdcode',
+                                            text: '宗地编号'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessEvalueRange',
+                                            text: '所属评价范围'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessIndustryType',
+                                            text: '行业类别'
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'businessIndustryCode',
+                                            text: '行业代码'
+                                        }
+                                    ],
+                                    selModel: {
+                                        selType: 'checkboxmodel'
+                                    }
+                                }
+                            ],
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    height: 48,
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            fieldLabel: ''
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            text: '搜索'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            text: '编辑'
+                                        },
+                                        {
+                                            xtype: 'button',
+                                            handler: function(button, e) {
+                                                var grid = Ext.getCmp('map_infos');
+                                                var records = grid.getSelection();
+                                                if (records.length === 0) {
+                                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                                    return;
+                                                } else if (records.length > 1) {
+                                                    Ext.Msg.alert('提示', '每次只能 一条信息。');
+                                                    return;
+                                                }
+                                                var record = records[0];
+
+                                                Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，<br/> 确认删除？', getResult);
+                                                function getResult(confirm)
+                                                {
+                                                    console.log('confirm:', confirm);
+                                                    if (confirm == "yes"){
+                                                        var id = record.get("id");
+                                                        console.log('id:',id);
+                                                        Ext.Ajax.request(
+                                                        {
+                                                            url : 'del_map',
+                                                            params :
+                                                            {
+                                                                id : id
+                                                            },
+                                                            success : function (response){
+                                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                                //successResult();
+                                                                var mystore = Ext.StoreMgr.get('bussinessinformation');
+                                                                mystore.load();
+                                                            },
+                                                            failure : function (response){
+                                                                failedResult();
+                                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            },
+                                            text: '删除'
+                                        }
+                                    ]
                                 }
                             ]
                         }

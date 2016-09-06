@@ -410,7 +410,7 @@ Ext.define('MyApp.view.taskNotice', {
         win.show();
 
         //改变Ajax url
-        var form = Ext.getCmp('update_zdwidinfo').getForm();
+        var form = Ext.getCmp('add_zdwidinfo').getForm();
         form.loadRecord(models[0]);
         form.url = 'update_zdInfo';
     }
