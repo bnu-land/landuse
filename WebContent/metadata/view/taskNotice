@@ -179,7 +179,7 @@
                             "userConfig": {
                                 "fn": "handler",
                                 "implHandler": [
-                                    "Ext.Msg.alert(\"信息提示\",\"本年度任务已下发至各单位\",getResult);",
+                                    "Ext.Msg.alert(\"信息提示\",\"本年度任务已下发至各单位\");",
                                     "//Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);",
                                     "//console.log(id);",
                                     "",
@@ -190,7 +190,7 @@
                                     "        Ext.Ajax.request(",
                                     "        {",
                                     "            url : 'add_task',",
-                                    "           ",
+                                    "",
                                     "            success : function (response){",
                                     "                Ext.Msg.alert('成功提示', '记录删除成功。');",
                                     "                var mystore = Ext.StoreMgr.get('taskStore');",

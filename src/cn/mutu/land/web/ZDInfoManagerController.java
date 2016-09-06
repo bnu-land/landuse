@@ -115,7 +115,8 @@ public class ZDInfoManagerController {
 			Map<String, Object> result = new HashMap<String, Object>();
 			try {
 				System.out.println("mapId="+zdinfo.getId());
-				
+				String date=zdinfo.getGysj();
+				zdinfo.setGysj(date.substring(0, 10));
 				this.zdinfoService.updateZdInfo(zdinfo);
 				result.put("success", true);
 				result.put("msg", ",successfully saved");

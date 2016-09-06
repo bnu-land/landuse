@@ -51,6 +51,14 @@ Ext.define('MyApp.view.kfqChangeWindow', {
                     items: [
                         {
                             xtype: 'textfield',
+                            hidden: true,
+                            width: 325,
+                            fieldLabel: '开发区名称',
+                            labelWidth: 150,
+                            name: 'id'
+                        },
+                        {
+                            xtype: 'textfield',
                             width: 325,
                             fieldLabel: '开发区名称',
                             labelWidth: 150,
@@ -205,6 +213,9 @@ Ext.define('MyApp.view.kfqChangeWindow', {
                 },
                 {
                     xtype: 'button',
+                    handler: function(button, e) {
+
+                    },
                     text: '确认调整'
                 }
             ]

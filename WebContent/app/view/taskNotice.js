@@ -91,7 +91,7 @@ Ext.define('MyApp.view.taskNotice', {
                 {
                     xtype: 'button',
                     handler: function() {
-                        Ext.Msg.alert("信息提示","本年度任务已下发至各单位",getResult);
+                        Ext.Msg.alert("信息提示","本年度任务已下发至各单位");
                         //Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);
                         //console.log(id);
 

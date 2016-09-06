@@ -66,6 +66,24 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "fieldLabel": "开发区名称",
+                        "hidden": true,
+                        "layout|x": 20,
+                        "layout|y": 510,
+                        "name": "id",
+                        "width": 220
+                    },
+                    "name": "MyTextField38",
+                    "designerId": "e9db25b4-c843-4b3a-85af-6920c20c9f2e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "fieldLabel": "图斑编号",
                         "layout|x": 30,
                         "layout|y": 60,
@@ -756,11 +774,22 @@
                 "fn": "onAdd_zdinfoAfterRender",
                 "implHandler": [
                     "var title=this.getTitle();",
+                    "var form=Ext.getCmp('add_zdwidinfo').getForm();",
                     "var button=Ext.getCmp('addZdConfirm');",
+                    " console.log(form.url);",
                     "if(title==\"查看宗地信息\")",
                     "    {",
                     "        button.setHidden(true);",
-                    "    }"
+                    "    }",
+                    "if(title==\"修改宗地信息\")",
+                    "{",
+                    "    form.url='upload_zdinfo';",
+                    "}",
+                    "if(title==\"添加宗地信息\")",
+                    "{",
+                    "    form.url='add_zdinfo';",
+                    "    console.log(form.url);",
+                    "}"
                 ],
                 "name": "afterrender",
                 "scope": "me"

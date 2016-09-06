@@ -42,7 +42,7 @@ Ext.define('MyApp.view.mytest', {
     },
     height: 750,
     id: 'business_addinformation',
-    width: 771,
+    width: 830,
     layout: 'border',
     title: '数据填报',
     defaultListenerScope: true,
@@ -376,47 +376,47 @@ Ext.define('MyApp.view.mytest', {
                 },
                 {
                     xtype: 'panel',
+                    width: 769,
                     layout: 'border',
                     title: '上传企业照片',
                     items: [
                         {
                             xtype: 'panel',
                             region: 'center',
-                            split: true,
-                            layout: 'border',
+                            split: false,
+                            id: 'panel_img2',
+                            layout: 'anchor',
                             title: '',
                             items: [
                                 {
-                                    xtype: 'panel',
-                                    region: 'center',
-                                    split: true,
-                                    id: 'panel_img2',
-                                    layout: 'absolute',
-                                    title: '',
+                                    xtype: 'fieldset',
+                                    height: 679,
+                                    width: 604,
+                                    title: '照片预览',
                                     items: [
                                         {
-                                            xtype: 'fieldset',
+                                            xtype: 'image',
                                             height: '100%',
                                             width: '100%',
-                                            title: '照片预览',
-                                            items: [
-                                                {
-                                                    xtype: 'image',
-                                                    height: '100%',
-                                                    width: '100%',
-                                                    src: 'images/login/login_center_left.jpg'
-                                                }
-                                            ]
+                                            src: 'images/login/login_center_left.jpg'
                                         }
                                     ]
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'panel',
+                            region: 'west',
+                            split: false,
+                            width: 365,
+                            layout: 'border',
+                            title: '',
+                            dockedItems: [
                                 {
                                     xtype: 'form',
-                                    region: 'west',
                                     split: true,
-                                    autoScroll: true,
+                                    dock: 'top',
                                     id: 'bus_information4',
-                                    width: '50%',
                                     layout: 'absolute',
                                     title: '',
                                     jsonSubmit: true,
@@ -426,52 +426,39 @@ Ext.define('MyApp.view.mytest', {
                                             xtype: 'fieldset',
                                             x: 30,
                                             y: 10,
-                                            height: 390,
-                                            width: 380,
-                                            layout: 'absolute',
+                                            height: 240,
+                                            width: 320,
                                             title: '填写上传照片信息',
                                             items: [
                                                 {
                                                     xtype: 'datefield',
-                                                    x: 15,
-                                                    y: 220,
                                                     width: '',
                                                     fieldLabel: '填报日期',
                                                     name: 'currrentDate'
                                                 },
                                                 {
                                                     xtype: 'textfield',
-                                                    x: 15,
-                                                    y: 60,
                                                     fieldLabel: '图片名称',
                                                     name: 'photoTitle'
                                                 },
                                                 {
                                                     xtype: 'combobox',
-                                                    x: 15,
-                                                    y: 180,
                                                     width: 275,
                                                     fieldLabel: '上报年份',
                                                     name: 'businessUploaddate'
                                                 },
                                                 {
                                                     xtype: 'filefield',
-                                                    x: 15,
-                                                    y: 20,
                                                     fieldLabel: '选择照片',
                                                     name: 'photoPath'
                                                 },
                                                 {
                                                     xtype: 'combobox',
-                                                    x: 15,
-                                                    y: 100,
                                                     fieldLabel: '企业名称',
                                                     name: 'businessName'
                                                 },
                                                 {
                                                     xtype: 'textfield',
-                                                    x: 15,
-                                                    y: 140,
                                                     fieldLabel: '所属开发区',
                                                     name: 'businessKfq',
                                                     editable: false
@@ -486,8 +473,6 @@ Ext.define('MyApp.view.mytest', {
                                                         var tab =Ext.getCmp('panel_info');// 'panel_info';
                                                         tab.setActiveTab(2);
                                                     },
-                                                    x: 250,
-                                                    y: 260,
                                                     width: 80,
                                                     text: '下一步'
                                                 },
@@ -520,8 +505,6 @@ Ext.define('MyApp.view.mytest', {
                                                             Ext.Msg.alert('注意', '填写的信息有误，请检查！');
                                                         }
                                                     },
-                                                    x: 250,
-                                                    y: 295,
                                                     width: 80,
                                                     text: '确认上传'
                                                 }
@@ -529,109 +512,111 @@ Ext.define('MyApp.view.mytest', {
                                         }
                                     ]
                                 }
-                            ]
-                        },
-                        {
-                            xtype: 'panel',
-                            region: 'south',
-                            split: true,
-                            height: 150,
-                            title: '上传照片列表',
+                            ],
                             items: [
                                 {
-                                    xtype: 'gridpanel',
-                                    height: 150,
-                                    id: 'photo_infos1',
-                                    title: '',
-                                    store: 'Business_photoStore',
-                                    columns: [
-                                        {
-                                            xtype: 'rownumberer',
-                                            dataIndex: '',
-                                            text: '序号'
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'photoTitle',
-                                            text: '图片名称'
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'businessName',
-                                            text: '企业名称'
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'businessKfq',
-                                            text: '所属开发区'
-                                        }
-                                    ],
-                                    selModel: {
-                                        selType: 'checkboxmodel'
-                                    }
-                                }
-                            ],
-                            dockedItems: [
-                                {
-                                    xtype: 'toolbar',
-                                    dock: 'top',
-                                    height: 48,
+                                    xtype: 'panel',
+                                    region: 'north',
+                                    split: true,
+                                    height: 295,
+                                    title: '上传照片列表',
                                     items: [
                                         {
-                                            xtype: 'textfield',
-                                            fieldLabel: ''
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            text: '搜索'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            text: '编辑'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            handler: function(button, e) {
-                                                var grid = Ext.getCmp('photo_infos');
-                                                var records = grid.getSelection();
-                                                if (records.length === 0) {
-                                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
-                                                    return;
-                                                } else if (records.length > 1) {
-                                                    Ext.Msg.alert('提示', '每次只能 一条信息。');
-                                                    return;
-                                                }
-                                                var record = records[0];
-
-                                                Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，图片名称为：'+record.get('photoTitle')+'，<br/> 确认删除？', getResult);
-                                                function getResult(confirm)
+                                            xtype: 'gridpanel',
+                                            height: 150,
+                                            id: 'photo_infos1',
+                                            title: '',
+                                            store: 'Business_photoStore',
+                                            columns: [
                                                 {
-                                                    console.log('confirm:', confirm);
-                                                    if (confirm == "yes"){
-                                                        var id = record.get("id");
-                                                        console.log('id:',id);
-                                                        Ext.Ajax.request(
-                                                        {
-                                                            url : 'del_photo',
-                                                            params :
-                                                            {
-                                                                id : id
-                                                            },
-                                                            success : function (response){
-                                                                Ext.Msg.alert('成功提示', '记录删除成功。');
-                                                                //successResult();
-                                                                var mystore = Ext.StoreMgr.get('Business_photoStore');
-                                                                mystore.load();
-                                                            },
-                                                            failure : function (response){
-                                                                failedResult();
-                                                                Ext.Msg.alert('失败提示', '记录删除失败。');
-                                                            }
-                                                        });
-                                                    }
+                                                    xtype: 'rownumberer',
+                                                    dataIndex: '',
+                                                    text: '序号'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'photoTitle',
+                                                    text: '图片名称'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'businessName',
+                                                    text: '企业名称'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'businessKfq',
+                                                    text: '所属开发区'
                                                 }
-                                            },
-                                            text: '删除'
+                                            ],
+                                            selModel: {
+                                                selType: 'checkboxmodel'
+                                            }
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            height: 48,
+                                            items: [
+                                                {
+                                                    xtype: 'textfield',
+                                                    fieldLabel: ''
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: '搜索'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    text: '编辑'
+                                                },
+                                                {
+                                                    xtype: 'button',
+                                                    handler: function(button, e) {
+                                                        var grid = Ext.getCmp('photo_infos');
+                                                        var records = grid.getSelection();
+                                                        if (records.length === 0) {
+                                                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                                            return;
+                                                        } else if (records.length > 1) {
+                                                            Ext.Msg.alert('提示', '每次只能 一条信息。');
+                                                            return;
+                                                        }
+                                                        var record = records[0];
+
+                                                        Ext.Msg.confirm('您正在删除', '企业：' + record.get('businessName') + '，图片名称为：'+record.get('photoTitle')+'，<br/> 确认删除？', getResult);
+                                                        function getResult(confirm)
+                                                        {
+                                                            console.log('confirm:', confirm);
+                                                            if (confirm == "yes"){
+                                                                var id = record.get("id");
+                                                                console.log('id:',id);
+                                                                Ext.Ajax.request(
+                                                                {
+                                                                    url : 'del_photo',
+                                                                    params :
+                                                                    {
+                                                                        id : id
+                                                                    },
+                                                                    success : function (response){
+                                                                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                                        //successResult();
+                                                                        var mystore = Ext.StoreMgr.get('Business_photoStore');
+                                                                        mystore.load();
+                                                                    },
+                                                                    failure : function (response){
+                                                                        failedResult();
+                                                                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                                    }
+                                                                });
+                                                            }
+                                                        }
+                                                    },
+                                                    text: '删除'
+                                                }
+                                            ]
                                         }
                                     ]
                                 }

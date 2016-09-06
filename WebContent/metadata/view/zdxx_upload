@@ -127,7 +127,7 @@
                     "userConfig": {
                         "icon": "images/table/add.png",
                         "layout|flex": null,
-                        "text": "添加宗地信息"
+                        "text": "添加"
                     },
                     "name": "MyButton17",
                     "designerId": "194582a9-4a39-4c85-bb4f-785bf2d175f4",
@@ -166,7 +166,7 @@
                     "userConfig": {
                         "icon": "images/table/edit.png",
                         "layout|flex": null,
-                        "text": "编辑宗地信息"
+                        "text": "编辑"
                     },
                     "name": "MyButton18",
                     "designerId": "47d39d05-4dd9-46f4-a55b-6d311b67da84",

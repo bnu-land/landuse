@@ -59,12 +59,29 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "开发区名称",
+                                "hidden": true,
                                 "labelWidth": 150,
-                                "name": "kfqmc",
+                                "name": "id",
                                 "width": 325
                             },
                             "name": "MyTextField35",
                             "designerId": "c37c254a-ca11-4456-add9-1e36a9ccbab4"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区名称",
+                                "labelWidth": 150,
+                                "name": "kfqmc",
+                                "width": 325
+                            },
+                            "name": "MyTextField56",
+                            "designerId": "25621738-c240-48a7-883d-faa0b44b39c3"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -415,7 +432,29 @@
                         "text": "确认调整"
                     },
                     "name": "MyButton22",
-                    "designerId": "ed38dded-f66d-4fd8-9357-091a2a791702"
+                    "designerId": "ed38dded-f66d-4fd8-9357-091a2a791702",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "a2173e9b-b1e9-4270-84dc-2709c2dc5cf3"
+                        }
+                    ]
                 }
             ]
         }

@@ -61,6 +61,15 @@ Ext.define('MyApp.view.add_zdinnfo', {
                 },
                 {
                     xtype: 'textfield',
+                    x: 20,
+                    y: 510,
+                    hidden: true,
+                    width: 220,
+                    fieldLabel: '开发区名称',
+                    name: 'id'
+                },
+                {
+                    xtype: 'textfield',
                     x: 30,
                     y: 60,
                     width: 220,
@@ -422,11 +431,22 @@ Ext.define('MyApp.view.add_zdinnfo', {
 
     onAdd_zdinfoAfterRender: function(component, eOpts) {
         var title=this.getTitle();
+        var form=Ext.getCmp('add_zdwidinfo').getForm();
         var button=Ext.getCmp('addZdConfirm');
+         console.log(form.url);
         if(title=="查看宗地信息")
             {
                 button.setHidden(true);
             }
+        if(title=="修改宗地信息")
+        {
+            form.url='upload_zdinfo';
+        }
+        if(title=="添加宗地信息")
+        {
+            form.url='add_zdinfo';
+            console.log(form.url);
+        }
     }
 
 });

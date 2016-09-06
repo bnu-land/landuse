@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.mutu.land.model.KfqInfomation;
 import cn.mutu.land.model.TaskInfo;
+import cn.mutu.land.model.ZdInfo;
 
 
 
@@ -48,5 +50,22 @@ public class KfqInfoManagerService {
 		myMapResult.put("success", true);
 		return myMapResult;
 	}
-	
+	@SuppressWarnings("unchecked")
+	public void addkfq(KfqInfomation kfqInfomation) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			session.save(kfqInfomation);
+		} catch (Exception er) {
+			System.out.println(er.getMessage());
+		}
+	}
+	// 编辑
+			public void updatekfqInfo(KfqInfomation kfqInfomation) {
+				Session session = sessionFactory.getCurrentSession();
+				try {
+					session.saveOrUpdate(kfqInfomation);
+				} catch (Exception er) {
+					System.out.println(er.getMessage());
+				}
+			}
 }

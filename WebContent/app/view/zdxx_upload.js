@@ -68,7 +68,7 @@ Ext.define('MyApp.view.zdxx_upload', {
                         win.show();
                     },
                     icon: 'images/table/add.png',
-                    text: '添加宗地信息'
+                    text: '添加'
                 },
                 {
                     xtype: 'button',
@@ -93,7 +93,7 @@ Ext.define('MyApp.view.zdxx_upload', {
                         form.url = 'update_zdInfo';
                     },
                     icon: 'images/table/edit.png',
-                    text: '编辑宗地信息'
+                    text: '编辑'
                 }
             ]
         }
