@@ -6,15 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|snapToGrid": 10,
         "designer|userAlias": "win_kfqinfo_add",
         "designer|userClassName": "win_kfqinfo_add",
         "height": 575,
         "id": "win_kfqInfo_add",
-        "layout": "absolute",
         "title": "新增开发区信息表单",
         "titleAlign": "center",
-        "width": 836
+        "width": 427
     },
     "name": "MyWindow",
     "designerId": "e2c4341f-2033-4969-ade9-7ef2186b58d4",
@@ -31,11 +29,12 @@
             "userConfig": {
                 "autoScroll": true,
                 "bodyPadding": 10,
-                "height": 691,
+                "height": 700,
                 "id": "form_kfqinfo_add",
                 "layout": "auto",
                 "title": "",
-                "width": 820
+                "url": "add_kfqinfo",
+                "width": 405
             },
             "name": "MyForm5",
             "designerId": "61229688-c07b-4b77-a009-889a4a8c5db1",
@@ -49,7 +48,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout": "auto",
-                        "title": "",
+                        "title": "开发区基本信息",
                         "width": 361
                     },
                     "name": "MyFieldSet4",
@@ -120,6 +119,7 @@
                                 "labelAlign": "right",
                                 "labelWidth": 150,
                                 "name": "slsj",
+                                "submitValue": false,
                                 "width": 325
                             },
                             "name": "MyDateField1",
@@ -258,6 +258,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "开发区评价面积（hm2）",
+                                "labelAlign": "right",
                                 "labelWidth": 150,
                                 "name": "MKfqpjmj"
                             },
@@ -273,6 +274,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "土地开发率(%)",
+                                "labelAlign": "right",
                                 "labelWidth": 150,
                                 "name": "MTdkfl"
                             },
@@ -288,6 +290,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "常住人口(人)",
+                                "labelAlign": "right",
                                 "labelWidth": 150,
                                 "name": "MCzrk"
                             },
@@ -394,6 +397,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "designer|displayName": "",
                         "height": 376,
                         "layout": "auto",
                         "title": "发展方向区",
@@ -538,153 +542,153 @@
                             "designerId": "843fc47d-189b-495a-a82a-21330e5eb541"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "height": 38
+            },
+            "name": "MyToolbar7",
+            "designerId": "2ca3d421-c716-4f73-b622-2905dd34e8cc",
+            "cn": [
                 {
-                    "type": "Ext.toolbar.Toolbar",
+                    "type": "Ext.toolbar.Fill",
                     "reference": {
-                        "name": "dockedItems",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": "bottom",
-                        "height": 38
+                        "layout|flex": null
                     },
-                    "name": "MyToolbar7",
-                    "designerId": "2ca3d421-c716-4f73-b622-2905dd34e8cc",
+                    "name": "MyFill3",
+                    "designerId": "6990a44d-4f96-4e48-aee0-9e6148b1dabc"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "取       消"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "7b1fce97-846c-4c6d-af63-233520ac2762",
                     "cn": [
                         {
-                            "type": "Ext.toolbar.Fill",
+                            "type": "fixedfunction",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "layout|flex": null
+                                "fn": "handler",
+                                "implHandler": [
+                                    "Ext.getCmp('win_kfqInfo_add').close();"
+                                ]
                             },
-                            "name": "MyFill3",
-                            "designerId": "6990a44d-4f96-4e48-aee0-9e6148b1dabc"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "text": "取       消"
-                            },
-                            "name": "MyButton7",
-                            "designerId": "7b1fce97-846c-4c6d-af63-233520ac2762",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "Ext.getCmp('win_kfqInfo_add').close();"
-                                        ]
-                                    },
-                                    "name": "handler",
-                                    "designerId": "6a579bc0-5805-4039-b3dd-35bf49f99348"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.toolbar.Spacer",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "width": 20
-                            },
-                            "name": "MySpacer2",
-                            "designerId": "2c3bdb46-2640-451f-9ea2-29a501453d2f"
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "text": "增  添"
-                            },
-                            "name": "MyButton8",
-                            "designerId": "b1dd6eb6-90c9-408d-b4b3-98aad2518702",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "//添加开发区信息,url:add_kfqinfo",
-                                            "",
-                                            "var myform = Ext.getCmp('form_kfqinfo_add').getForm();",
-                                            "if (myform.isValid())",
-                                            "{",
-                                            "    console.log('form is ava');",
-                                            "    myform.submit({",
-                                            "        url : 'add_kfqinfo',",
-                                            "        success : function (form, action)",
-                                            "        {",
-                                            "            Ext.Msg.alert('成功', '内容添加成功。');",
-                                            "            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
-                                            "            mystore.reload();",
-                                            "",
-                                            "            var win = Ext.getCmp('form_kfqinfo_add');",
-                                            "            win.close();",
-                                            "",
-                                            "        },",
-                                            "        failure: function(form, action){",
-                                            "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
-                                            "        }",
-                                            "    });",
-                                            "}",
-                                            "else",
-                                            "{",
-                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
-                                            "}"
-                                        ]
-                                    },
-                                    "name": "handler",
-                                    "designerId": "a484d687-2852-4309-8f53-91322c3a7fa0"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.toolbar.Spacer",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|flex": null,
-                                "width": 20
-                            },
-                            "name": "MySpacer3",
-                            "designerId": "cb6f4d83-9336-41ee-a30f-a8c94ded0e86"
+                            "name": "handler",
+                            "designerId": "6a579bc0-5805-4039-b3dd-35bf49f99348"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.toolbar.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 20
+                    },
+                    "name": "MySpacer2",
+                    "designerId": "2c3bdb46-2640-451f-9ea2-29a501453d2f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "增  添"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "b1dd6eb6-90c9-408d-b4b3-98aad2518702",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "//添加开发区信息,url:add_kfqinfo",
+                                    "",
+                                    "var myform = Ext.getCmp('form_kfqinfo_add').getForm();",
+                                    "if (myform.isValid())",
+                                    "{",
+                                    "    console.log('form is ava');",
+                                    "    myform.submit({",
+                                    "        //url : 'add_kfqinfo',",
+                                    "        success : function (form, action)",
+                                    "        {",
+                                    "            Ext.Msg.alert('成功', '内容添加成功。');",
+                                    "            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "            mystore.reload();",
+                                    "",
+                                    "            var win = Ext.getCmp('form_kfqinfo_add');",
+                                    "            win.close();",
+                                    "",
+                                    "        },",
+                                    "        failure: function(form, action){",
+                                    "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "a484d687-2852-4309-8f53-91322c3a7fa0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 20
+                    },
+                    "name": "MySpacer3",
+                    "designerId": "cb6f4d83-9336-41ee-a30f-a8c94ded0e86"
                 }
             ]
         }

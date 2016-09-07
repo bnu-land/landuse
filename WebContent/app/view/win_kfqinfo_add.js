@@ -33,8 +33,7 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
     },
     height: 575,
     id: 'win_kfqInfo_add',
-    width: 836,
-    layout: 'absolute',
+    width: 427,
     title: '新增开发区信息表单',
     titleAlign: 'center',
 
@@ -42,18 +41,19 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
         {
             xtype: 'form',
             autoScroll: true,
-            height: 691,
+            height: 700,
             id: 'form_kfqinfo_add',
-            width: 820,
+            width: 405,
             layout: 'auto',
             bodyPadding: 10,
             title: '',
+            url: 'add_kfqinfo',
             items: [
                 {
                     xtype: 'fieldset',
                     width: 361,
                     layout: 'auto',
-                    title: '',
+                    title: '开发区基本信息',
                     items: [
                         {
                             xtype: 'textfield',
@@ -87,6 +87,7 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                             labelAlign: 'right',
                             labelWidth: 150,
                             name: 'slsj',
+                            submitValue: false,
                             format: 'Y-m-d'
                         },
                         {
@@ -153,18 +154,21 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                         {
                             xtype: 'textfield',
                             fieldLabel: '开发区评价面积（hm2）',
+                            labelAlign: 'right',
                             labelWidth: 150,
                             name: 'MKfqpjmj'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: '土地开发率(%)',
+                            labelAlign: 'right',
                             labelWidth: 150,
                             name: 'MTdkfl'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: '常住人口(人)',
+                            labelAlign: 'right',
                             labelWidth: 150,
                             name: 'MCzrk'
                         },
@@ -269,65 +273,65 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                         }
                     ]
                 }
-            ],
-            dockedItems: [
+            ]
+        }
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'bottom',
+            height: 38,
+            items: [
                 {
-                    xtype: 'toolbar',
-                    dock: 'bottom',
-                    height: 38,
-                    items: [
-                        {
-                            xtype: 'tbfill'
-                        },
-                        {
-                            xtype: 'button',
-                            handler: function() {
-                                Ext.getCmp('win_kfqInfo_add').close();
-                            },
-                            text: '取       消'
-                        },
-                        {
-                            xtype: 'tbspacer',
-                            width: 20
-                        },
-                        {
-                            xtype: 'button',
-                            handler: function() {
-                                //添加开发区信息,url:add_kfqinfo
+                    xtype: 'tbfill'
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        Ext.getCmp('win_kfqInfo_add').close();
+                    },
+                    text: '取       消'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 20
+                },
+                {
+                    xtype: 'button',
+                    handler: function() {
+                        //添加开发区信息,url:add_kfqinfo
 
-                                var myform = Ext.getCmp('form_kfqinfo_add').getForm();
-                                if (myform.isValid())
+                        var myform = Ext.getCmp('form_kfqinfo_add').getForm();
+                        if (myform.isValid())
+                        {
+                            console.log('form is ava');
+                            myform.submit({
+                                //url : 'add_kfqinfo',
+                                success : function (form, action)
                                 {
-                                    console.log('form is ava');
-                                    myform.submit({
-                                        url : 'add_kfqinfo',
-                                        success : function (form, action)
-                                        {
-                                            Ext.Msg.alert('成功', '内容添加成功。');
-                                            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
-                                            mystore.reload();
+                                    Ext.Msg.alert('成功', '内容添加成功。');
+                                    var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                                    mystore.reload();
 
-                                            var win = Ext.getCmp('form_kfqinfo_add');
-                                            win.close();
+                                    var win = Ext.getCmp('form_kfqinfo_add');
+                                    win.close();
 
-                                        },
-                                        failure: function(form, action){
-                                            Ext.Msg.alert('失败', '内容添加失败，请重试。');
-                                        }
-                                    });
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '内容添加失败，请重试。');
                                 }
-                                else
-                                {
-                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
-                                }
-                            },
-                            text: '增  添'
-                        },
-                        {
-                            xtype: 'tbspacer',
-                            width: 20
+                            });
                         }
-                    ]
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
+                    },
+                    text: '增  添'
+                },
+                {
+                    xtype: 'tbspacer',
+                    width: 20
                 }
             ]
         }

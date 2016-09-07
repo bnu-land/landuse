@@ -148,6 +148,7 @@ Ext.define('MyApp.view.add_zdinnfo', {
                     width: 220,
                     fieldLabel: '供应时间',
                     name: 'gysj',
+                    allowBlank: false,
                     format: 'Y-m-d'
                 },
                 {

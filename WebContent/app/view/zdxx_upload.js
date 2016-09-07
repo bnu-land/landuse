@@ -255,7 +255,7 @@ Ext.define('MyApp.view.zdxx_upload', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'qyssze',
+                    dataIndex: 'check',
                     text: '工业企业工业物流企业税收总额（万元/年）'
                 },
                 {
@@ -269,6 +269,9 @@ Ext.define('MyApp.view.zdxx_upload', {
             }
         }
     ],
+    listeners: {
+        afterrender: 'onPanelAfterRender'
+    },
 
     onSearchKeyword_zdInfoChange: function(field, newValue, oldValue, eOpts) {
         var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();
@@ -280,6 +283,18 @@ Ext.define('MyApp.view.zdxx_upload', {
                 params :
                 {
                     searchKeyword : newValue
+                }
+            }
+        );
+    },
+
+    onPanelAfterRender: function(component, eOpts) {
+        var mystore=Ext.StoreMgr.get('zd_infoStore');
+        mystore.load(
+            {
+                params :
+                {
+                    searchKeyword : ''
                 }
             }
         );

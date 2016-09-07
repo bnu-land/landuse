@@ -644,7 +644,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "qyssze",
+                        "dataIndex": "check",
                         "text": "工业企业工业物流企业税收总额（万元/年）"
                     },
                     "name": "MyColumn45",
@@ -685,6 +685,32 @@
                     "designerId": "057897ae-6b9b-42b3-a07f-3fd6979e48c9"
                 }
             ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    "var mystore=Ext.StoreMgr.get('zd_infoStore');",
+                    "mystore.load(",
+                    "    {",
+                    "        params :",
+                    "        {",
+                    "            searchKeyword : ''",
+                    "        }",
+                    "    }",
+                    ");"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "1b0fc6a0-9ec0-4dac-8a3c-cacb3d0d2cd9"
         }
     ]
 }

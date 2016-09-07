@@ -288,7 +288,7 @@ Ext.define('MyApp.view.dxqy_upload', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'qyssze',
+                    dataIndex: 'check',
                     text: '工业企业工业物流企业税收总额（万元/年）'
                 },
                 {
