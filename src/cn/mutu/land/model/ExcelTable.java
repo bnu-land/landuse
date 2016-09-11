@@ -31,7 +31,7 @@ public class ExcelTable {
 		
 	//public static final String []F3={"SLSJ","M_KQTZSJ","M_KQTZMJ","SPTDZMJ","M_KQTZHMJ"};
 	
-	public static Map<String ,Object>getF1(KfqInfomation o){
+	public static Map<String ,Object>getF1(DevInfo o){
 		 Map<String ,Object> result=new TreeMap<String, Object>();
 		 result.put("KFQMC",o.getKfqmc());
 		 result.put("KFQMC",o.getKfqmc());

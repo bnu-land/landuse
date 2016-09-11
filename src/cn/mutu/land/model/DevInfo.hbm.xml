@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-10 18:27:58 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-11 11:46:43 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.DevInfo" table="dev_info" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -12,28 +12,44 @@
             <column name="KFQDM" length="7" />
         </property>
         <property name="kfqmc" type="string">
-            <column name="KFQMC" length="60" />
+            <column name="KFQMC" length="60">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#195;&#251;&#179;&#198;</comment>
+            </column>
         </property>
         <property name="kfqjb" type="string">
-            <column name="KFQJB" length="10" />
+            <column name="KFQJB" length="10">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#188;&#182;&#177;&#240;</comment>
+            </column>
         </property>
         <property name="kfqsplx" type="string">
-            <column name="KFQSPLX" length="10" />
+            <column name="KFQSPLX" length="10">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#201;&#243;&#197;&#250;&#192;&#224;&#208;&#205;</comment>
+            </column>
         </property>
         <property name="kfqpjfw" type="string">
-            <column name="KFQPJFW" length="10" />
+            <column name="KFQPJFW" length="10">
+                <comment>&#191;&#170;&#183;&#162;&#199;&#248;&#198;&#192;&#188;&#219;&#183;&#182;&#206;&#167;</comment>
+            </column>
         </property>
         <property name="slsj" type="string">
-            <column name="SLSJ" length="6" />
+            <column name="SLSJ" length="6">
+                <comment>&#201;&#232;&#193;&#162;&#202;&#177;&#188;&#228;</comment>
+            </column>
         </property>
         <property name="spdw" type="string">
-            <column name="SPDW" length="60" />
+            <column name="SPDW" length="60">
+                <comment>&#201;&#243;&#197;&#250;&#181;&#165;&#206;&#187;</comment>
+            </column>
         </property>
         <property name="gljg" type="string">
-            <column name="GLJG" length="60" />
+            <column name="GLJG" length="60">
+                <comment>&#185;&#220;&#192;&#237;&#187;&#250;&#185;&#185;</comment>
+            </column>
         </property>
         <property name="gljgdz" type="string">
-            <column name="GLJGDZ" length="120" />
+            <column name="GLJGDZ" length="120">
+                <comment>&#185;&#220;&#192;&#237;&#187;&#250;&#185;&#185;&#181;&#216;&#214;&#183;</comment>
+            </column>
         </property>
         <property name="zdcy" type="string">
             <column name="ZDCY" length="120" />

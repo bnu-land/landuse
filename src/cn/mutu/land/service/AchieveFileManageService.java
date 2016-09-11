@@ -25,7 +25,7 @@ import cn.mutu.land.common.ZipCompressing;
 import cn.mutu.land.model.AchievementFile;
 import cn.mutu.land.model.ExcelExportion;
 import cn.mutu.land.model.ExcelTable;
-import cn.mutu.land.model.KfqInfomation;
+import cn.mutu.land.model.DevInfo;
 
 @Service
 public class AchieveFileManageService {
@@ -148,15 +148,15 @@ public class AchieveFileManageService {
 		List<String> sqlList=new ArrayList<String>();
 		String hql="";
 		//f1/f2/f3表有效性
-		hql="from KfqInfomation as t where 1=1 and t.kfqmc = '" +kfqName+"'";
+		hql="from DevInfo as t where 1=1 and t.kfqmc = '" +kfqName+"'";
 		org.hibernate.Query query =sessionFactory.getCurrentSession().createQuery(hql);
-		List<KfqInfomation> r = (List<KfqInfomation>) query.list();
+		List<DevInfo> r = (List<DevInfo>) query.list();
 		if(r.size()>0){
-			ExcelExportion e=new ExcelExportion("KfqInfomation", ExcelTable.F1_name,
+			ExcelExportion e=new ExcelExportion("DevInfo", ExcelTable.F1_name,
 					"F1", kfqName, kfqDM, kfqYear,true);
-			ExcelExportion e2=new ExcelExportion("KfqInfomation",ExcelTable.F2_name,
+			ExcelExportion e2=new ExcelExportion("DevInfo",ExcelTable.F2_name,
 					"F2", kfqName, kfqDM, kfqYear,true);
-			ExcelExportion e3=new ExcelExportion("KfqInfomation", ExcelTable.F3_name,
+			ExcelExportion e3=new ExcelExportion("DevInfo", ExcelTable.F3_name,
 					"F3", kfqName, kfqDM, kfqYear,true);
 			list.add(e);
 			list.add(e2);
@@ -164,7 +164,7 @@ public class AchieveFileManageService {
 		}
 		
 		//f4表有效性
-		ExcelExportion e4=new ExcelExportion("KfqInfomation", ExcelTable.F4_name,
+		ExcelExportion e4=new ExcelExportion("DevInfo", ExcelTable.F4_name,
 				"F4", kfqName, kfqDM, kfqYear,false);
 		list.add(e4);		
 		
@@ -254,13 +254,13 @@ public class AchieveFileManageService {
 		if(e==null)return null;
 		String hql=null;
 		switch (e.getModelName()) {
-		case "KfqInfomation":
+		case "DevInfo":
 			hql="select ";
 			for(String s:excelFlied ){
 				hql+=s+",";
 			}
 			hql=hql.substring(0,hql.length()-1);
-			hql+=" from KfqInfomation as t where 1=1 and t.kfqmc = '" +e.getKfqName()+"'";			
+			hql+=" from DevInfo as t where 1=1 and t.kfqmc = '" +e.getKfqName()+"'";			
 			break;
 
 		default:

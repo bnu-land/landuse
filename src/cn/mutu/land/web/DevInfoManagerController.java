@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.DevInfo;
-import cn.mutu.land.model.KfqInfomation;
 import cn.mutu.land.service.DevInfoManagerService;
 
 @Controller
