@@ -157,10 +157,13 @@ require([
         if (dataMulti.length == 0) {
             for (var key in dlmj) {
                 var rec = [];
+                System.out.println(key);
                 rec.push(key);
                 rec.push(dlmj[key]);
                 dataMulti.push(rec);
+                
             }
+            System.out.println(dataMulti);
         } else {
             for (var i = 0; i < dataMulti.length; i++) {
                 var mj = dlmj[dataMulti[i][0]];

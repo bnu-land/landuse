@@ -107,15 +107,21 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'business_baseinfo',
+                                    id: 'taskNotice',
                                     hideOnClick: false,
                                     text: '任务动态'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'zd_information',
+                                    id: 'zdxx_upload',
                                     hideOnClick: false,
-                                    text: '数据填报'
+                                    text: '数据填报【宗地信息】'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'dxqy_upload',
+                                    hideOnClick: false,
+                                    text: '数据填报【典型企业】'
                                 },
                                 {
                                     xtype: 'menuitem',

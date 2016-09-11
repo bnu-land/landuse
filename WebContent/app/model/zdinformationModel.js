@@ -28,6 +28,9 @@ Ext.define('MyApp.model.zdinformationModel', {
             name: 'mbbsm'
         },
         {
+            name: 'tbnf'
+        },
+        {
             name: 'ysdm'
         },
         {
@@ -164,6 +167,9 @@ Ext.define('MyApp.model.zdinformationModel', {
         },
         {
             name: 'qyssze'
+        },
+        {
+            name: 'check'
         }
     ]
 });

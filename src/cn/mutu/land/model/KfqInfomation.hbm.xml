@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-3 14:07:21 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-7 19:03:15 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.KfqInfomation" table="kfq_infomation" catalog="landuse">
-        <id name="kfqId" type="java.lang.Integer">
-            <column name="kfq_id" />
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
             <generator class="identity" />
         </id>
         <property name="kfqdm" type="string">
@@ -38,23 +38,23 @@
         <property name="zdcy" type="string">
             <column name="ZDCY" length="120" />
         </property>
-        <property name="sptdzmj" type="java.lang.Float">
-            <column name="SPTDZMJ" precision="12" scale="0" />
+        <property name="sptdzmj" type="java.lang.Double">
+            <column name="SPTDZMJ" precision="15" scale="4" />
         </property>
-        <property name="MKfqpjmj" type="java.lang.Float">
-            <column name="M_KFQPJMJ" precision="12" scale="0" />
+        <property name="MKfqpjmj" type="java.lang.Double">
+            <column name="M_KFQPJMJ" precision="15" scale="4" />
         </property>
-        <property name="DKfqpjmj" type="java.lang.Float">
-            <column name="D_KFQPJMJ" precision="12" scale="0" />
+        <property name="DKfqpjmj" type="java.lang.Double">
+            <column name="D_KFQPJMJ" precision="15" scale="4" />
         </property>
         <property name="kfqpjlx" type="string">
             <column name="KFQPJLX" length="10" />
         </property>
-        <property name="MTdkfl" type="java.lang.Float">
-            <column name="M_TDKFL" precision="12" scale="0" />
+        <property name="MTdkfl" type="java.lang.Double">
+            <column name="M_TDKFL" precision="6" />
         </property>
-        <property name="DTdkfl" type="java.lang.Float">
-            <column name="D_TDKFL" precision="12" scale="0" />
+        <property name="DTdkfl" type="java.lang.Double">
+            <column name="D_TDKFL" precision="6" />
         </property>
         <property name="MCzrk" type="java.lang.Integer">
             <column name="M_CZRK" />
@@ -62,41 +62,41 @@
         <property name="DCzrk" type="java.lang.Integer">
             <column name="D_CZRK" />
         </property>
-        <property name="MGdzctzze" type="java.lang.Float">
-            <column name="M_GDZCTZZE" precision="12" scale="0" />
+        <property name="MGdzctzze" type="java.lang.Double">
+            <column name="M_GDZCTZZE" precision="15" />
         </property>
-        <property name="DGdzctzze" type="java.lang.Float">
-            <column name="D_GDZCTZZE" precision="12" scale="0" />
+        <property name="DGdzctzze" type="java.lang.Double">
+            <column name="D_GDZCTZZE" precision="15" />
         </property>
-        <property name="MEscyssze" type="java.lang.Float">
-            <column name="M_ESCYSSZE" precision="12" scale="0" />
+        <property name="MEscyssze" type="java.lang.Double">
+            <column name="M_ESCYSSZE" precision="15" />
         </property>
-        <property name="DEscyssze" type="java.lang.Float">
-            <column name="D_ESCYSSZE" precision="12" scale="0" />
+        <property name="DEscyssze" type="java.lang.Double">
+            <column name="D_ESCYSSZE" precision="15" />
         </property>
-        <property name="MGyzsr" type="java.lang.Float">
-            <column name="M_GYZSR" precision="12" scale="0" />
+        <property name="MGyzsr" type="java.lang.Double">
+            <column name="M_GYZSR" precision="15" />
         </property>
-        <property name="DGyzsr" type="java.lang.Float">
-            <column name="D_GYZSR" precision="12" scale="0" />
+        <property name="DGyzsr" type="java.lang.Double">
+            <column name="D_GYZSR" precision="15" />
         </property>
-        <property name="MGyssze" type="java.lang.Float">
-            <column name="M_GYSSZE" precision="12" scale="0" />
+        <property name="MGyssze" type="java.lang.Double">
+            <column name="M_GYSSZE" precision="15" />
         </property>
-        <property name="DGyssze" type="java.lang.Float">
-            <column name="D_GYSSZE" precision="12" scale="0" />
+        <property name="DGyssze" type="java.lang.Double">
+            <column name="D_GYSSZE" precision="15" />
         </property>
-        <property name="MGxzsr" type="java.lang.Float">
-            <column name="M_GXZSR" precision="12" scale="0" />
+        <property name="MGxzsr" type="java.lang.Double">
+            <column name="M_GXZSR" precision="15" />
         </property>
-        <property name="DGxzsr" type="java.lang.Float">
-            <column name="D_GXZSR" precision="12" scale="0" />
+        <property name="DGxzsr" type="java.lang.Double">
+            <column name="D_GXZSR" precision="15" />
         </property>
-        <property name="MGxssze" type="java.lang.Float">
-            <column name="M_GXSSZE" precision="12" scale="0" />
+        <property name="MGxssze" type="java.lang.Double">
+            <column name="M_GXSSZE" precision="15" />
         </property>
-        <property name="DGxssze" type="java.lang.Float">
-            <column name="D_GXSSZE" precision="12" scale="0" />
+        <property name="DGxssze" type="java.lang.Double">
+            <column name="D_GXSSZE" precision="15" />
         </property>
         <property name="MXm" type="string">
             <column name="M_XM" length="14" />
@@ -104,11 +104,11 @@
         <property name="MKqtzsj" type="string">
             <column name="M_KQTZSJ" length="6" />
         </property>
-        <property name="MKqtzmj" type="java.lang.Float">
-            <column name="M_KQTZMJ" precision="12" scale="0" />
+        <property name="MKqtzmj" type="java.lang.Double">
+            <column name="M_KQTZMJ" precision="15" />
         </property>
-        <property name="MKqtzhmj" type="java.lang.Float">
-            <column name="M_KQTZHMJ" precision="12" scale="0" />
+        <property name="MKqtzhmj" type="java.lang.Double">
+            <column name="M_KQTZHMJ" precision="15" />
         </property>
         <property name="bz" type="string">
             <column name="BZ" length="200" />

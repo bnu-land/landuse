@@ -15,6 +15,6 @@
 
 Ext.define('MyApp.view.zd_informationViewModel1', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.bus_informationview'
+    alias: 'viewmodel.dxqy_upload'
 
 });

@@ -259,7 +259,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "business_baseinfo",
+                                        "id": "taskNotice",
                                         "text": "任务动态"
                                     },
                                     "name": "MyMenuItem17",
@@ -274,11 +274,26 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "zd_information",
-                                        "text": "数据填报"
+                                        "id": "zdxx_upload",
+                                        "text": "数据填报【宗地信息】"
                                     },
                                     "name": "MyMenuItem22",
                                     "designerId": "1aff5401-2ae3-4019-bd8b-d6ae2864a7c2"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "dxqy_upload",
+                                        "text": "数据填报【典型企业】"
+                                    },
+                                    "name": "MyMenuItem27",
+                                    "designerId": "878a111c-be26-4e1a-beeb-12c3bf55bfd4"
                                 },
                                 {
                                     "type": "Ext.menu.Item",

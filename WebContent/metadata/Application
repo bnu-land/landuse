@@ -6,16 +6,20 @@
     },
     "codeClass": null,
     "userConfig": {
+
         "models": [
             "ExcelExportionModel"
         ],
-        "name": "MyApp",
+        
         "stores": [
-            "ExcelExportionStore"
+            "ExcelExportionStore",
+             "zd_checkStore"
         ],
         "views": [
-            "achievement_ExcelExport"
-        ]
+       		 "achievement_ExcelExport",
+            "qy_addinformation"            
+        ],
+        "name": "MyApp",
     },
     "name": "Application",
     "designerId": "application"

@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "enterprise_kfq_manager",
         "designer|userClassName": "enterprise_kfq_manager",
-        "height": 589,
+        "height": 614,
         "layout": "border",
         "title": "开发区信息管理",
         "width": 1051
@@ -47,7 +47,37 @@
                         "width": 120
                     },
                     "name": "MyTextField33",
-                    "designerId": "fc6614a3-83eb-4d27-b7a0-c3d4851363fe"
+                    "designerId": "fc6614a3-83eb-4d27-b7a0-c3d4851363fe",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxt_search_keyChange",
+                                "implHandler": [
+                                    "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "//在load事件中添加参数",
+                                    "mystore.load(",
+                                    "{",
+                                    "    params :",
+                                    "    {",
+                                    "        searchKeyword : newValue",
+                                    "    }",
+                                    "}",
+                                    ");",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onTxt_search_keyChange",
+                            "designerId": "ba616907-f362-480f-baba-0bdb6e4d28ff"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -147,20 +177,57 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": null,
+                        "delimiter": "",
+                        "displayField": "kfqjb",
                         "fieldLabel": "开发区级别",
                         "id": "ent_landuse_gradeCombo1",
                         "labelWidth": 80,
                         "layout|flex": null,
-                        "store": null,
-                        "valueField": "mapUrl",
+                        "store": [
+                            "['','国家级','省级','示范区']"
+                        ],
+                        "valueField": "kfqjb",
                         "width": 181
                     },
                     "name": "MyComboBox6",
                     "configAlternates": {
                         "store": "array"
                     },
-                    "designerId": "7cb53df8-4baa-4eef-b6cc-bf94e5c8f9b1"
+                    "designerId": "7cb53df8-4baa-4eef-b6cc-bf94e5c8f9b1",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onEnt_landuse_gradeCombo1Change",
+                                "implHandler": [
+                                    "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "var kfqpjlx=Ext.getCmp('ent_landuse_typeCombo1').getValue();",
+                                    "console.log(kfqpjlx);",
+                                    "//在load事件中添加参数",
+                                    "mystore.load(",
+                                    "{",
+                                    " params :",
+                                    "    {",
+                                    "        searchKeyword:newValue",
+                                    "",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    ");",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onEnt_landuse_gradeCombo1Change",
+                            "designerId": "4643c315-acba-47d1-a416-c30d4630c767"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -170,22 +237,54 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": null,
+                        "displayField": "kfqpjlx",
                         "fieldLabel": "开发区类型",
                         "id": "ent_landuse_typeCombo1",
                         "labelWidth": 80,
                         "layout|flex": null,
                         "store": [
-                            "['全部','工业主导型','产城融合型']"
+                            "['','工业主导型','产城融合型']"
                         ],
-                        "valueField": "mapUrl",
+                        "valueField": "kfqpjlx",
                         "width": 190
                     },
                     "name": "MyComboBox7",
                     "configAlternates": {
                         "store": "array"
                     },
-                    "designerId": "fe85a7eb-108d-4bbd-b41f-82503048904b"
+                    "designerId": "fe85a7eb-108d-4bbd-b41f-82503048904b",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onEnt_landuse_typeCombo1Change",
+                                "implHandler": [
+                                    "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "var kfqjb=Ext.getCmp('ent_landuse_gradeCombo1').getValue();",
+                                    "console.log(kfqjb);",
+                                    "//在load事件中添加参数",
+                                    "mystore.load(",
+                                    "{",
+                                    "    params :",
+                                    "    {",
+                                    "        searchKeyword:newValue",
+                                    "",
+                                    "    }",
+                                    "}",
+                                    ");"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onEnt_landuse_typeCombo1Change",
+                            "designerId": "778de9f9-95c3-4eaf-9b5c-bc142659fa26"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -554,6 +653,21 @@
                     },
                     "name": "MyColumn14",
                     "designerId": "7fea3b6f-86b5-4935-a0e8-0f1900dc82ab"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "kfqpjlx",
+                        "text": "开发区评价类型",
+                        "width": 120
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "aeec5102-8cfe-4f51-a770-80ece64b908d"
                 },
                 {
                     "type": "Ext.grid.column.Column",

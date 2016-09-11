@@ -1,5 +1,5 @@
 {
-    "type": "Ext.panel.Panel",
+    "type": "Ext.window.Window",
     "reference": {
         "name": "items",
         "type": "array"
@@ -8,15 +8,15 @@
     "userConfig": {
         "designer|userAlias": "qy_addinformation",
         "designer|userClassName": "qy_addinformation",
-        "height": 1427,
-        "id": "business_addinformation",
+        "height": 574,
         "layout": "border",
-        "title": "数据填报",
-        "width": 995
+        "title": "典型企业录入",
+        "width": 821
     },
-    "designerId": "76d485fe-4edc-47f0-8c1c-728e38e7e69e",
-    "viewControllerInstanceId": "138982a7-7b0f-41dc-8f3e-1bc3c300fc15",
-    "viewModelInstanceId": "00a1b2c7-a336-442c-b9a0-6d7ffcbfc716",
+    "name": "MyWindow",
+    "designerId": "11a4128d-6913-4ee5-9ee9-0676f5bf0543",
+    "viewControllerInstanceId": "89fceca5-e43d-475a-9574-3f0ee3717ee7",
+    "viewModelInstanceId": "85094c0f-6c57-45ba-a981-d898dd77114b",
     "cn": [
         {
             "type": "Ext.tab.Panel",
@@ -31,7 +31,7 @@
                 "layout|region": "center"
             },
             "name": "MyTabPanel",
-            "designerId": "6d9f6b21-1998-4fa9-8916-3696d58a9da0",
+            "designerId": "17589bb8-f190-4ff6-82c1-e404d703c56f",
             "cn": [
                 {
                     "type": "Ext.form.Panel",
@@ -720,112 +720,6 @@
                             ]
                         },
                         {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|x": 520,
-                                "layout|y": 950,
-                                "text": "保存提交",
-                                "width": 70
-                            },
-                            "name": "MyButton5",
-                            "designerId": "7bd60a68-2958-43d3-bb31-315c088c3dab",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|params": [
-                                            "button",
-                                            "e"
-                                        ],
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "var myform = Ext.getCmp('bus_information').getForm();",
-                                            "if (myform.isValid())",
-                                            "{",
-                                            "    console.log('form is ava');",
-                                            "    myform.submit({",
-                                            "        //url : 'add_info',",
-                                            "        success : function (form, action)",
-                                            "        {",
-                                            "            Ext.Msg.alert('成功', '提交成功。');",
-                                            "            var mystore = Ext.StoreMgr.get('bussinessinformation'); //获得store对象",
-                                            "            mystore.reload();",
-                                            "            var xtype = 'information';",
-                                            "            var mainView = Ext.getCmp('mainView');",
-                                            "            mainView.removeAll();",
-                                            "            mainView.add(Ext.widget(xtype));",
-                                            "        },",
-                                            "        failure: function(form, action){",
-                                            "            Ext.Msg.alert('失败', '提交失败，请重试。');",
-                                            "        }",
-                                            "    });",
-                                            "}",
-                                            "else",
-                                            "{",
-                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
-                                            "}"
-                                        ]
-                                    },
-                                    "name": "handler",
-                                    "designerId": "ac80f617-fa8c-4c65-9910-94c8c23e5615"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|x": 350,
-                                "layout|y": 950,
-                                "text": "下一步",
-                                "width": 70
-                            },
-                            "name": "MyButton6",
-                            "designerId": "94df6218-e309-48fb-9cc3-d9de7190d078",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|params": [
-                                            "button",
-                                            "e"
-                                        ],
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "var tab =Ext.getCmp('panel_info');// 'panel_info';",
-                                            "tab.setActiveTab(1);",
-                                            "// var mainView = Ext.getCmp('bus_information');",
-                                            "// mainView.removeAll();",
-                                            "// //mainView.add(Ext.widget(xtype));",
-                                            "// mainView.add(Ext.getCmp(xtype));",
-                                            ""
-                                        ]
-                                    },
-                                    "name": "handler",
-                                    "designerId": "38c7f113-bef5-4cd5-ba44-5102e2b624f3"
-                                }
-                            ]
-                        },
-                        {
                             "type": "Ext.tab.Tab",
                             "reference": {
                                 "name": "tabConfig",
@@ -837,6 +731,142 @@
                             },
                             "name": "TabConfig2",
                             "designerId": "c28c017b-4864-4ec3-b3d1-dc65d0e9e5d2"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "bottom",
+                                "layout|x": 562,
+                                "layout|y": 463
+                            },
+                            "name": "MyToolbar9",
+                            "designerId": "6ec33fc1-2c45-4c4b-8033-1dbdd57aca58",
+                            "cn": [
+                                {
+                                    "type": "Ext.toolbar.Fill",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null
+                                    },
+                                    "name": "MyFill3",
+                                    "designerId": "35bcf118-c27f-4b22-ace2-9acf80ca623a"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/upload.png",
+                                        "layout|flex": null,
+                                        "text": "保存提交",
+                                        "width": 100
+                                    },
+                                    "name": "MyButton5",
+                                    "designerId": "7bd60a68-2958-43d3-bb31-315c088c3dab",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var myform = Ext.getCmp('bus_information').getForm();",
+                                                    "if (myform.isValid())",
+                                                    "{",
+                                                    "    console.log('form is ava');",
+                                                    "    myform.submit({",
+                                                    "        //url : 'add_info',",
+                                                    "        success : function (form, action)",
+                                                    "        {",
+                                                    "            Ext.Msg.alert('成功', '提交成功。');",
+                                                    "            var mystore = Ext.StoreMgr.get('bussinessinformation'); //获得store对象",
+                                                    "            mystore.reload();",
+                                                    "            var xtype = 'information';",
+                                                    "            var mainView = Ext.getCmp('mainView');",
+                                                    "            mainView.removeAll();",
+                                                    "            mainView.add(Ext.widget(xtype));",
+                                                    "        },",
+                                                    "        failure: function(form, action){",
+                                                    "            Ext.Msg.alert('失败', '提交失败，请重试。');",
+                                                    "        }",
+                                                    "    });",
+                                                    "}",
+                                                    "else",
+                                                    "{",
+                                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "ac80f617-fa8c-4c65-9910-94c8c23e5615"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/go.png",
+                                        "layout|flex": null,
+                                        "text": "下一步",
+                                        "width": 100
+                                    },
+                                    "name": "MyButton6",
+                                    "designerId": "94df6218-e309-48fb-9cc3-d9de7190d078",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var tab =Ext.getCmp('panel_info');// 'panel_info';",
+                                                    "tab.setActiveTab(1);",
+                                                    "// var mainView = Ext.getCmp('bus_information');",
+                                                    "// mainView.removeAll();",
+                                                    "// //mainView.add(Ext.widget(xtype));",
+                                                    "// mainView.add(Ext.getCmp(xtype));",
+                                                    ""
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "38c7f113-bef5-4cd5-ba44-5102e2b624f3"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },

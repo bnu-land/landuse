@@ -122,7 +122,8 @@ Ext.application({
         'zd_infoStore',
         'achievementFileStore',
         'achievementFileUploadStore',
-        'ExcelExportionStore'
+        'ExcelExportionStore',
+        'zd_checkStore'
     ],
     views: [
         'MainView',
@@ -198,11 +199,11 @@ Ext.application({
         'enterprise_uploadMapCheck',
         'enterprise_uploadMapCheckResultWindow',
         'system_test',
-        'business_info',
+       // 'business_info',
         'data_report',
         'bus_info',
         'qy_addinformation',
-        'business_baseinfo',
+        'taskNotice',
         'db_businessinfo',
         'mywindow',
         'enterprise_kfq_manager',
@@ -210,10 +211,10 @@ Ext.application({
         'chart_pie',
         'win_kfqinfo_add',
         'kfqChangeWindow',
-        'zd_information',
-	 'add_zdinnfo',
+        'zdxx_upload',
+	    'add_zdinnfo',
         'update_zdinnfo',
-        'bus_informationView',
+        'dxqy_upload',
         'achievement_DataImportDB',
         'achievement_DataExport',
         'achievement_ExcelExport'

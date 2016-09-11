@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-3 14:07:21 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-7 19:03:15 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.ZdInfo" table="zd_info" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -45,7 +45,7 @@
             <column name="QS" length="4" />
         </property>
         <property name="gysj" type="string">
-            <column name="GYSJ" length="6" />
+            <column name="GYSJ" length="10" />
         </property>
         <property name="gylx" type="string">
             <column name="GYLX" length="28" />
@@ -148,6 +148,9 @@
         </property>
         <property name="qyssze" type="double">
             <column name="QYSSZE" precision="15" not-null="true" />
+        </property>
+        <property name="check" type="int">
+            <column name="CHECK" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

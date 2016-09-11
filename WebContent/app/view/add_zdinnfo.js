@@ -23,7 +23,10 @@ Ext.define('MyApp.view.add_zdinnfo', {
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.form.field.TextArea',
-        'Ext.button.Button'
+        'Ext.toolbar.Toolbar',
+        'Ext.toolbar.Fill',
+        'Ext.button.Button',
+        'Ext.toolbar.Spacer'
     ],
 
     viewModel: {
@@ -34,6 +37,7 @@ Ext.define('MyApp.view.add_zdinnfo', {
     width: 825,
     layout: 'border',
     title: '添加宗地信息',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -45,7 +49,7 @@ Ext.define('MyApp.view.add_zdinnfo', {
             bodyPadding: 10,
             title: '',
             jsonSubmit: true,
-            url: '',
+            url: 'add_zdinfo',
             items: [
                 {
                     xtype: 'textfield',
@@ -54,6 +58,15 @@ Ext.define('MyApp.view.add_zdinnfo', {
                     width: 220,
                     fieldLabel: '开发区名称',
                     name: 'kfqmc'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 20,
+                    y: 510,
+                    hidden: true,
+                    width: 220,
+                    fieldLabel: '开发区名称',
+                    name: 'id'
                 },
                 {
                     xtype: 'textfield',
@@ -134,7 +147,9 @@ Ext.define('MyApp.view.add_zdinnfo', {
                     y: 100,
                     width: 220,
                     fieldLabel: '供应时间',
-                    name: 'gysj'
+                    name: 'gysj',
+                    allowBlank: false,
+                    format: 'Y-m-d'
                 },
                 {
                     xtype: 'combobox',
@@ -348,54 +363,91 @@ Ext.define('MyApp.view.add_zdinnfo', {
                     width: 760,
                     fieldLabel: '备注',
                     name: 'bz'
-                },
+                }
+            ],
+            dockedItems: [
                 {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var win = Ext.getCmp('add_zdinfo');
-                        win.close();
-                    },
-                    x: 280,
-                    y: 520,
-                    width: 80,
-                    text: '取消'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var myform = Ext.getCmp('add_zdwidinfo').getForm();
-                        if (myform.isValid())
+                    xtype: 'toolbar',
+                    x: 96,
+                    y: 517,
+                    dock: 'bottom',
+                    items: [
                         {
-                            console.log('form is ava');
-                            myform.submit({
-                                url : 'add_zdinfo',
-                                success : function (form, action)
+                            xtype: 'tbfill'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var win = Ext.getCmp('add_zdinfo');
+                                win.close();
+                            },
+                            width: 80,
+                            text: '取消'
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 30
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var myform = Ext.getCmp('add_zdwidinfo').getForm();
+                                if (myform.isValid())
                                 {
-                                    Ext.Msg.alert('成功', '内容添加成功。');
-                                    var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
-                                    mystore.reload();
+                                    console.log('form is ava');
+                                    myform.submit({
+                                        // url : 'add_zdinfo',
+                                        success : function (form, action)
+                                        {
+                                            Ext.Msg.alert('成功', '内容添加成功。');
+                                            var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+                                            mystore.reload();
 
-                                    var win = Ext.getCmp('add_zdinfo');
-                                    win.close();
+                                            var win = Ext.getCmp('add_zdinfo');
+                                            win.close();
 
-                                },
-                                failure: function(form, action){
-                                    Ext.Msg.alert('失败', '内容添加失败，请重试。');
+                                        },
+                                        failure: function(form, action){
+                                            Ext.Msg.alert('失败', '内容添加失败，请重试。');
+                                        }
+                                    });
                                 }
-                            });
+                                else
+                                {
+                                    Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                                }
+                            },
+                            id: 'addZdConfirm',
+                            width: 80,
+                            text: '确定'
                         }
-                        else
-                        {
-                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
-                        }
-                    },
-                    x: 490,
-                    y: 520,
-                    width: 80,
-                    text: '确定'
+                    ]
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onAdd_zdinfoAfterRender'
+    },
+
+    onAdd_zdinfoAfterRender: function(component, eOpts) {
+        var title=this.getTitle();
+        var form=Ext.getCmp('add_zdwidinfo').getForm();
+        var button=Ext.getCmp('addZdConfirm');
+         console.log(form.url);
+        if(title=="查看宗地信息")
+            {
+                button.setHidden(true);
+            }
+        if(title=="修改宗地信息")
+        {
+            form.url='upload_zdinfo';
+        }
+        if(title=="添加宗地信息")
+        {
+            form.url='add_zdinfo';
+            console.log(form.url);
+        }
+    }
 
 });
