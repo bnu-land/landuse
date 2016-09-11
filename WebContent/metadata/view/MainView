@@ -1353,10 +1353,25 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "achievement_DataExport",
-                                        "text": "成果资料导出"
+                                        "text": "历史成果导出"
                                     },
                                     "name": "MyMenuItem25",
                                     "designerId": "47f12e54-be14-4de3-885a-ae9ec33daf9f"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "achievement_ExcelExport",
+                                        "text": "数据报表导出"
+                                    },
+                                    "name": "MyMenuItem27",
+                                    "designerId": "1ff82594-c10b-4278-9de9-46629b1d6022"
                                 },
                                 {
                                     "type": "basiceventbinding",

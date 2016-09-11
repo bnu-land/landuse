@@ -1,0 +1,47 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "ExcelExportionStore",
+        "model": "ExcelExportionModel",
+        "storeId": "ExcelExportionStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "a7666f67-2821-4890-a3f9-8fc160f5d777",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "achieve/get_exportableExcel"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "4f8ca193-049c-4650-abf0-5390e4571d7b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "aca89e5a-2b22-4422-ad7d-0598d240b974"
+                }
+            ]
+        }
+    ]
+}

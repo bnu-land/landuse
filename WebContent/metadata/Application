@@ -6,7 +6,16 @@
     },
     "codeClass": null,
     "userConfig": {
-        "name": "MyApp"
+        "models": [
+            "ExcelExportionModel"
+        ],
+        "name": "MyApp",
+        "stores": [
+            "ExcelExportionStore"
+        ],
+        "views": [
+            "achievement_ExcelExport"
+        ]
     },
     "name": "Application",
     "designerId": "application"

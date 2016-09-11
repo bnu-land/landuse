@@ -36,7 +36,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
     autoScroll: true,
     height: 756,
     width: 1007,
-    title: '成果数据导出',
+    title: '历史成果导出',
     defaultListenerScope: true,
 
     dockedItems: [
@@ -59,6 +59,9 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     fieldLabel: '开发区',
                     labelWidth: 50,
                     name: 'kfqname',
+                    allowBlank: false,
+                    allowOnlyWhitespace: false,
+                    forceSelection: true,
                     store: [
                         '宾西经济技术开发区',
                         '利民经济技术开发区'
@@ -73,6 +76,10 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     fieldLabel: '年度',
                     labelWidth: 40,
                     name: 'kfqyear',
+                    allowBlank: false,
+                    allowOnlyWhitespace: false,
+                    editable: false,
+                    forceSelection: true,
                     store: [
                         2010,
                         2011,
@@ -189,8 +196,8 @@ Ext.define('MyApp.view.achievement_DataExport', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    dataIndex: 'readCount',
                     width: 60,
+                    dataIndex: 'readCount',
                     text: '预览',
                     icon: 'images/table/search.png',
                     items: [
@@ -198,7 +205,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
                                 var filetype=record.get('filetype').toLowerCase();
-                                var types=['.doc','.jpg','.docx','.png','.shp','.pdf'];
+                                var types=['.doc','.jpg','.docx','.png','.pdf'];
                                 var canread=false;
                                 for(var i=0;i<types.length;i++){
                                     if(filetype==types[i]){

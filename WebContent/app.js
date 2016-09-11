@@ -20,6 +20,15 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
+    models: [
+        'ExcelExportionModel'
+    ],
+    stores: [
+        'ExcelExportionStore'
+    ],
+    views: [
+        'achievement_ExcelExport'
+    ],
     name: 'MyApp',
 
     launch: function() {

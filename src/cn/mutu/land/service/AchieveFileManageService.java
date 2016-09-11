@@ -1,8 +1,11 @@
 package cn.mutu.land.service;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -15,9 +18,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import cn.mutu.land.common.Excel2Html;
+import cn.mutu.land.common.ExcelTools;
 import cn.mutu.land.common.SaveUploadFile;
 import cn.mutu.land.common.Word2Html;
+import cn.mutu.land.common.ZipCompressing;
 import cn.mutu.land.model.AchievementFile;
+import cn.mutu.land.model.ExcelExportion;
+import cn.mutu.land.model.ExcelTable;
+import cn.mutu.land.model.KfqInfomation;
 
 @Service
 public class AchieveFileManageService {
@@ -126,4 +134,139 @@ public class AchieveFileManageService {
 		
 	}
 
+	
+	/**
+	 * 获取可以导出的表名
+	 * @param kfqName
+	 * @param kfqDM
+	 * @param kfqYear
+	 * @return
+	 */
+	public Map<String,Object>get_exportableExcel(String kfqName,String kfqDM,String kfqYear){
+		Map<String, Object> result =new TreeMap<String, Object>();
+		List<ExcelExportion>list=new ArrayList<ExcelExportion>();
+		List<String> sqlList=new ArrayList<String>();
+		String hql="";
+		//f1/f2/f3表有效性
+		hql="from KfqInfomation as t where 1=1 and t.kfqmc = '" +kfqName+"'";
+		org.hibernate.Query query =sessionFactory.getCurrentSession().createQuery(hql);
+		List<KfqInfomation> r = (List<KfqInfomation>) query.list();
+		if(r.size()>0){
+			ExcelExportion e=new ExcelExportion("KfqInfomation", ExcelTable.F1_name,
+					"F1", kfqName, kfqDM, kfqYear,true);
+			ExcelExportion e2=new ExcelExportion("KfqInfomation",ExcelTable.F2_name,
+					"F2", kfqName, kfqDM, kfqYear,true);
+			ExcelExportion e3=new ExcelExportion("KfqInfomation", ExcelTable.F3_name,
+					"F3", kfqName, kfqDM, kfqYear,true);
+			list.add(e);
+			list.add(e2);
+			list.add(e3);
+		}
+		
+		//f4表有效性
+		ExcelExportion e4=new ExcelExportion("KfqInfomation", ExcelTable.F4_name,
+				"F4", kfqName, kfqDM, kfqYear,false);
+		list.add(e4);		
+		
+		//加入查询结果
+		System.out.println(kfqName+r.size());
+		result.put("root", list);
+		result.put("success", true);
+		return result;
+	}
+	
+	/**
+	 * 导出单个excel文件
+	 */
+	public String exportExcel(ExcelExportion e,String rootPath,String outPath){		
+		if(e==null)return null;
+		//获取对应的表编辑字段
+		String []excelFlied=getExcelFlied(e);
+		if(excelFlied==null)return null;		
+		
+		//获取hql语句
+		String hql=getExcelSql(e,excelFlied);	
+		System.out.println("excel hql:"+hql);
+		if(hql==null)return null;		
+		
+		//查询对应记录
+		org.hibernate.Query query =sessionFactory.getCurrentSession().createQuery(hql);
+		List<Object[]> r =  query.list();
+		System.out.println(r.size());
+		//结果数据放入map中
+		Map<String,Object> map=new TreeMap<String, Object>();		
+		for(Object[] o:r){
+			for(int i=0;i<excelFlied.length;i++){
+				map.put(excelFlied[i], o[i]);
+			}
+		}
+		String inputFilePath=rootPath+"office/exportModel/"+e.getExcelName();
+		
+		try {
+			ExcelTools.exportEncryptedQicanToExcel2(map, inputFilePath, outPath);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return outPath;
+	}
+	
+	/**
+	 * 导出多个excel文件
+	 */
+	public String exportExcel(ExcelExportion[] elist,String rootPath,String outPathFolder){
+		int length=elist.length;
+		File file=new File(outPathFolder);
+		if(!file.exists())file.mkdir();
+		for(int i=0;i<length;i++){
+			ExcelExportion e=elist[i];
+			exportExcel(e,rootPath,outPathFolder+"/"+e.getExcelName());
+		}
+		//判断压缩包是否存在
+		File zipFile=new File(outPathFolder+".zip");
+		if(!zipFile.exists()){
+			ZipCompressing.zip(outPathFolder+".zip", new File(outPathFolder));
+		}
+		return outPathFolder+".zip";
+	}
+	
+	
+	/**
+	 * 分配数据不同表的对应字段
+	 * @param e
+	 * @return
+	 */
+	private String[] getExcelFlied(ExcelExportion e){
+		switch (e.getExcelSimpleName()) {
+		case "F1":
+			return ExcelTable.F1;
+		case "F2":
+			return ExcelTable.F2;
+		case "F3":
+			return ExcelTable.F3;
+		default:
+			return null;
+		}		
+	}
+
+
+	private String getExcelSql(ExcelExportion e,String[]excelFlied ){
+		if(e==null)return null;
+		String hql=null;
+		switch (e.getModelName()) {
+		case "KfqInfomation":
+			hql="select ";
+			for(String s:excelFlied ){
+				hql+=s+",";
+			}
+			hql=hql.substring(0,hql.length()-1);
+			hql+=" from KfqInfomation as t where 1=1 and t.kfqmc = '" +e.getKfqName()+"'";			
+			break;
+
+		default:
+			break;
+		}
+		return hql;
+	}
+	
 }
