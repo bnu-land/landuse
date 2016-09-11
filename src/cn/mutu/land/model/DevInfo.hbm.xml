@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-10 18:27:58 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.mutu.land.model.DevInfo" table="dev_info" catalog="landuse">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="kfqdm" type="string">
+            <column name="KFQDM" length="7" />
+        </property>
+        <property name="kfqmc" type="string">
+            <column name="KFQMC" length="60" />
+        </property>
+        <property name="kfqjb" type="string">
+            <column name="KFQJB" length="10" />
+        </property>
+        <property name="kfqsplx" type="string">
+            <column name="KFQSPLX" length="10" />
+        </property>
+        <property name="kfqpjfw" type="string">
+            <column name="KFQPJFW" length="10" />
+        </property>
+        <property name="slsj" type="string">
+            <column name="SLSJ" length="6" />
+        </property>
+        <property name="spdw" type="string">
+            <column name="SPDW" length="60" />
+        </property>
+        <property name="gljg" type="string">
+            <column name="GLJG" length="60" />
+        </property>
+        <property name="gljgdz" type="string">
+            <column name="GLJGDZ" length="120" />
+        </property>
+        <property name="zdcy" type="string">
+            <column name="ZDCY" length="120" />
+        </property>
+        <property name="sptdzmj" type="java.lang.Double">
+            <column name="SPTDZMJ" precision="15" scale="4" />
+        </property>
+        <property name="MKfqpjmj" type="java.lang.Double">
+            <column name="M_KFQPJMJ" precision="15" scale="4" />
+        </property>
+        <property name="DKfqpjmj" type="java.lang.Double">
+            <column name="D_KFQPJMJ" precision="15" scale="4" />
+        </property>
+        <property name="kfqpjlx" type="string">
+            <column name="KFQPJLX" length="10" />
+        </property>
+        <property name="MTdkfl" type="java.lang.Double">
+            <column name="M_TDKFL" precision="6" />
+        </property>
+        <property name="DTdkfl" type="java.lang.Double">
+            <column name="D_TDKFL" precision="6" />
+        </property>
+        <property name="MCzrk" type="java.lang.Integer">
+            <column name="M_CZRK" />
+        </property>
+        <property name="DCzrk" type="java.lang.Integer">
+            <column name="D_CZRK" />
+        </property>
+        <property name="MGdzctzze" type="java.lang.Double">
+            <column name="M_GDZCTZZE" precision="15" />
+        </property>
+        <property name="DGdzctzze" type="java.lang.Double">
+            <column name="D_GDZCTZZE" precision="15" />
+        </property>
+        <property name="MEscyssze" type="java.lang.Double">
+            <column name="M_ESCYSSZE" precision="15" />
+        </property>
+        <property name="DEscyssze" type="java.lang.Double">
+            <column name="D_ESCYSSZE" precision="15" />
+        </property>
+        <property name="MGyzsr" type="java.lang.Double">
+            <column name="M_GYZSR" precision="15" />
+        </property>
+        <property name="DGyzsr" type="java.lang.Double">
+            <column name="D_GYZSR" precision="15" />
+        </property>
+        <property name="MGyssze" type="java.lang.Double">
+            <column name="M_GYSSZE" precision="15" />
+        </property>
+        <property name="DGyssze" type="java.lang.Double">
+            <column name="D_GYSSZE" precision="15" />
+        </property>
+        <property name="MGxzsr" type="java.lang.Double">
+            <column name="M_GXZSR" precision="15" />
+        </property>
+        <property name="DGxzsr" type="java.lang.Double">
+            <column name="D_GXZSR" precision="15" />
+        </property>
+        <property name="MGxssze" type="java.lang.Double">
+            <column name="M_GXSSZE" precision="15" />
+        </property>
+        <property name="DGxssze" type="java.lang.Double">
+            <column name="D_GXSSZE" precision="15" />
+        </property>
+        <property name="MXm" type="string">
+            <column name="M_XM" length="14" />
+        </property>
+        <property name="MKqtzsj" type="string">
+            <column name="M_KQTZSJ" length="6" />
+        </property>
+        <property name="MKqtzmj" type="java.lang.Double">
+            <column name="M_KQTZMJ" precision="15" />
+        </property>
+        <property name="MKqtzhmj" type="java.lang.Double">
+            <column name="M_KQTZHMJ" precision="15" />
+        </property>
+        <property name="bz" type="string">
+            <column name="BZ" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

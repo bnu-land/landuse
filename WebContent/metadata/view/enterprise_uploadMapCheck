@@ -66,7 +66,7 @@
                             "userConfig": {
                                 "id": "zd_info2",
                                 "sortableColumns": false,
-                                "store": "zd_infoStore",
+                                "store": "zd_checkStore",
                                 "title": ""
                             },
                             "name": "MyGridPanel4",
@@ -542,7 +542,7 @@
                                 "implHandler": [
                                     "//var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();",
                                     "//console.log(\"keyword:\",getKeyword);",
-                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                    "var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象",
                                     "//在load事件中添加参数",
                                     "mystore.load(",
                                     "    {",
@@ -594,7 +594,7 @@
                             "userConfig": {
                                 "id": "zd_info3",
                                 "sortableColumns": false,
-                                "store": "zd_infoStore",
+                                "store": "zd_checkStore",
                                 "title": ""
                             },
                             "name": "MyGridPanel5",
@@ -1068,7 +1068,7 @@
                             "userConfig": {
                                 "fn": "onPanelActivate1",
                                 "implHandler": [
-                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                    "var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象",
                                     "//在load事件中添加参数",
                                     "mystore.load(",
                                     "    {",
@@ -1120,7 +1120,7 @@
                             "userConfig": {
                                 "id": "zd_info4",
                                 "sortableColumns": false,
-                                "store": "zd_infoStore",
+                                "store": "zd_checkStore",
                                 "title": ""
                             },
                             "name": "MyGridPanel6",
@@ -1594,7 +1594,7 @@
                             "userConfig": {
                                 "fn": "onPanelActivate2",
                                 "implHandler": [
-                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                    "var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象",
                                     "//在load事件中添加参数",
                                     "mystore.load(",
                                     "    {",

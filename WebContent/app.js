@@ -20,6 +20,9 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
+    stores: [
+        'zd_checkStore'
+    ],
     views: [
         'qy_addinformation'
     ],

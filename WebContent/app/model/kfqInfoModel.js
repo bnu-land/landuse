@@ -22,7 +22,7 @@ Ext.define('MyApp.model.kfqInfoModel', {
 
     fields: [
         {
-            name: 'kfqId'
+            name: 'id'
         },
         {
             name: 'kfqdm'

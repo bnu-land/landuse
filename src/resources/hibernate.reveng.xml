@@ -3,17 +3,8 @@
 
 <hibernate-reverse-engineering>
 
-	<table-filter match-name="kfq_infomation" match-catalog="landuse"></table-filter>
-	<table-filter match-name="bus_info" match-catalog="landuse"></table-filter>
-	<table-filter match-name="business_info" match-catalog="landuse"></table-filter>
-	<table-filter match-name="business_map" match-catalog="landuse"></table-filter>
-	<table-filter match-name="business_photo" match-catalog="landuse"></table-filter>
-	<table-filter match-name="ent_dxqyyd_pda" match-catalog="landuse"></table-filter>
-	<table-filter match-name="zd_info" match-catalog="landuse"></table-filter>
-
-	<table-filter match-name="achievement_file"
-		match-catalog="landuse">
-	</table-filter>
-	<table-filter match-name="ent_qyjyd" match-catalog="landuse"></table-filter>
-
+	<table-filter match-name="dev_info" match-catalog="landuse"></table-filter>
+	<table-filter match-name="dev_task" match-catalog="landuse"></table-filter>
+	<table-filter match-name="dev_zd_info" match-catalog="landuse"></table-filter>
+	<table-filter match-name="sta_kfq" match-catalog="landuse"></table-filter>
 </hibernate-reverse-engineering>

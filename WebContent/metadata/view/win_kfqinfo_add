@@ -96,25 +96,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "开发区审批类型",
-                                "labelAlign": "right",
-                                "labelWidth": 150,
-                                "name": "kfqjb",
-                                "width": 325
-                            },
-                            "name": "MyTextField37",
-                            "designerId": "0d8b674b-6689-45d1-bd66-788f0a1743d6"
-                        },
-                        {
-                            "type": "Ext.form.field.Date",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
                                 "fieldLabel": "开发区设立时间",
-                                "format": "Y-m-d",
                                 "height": 25,
                                 "labelAlign": "right",
                                 "labelWidth": 150,
@@ -122,7 +104,7 @@
                                 "submitValue": false,
                                 "width": 325
                             },
-                            "name": "MyDateField1",
+                            "name": "MyTextField43",
                             "designerId": "78e18b48-52b2-4d73-ac35-b81ce8af82fa"
                         },
                         {

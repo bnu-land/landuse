@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "zd_checkStore",
+        "model": "zdinformationModel",
+        "storeId": "zd_checkStore"
+    },
+    "name": "zd_infoStore1",
+    "designerId": "c244f5f3-b6c1-499b-88ba-02b511847093",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:\"\"}"
+                ],
+                "url": "get_checkinfo"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "6a9641e3-0573-4e9a-80a0-8f26a6c554ed",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "af4089d0-b776-4d0b-a6a2-dc8d493fcc79"
+                }
+            ]
+        }
+    ]
+}

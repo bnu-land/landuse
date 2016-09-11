@@ -120,7 +120,8 @@ Ext.application({
         'bussinessinformation',
         'zd_infoStore',
         'achievementFileStore',
-        'achievementFileUploadStore'
+        'achievementFileUploadStore',
+        'zd_checkStore'
     ],
     views: [
         'MainView',

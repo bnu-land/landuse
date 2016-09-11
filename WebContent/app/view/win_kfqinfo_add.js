@@ -21,7 +21,7 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
         'MyApp.view.win_kfqinfo_addViewModel',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
-        'Ext.form.field.Date',
+        'Ext.form.field.Text',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
@@ -73,22 +73,13 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                         },
                         {
                             xtype: 'textfield',
-                            width: 325,
-                            fieldLabel: '开发区审批类型',
-                            labelAlign: 'right',
-                            labelWidth: 150,
-                            name: 'kfqjb'
-                        },
-                        {
-                            xtype: 'datefield',
                             height: 25,
                             width: 325,
                             fieldLabel: '开发区设立时间',
                             labelAlign: 'right',
                             labelWidth: 150,
                             name: 'slsj',
-                            submitValue: false,
-                            format: 'Y-m-d'
+                            submitValue: false
                         },
                         {
                             xtype: 'textfield',

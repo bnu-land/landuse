@@ -57,7 +57,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                             id: 'zd_info2',
                             title: '',
                             sortableColumns: false,
-                            store: 'zd_infoStore',
+                            store: 'zd_checkStore',
                             columns: [
                                 {
                                     xtype: 'rownumberer',
@@ -235,7 +235,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                             id: 'zd_info3',
                             title: '',
                             sortableColumns: false,
-                            store: 'zd_infoStore',
+                            store: 'zd_checkStore',
                             columns: [
                                 {
                                     xtype: 'rownumberer',
@@ -413,7 +413,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
                             id: 'zd_info4',
                             title: '',
                             sortableColumns: false,
-                            store: 'zd_infoStore',
+                            store: 'zd_checkStore',
                             columns: [
                                 {
                                     xtype: 'rownumberer',
@@ -697,7 +697,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     onPanelActivate: function(component, eOpts) {
         //var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();
         //console.log("keyword:",getKeyword);
-        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+        var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象
         //在load事件中添加参数
         mystore.load(
             {
@@ -710,7 +710,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     },
 
     onPanelActivate1: function(component, eOpts) {
-        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+        var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象
         //在load事件中添加参数
         mystore.load(
             {
@@ -723,7 +723,7 @@ Ext.define('MyApp.view.enterprise_uploadMapCheck', {
     },
 
     onPanelActivate2: function(component, eOpts) {
-        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+        var mystore = Ext.StoreMgr.get('zd_checkStore'); //获得store对象
         //在load事件中添加参数
         mystore.load(
             {

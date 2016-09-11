@@ -2,9 +2,6 @@ package cn.mutu.land.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,39 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import cn.mutu.land.common.Encoder;
-import cn.mutu.land.model.BusinessInfo;
-import cn.mutu.land.model.BusinessMap;
-import cn.mutu.land.model.BusinessPhoto;
-import cn.mutu.land.model.LawRegulation;
-import cn.mutu.land.model.LawTypes;
-import cn.mutu.land.model.SystemMap;
-import cn.mutu.land.model.UDeptInfo;
+import cn.mutu.land.model.DevZdInfo;
 import cn.mutu.land.model.ZdInfo;
-import cn.mutu.land.service.BusinessInfoManagerService;
-import cn.mutu.land.service.BusinessMapManagerService;
-import cn.mutu.land.service.ZDInfoManagerService;
+import cn.mutu.land.service.DevZDInfoManagerService;
 
 @Controller
-public class ZDInfoManagerController {
+public class DevZDInfoManagerController {
 
-	private ZDInfoManagerService zdinfoService;
+	private DevZDInfoManagerService zdinfoService;
 
 	@Autowired
-	public ZDInfoManagerController(ZDInfoManagerService zdinfoService) {
+	public DevZDInfoManagerController(DevZDInfoManagerService zdinfoService) {
 		this.zdinfoService = zdinfoService;
 	}
 
@@ -56,14 +32,22 @@ public class ZDInfoManagerController {
 	// 查询
 	@RequestMapping(value = "/get_zdinfo")
 	@ResponseBody
-	public Map<String, Object> getLawsList(
+	public Map<String, Object> getZdList(
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.zdinfoService.getZdInfoList(searchKeyword);
 		//
 	}
-
+   //审核
+	@RequestMapping(value="/get_checkinfo")
+	@ResponseBody
+	public Map<String,Object> getCheckList(
+			@RequestParam("searchKeyword") String searchKeyword)
+			throws SQLException{
+		searchKeyword =Encoder.encode(searchKeyword);
+		return this.zdinfoService.getCheckList(searchKeyword);
+	}
 	
 	// 删除
 		@RequestMapping(value = "/del_zdinfo")
@@ -76,7 +60,7 @@ public class ZDInfoManagerController {
 	// 添加用户信息
 	@RequestMapping(value = "/add_zdinfo",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addZdInfo(@RequestBody ZdInfo zdinfo)
+	public Map<String, Object> addZdInfo(@RequestBody DevZdInfo zdinfo)
 			throws IOException {
 		String date=zdinfo.getGysj();
 		System.out.println(date);	
@@ -85,7 +69,7 @@ public class ZDInfoManagerController {
 		try {
 			
 			zdinfo.setGysj(date.substring(0, 10));
-			this.zdinfoService.addZdInfos(zdinfo);
+			this.zdinfoService.addZdInfo(zdinfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");
 		} catch (Exception er) {
@@ -110,14 +94,17 @@ public class ZDInfoManagerController {
 		@RequestMapping(value = "/update_zdInfo", method = RequestMethod.POST)
 		// ,method=RequestMethod.POST)
 		@ResponseBody
-		public Map<String, Object> updateZdInfo(@RequestBody ZdInfo zdinfo)
+		public Map<String, Object> updateZdInfo(@RequestBody DevZdInfo zdinfo)
 				throws IOException {
 			Map<String, Object> result = new HashMap<String, Object>();
 			try {
 				System.out.println("mapId="+zdinfo.getId());
 				String date=zdinfo.getGysj();
 				zdinfo.setGysj(date.substring(0, 10));
+				//zdinfo.setCheck(0);
+				System.out.println("注册时间="+zdinfo.getGysj());
 				this.zdinfoService.updateZdInfo(zdinfo);
+				System.out.println(result);
 				result.put("success", true);
 				result.put("msg", ",successfully saved");
 			} catch (Exception er) {

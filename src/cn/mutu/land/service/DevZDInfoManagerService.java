@@ -1,31 +1,21 @@
 package cn.mutu.land.service;
 
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.mutu.land.model.BusInfo;
-import cn.mutu.land.model.BusinessInfo;
-import cn.mutu.land.model.BusinessMap;
-import cn.mutu.land.model.BusinessPhoto;
-import cn.mutu.land.model.SystemMap;
-import cn.mutu.land.model.UUserInfo;
+import cn.mutu.land.model.DevZdInfo;
 import cn.mutu.land.model.ZdInfo;
 
 
 
 @Service
-public class ZDInfoManagerService {
+public class DevZDInfoManagerService {
 	private SessionFactory sessionFactory;
 
 	@Autowired
@@ -35,18 +25,35 @@ public class ZDInfoManagerService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getZdInfoList(String searchKeyword) {
-		String hql = "FROM ZdInfo as info";
+		String hql = "FROM DevZdInfo as info";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
 			String hql2 = " WHERE info.id" + likeStr 
 					+ "OR info.kfqmc" + likeStr
-					+"OR info.kfqdm" + likeStr;
+					+"OR info.shzt" + likeStr;
 			hql += hql2;
 		}		
-		List<ZdInfo> results = null;
+		List<DevZdInfo> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
-		results = (List<ZdInfo>) query.list();
+		results = (List<DevZdInfo>) query.list();
+		Map<String, Object> myInfoResult = new TreeMap<String, Object>();
+		myInfoResult.put("root", results);
+		myInfoResult.put("success", true);
+		return myInfoResult;
+	}
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> getCheckList(String searchKeyword) {
+		String hql = "FROM DevZdInfo as info";
+		if (!searchKeyword.equals("")) {
+			String likeStr = " LIKE '%" + searchKeyword + "%' ";
+			String hql2 = " WHERE info.shzt" + likeStr;
+			hql += hql2;
+		}		
+		List<DevZdInfo> results = null;
+		org.hibernate.Query query = sessionFactory.getCurrentSession()
+				.createQuery(hql);
+		results = (List<DevZdInfo>) query.list();
 		Map<String, Object> myInfoResult = new TreeMap<String, Object>();
 		myInfoResult.put("root", results);
 		myInfoResult.put("success", true);
@@ -91,11 +98,9 @@ public class ZDInfoManagerService {
 //			return myMapResult;
 //		}
 	
-	public void addZdInfos(ZdInfo zdinfo) {
+	public void addZdInfo(DevZdInfo zdinfo) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			//System.out.println("id:"+sysMap.getMapId());
-			//zdinfo.setGysj(gysj);
 			session.save(zdinfo);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
@@ -158,7 +163,7 @@ public class ZDInfoManagerService {
 			}
 		}*/
 	// 编辑
-		public void updateZdInfo(ZdInfo zdInfo) {
+		public void updateZdInfo(DevZdInfo zdInfo) {
 			Session session = sessionFactory.getCurrentSession();
 			try {
 				session.saveOrUpdate(zdInfo);
@@ -179,10 +184,10 @@ public class ZDInfoManagerService {
 //	
 	public void deleteinfo(String zdId) {
 		// System.out.println("roleId:" + roleId);
-		ZdInfo result = null;
+		DevZdInfo result = null;
 		Session session = sessionFactory.getCurrentSession();
 		try {
-		result = (ZdInfo) session.get(ZdInfo.class,
+		result = (DevZdInfo) session.get(DevZdInfo.class,
 					Integer.parseInt(zdId));
 			session.delete(result);
 	} catch (Exception e) {

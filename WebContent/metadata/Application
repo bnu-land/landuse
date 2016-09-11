@@ -7,6 +7,9 @@
     "codeClass": null,
     "userConfig": {
         "name": "MyApp",
+        "stores": [
+            "zd_checkStore"
+        ],
         "views": [
             "qy_addinformation"
         ]

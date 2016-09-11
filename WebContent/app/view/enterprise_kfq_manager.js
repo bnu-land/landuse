@@ -32,7 +32,7 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
     viewModel: {
         type: 'enterprise_kfq_manager'
     },
-    height: 589,
+    height: 614,
     width: 1051,
     layout: 'border',
     title: '开发区信息管理',

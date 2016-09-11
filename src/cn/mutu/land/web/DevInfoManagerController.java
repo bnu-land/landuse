@@ -14,18 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
+import cn.mutu.land.model.DevInfo;
 import cn.mutu.land.model.KfqInfomation;
-import cn.mutu.land.model.TaskInfo;
-import cn.mutu.land.model.ZdInfo;
-import cn.mutu.land.service.KfqInfoManagerService;
+import cn.mutu.land.service.DevInfoManagerService;
 
 @Controller
-public class KfqInfoManagerController {
+public class DevInfoManagerController {
 
-	private KfqInfoManagerService infoService;
+	private DevInfoManagerService infoService;
 
 	@Autowired
-	public KfqInfoManagerController(KfqInfoManagerService infoService) {
+	public DevInfoManagerController(DevInfoManagerService infoService) {
 		this.infoService = infoService;
 	}
 
@@ -33,10 +32,8 @@ public class KfqInfoManagerController {
 	// 查询
 	@RequestMapping(value = "/get_kfqinfo")
 	@ResponseBody
-	public Map<String, Object> getInfoList(
-			@RequestParam("searchKeyword") String searchKeyword)
-			//@RequestParam("kfqpjlx") String lx,
-			//@RequestParam("kfqjb") String jb)
+	public Map<String, Object> getDevInfoList(
+			@RequestParam("searchKeyword") String searchKeyword)	
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.infoService.getKfqInfoList(searchKeyword);
@@ -45,14 +42,14 @@ public class KfqInfoManagerController {
 	//增加
 	@RequestMapping(value="/add_kfqinfo",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addkfqinfo(@RequestBody KfqInfomation kfqInfomation)
+	public Map<String, Object> addDevInfo(@RequestBody DevInfo devInfo)
 			throws IOException {		
 
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			kfqInfomation.setSlsj(kfqInfomation.getSlsj().substring(0, 7).replace("-", ""));
-			System.out.println(kfqInfomation.getSlsj());
-			this.infoService.addkfq(kfqInfomation);
+			devInfo.setSlsj(devInfo.getSlsj().substring(0, 7).replace("-", ""));
+			System.out.println(devInfo.getSlsj());
+			this.infoService.addkfq(devInfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");
 		} catch (Exception er) {
@@ -64,16 +61,12 @@ public class KfqInfoManagerController {
 
 }
 	@RequestMapping(value = "/update_kfqnfo", method = RequestMethod.POST)
-	// ,method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> updateKfqInfo(@RequestBody KfqInfomation kfqInfomation)
+	public Map<String, Object> updateKfqInfo(@RequestBody DevInfo devInfo)
 			throws IOException {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			//System.out.println("mapId="+zdinfo.getId());
-			//String date=zdinfo.getGysj();
-			//zdinfo.setGysj(date.substring(0, 10));
-			this.infoService.updatekfqInfo(kfqInfomation);
+			this.infoService.updateDevInfo(devInfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");
 		} catch (Exception er) {

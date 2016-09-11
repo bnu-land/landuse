@@ -13,32 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
-
-
-
-
-
-
 import cn.mutu.land.common.Encoder;
-import cn.mutu.land.model.BusinessInfo;
-import cn.mutu.land.model.BusinessMap;
-import cn.mutu.land.model.LawRegulation;
-import cn.mutu.land.model.LawTypes;
-import cn.mutu.land.model.TaskInfo;
-import cn.mutu.land.model.ZdInfo;
-import cn.mutu.land.service.BusinessInfoManagerService;
-import cn.mutu.land.service.BusinessMapManagerService;
-import cn.mutu.land.service.TaskInfoManagerService;
+import cn.mutu.land.model.DevTask;
+import cn.mutu.land.service.DevTaskManagerService;
 
 @Controller
-public class TaskInfoManagerController {
+public class DevTaskManagerController {
 
-	private TaskInfoManagerService infoService;
+	private DevTaskManagerService infoService;
 
 	@Autowired
-	public TaskInfoManagerController(TaskInfoManagerService infoService) {
+	public DevTaskManagerController(DevTaskManagerService infoService) {
 		this.infoService = infoService;
 	}
 
@@ -50,18 +35,18 @@ public class TaskInfoManagerController {
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
-		return this.infoService.getTaskInfoList(searchKeyword);
+		return this.infoService.getDevTaskList(searchKeyword);
 		//,@RequestParam("guyt")String gysj
 	}
 	// 下发任务
 		@RequestMapping(value = "/add_task",method=RequestMethod.POST)
 		@ResponseBody
-		public Map<String, Object> addTask(@RequestBody TaskInfo taskInfo)
+		public Map<String, Object> addTask(@RequestBody DevTask devInfo)
 				throws IOException {		
 
 			Map<String, Object> result = new HashMap<String, Object>();
 			try {			     	
-				this.infoService.addTask(taskInfo);
+				this.infoService.addTask(devInfo);
 				result.put("success", true);
 				result.put("msg", ",successfully saved");
 			} catch (Exception er) {

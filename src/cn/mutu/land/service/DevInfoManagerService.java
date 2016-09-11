@@ -9,14 +9,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.mutu.land.model.KfqInfomation;
-import cn.mutu.land.model.TaskInfo;
-import cn.mutu.land.model.ZdInfo;
+import cn.mutu.land.model.DevInfo;
 
 
 
 @Service
-public class KfqInfoManagerService {
+public class DevInfoManagerService {
 	private SessionFactory sessionFactory;
 
 	@Autowired
@@ -26,7 +24,7 @@ public class KfqInfoManagerService {
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getKfqInfoList(String searchKeyword) {
-		String hql = "FROM KfqInfomation as kfq";
+		String hql = "FROM DevInfo as kfq";
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
 			//String likeStr1=" LIKE '%" + jb + "%' ";
@@ -40,10 +38,10 @@ public class KfqInfoManagerService {
 					//+ "OR kfq.kfqpjnf" + likeStr1;,String date
 			hql += hql2;
 		}		
-		List<KfqInfomation> results = null;
+		List<DevInfo> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
-		results = (List<KfqInfomation>) query.list();
+		results = (List<DevInfo>) query.list();
 		
 		Map<String, Object> myMapResult = new TreeMap<String, Object>();
 		myMapResult.put("root", results);
@@ -51,19 +49,22 @@ public class KfqInfoManagerService {
 		return myMapResult;
 	}
 	@SuppressWarnings("unchecked")
-	public void addkfq(KfqInfomation kfqInfomation) {
+	public void addkfq(DevInfo devInfo) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			session.save(kfqInfomation);
+			
+			System.out.println(devInfo.getSlsj()+"时间长度是："+devInfo.getSlsj().length());
+			//devInfo.setSlsj(devInfo.getSlsj().substring(0,4));
+			session.saveOrUpdate(devInfo);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 	}
 	// 编辑
-			public void updatekfqInfo(KfqInfomation kfqInfomation) {
+			public void updateDevInfo(DevInfo devInfo) {
 				Session session = sessionFactory.getCurrentSession();
 				try {
-					session.saveOrUpdate(kfqInfomation);
+					session.saveOrUpdate(devInfo);
 				} catch (Exception er) {
 					System.out.println(er.getMessage());
 				}

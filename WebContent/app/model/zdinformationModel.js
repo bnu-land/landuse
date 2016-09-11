@@ -167,6 +167,9 @@ Ext.define('MyApp.model.zdinformationModel', {
         },
         {
             name: 'qyssze'
+        },
+        {
+            name: 'check'
         }
     ]
 });
