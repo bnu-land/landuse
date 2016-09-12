@@ -224,6 +224,7 @@ Ext.application({
         'dxqy_photoupload',
         'dxqy_mapupload'
         
+        
     ],
     name: 'MyApp',
 
