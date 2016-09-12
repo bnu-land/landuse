@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_mapupload",
+        "designer|userClassName": "dxqy_mapuploadViewController"
+    },
+    "designerId": "0461edf6-33ac-4086-90b6-0bcb4a95405c"
+}

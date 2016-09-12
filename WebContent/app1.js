@@ -57,7 +57,8 @@ Ext.application({
         'taskModel',
         'kfqInfoModel',
         'achievementFileModel',
-        'ExcelExportionModel'
+        'ExcelExportionModel',
+        'dxqy_uploadModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -123,7 +124,8 @@ Ext.application({
         'achievementFileStore',
         'achievementFileUploadStore',
         'ExcelExportionStore',
-        'zd_checkStore'
+        'zd_checkStore',
+        'dxqy_uploadStore'
     ],
     views: [
         'MainView',
@@ -217,7 +219,11 @@ Ext.application({
         'dxqy_upload',
         'achievement_DataImportDB',
         'achievement_DataExport',
-        'achievement_ExcelExport'
+        'achievement_ExcelExport',
+        'dxqy_adduplod',
+        'dxqy_photoupload',
+        'dxqy_mapupload'
+        
     ],
     name: 'MyApp',
 

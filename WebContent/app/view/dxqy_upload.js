@@ -24,6 +24,8 @@ Ext.define('MyApp.view.dxqy_upload', {
         'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
+        'Ext.grid.column.Action',
+        'Ext.grid.column.Boolean',
         'Ext.grid.View',
         'Ext.selection.CheckboxModel'
     ],
@@ -35,6 +37,7 @@ Ext.define('MyApp.view.dxqy_upload', {
     width: 1010,
     layout: 'absolute',
     title: '典型企业信息填报',
+    defaultListenerScope: true,
 
     dockedItems: [
         {
@@ -46,51 +49,41 @@ Ext.define('MyApp.view.dxqy_upload', {
                 {
                     xtype: 'textfield',
                     id: 'searchKeyword_busInfo',
-                    fieldLabel: ''
+                    fieldLabel: '',
+                    emptyText: '输入搜索关键字',
+                    listeners: {
+                        change: 'onSearchKeyword_busInfoChange'
+                    }
                 },
                 {
                     xtype: 'button',
                     handler: function(button, e) {
-                        var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();
-                        console.log("keyword:",getKeyword);
-                        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
-                        //在load事件中添加参数
-                        mystore.load(
-                        {
-                            params :
-                            {
-                                searchKeyword : getKeyword
-                            }
-                        }
-                        );
-                    },
-                    id: '',
-                    text: '搜索'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        Ext.getCmp('searchKeyword_zdInfo').setValue('');
-                        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+                        Ext.getCmp('searchKeyword_busInfo').setValue('');
+                        var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象
                         mystore.load();
                     },
+                    icon: 'images/table/refresh.png',
                     text: '刷新'
                 },
                 {
                     xtype: 'button',
                     handler: function(button, e) {
 
-                        var win=Ext.widget('qy_addinformation');
-                        win.show();
+                        //var win=Ext.widget('dxqy_adduplod');
+                        //win.show();
                         //mainView.disable();
+                        var win = Ext.widget('dxqy_adduplod');
+                        console.log(win);
+                        win.show();
                     },
-                    text: '添加典型企业信息'
+                    icon: 'images/table/add.png',
+                    text: '添加'
                 },
                 {
                     xtype: 'button',
                     handler: function(button, e) {
                         //获取数据
-                        var models = Ext.getCmp('zd_info').getSelection();
+                        var models = Ext.getCmp('dxqy_uploadlist').getSelection();
                         if (models.length === 0){
                             Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
                             return;
@@ -99,24 +92,70 @@ Ext.define('MyApp.view.dxqy_upload', {
                             return;
                         }
                         //启动窗口
-                        var win = Ext.widget('update_zdinnfo');
+                        var win = Ext.widget('dxqy_adduplod');
                         win.setTitle('修改宗地信息');
                         win.show();
 
                         //改变Ajax url
-                        var form = Ext.getCmp('update_zdwidinfo').getForm();
+                        var form = Ext.getCmp('dxqy_addinformation').getForm();
                         form.loadRecord(models[0]);
-                        form.url = 'update_zdInfo';
+                        form.url = 'update_dxInfo';
+
+                        var form1 = Ext.getCmp('photoInfo').getForm();
+                        form1.loadRecord(models[0]);
+                        form1.url = 'update_dxInfo';
+
+                        var form2 = Ext.getCmp('mapinfo').getForm();
+                        form2.loadRecord(models[0]);
+                        form2.url = 'update_dxInfo';
                     },
-                    text: '编辑典型企业信息'
+                    icon: 'images/table/edit.png',
+                    text: '编辑'
                 },
                 {
                     xtype: 'button',
                     handler: function(button, e) {
-                        var win =Ext.widget('mytest');
-                        win.show();
+                        var grid = Ext.getCmp('dxqy_uploadlist');
+                        var records = grid.getSelection();
+                        if (records.length === 0) {
+                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                            return;
+                        } else if (records.length > 1) {
+                            Ext.Msg.alert('提示', '每次只能 一条信息。');
+                            return;
+                        }
+                        var record = records[0];
+
+                        Ext.Msg.confirm('您正在删除', '企业名称为：' + record.get('qymc') + '，企业代码为：'+record.get('dxdm')+'，<br/> 确认删除？', getResult);
+                        function getResult(confirm)
+                        {
+                            console.log('confirm:', confirm);
+                            if (confirm == "yes"){
+                                var id = record.get("id");
+                                console.log('id:',id);
+                                Ext.Ajax.request(
+                                {
+                                    url : 'del_dxinfo',
+                                    params :
+                                    {
+                                        id : id
+                                    },
+                                    success : function (response){
+                                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                                        //successResult();
+                                        var mystore = Ext.StoreMgr.get('dxqy_uploadStore');
+                                        mystore.load();
+                                    },
+                                    failure : function (response){
+                                        failedResult();
+                                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                                    }
+                                });
+                            }
+                        }
                     },
-                    text: '删除典型企业信息'
+                    icon: 'images/table/delete.png',
+                    text: '删除'
                 }
             ]
         }
@@ -126,9 +165,9 @@ Ext.define('MyApp.view.dxqy_upload', {
             xtype: 'gridpanel',
             x: -1,
             y: 0,
-            id: 'zd_info1',
+            id: 'dxqy_uploadlist',
             title: '',
-            store: 'zd_infoStore',
+            store: 'dxqy_uploadStore',
             columns: [
                 {
                     xtype: 'rownumberer',
@@ -137,159 +176,229 @@ Ext.define('MyApp.view.dxqy_upload', {
                     text: '序号'
                 },
                 {
+                    xtype: 'actioncolumn',
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        // var win = Ext.widget('dxqy_photoupload');
+                        // console.log(win);
+                        // win.show();
+
+                        if (colIndex === undefined || colIndex < 2) {
+                            return;
+                        }
+                        var win = Ext.widget('dxqy_photoupload');
+                        win.show();
+                        var form = Ext.getCmp('photoInfoForm').getForm();
+                        form.loadRecord(record);
+                    },
+                    width: 95,
+                    dataIndex: 'isinfo',
+                    text: '上传照片',
+                    icon: 'images/table/edit.png'
+                },
+                {
+                    xtype: 'actioncolumn',
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        // var win = Ext.widget('dxqy_mapupload');
+                        // console.log(win);
+                        // win.show();
+
+                        if (colIndex === undefined || colIndex < 2) {
+                            return;
+                        }
+                        var win = Ext.widget('dxqy_mapupload');
+                        win.show();
+                        var form = Ext.getCmp('mapinfoForm').getForm();
+                        form.loadRecord(record);
+                    },
+                    dataIndex: 'isphoto',
+                    text: '上传位置',
+                    icon: 'images/table/edit.png'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'isinfo',
+                    text: '是否填报信息',
+                    falseText: '否',
+                    trueText: '是'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'isphoto',
+                    text: '是否上传照片',
+                    falseText: '否',
+                    trueText: '是'
+                },
+                {
+                    xtype: 'booleancolumn',
+                    dataIndex: 'ismap',
+                    text: '是否上传位置',
+                    falseText: '否',
+                    trueText: '是'
+                },
+                {
                     xtype: 'gridcolumn',
-                    dataIndex: 'kfqmc',
-                    text: '是否填报信息'
+                    dataIndex: 'qymc',
+                    text: '企业名称'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'qydz',
+                    text: '企业地址'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'zdbh',
+                    text: '宗地编号'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'sspjfw',
+                    text: '所属评价范围'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'hylb',
+                    text: '行业类别'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'hydm',
+                    text: '行业代码'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'qyrs',
+                    text: '企业人数'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'sbnf',
+                    text: '上报年份'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'kfqmc',
-                    text: '是否上传照片'
+                    text: '所属开发区'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'kfqmc',
-                    text: '是否上传位置'
+                    dataIndex: 'kfqdm',
+                    text: '开发区代码'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'kfqmc',
-                    text: '开发区名称'
+                    dataIndex: 'kfqlx',
+                    text: '开发区类型'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'kfqpjfw',
-                    text: '开发区评价范围'
+                    dataIndex: 'wctz',
+                    text: '实际完成累计固定资产投资'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'kfqpjlx',
-                    text: '开发区评价类型'
+                    dataIndex: 'yjztz',
+                    text: '预计固定资产总投资'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tbbh',
-                    text: '图斑编号'
+                    dataIndex: 'zcz',
+                    text: '总产值'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dlmc',
-                    text: '地类名称'
+                    dataIndex: 'zsr',
+                    text: '总收入'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dlmj',
-                    text: '地类面积'
+                    dataIndex: 'ssze',
+                    text: '税收总额'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'qs',
-                    text: '权属'
+                    dataIndex: 'qyydmj',
+                    text: '企业用地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gysj',
-                    text: '供应时间'
+                    dataIndex: 'cfpt',
+                    text: '厂房及配套用地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gylx',
-                    text: '供应类型'
+                    dataIndex: 'ltcd',
+                    text: '露天堆场,露天操作场地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tdzpg',
-                    text: '土地招拍佳情况'
+                    dataIndex: 'dltcc',
+                    text: '企业内部道路停车场面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'synx',
-                    text: '使用年限'
+                    dataIndex: 'xzbg',
+                    text: '企业内部行政办公及生活服务设施用地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tdsyz',
-                    text: '土地使用者'
+                    dataIndex: 'qt',
+                    text: '其他用地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'jzmj',
-                    text: '建筑面积(平方米)'
+                    dataIndex: 'nbyld',
+                    text: '厂区内部预留地面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'jzjdmj',
-                    text: '建筑基地面积(平方米)'
+                    dataIndex: 'ld',
+                    text: '绿地面积'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'zjzmj',
+                    text: '总建筑面积'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'jzxs',
+                    text: '建筑系数'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'jdzmj',
-                    text: '建筑物、构筑物基底及露天堆场、露天操作场地的总面积（平方米）'
+                    text: '建筑物构筑物基底,露天堆场和露天操作场地总面积'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gxlb',
-                    text: '高新技术产业用地类别'
+                    dataIndex: 'rjl',
+                    text: '容积率'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gxydmj',
-                    text: '高新技术产业用地面积(公顷）'
+                    dataIndex: 'photosPath',
+                    text: '照片路径'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gxzsbl',
-                    text: '高新技术产业用地面积折算比例 '
+                    dataIndex: 'photosName',
+                    text: '照片名称'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gxsr',
-                    text: '高新技术产业收入（万元）'
+                    dataIndex: 'tbrq',
+                    text: '填报日期'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'gxss',
-                    text: '高新技术产业税收（万元）'
+                    dataIndex: 'filePath',
+                    text: '位置文件路径'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'ghyt',
-                    text: '规划用途'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'pzyt',
-                    text: '批准用途'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'tdxzqk',
-                    text: '土地闲置情况'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'rdyj',
-                    text: '认定依据'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'gdzctzze',
-                    text: '工业企业、工业物流企业固定资产投资总额(万元）'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'esssze',
-                    text: '二、三产业税收总额（万元/年）'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'qyzsr',
-                    text: '工业企业工业物流企业总收入（万元/年）'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'check',
-                    text: '工业企业工业物流企业税收总额（万元/年）'
+                    dataIndex: 'shzt',
+                    text: '审核状态'
                 },
                 {
                     xtype: 'gridcolumn',
@@ -301,6 +410,21 @@ Ext.define('MyApp.view.dxqy_upload', {
                 selType: 'checkboxmodel'
             }
         }
-    ]
+    ],
+
+    onSearchKeyword_busInfoChange: function(field, newValue, oldValue, eOpts) {
+        var getKeyword = Ext.getCmp('searchKeyword_busInfo').getValue();
+        console.log("keyword:",getKeyword);
+        var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象
+        //在load事件中添加参数
+        mystore.load(
+            {
+                params :
+                {
+                    searchKeyword : getKeyword
+                }
+            }
+        );
+    }
 
 });

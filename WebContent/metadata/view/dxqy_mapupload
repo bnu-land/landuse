@@ -1,0 +1,393 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_mapupload",
+        "designer|userClassName": "dxqy_mapupload",
+        "height": 625,
+        "layout": "border",
+        "title": "上传企业位置",
+        "width": 777
+    },
+    "name": "MyWindow",
+    "designerId": "c3e20818-36da-4d0a-a482-dcef3f7ab4ba",
+    "viewControllerInstanceId": "0461edf6-33ac-4086-90b6-0bcb4a95405c",
+    "viewModelInstanceId": "2a48d71b-98d9-469b-9669-030c44940531",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "border",
+                "layout|region": "center",
+                "title": ""
+            },
+            "name": "MyPanel23",
+            "designerId": "5e8c35dd-dc60-42e6-8038-183b91552454",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "border",
+                        "layout|region": "center",
+                        "layout|split": true,
+                        "title": ""
+                    },
+                    "name": "MyPanel19",
+                    "designerId": "51a8d6c9-3f14-4ee3-9b08-492df38736fd",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "panel_img5",
+                                "layout": "fit",
+                                "layout|region": "center",
+                                "layout|split": true,
+                                "title": ""
+                            },
+                            "name": "MyPanel7",
+                            "designerId": "496c09d4-3d39-4655-8c60-3866fce7b71c",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": null,
+                                        "height": 587,
+                                        "title": "地图预览"
+                                    },
+                                    "name": "MyFieldSet5",
+                                    "designerId": "d7d4174e-bb69-4545-9250-ead0e8143740",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onFieldsetBeforeRender1",
+                                                "implHandler": [
+                                                    "//加入地图的js文件",
+                                                    "var head = document.getElementsByTagName('head')[0];",
+                                                    "var script= document.createElement(\"script\");",
+                                                    "script.type = \"text/javascript\";",
+                                                    "script.src=\"mapjs/homeMap.js\";",
+                                                    "head.appendChild(script);"
+                                                ],
+                                                "name": "beforerender",
+                                                "scope": "me"
+                                            },
+                                            "name": "onFieldsetBeforeRender1",
+                                            "designerId": "829a9a32-2d74-4cb3-9b42-330b178ae7dd"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "name": "MyToolbar11",
+                            "designerId": "4025f3ab-e808-43e4-8bc9-515744e20d4f",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "bodyPadding": 10,
+                                        "height": 98,
+                                        "id": "mapinfo1",
+                                        "layout|flex": null,
+                                        "title": "",
+                                        "width": 763
+                                    },
+                                    "name": "MyForm8",
+                                    "designerId": "5f1f6e06-88f4-43e7-b50f-a7e2ad25cd68",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.FieldSet",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|snapToGrid": 10,
+                                                "height": 87,
+                                                "id": "mapinfoset1",
+                                                "layout": "absolute",
+                                                "title": "",
+                                                "width": 760
+                                            },
+                                            "name": "MyFieldSet4",
+                                            "designerId": "df2ac261-82cc-4785-a3b0-0ceb37c30c86",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "企业名称",
+                                                        "labelWidth": 70,
+                                                        "layout|x": 330,
+                                                        "layout|y": 10,
+                                                        "name": "qymc",
+                                                        "width": 200
+                                                    },
+                                                    "name": "MyComboBox2",
+                                                    "designerId": "8c0dedf5-d280-4368-b513-65a83e7c2196"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.File",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "buttonText": "浏览",
+                                                        "fieldLabel": "选择文件",
+                                                        "labelWidth": 70,
+                                                        "layout|x": 10,
+                                                        "layout|y": 10,
+                                                        "name": "filePath",
+                                                        "width": 300
+                                                    },
+                                                    "name": "MyFileUpload",
+                                                    "designerId": "717a673b-7e80-424f-bfc0-292c9d056eb5"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.ComboBox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "上报年份",
+                                                        "labelWidth": 70,
+                                                        "layout|x": 550,
+                                                        "layout|y": 10,
+                                                        "name": "sbnf",
+                                                        "width": 170
+                                                    },
+                                                    "name": "MyComboBox4",
+                                                    "configAlternates": {
+                                                        "store": "array"
+                                                    },
+                                                    "designerId": "a5c45e48-4895-4726-9979-408076c43d62"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.Text",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fieldLabel": "id",
+                                                        "hidden": true,
+                                                        "layout|x": 54,
+                                                        "layout|y": 35,
+                                                        "name": "id"
+                                                    },
+                                                    "name": "MyTextField71",
+                                                    "designerId": "6d79bf65-a60e-4da0-ae4e-54dc3bd2564b"
+                                                },
+                                                {
+                                                    "type": "Ext.toolbar.Toolbar",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|x": 10,
+                                                        "layout|y": 50
+                                                    },
+                                                    "name": "MyToolbar12",
+                                                    "designerId": "decd4b45-bfd7-4506-8742-2ec1c237d1aa",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.toolbar.Fill",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "layout|flex": null
+                                                            },
+                                                            "name": "MyFill5",
+                                                            "designerId": "47cb0315-7341-49c5-a988-72ddf25b43bf"
+                                                        },
+                                                        {
+                                                            "type": "Ext.button.Button",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "layout|flex": null,
+                                                                "text": "预览地图",
+                                                                "width": 80
+                                                            },
+                                                            "name": "MyButton10",
+                                                            "designerId": "ba7488d8-1553-4c1e-86dc-4cda0d82b60f",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "fixedfunction",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "designer|params": [
+                                                                            "button",
+                                                                            "e"
+                                                                        ],
+                                                                        "fn": "handler",
+                                                                        "implHandler": [
+                                                                            "// var xtype = 'bus_information4';",
+                                                                            "// var mainView = Ext.getCmp('mainView');",
+                                                                            "// mainView.removeAll();",
+                                                                            "// mainView.add(Ext.widget(xtype));",
+                                                                            "var tab =Ext.getCmp('panel_info');// 'panel_info';",
+                                                                            "tab.setActiveTab(2);"
+                                                                        ]
+                                                                    },
+                                                                    "name": "handler",
+                                                                    "designerId": "fd6321b8-9d68-4caf-a8e3-5e78ee9d1e3e"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "Ext.toolbar.Spacer",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "layout|flex": null
+                                                            },
+                                                            "name": "MySpacer3",
+                                                            "designerId": "3eb5aff4-5ab9-43fa-8fc1-0b6e7a6d2be1"
+                                                        },
+                                                        {
+                                                            "type": "Ext.button.Button",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "layout|flex": null,
+                                                                "text": "确认上传",
+                                                                "width": 80
+                                                            },
+                                                            "name": "MyButton13",
+                                                            "designerId": "b3daf442-7bd0-4728-91a9-26bf2ebb747b",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "fixedfunction",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "designer|params": [
+                                                                            "button",
+                                                                            "e"
+                                                                        ],
+                                                                        "fn": "handler",
+                                                                        "implHandler": [
+                                                                            "var myform = Ext.getCmp('mapinfo').getForm();",
+                                                                            "if (myform.isValid())",
+                                                                            "{",
+                                                                            "    console.log('form is ava');",
+                                                                            "    myform.submit({",
+                                                                            "        url : 'post_mapFile',",
+                                                                            "        success : function (form, action)",
+                                                                            "        {",
+                                                                            "            Ext.Msg.alert('成功', '提交成功。');",
+                                                                            "",
+                                                                            "            //var mystore = Ext.StoreMgr.get('Business_photoStore'); //获得store对象",
+                                                                            "            //mystore.reload();",
+                                                                            "            //var xtype = 'information';",
+                                                                            "            //var mainView = Ext.getCmp('mainView');",
+                                                                            "           // mainView.removeAll();",
+                                                                            "           // mainView.add(Ext.widget(xtype));",
+                                                                            "           ",
+                                                                            "        },",
+                                                                            "        failure: function(form, action){",
+                                                                            "            Ext.Msg.alert('失败', '提交失败，请重试。');",
+                                                                            "        }",
+                                                                            "    });",
+                                                                            "}",
+                                                                            "else",
+                                                                            "{",
+                                                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                                                            "}"
+                                                                        ]
+                                                                    },
+                                                                    "name": "handler",
+                                                                    "designerId": "01274685-4415-4a2d-8798-1913f82d33a6"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

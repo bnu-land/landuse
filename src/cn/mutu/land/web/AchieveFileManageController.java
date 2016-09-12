@@ -487,4 +487,35 @@ public class AchieveFileManageController {
         //java+getOutputStream() has already been called for this response
 		return null;
 	}
+
+	@RequestMapping(value="/post_photoFile",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> post_photoFile(
+			@RequestParam("photoFiles")CommonsMultipartFile[] files,
+			@RequestParam("id")String id,HttpServletRequest request){
+		System.out.println(id);
+		String uploader=request.getUserPrincipal().getName();//当前登录用户名
+		Map<String, Object>r=new TreeMap<String,Object>();
+		//时间戳
+		String onlyTime=DateUtil.getOnlyId();//文件路径时间戳
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String savetime=df.format(new Date());//保存时间
+		if(files!=null&&files.length>=0){
+			System.out.println(files.length);			
+			for(int i=0;i<files.length;i++){
+				System.out.println(files[i].getOriginalFilename());
+				boolean s=this.achieveFileManageService.add_uploadPhotofile(Integer.parseInt(id),files[i],uploader,savetime,onlyTime+"/");
+				r.put("success", s);
+				continue;
+			}
+		}else {
+			System.out.println("file null");
+			r.put("success", false);
+		}
+		return r;
+//		System.out.println(r.get("success"));
+//		if((boolean)r.get("success"))return "上传文件成功";
+//		else return "上传文件失败";
+	}
+
 }

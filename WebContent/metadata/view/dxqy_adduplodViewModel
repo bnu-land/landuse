@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_adduplod",
+        "designer|userClassName": "dxqy_adduplodViewModel"
+    },
+    "designerId": "00a1b2c7-a336-442c-b9a0-6d7ffcbfc716"
+}

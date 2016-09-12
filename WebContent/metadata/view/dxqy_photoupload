@@ -1,0 +1,917 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_photoupload",
+        "designer|userClassName": "dxqy_photoupload",
+        "height": 530,
+        "id": "dxqy_photoupload",
+        "layout": "border",
+        "title": "上传企业照片",
+        "width": 750
+    },
+    "name": "MyWindow",
+    "designerId": "374afe92-05bd-4986-a756-eb7321de3457",
+    "viewControllerInstanceId": "dff5e3ae-1f34-4266-9068-f0d372265aca",
+    "viewModelInstanceId": "d536377f-7bc8-4dcf-bca5-342ced4ee114",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "border",
+                "layout|region": "center",
+                "layout|split": true,
+                "title": ""
+            },
+            "name": "MyPanel19",
+            "designerId": "4278626c-3ef4-4bdd-b1ef-3b1d6dd791e9",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "bus_photoinformation1",
+                        "layout": "border",
+                        "layout|region": "west",
+                        "layout|split": true,
+                        "width": 380
+                    },
+                    "name": "MyForm5",
+                    "designerId": "7b307bba-f385-4387-8c50-8481b4403697",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "photoInfoForm",
+                                "layout|region": "center",
+                                "layout|split": false,
+                                "manageHeight": false,
+                                "title": null
+                            },
+                            "name": "MyForm2",
+                            "designerId": "49a1a5c3-12bf-43fa-a1ca-35ddc5dc65fa",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 480,
+                                        "margin": 5,
+                                        "title": "填写上传照片信息",
+                                        "width": 350
+                                    },
+                                    "name": "MyFieldSet21",
+                                    "designerId": "419d112a-8351-48b0-9794-43d32e3281a5",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.File",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "allowBlank": false,
+                                                "allowOnlyWhitespace": false,
+                                                "buttonText": "浏览",
+                                                "fieldLabel": "选择照片",
+                                                "id": "file-idx",
+                                                "name": "photoFiles",
+                                                "width": 320
+                                            },
+                                            "name": "MyFileUpload",
+                                            "designerId": "526817b0-8fc5-4b52-a32b-541fe75795ef",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onFilefieldChange",
+                                                        "implHandler": [
+                                                            "var img_reg = /\\.([jJ][pP][gG]){1}$|\\.([jJ][pP][eE][gG]){1}$|\\.([gG][iI][fF]){1}$|\\.([pP][nN][gG]){1}$|\\.([bB][mM][pP]){1}$/;",
+                                                            "",
+                                                            "var url = 'file://'+ Ext.getCmp('file-idx').value;",
+                                                            "console.log(url);",
+                                                            "if (img_reg.test(url)) {",
+                                                            "    if (Ext.isIE) {",
+                                                            "        var image = Ext.getCmp('imageBrowse');",
+                                                            "        image.src = Ext.BLANK_IMAGE_URL;// 覆盖原来的图片",
+                                                            "        image.filters.item(\"DXImageTransform.Microsoft.AlphaImageLoader\").src = url;",
+                                                            "    }// 支持FF",
+                                                            "    else {",
+                                                            "        console.log(Ext.getCmp('file-idx').getValue());",
+                                                            "        var file=Ext.getCmp('file-idx').getEl().down('input[type=file]').dom.files[0];",
+                                                            "        var reader = new FileReader();",
+                                                            "        reader.onload = function (e) {",
+                                                            "            // console.log($('#blah').attr('src'));",
+                                                            "           $('#blah').attr('src', e.target.result);",
+                                                            "             $('#blah').attr('width', \"80%\");",
+                                                            "         };",
+                                                            "         reader.readAsDataURL(file);",
+                                                            "        Ext.getCmp('photosNameIdForm').setValue(file.name);",
+                                                            "    }",
+                                                            "}"
+                                                        ],
+                                                        "name": "change",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onFilefieldChange",
+                                                    "designerId": "a9f61dff-149f-4473-9138-3841f008df32"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "图片名称",
+                                                "id": "photosNameIdForm",
+                                                "name": "photosName",
+                                                "submitValue": false,
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField2",
+                                            "designerId": "84e171aa-49e5-4915-8162-8ffd4ff5bcb4"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "企业名称",
+                                                "name": "qymc",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField70",
+                                            "designerId": "9bb58b2f-1599-42fb-b02c-5bc44f03f545"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "企业地址",
+                                                "name": "qydz",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField68",
+                                            "designerId": "dc4735ff-9f30-497a-8deb-2bc006d09919"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "企业人数",
+                                                "name": "qyrs",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField67",
+                                            "designerId": "445a5a87-ccba-4595-9331-2fd898e8dd0c"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "宗地编号",
+                                                "name": "zdbh",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField66",
+                                            "designerId": "9982da82-f11e-44f4-9723-a20c317dcb1a"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "上报年份",
+                                                "name": "sbnf",
+                                                "submitValue": false,
+                                                "width": 320
+                                            },
+                                            "name": "MyComboBox4",
+                                            "configAlternates": {
+                                                "store": "array"
+                                            },
+                                            "designerId": "383137c3-c488-43f7-a17c-8c9be731d419"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "所属开发区",
+                                                "name": "kfqmc",
+                                                "submitValue": false,
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField32",
+                                            "designerId": "2f4d3dc1-cf54-4f44-8d23-2ccf2c871a6c"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "开发区代码",
+                                                "name": "kfqdm",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField65",
+                                            "designerId": "b417734b-6285-49ae-b870-43b7e9966fa8"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "开发区类型",
+                                                "name": "kfqlx",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField64",
+                                            "designerId": "42af2d06-3757-4afa-b588-a8589da4aa74"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "行业类别",
+                                                "name": "hylb",
+                                                "width": 320
+                                            },
+                                            "name": "MyTextField63",
+                                            "designerId": "ae4764c7-9137-423f-9aab-8871486c584e"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "editable": false,
+                                                "fieldLabel": "行业代码",
+                                                "name": "hydm",
+                                                "store": "dxqy_uploadStore",
+                                                "submitValue": false,
+                                                "width": 320
+                                            },
+                                            "name": "MyComboBox2",
+                                            "designerId": "c96a4cf3-0a59-4beb-a98e-ac8183363177"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Date",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": "填报日期",
+                                                "id": "tbrq",
+                                                "name": "tbrq",
+                                                "submitValue": false,
+                                                "width": 320
+                                            },
+                                            "name": "MyDateField1",
+                                            "designerId": "4fbef8dd-25f4-447e-a855-32a9443bb058"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": "id",
+                                                "hidden": true,
+                                                "layout|anchor": "100%",
+                                                "name": "id"
+                                            },
+                                            "name": "MyTextField62",
+                                            "designerId": "c1e55dd4-457b-4264-8706-8f841b0392ef"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Toolbar",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "width": 320
+                                            },
+                                            "name": "MyToolbar10",
+                                            "designerId": "e968ec19-906f-4288-96c1-fd8665368d53",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.toolbar.Fill",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": null
+                                                    },
+                                                    "name": "MyFill4",
+                                                    "designerId": "b3070929-6f0b-475f-9d94-9b4c973c039b"
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": null,
+                                                        "text": "取消",
+                                                        "width": 80
+                                                    },
+                                                    "name": "MyButton10",
+                                                    "designerId": "ee4325ce-18a2-4262-bbba-9854063c1e59",
+                                                    "cn": [
+                                                        {
+                                                            "type": "fixedfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|params": [
+                                                                    "button",
+                                                                    "e"
+                                                                ],
+                                                                "fn": "handler",
+                                                                "implHandler": [
+                                                                    "// var xtype = 'bus_information4';",
+                                                                    "// var mainView = Ext.getCmp('mainView');",
+                                                                    "// mainView.removeAll();",
+                                                                    "// mainView.add(Ext.widget(xtype));",
+                                                                    "",
+                                                                    "// var tab =Ext.getCmp('panel_infomation');// 'panel_info';",
+                                                                    "// tab.setActiveTab(2);",
+                                                                    "",
+                                                                    "var win = Ext.widget('dxqy_photoupload');",
+                                                                    "win.close();"
+                                                                ]
+                                                            },
+                                                            "name": "handler",
+                                                            "designerId": "b09830dc-62de-45b5-a3fc-5d7305f45950"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Ext.button.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "layout|flex": null,
+                                                        "text": "确认上传",
+                                                        "width": 80
+                                                    },
+                                                    "name": "MyButton13",
+                                                    "designerId": "68cd5d05-edd6-4d69-a221-9248237ed5e6",
+                                                    "cn": [
+                                                        {
+                                                            "type": "fixedfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|params": [
+                                                                    "button",
+                                                                    "e"
+                                                                ],
+                                                                "fn": "handler",
+                                                                "implHandler": [
+                                                                    "var myform = Ext.getCmp('photoInfoForm').getForm();",
+                                                                    "if (myform.isValid())",
+                                                                    "{",
+                                                                    "    console.log('form is ava');",
+                                                                    "    myform.submit({",
+                                                                    "        url : 'achieve/post_photoFile',",
+                                                                    "        method:\"post\",",
+                                                                    "        success : function (form, action)",
+                                                                    "        {",
+                                                                    "            Ext.Msg.alert('成功', '提交成功。');",
+                                                                    "",
+                                                                    "            var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                                                    "            mystore.reload();",
+                                                                    "            //var xtype = 'information';",
+                                                                    "            //var mainView = Ext.getCmp('mainView');",
+                                                                    "            // mainView.removeAll();",
+                                                                    "            // mainView.add(Ext.widget(xtype));",
+                                                                    "                   var win = Ext.widget('dxqy_photoupload');",
+                                                                    "                    win.close();",
+                                                                    "            function message(alert){",
+                                                                    "                if(alert=='ok') {",
+                                                                    "",
+                                                                    "                }",
+                                                                    "            }",
+                                                                    "        },",
+                                                                    "        failure: function(form, action){",
+                                                                    "            Ext.Msg.alert('失败', '提交失败，请重试。');",
+                                                                    "            var win = Ext.widget('dxqy_photoupload');",
+                                                                    "            win.close();",
+                                                                    "        }",
+                                                                    "    });",
+                                                                    "}",
+                                                                    "else",
+                                                                    "{",
+                                                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                                                    "}",
+                                                                    "",
+                                                                    "",
+                                                                    "// Ext.Msg.confirm('提示',' 确认上传？注:上传后不可更改!', getResult);",
+                                                                    "// function getResult(confirm)",
+                                                                    "// {",
+                                                                    "//     console.log('confirm:', confirm);",
+                                                                    "//     if (confirm == \"yes\"){",
+                                                                    "//         var myform = Ext.getCmp('photoInfo').getForm();",
+                                                                    "//         if (myform.isValid())",
+                                                                    "//            {",
+                                                                    "//           console.log('form is ava');",
+                                                                    "//           myform.submit({",
+                                                                    "//          url : 'post_photoFile',",
+                                                                    "//         success : function (form, action)",
+                                                                    "//         {",
+                                                                    "//             Ext.Msg.alert('成功', '上传成功。',message);",
+                                                                    "//             function message(alert){",
+                                                                    "//                 if(alert=='ok') {",
+                                                                    "//             //var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                                                    "//             //mystore.reload();",
+                                                                    "//             //var xtype = 'dxqy_upload';",
+                                                                    "//             //var mainView = Ext.getCmp('mainView');",
+                                                                    "//             //mainView.removeAll();",
+                                                                    "//            // mainView.add(Ext.widget(xtype));",
+                                                                    "//             var tab =Ext.getCmp('panel_infomation');// 'panel_info';",
+                                                                    "//             tab.setActiveTab(2);",
+                                                                    "//                 }",
+                                                                    "//             }",
+                                                                    "",
+                                                                    "",
+                                                                    "//         },",
+                                                                    "//         failure: function(form, action){",
+                                                                    "//             Ext.Msg.alert('失败', '上传失败，请重试。');",
+                                                                    "//         }",
+                                                                    "//     });",
+                                                                    "// }",
+                                                                    "//     }",
+                                                                    "// }"
+                                                                ]
+                                                            },
+                                                            "name": "handler",
+                                                            "designerId": "1396ff5a-93b7-4b67-b31a-c6ecb583da1b"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onPhotoInfo1AfterRender",
+                                        "implHandler": [
+                                            "//获取当前填报时间",
+                                            "var registerdateField = Ext.getCmp('tbrq');",
+                                            "var dateStr = \"\";",
+                                            "var myDate = new Date();",
+                                            "dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)",
+                                            "dateStr += \"-\" + (myDate.getMonth()+1);       //获取当前月份(0-11,0代表1月)",
+                                            "dateStr += \"-\" +myDate.getDate();        //获取当前日(1-31)",
+                                            "registerdateField.setValue(dateStr);"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onPhotoInfo1AfterRender",
+                                    "designerId": "be641424-e2a5-497f-9b2e-c8b4785bd2ad"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": "50%",
+                                "hidden": true,
+                                "id": "photo_mapinfos1",
+                                "layout|region": "south",
+                                "layout|split": false,
+                                "store": "dxqy_uploadStore",
+                                "title": "照片列表"
+                            },
+                            "name": "MyGridPanel2",
+                            "designerId": "e5d7831a-7b18-4c74-8035-9647f5614d1e",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.RowNumberer",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "",
+                                        "text": "序号",
+                                        "width": 69
+                                    },
+                                    "name": "MyRowNumberer5",
+                                    "designerId": "f7d36ec1-ca38-4275-81fe-d542f48db01d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "photosName",
+                                        "text": "图片名称"
+                                    },
+                                    "name": "MyColumn9",
+                                    "designerId": "fed49cc8-4e4a-4b23-b34b-c7a50192756b"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "qymc",
+                                        "text": "企业名称"
+                                    },
+                                    "name": "MyColumn10",
+                                    "designerId": "4576d30c-60af-484f-9e1f-b5c967cb4608"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "kfqmc",
+                                        "text": "所属开发区"
+                                    },
+                                    "name": "MyColumn11",
+                                    "designerId": "9cfb061a-eddb-49e4-aac9-4947fc06a009"
+                                },
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView2",
+                                    "designerId": "b6a29547-e526-4a01-8a86-3e62d87ccc30"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckboxSelectionModel3",
+                                    "designerId": "6d7ef369-e4cb-4f4f-9439-3f9b3e32de4d"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Toolbar",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dock": "top",
+                                        "height": 48
+                                    },
+                                    "name": "MyToolbar6",
+                                    "designerId": "ae08a3ef-0a36-448d-948e-c10ce3ac8166",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fieldLabel": "",
+                                                "id": "searchKeyword_photoInfo1",
+                                                "layout|flex": null
+                                            },
+                                            "name": "MyTextField14",
+                                            "designerId": "761fa0b8-3435-4b25-90a2-100b42c8f913",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onSearchKeyword_photoInfoChange1",
+                                                        "implHandler": [
+                                                            "var getKeyword = Ext.getCmp('searchKeyword_photoInfo').getValue();",
+                                                            "console.log(\"keyword:\",getKeyword);",
+                                                            "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                                            "//在load事件中添加参数",
+                                                            "mystore.load(",
+                                                            "    {",
+                                                            "        params :",
+                                                            "        {",
+                                                            "            searchKeyword : getKeyword",
+                                                            "        }",
+                                                            "    }",
+                                                            ");"
+                                                        ],
+                                                        "name": "change",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onSearchKeyword_photoInfoChange1",
+                                                    "designerId": "463c8fff-7297-4a49-8aef-c15b6ec96964"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "icon": "images/table/refresh.png",
+                                                "layout|flex": null,
+                                                "text": "刷新"
+                                            },
+                                            "name": "MyButton14",
+                                            "designerId": "66e21253-5da8-49c5-95c6-925824c78d3f",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "button",
+                                                            "e"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "Ext.getCmp('searchKeyword_photoInfo').setValue('');",
+                                                            "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                                            "mystore.load();"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "b85c4f85-634c-4665-ae62-f312c6861f64"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "html": [
+                            "<img id=\"blah\" src=\"images/login/login_center_left.jpg\" alt=\"your image\" width=\"80%\" style=\"margin-left:10px;margin-right:10px\"\" />"
+                        ],
+                        "layout|margins": "",
+                        "layout|region": "center",
+                        "margin": 10,
+                        "title": null
+                    },
+                    "name": "MyPanel",
+                    "designerId": "d2bbb2d4-8a82-41b8-9cc9-a79a4489709f",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "name": "MyToolbar",
+                            "designerId": "d285ff52-c1a8-4149-a95d-29cfaef35240",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "text": "放大"
+                                    },
+                                    "name": "MyButton",
+                                    "designerId": "4ffc7ebd-daea-447e-b888-f3a16143ff89",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var width= $('#blah').attr('width');",
+                                                    "width=width.replace(\"%\",\"\");",
+                                                    "if(width>=100)return;",
+                                                    "else if(width>=80)",
+                                                    "    $('#blah').attr('width', '100%');",
+                                                    "else if(width>=60)",
+                                                    "    $('#blah').attr('width', '80%');",
+                                                    "else if(width>=40)",
+                                                    "    $('#blah').attr('width', '60%');",
+                                                    "else if(width>=20)",
+                                                    "    $('#blah').attr('width', '40%');",
+                                                    "else $('#blah').attr('width', '20%');",
+                                                    "console.log($('#blah').attr('width'));"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "6cb75f38-ddd4-4d73-9208-362f62b87bb5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "text": "缩小"
+                                    },
+                                    "name": "MyButton1",
+                                    "designerId": "f3bb7495-d5ac-44be-a4ba-3bdb7c208c71",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var width= $('#blah').attr('width');",
+                                                    "width=width.replace(\"%\",\"\");",
+                                                    "if(width<=10)return;",
+                                                    "else if(width<=20)",
+                                                    "    $('#blah').attr('width', '10%');",
+                                                    "else if(width<=40)",
+                                                    "    $('#blah').attr('width', '20%');",
+                                                    "else if(width<=60)",
+                                                    "    $('#blah').attr('width', '40%');",
+                                                    "else if(width<=80)",
+                                                    "    $('#blah').attr('width', '60%');",
+                                                    "else $('#blah').attr('width', '80%');",
+                                                    "console.log($('#blah').attr('width'));"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "96afc375-866b-4c4e-90ba-6bb311c04225"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

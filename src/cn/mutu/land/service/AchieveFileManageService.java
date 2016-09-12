@@ -23,6 +23,7 @@ import cn.mutu.land.common.SaveUploadFile;
 import cn.mutu.land.common.Word2Html;
 import cn.mutu.land.common.ZipCompressing;
 import cn.mutu.land.model.AchievementFile;
+import cn.mutu.land.model.EntDxqyydPda;
 import cn.mutu.land.model.ExcelExportion;
 import cn.mutu.land.model.ExcelTable;
 import cn.mutu.land.model.DevInfo;
@@ -246,7 +247,7 @@ public class AchieveFileManageService {
 			return ExcelTable.F3;
 		default:
 			return null;
-		}		
+		}
 	}
 
 
@@ -269,4 +270,22 @@ public class AchieveFileManageService {
 		return hql;
 	}
 	
+	
+	
+	public boolean add_uploadPhotofile(Integer id,CommonsMultipartFile file,String uploader,String savetime,String groupfilepath){
+		String filepath="D:/test_uploadfile2/";
+		String filename=file.getOriginalFilename();
+		boolean s=SaveUploadFile.saveFile(file, filepath+groupfilepath,filename);
+		
+		if(s){
+			//修改记录
+			Session session=this.sessionFactory.getCurrentSession();
+			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);
+			e.setPhotosPath(filepath+groupfilepath);
+			e.setPhotosName(filename);
+			e.setIsphoto(1);
+			session.saveOrUpdate(e);
+		}
+		return s;
+	}
 }

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_photoupload",
+        "designer|userClassName": "dxqy_photouploadViewController"
+    },
+    "designerId": "dff5e3ae-1f34-4266-9068-f0d372265aca"
+}
