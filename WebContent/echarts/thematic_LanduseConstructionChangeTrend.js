@@ -46,7 +46,11 @@ function getColumnValue(dataArr, index) {
     return colValues;
 }
 function getRowValue(dataArr,index) {
-    var rowValues = [];
+	var rowValues = [];
+	console.log("dataArr长度"+dataArr.length);
+	if(dataArr.length-1<index)
+		return rowValues;
+    
     var len=Object.keys(dataArr[0]).length;
     if (dataArr && len >  1) {
         var keyNames = Object.keys(dataArr[0]); // 取二级属性的名称
@@ -55,6 +59,7 @@ function getRowValue(dataArr,index) {
      for(var i in keyNames)
     	 {
     	 var rowName = keyNames[i];
+    	// console.log("rowName:"+rowName);
     	 var value = dataArr[index][rowName];
     	 rowValues.push(value);
     	 }
@@ -77,11 +82,12 @@ store.on('load', function(store, records, successful, operation, eOpts) {
 
     var echartsLegend = getLegendName(echartsData); // 横坐标
     
-    var echartsLegendType = getLegendType(echartsData); // 横坐标数据类型
-    echartsLegendType.shift();//删除数组第一项，
+    var echartsLegendType = getLegendType(echartsData); // 横坐标标注
+    echartsLegendType.shift();//删除数组第一项，																			
     echartsLegendType.pop();//删除数组最后一项
-    //console.log("我在这里"+echartsLegendType);
-    //console.log("长度"+echarsData.Length);
+    console.log("我在这里"+echartsLegendType);
+    //console.log("长度"+echartsData.getLenth());
+    
    var row1 = getRowValue(echartsData, 0); // 第一列的数据
    var row2 = getRowValue(echartsData, 1); 
    var row3 = getRowValue(echartsData, 2); 
@@ -95,7 +101,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
    var row11 = getRowValue(echartsData, 10); 
    
    // console.log("echartData:", echartsData);
-    console.log("row1:", row1);
+    console.log("row11:", row11);
     //console.log("column2:", column2);
 
    /* if (!column1 || !column2) {

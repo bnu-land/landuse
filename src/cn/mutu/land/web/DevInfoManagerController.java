@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.DevInfo;
-import cn.mutu.land.model.KfqInfomation;
 import cn.mutu.land.service.DevInfoManagerService;
 
 @Controller
@@ -39,16 +38,28 @@ public class DevInfoManagerController {
 		return this.infoService.getKfqInfoList(searchKeyword);
 		//
 	}
+	//delet
+	// 删除
+			@RequestMapping(value = "/del_kfqInfo")
+				@ResponseBody
+				public void delZdById(@RequestParam("id") String kfqId) throws IOException {
+				System.out.print(kfqId);	
+				this.infoService.deleteinfo(kfqId);
+			
+			}
 	//增加
-	@RequestMapping(value="/add_kfqinfo",method=RequestMethod.POST)
+	@RequestMapping(value="/add_kfqInfomation")//,@RequestBody DevInfo devInfo,method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addDevInfo(@RequestBody DevInfo devInfo)
+	public Map<String, Object> addDevInfo(@RequestParam("kfqmc") String kfqmc)
 			throws IOException {		
 
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			devInfo.setSlsj(devInfo.getSlsj().substring(0, 7).replace("-", ""));
-			System.out.println(devInfo.getSlsj());
+			DevInfo devInfo=new DevInfo();
+			devInfo.setKfqmc(kfqmc);
+			System.out.println("开发区名称："+devInfo.getKfqmc());
+			//devInfo.setSlsj(devInfo.getSlsj().substring(0, 7).replace("-", ""));
+			//System.out.println(devInfo.getKfqmc());
 			this.infoService.addkfq(devInfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");

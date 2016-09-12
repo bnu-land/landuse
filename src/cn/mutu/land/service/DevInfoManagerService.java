@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.mutu.land.model.DevInfo;
+import cn.mutu.land.model.DevZdInfo;
 
 
 
@@ -53,11 +54,23 @@ public class DevInfoManagerService {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			
-			System.out.println(devInfo.getSlsj()+"时间长度是："+devInfo.getSlsj().length());
+			//System.out.println(devInfo.getSlsj()+"时间长度是："+devInfo.getSlsj().length());
 			//devInfo.setSlsj(devInfo.getSlsj().substring(0,4));
 			session.saveOrUpdate(devInfo);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
+		}
+	}
+	public void deleteinfo(String kfqId) {
+		// System.out.println("roleId:" + roleId);
+		DevInfo result = null;
+		Session session = sessionFactory.getCurrentSession();
+		try {
+		result = (DevInfo) session.get(DevInfo.class,
+					Integer.parseInt(kfqId));
+			session.delete(result);
+	} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	// 编辑

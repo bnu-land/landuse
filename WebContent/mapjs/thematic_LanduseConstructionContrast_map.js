@@ -218,7 +218,7 @@ require([
                 storePie.reload();
             }
         }
-
+//单击数据表聚焦地块
         grid = Ext.getCmp('thematic_LanduseConstructionContrastGrid');
         if (grid) {
             grid.on('cellclick', onGridCellClick);

@@ -21,16 +21,17 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
         'MyApp.view.win_kfqinfo_addViewModel',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
-        'Ext.form.field.Text',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
-        'Ext.toolbar.Spacer'
+        'Ext.toolbar.Spacer',
+        'Ext.form.field.Date'
     ],
 
     viewModel: {
         type: 'win_kfqinfo_add'
     },
+    autoScroll: true,
     height: 575,
     id: 'win_kfqInfo_add',
     width: 427,
@@ -40,17 +41,20 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
     items: [
         {
             xtype: 'form',
-            autoScroll: true,
-            height: 700,
+            height: 1183,
             id: 'form_kfqinfo_add',
             width: 405,
-            layout: 'auto',
+            layout: 'absolute',
             bodyPadding: 10,
             title: '',
-            url: 'add_kfqinfo',
+            url: 'add_kfqInfomation',
             items: [
                 {
                     xtype: 'fieldset',
+                    x: 20,
+                    y: 20,
+                    height: 200,
+                    hidden: true,
                     width: 361,
                     layout: 'auto',
                     title: '开发区基本信息',
@@ -70,16 +74,6 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                             labelAlign: 'right',
                             labelWidth: 150,
                             name: 'kfqjb'
-                        },
-                        {
-                            xtype: 'textfield',
-                            height: 25,
-                            width: 325,
-                            fieldLabel: '开发区设立时间',
-                            labelAlign: 'right',
-                            labelWidth: 150,
-                            name: 'slsj',
-                            submitValue: false
                         },
                         {
                             xtype: 'textfield',
@@ -134,135 +128,6 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                             name: 'kfqpjlx'
                         }
                     ]
-                },
-                {
-                    xtype: 'fieldset',
-                    height: 376,
-                    width: 364,
-                    layout: 'auto',
-                    title: '主区',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区评价面积（hm2）',
-                            labelAlign: 'right',
-                            labelWidth: 150,
-                            name: 'MKfqpjmj'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '土地开发率(%)',
-                            labelAlign: 'right',
-                            labelWidth: 150,
-                            name: 'MTdkfl'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '常住人口(人)',
-                            labelAlign: 'right',
-                            labelWidth: 150,
-                            name: 'MCzrk'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '工业（物流）企业固定资产投资总额（万元）',
-                            labelWidth: 150,
-                            name: 'MGdzctzze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '二、三产业税收总额(万元)',
-                            labelWidth: 150,
-                            name: 'MEscyssze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区工业（物流）企业总收入（万元）',
-                            labelWidth: 150,
-                            name: 'MGyzsr'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区工业（物流）企业税收总额（万元）',
-                            labelWidth: 150,
-                            name: 'MGyssze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区高新技术产业总收入（万元）',
-                            labelWidth: 150,
-                            name: 'MGxzsr'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区高新技术产业税收总额（万元）',
-                            labelWidth: 150,
-                            name: 'MGxzsr'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'fieldset',
-                    height: 376,
-                    width: 364,
-                    layout: 'auto',
-                    title: '发展方向区',
-                    items: [
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区评价面积（hm2）',
-                            labelWidth: 150,
-                            name: 'DKfqpjmj'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '土地开发率(%)',
-                            labelWidth: 150,
-                            name: 'DTdkfl'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '常住人口(人)',
-                            labelWidth: 150,
-                            name: 'DCzrk'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '工业（物流）企业固定资产投资总额（万元）',
-                            labelWidth: 150,
-                            name: 'DGdzctzze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '二、三产业税收总额(万元)',
-                            labelWidth: 150,
-                            name: 'DEscyssze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区工业（物流）企业总收入（万元）',
-                            labelWidth: 150,
-                            name: 'DGyzsr'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区工业（物流）企业税收总额（万元）',
-                            labelWidth: 150,
-                            name: 'DGyssze'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区高新技术产业总收入（万元）',
-                            labelWidth: 150,
-                            name: 'DGxzsr'
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '开发区高新技术产业税收总额（万元）',
-                            labelWidth: 150,
-                            name: 'DGxssze'
-                        }
-                    ]
                 }
             ]
         }
@@ -304,7 +169,7 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                                     var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
                                     mystore.reload();
 
-                                    var win = Ext.getCmp('form_kfqinfo_add');
+                                    var win = Ext.getCmp('form_kfqInfo_add');
                                     win.close();
 
                                 },
@@ -323,6 +188,17 @@ Ext.define('MyApp.view.win_kfqinfo_add', {
                 {
                     xtype: 'tbspacer',
                     width: 20
+                },
+                {
+                    xtype: 'datefield',
+                    height: 25,
+                    width: 325,
+                    fieldLabel: '开发区设立时间',
+                    labelAlign: 'right',
+                    labelWidth: 150,
+                    name: 'slsj',
+                    submitValue: false,
+                    format: 'Y-m-d'
                 }
             ]
         }

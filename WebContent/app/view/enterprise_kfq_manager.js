@@ -236,25 +236,26 @@ Ext.define('MyApp.view.enterprise_kfq_manager', {
                             {
                                 xtype: 'actioncolumn',
                                 handler: function(grid, rowIndex, colIndex, actionItem, event, record, row) {
-                                    Ext.Msg.confirm('您正在删除', '角色：' + record.get('roleNameCn') + '，角色代码为：'+record.get('roleName')+'，<br/> 确认删除？', getResult);
+                                    Ext.Msg.confirm('您正在删除', '开发区：' + record.get('kfqmc') + '，<br/> 确认删除？', getResult);
                                     function getResult(confirm)
                                     {
                                         console.log('confirm:', confirm);
                                         if (confirm == "yes"){
-                                            var roleId = record.get("roleId");
+                                            var roleId = record.get("id");
                                             Ext.Ajax.request(
                                             {
-                                                url : 'del_RoleInfoById',
+                                                url : 'del_kfqInfo',
                                                 params :
                                                 {
-                                                    roleId : roleId
+                                                    id : roleId
                                                 },
                                                 success : function (response){
-                                                    Ext.Msg.alert('成功提示', '角色删除成功。');
-                                                    var mystore = Ext.StoreMgr.get('uRoleInfoStore');
+                                                    Ext.Msg.alert('成功提示', '操作成功。');
+                                                    var mystore = Ext.StoreMgr.get('kfqInfoStore');
                                                     mystore.load();
                                                 },
                                                 failure : function (response){
+                                                    Ext.Msg.alert('失败提示', '操作失败。');
 
                                                 }
                                             });

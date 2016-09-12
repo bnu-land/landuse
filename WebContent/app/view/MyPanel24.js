@@ -18,7 +18,9 @@ Ext.define('MyApp.view.MyPanel24', {
     alias: 'widget.mypanel24',
 
     requires: [
-        'MyApp.view.MyPanel24ViewModel'
+        'MyApp.view.MyPanel24ViewModel',
+        'Ext.form.FieldSet',
+        'Ext.form.field.Text'
     ],
 
     viewModel: {
@@ -28,6 +30,139 @@ Ext.define('MyApp.view.MyPanel24', {
     id: 'zd_information1',
     width: 1010,
     layout: 'absolute',
-    title: '宗地信息填报'
+    title: '宗地信息填报',
+
+    items: [
+        {
+            xtype: 'fieldset',
+            height: 376,
+            width: 364,
+            layout: 'auto',
+            title: '主区',
+            items: [
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区评价面积（hm2）',
+                    labelAlign: 'right',
+                    labelWidth: 150,
+                    name: 'MKfqpjmj'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '土地开发率(%)',
+                    labelAlign: 'right',
+                    labelWidth: 150,
+                    name: 'MTdkfl'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '常住人口(人)',
+                    labelAlign: 'right',
+                    labelWidth: 150,
+                    name: 'MCzrk'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '工业（物流）企业固定资产投资总额（万元）',
+                    labelWidth: 150,
+                    name: 'MGdzctzze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '二、三产业税收总额(万元)',
+                    labelWidth: 150,
+                    name: 'MEscyssze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区工业（物流）企业总收入（万元）',
+                    labelWidth: 150,
+                    name: 'MGyzsr'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区工业（物流）企业税收总额（万元）',
+                    labelWidth: 150,
+                    name: 'MGyssze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区高新技术产业总收入（万元）',
+                    labelWidth: 150,
+                    name: 'MGxzsr'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区高新技术产业税收总额（万元）',
+                    labelWidth: 150,
+                    name: 'MGxzsr'
+                }
+            ]
+        },
+        {
+            xtype: 'fieldset',
+            height: 376,
+            width: 364,
+            layout: 'auto',
+            title: '发展方向区',
+            items: [
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区评价面积（hm2）',
+                    labelWidth: 150,
+                    name: 'DKfqpjmj'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '土地开发率(%)',
+                    labelWidth: 150,
+                    name: 'DTdkfl'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '常住人口(人)',
+                    labelWidth: 150,
+                    name: 'DCzrk'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '工业（物流）企业固定资产投资总额（万元）',
+                    labelWidth: 150,
+                    name: 'DGdzctzze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '二、三产业税收总额(万元)',
+                    labelAlign: 'right',
+                    labelWidth: 150,
+                    name: 'DEscyssze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区工业（物流）企业总收入（万元）',
+                    labelWidth: 150,
+                    name: 'DGyzsr'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区工业（物流）企业税收总额（万元）',
+                    labelWidth: 150,
+                    name: 'DGyssze'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区高新技术产业总收入（万元）',
+                    labelWidth: 150,
+                    name: 'DGxzsr'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '开发区高新技术产业税收总额（万元）',
+                    labelWidth: 150,
+                    name: 'DGxssze'
+                }
+            ]
+        }
+    ]
 
 });
