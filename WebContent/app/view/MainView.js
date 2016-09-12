@@ -514,7 +514,13 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'achievement_DataExport',
                                     hideOnClick: false,
-                                    text: '成果资料导出'
+                                    text: '历史成果导出'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'achievement_ExcelExport',
+                                    hideOnClick: false,
+                                    text: '数据报表导出'
                                 }
                             ],
                             listeners: {

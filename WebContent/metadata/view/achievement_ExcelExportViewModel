@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "achievement_excelexport",
+        "designer|userClassName": "achievement_ExcelExportViewModel"
+    },
+    "designerId": "6c0856c5-4437-4718-9b96-c88d62bd8aea"
+}

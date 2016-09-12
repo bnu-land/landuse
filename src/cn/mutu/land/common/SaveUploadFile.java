@@ -59,7 +59,7 @@ public class SaveUploadFile {
 
 	
 	
-	public static String copyPicture(String filePathNmae,String outfilePath){
+	public static String copyPicture(String filetype,String filePathNmae,String outfilePath){
 		String resultPath=null;
 		String filename=null;
 		try {
@@ -68,9 +68,9 @@ public class SaveUploadFile {
 				System.out.println("Sorry File does not Exists!");
 			} else {
 				String randomName =getOnlyId();
-				if (f.getName().endsWith(".jpg")){
+				if (filetype.equalsIgnoreCase(".jpg")){
 					filename=randomName+".jpg";					
-				}else if( f.getName().endsWith(".png")) {
+				}else if(filetype.equalsIgnoreCase(".png")) {
 					filename=randomName+".png";
 				}else return null;	
 				resultPath=outfilePath+filename;

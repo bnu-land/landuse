@@ -1,0 +1,49 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "dxqy_uploadStore",
+        "model": "dxqy_uploadModel",
+        "storeId": "dxqy_uploadStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "ee3ff6bd-3e1e-4e39-b07a-6a4b8f7ae28d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{searchKeyword:\"\"}"
+                ],
+                "url": "get_qyinfo"
+            },
+            "name": "MyAjaxProxy5",
+            "designerId": "27691474-0291-4b6d-a919-a0e2568ee3ca",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "root"
+                    },
+                    "name": "MyJsonReader5",
+                    "designerId": "3a78b08a-c53f-4b3c-8ba4-fc97a28becfa"
+                }
+            ]
+        }
+    ]
+}

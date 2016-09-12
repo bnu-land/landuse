@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<<<<<<< HEAD
 <!-- Generated 2016-9-12 12:50:53 by Hibernate Tools 4.0.0 -->
+=======
+<!-- Generated 2016-9-11 11:46:43 by Hibernate Tools 4.0.0 -->
+>>>>>>> DKS
 <hibernate-mapping>
     <class name="cn.mutu.land.model.DevInfo" table="dev_info" catalog="landuse">
         <id name="id" type="java.lang.Integer">

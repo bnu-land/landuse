@@ -56,7 +56,9 @@ Ext.application({
         'BusinessInfoModel',
         'taskModel',
         'kfqInfoModel',
-        'achievementFileModel'
+        'achievementFileModel',
+        'ExcelExportionModel',
+        'dxqy_uploadModel'
     ],
     stores: [
         'systemManageMapStore',
@@ -121,7 +123,9 @@ Ext.application({
         'zd_infoStore',
         'achievementFileStore',
         'achievementFileUploadStore',
-        'zd_checkStore'
+        'ExcelExportionStore',
+        'zd_checkStore',
+        'dxqy_uploadStore'
     ],
     views: [
         'MainView',
@@ -214,7 +218,12 @@ Ext.application({
         'update_zdinnfo',
         'dxqy_upload',
         'achievement_DataImportDB',
-        'achievement_DataExport'
+        'achievement_DataExport',
+        'achievement_ExcelExport',
+        'dxqy_adduplod',
+        'dxqy_photoupload',
+        'dxqy_mapupload'
+        
     ],
     name: 'MyApp',
 

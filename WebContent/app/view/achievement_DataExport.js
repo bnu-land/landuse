@@ -36,7 +36,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
     autoScroll: true,
     height: 756,
     width: 1007,
-    title: '成果数据导出',
+    title: '历史成果导出',
     defaultListenerScope: true,
 
     dockedItems: [
@@ -59,6 +59,9 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     fieldLabel: '开发区',
                     labelWidth: 50,
                     name: 'kfqname',
+                    allowBlank: false,
+                    allowOnlyWhitespace: false,
+                    forceSelection: true,
                     store: [
                         '宾西经济技术开发区',
                         '利民经济技术开发区'
@@ -73,6 +76,10 @@ Ext.define('MyApp.view.achievement_DataExport', {
                     fieldLabel: '年度',
                     labelWidth: 40,
                     name: 'kfqyear',
+                    allowBlank: false,
+                    allowOnlyWhitespace: false,
+                    editable: false,
+                    forceSelection: true,
                     store: [
                         2010,
                         2011,
@@ -197,6 +204,18 @@ Ext.define('MyApp.view.achievement_DataExport', {
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
+                                var filetype=record.get('filetype').toLowerCase();
+                                var types=['.doc','.jpg','.docx','.png','.pdf'];
+                                var canread=false;
+                                for(var i=0;i<types.length;i++){
+                                    if(filetype==types[i]){
+                                        canread=true;break;
+                                    }
+                                }
+                                if(!canread){
+                                    Ext.Msg.alert('提示', '暂不支持该类型文件预览');
+                                    return;
+                                }
                                 var nwin = window.open();
                                 var filepath=record.get('filepath');
                                 var filename=record.get('filename');
@@ -214,10 +233,16 @@ Ext.define('MyApp.view.achievement_DataExport', {
                                         console.log("read word success");
                                         console.log(JSON.stringify(response.responseText));
                                         //me.openUrl(response.responseText);
-                                        if(response.responseText!=null)nwin.location=response.responseText;
+                                        var s=response.responseText;
+                                        if(s!=='null'&&s!==''){
+                                        nwin.location=response.responseText;}
+                                        else{
+                                            nwin.close();
+                                            Ext.Msg.alert('失败提示', '读取文件错误');
+                                        }
                                     },
                                     failure : function (response){
-                                        //failedResult();
+                                        nwin.close();
                                         Ext.Msg.alert('失败提示', '读取文件失败');
                                     }
                                 });

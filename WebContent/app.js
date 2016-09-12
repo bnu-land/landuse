@@ -20,11 +20,19 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
+    models: [
+        'ExcelExportionModel'
+    ],
     stores: [
+        'ExcelExportionStore',
         'zd_checkStore'
     ],
     views: [
-        'qy_addinformation'
+        'achievement_ExcelExport',
+        'qy_addinformation',
+        'dxqy_adduplod',
+        'dxqy_photoupload',
+        'dxqy_mapupload'
     ],
     name: 'MyApp',
 

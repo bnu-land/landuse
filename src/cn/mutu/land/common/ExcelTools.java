@@ -1,5 +1,6 @@
 package cn.mutu.land.common;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -50,6 +52,7 @@ public class ExcelTools {
 
 			// 创建Excel的sheet的一行
 			HSSFRow row = sheet.createRow(index - 1);
+			row.getCell(0).setCellValue("");
 			row.setHeight((short) 400);// 设定行的高度
 
 			createCell(wb, row, 0, key, font);
@@ -67,6 +70,71 @@ public class ExcelTools {
 		os.close();
 	}
 
+	/**
+	 * 输出到excel
+	 * 
+	 * @throws IOException
+	 */
+	public static boolean exportEncryptedQicanToExcel2(
+			Map<String,Object> map, String inputFilePath, String outPath) throws IOException {
+		// 创建Excel的工作书册 Workbook,对应到一个excel文档
+		FileInputStream inputStream=new FileInputStream(inputFilePath);
+		HSSFWorkbook wb = new HSSFWorkbook(inputStream);
+
+		// 创建Excel的工作sheet,对应到一个excel文档的tab
+		HSSFSheet sheet = wb.getSheetAt(0);
+
+		// 创建字体样式
+		HSSFFont font = wb.createFont();
+		font.setFontName("微软雅黑");
+		// font.setBold(false);
+		boolean hasFormula=false;//标记是否存在公式
+		int last=sheet.getLastRowNum();	//最大行	
+		for(int i=0;i<last;i++){
+			HSSFRow row =sheet.getRow(i);
+			if(row==null)break;				
+			int colnum=row.getLastCellNum();//最大列
+			for(int j=0;j<colnum;j++){
+				HSSFCell c=row.getCell(j);
+				if(c==null)continue;				
+				else if(c.getCellType()==HSSFCell.CELL_TYPE_STRING)	{
+					String cellvalue=c.getStringCellValue();
+					String value="";
+					if(map.get(cellvalue)!=null){
+						value=map.get(cellvalue).toString();
+						HSSFCell cell = row.createCell(j);
+						cell.setCellValue(value);
+						cell.setCellStyle(c.getCellStyle());
+						System.out.println(i+"/"+j+"cell value:"+cellvalue+"/new value:"+cell.getStringCellValue());							
+					}else{
+						System.out.println(i+"/"+j+"cell value:"+cellvalue);
+					}						
+				}else if(!hasFormula&&c.getCellType()==HSSFCell.CELL_TYPE_FORMULA){
+					hasFormula=true;
+				}
+			}
+		}
+		//重新遍历计算公式
+		if(hasFormula)
+		for(int i=0;i<last;i++){
+			HSSFRow row =sheet.getRow(i);
+			if(row==null)break;				
+			int colnum=row.getLastCellNum();//最大列
+			for(int j=0;j<colnum;j++){
+				HSSFCell c=row.getCell(j);
+				if(c==null)continue;				
+				if(c.getCellType()==HSSFCell.CELL_TYPE_FORMULA){						
+					c.setCellFormula(c.getCellFormula());
+					System.out.println("公式"+c.getCellFormula()+"="+c.getNumericCellValue());
+				}
+			}
+		}
+		FileOutputStream os = new FileOutputStream(outPath);
+		wb.write(os);
+		os.close();
+		return true;
+	}
+	
 	private static void createCell(HSSFWorkbook wb, HSSFRow row, int column,
 			String value, HSSFFont font) {
 		HSSFCell cell = row.createCell(column);
@@ -214,5 +282,32 @@ public class ExcelTools {
 		}
 		return cellvalue;
 
+	}
+
+
+	
+	public static void main(String[]args){
+			String outPath="C:/Users/DELL/Desktop/testF2.xls";
+//			String inputFilepath="C:/Users/DELL/Desktop/Data/200120131231G2310620003/表F.3 开发区用地审批及调整情况调查表.xls";
+//			Map<String,Object> map=new TreeMap<String, Object>();
+//			map.put("MKqtzhmj", 210);
+//			map.put("MKqtzmj", 10);
+//			map.put("MKqtzsj", 2019);
+//			map.put("sptdzmj", 200);
+//			map.put("kfqmc", "海林经济技术开发区");
+			String inputFilepath="C:/Users/DELL/Desktop/Data/200120131231G2310620003/表F.2 开发区基本信息调查表（Ⅱ）.xls";
+			Map<String,Object> map=new TreeMap<String, Object>();
+			map.put("MKfqpjmj", 210);
+			map.put("DKfqpjmj", 10);
+			map.put("MCzrk", 2019);
+			map.put("DCzrk", 200);
+			map.put("MGxssze", 9);
+			map.put("DGxssze", 1);			
+			try {
+				ExcelTools.exportEncryptedQicanToExcel2(map,inputFilepath, outPath);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 }
