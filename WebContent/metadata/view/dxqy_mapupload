@@ -9,6 +9,10 @@
         "designer|userAlias": "dxqy_mapupload",
         "designer|userClassName": "dxqy_mapupload",
         "height": 625,
+        "hidden": false,
+        "html": [
+            "<iframe src='public/mapUpload/dxqy_mapupload.html?qymc=海林经济技术开发区' scrolling='yes' frameborder=0 width=100% height=100%></iframe>"
+        ],
         "layout": "border",
         "title": "上传企业位置",
         "width": 777
@@ -26,6 +30,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
+                "id": "dxqy_mapuploadPanel",
                 "layout": "border",
                 "layout|region": "center",
                 "title": ""
@@ -41,6 +47,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "layout": "border",
                         "layout|region": "center",
                         "layout|split": true,
@@ -76,6 +83,9 @@
                                     "userConfig": {
                                         "dock": null,
                                         "height": 587,
+                                        "html": [
+                                            "<input id=\"shp\" type=\"file\" name=\".shp\" /><br><div id=\"map\"></div>"
+                                        ],
                                         "title": "地图预览"
                                     },
                                     "name": "MyFieldSet5",
@@ -91,12 +101,21 @@
                                             "userConfig": {
                                                 "fn": "onFieldsetBeforeRender1",
                                                 "implHandler": [
+                                                    "var js=[];",
+                                                    "js[0]=\"public/mapUpload/osgeo/proj4js-compressed.js\";",
+                                                    "js[1]=\"public/mapUpload/osgeo/OpenLayers.js\";",
+                                                    "js[2]=\"public/mapUpload/stream.js\";",
+                                                    "js[3]=\"public/mapUpload/shapefile.js\";",
+                                                    "js[4]=\"public/mapUpload/dbf.js\";",
+                                                    "js[5]=\"public/mapUpload/homeMap_shapefile.js\";",
                                                     "//加入地图的js文件",
                                                     "var head = document.getElementsByTagName('head')[0];",
-                                                    "var script= document.createElement(\"script\");",
-                                                    "script.type = \"text/javascript\";",
-                                                    "script.src=\"mapjs/homeMap.js\";",
-                                                    "head.appendChild(script);"
+                                                    "for(var i=0;i<js.length;i++){",
+                                                    "    var script= document.createElement(\"script\");",
+                                                    "    script.type = \"text/javascript\";",
+                                                    "    script.src=js[i];",
+                                                    "    head.appendChild(script);",
+                                                    "}"
                                                 ],
                                                 "name": "beforerender",
                                                 "scope": "me"
@@ -131,7 +150,7 @@
                                     "userConfig": {
                                         "bodyPadding": 10,
                                         "height": 98,
-                                        "id": "mapinfo1",
+                                        "id": "mapinfoForm",
                                         "layout|flex": null,
                                         "title": "",
                                         "width": 763
@@ -165,6 +184,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "editable": false,
                                                         "fieldLabel": "企业名称",
                                                         "labelWidth": 70,
                                                         "layout|x": 330,
@@ -185,14 +205,42 @@
                                                     "userConfig": {
                                                         "buttonText": "浏览",
                                                         "fieldLabel": "选择文件",
+                                                        "id": "file-id-shp",
                                                         "labelWidth": 70,
                                                         "layout|x": 10,
                                                         "layout|y": 10,
-                                                        "name": "filePath",
+                                                        "name": "shapeFile",
                                                         "width": 300
                                                     },
                                                     "name": "MyFileUpload",
-                                                    "designerId": "717a673b-7e80-424f-bfc0-292c9d056eb5"
+                                                    "designerId": "717a673b-7e80-424f-bfc0-292c9d056eb5",
+                                                    "cn": [
+                                                        {
+                                                            "type": "basiceventbinding",
+                                                            "reference": {
+                                                                "name": "listeners",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "fn": "onFilefieldChange",
+                                                                "implHandler": [
+                                                                    "        var shp_reg = /\\.([sS][hH][pP]){1}$/;",
+                                                                    "",
+                                                                    "        var url = 'file://'+ Ext.getCmp('file-id-shp').value;",
+                                                                    "        console.log(url);",
+                                                                    "        if (shp_reg.test(url)) {",
+                                                                    "            var shpFile=Ext.getCmp('file-id-shp').getEl().down('input[type=file]').dom.files[0];",
+                                                                    "           addShp(shpFile);",
+                                                                    "        }"
+                                                                ],
+                                                                "name": "change",
+                                                                "scope": "me"
+                                                            },
+                                                            "name": "onFilefieldChange",
+                                                            "designerId": "68443bcf-f3fb-47bd-84ce-bb9921c72228"
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "type": "Ext.form.field.ComboBox",
@@ -202,6 +250,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "editable": false,
                                                         "fieldLabel": "上报年份",
                                                         "labelWidth": 70,
                                                         "layout|x": 550,
@@ -223,6 +272,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
+                                                        "editable": false,
                                                         "fieldLabel": "id",
                                                         "hidden": true,
                                                         "layout|x": 54,

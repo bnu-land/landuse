@@ -205,10 +205,17 @@ Ext.define('MyApp.view.dxqy_upload', {
                         if (colIndex === undefined || colIndex < 2) {
                             return;
                         }
+                        var qymc=record.get('qymc');
+                        var id=record.get('id');
+                        var tbrq=record.get('tbrq');
+                        var params="qymc="+qymc+"&id="+id+"&tbrq="+tbrq;
                         var win = Ext.widget('dxqy_mapupload');
+
+                        win.html="<iframe src='public/mapUpload/dxqy_mapupload.html?"+params+"'scrolling='yes' frameborder=0 width=100% height=100%></iframe>";
                         win.show();
                         var form = Ext.getCmp('mapinfoForm').getForm();
                         form.loadRecord(record);
+
                     },
                     dataIndex: 'isphoto',
                     text: '上传位置',
