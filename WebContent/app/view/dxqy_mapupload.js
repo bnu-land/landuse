@@ -33,6 +33,8 @@ Ext.define('MyApp.view.dxqy_mapupload', {
         type: 'dxqy_mapupload'
     },
     height: 625,
+    hidden: false,
+    html: '<iframe src=\'public/mapUpload/dxqy_mapupload.html?qymc=海林经济技术开发区\' scrolling=\'yes\' frameborder=0 width=100% height=100%></iframe>',
     width: 777,
     layout: 'border',
     title: '上传企业位置',
@@ -42,6 +44,8 @@ Ext.define('MyApp.view.dxqy_mapupload', {
         {
             xtype: 'panel',
             region: 'center',
+            hidden: true,
+            id: 'dxqy_mapuploadPanel',
             layout: 'border',
             title: '',
             items: [
@@ -49,6 +53,7 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                     xtype: 'panel',
                     region: 'center',
                     split: true,
+                    hidden: true,
                     layout: 'border',
                     title: '',
                     items: [
@@ -63,6 +68,7 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                                 {
                                     xtype: 'fieldset',
                                     height: 587,
+                                    html: '<input id="shp" type="file" name=".shp" /><br><div id="map"></div>',
                                     title: '地图预览',
                                     listeners: {
                                         beforerender: 'onFieldsetBeforeRender1'
@@ -79,7 +85,7 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                                 {
                                     xtype: 'form',
                                     height: 98,
-                                    id: 'mapinfo1',
+                                    id: 'mapinfoForm',
                                     width: 763,
                                     bodyPadding: 10,
                                     title: '',
@@ -99,17 +105,22 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                                                     width: 200,
                                                     fieldLabel: '企业名称',
                                                     labelWidth: 70,
-                                                    name: 'qymc'
+                                                    name: 'qymc',
+                                                    editable: false
                                                 },
                                                 {
                                                     xtype: 'filefield',
                                                     x: 10,
                                                     y: 10,
+                                                    id: 'file-id-shp',
                                                     width: 300,
                                                     fieldLabel: '选择文件',
                                                     labelWidth: 70,
-                                                    name: 'filePath',
-                                                    buttonText: '浏览'
+                                                    name: 'shapeFile',
+                                                    buttonText: '浏览',
+                                                    listeners: {
+                                                        change: 'onFilefieldChange'
+                                                    }
                                                 },
                                                 {
                                                     xtype: 'combobox',
@@ -118,7 +129,8 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                                                     width: 170,
                                                     fieldLabel: '上报年份',
                                                     labelWidth: 70,
-                                                    name: 'sbnf'
+                                                    name: 'sbnf',
+                                                    editable: false
                                                 },
                                                 {
                                                     xtype: 'textfield',
@@ -126,7 +138,8 @@ Ext.define('MyApp.view.dxqy_mapupload', {
                                                     y: 35,
                                                     hidden: true,
                                                     fieldLabel: 'id',
-                                                    name: 'id'
+                                                    name: 'id',
+                                                    editable: false
                                                 },
                                                 {
                                                     xtype: 'toolbar',
@@ -201,12 +214,32 @@ Ext.define('MyApp.view.dxqy_mapupload', {
     ],
 
     onFieldsetBeforeRender1: function(component, eOpts) {
+        var js=[];
+        js[0]="public/mapUpload/osgeo/proj4js-compressed.js";
+        js[1]="public/mapUpload/osgeo/OpenLayers.js";
+        js[2]="public/mapUpload/stream.js";
+        js[3]="public/mapUpload/shapefile.js";
+        js[4]="public/mapUpload/dbf.js";
+        js[5]="public/mapUpload/homeMap_shapefile.js";
         //加入地图的js文件
         var head = document.getElementsByTagName('head')[0];
-        var script= document.createElement("script");
-        script.type = "text/javascript";
-        script.src="mapjs/homeMap.js";
-        head.appendChild(script);
+        for(var i=0;i<js.length;i++){
+            var script= document.createElement("script");
+            script.type = "text/javascript";
+            script.src=js[i];
+            head.appendChild(script);
+        }
+    },
+
+    onFilefieldChange: function(filefield, value, eOpts) {
+                var shp_reg = /\.([sS][hH][pP]){1}$/;
+
+                var url = 'file://'+ Ext.getCmp('file-id-shp').value;
+                console.log(url);
+                if (shp_reg.test(url)) {
+                    var shpFile=Ext.getCmp('file-id-shp').getEl().down('input[type=file]').dom.files[0];
+                   addShp(shpFile);
+                }
     }
 
 });

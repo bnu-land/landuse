@@ -288,4 +288,20 @@ public class AchieveFileManageService {
 		}
 		return s;
 	}
+	
+	public boolean add_uploadShapefile(Integer id,CommonsMultipartFile file,String uploader,String savetime,String groupfilepath){
+		String filepath="D:/test_uploadfile2/";
+		String filename=file.getOriginalFilename();
+		boolean s=SaveUploadFile.saveFile(file, filepath+groupfilepath,filename);
+		
+		if(s){
+			//修改记录
+			Session session=this.sessionFactory.getCurrentSession();
+			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);
+			e.setFilePath(filepath+groupfilepath+filename);
+			e.setIsmap(1);
+			session.saveOrUpdate(e);
+		}
+		return s;
+	}
 }

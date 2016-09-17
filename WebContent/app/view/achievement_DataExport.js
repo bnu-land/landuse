@@ -205,7 +205,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
                                 var filetype=record.get('filetype').toLowerCase();
-                                var types=['.doc','.jpg','.docx','.png','.pdf'];
+                                var types=['.doc','.jpg','.docx','.png','.pdf','.shp'];
                                 var canread=false;
                                 for(var i=0;i<types.length;i++){
                                     if(filetype==types[i]){
@@ -221,31 +221,37 @@ Ext.define('MyApp.view.achievement_DataExport', {
                                 var filename=record.get('filename');
                                 var groupFilepath=record.get('groupFilepath');
                                 console.log(filepath);
-                                Ext.Ajax.request(
-                                {
-                                    url : 'achieve/read_word',
-                                    params :
-                                    {filepath:filepath,
-                                        filename:filename,
-                                        groupFilepath:groupFilepath
-                                    },
-                                    success : function (response){
-                                        console.log("read word success");
-                                        console.log(JSON.stringify(response.responseText));
-                                        //me.openUrl(response.responseText);
-                                        var s=response.responseText;
-                                        if(s!=='null'&&s!==''){
-                                        nwin.location=response.responseText;}
-                                        else{
+                                if(filetype=='.shp'){
+                                    var href="public/mapUpload/shppreview.html?filepath="+filepath+"&filename="+filename;
+                                    href+="&groupFilepath="+groupFilepath;
+                                    nwin.location=href;
+                                }
+                                else{
+                                    Ext.Ajax.request({
+                                        url : 'achieve/read_word',
+                                        params :
+                                        {filepath:filepath,
+                                            filename:filename,
+                                            groupFilepath:groupFilepath
+                                        },
+                                        success : function (response){
+                                            console.log("read word success");
+                                            console.log(JSON.stringify(response.responseText));
+                                            //me.openUrl(response.responseText);
+                                            var s=response.responseText;
+                                            if(s!=='null'&&s!==''){
+                                            nwin.location=response.responseText;}
+                                            else{
+                                                nwin.close();
+                                                Ext.Msg.alert('失败提示', '读取文件错误');
+                                            }
+                                        },
+                                        failure : function (response){
                                             nwin.close();
-                                            Ext.Msg.alert('失败提示', '读取文件错误');
+                                            Ext.Msg.alert('失败提示', '读取文件失败');
                                         }
-                                    },
-                                    failure : function (response){
-                                        nwin.close();
-                                        Ext.Msg.alert('失败提示', '读取文件失败');
-                                    }
-                                });
+                                    });
+                                }
                             },
                             icon: 'images/table/search.png'
                         }

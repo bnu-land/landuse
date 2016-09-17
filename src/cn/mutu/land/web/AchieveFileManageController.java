@@ -32,6 +32,7 @@ import cn.mutu.land.common.DateUtil;
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.common.Excel2Html;
 import cn.mutu.land.common.ExcelTools;
+import cn.mutu.land.common.ShapeFileTool;
 import cn.mutu.land.common.ZipCompressing;
 import cn.mutu.land.model.AchievementFile;
 import cn.mutu.land.model.ExcelExportion;
@@ -98,6 +99,40 @@ public class AchieveFileManageController {
 			 }
 			 return result;
 		}
+	}
+
+	/**
+	 * 预览文件
+	 * @param filepath
+	 * @param filename
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/getShapeinfo")
+	@ResponseBody
+	public Map<String, Object> getShapeinfo(@RequestParam("filepath")String filepath,
+			@RequestParam("groupFilepath")String groupFilepath, 
+			@RequestParam("filename")String filename,
+			HttpServletRequest request){
+		filepath=Encoder.encode(filepath);
+		filename=Encoder.encode(filename);
+		groupFilepath=Encoder.encode(groupFilepath);
+		
+		filepath=filepath+groupFilepath;
+		if(filepath==null||filepath.equals(""))return null;
+		if(filename==null||filename.equals(""))return null;
+		if(groupFilepath==null||groupFilepath.equals(""))return null;
+		if(filename.endsWith(".shp")){
+			try {
+				filename=filename.replace(".shp", "");
+				return ShapeFileTool.getShapeValues(filepath, filename);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+		return null;
 	}
 	
 	/**
@@ -488,6 +523,14 @@ public class AchieveFileManageController {
 		return null;
 	}
 
+	
+	/**
+	 * 典型企业上传照片
+	 * @param files
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/post_photoFile",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,Object> post_photoFile(
@@ -513,9 +556,41 @@ public class AchieveFileManageController {
 			r.put("success", false);
 		}
 		return r;
-//		System.out.println(r.get("success"));
-//		if((boolean)r.get("success"))return "上传文件成功";
-//		else return "上传文件失败";
 	}
 
+	/**
+	 * 典型企业上传位置
+	 * @param files
+	 * @param id
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/post_shpFile",method=RequestMethod.POST,produces="text/plain;charset=utf-8")
+	@ResponseBody
+	public String post_shpFile(
+			@RequestParam("files")CommonsMultipartFile[] files,
+			@RequestParam("id")String id,HttpServletRequest request){
+		System.out.println(id);
+		String uploader=request.getUserPrincipal().getName();//当前登录用户名
+		Map<String, Object>r=new TreeMap<String,Object>();
+		//时间戳
+		String onlyTime=DateUtil.getOnlyId();//文件路径时间戳
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String savetime=df.format(new Date());//保存时间
+		if(files!=null&&files.length>=0){
+			System.out.println(files.length);			
+			for(int i=0;i<files.length;i++){
+				System.out.println(files[i].getOriginalFilename());
+				boolean s=this.achieveFileManageService.add_uploadShapefile(Integer.parseInt(id),files[i],uploader,savetime,onlyTime+"/");
+				r.put("success", s);
+				continue;
+			}
+		}else {
+			System.out.println("file null");
+			r.put("success", false);
+		}
+		System.out.println(r.get("success"));
+		if((boolean)r.get("success"))return "上传文件成功";
+		else return "上传文件失败";
+	}
 }
