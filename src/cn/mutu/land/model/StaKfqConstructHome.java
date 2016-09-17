@@ -11,13 +11,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class DevTask.
- * @see cn.mutu.land.model.DevTask
+ * Home object for domain model class StaKfqConstruct.
+ * @see cn.mutu.land.model.StaKfqConstruct
  * @author Hibernate Tools
  */
-public class DevTaskHome {
+public class StaKfqConstructHome {
 
-	private static final Log log = LogFactory.getLog(DevTaskHome.class);
+	private static final Log log = LogFactory.getLog(StaKfqConstructHome.class);
 
 	private final SessionFactory sessionFactory = getSessionFactory();
 
@@ -32,8 +32,8 @@ public class DevTaskHome {
 		}
 	}
 
-	public void persist(DevTask transientInstance) {
-		log.debug("persisting DevTask instance");
+	public void persist(StaKfqConstruct transientInstance) {
+		log.debug("persisting StaKfqConstruct instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +43,8 @@ public class DevTaskHome {
 		}
 	}
 
-	public void attachDirty(DevTask instance) {
-		log.debug("attaching dirty DevTask instance");
+	public void attachDirty(StaKfqConstruct instance) {
+		log.debug("attaching dirty StaKfqConstruct instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +54,8 @@ public class DevTaskHome {
 		}
 	}
 
-	public void attachClean(DevTask instance) {
-		log.debug("attaching clean DevTask instance");
+	public void attachClean(StaKfqConstruct instance) {
+		log.debug("attaching clean StaKfqConstruct instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -65,8 +65,8 @@ public class DevTaskHome {
 		}
 	}
 
-	public void delete(DevTask persistentInstance) {
-		log.debug("deleting DevTask instance");
+	public void delete(StaKfqConstruct persistentInstance) {
+		log.debug("deleting StaKfqConstruct instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,11 +76,11 @@ public class DevTaskHome {
 		}
 	}
 
-	public DevTask merge(DevTask detachedInstance) {
-		log.debug("merging DevTask instance");
+	public StaKfqConstruct merge(StaKfqConstruct detachedInstance) {
+		log.debug("merging StaKfqConstruct instance");
 		try {
-			DevTask result = (DevTask) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			StaKfqConstruct result = (StaKfqConstruct) sessionFactory
+					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -89,11 +89,12 @@ public class DevTaskHome {
 		}
 	}
 
-	public DevTask findById(java.lang.Integer id) {
-		log.debug("getting DevTask instance with id: " + id);
+	public StaKfqConstruct findById(java.lang.Integer id) {
+		log.debug("getting StaKfqConstruct instance with id: " + id);
 		try {
-			DevTask instance = (DevTask) sessionFactory.getCurrentSession()
-					.get("cn.mutu.land.model.DevTask", id);
+			StaKfqConstruct instance = (StaKfqConstruct) sessionFactory
+					.getCurrentSession().get(
+							"cn.mutu.land.model.StaKfqConstruct", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -106,11 +107,11 @@ public class DevTaskHome {
 		}
 	}
 
-	public List findByExample(DevTask instance) {
-		log.debug("finding DevTask instance by example");
+	public List findByExample(StaKfqConstruct instance) {
+		log.debug("finding StaKfqConstruct instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession()
-					.createCriteria("cn.mutu.land.model.DevTask")
+					.createCriteria("cn.mutu.land.model.StaKfqConstruct")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

@@ -113,6 +113,10 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
                     xtype: 'button',
                     id: 'thematicLCCT_SubmitButton',
                     text: '开始分析'
+                },
+                {
+                    xtype: 'button',
+                    text: '测试导入数据库'
                 }
             ]
         }
@@ -134,7 +138,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/thematic_LanduseConstructionChangeTrend_map.js";
+        script.src="mapjs/landuseConstructionChangeTrend_map.js";//thematic_LanduseConstructionChangeTrend_map.js
         head.appendChild(script);
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-13 1:30:07 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-17 21:54:10 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.StaKfq" table="sta_kfq" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -19,57 +19,57 @@
             </column>
         </property>
         <property name="zzyd" type="java.lang.Double">
-            <column name="ZZYD" precision="15">
+            <column name="ZZYD" precision="15" scale="3">
                 <comment>&#215;&#161;&#213;&#172;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="gyld" type="java.lang.Double">
-            <column name="GYLD" precision="15">
+            <column name="GYLD" precision="15" scale="3">
                 <comment>&#185;&#171;&#212;&#176;&#194;&#204;&#181;&#216;</comment>
             </column>
         </property>
         <property name="qtbkjstd" type="java.lang.Double">
-            <column name="QTBKJSTD" precision="15">
+            <column name="QTBKJSTD" precision="15" scale="3">
                 <comment>&#198;&#228;&#203;&#251;&#178;&#187;&#191;&#201;&#189;&#168;&#201;&#232;&#205;&#193;&#181;&#216;</comment>
             </column>
         </property>
         <property name="qtjtysyd" type="java.lang.Double">
-            <column name="QTJTYSYD" precision="15">
+            <column name="QTJTYSYD" precision="15" scale="3">
                 <comment>&#198;&#228;&#203;&#251;&#189;&#187;&#205;&#168;&#212;&#203;&#202;&#228;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="qtggyd" type="java.lang.Double">
-            <column name="QTGGYD" precision="15">
+            <column name="QTGGYD" precision="15" scale="3">
                 <comment>&#198;&#228;&#203;&#251;&#185;&#171;&#185;&#178;&#185;&#220;&#192;&#237;&#211;&#235;&#185;&#171;&#185;&#178;&#183;&#254;&#206;&#241;</comment>
             </column>
         </property>
         <property name="sfyd" type="java.lang.Double">
-            <column name="SFYD" precision="15">
+            <column name="SFYD" precision="15" scale="3">
                 <comment>&#201;&#204;&#183;&#254;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="gkccyd" type="java.lang.Double">
-            <column name="GKCCYD" precision="15">
+            <column name="GKCCYD" precision="15" scale="3">
                 <comment>&#185;&#164;&#191;&#243;&#178;&#214;&#180;&#162;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="yddgdtjqtyd" type="java.lang.Double">
-            <column name="YDDGDTJQTYD" precision="15">
+            <column name="YDDGDTJQTYD" precision="15" scale="3">
                 <comment>&#210;&#209;&#180;&#239;&#181;&#189;&#185;&#169;&#181;&#216;&#204;&#245;&#188;&#254;&#198;&#228;&#203;&#251;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="wddgdtjqtyd" type="java.lang.Double">
-            <column name="WDDGDTJQTYD" precision="15">
+            <column name="WDDGDTJQTYD" precision="15" scale="3">
                 <comment>&#206;&#180;&#180;&#239;&#181;&#189;&#185;&#169;&#181;&#216;&#204;&#245;&#188;&#254;&#198;&#228;&#203;&#251;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="hhyd" type="java.lang.Double">
-            <column name="HHYD" precision="15">
+            <column name="HHYD" precision="15" scale="3">
                 <comment>&#186;&#211;&#186;&#254;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>
         <property name="jxyd" type="java.lang.Double">
-            <column name="JXYD" precision="15">
+            <column name="JXYD" precision="15" scale="3">
                 <comment>&#189;&#214;&#207;&#239;&#211;&#195;&#181;&#216;</comment>
             </column>
         </property>

@@ -79,7 +79,28 @@ public class DevZDInfoManagerController {
 		}
 		return result;
 	}
-	
+	// 添加用户信息
+		@RequestMapping(value = "/add_zdinfomation",method=RequestMethod.POST)
+		@ResponseBody
+		public Map<String, Object> addZdInfomation(@RequestBody DevZdInfo zdinfo)
+				throws IOException {
+			System.out.println(zdinfo.getDlmc());
+			System.out.println(zdinfo.getDldm());
+			System.out.println(zdinfo.getDlmj());	
+			Map<String, Object> result = new HashMap<String, Object>();
+			try {
+				
+				
+				this.zdinfoService.addZdInfo(zdinfo);
+				result.put("success", true);
+				result.put("msg", ",successfully saved");
+			} catch (Exception er) {
+				er.printStackTrace();
+				result.put("failure", true);
+				result.put("msg", ",failed saved");
+			}
+			return result;
+		}
 	/*// 修改宗地信息
 	@RequestMapping(value = "/update_zdInfo", method = RequestMethod.POST)
 	@ResponseBody

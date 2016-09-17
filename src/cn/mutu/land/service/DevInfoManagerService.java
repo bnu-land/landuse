@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.mutu.land.model.DevInfo;
-import cn.mutu.land.model.DevZdInfo;
+import cn.mutu.land.model.StaKfq;
 
 
 
@@ -57,6 +57,15 @@ public class DevInfoManagerService {
 			//System.out.println(devInfo.getSlsj()+"时间长度是："+devInfo.getSlsj().length());
 			//devInfo.setSlsj(devInfo.getSlsj().substring(0,4));
 			session.saveOrUpdate(devInfo);
+		} catch (Exception er) {
+			System.out.println(er.getMessage());
+		}
+	}
+	@SuppressWarnings("unchecked")
+	public void statistics(StaKfq staKfq) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			session.saveOrUpdate(staKfq);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}

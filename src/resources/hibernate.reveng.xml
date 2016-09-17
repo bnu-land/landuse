@@ -7,4 +7,5 @@
 	<table-filter match-name="dev_task" match-catalog="landuse"></table-filter>
 	<table-filter match-name="dev_zd_info" match-catalog="landuse"></table-filter>
 	<table-filter match-name="sta_kfq" match-catalog="landuse"></table-filter>
+	<table-filter match-name="sta_kfq_construct" match-catalog="landuse"></table-filter>
 </hibernate-reverse-engineering>

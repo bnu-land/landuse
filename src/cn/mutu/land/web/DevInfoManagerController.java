@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.DevInfo;
+import cn.mutu.land.model.StaKfq;
 import cn.mutu.land.service.DevInfoManagerService;
 
 @Controller
@@ -86,4 +87,26 @@ public class DevInfoManagerController {
 		}
 		return result;
 	}
+	// 添加用户信息
+			@RequestMapping(value = "/add_statisticInfo",method=RequestMethod.POST)
+			@ResponseBody
+			public Map<String, Object> addStaInfomation(@RequestBody StaKfq staKfq)
+					throws IOException {
+				/*System.out.println(zdinfo.getDlmc());
+				System.out.println(zdinfo.getDldm());
+				System.out.println(zdinfo.getDlmj());*/	
+				Map<String, Object> result = new HashMap<String, Object>();
+				try {
+					
+					
+					this.infoService.statistics(staKfq);
+					result.put("success", true);
+					result.put("msg", ",successfully saved");
+				} catch (Exception er) {
+					er.printStackTrace();
+					result.put("failure", true);
+					result.put("msg", ",failed saved");
+				}
+				return result;
+			}
 }

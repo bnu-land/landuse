@@ -260,6 +260,20 @@
                     },
                     "name": "MyButton",
                     "designerId": "ba5efefd-ef1c-4f64-a91c-425f1b81d1c5"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "测试导入数据库"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "8410b80c-f7e3-49f5-8664-dc42040d91cb"
                 }
             ]
         },
@@ -277,7 +291,7 @@
                     "var head = document.getElementsByTagName('head')[0];",
                     "var script= document.createElement(\"script\");",
                     "script.type = \"text/javascript\";",
-                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend_map.js\";",
+                    "script.src=\"mapjs/landuseConstructionChangeTrend_map.js\";//thematic_LanduseConstructionChangeTrend_map.js",
                     "head.appendChild(script);"
                 ],
                 "name": "afterrender",

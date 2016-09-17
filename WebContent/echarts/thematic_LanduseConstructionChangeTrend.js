@@ -47,7 +47,7 @@ function getColumnValue(dataArr, index) {
 }
 function getRowValue(dataArr,index) {
 	var rowValues = [];
-	console.log("dataArr长度"+dataArr.length);
+	//console.log("dataArr长度"+dataArr.length);
 	if(dataArr.length-1<index)
 		return rowValues;
     
@@ -85,7 +85,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
     var echartsLegendType = getLegendType(echartsData); // 横坐标标注
     echartsLegendType.shift();//删除数组第一项，																			
     echartsLegendType.pop();//删除数组最后一项
-    console.log("我在这里"+echartsLegendType);
+    //console.log("我在这里"+echartsLegendType);
     //console.log("长度"+echartsData.getLenth());
     
    var row1 = getRowValue(echartsData, 0); // 第一列的数据
@@ -101,7 +101,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
    var row11 = getRowValue(echartsData, 10); 
    
    // console.log("echartData:", echartsData);
-    console.log("row11:", row11);
+    //console.log("row11:", row11);
     //console.log("column2:", column2);
 
    /* if (!column1 || !column2) {

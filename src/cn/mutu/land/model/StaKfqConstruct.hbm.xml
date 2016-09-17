@@ -3,19 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-9-17 21:54:10 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="cn.mutu.land.model.DevTask" table="dev_task" catalog="landuse">
+    <class name="cn.mutu.land.model.StaKfqConstruct" table="sta_kfq_construct" catalog="landuse">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="taskComment" type="string">
-            <column name="task_comment" length="200" />
+        <property name="dlmc" type="string">
+            <column name="DLMC" length="50" />
         </property>
-        <property name="taskFinish" type="string">
-            <column name="task_finish" length="30" />
-        </property>
-        <property name="taskWindow" type="string">
-            <column name="task_window" length="30" />
+        <property name="dldm" type="string">
+            <column name="DLDM" length="10" />
         </property>
     </class>
 </hibernate-mapping>
