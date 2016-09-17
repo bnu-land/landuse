@@ -255,7 +255,7 @@ Ext.define('MyApp.view.zdxx_upload', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'check',
+                    dataIndex: 'shzt',
                     text: '工业企业工业物流企业税收总额（万元/年）'
                 },
                 {

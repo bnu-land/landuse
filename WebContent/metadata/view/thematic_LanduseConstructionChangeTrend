@@ -52,7 +52,7 @@
                             "var head = document.getElementsByTagName('head')[0];",
                             "var script= document.createElement(\"script\");",
                             "script.type = \"text/javascript\";",
-                            "script.src=\"echarts/thematic_LanduseConstructionChangeTrend.js\";",
+                            "script.src=\"echarts/thematic_LanduseConstructionChangeTrend.js\";//\"mapjs/dataImport.js\";//",
                             "head.appendChild(script);"
                         ],
                         "name": "afterrender",
@@ -273,7 +273,35 @@
                         "text": "测试导入数据库"
                     },
                     "name": "MyButton1",
-                    "designerId": "8410b80c-f7e3-49f5-8664-dc42040d91cb"
+                    "designerId": "8410b80c-f7e3-49f5-8664-dc42040d91cb",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "//加入地图的js文件",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"mapjs/dataImport.js\";//thematic_LanduseConstructionChangeTrend_map.js",
+                                    "head.appendChild(script);",
+                                    "Ext.Msg.alert(\"同步完成\");"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "38655695-dd23-48ed-8f56-f0e5a7506f87"
+                        }
+                    ]
                 }
             ]
         },
@@ -291,7 +319,7 @@
                     "var head = document.getElementsByTagName('head')[0];",
                     "var script= document.createElement(\"script\");",
                     "script.type = \"text/javascript\";",
-                    "script.src=\"mapjs/landuseConstructionChangeTrend_map.js\";//thematic_LanduseConstructionChangeTrend_map.js",
+                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend_map.js\";//thematic_LanduseConstructionChangeTrend_map.js",
                     "head.appendChild(script);"
                 ],
                 "name": "afterrender",

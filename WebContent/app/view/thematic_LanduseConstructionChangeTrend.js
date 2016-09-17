@@ -116,6 +116,15 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
                 },
                 {
                     xtype: 'button',
+                    handler: function(button, e) {
+                        //加入地图的js文件
+                        var head = document.getElementsByTagName('head')[0];
+                        var script= document.createElement("script");
+                        script.type = "text/javascript";
+                        script.src="mapjs/dataImport.js";//thematic_LanduseConstructionChangeTrend_map.js
+                        head.appendChild(script);
+                        Ext.Msg.alert("同步完成");
+                    },
                     text: '测试导入数据库'
                 }
             ]
@@ -129,7 +138,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="echarts/thematic_LanduseConstructionChangeTrend.js";
+        script.src="echarts/thematic_LanduseConstructionChangeTrend.js";//"mapjs/dataImport.js";//
         head.appendChild(script);
     },
 
@@ -138,7 +147,7 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/landuseConstructionChangeTrend_map.js";//thematic_LanduseConstructionChangeTrend_map.js
+        script.src="mapjs/thematic_LanduseConstructionChangeTrend_map.js";//thematic_LanduseConstructionChangeTrend_map.js
         head.appendChild(script);
     }
 

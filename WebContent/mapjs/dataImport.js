@@ -219,9 +219,8 @@ require([
         }
     });
 }
-         var Grid=Ext.getCmp('thematic_LCCT_Grid');
-        Grid.reconfigure(store, columnsArr);
-
+      Ext.Msg.alert('完成', '数据完成同步');  
+}
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }

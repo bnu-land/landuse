@@ -644,7 +644,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "check",
+                        "dataIndex": "shzt",
                         "text": "工业企业工业物流企业税收总额（万元/年）"
                     },
                     "name": "MyColumn45",
