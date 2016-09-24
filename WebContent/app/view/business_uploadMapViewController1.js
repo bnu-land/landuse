@@ -15,5 +15,5 @@
 
 Ext.define('MyApp.view.business_uploadMapViewController1', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.enterprise_uploadmapcheck'
+    alias: 'controller.kfq_uploaddatacheck'
 });

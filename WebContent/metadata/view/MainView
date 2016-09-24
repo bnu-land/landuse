@@ -304,7 +304,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "enterprise_kfq_manager",
+                                        "id": "kfq_manager",
                                         "text": "开发区信息管理"
                                     },
                                     "name": "MyMenuItem18",
@@ -320,7 +320,7 @@
                                     "userConfig": {
                                         "hideMode": "visibility",
                                         "hideOnClick": false,
-                                        "id": "enterprise_uploadMapCheck",
+                                        "id": "kfq_uploadDataCheck",
                                         "text": "开发区填报数据审核"
                                     },
                                     "name": "MyMenuItem23",

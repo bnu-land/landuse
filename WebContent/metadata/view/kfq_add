@@ -1,0 +1,689 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "kfq_add",
+        "designer|userClassName": "kfq_add",
+        "height": 575,
+        "id": "kfq_add",
+        "title": "新增开发区信息表单",
+        "titleAlign": "center",
+        "width": 427
+    },
+    "name": "MyWindow",
+    "designerId": "e2c4341f-2033-4969-ade9-7ef2186b58d4",
+    "viewControllerInstanceId": "45e75779-ba92-4097-a6c0-4b1ca1211158",
+    "viewModelInstanceId": "20ca7e6c-26c0-4dd7-99a1-a5e004af760c",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "height": 1183,
+                "id": "form_kfqinfo_add",
+                "jsonSubmit": false,
+                "layout": "absolute",
+                "title": "",
+                "url": "add_kfqInfomation",
+                "width": 405
+            },
+            "name": "MyForm5",
+            "designerId": "61229688-c07b-4b77-a009-889a4a8c5db1",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 310,
+                        "layout": "auto",
+                        "layout|x": 20,
+                        "layout|y": 20,
+                        "title": "开发区基本信息",
+                        "width": 361
+                    },
+                    "name": "MyFieldSet6",
+                    "designerId": "dacd94ab-a379-459d-9f9f-db1f228a7ed0",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区名称",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "kfqmc",
+                                "width": 325
+                            },
+                            "name": "MyTextField35",
+                            "designerId": "cf192c1b-ebff-4100-867e-5ec35d154ed5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区级别",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "kfqjb",
+                                "width": 325
+                            },
+                            "name": "MyTextField36",
+                            "designerId": "6e51e6ed-2342-4237-90f6-872d550ff86c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区审批单位",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "spdw",
+                                "width": 325
+                            },
+                            "name": "MyTextField39",
+                            "designerId": "80450fb5-b9ad-48a3-9184-963bee911a82"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区管理机构",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "gljg",
+                                "width": 325
+                            },
+                            "name": "MyTextField40",
+                            "designerId": "3ab0bbb4-191a-4c0d-9df8-c4de44814bd3"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区管理机构地址",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "gljgdz",
+                                "width": 325
+                            },
+                            "name": "MyTextField41",
+                            "designerId": "e1b39bd6-d319-490b-a809-8a7c082f21e2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区主导产业",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "zdcy",
+                                "width": 325
+                            },
+                            "name": "MyTextField42",
+                            "designerId": "c2074872-4c1f-46b4-b63b-514ab97d8125"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区依法审批土地总面积（hm2）",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "sptdzmj"
+                            },
+                            "name": "MyTextField54",
+                            "designerId": "2409e2d1-c860-4ecd-bff6-085020fde39b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区审批类型",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "kfqsplx",
+                                "width": 325
+                            },
+                            "name": "MyTextField45",
+                            "designerId": "ca98a811-a1eb-4ce5-a5ca-c092f51c9bca"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区设立时间",
+                                "format": "Y-m-d",
+                                "height": 25,
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "slsj",
+                                "submitValue": false,
+                                "width": 325
+                            },
+                            "name": "MyDateField",
+                            "designerId": "78e18b48-52b2-4d73-ac35-b81ce8af82fa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 376,
+                        "layout": "auto",
+                        "layout|x": 20,
+                        "layout|y": 340,
+                        "title": "主区",
+                        "width": 360
+                    },
+                    "name": "MyFieldSet5",
+                    "designerId": "2b54a961-36b5-40bb-be5c-145311c35989",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区评价面积（hm2）",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "MKfqpjmj"
+                            },
+                            "name": "MyTextField44",
+                            "designerId": "66cbbd9d-dda9-4f7f-a29b-ea22c1e682e2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "土地开发率(%)",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "MTdkfl"
+                            },
+                            "name": "MyTextField46",
+                            "designerId": "654789e2-e2c2-48ef-85bb-a1c66197ba1f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "常住人口(人)",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "MCzrk"
+                            },
+                            "name": "MyTextField47",
+                            "designerId": "23964b1f-9b58-47dc-a90e-20d187424f06"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业（物流）企业固定资产投资总额（万元）",
+                                "labelWidth": 150,
+                                "name": "MGdzctzze"
+                            },
+                            "name": "MyTextField48",
+                            "designerId": "954100f4-25d6-43d5-8f2b-9fcdef2c6278"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "二、三产业税收总额(万元)",
+                                "labelWidth": 150,
+                                "name": "MEscyssze"
+                            },
+                            "name": "MyTextField49",
+                            "designerId": "fac091bf-d273-4311-aa46-354889f8126c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区工业（物流）企业总收入（万元）",
+                                "labelWidth": 150,
+                                "name": "MGyzsr"
+                            },
+                            "name": "MyTextField50",
+                            "designerId": "8889da93-9fc1-4d46-9482-8cbafe28674e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区工业（物流）企业税收总额（万元）",
+                                "labelWidth": 150,
+                                "name": "MGyssze"
+                            },
+                            "name": "MyTextField51",
+                            "designerId": "62b73a54-7e46-43d8-af61-bb71fbdaeac1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区高新技术产业总收入（万元）",
+                                "labelWidth": 150,
+                                "name": "MGxzsr"
+                            },
+                            "name": "MyTextField52",
+                            "designerId": "af61b425-ff5f-4a74-a263-c7be50e3923c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区高新技术产业税收总额（万元）",
+                                "labelWidth": 150,
+                                "name": "MGxssze"
+                            },
+                            "name": "MyTextField53",
+                            "designerId": "4c734490-2287-4f66-8b00-7c3dafd1911b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "",
+                        "height": 376,
+                        "layout": "auto",
+                        "layout|x": 20,
+                        "layout|y": 720,
+                        "title": "发展方向区",
+                        "width": 360
+                    },
+                    "name": "MyFieldSet7",
+                    "designerId": "cd5a419e-8834-4b3d-a471-b397bcab3d33",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区评价面积（hm2）",
+                                "labelWidth": 150,
+                                "name": "DKfqpjmj"
+                            },
+                            "name": "MyTextField44",
+                            "designerId": "15c4b78f-4246-4b2f-9606-a0c4986aa292"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "土地开发率(%)",
+                                "labelWidth": 150,
+                                "name": "DTdkfl"
+                            },
+                            "name": "MyTextField46",
+                            "designerId": "811bf5e0-0985-42b9-a351-39759d285741"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "常住人口(人)",
+                                "labelWidth": 150,
+                                "name": "DCzrk"
+                            },
+                            "name": "MyTextField47",
+                            "designerId": "a3c6b0ba-cfe0-49d6-94fe-173dbbaad093"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "工业（物流）企业固定资产投资总额（万元）",
+                                "labelWidth": 150,
+                                "name": "DGdzctzze"
+                            },
+                            "name": "MyTextField48",
+                            "designerId": "59c9130d-caa7-42a2-87b7-2caae15096df"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "二、三产业税收总额(万元)",
+                                "labelAlign": "right",
+                                "labelWidth": 150,
+                                "name": "DEscyssze"
+                            },
+                            "name": "MyTextField49",
+                            "designerId": "65b737c3-2a9c-4eb2-b6bf-883bd31d9fb3"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区工业（物流）企业总收入（万元）",
+                                "labelWidth": 150,
+                                "name": "DGyzsr"
+                            },
+                            "name": "MyTextField50",
+                            "designerId": "943b1163-7f7c-4fde-8b9c-44eca7e8a4a3"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区工业（物流）企业税收总额（万元）",
+                                "labelWidth": 150,
+                                "name": "DGyssze"
+                            },
+                            "name": "MyTextField51",
+                            "designerId": "71558e71-c698-4e2a-9b5d-3fb33a64d454"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区高新技术产业总收入（万元）",
+                                "labelWidth": 150,
+                                "name": "DGxzsr"
+                            },
+                            "name": "MyTextField52",
+                            "designerId": "b27844b0-6ffb-4f5c-950a-20c970b48e93"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "开发区高新技术产业税收总额（万元）",
+                                "labelWidth": 150,
+                                "name": "DGxssze"
+                            },
+                            "name": "MyTextField53",
+                            "designerId": "e43b2fef-3164-4d9f-ac8a-91d3df8b173d"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "height": 38
+            },
+            "name": "MyToolbar7",
+            "designerId": "2ca3d421-c716-4f73-b622-2905dd34e8cc",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill3",
+                    "designerId": "6990a44d-4f96-4e48-aee0-9e6148b1dabc"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "取       消"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "7b1fce97-846c-4c6d-af63-233520ac2762",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "Ext.getCmp('kfq_add').close();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "6a579bc0-5805-4039-b3dd-35bf49f99348"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 20
+                    },
+                    "name": "MySpacer2",
+                    "designerId": "2c3bdb46-2640-451f-9ea2-29a501453d2f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "增  添"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "b1dd6eb6-90c9-408d-b4b3-98aad2518702",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "implHandler": [
+                                    "//添加开发区信息,url:add_kfqinfo",
+                                    "",
+                                    "var myform = Ext.getCmp('form_kfqinfo_add').getForm();",
+                                    "if (myform.isValid())",
+                                    "{",
+                                    "    console.log('form is ava');",
+                                    "    myform.submit({",
+                                    "        //url : 'add_kfqinfo',",
+                                    "        success : function (form, action)",
+                                    "        {",
+                                    "            Ext.Msg.alert('成功', '内容添加成功。');",
+                                    "            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
+                                    "            mystore.reload();",
+                                    "",
+                                    "            var win = Ext.getCmp('kfq_add');",
+                                    "            win.close();",
+                                    "",
+                                    "        },",
+                                    "        failure: function(form, action){",
+                                    "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    "else",
+                                    "{",
+                                    "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                    "}"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "a484d687-2852-4309-8f53-91322c3a7fa0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 20
+                    },
+                    "name": "MySpacer3",
+                    "designerId": "cb6f4d83-9336-41ee-a30f-a8c94ded0e86"
+                }
+            ]
+        }
+    ]
+}

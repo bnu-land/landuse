@@ -63,8 +63,8 @@ Ext.define('MyApp.view.zdxx_upload', {
                 {
                     xtype: 'button',
                     handler: function(button, e) {
-                        var win = Ext.widget('add_zdinnfo');
-                        console.log(win);
+                        var win = Ext.widget('zdxx_add');
+                        //console.log(win);
                         win.show();
                     },
                     icon: 'images/table/add.png',
@@ -83,7 +83,7 @@ Ext.define('MyApp.view.zdxx_upload', {
                             return;
                         }
                         //启动窗口
-                        var win = Ext.widget('add_zdinnfo');
+                        var win = Ext.widget('zdxx_add');
                         win.setTitle('修改宗地信息');
                         win.show();
 
@@ -101,6 +101,7 @@ Ext.define('MyApp.view.zdxx_upload', {
     items: [
         {
             xtype: 'gridpanel',
+            autoScroll: true,
             id: 'zd_info',
             title: '',
             sortableColumns: false,

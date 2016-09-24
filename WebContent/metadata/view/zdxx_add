@@ -1,0 +1,806 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "zdxx_add",
+        "designer|userClassName": "zdxx_add",
+        "height": 606,
+        "id": "zdxx_add",
+        "layout": "border",
+        "title": "添加宗地信息",
+        "width": 825
+    },
+    "name": "MyWindow",
+    "designerId": "ae67dc4a-f7d0-4ce9-a73a-29ea77bc209f",
+    "viewControllerInstanceId": "299ffb58-cef8-4bc7-b765-344213295799",
+    "viewModelInstanceId": "dfd37efb-c89b-4e5d-911c-07710af8cc3f",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "id": "add_zdwidinfo",
+                "jsonSubmit": true,
+                "layout": "absolute",
+                "layout|region": "center",
+                "minWidth": null,
+                "title": "",
+                "url": "add_zdinfo"
+            },
+            "name": "MyForm4",
+            "designerId": "8aaa1123-6a30-4603-ad05-80618241fe31",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "开发区名称",
+                        "layout|x": 30,
+                        "layout|y": 20,
+                        "name": "kfqmc",
+                        "width": 220
+                    },
+                    "name": "MyTextField35",
+                    "designerId": "fb2016c4-ee6b-45b8-8292-c13037286d4c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "开发区名称",
+                        "hidden": true,
+                        "layout|x": 20,
+                        "layout|y": 510,
+                        "name": "id",
+                        "width": 220
+                    },
+                    "name": "MyTextField38",
+                    "designerId": "e9db25b4-c843-4b3a-85af-6920c20c9f2e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "图斑编号",
+                        "layout|x": 30,
+                        "layout|y": 60,
+                        "name": "tbbh",
+                        "width": 220
+                    },
+                    "name": "MyTextField36",
+                    "designerId": "bf31245c-b578-4a59-8834-9713011414c2"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "开发区评价范围",
+                        "layout|x": 300,
+                        "layout|y": 20,
+                        "name": "kfqpjfw",
+                        "store": [
+                            "['主区','发展方向区']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox5",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "b53b25af-22cd-446a-83e5-2068d3510047"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "开发区评价类型",
+                        "layout|x": 570,
+                        "layout|y": 20,
+                        "name": "kfqpjlx",
+                        "store": [
+                            "['产城融合型','工业主导型']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox6",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "13e4b4eb-cf7d-48ab-8d8d-695ab93c25b7"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "地类名称",
+                        "layout|x": 300,
+                        "layout|y": 60,
+                        "name": "dlmc",
+                        "store": [
+                            "['住宅用地','工矿仓储用地','街巷用地','其他交通运输用地','商服用地','公园与绿地','其他公共管理与公共服务用地','其他城镇建设用地','河湖及其蓄滞洪区土地','自然、生态保护区土地','其他不可建设土地']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox7",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "b8a14c98-4cb1-458c-a59b-8056f92e4bb0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "地类面积(公顷)",
+                        "layout|x": 570,
+                        "layout|y": 60,
+                        "name": "dlmj",
+                        "width": 220
+                    },
+                    "name": "MyTextField37",
+                    "designerId": "4f75d3e3-9a85-4437-8246-675541c232e2"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "权属",
+                        "layout|x": 30,
+                        "layout|y": 100,
+                        "name": "qs",
+                        "store": [
+                            "['国有','集体']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox8",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "528b3e01-e9df-4f70-9ede-32d4efb6d661"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "供应时间",
+                        "format": "Y-m-d",
+                        "layout|x": 300,
+                        "layout|y": 100,
+                        "name": "gysj",
+                        "width": 220
+                    },
+                    "name": "MyDateField2",
+                    "designerId": "a46aec4f-8234-45aa-962a-859b248dcd6d"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "供应类型",
+                        "layout|x": 570,
+                        "layout|y": 100,
+                        "name": "gylx",
+                        "store": [
+                            "['划拨土地','有偿使用但未到期土地','有偿使用且已到期但未处置土地','尚可划拨土地','尚可供应工矿仓储用地(必须有偿)','其他尚可有偿使用土地','不可供应土地']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox9",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "a08aa774-5bab-4e1a-bc64-9530029954bc"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "土地招拍佳情况",
+                        "layout|x": 30,
+                        "layout|y": 140,
+                        "name": "tdzpg",
+                        "store": [
+                            "['是','否']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox14",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "b2a6b0a1-f6ac-4fdf-9d2e-10ac5bac33ab"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "使用年限",
+                        "layout|x": 300,
+                        "layout|y": 140,
+                        "name": "synx",
+                        "width": 220
+                    },
+                    "name": "MyTextField39",
+                    "designerId": "3b9f484b-dbad-4b2c-adda-eb1afc17df3d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "土地使用者",
+                        "layout|x": 570,
+                        "layout|y": 140,
+                        "name": "tdsyz",
+                        "width": 220
+                    },
+                    "name": "MyTextField40",
+                    "designerId": "fdc32ecb-2c87-4c82-a6ab-33388947708f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "建筑面积(平方米)",
+                        "layout|x": 30,
+                        "layout|y": 175,
+                        "name": "jzmj",
+                        "width": 220
+                    },
+                    "name": "MyTextField41",
+                    "designerId": "92a7f239-8347-4384-b72f-d89160a6484b"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "建筑基底面积(平方米)",
+                        "layout|x": 300,
+                        "layout|y": 175,
+                        "name": "jzjdmj",
+                        "width": 220
+                    },
+                    "name": "MyTextField42",
+                    "designerId": "190d560b-f3a8-4373-920b-329c20e1b886"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "高新技术产业用地类别",
+                        "layout|x": 570,
+                        "layout|y": 175,
+                        "name": "gxlb",
+                        "store": [
+                            "['一类','二类']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox10",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "fedcb54d-8044-4365-81af-d142b3add351"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "建筑物、构筑物基底及露天堆场、露天操作场地的总面积（平方米）",
+                        "labelWidth": 395,
+                        "layout|x": 28,
+                        "layout|y": 225,
+                        "name": "jdzmj",
+                        "width": 490
+                    },
+                    "name": "MyTextField44",
+                    "designerId": "546a66e1-d5f5-47fa-8ef5-4c15f710a8c8"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "高新技术产业用地面积(公顷）",
+                        "layout|x": 570,
+                        "layout|y": 220,
+                        "name": "gxydmj",
+                        "width": 220
+                    },
+                    "name": "MyTextField45",
+                    "designerId": "8b4a0180-a11d-476e-a15d-6ca9ea98058f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "高新技术产业用地面积折算比例 ",
+                        "layout|x": 30,
+                        "layout|y": 260,
+                        "name": "gxzsbl",
+                        "width": 220
+                    },
+                    "name": "MyTextField46",
+                    "designerId": "6599210a-5c42-4a85-b7fc-e6d8740e854e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "高新技术产业收入（万元）",
+                        "layout|x": 300,
+                        "layout|y": 260,
+                        "name": "gxsr",
+                        "width": 220
+                    },
+                    "name": "MyTextField47",
+                    "designerId": "16b4a4bf-dd33-4428-9307-a70edf4e8826"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "高新技术产业税收（万元）",
+                        "layout|x": 570,
+                        "layout|y": 260,
+                        "name": "gxss",
+                        "width": 220
+                    },
+                    "name": "MyTextField48",
+                    "designerId": "de435bc8-6857-4fcc-9f2a-0ef53715c3e2"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "规划用途",
+                        "layout|x": 30,
+                        "layout|y": 310,
+                        "name": "ghyt",
+                        "store": [
+                            "['住宅用地','工矿仓储用地','街巷用地','其他交通运输用地','商服用地','公园与绿地','其他公共管理与公共服务用地','其他城镇建设用地']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox11",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "3d5d82d8-e6a5-422d-8300-e20c2e63e24b"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "土地闲置情况",
+                        "layout|x": 300,
+                        "layout|y": 310,
+                        "name": "tdxzqk",
+                        "store": [
+                            "['是','否']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox12",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "f7237255-597f-4e9c-afe5-ba6ac5ea70a5"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "批准用途",
+                        "layout|x": 570,
+                        "layout|y": 310,
+                        "name": "pzyt",
+                        "store": [
+                            "['住宅用地','工矿仓储用地','街巷用地','其他交通运输用地','商服用地','公园与绿地','其他公共管理与公共服务用地','其他城镇建设用地']"
+                        ],
+                        "width": 220
+                    },
+                    "name": "MyComboBox13",
+                    "configAlternates": {
+                        "store": "array"
+                    },
+                    "designerId": "9c6f796e-6e55-421b-ad75-f06284aba7bb"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "认定依据",
+                        "layout|x": 30,
+                        "layout|y": 350,
+                        "name": "rdyj",
+                        "width": 220
+                    },
+                    "name": "MyTextField49",
+                    "designerId": "026f42ee-2b8d-4903-864d-fcc1155a49d5"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "工业企业、工业物流企业固定资产投资总额(万元）",
+                        "labelWidth": 330,
+                        "layout|x": 300,
+                        "layout|y": 350,
+                        "name": "gdzctzze",
+                        "width": 490
+                    },
+                    "name": "MyTextField50",
+                    "designerId": "6965ee90-66e4-428c-8739-82f050fb3f4e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "二、三产业税收总额（万元/年）",
+                        "layout|x": 30,
+                        "layout|y": 385,
+                        "name": "esssze",
+                        "width": 220
+                    },
+                    "name": "MyTextField51",
+                    "designerId": "9e97005f-1efd-4767-964b-064c3d24004a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "工业企业工业物流企业总收入（万元/年）",
+                        "labelWidth": 130,
+                        "layout|x": 300,
+                        "layout|y": 385,
+                        "name": "qyzsr",
+                        "width": 220
+                    },
+                    "name": "MyTextField52",
+                    "designerId": "14c2747c-5881-4117-9043-accaf4dfee3a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "工业企业工业物流企业税收总额（万元/年）",
+                        "labelWidth": 130,
+                        "layout|x": 570,
+                        "layout|y": 385,
+                        "name": "qyssze",
+                        "width": 220
+                    },
+                    "name": "MyTextField53",
+                    "designerId": "ecfc1ee3-e46f-405f-b1a6-a0f6ac50950b"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "备注",
+                        "layout|x": 27,
+                        "layout|y": 431,
+                        "name": "bz",
+                        "width": 760
+                    },
+                    "name": "MyTextArea2",
+                    "designerId": "a41eaac0-cde8-422c-bf41-ac0dca3ff3e0"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "layout|x": 96,
+                        "layout|y": 517
+                    },
+                    "name": "MyToolbar7",
+                    "designerId": "062b3a66-e22a-49da-852c-80a993cd57a6",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill2",
+                            "designerId": "a412296a-7eeb-4716-aa30-eec41898a397"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "取消",
+                                "width": 80
+                            },
+                            "name": "MyButton19",
+                            "designerId": "276ec794-b131-4fe6-b1ca-a4fa663a5110",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var win = Ext.getCmp('add_zdinfo');",
+                                            "win.close();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "6b998879-2d24-4a1b-8ecd-5d808d8d0188"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 30
+                            },
+                            "name": "MySpacer",
+                            "designerId": "bf4d8766-2857-46f8-a97c-3400108d9d48"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "addZdConfirm",
+                                "layout|flex": null,
+                                "text": "确定",
+                                "width": 80
+                            },
+                            "name": "MyButton20",
+                            "designerId": "ec0066a1-0c93-4d2f-a81e-8d6e221593d9",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var myform = Ext.getCmp('add_zdwidinfo').getForm();",
+                                            "if (myform.isValid())",
+                                            "{",
+                                            "    console.log('form is ava');",
+                                            "    myform.submit({",
+                                            "       // url : 'add_zdinfo',",
+                                            "        success : function (form, action)",
+                                            "        {",
+                                            "            Ext.Msg.alert('成功', '内容添加成功。');",
+                                            "            var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                            "            mystore.reload();",
+                                            "",
+                                            "            var win = Ext.getCmp('add_zdinfo');",
+                                            "            win.close();",
+                                            "",
+                                            "var grid = Ext.getCmp('zd_info');",
+                                            "grid.reconfigure(store);",
+                                            "",
+                                            "",
+                                            "        },",
+                                            "        failure: function(form, action){",
+                                            "            Ext.Msg.alert('失败', '内容添加失败，请重试。');",
+                                            "        }",
+                                            "    });",
+                                            "}",
+                                            "else",
+                                            "{",
+                                            "    Ext.Msg.alert('注意', '填写的信息有误，请检查！');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "b0414c1c-ba0c-4ee8-a43d-acfeda254d0e"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onAdd_zdinfoAfterRender",
+                "implHandler": [
+                    "var title=this.getTitle();",
+                    "var form=Ext.getCmp('add_zdwidinfo').getForm();",
+                    "var button=Ext.getCmp('addZdConfirm');",
+                    " console.log(form.url);",
+                    "if(title==\"查看宗地信息\")",
+                    "    {",
+                    "        button.setHidden(true);",
+                    "    }",
+                    "if(title==\"修改宗地信息\")",
+                    "{",
+                    "    form.url='upload_zdinfo';",
+                    "}",
+                    "if(title==\"添加宗地信息\")",
+                    "{",
+                    "    form.url='add_zdinfo';",
+                    "    console.log(form.url);",
+                    "}"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onAdd_zdinfoAfterRender",
+            "designerId": "95c9bfb1-09bd-4669-8577-e7a84a1263c4"
+        }
+    ]
+}

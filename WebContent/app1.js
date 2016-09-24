@@ -155,11 +155,11 @@ Ext.application({
         'law_Manage',
         'law_Import',
         'law_Search',
-        'achievement_UploadDataManage',
-        'achievement_DataUpload',
-        'achievement_DataImportDatabase',
-        'achievement_DataIBrowse',
-        'achievement_DataIEdit',
+
+      //  'achievement_DataUpload',
+
+
+
         'system_DepartmentManage',
         'system_RightManage',
         'system_MapManageTree',
@@ -191,38 +191,35 @@ Ext.application({
         'system_Log',
         'sys_MapAttrNameIndexWindow',
         'sys_MapAddAttrNameIndexWindow',
-        'business_message',
-        'business_uploadPhoto',
-        'business_uploadMap',
+      
         'system_MenuManage',
         'db_RoleInfoAddWindow',
         'db_RoleInfoEditWindow',
         'db_RoleRightSettingWindow',
-        'enterprise_uploadMapCheck',
+        'kfq_uploadDataCheck',
         'enterprise_uploadMapCheckResultWindow',
         'system_test',
-       // 'business_info',
-        'data_report',
-        'bus_info',
-        'qy_addinformation',
+      
+     
         'taskNotice',
-        'db_businessinfo',
-        'mywindow',
-        'enterprise_kfq_manager',
+      
+        
+        'kfq_manager',
         'chart_bar',
         'chart_pie',
-        'win_kfqinfo_add',
+       // 'win_kfqinfo_add',
         'kfqChangeWindow',
         'zdxx_upload',
-	    'add_zdinnfo',
-        'update_zdinnfo',
+	    'zdxx_add',
+        
         'dxqy_upload',
         'achievement_DataImportDB',
         'achievement_DataExport',
         'achievement_ExcelExport',
         'dxqy_adduplod',
         'dxqy_photoupload',
-        'dxqy_mapupload'
+        'dxqy_mapupload',
+        'kfq_add'
         
         
     ],

@@ -49,6 +49,38 @@ public class DevInfoManagerService {
 		myMapResult.put("success", true);
 		return myMapResult;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> getKfqInfoSelect( String kfqmc,String kfqjb,String kfqpjlx) {
+		
+			Session session=null;
+			
+			String hql="FROM DevInfo as dev where 1=1";//查询语句
+				//拼接查询语句
+				if(!kfqmc.equals("")){//判断第一个条件
+					hql+=" and dev.kfqmc LIKE '%" + kfqmc + "%'" ;
+				}
+			    if(!kfqjb.equals("")){//判断第二个条件
+						hql+=" and dev.kfqjb LIKE '%" + kfqjb + "%'" ;
+				}
+				
+				if(!kfqpjlx.equals("")){//判断第三个条件
+						hql+=" and dev.kfqpjlx LIKE '%" + kfqpjlx + "%'" ;
+				}
+				
+								//执行sql语句
+				System.out.println("执行sql语句hql = " + hql);
+				List<DevInfo> results = null;
+				org.hibernate.Query query = sessionFactory.getCurrentSession()
+						.createQuery(hql);
+				results = (List<DevInfo>) query.list();
+				//返回结果
+			   Map<String, Object> myMapResult = new TreeMap<String, Object>();
+			   myMapResult.put("root", results);
+			   myMapResult.put("success", true);
+			   return myMapResult;
+	
+	}
 	@SuppressWarnings("unchecked")
 	public void addkfq(DevInfo devInfo) {
 		Session session = sessionFactory.getCurrentSession();

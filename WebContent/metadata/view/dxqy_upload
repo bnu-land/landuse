@@ -342,9 +342,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "center",
                         "dataIndex": "isinfo",
-                        "icon": "images/table/edit.png",
-                        "text": "上传照片",
+                        "icon": "images/table/photo_ico.png",
+                        "text": "添加照片",
                         "width": 95
                     },
                     "name": "MyActionColumn1",
@@ -395,9 +396,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "center",
                         "dataIndex": "isphoto",
-                        "icon": "images/table/edit.png",
-                        "text": "上传位置"
+                        "icon": "images/table/position.png",
+                        "text": "添加位置"
                     },
                     "name": "MyActionColumn2",
                     "designerId": "9db680b5-23c3-4e57-b7ce-ab6c3fc12341",
@@ -447,52 +449,142 @@
                     ]
                 },
                 {
-                    "type": "Ext.grid.column.Boolean",
+                    "type": "Ext.grid.column.Action",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "center",
                         "dataIndex": "isinfo",
-                        "falseText": "否",
-                        "text": "是否填报信息",
-                        "trueText": "是"
+                        "icon": "images/table/preview.png",
+                        "text": "查看信息",
+                        "width": 83
                     },
-                    "name": "MyBooleanColumn1",
-                    "designerId": "0d33af44-8e60-4728-bc2b-fd4c95cf0b2e"
+                    "name": "MyActionColumn4",
+                    "designerId": "0d33af44-8e60-4728-bc2b-fd4c95cf0b2e",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "if (colIndex === undefined || colIndex < 2) {",
+                                    "    return;",
+                                    "}",
+                                    "//var button=Ext.getCmp('but_save');",
+                                    "var win = Ext.widget('dxqy_adduplod');",
+                                    "win.setTitle(\"查看信息\");",
+                                    "//button.setHidden(true);",
+                                    "win.show();",
+                                    "",
+                                    "var form = Ext.getCmp('dxqy_addinformation').getForm();",
+                                    "form.loadRecord(record);",
+                                    "",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "97189dba-179c-4da5-888b-4bac939d3325"
+                        }
+                    ]
                 },
                 {
-                    "type": "Ext.grid.column.Boolean",
+                    "type": "Ext.grid.column.Action",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "center",
                         "dataIndex": "isphoto",
-                        "falseText": "否",
-                        "text": "是否上传照片",
-                        "trueText": "是"
+                        "icon": "images/table/search.png",
+                        "text": "预览照片"
                     },
-                    "name": "MyBooleanColumn",
-                    "designerId": "6d687d66-ffcb-4d9f-92cf-15defdab6593"
+                    "name": "MyActionColumn5",
+                    "designerId": "6d687d66-ffcb-4d9f-92cf-15defdab6593",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "fn": "handler",
+                                "implHandler": null
+                            },
+                            "name": "handler",
+                            "designerId": "579560b1-2892-44cc-be06-6cdbe2d15497"
+                        }
+                    ]
                 },
                 {
-                    "type": "Ext.grid.column.Boolean",
+                    "type": "Ext.grid.column.Action",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "center",
                         "dataIndex": "ismap",
-                        "falseText": "否",
-                        "text": "是否上传位置",
-                        "trueText": "是"
+                        "icon": "images/table/search.png",
+                        "text": "预览位置"
                     },
-                    "name": "MyBooleanColumn2",
-                    "designerId": "251d7eb7-6cdf-49f1-bb28-de159861343a"
+                    "name": "MyActionColumn6",
+                    "designerId": "251d7eb7-6cdf-49f1-bb28-de159861343a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "fn": "handler",
+                                "implHandler": null
+                            },
+                            "name": "handler",
+                            "designerId": "51ff8c27-defb-431f-b5f2-e3d19c7bf650"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Column",

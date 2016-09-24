@@ -31,14 +31,34 @@ public class DevInfoManagerController {
 	// --------------------获取任务列表-------------------------
 	// 查询
 	@RequestMapping(value = "/get_kfqinfo")
-	@ResponseBody
+   /* @ResponseBody
 	public Map<String, Object> getDevInfoList(
 			@RequestParam("searchKeyword") String searchKeyword)	
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
 		return this.infoService.getKfqInfoList(searchKeyword);
 		//
+	}*/
+	@ResponseBody
+	public Map<String, Object> getInfoList(
+	        //@RequestParam("searchKeyword") String searchKeyword,
+			@RequestParam("kfqmc") String kfqmc,
+			@RequestParam("kfqjb") String kfqjb,
+			@RequestParam("kfqpjlx") String kfqpjlx)
+			//@RequestParam("kfqpjlx") String lx,
+			//@RequestParam("kfqjb") String jb)
+			throws SQLException {
+		//searchKeyword = Encoder.encode(searchKeyword);
+		kfqmc = Encoder.encode(kfqmc);
+		kfqjb = Encoder.encode(kfqjb);
+		kfqpjlx = Encoder.encode(kfqpjlx);
+		System.out.println("kfqmc = " + kfqmc);
+		System.out.println("kfqjb = " + kfqjb);	
+		System.out.println("kfqpjlx = " + kfqpjlx);
+		return this.infoService.getKfqInfoSelect(kfqmc,kfqjb,kfqpjlx);
+		//
 	}
+
 	//delet
 	// 删除
 			@RequestMapping(value = "/del_kfqInfo")
@@ -51,16 +71,105 @@ public class DevInfoManagerController {
 	//增加
 	@RequestMapping(value="/add_kfqInfomation")//,@RequestBody DevInfo devInfo,method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addDevInfo(@RequestParam("kfqmc") String kfqmc)
+	public Map<String, Object> addDevInfo(@RequestParam("kfqmc") String kfqmc,
+			//@RequestParam("id") Integer id,
+			//@RequestParam("kfqdm") String kfqdm,
+			//@RequestParam("kfqmc") String kfqmc;
+			@RequestParam("kfqjb") String kfqjb,
+	@RequestParam("kfqsplx") String kfqsplx,
+	//@RequestParam("kfqmc") String kfqpjfw
+	//@RequestParam("slsj") String slsj,
+	@RequestParam("spdw") String spdw,
+	@RequestParam("gljg") String gljg,
+	@RequestParam("gljgdz") String gljgdz,
+	@RequestParam("zdcy") String zdcy,
+	@RequestParam("sptdzmj") Double sptdzmj,
+	@RequestParam("MKfqpjmj") Double MKfqpjmj,
+	@RequestParam("DKfqpjmj") Double DKfqpjmj,
+//	@RequestParam("kfqmc") String kfqpjlx;
+	@RequestParam("MTdkfl") Double MTdkfl,
+	@RequestParam("DTdkfl") Double DTdkfl,
+	@RequestParam("MCzrk") Integer MCzrk,
+	@RequestParam("DCzrk") Integer DCzrk,
+	@RequestParam("MGdzctzze") Double MGdzctzze,
+	@RequestParam("DGdzctzze") Double DGdzctzze,
+	@RequestParam("MEscyssze") Double MEscyssze,
+	@RequestParam("DEscyssze") Double DEscyssze,
+	@RequestParam("MGyzsr") Double MGyzsr,
+	@RequestParam("DGyzsr") Double DGyzsr,
+	@RequestParam("MGyssze") Double MGyssze,
+	@RequestParam("DGyssze") Double DGyssze,
+	@RequestParam("MGxzsr") Double MGxzsr,
+	@RequestParam("DGxzsr") Double DGxzsr,
+	@RequestParam("MGxssze") Double MGxssze,
+	@RequestParam("DGxssze") Double DGxssze
+//	@RequestParam("kfqmc") String MXm;
+//	@RequestParam("kfqmc") String MKqtzsj;
+//	@RequestParam("kfqmc") Double MKqtzmj;
+//	@RequestParam("kfqmc") Double MKqtzhmj;
+//	@RequestParam("kfqmc") String bz;
+	)
 			throws IOException {		
 
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			DevInfo devInfo=new DevInfo();
 			devInfo.setKfqmc(kfqmc);
-			System.out.println("开发区名称："+devInfo.getKfqmc());
+			devInfo.setKfqjb(kfqjb);
+			//devInfo.setKfqdm(kfqdm);
+			devInfo.setKfqsplx(kfqsplx);
+			//devInfo.setKfqpjfw(kfqpjfw);
 			//devInfo.setSlsj(devInfo.getSlsj().substring(0, 7).replace("-", ""));
-			//System.out.println(devInfo.getKfqmc());
+			devInfo.setGljg(gljg);
+			devInfo.setGljgdz(gljgdz);
+			devInfo.setSpdw(spdw);
+			devInfo.setZdcy(zdcy);
+			devInfo.setSptdzmj(sptdzmj);
+			devInfo.setMKfqpjmj(MKfqpjmj);
+			devInfo.setDKfqpjmj(DKfqpjmj);
+			devInfo.setMTdkfl(MTdkfl);
+			devInfo.setDTdkfl(DTdkfl);
+			devInfo.setMCzrk(MCzrk);
+			devInfo.setDCzrk(DCzrk);
+			devInfo.setMGdzctzze(MGdzctzze);
+			devInfo.setDGdzctzze(DGdzctzze);
+			devInfo.setMEscyssze(MEscyssze);
+			devInfo.setDEscyssze(DEscyssze);
+			devInfo.setMGyzsr(MGyzsr);
+			devInfo.setDGyzsr(DGyzsr);
+			devInfo.setMGyssze(MGyssze);
+			devInfo.setDGyssze(DGyssze);
+			devInfo.setMGxzsr(MGxzsr);
+			devInfo.setDGxzsr(DGxzsr);
+			devInfo.setMGxssze(MGxssze);
+			devInfo.setDGxssze(DGxssze);
+			System.out.println("开发区名称："+devInfo.getKfqmc());
+			System.out.println("开发区级别："+devInfo.getKfqjb());
+			System.out.println("开发区审批类型: " +devInfo.getKfqsplx());
+			//System.out.println("开发区设立时间: "+devInfo.getSlsj());
+			System.out.println("开发区审批单位："+devInfo.getSpdw());
+			System.out.println("开发区管理机构："+devInfo.getGljg());
+			System.out.println("开发区管理机构地址: " +devInfo.getGljgdz());
+			System.out.println("开发区主导产业："+devInfo.getZdcy());
+			System.out.println("开发区审批土地总面积: " +devInfo.getSptdzmj());
+			System.out.println("开发区评价面积: " +devInfo.getMKfqpjmj());
+			System.out.println("土地开发率: " +devInfo.getMTdkfl());
+			System.out.println("常住人口: " +devInfo.getMCzrk());
+			System.out.println("工业投资总额: " +devInfo.getMGdzctzze());
+			System.out.println("二三产业税收总额: " +devInfo.getMEscyssze());
+			System.out.println("开发区工业总收入: " +devInfo.getMGyzsr());
+			System.out.println("开发区税收总额: " +devInfo.getMGyssze());
+			System.out.println("开发区高新产业总收入: " +devInfo.getMGxzsr());
+			System.out.println("开发区高新产业税收总额: " +devInfo.getMGxssze());
+			System.out.println("开发区评价面积: " +devInfo.getDKfqpjmj());
+			System.out.println("土地开发率: " +devInfo.getDTdkfl());
+			System.out.println("常住人口: " +devInfo.getDCzrk());
+			System.out.println("工业投资总额: " +devInfo.getDGdzctzze());
+			System.out.println("二三产业税收总额: " +devInfo.getDEscyssze());
+			System.out.println("开发区工业总收入: " +devInfo.getDGyzsr());
+			System.out.println("开发区税收总额: " +devInfo.getDGyssze());
+			System.out.println("开发区高新产业总收入: " +devInfo.getDGxzsr());
+			System.out.println("开发区高新产业税收总额: " +devInfo.getDGxssze());
 			this.infoService.addkfq(devInfo);
 			result.put("success", true);
 			result.put("msg", ",successfully saved");

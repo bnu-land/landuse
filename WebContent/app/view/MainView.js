@@ -125,14 +125,14 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'enterprise_kfq_manager',
+                                    id: 'kfq_manager',
                                     hideOnClick: false,
                                     text: '开发区信息管理'
                                 },
                                 {
                                     xtype: 'menuitem',
                                     hideMode: 'visibility',
-                                    id: 'enterprise_uploadMapCheck',
+                                    id: 'kfq_uploadDataCheck',
                                     hideOnClick: false,
                                     text: '开发区填报数据审核'
                                 },

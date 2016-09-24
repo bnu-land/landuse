@@ -228,7 +228,7 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                                                                     //var mainView = Ext.getCmp('mainView');
                                                                     // mainView.removeAll();
                                                                     // mainView.add(Ext.widget(xtype));
-                                                                    var win = Ext.widget('dxqy_photoupload');
+                                                                    var win = Ext.getCmp('dxqy_photoupload');
                                                                     win.close();
                                                                     function message(alert){
                                                                         if(alert=='ok') {

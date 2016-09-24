@@ -26,7 +26,7 @@
                 "extraParams": [
                     "{searchKeyword:''}"
                 ],
-                "url": "get_infomation"
+                "url": ""
             },
             "name": "MyAjaxProxy2",
             "designerId": "efc0c563-a580-4ade-9b4b-13f208ca4c93",

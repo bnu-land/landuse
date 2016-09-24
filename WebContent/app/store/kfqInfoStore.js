@@ -33,7 +33,9 @@ Ext.define('MyApp.store.kfqInfoStore', {
             proxy: {
                 type: 'ajax',
                 extraParams: {
-                    searchKeyword: ''
+                    kfqjb: '',
+                    kfqpjlx: '',
+                    kfqmc: ''
                 },
                 url: 'get_kfqinfo',
                 reader: {

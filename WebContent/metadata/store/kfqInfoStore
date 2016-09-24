@@ -24,7 +24,9 @@
             "codeClass": null,
             "userConfig": {
                 "extraParams": [
-                    "{searchKeyword:''}"
+                    "{kfqjb:'',",
+                    "kfqpjlx:'',",
+                    "kfqmc:''}"
                 ],
                 "url": "get_kfqinfo"
             },

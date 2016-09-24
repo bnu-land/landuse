@@ -15,6 +15,6 @@
 
 Ext.define('MyApp.view.business_uploadMapViewModel1', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.enterprise_uploadmapcheck'
+    alias: 'viewmodel.kfq_uploaddatacheck'
 
 });

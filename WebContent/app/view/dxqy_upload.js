@@ -25,7 +25,6 @@ Ext.define('MyApp.view.dxqy_upload', {
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Action',
-        'Ext.grid.column.Boolean',
         'Ext.grid.View',
         'Ext.selection.CheckboxModel'
     ],
@@ -191,9 +190,10 @@ Ext.define('MyApp.view.dxqy_upload', {
                         form.loadRecord(record);
                     },
                     width: 95,
+                    align: 'center',
                     dataIndex: 'isinfo',
-                    text: '上传照片',
-                    icon: 'images/table/edit.png'
+                    text: '添加照片',
+                    icon: 'images/table/photo_ico.png'
                 },
                 {
                     xtype: 'actioncolumn',
@@ -217,30 +217,53 @@ Ext.define('MyApp.view.dxqy_upload', {
                         form.loadRecord(record);
 
                     },
+                    align: 'center',
                     dataIndex: 'isphoto',
-                    text: '上传位置',
-                    icon: 'images/table/edit.png'
+                    text: '添加位置',
+                    icon: 'images/table/position.png'
                 },
                 {
-                    xtype: 'booleancolumn',
+                    xtype: 'actioncolumn',
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        if (colIndex === undefined || colIndex < 2) {
+                            return;
+                        }
+                        //var button=Ext.getCmp('but_save');
+                        var win = Ext.widget('dxqy_adduplod');
+                        win.setTitle("查看信息");
+                        //button.setHidden(true);
+                        win.show();
+
+                        var form = Ext.getCmp('dxqy_addinformation').getForm();
+                        form.loadRecord(record);
+
+
+                    },
+                    width: 83,
+                    align: 'center',
                     dataIndex: 'isinfo',
-                    text: '是否填报信息',
-                    falseText: '否',
-                    trueText: '是'
+                    text: '查看信息',
+                    icon: 'images/table/preview.png'
                 },
                 {
-                    xtype: 'booleancolumn',
+                    xtype: 'actioncolumn',
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+
+                    },
+                    align: 'center',
                     dataIndex: 'isphoto',
-                    text: '是否上传照片',
-                    falseText: '否',
-                    trueText: '是'
+                    text: '预览照片',
+                    icon: 'images/table/search.png'
                 },
                 {
-                    xtype: 'booleancolumn',
+                    xtype: 'actioncolumn',
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+
+                    },
+                    align: 'center',
                     dataIndex: 'ismap',
-                    text: '是否上传位置',
-                    falseText: '否',
-                    trueText: '是'
+                    text: '预览位置',
+                    icon: 'images/table/search.png'
                 },
                 {
                     xtype: 'gridcolumn',

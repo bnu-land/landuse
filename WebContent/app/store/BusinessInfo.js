@@ -35,7 +35,7 @@ Ext.define('MyApp.store.BusinessInfo', {
                 extraParams: {
                     searchKeyword: ''
                 },
-                url: 'get_infomation',
+                url: '',
                 reader: {
                     type: 'json',
                     rootProperty: 'root'

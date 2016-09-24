@@ -321,6 +321,7 @@ Ext.define('MyApp.view.dxqy_adduplod', {
                         },
                         {
                             xtype: 'button',
+                            id:"but_save",
                             handler: function(button, e) {
                                 /*var myform = Ext.getCmp('dxqy_addinformation').getForm();
                                 if (myform.isValid())
@@ -355,6 +356,7 @@ Ext.define('MyApp.view.dxqy_adduplod', {
                         function getResult(confirm)
                         {
                             console.log('confirm:', confirm);
+                            
                             if (confirm == "yes"){
                                 var myform = Ext.getCmp('dxqy_addinformation').getForm();
                                 if (myform.isValid())

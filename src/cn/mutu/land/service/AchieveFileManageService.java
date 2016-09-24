@@ -283,7 +283,7 @@ public class AchieveFileManageService {
 			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);
 			e.setPhotosPath(filepath+groupfilepath);
 			e.setPhotosName(filename);
-			e.setIsphoto(1);
+			//e.setIsphoto(1);
 			session.saveOrUpdate(e);
 		}
 		return s;

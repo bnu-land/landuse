@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "enterprise_uploadmapcheck",
+        "designer|userAlias": "kfq_uploaddatacheck",
         "designer|userClassName": "business_uploadMapViewController1"
     },
     "name": "business_uploadMapViewController1",
