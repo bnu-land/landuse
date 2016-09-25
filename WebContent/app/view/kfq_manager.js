@@ -128,6 +128,7 @@ Ext.define('MyApp.view.kfq_manager', {
                     fieldLabel: '选择开发区',
                     labelWidth: 80,
                     displayField: 'kfqmc',
+                    store: 'kfqInfoStore',
                     valueField: 'kfqmc',
                     listeners: {
                         change: 'onKfqInfo_selectKfq_ComboChange'

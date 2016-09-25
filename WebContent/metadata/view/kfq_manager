@@ -309,7 +309,7 @@
                         "id": "kfqmc",
                         "labelWidth": 80,
                         "layout|flex": null,
-                        "store": null,
+                        "store": "kfqInfoStore",
                         "valueField": "kfqmc",
                         "width": 220
                     },

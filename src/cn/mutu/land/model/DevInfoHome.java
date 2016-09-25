@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-9-24 16:08:26 by Hibernate Tools 4.0.0
+// Generated 2016-9-25 11:08:29 by Hibernate Tools 4.0.0
 
 import java.util.List;
 import javax.naming.InitialContext;

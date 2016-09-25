@@ -39,179 +39,192 @@
             "designerId": "4952613c-c18b-46c9-a33c-314aa7189f1e",
             "cn": [
                 {
-                    "type": "Ext.form.field.ComboBox",
+                    "type": "Ext.toolbar.Toolbar",
                     "reference": {
-                        "name": "items",
+                        "name": "dockedItems",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "allowBlank": false,
-                        "allowOnlyWhitespace": false,
-                        "fieldLabel": "开发区",
-                        "forceSelection": true,
-                        "id": "kfqnameText",
-                        "labelWidth": 50,
-                        "layout|x": 25,
-                        "layout|y": 10,
-                        "name": "kfqname",
-                        "store": [
-                            "['宾西经济技术开发区','利民经济技术开发区']"
-                        ],
-                        "width": 280
+                        "dock": "top"
                     },
-                    "name": "MyComboBox",
-                    "configAlternates": {
-                        "store": "array"
-                    },
-                    "designerId": "2bbc8583-7cdd-4d00-807d-a88981bf4678"
-                },
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "allowOnlyWhitespace": false,
-                        "editable": false,
-                        "fieldLabel": "年度",
-                        "forceSelection": true,
-                        "id": "kfqyearText",
-                        "labelWidth": 40,
-                        "layout|x": 325,
-                        "layout|y": 10,
-                        "name": "kfqyear",
-                        "store": [
-                            "[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]"
-                        ],
-                        "width": 140
-                    },
-                    "name": "MyComboBox1",
-                    "configAlternates": {
-                        "store": "array"
-                    },
-                    "designerId": "39a7c6c3-b26e-40e2-91ce-0ae2759d4f4f",
+                    "name": "MyToolbar13",
+                    "designerId": "1471ad70-c5a4-4313-a99c-e98583cc08b7",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onKfqyearTextChange",
-                                "implHandler": [
-                                    "var kfqname=Ext.getCmp('kfqnameText').value;",
-                                    "console.log(kfqname);",
-                                    "if(kfqname==\"\")return;",
-                                    "var kfqyear=newValue;",
-                                    "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
-                                    "mystore.reload({",
-                                    "    params:{",
-                                    "           kfqname:kfqname,",
-                                    "           kfqyear:kfqyear",
-                                    "}",
-                                    "});"
-                                ],
-                                "name": "change",
-                                "scope": "me"
-                            },
-                            "name": "onKfqyearTextChange",
-                            "designerId": "8ac90438-aa14-49b6-b9e9-94d7434dd3eb"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|x": 490,
-                        "layout|y": 10,
-                        "text": "查询"
-                    },
-                    "name": "MyButton2",
-                    "designerId": "14997550-66a1-48be-9c52-a7e857293fa8",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "开发区",
+                                "forceSelection": true,
+                                "id": "kfqnameText",
+                                "labelWidth": 50,
+                                "layout|flex": null,
+                                "name": "kfqname",
+                                "store": [
+                                    "['宾西经济技术开发区','利民经济技术开发区']"
                                 ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var kfqname=Ext.getCmp('kfqnameText').value;",
-                                    "var kfqyear=Ext.getCmp('kfqyearText').value;",
-                                    "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
-                                    "mystore.reload({",
-                                    "   params:{",
-                                    "        kfqname:kfqname,",
-                                    "        kfqyear:kfqyear",
-                                    "   }",
-                                    "});"
-                                ]
+                                "width": 280
                             },
-                            "name": "handler",
-                            "designerId": "afaecba4-9e93-4c00-9b96-d8a45bf75c6d"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|x": 560,
-                        "layout|y": 10,
-                        "text": "打包导出"
-                    },
-                    "name": "MyButton3",
-                    "designerId": "e09ef358-b0f0-420c-95b0-2fbcc574667c",
-                    "cn": [
+                            "name": "MyComboBox",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "2bbc8583-7cdd-4d00-807d-a88981bf4678"
+                        },
                         {
-                            "type": "fixedfunction",
+                            "type": "Ext.form.field.ComboBox",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "editable": false,
+                                "fieldLabel": "年度",
+                                "forceSelection": true,
+                                "id": "kfqyearText",
+                                "labelWidth": 40,
+                                "layout|flex": null,
+                                "name": "kfqyear",
+                                "store": [
+                                    "[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]"
                                 ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var kfqname=Ext.getCmp('kfqnameText').value.trim();",
-                                    "if(kfqname===\"\"){",
-                                    "    alert(\"请输入开发区名称\");",
-                                    "    return;",
-                                    "}",
-                                    "var kfqyear=Ext.getCmp('kfqyearText').value;",
-                                    "",
-                                    "var url=\"achieve/export_file_zip?kfqname=\"+kfqname+\"&kfqyear=\"+kfqyear;",
-                                    "window.open(url);"
-                                ]
+                                "width": 140
                             },
-                            "name": "handler",
-                            "designerId": "e8f401e6-8673-4288-bf8a-7be49469ad93"
+                            "name": "MyComboBox1",
+                            "configAlternates": {
+                                "store": "array"
+                            },
+                            "designerId": "39a7c6c3-b26e-40e2-91ce-0ae2759d4f4f",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onKfqyearTextChange",
+                                        "implHandler": [
+                                            "var kfqname=Ext.getCmp('kfqnameText').value;",
+                                            "console.log(kfqname);",
+                                            "if(kfqname==\"\")return;",
+                                            "var kfqyear=newValue;",
+                                            "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
+                                            "mystore.reload({",
+                                            "    params:{",
+                                            "           kfqname:kfqname,",
+                                            "           kfqyear:kfqyear",
+                                            "}",
+                                            "});"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onKfqyearTextChange",
+                                    "designerId": "8ac90438-aa14-49b6-b9e9-94d7434dd3eb"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/search.png",
+                                "layout|flex": null,
+                                "text": "查询"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "14997550-66a1-48be-9c52-a7e857293fa8",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var kfqname=Ext.getCmp('kfqnameText').value;",
+                                            "var kfqyear=Ext.getCmp('kfqyearText').value;",
+                                            "var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象",
+                                            "mystore.reload({",
+                                            "   params:{",
+                                            "        kfqname:kfqname,",
+                                            "        kfqyear:kfqyear",
+                                            "   }",
+                                            "});"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "afaecba4-9e93-4c00-9b96-d8a45bf75c6d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/download.png",
+                                "layout|flex": null,
+                                "text": "打包导出"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "e09ef358-b0f0-420c-95b0-2fbcc574667c",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var kfqname=Ext.getCmp('kfqnameText').value.trim();",
+                                            "if(kfqname===\"\"){",
+                                            "    alert(\"请输入开发区名称\");",
+                                            "    return;",
+                                            "}",
+                                            "var kfqyear=Ext.getCmp('kfqyearText').value;",
+                                            "",
+                                            "var url=\"achieve/export_file_zip?kfqname=\"+kfqname+\"&kfqyear=\"+kfqyear;",
+                                            "window.open(url);"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "e8f401e6-8673-4288-bf8a-7be49469ad93"
+                                }
+                            ]
                         }
                     ]
                 }

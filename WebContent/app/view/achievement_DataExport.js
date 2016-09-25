@@ -20,6 +20,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
     requires: [
         'MyApp.view.achievement_DataExportViewModel',
         'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
         'Ext.grid.Panel',
@@ -49,97 +50,97 @@ Ext.define('MyApp.view.achievement_DataExport', {
             layout: 'absolute',
             bodyPadding: 0,
             title: '',
-            items: [
+            dockedItems: [
                 {
-                    xtype: 'combobox',
-                    x: 25,
-                    y: 10,
-                    id: 'kfqnameText',
-                    width: 280,
-                    fieldLabel: '开发区',
-                    labelWidth: 50,
-                    name: 'kfqname',
-                    allowBlank: false,
-                    allowOnlyWhitespace: false,
-                    forceSelection: true,
-                    store: [
-                        '宾西经济技术开发区',
-                        '利民经济技术开发区'
-                    ]
-                },
-                {
-                    xtype: 'combobox',
-                    x: 325,
-                    y: 10,
-                    id: 'kfqyearText',
-                    width: 140,
-                    fieldLabel: '年度',
-                    labelWidth: 40,
-                    name: 'kfqyear',
-                    allowBlank: false,
-                    allowOnlyWhitespace: false,
-                    editable: false,
-                    forceSelection: true,
-                    store: [
-                        2010,
-                        2011,
-                        2012,
-                        2013,
-                        2014,
-                        2015,
-                        2016,
-                        2017,
-                        2018,
-                        2019,
-                        2020,
-                        2021,
-                        2022,
-                        2023,
-                        2024,
-                        2025,
-                        2026,
-                        2027,
-                        2028,
-                        2029,
-                        2030
-                    ],
-                    listeners: {
-                        change: 'onKfqyearTextChange'
-                    }
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var kfqname=Ext.getCmp('kfqnameText').value;
-                        var kfqyear=Ext.getCmp('kfqyearText').value;
-                        var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象
-                        mystore.reload({
-                            params:{
-                                kfqname:kfqname,
-                                kfqyear:kfqyear
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            id: 'kfqnameText',
+                            width: 280,
+                            fieldLabel: '开发区',
+                            labelWidth: 50,
+                            name: 'kfqname',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
+                            forceSelection: true,
+                            store: [
+                                '宾西经济技术开发区',
+                                '利民经济技术开发区'
+                            ]
+                        },
+                        {
+                            xtype: 'combobox',
+                            id: 'kfqyearText',
+                            width: 140,
+                            fieldLabel: '年度',
+                            labelWidth: 40,
+                            name: 'kfqyear',
+                            allowBlank: false,
+                            allowOnlyWhitespace: false,
+                            editable: false,
+                            forceSelection: true,
+                            store: [
+                                2010,
+                                2011,
+                                2012,
+                                2013,
+                                2014,
+                                2015,
+                                2016,
+                                2017,
+                                2018,
+                                2019,
+                                2020,
+                                2021,
+                                2022,
+                                2023,
+                                2024,
+                                2025,
+                                2026,
+                                2027,
+                                2028,
+                                2029,
+                                2030
+                            ],
+                            listeners: {
+                                change: 'onKfqyearTextChange'
                             }
-                        });
-                    },
-                    x: 490,
-                    y: 10,
-                    text: '查询'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var kfqname=Ext.getCmp('kfqnameText').value.trim();
-                        if(kfqname===""){
-                            alert("请输入开发区名称");
-                            return;
-                        }
-                        var kfqyear=Ext.getCmp('kfqyearText').value;
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var kfqname=Ext.getCmp('kfqnameText').value;
+                                var kfqyear=Ext.getCmp('kfqyearText').value;
+                                var mystore = Ext.StoreMgr.get('achievementFileStore'); //获得store对象
+                                mystore.reload({
+                                    params:{
+                                        kfqname:kfqname,
+                                        kfqyear:kfqyear
+                                    }
+                                });
+                            },
+                            icon: 'images/table/search.png',
+                            text: '查询'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var kfqname=Ext.getCmp('kfqnameText').value.trim();
+                                if(kfqname===""){
+                                    alert("请输入开发区名称");
+                                    return;
+                                }
+                                var kfqyear=Ext.getCmp('kfqyearText').value;
 
-                        var url="achieve/export_file_zip?kfqname="+kfqname+"&kfqyear="+kfqyear;
-                        window.open(url);
-                    },
-                    x: 560,
-                    y: 10,
-                    text: '打包导出'
+                                var url="achieve/export_file_zip?kfqname="+kfqname+"&kfqyear="+kfqyear;
+                                window.open(url);
+                            },
+                            icon: 'images/table/download.png',
+                            text: '打包导出'
+                        }
+                    ]
                 }
             ]
         }

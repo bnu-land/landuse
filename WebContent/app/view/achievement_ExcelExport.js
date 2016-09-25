@@ -20,13 +20,13 @@ Ext.define('MyApp.view.achievement_ExcelExport', {
     requires: [
         'MyApp.view.achievement_ExcelExportViewModel',
         'Ext.form.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
         'Ext.selection.CheckboxModel',
-        'Ext.toolbar.Toolbar',
         'Ext.tree.Panel',
         'Ext.tree.View'
     ],
@@ -50,145 +50,145 @@ Ext.define('MyApp.view.achievement_ExcelExport', {
                     dock: 'top',
                     height: 45,
                     id: 'queryFileForm1',
-                    layout: 'absolute',
+                    layout: 'auto',
                     bodyPadding: 0,
                     title: '',
-                    items: [
+                    dockedItems: [
                         {
-                            xtype: 'combobox',
-                            x: 25,
-                            y: 10,
-                            id: 'kfqnameText1',
-                            width: 280,
-                            fieldLabel: '开发区',
-                            labelWidth: 50,
-                            name: 'kfqname',
-                            allowBlank: false,
-                            allowOnlyWhitespace: false,
-                            forceSelection: true,
-                            store: [
-                                '宾西经济技术开发区',
-                                '利民经济技术开发区',
-                                '海林经济技术开发区'
-                            ]
-                        },
-                        {
-                            xtype: 'combobox',
-                            x: 325,
-                            y: 10,
-                            id: 'kfqyearText1',
-                            width: 140,
-                            fieldLabel: '年度',
-                            labelWidth: 40,
-                            name: 'kfqyear',
-                            allowBlank: false,
-                            allowOnlyWhitespace: false,
-                            editable: false,
-                            forceSelection: true,
-                            store: [
-                                2010,
-                                2011,
-                                2012,
-                                2013,
-                                2014,
-                                2015,
-                                2016,
-                                2017,
-                                2018,
-                                2019,
-                                2020,
-                                2021,
-                                2022,
-                                2023,
-                                2024,
-                                2025,
-                                2026,
-                                2027,
-                                2028,
-                                2029,
-                                2030
-                            ],
-                            listeners: {
-                                change: 'onKfqyearTextChange1'
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            handler: function(button, e) {
-                                var kfqname=Ext.getCmp('kfqnameText1').value;
-                                var kfqyear=Ext.getCmp('kfqyearText1').value;
-                                var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象
-                                mystore.reload({
-                                    params:{
-                                        kfqname:kfqname,
-                                        kfqyear:kfqyear
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    formBind: false,
+                                    id: 'kfqnameText1',
+                                    width: 280,
+                                    fieldLabel: '开发区',
+                                    labelWidth: 50,
+                                    name: 'kfqname',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false,
+                                    displayField: 'kfqmc',
+                                    forceSelection: true,
+                                    store: 'kfqInfoStore',
+                                    valueField: 'kfqmc',
+                                    valueNotFoundText: '无记录'
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    id: 'kfqyearText1',
+                                    width: 140,
+                                    fieldLabel: '年度',
+                                    labelWidth: 40,
+                                    name: 'kfqyear',
+                                    allowBlank: false,
+                                    allowOnlyWhitespace: false,
+                                    editable: false,
+                                    forceSelection: true,
+                                    store: [
+                                        2010,
+                                        2011,
+                                        2012,
+                                        2013,
+                                        2014,
+                                        2015,
+                                        2016,
+                                        2017,
+                                        2018,
+                                        2019,
+                                        2020,
+                                        2021,
+                                        2022,
+                                        2023,
+                                        2024,
+                                        2025,
+                                        2026,
+                                        2027,
+                                        2028,
+                                        2029,
+                                        2030
+                                    ],
+                                    listeners: {
+                                        change: 'onKfqyearTextChange1'
                                     }
-                                });
-                            },
-                            x: 490,
-                            y: 10,
-                            text: '查询'
-                        },
-                        {
-                            xtype: 'button',
-                            handler: function(button, e) {
-                                var grid = Ext.getCmp('ExcelExportGridPanel');
-                                var record = grid.getSelectionModel().getSelection();
-                                var length=record.length;
-                                var kfqname=Ext.getCmp('kfqnameText1').value;
-                                var kfqyear=Ext.getCmp('kfqyearText1').value;
-                                console.log(kfqname+kfqyear);
-                                if(length === 0||length === 1){
-                                    Ext.Msg.alert('提示','请先选择您要导出的表格（至少2条）！');
-                                    return;
-                                }else if(kfqname===''){
-                                    Ext.Msg.alert('提示','请先选择开发区！');
-                                    return;
-                                }else if(kfqyear===''&&kfqyear.length!=4){
-                                    Ext.Msg.alert('提示','请先选择时间！');
-                                    return;
-                                }else{
-                                    var modelName=[length];
-                                    var excelSimpleName=[length];
-                                    var excelName=[length];
-                                    var able=true;
-                                    for(var i=0;i<length;i++){
-                                        able=record[i].get('exportAble');
-                                        if(able===false){
-                                            Ext.Msg.alert('提示','不能导出无数据的表格！');
+                                },
+                                {
+                                    xtype: 'button',
+                                    handler: function(button, e) {
+                                        var kfqname=Ext.getCmp('kfqnameText1').value;
+                                        var kfqyear=Ext.getCmp('kfqyearText1').value;
+                                        var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象
+                                        mystore.reload({
+                                            params:{
+                                                kfqname:kfqname,
+                                                kfqyear:kfqyear
+                                            }
+                                        });
+                                    },
+                                    icon: 'images/table/search.png',
+                                    text: '查询'
+                                },
+                                {
+                                    xtype: 'button',
+                                    handler: function(button, e) {
+                                        var grid = Ext.getCmp('ExcelExportGridPanel');
+                                        var record = grid.getSelectionModel().getSelection();
+                                        var length=record.length;
+                                        var kfqname=Ext.getCmp('kfqnameText1').value;
+                                        var kfqyear=Ext.getCmp('kfqyearText1').value;
+                                        console.log(kfqname+kfqyear);
+                                        if(length === 0||length === 1){
+                                            Ext.Msg.alert('提示','请先选择您要导出的表格（至少2条）！');
                                             return;
+                                        }else if(kfqname===''){
+                                            Ext.Msg.alert('提示','请先选择开发区！');
+                                            return;
+                                        }else if(kfqyear===''&&kfqyear.length!=4){
+                                            Ext.Msg.alert('提示','请先选择时间！');
+                                            return;
+                                        }else{
+                                            var modelName=[length];
+                                            var excelSimpleName=[length];
+                                            var excelName=[length];
+                                            var able=true;
+                                            for(var i=0;i<length;i++){
+                                                able=record[i].get('exportAble');
+                                                if(able===false){
+                                                    Ext.Msg.alert('提示','不能导出无数据的表格！');
+                                                    return;
+                                                }
+                                                modelName[i]=record[i].get('modelName');
+                                                excelSimpleName[i]=record[i].get('excelSimpleName');
+                                                excelName[i]=record[i].get('excelName');
+                                            }
+                                            Ext.Ajax.request({
+                                                url:'achieve/export_excel_zip',
+                                                method:'post',
+                                                params:{
+                                                    modelName:modelName,
+                                                    excelSimpleName:excelSimpleName,
+                                                    excelName:excelName,
+                                                    kfqname:kfqname,
+                                                    kfqyear:kfqyear,
+                                                    kfqDM:0
+                                                },
+                                                success:function(response){
+                                                    if(response.responseText===null)return;
+                                                    var result=JSON.parse(response.responseText);
+                                                    console.log(result);
+                                                    var url="achieve/download_file?filepath="+result.filepath+"&filename="+result.filename;
+                                                    window.open(url);
+                                                },
+                                                failure:function(){
+                                                    Ext.Msg.alert('提示','打包导出请求失败！');
+                                                }
+                                            });
                                         }
-                                        modelName[i]=record[i].get('modelName');
-                                        excelSimpleName[i]=record[i].get('excelSimpleName');
-                                        excelName[i]=record[i].get('excelName');
-                                    }
-                                    Ext.Ajax.request({
-                                        url:'achieve/export_excel_zip',
-                                        method:'post',
-                                        params:{
-                                            modelName:modelName,
-                                            excelSimpleName:excelSimpleName,
-                                            excelName:excelName,
-                                            kfqname:kfqname,
-                                            kfqyear:kfqyear,
-                                            kfqDM:0
-                                        },
-                                        success:function(response){
-                                            if(response.responseText===null)return;
-                                            var result=JSON.parse(response.responseText);
-                                            console.log(result);
-                                            var url="achieve/download_file?filepath="+result.filepath+"&filename="+result.filename;
-                                            window.open(url);
-                                        },
-                                        failure:function(){
-                                            Ext.Msg.alert('提示','打包导出请求失败！');
-                                        }
-                                    });
+                                    },
+                                    icon: 'images/table/download.png',
+                                    text: '打包导出'
                                 }
-                            },
-                            x: 560,
-                            y: 10,
-                            text: '打包导出'
+                            ]
                         }
                     ]
                 },
@@ -221,6 +221,7 @@ Ext.define('MyApp.view.achievement_ExcelExport', {
             items: [
                 {
                     xtype: 'gridpanel',
+                    autoScroll: true,
                     id: 'ExcelExportGridPanel',
                     store: 'ExcelExportionStore',
                     columns: [

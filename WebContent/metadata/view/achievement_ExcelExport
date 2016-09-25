@@ -41,234 +41,245 @@
                     "codeClass": null,
                     "userConfig": {
                         "bodyPadding": 0,
-                        "designer|snapToGrid": 10,
                         "dock": "top",
                         "height": 45,
                         "id": "queryFileForm1",
-                        "layout": "absolute",
+                        "layout": "auto",
                         "title": ""
                     },
                     "name": "MyForm1",
                     "designerId": "3cfd9089-cbcc-4b28-9d24-75d3bb4460c4",
                     "cn": [
                         {
-                            "type": "Ext.form.field.ComboBox",
+                            "type": "Ext.toolbar.Toolbar",
                             "reference": {
-                                "name": "items",
+                                "name": "dockedItems",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "allowBlank": false,
-                                "allowOnlyWhitespace": false,
-                                "fieldLabel": "开发区",
-                                "forceSelection": true,
-                                "id": "kfqnameText1",
-                                "labelWidth": 50,
-                                "layout|x": 25,
-                                "layout|y": 10,
-                                "name": "kfqname",
-                                "store": [
-                                    "['宾西经济技术开发区','利民经济技术开发区','海林经济技术开发区']"
-                                ],
-                                "width": 280
+                                "dock": "top"
                             },
-                            "name": "MyComboBox",
-                            "configAlternates": {
-                                "store": "array"
-                            },
-                            "designerId": "4d575b9e-77de-4600-a2d2-a917b5dffd57"
-                        },
-                        {
-                            "type": "Ext.form.field.ComboBox",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "allowBlank": false,
-                                "allowOnlyWhitespace": false,
-                                "editable": false,
-                                "fieldLabel": "年度",
-                                "forceSelection": true,
-                                "id": "kfqyearText1",
-                                "labelWidth": 40,
-                                "layout|x": 325,
-                                "layout|y": 10,
-                                "name": "kfqyear",
-                                "store": [
-                                    "[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]"
-                                ],
-                                "width": 140
-                            },
-                            "name": "MyComboBox1",
-                            "configAlternates": {
-                                "store": "array"
-                            },
-                            "designerId": "b5fecf7b-66e0-48b8-8846-a3f9c2bfcbf0",
+                            "name": "MyToolbar8",
+                            "designerId": "300f0ced-0a77-479d-b092-4a76d1254172",
                             "cn": [
                                 {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onKfqyearTextChange1",
-                                        "implHandler": [
-                                            "var kfqname=Ext.getCmp('kfqnameText1').value;",
-                                            "console.log(kfqname);",
-                                            "if(kfqname==\"\")return;",
-                                            "var kfqyear=newValue;",
-                                            "var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象",
-                                            "mystore.reload({",
-                                            "    params:{",
-                                            "           kfqname:kfqname,",
-                                            "           kfqyear:kfqyear",
-                                            "}",
-                                            "});"
-                                        ],
-                                        "name": "change",
-                                        "scope": "me"
-                                    },
-                                    "name": "onKfqyearTextChange1",
-                                    "designerId": "07ba4b6f-4e93-466f-9f4a-deffc2cc0eb4"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|x": 490,
-                                "layout|y": 10,
-                                "text": "查询"
-                            },
-                            "name": "MyButton2",
-                            "designerId": "19df0df1-6f14-4bb7-9791-742a129cdafe",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
+                                    "type": "Ext.form.field.ComboBox",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "designer|params": [
-                                            "button",
-                                            "e"
-                                        ],
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "var kfqname=Ext.getCmp('kfqnameText1').value;",
-                                            "var kfqyear=Ext.getCmp('kfqyearText1').value;",
-                                            "var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象",
-                                            "mystore.reload({",
-                                            "   params:{",
-                                            "        kfqname:kfqname,",
-                                            "        kfqyear:kfqyear",
-                                            "   }",
-                                            "});"
-                                        ]
+                                        "allowBlank": false,
+                                        "allowOnlyWhitespace": false,
+                                        "displayField": "kfqmc",
+                                        "fieldLabel": "开发区",
+                                        "forceSelection": true,
+                                        "formBind": false,
+                                        "id": "kfqnameText1",
+                                        "labelWidth": 50,
+                                        "layout|flex": null,
+                                        "name": "kfqname",
+                                        "store": "kfqInfoStore",
+                                        "valueField": "kfqmc",
+                                        "valueNotFoundText": "无记录",
+                                        "width": 280
                                     },
-                                    "name": "handler",
-                                    "designerId": "52fb43b7-f4ac-46dc-a442-69e11e8f30a5"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "layout|x": 560,
-                                "layout|y": 10,
-                                "text": "打包导出"
-                            },
-                            "name": "MyButton3",
-                            "designerId": "8b57f27c-1fbc-4232-99b8-3e22cd96c537",
-                            "cn": [
+                                    "name": "MyComboBox",
+                                    "designerId": "4d575b9e-77de-4600-a2d2-a917b5dffd57"
+                                },
                                 {
-                                    "type": "fixedfunction",
+                                    "type": "Ext.form.field.ComboBox",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "designer|params": [
-                                            "button",
-                                            "e"
+                                        "allowBlank": false,
+                                        "allowOnlyWhitespace": false,
+                                        "editable": false,
+                                        "fieldLabel": "年度",
+                                        "forceSelection": true,
+                                        "id": "kfqyearText1",
+                                        "labelWidth": 40,
+                                        "layout|flex": null,
+                                        "name": "kfqyear",
+                                        "store": [
+                                            "[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]"
                                         ],
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "var grid = Ext.getCmp('ExcelExportGridPanel');",
-                                            "var record = grid.getSelectionModel().getSelection();",
-                                            "var length=record.length;",
-                                            "var kfqname=Ext.getCmp('kfqnameText1').value;",
-                                            "var kfqyear=Ext.getCmp('kfqyearText1').value;",
-                                            "console.log(kfqname+kfqyear);",
-                                            "if(length === 0||length === 1){",
-                                            "    Ext.Msg.alert('提示','请先选择您要导出的表格（至少2条）！');",
-                                            "    return;",
-                                            "}else if(kfqname===''){",
-                                            "    Ext.Msg.alert('提示','请先选择开发区！');",
-                                            "    return;",
-                                            "}else if(kfqyear===''&&kfqyear.length!=4){",
-                                            "    Ext.Msg.alert('提示','请先选择时间！');",
-                                            "    return;",
-                                            "}else{",
-                                            "    var modelName=[length];",
-                                            "    var excelSimpleName=[length];",
-                                            "    var excelName=[length];",
-                                            "    var able=true;",
-                                            "    for(var i=0;i<length;i++){",
-                                            "        able=record[i].get('exportAble');",
-                                            "        if(able===false){",
-                                            "            Ext.Msg.alert('提示','不能导出无数据的表格！');",
-                                            "            return;",
-                                            "        }",
-                                            "        modelName[i]=record[i].get('modelName');",
-                                            "        excelSimpleName[i]=record[i].get('excelSimpleName');",
-                                            "        excelName[i]=record[i].get('excelName');",
-                                            "    }",
-                                            "    Ext.Ajax.request({",
-                                            "        url:'achieve/export_excel_zip',",
-                                            "        method:'post',",
-                                            "        params:{",
-                                            "            modelName:modelName,",
-                                            "            excelSimpleName:excelSimpleName,",
-                                            "            excelName:excelName,",
-                                            "            kfqname:kfqname,",
-                                            "            kfqyear:kfqyear,",
-                                            "            kfqDM:0",
-                                            "        },",
-                                            "        success:function(response){",
-                                            "            if(response.responseText===null)return;",
-                                            "            var result=JSON.parse(response.responseText);",
-                                            "            console.log(result);",
-                                            "            var url=\"achieve/download_file?filepath=\"+result.filepath+\"&filename=\"+result.filename;",
-                                            "            window.open(url);",
-                                            "        },",
-                                            "        failure:function(){",
-                                            "            Ext.Msg.alert('提示','打包导出请求失败！');",
-                                            "        }",
-                                            "    });",
-                                            "}"
-                                        ]
+                                        "width": 140
                                     },
-                                    "name": "handler",
-                                    "designerId": "2abe9ae0-18d8-480e-b3a3-bed43dbafb54"
+                                    "name": "MyComboBox1",
+                                    "configAlternates": {
+                                        "store": "array"
+                                    },
+                                    "designerId": "b5fecf7b-66e0-48b8-8846-a3f9c2bfcbf0",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onKfqyearTextChange1",
+                                                "implHandler": [
+                                                    "var kfqname=Ext.getCmp('kfqnameText1').value;",
+                                                    "console.log(kfqname);",
+                                                    "if(kfqname==\"\")return;",
+                                                    "var kfqyear=newValue;",
+                                                    "var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象",
+                                                    "mystore.reload({",
+                                                    "    params:{",
+                                                    "           kfqname:kfqname,",
+                                                    "           kfqyear:kfqyear",
+                                                    "}",
+                                                    "});"
+                                                ],
+                                                "name": "change",
+                                                "scope": "me"
+                                            },
+                                            "name": "onKfqyearTextChange1",
+                                            "designerId": "07ba4b6f-4e93-466f-9f4a-deffc2cc0eb4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/search.png",
+                                        "layout|flex": null,
+                                        "text": "查询"
+                                    },
+                                    "name": "MyButton2",
+                                    "designerId": "19df0df1-6f14-4bb7-9791-742a129cdafe",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var kfqname=Ext.getCmp('kfqnameText1').value;",
+                                                    "var kfqyear=Ext.getCmp('kfqyearText1').value;",
+                                                    "var mystore = Ext.StoreMgr.get('ExcelExportionStore'); //获得store对象",
+                                                    "mystore.reload({",
+                                                    "   params:{",
+                                                    "        kfqname:kfqname,",
+                                                    "        kfqyear:kfqyear",
+                                                    "   }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "52fb43b7-f4ac-46dc-a442-69e11e8f30a5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/download.png",
+                                        "layout|flex": null,
+                                        "text": "打包导出"
+                                    },
+                                    "name": "MyButton3",
+                                    "designerId": "8b57f27c-1fbc-4232-99b8-3e22cd96c537",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var grid = Ext.getCmp('ExcelExportGridPanel');",
+                                                    "var record = grid.getSelectionModel().getSelection();",
+                                                    "var length=record.length;",
+                                                    "var kfqname=Ext.getCmp('kfqnameText1').value;",
+                                                    "var kfqyear=Ext.getCmp('kfqyearText1').value;",
+                                                    "console.log(kfqname+kfqyear);",
+                                                    "if(length === 0||length === 1){",
+                                                    "    Ext.Msg.alert('提示','请先选择您要导出的表格（至少2条）！');",
+                                                    "    return;",
+                                                    "}else if(kfqname===''){",
+                                                    "    Ext.Msg.alert('提示','请先选择开发区！');",
+                                                    "    return;",
+                                                    "}else if(kfqyear===''&&kfqyear.length!=4){",
+                                                    "    Ext.Msg.alert('提示','请先选择时间！');",
+                                                    "    return;",
+                                                    "}else{",
+                                                    "    var modelName=[length];",
+                                                    "    var excelSimpleName=[length];",
+                                                    "    var excelName=[length];",
+                                                    "    var able=true;",
+                                                    "    for(var i=0;i<length;i++){",
+                                                    "        able=record[i].get('exportAble');",
+                                                    "        if(able===false){",
+                                                    "            Ext.Msg.alert('提示','不能导出无数据的表格！');",
+                                                    "            return;",
+                                                    "        }",
+                                                    "        modelName[i]=record[i].get('modelName');",
+                                                    "        excelSimpleName[i]=record[i].get('excelSimpleName');",
+                                                    "        excelName[i]=record[i].get('excelName');",
+                                                    "    }",
+                                                    "    Ext.Ajax.request({",
+                                                    "        url:'achieve/export_excel_zip',",
+                                                    "        method:'post',",
+                                                    "        params:{",
+                                                    "            modelName:modelName,",
+                                                    "            excelSimpleName:excelSimpleName,",
+                                                    "            excelName:excelName,",
+                                                    "            kfqname:kfqname,",
+                                                    "            kfqyear:kfqyear,",
+                                                    "            kfqDM:0",
+                                                    "        },",
+                                                    "        success:function(response){",
+                                                    "            if(response.responseText===null)return;",
+                                                    "            var result=JSON.parse(response.responseText);",
+                                                    "            console.log(result);",
+                                                    "            var url=\"achieve/download_file?filepath=\"+result.filepath+\"&filename=\"+result.filename;",
+                                                    "            window.open(url);",
+                                                    "        },",
+                                                    "        failure:function(){",
+                                                    "            Ext.Msg.alert('提示','打包导出请求失败！');",
+                                                    "        }",
+                                                    "    });",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "2abe9ae0-18d8-480e-b3a3-bed43dbafb54"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -282,6 +293,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "autoScroll": true,
                         "id": "ExcelExportGridPanel",
                         "store": "ExcelExportionStore",
                         "title": null
