@@ -65,7 +65,8 @@ Ext.define('MyApp.view.kfq_add', {
                             fieldLabel: '开发区名称',
                             labelAlign: 'right',
                             labelWidth: 150,
-                            name: 'kfqmc'
+                            name: 'kfqmc',
+                            allowBlank: false
                         },
                         {
                             xtype: 'textfield',
@@ -135,8 +136,7 @@ Ext.define('MyApp.view.kfq_add', {
                             labelAlign: 'right',
                             labelWidth: 150,
                             name: 'slsj',
-                            submitValue: false,
-                            format: 'Y-m-d'
+                            format: 'Ym'
                         }
                     ]
                 },

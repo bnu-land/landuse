@@ -214,7 +214,32 @@ Ext.define('MyApp.view.kfqChangeWindow', {
                 {
                     xtype: 'button',
                     handler: function(button, e) {
+                        var myform = Ext.getCmp('kfqChangeForm').getForm();
+                        var win = Ext.getCmp('kfqChangeWindow');
+                        if (myform.isValid())
+                        {
+                            myform.submit({
 
+                                url : 'update_kfqnfo',
+                                success : function (form, action)
+                                {
+                                    Ext.Msg.alert('成功', '开发区调整成功。');
+
+                                    var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                                    mystore.reload();
+                                    //var win = Ext.getCmp('kfqChangeWindow');
+                                    win.close();
+                                },
+                                failure: function(form, action){
+                                    Ext.Msg.alert('失败', '开发区调整失败，请重试。');
+                                    win.close();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
+                        }
                     },
                     text: '确认调整'
                 }

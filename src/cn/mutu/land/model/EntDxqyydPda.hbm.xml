@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-7 19:03:15 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-9-25 17:32:17 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="cn.mutu.land.model.EntDxqyydPda" table="ent_dxqyyd_pda" catalog="landuse">
         <id name="id" type="java.lang.Integer">
@@ -201,15 +201,6 @@
         </property>
         <property name="filePath" type="string">
             <column name="FilePath" length="200" />
-        </property>
-        <property name="isinfo" type="java.lang.Integer">
-            <column name="ISINFO" />
-        </property>
-        <property name="isphoto" type="java.lang.Integer">
-            <column name="ISPHOTO" />
-        </property>
-        <property name="ismap" type="java.lang.Integer">
-            <column name="ISMAP" />
         </property>
     </class>
 </hibernate-mapping>

@@ -146,15 +146,6 @@ Ext.define('MyApp.model.dxqy_uploadModel', {
         },
         {
             name: 'filePath'
-        },
-        {
-            name: 'isinfo'
-        },
-        {
-            name: 'isphoto'
-        },
-        {
-            name: 'ismap'
         }
     ]
 });

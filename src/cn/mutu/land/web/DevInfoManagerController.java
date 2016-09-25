@@ -68,6 +68,25 @@ public class DevInfoManagerController {
 				this.infoService.deleteinfo(kfqId);
 			
 			}
+			@RequestMapping(value="/add_kfqInfoTest",method = RequestMethod.POST)
+			@ResponseBody
+			public Map<String,Object> addKfqInfo(@RequestBody DevInfo devInfo)
+			throws IOException{
+				Map<String, Object> result = new HashMap<String, Object>();
+				try {
+					
+					this.infoService.addkfq(devInfo);
+					result.put("success", true);
+					result.put("msg", ",successfully saved");
+				} catch (Exception er) {
+					er.printStackTrace();
+					result.put("failure", true);
+					result.put("msg", ",failed saved");
+				}
+				return result;
+			}
+				
+			
 	//增加
 	@RequestMapping(value="/add_kfqInfomation")//,@RequestBody DevInfo devInfo,method=RequestMethod.POST)
 	@ResponseBody
@@ -78,7 +97,7 @@ public class DevInfoManagerController {
 			@RequestParam("kfqjb") String kfqjb,
 	@RequestParam("kfqsplx") String kfqsplx,
 	//@RequestParam("kfqmc") String kfqpjfw
-	//@RequestParam("slsj") String slsj,
+	@RequestParam("slsj") String slsj,
 	@RequestParam("spdw") String spdw,
 	@RequestParam("gljg") String gljg,
 	@RequestParam("gljgdz") String gljgdz,
@@ -108,18 +127,20 @@ public class DevInfoManagerController {
 //	@RequestParam("kfqmc") Double MKqtzmj;
 //	@RequestParam("kfqmc") Double MKqtzhmj;
 //	@RequestParam("kfqmc") String bz;
+	
 	)
 			throws IOException {		
 
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
+			System.out.println("传入的设立时间参数值："+slsj);
 			DevInfo devInfo=new DevInfo();
 			devInfo.setKfqmc(kfqmc);
 			devInfo.setKfqjb(kfqjb);
 			//devInfo.setKfqdm(kfqdm);
 			devInfo.setKfqsplx(kfqsplx);
 			//devInfo.setKfqpjfw(kfqpjfw);
-			//devInfo.setSlsj(devInfo.getSlsj().substring(0, 7).replace("-", ""));
+			devInfo.setSlsj(slsj);
 			devInfo.setGljg(gljg);
 			devInfo.setGljgdz(gljgdz);
 			devInfo.setSpdw(spdw);

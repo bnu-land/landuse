@@ -44,8 +44,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "dataIndex": "zdId",
-                        "text": "序号",
-                        "width": 66
+                        "text": "",
+                        "width": 30
                     },
                     "name": "MyRowNumberer",
                     "designerId": "c22ec48c-8d08-4b86-a2d2-4c73d56eec1b"

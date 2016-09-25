@@ -556,45 +556,6 @@
             },
             "name": "MyField145",
             "designerId": "618230a1-acbb-4da8-962f-4e7dda1c9f6b"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "isinfo"
-            },
-            "name": "MyField146",
-            "designerId": "8f78866c-5021-439b-960c-444b1b5a2a78"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "isphoto"
-            },
-            "name": "MyField147",
-            "designerId": "c6c3e054-c7fb-4433-8ab3-94b282bb7309"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "ismap"
-            },
-            "name": "MyField148",
-            "designerId": "7e4f5720-c48b-4597-9063-80a23ac4a34d"
         }
     ]
 }

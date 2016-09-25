@@ -95,7 +95,7 @@ Ext.define('MyApp.view.system_UserManage', {
                 },
                 {
                     xtype: 'button',
-                    icon: 'images/table/attr.png',
+                    icon: 'images/table/user.png',
                     text: '角色设置',
                     listeners: {
                         click: 'onButtonClick3'

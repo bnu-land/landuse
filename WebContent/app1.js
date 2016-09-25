@@ -219,8 +219,8 @@ Ext.application({
         'dxqy_adduplod',
         'dxqy_photoupload',
         'dxqy_mapupload',
-        'kfq_add'
-        
+        'kfq_add',
+        'kfqwin'
         
     ],
     name: 'MyApp',

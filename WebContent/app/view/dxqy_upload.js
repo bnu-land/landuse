@@ -48,9 +48,9 @@ Ext.define('MyApp.view.dxqy_upload', {
             columns: [
                 {
                     xtype: 'rownumberer',
-                    width: 66,
+                    width: 30,
                     dataIndex: 'zdId',
-                    text: '序号'
+                    text: ''
                 },
                 {
                     xtype: 'actioncolumn',

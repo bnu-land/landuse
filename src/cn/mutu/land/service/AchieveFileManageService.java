@@ -299,7 +299,7 @@ public class AchieveFileManageService {
 			Session session=this.sessionFactory.getCurrentSession();
 			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);
 			e.setFilePath(filepath+groupfilepath+filename);
-			e.setIsmap(1);
+			//e.setIsmap(1);
 			session.saveOrUpdate(e);
 		}
 		return s;

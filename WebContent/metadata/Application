@@ -6,23 +6,21 @@
     },
     "codeClass": null,
     "userConfig": {
-
         "models": [
             "ExcelExportionModel"
         ],
-        
+        "name": "MyApp",
         "stores": [
             "ExcelExportionStore",
-             "zd_checkStore"
+            "zd_checkStore"
         ],
         "views": [
-       		 "achievement_ExcelExport",
+            "achievement_ExcelExport",
             "qy_addinformation",
-                    'dxqy_adduplod',
-        'dxqy_photoupload',
-        'dxqy_mapupload'            
-        ],
-        "name": "MyApp",
+            "dxqy_adduplod",
+            "dxqy_photoupload",
+            "dxqy_mapupload"
+        ]
     },
     "name": "Application",
     "designerId": "application"

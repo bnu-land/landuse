@@ -326,7 +326,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "icon": "images/table/attr.png",
+                        "icon": "images/table/user.png",
                         "layout|flex": null,
                         "text": "角色设置"
                     },

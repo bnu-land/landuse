@@ -44,17 +44,17 @@ public class DxbusInfoManagerService {
 		myInfoResult.put("success", true);
 		return myInfoResult;
 	}
-	
-	/*public void addInfos(BusinessInfo info) {
+	@SuppressWarnings("unchecked")
+	public void addInfos(EntDxqyydPda dxqy) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			//System.out.println("id:"+sysMap.getMapId());
-			session.saveOrUpdate(info);
+			session.saveOrUpdate(dxqy);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 	}
-	
+	/*
 	public void addInfo(BusinessInfo info) {
 		Session session = sessionFactory.getCurrentSession();
 		try {
@@ -63,20 +63,20 @@ public class DxbusInfoManagerService {
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
-	}
-	
-	public void deleteinfo(String businessId) {
+	}*/
+	@SuppressWarnings("unchecked")
+	public void deleteinfo(String id) {
 		// System.out.println("roleId:" + roleId);
-		BusinessInfo result = null;
+		EntDxqyydPda result = null;
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			result = (BusinessInfo) session.get(BusinessInfo.class,
-					Integer.parseInt(businessId));
+			result = (EntDxqyydPda) session.get(EntDxqyydPda.class,
+					Integer.parseInt(id));
 			session.delete(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	
 //	public void deleteinfos(String businessId) {

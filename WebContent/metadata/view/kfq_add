@@ -67,6 +67,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "allowBlank": false,
                                 "fieldLabel": "开发区名称",
                                 "labelAlign": "right",
                                 "labelWidth": 150,
@@ -208,12 +209,11 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "开发区设立时间",
-                                "format": "Y-m-d",
+                                "format": "Ym",
                                 "height": 25,
                                 "labelAlign": "right",
                                 "labelWidth": 150,
                                 "name": "slsj",
-                                "submitValue": false,
                                 "width": 325
                             },
                             "name": "MyDateField",

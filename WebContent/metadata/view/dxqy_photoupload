@@ -136,7 +136,15 @@
                                                             "         reader.readAsDataURL(file);",
                                                             "        Ext.getCmp('photosNameIdForm').setValue(file.name);",
                                                             "    }",
-                                                            "}"
+                                                            "}",
+                                                            "//获取当前填报时间",
+                                                            "var registerdateField = Ext.getCmp('tbrq');",
+                                                            "var dateStr = \"\";",
+                                                            "var myDate = new Date();",
+                                                            "dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)",
+                                                            "dateStr += \"-\" + (myDate.getMonth()+1);       //获取当前月份(0-11,0代表1月)",
+                                                            "dateStr += \"-\" +myDate.getDate();        //获取当前日(1-31)",
+                                                            "registerdateField.setValue(dateStr);"
                                                         ],
                                                         "name": "change",
                                                         "scope": "me"
@@ -332,20 +340,21 @@
                                             "designerId": "c96a4cf3-0a59-4beb-a98e-ac8183363177"
                                         },
                                         {
-                                            "type": "Ext.form.field.Date",
+                                            "type": "Ext.form.field.Text",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "editable": false,
                                                 "fieldLabel": "填报日期",
                                                 "id": "tbrq",
-                                                "name": "tbrq",
+                                                "name": "tbrq1",
                                                 "submitValue": false,
                                                 "width": 320
                                             },
-                                            "name": "MyDateField1",
+                                            "name": "MyTextField1",
                                             "designerId": "4fbef8dd-25f4-447e-a855-32a9443bb058"
                                         },
                                         {
@@ -561,7 +570,7 @@
                                         "fn": "onPhotoInfo1AfterRender",
                                         "implHandler": [
                                             "//获取当前填报时间",
-                                            "var registerdateField = Ext.getCmp('tbrq');",
+                                            "var registerdateField = Ext.getCmp('tbrq1');",
                                             "var dateStr = \"\";",
                                             "var myDate = new Date();",
                                             "dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)",
@@ -910,6 +919,21 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onPanelAfterRender",
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onPanelAfterRender",
+                    "designerId": "9451076c-102b-4006-a863-e1bf4239e1eb"
                 }
             ]
         }

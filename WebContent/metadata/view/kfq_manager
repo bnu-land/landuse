@@ -489,7 +489,10 @@
                                         "implHandler": [
                                             "Ext.getCmp('txt_search_key').setValue('');",
                                             "var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象",
-                                            "mystore.load();"
+                                            "mystore.load();",
+                                            "Ext.getCmp('kfqjb').setValue('');",
+                                            "Ext.getCmp('kfqpjlx').setValue('');",
+                                            "Ext.getCmp('kfqmc').setValue('');"
                                         ]
                                     },
                                     "name": "handler",

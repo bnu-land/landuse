@@ -23,7 +23,6 @@ Ext.define('MyApp.view.dxqy_photoupload', {
         'Ext.form.FieldSet',
         'Ext.form.field.File',
         'Ext.form.field.ComboBox',
-        'Ext.form.field.Date',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
         'Ext.button.Button',
@@ -170,12 +169,13 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                                             store: 'dxqy_uploadStore'
                                         },
                                         {
-                                            xtype: 'datefield',
+                                            xtype: 'textfield',
                                             id: 'tbrq',
                                             width: 320,
                                             fieldLabel: '填报日期',
-                                            name: 'tbrq',
-                                            submitValue: false
+                                            name: 'tbrq1',
+                                            submitValue: false,
+                                            editable: false
                                         },
                                         {
                                             xtype: 'textfield',
@@ -417,7 +417,10 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                         }
                     ]
                 }
-            ]
+            ],
+            listeners: {
+                afterrender: 'onPanelAfterRender'
+            }
         }
     ],
 
@@ -445,11 +448,19 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                 Ext.getCmp('photosNameIdForm').setValue(file.name);
             }
         }
+        //获取当前填报时间
+        var registerdateField = Ext.getCmp('tbrq');
+        var dateStr = "";
+        var myDate = new Date();
+        dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+        dateStr += "-" + (myDate.getMonth()+1);       //获取当前月份(0-11,0代表1月)
+        dateStr += "-" +myDate.getDate();        //获取当前日(1-31)
+        registerdateField.setValue(dateStr);
     },
 
     onPhotoInfo1AfterRender: function(component, eOpts) {
         //获取当前填报时间
-        var registerdateField = Ext.getCmp('tbrq');
+        var registerdateField = Ext.getCmp('tbrq1');
         var dateStr = "";
         var myDate = new Date();
         dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)
@@ -471,6 +482,10 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                 }
             }
         );
+    },
+
+    onPanelAfterRender: function(component, eOpts) {
+
     }
 
 });

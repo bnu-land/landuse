@@ -214,6 +214,9 @@ Ext.define('MyApp.view.kfq_manager', {
                                             Ext.getCmp('txt_search_key').setValue('');
                                             var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
                                             mystore.load();
+                                            Ext.getCmp('kfqjb').setValue('');
+                                            Ext.getCmp('kfqpjlx').setValue('');
+                                            Ext.getCmp('kfqmc').setValue('');
                                         },
                                         id: 'refresh_button',
                                         icon: 'images/table/refresh.png',
