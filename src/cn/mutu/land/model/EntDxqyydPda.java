@@ -1,6 +1,6 @@
 package cn.mutu.land.model;
 
-// Generated 2016-9-25 17:32:16 by Hibernate Tools 4.0.0
+// Generated 2016-9-25 21:02:29 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -51,6 +51,8 @@ public class EntDxqyydPda implements java.io.Serializable {
 	private String photosName;
 	private String tbrq;
 	private String filePath;
+	private Integer ismap;
+	private Integer isphoto;
 
 	public EntDxqyydPda() {
 	}
@@ -63,7 +65,8 @@ public class EntDxqyydPda implements java.io.Serializable {
 			Double qt, Double zjzmj, Double rjl, Double jdzmj, Double jzxs,
 			String bz, String cjr, Date cjsj, Integer shzt, String shyj,
 			String zdbh, String sbnf, String kfqlx, String photosPath,
-			String photosName, String tbrq, String filePath) {
+			String photosName, String tbrq, String filePath, Integer ismap,
+			Integer isphoto) {
 		this.mbbsm = mbbsm;
 		this.ysdm = ysdm;
 		this.kfqdm = kfqdm;
@@ -105,6 +108,8 @@ public class EntDxqyydPda implements java.io.Serializable {
 		this.photosName = photosName;
 		this.tbrq = tbrq;
 		this.filePath = filePath;
+		this.ismap = ismap;
+		this.isphoto = isphoto;
 	}
 
 	public Integer getId() {
@@ -441,6 +446,22 @@ public class EntDxqyydPda implements java.io.Serializable {
 
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+
+	public Integer getIsmap() {
+		return this.ismap;
+	}
+
+	public void setIsmap(Integer ismap) {
+		this.ismap = ismap;
+	}
+
+	public Integer getIsphoto() {
+		return this.isphoto;
+	}
+
+	public void setIsphoto(Integer isphoto) {
+		this.isphoto = isphoto;
 	}
 
 }

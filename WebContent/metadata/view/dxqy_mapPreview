@@ -1,0 +1,25 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_mapPreview",
+        "designer|userClassName": "dxqy_mapPreview",
+        "height": 625,
+        "hidden": false,
+        "html": [
+            "<iframe src='public/mapUpload/dxqy_mapupload.html?qymc=海林经济技术开发区' scrolling='yes' frameborder=0 width=100% height=100%></iframe>"
+        ],
+        "id": "dxqy_mapPreview",
+        "layout": "border",
+        "title": "上传企业位置",
+        "width": 777
+    },
+    "name": "dxqy_mapupload1",
+    "designerId": "ad792b89-3622-4b58-9b7d-58a0f254c788",
+    "viewControllerInstanceId": "a46e1937-5d75-4d30-bd78-36159918005b",
+    "viewModelInstanceId": "40d0f7ab-42a7-4eda-865b-200ec154b5b0"
+}

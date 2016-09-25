@@ -14,6 +14,14 @@
 <link rel="stylesheet"href="http://localhost:8080/appLib/arcjs/3.13/esri/css/esri.css">
 <script src="http://localhost:8080/appLib/arcjs/3.13/init.js"></script>
 <script src="osgeo/proj4js-compressed.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2362.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2363.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2364.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2365.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2366.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2367.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2368.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2369.js"></script>
 <script src="osgeo/OpenLayers.js"></script> 
 <script src="stream.js"></script>
 <script src="shapefile.js"></script>
@@ -126,18 +134,17 @@
                 return returnValue;
             }
         }
-
+		//填充值
         var qymc = decodeURI(request("qymc"));//De=‘未设置’
         var kfqyear=decodeURI(request("kfqyear"));
         var id=decodeURI(request("id"));
+        console.log(decodeURI(window.location.href));
         console.log(qymc);
         console.log(kfqyear);
         console.log(id);
         $("#qymc").val(qymc);
         $("#kfqyear").val(kfqyear);
-        $("#id").val(id);
-        
-        console.log(decodeURI(window.location.href));
+        $("#id").val(id);     
         
         OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
             defaultHandlerOptions: {
@@ -252,8 +259,8 @@
 		map.zoomTo(9);
    
         click.activate();  
-        var formProjection=new OpenLayers.Projection('EPSG:2366');
-        var toProjection=new OpenLayers.Projection('EPSG:4326');   
+        var formProjection;
+           
 		var filespath=[];
 		var filesname=[];
 		var filessize=[];
@@ -287,8 +294,25 @@
 							 totalFileSize+=files[i].size;
 							 var m={ filename:files[i].name ,  filesize:filessize[i], filepath: filepath };
 							 data[i]=m;
-							 						    	   						   						
+							 
+																											
+							 if(filesname[i].lastIndexOf(".prj")>=0){
+								var reader = new FileReader();
+								reader.onload = function() {
+								  console.log(this.result)
+								  result=this.result;
+								  var pro=getProFromOL(result);
+								  	  if(pro=='none'){
+										alert("投影错误");
+										return;
+								  }
+								  formProjection=new OpenLayers.Projection(pro);
+								  console.log(pro);
+								}
+								reader.readAsText(files[i],"gb2312");//读取文件乱码解决										 
+							 }
 	   						 if(filesname[i].lastIndexOf(".shp")>=0){
+								 var toProjection=new OpenLayers.Projection('EPSG:4326');
 	   							var shpFile=files[i];
 	   		  	                if (shpFile) {
 	   		   	                    var opts = { shp: shpFile };
@@ -390,6 +414,97 @@
 				else return size.toFixed(1)+"B";
 			}
 
+
+			//预览shp
+			var pre=decodeURI(request("pre"));
+			var filename=decodeURI(request("filename"));
+			if(pre=='true'){				
+				var filepath=decodeURI(request("filepath"));
+				var groupFilepath=decodeURI(request("groupFilepath"));
+				$.ajax({
+					  type: 'get',
+					  url:"http://localhost:8080/landuse/achieve/getShapeinfo",
+					  data: {
+						  filepath:filepath,
+						  groupFilepath:groupFilepath,				  
+						  filename:filename
+					  },
+					  dataType: 'json',
+					  timeout: 10000,
+					  contentType: "application/json; charset=utf-8",
+					  success: function(response){
+						  if(response.responseText==''){
+							  alert("读取文件失败");
+							  return;
+						  }
+						  addPolygon(response);
+					  },
+					  error: function(xhr, type){
+						//console.log(xhr);
+						console.log("type:"+type);
+					  }
+					});			
+			}
+
+	//解析投影
+	function getProFromOL(str){
+		var strh=str.split(',')[0];
+		var n=strh.search(/xian_1980_/i);
+		if(n==-1||n>10){alert("解析投影出错");return;}
+		n=n+10;
+		var m=strh.search(/Zone_/i);
+		console.log(m);
+		if(m==-1||m>31){alert("解析投影出错");return;}
+		m=m+5;
+		var zone=strh.substring(m,m+2);
+		if(strh[n]==3){
+			zone=Number(zone);
+			zone+=24;
+			return "EPSG:23"+zone;
+		}
+		else return "none";
+	}
+
+	        function addPolygon(response){
+				vector = new OpenLayers.Layer.Vector(filename);
+				map.addLayer(vector);
+	            var data=response.data;
+				var pro=response.header.pro;//投影
+				var EPSGPro=getProFromOL(pro);
+				if(EPSGPro=='none'){
+					alert("投影错误");
+					return;
+				}
+			    var formPro=new OpenLayers.Projection(EPSGPro);
+				console.log(formPro);
+			    var toPro=new OpenLayers.Projection('EPSG:4326');
+	            var PolygonArray=[];
+	            for(var i=0;i<data.length;i++){
+	            	var rings=data[i].ring;
+	            	for(var j=0;j<rings.length;j++){
+	            		var ring=rings[j].myPoints;
+	            		var points = []; 
+	            		for(var n=0;n<ring.length;n++){
+	                		var  geometry = new OpenLayers.Geometry.Point(ring[n].x,ring[n].y);
+		                	geometry.transform(formPro,toPro);
+	            			points.push(geometry); 
+	                	}
+
+	            		var wkt="POLYGON(";  
+	            		var length=points.length;  
+	            		for(var n=0;n<length;n++){  
+	            		    wkt+=points[n].x+" "+points[n].y;  
+	            		    if(n!=length-1){  
+	            		            wkt+=",";  
+	            		   	}
+	            		}    
+	            	    wkt+=")";  
+	            		var polygon = new OpenLayers.Feature.Vector(OpenLayers.Geometry.fromWKT(wkt));                    	
+	            		vector.addFeatures(polygon);
+	            	}        	
+	            }
+	            map.zoomToExtent(vector.getDataExtent());            
+	        }
 
         </script>
     

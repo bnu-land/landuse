@@ -369,6 +369,7 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                     region: 'center',
                     autoScroll: true,
                     html: '<img id="blah" src="images/login/login_center_left.jpg" alt="your image" width="80%" style="margin-left:10px;margin-right:10px"" />',
+                    id: 'photoPreviewPanel',
                     margin: 10,
                     dockedItems: [
                         {
@@ -460,7 +461,7 @@ Ext.define('MyApp.view.dxqy_photoupload', {
 
     onPhotoInfo1AfterRender: function(component, eOpts) {
         //获取当前填报时间
-        var registerdateField = Ext.getCmp('tbrq1');
+        var registerdateField = Ext.getCmp('tbrq');
         var dateStr = "";
         var myDate = new Date();
         dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)

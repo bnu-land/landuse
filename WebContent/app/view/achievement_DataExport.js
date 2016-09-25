@@ -206,7 +206,7 @@ Ext.define('MyApp.view.achievement_DataExport', {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
 
                                 var filetype=record.get('filetype').toLowerCase();
-                                var types=['.doc','.jpg','.docx','.png','.pdf','.shp'];
+                                var types=['.doc','.jpg','.docx','.png','.xls','.xlsx','.shp'];
                                 var canread=false;
                                 for(var i=0;i<types.length;i++){
                                     if(filetype==types[i]){

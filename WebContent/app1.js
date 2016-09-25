@@ -220,7 +220,11 @@ Ext.application({
         'dxqy_photoupload',
         'dxqy_mapupload',
         'kfq_add',
-        'kfqwin'
+
+        'dxqy_photoPreview',
+        'dxqy_mapPreview'
+        
+
         
     ],
     name: 'MyApp',

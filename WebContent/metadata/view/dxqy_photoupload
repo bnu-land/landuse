@@ -570,7 +570,7 @@
                                         "fn": "onPhotoInfo1AfterRender",
                                         "implHandler": [
                                             "//获取当前填报时间",
-                                            "var registerdateField = Ext.getCmp('tbrq1');",
+                                            "var registerdateField = Ext.getCmp('tbrq');",
                                             "var dateStr = \"\";",
                                             "var myDate = new Date();",
                                             "dateStr += myDate.getFullYear();    //获取完整的年份(4位,1970-????)",
@@ -799,6 +799,7 @@
                         "html": [
                             "<img id=\"blah\" src=\"images/login/login_center_left.jpg\" alt=\"your image\" width=\"80%\" style=\"margin-left:10px;margin-right:10px\"\" />"
                         ],
+                        "id": "photoPreviewPanel",
                         "layout|margins": "",
                         "layout|region": "center",
                         "margin": 10,

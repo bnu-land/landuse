@@ -294,12 +294,12 @@ public class AchieveFileManageService {
 		String filename=file.getOriginalFilename();
 		boolean s=SaveUploadFile.saveFile(file, filepath+groupfilepath,filename);
 		
-		if(s){
+		if(s&&filename.endsWith(".shp")){
 			//修改记录
 			Session session=this.sessionFactory.getCurrentSession();
 			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);
 			e.setFilePath(filepath+groupfilepath+filename);
-			//e.setIsmap(1);
+			e.setIsmap(1);
 			session.saveOrUpdate(e);
 		}
 		return s;

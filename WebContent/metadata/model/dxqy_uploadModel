@@ -556,6 +556,32 @@
             },
             "name": "MyField145",
             "designerId": "618230a1-acbb-4da8-962f-4e7dda1c9f6b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ismap"
+            },
+            "name": "MyField",
+            "designerId": "43d902bb-2bae-4168-8e9f-ac2f8414969d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isphoto"
+            },
+            "name": "MyField4",
+            "designerId": "a607ac09-4995-48c0-bd51-a7939f4d552f"
         }
     ]
 }
