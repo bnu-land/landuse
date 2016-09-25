@@ -185,9 +185,36 @@ Ext.define('MyApp.view.dxqy_upload', {
                             return;
                         }
                         var win = Ext.widget('dxqy_photoupload');
-                        win.show();
+
                         var form = Ext.getCmp('photoInfoForm').getForm();
                         form.loadRecord(record);
+                        if(record.get('isphoto')==1){
+                            var photoName= record.get('photosName');
+                            var photoPath= record.get('photosPath');
+                            Ext.Ajax.request({
+                                url:'achieve/read_word',
+                                params:{
+                                    filename:photoName,
+                                    filepath:photoPath,
+                                    groupFilepath:""
+                                },
+                                success:function(response){
+                                    console.log(response.responseText);
+                                    var winPre=Ext.getCmp('photoPreviewPanel');
+                                    if(response.responseText=='null'){
+                                        winPre.html='<span>无法预览图片</span>';
+                                    }
+                                    else winPre.html='<img id="blah" src="'+response.responseText+'" alt="your image" width="80%" style="margin-left:10px;margin-right:10px"/>';
+                                    win.show();
+                                },
+                                failure:function(response){
+                                    Ext.Msg.alert('失败','图片预览失败');
+                                    win.show();
+                                }
+                            });
+                        }else win.show();
+
+
                     },
                     width: 95,
                     align: 'center',
@@ -205,10 +232,25 @@ Ext.define('MyApp.view.dxqy_upload', {
                         if (colIndex === undefined || colIndex < 2) {
                             return;
                         }
+                        var params="filepath="+filepath+"&filename="+filename;
                         var qymc=record.get('qymc');
                         var id=record.get('id');
                         var tbrq=record.get('tbrq');
                         var params="qymc="+qymc+"&id="+id+"&tbrq="+tbrq;
+
+                        if(record.get('ismap')===1){
+                            var filepath=record.get('filePath');
+                            var index=filepath.lastIndexOf('/');
+                            if(index<=0){
+                                Ext.Msg.alert('提示','解析文件路径出错');
+                                params+='&pre=false';
+                            }else{
+                                var filename=filepath.substring(index+1);
+                                filepath=filepath.substr(0,index)+'/';
+                                params+="&filepath="+filepath+"&filename="+filename+"&pre=true";
+                            }
+                        }else params+='&pre=false';
+
                         var win = Ext.widget('dxqy_mapupload');
 
                         win.html="<iframe src='public/mapUpload/dxqy_mapupload.html?"+params+"'scrolling='yes' frameborder=0 width=100% height=100%></iframe>";
@@ -248,7 +290,43 @@ Ext.define('MyApp.view.dxqy_upload', {
                 {
                     xtype: 'actioncolumn',
                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        if (colIndex === undefined || colIndex < 2) {
+                            return;
+                        }
+                        if(record.get('isphoto')===0){
+                            Ext.Msg.alert('提示','尚未上传图片');
+                            return;
+                        }
+                        var photoName= record.get('photosName');
+                        var photoPath= record.get('photosPath');
+                        console.log(photoName);
+                        console.log(photoPath);
+                        Ext.Ajax.request({
+                            url:'achieve/read_word',
+                            params:{
+                                filename:photoName,
+                                filepath:photoPath,
+                                groupFilepath:""
+                            },
+                            success:function(response){
+                                console.log(response.responseText);
+                                var win = Ext.widget('dxqy_photoPreview');
 
+                                var form = Ext.getCmp('photoInfoForm1').getForm();
+                                form.loadRecord(record);
+                                var winPre=Ext.getCmp('photoPreviewPanel1');
+                                if(response.responseText=='null'){
+                                    winPre.html='<span>无法预览图片</span>';
+                                    return;
+                                }
+                                else winPre.html='<img id="blah1" src="'+response.responseText+'" alt="your image" width="80%" style="margin-left:10px;margin-right:10px"/>';
+                                console.log(win.html);
+                                win.show();
+                            },
+                            failure:function(response){
+                                Ext.Msg.alert('失败','操作失败');
+                            }
+                        });
                     },
                     align: 'center',
                     dataIndex: 'isphoto',
@@ -258,7 +336,23 @@ Ext.define('MyApp.view.dxqy_upload', {
                 {
                     xtype: 'actioncolumn',
                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        if(record.get('ismap')===0){
+                            Ext.Msg.alert('提示','未上传位置');
+                            return;
+                        }
+                        var filepath=record.get('filePath');
+                        var index=filepath.lastIndexOf('/');
+                        if(index<=0){
+                            Ext.Msg.alert('提示','解析文件路径出错');
+                            return;
+                        }
 
+                        var filename=filepath.substring(index+1);
+                        filepath=filepath.substr(0,index)+'/';
+                        var win=Ext.widget('dxqy_mapPreview');
+                        var params="filepath="+filepath+"&filename="+filename;
+                        win.html="<iframe src='public/mapUpload/shppreview.html?"+params+"'scrolling='yes' frameborder=0 width=100% height=100%></iframe>";
+                        win.show();
                     },
                     align: 'center',
                     dataIndex: 'ismap',

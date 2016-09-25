@@ -175,7 +175,8 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                                             width: 320,
                                             fieldLabel: '填报日期',
                                             name: 'tbrq',
-                                            submitValue: false
+                                            submitValue: false,
+                                            editable: false
                                         },
                                         {
                                             xtype: 'textfield',
@@ -369,6 +370,7 @@ Ext.define('MyApp.view.dxqy_photoupload', {
                     region: 'center',
                     autoScroll: true,
                     html: '<img id="blah" src="images/login/login_center_left.jpg" alt="your image" width="80%" style="margin-left:10px;margin-right:10px"" />',
+                    id: 'photoPreviewPanel',
                     margin: 10,
                     dockedItems: [
                         {

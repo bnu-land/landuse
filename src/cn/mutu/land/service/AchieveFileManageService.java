@@ -294,7 +294,7 @@ public class AchieveFileManageService {
 		String filename=file.getOriginalFilename();
 		boolean s=SaveUploadFile.saveFile(file, filepath+groupfilepath,filename);
 		
-		if(s){
+		if(s&&filename.endsWith(".shp")){
 			//修改记录
 			Session session=this.sessionFactory.getCurrentSession();
 			EntDxqyydPda e=(EntDxqyydPda)session.get(EntDxqyydPda.class, id);

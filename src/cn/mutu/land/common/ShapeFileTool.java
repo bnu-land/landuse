@@ -173,7 +173,9 @@ public class ShapeFileTool {
 	                ".shp" ).toString();
 	        String dbf = new StringBuffer( pathName ).append( "\\" ).append( datasetName ).append(
 	                ".dbf" ).toString();
-
+	        String prj = new StringBuffer( pathName ).append( "\\" ).append( datasetName ).append(
+	                ".prj" ).toString();
+	        
 	        FileInputStream shpfis = new java.io.FileInputStream(shp);
 	        java.io.DataInputStream shpdis = new java.io.DataInputStream(shpfis);
 	        
@@ -185,6 +187,11 @@ public class ShapeFileTool {
 	        //header
 	        ShapefileHeader header= ShapeReader.readerHeader( shpdis );
 	        VList shpRecords= ShapeReader.readRecord( shpdis );
+	        //投影信息
+	        FileInputStream prjfis = new java.io.FileInputStream(prj);
+	        java.io.DataInputStream prjdis = new java.io.DataInputStream(prjfis);
+	        header.setPro(ShapeReader.readerProjection(prjdis));
+	        
 	        
 	        DBFReader dbfReader = new DBFReader(dbf );	 
             //取得字段数组

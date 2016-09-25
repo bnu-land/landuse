@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dxqy_mappreview",
+        "designer|userClassName": "dxqy_mapuploadViewModel1"
+    },
+    "name": "dxqy_mapuploadViewModel1",
+    "designerId": "40d0f7ab-42a7-4eda-865b-200ec154b5b0"
+}

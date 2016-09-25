@@ -114,14 +114,16 @@ public class AchieveFileManageController {
 			@RequestParam("groupFilepath")String groupFilepath, 
 			@RequestParam("filename")String filename,
 			HttpServletRequest request){
+		if(filepath==null||filepath.equals(""))return null;
+		if(filename==null||filename.equals(""))return null;
+		if(groupFilepath==null)return null;
+		
 		filepath=Encoder.encode(filepath);
 		filename=Encoder.encode(filename);
 		groupFilepath=Encoder.encode(groupFilepath);
 		
 		filepath=filepath+groupFilepath;
-		if(filepath==null||filepath.equals(""))return null;
-		if(filename==null||filename.equals(""))return null;
-		if(groupFilepath==null||groupFilepath.equals(""))return null;
+
 		if(filename.endsWith(".shp")){
 			try {
 				filename=filename.replace(".shp", "");
@@ -391,7 +393,10 @@ public class AchieveFileManageController {
 				+ excelName);//attachment
 		//文件名及response返回信息
 		System.out.println("download:"+e.getExcelName());
-		String outPath="D:/test_download/"+Excel2Html.getOnlyId()+".xls";
+		String outPath="D:/test_download/";
+		File f=new File(outPath);
+		if(!f.exists())f.mkdirs();
+		outPath+=Excel2Html.getOnlyId()+".xls";
 		responseFile=this.achieveFileManageService.exportExcel(e,rootPath,outPath);
 		
 		if(responseFile==null)return null;

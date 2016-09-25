@@ -9,7 +9,14 @@
 <script src="../jquery/1.7/jquery.js"></script>
 <script src="../jquery/1.7/jquery.form.js"></script> 
  <script  type="text/javascript" src="osgeo/proj4js-compressed.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2362.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2363.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2364.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2365.js"></script>
 <script  type="text/javascript" src="osgeo/defs/EPSG2366.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2367.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2368.js"></script>
+<script  type="text/javascript" src="osgeo/defs/EPSG2369.js"></script>
 <script  type="text/javascript" src="osgeo/OpenLayers.js"></script> 
 <script src="stream.js"></script>
 <script src="shapefile.js"></script>
@@ -135,10 +142,7 @@
 	map.zoomTo(9);
 
     click.activate();  
-    var formProjection=new OpenLayers.Projection('EPSG:2366');
-    var toProjection=new OpenLayers.Projection('EPSG:4326'); 
-
-
+    
 	//js获取url参数值
     function request(paras) {
         var url = window.location.href;
@@ -168,10 +172,14 @@
 				  filename:filename
 			  },
 			  dataType: 'json',
-			  timeout: 300,
+			  timeout: 10000,
 			  contentType: "application/json; charset=utf-8",
-			  success: function(data){
-				  addPolygon(data);
+			  success: function(response){
+				  if(response.responseText==''){
+					  alert("读取文件失败");
+					  return;
+				  }
+				  addPolygon(response);
 			  },
 			  error: function(xhr, type){
 				//console.log(xhr);
@@ -179,12 +187,40 @@
 			  }
 			});
         } 
-        var formProjection=new OpenLayers.Projection('EPSG:2366');
-        var toProjection=new OpenLayers.Projection('EPSG:4326');
+
+
+	//解析投影
+	function getProFromOL(str){
+		var strh=str.split(',')[0];
+		var n=strh.search(/xian_1980_/i);
+		if(n==-1||n>10){alert("解析投影出错");return;}
+		n=n+10;
+		var m=strh.search(/Zone_/i);
+		console.log(m);
+		if(m==-1||m>31){alert("解析投影出错");return;}
+		m=m+5;
+		var zone=strh.substring(m,m+2);
+		if(strh[n]==3){
+			zone=Number(zone);
+			zone+=24;
+			return "EPSG:23"+zone;
+		}
+		else return "none";
+	}
+
         vector = new OpenLayers.Layer.Vector(filename);
         map.addLayer(vector);
         function addPolygon(response){
             var data=response.data;
+			var pro=response.header.pro;//投影
+			var EPSGPro=getProFromOL(pro);
+			if(EPSGPro=='none'){
+				alert("投影错误");
+				return;
+			}
+			var formPro=new OpenLayers.Projection(EPSGPro);
+			console.log(formPro);
+			var toPro=new OpenLayers.Projection('EPSG:4326'); 
             var PolygonArray=[];
             for(var i=0;i<data.length;i++){
             	var rings=data[i].ring;
@@ -193,7 +229,7 @@
             		var points = []; 
             		for(var n=0;n<ring.length;n++){
                 		var  geometry = new OpenLayers.Geometry.Point(ring[n].x,ring[n].y);
-	                	geometry.transform(formProjection,toProjection);
+	                	geometry.transform(formPro,toPro);
             			points.push(geometry); 
                 	}
 

@@ -339,6 +339,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "editable": false,
                                                 "fieldLabel": "填报日期",
                                                 "id": "tbrq",
                                                 "name": "tbrq",
@@ -790,6 +791,7 @@
                         "html": [
                             "<img id=\"blah\" src=\"images/login/login_center_left.jpg\" alt=\"your image\" width=\"80%\" style=\"margin-left:10px;margin-right:10px\"\" />"
                         ],
+                        "id": "photoPreviewPanel",
                         "layout|margins": "",
                         "layout|region": "center",
                         "margin": 10,

@@ -32,7 +32,9 @@ Ext.application({
         'qy_addinformation',
         'dxqy_adduplod',
         'dxqy_photoupload',
-        'dxqy_mapupload'
+        'dxqy_mapupload',
+        'dxqy_photoPreview',
+        'dxqy_mapPreview'
     ],
     name: 'MyApp',
 
