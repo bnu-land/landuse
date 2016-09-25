@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.mutu.land.common.Encoder;
 import cn.mutu.land.model.DevZdInfo;
-import cn.mutu.land.model.ZdInfo;
 import cn.mutu.land.service.DevZDInfoManagerService;
 
 @Controller
@@ -39,13 +38,14 @@ public class DevZDInfoManagerController {
 		return this.zdinfoService.getZdInfoList(searchKeyword);
 		//
 	}
+	
    //审核
 	@RequestMapping(value="/get_checkinfo")
 	@ResponseBody
 	public Map<String,Object> getCheckList(
-			@RequestParam("searchKeyword") String searchKeyword)
+			@RequestParam("searchKeyword") int searchKeyword)
 			throws SQLException{
-		searchKeyword =Encoder.encode(searchKeyword);
+		//searchKeyword =Encoder.encode(searchKeyword);
 		return this.zdinfoService.getCheckList(searchKeyword);
 	}
 	

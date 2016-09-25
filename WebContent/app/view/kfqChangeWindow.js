@@ -24,8 +24,7 @@ Ext.define('MyApp.view.kfqChangeWindow', {
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
-        'Ext.button.Button',
-        'Ext.form.field.Date'
+        'Ext.button.Button'
     ],
 
     viewModel: {
@@ -44,7 +43,6 @@ Ext.define('MyApp.view.kfqChangeWindow', {
             region: 'center',
             id: 'kfqChangeForm',
             bodyPadding: 10,
-            url: 'update_kfqnfo',
             items: [
                 {
                     xtype: 'fieldset',
@@ -78,7 +76,15 @@ Ext.define('MyApp.view.kfqChangeWindow', {
                             width: 325,
                             fieldLabel: '开发区审批类型',
                             labelWidth: 150,
-                            name: 'kfqsplx'
+                            name: 'kfqjb'
+                        },
+                        {
+                            xtype: 'textfield',
+                            height: 25,
+                            width: 325,
+                            fieldLabel: '开发区设立时间',
+                            labelWidth: 150,
+                            name: 'slsj'
                         },
                         {
                             xtype: 'textfield',
@@ -208,43 +214,9 @@ Ext.define('MyApp.view.kfqChangeWindow', {
                 {
                     xtype: 'button',
                     handler: function(button, e) {
-                        //添加开发区信息,url:add_kfqinfo
 
-                        var myform = Ext.getCmp('kfqChangeForm').getForm();
-                        if (myform.isValid())
-                        {
-                            console.log('form is ava');
-                            myform.submit({
-                                //url : 'add_kfqinfo',
-                                success : function (form, action)
-                                {
-                                    Ext.Msg.alert('成功', '内容调整成功。');
-                                    var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
-                                    mystore.reload();
-
-                                    //var win = Ext.getCmp('kfqChangeForm');
-                                    win.close();
-
-                                },
-                                failure: function(form, action){
-                                    Ext.Msg.alert('失败', '内容调整失败，请重试。');
-                                }
-                            });
-                        }
-                        else
-                        {
-                            Ext.Msg.alert('注意', '填写的信息有误，请检查！');
-                        }
                     },
                     text: '确认调整'
-                },
-                {
-                    xtype: 'datefield',
-                    height: 25,
-                    width: 325,
-                    fieldLabel: '开发区设立时间',
-                    labelWidth: 150,
-                    name: 'slsj'
                 }
             ]
         }

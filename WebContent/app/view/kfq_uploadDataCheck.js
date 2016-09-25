@@ -50,11 +50,13 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
             items: [
                 {
                     xtype: 'panel',
+                    layout: 'border',
                     title: '未审核',
                     items: [
                         {
                             xtype: 'gridpanel',
-                            id: 'zd_info2',
+                            region: 'center',
+                            id: 'zdxx_uncheck',
                             title: '',
                             sortableColumns: false,
                             store: 'zd_checkStore',
@@ -228,11 +230,13 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
                 },
                 {
                     xtype: 'panel',
+                    layout: 'border',
                     title: '已审核通过',
                     items: [
                         {
                             xtype: 'gridpanel',
-                            id: 'zd_info3',
+                            region: 'center',
+                            id: 'zdxx_pass',
                             title: '',
                             sortableColumns: false,
                             store: 'zd_checkStore',
@@ -406,11 +410,13 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
                 },
                 {
                     xtype: 'panel',
+                    layout: 'border',
                     title: '审核未通过',
                     items: [
                         {
                             xtype: 'gridpanel',
-                            id: 'zd_info4',
+                            region: 'center',
+                            id: 'zdxx_unpass',
                             title: '',
                             sortableColumns: false,
                             store: 'zd_checkStore',
@@ -703,7 +709,7 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
             {
                 params :
                 {
-                    searchKeyword : "0"
+                    searchKeyword :0
                 }
             }
         );
@@ -716,7 +722,7 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
             {
                 params :
                 {
-                    searchKeyword : "1"
+                    searchKeyword : 1
                 }
             }
         );
@@ -729,7 +735,7 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
             {
                 params :
                 {
-                    searchKeyword : "2"
+                    searchKeyword : 2
                 }
             }
         );
@@ -737,7 +743,7 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
 
     onButtonClick: function(button, e, eOpts) {
         //获取数据
-        var grid = Ext.getCmp('ent_uploadInfoCheckGrid');
+        var grid = Ext.getCmp('zdxx_uncheck');
         var records = grid.getSelection();
         if (records.length === 0) {
             Ext.Msg.alert('提示', '请选择一条数据后进行审核。');
@@ -768,7 +774,7 @@ Ext.define('MyApp.view.kfq_uploadDataCheck', {
 
     onButtonClick1: function(button, e, eOpts) {
         //获取数据
-        var records = Ext.getCmp('ent_uploadInfoCheckGrid').getSelection();
+        var records = Ext.getCmp('zdxx_uncheck').getSelection();
         if (records.length === 0) {
             Ext.Msg.alert('提示', '请选择一条数据后进行审核。');
             return;

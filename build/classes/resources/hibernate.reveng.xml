@@ -2,10 +2,5 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-
-	<table-filter match-name="dev_info" match-catalog="landuse"></table-filter>
-	<table-filter match-name="dev_task" match-catalog="landuse"></table-filter>
-	<table-filter match-name="dev_zd_info" match-catalog="landuse"></table-filter>
-	<table-filter match-name="sta_kfq" match-catalog="landuse"></table-filter>
-	<table-filter match-name="sta_kfq_construct" match-catalog="landuse"></table-filter>
+  <table-filter match-catalog="landuse" match-name="dev_zd_info"/>
 </hibernate-reverse-engineering>

@@ -41,6 +41,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout": "border",
                         "title": "未审核"
                     },
                     "name": "MyPanel22",
@@ -64,7 +65,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "id": "zd_info2",
+                                "id": "zdxx_uncheck",
+                                "layout|region": "center",
                                 "sortableColumns": false,
                                 "store": "zd_checkStore",
                                 "title": ""
@@ -548,7 +550,7 @@
                                     "    {",
                                     "        params :",
                                     "        {",
-                                    "            searchKeyword : \"0\"",
+                                    "            searchKeyword :0",
                                     "        }",
                                     "    }",
                                     ");"
@@ -569,6 +571,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout": "border",
                         "title": "已审核通过"
                     },
                     "name": "MyPanel23",
@@ -592,7 +595,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "id": "zd_info3",
+                                "id": "zdxx_pass",
+                                "layout|region": "center",
                                 "sortableColumns": false,
                                 "store": "zd_checkStore",
                                 "title": ""
@@ -1074,7 +1078,7 @@
                                     "    {",
                                     "        params :",
                                     "        {",
-                                    "            searchKeyword : \"1\"",
+                                    "            searchKeyword : 1",
                                     "        }",
                                     "    }",
                                     ");"
@@ -1095,6 +1099,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout": "border",
                         "title": "审核未通过"
                     },
                     "name": "MyPanel25",
@@ -1118,7 +1123,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "id": "zd_info4",
+                                "id": "zdxx_unpass",
+                                "layout|region": "center",
                                 "sortableColumns": false,
                                 "store": "zd_checkStore",
                                 "title": ""
@@ -1600,7 +1606,7 @@
                                     "    {",
                                     "        params :",
                                     "        {",
-                                    "            searchKeyword : \"2\"",
+                                    "            searchKeyword : 2",
                                     "        }",
                                     "    }",
                                     ");"
@@ -1859,7 +1865,7 @@
                                 "fn": "onButtonClick",
                                 "implHandler": [
                                     "//获取数据",
-                                    "var grid = Ext.getCmp('ent_uploadInfoCheckGrid');",
+                                    "var grid = Ext.getCmp('zdxx_uncheck');",
                                     "var records = grid.getSelection();",
                                     "if (records.length === 0) {",
                                     "    Ext.Msg.alert('提示', '请选择一条数据后进行审核。');",
@@ -1920,7 +1926,7 @@
                                 "fn": "onButtonClick1",
                                 "implHandler": [
                                     "//获取数据",
-                                    "var records = Ext.getCmp('ent_uploadInfoCheckGrid').getSelection();",
+                                    "var records = Ext.getCmp('zdxx_uncheck').getSelection();",
                                     "if (records.length === 0) {",
                                     "    Ext.Msg.alert('提示', '请选择一条数据后进行审核。');",
                                     "    return;",

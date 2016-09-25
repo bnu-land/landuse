@@ -6,12 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|snapToGrid": 10,
         "designer|userAlias": "dxqy_upload",
         "designer|userClassName": "dxqy_upload",
         "height": 445,
         "id": null,
-        "layout": "absolute",
+        "layout": "border",
         "title": "典型企业信息填报",
         "width": 1010
     },
@@ -21,288 +20,6 @@
     "viewModelInstanceId": "e6949a85-70e6-4be0-8adc-866d01bb9f25",
     "cn": [
         {
-            "type": "Ext.toolbar.Toolbar",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dock": "top",
-                "layout|x": 40,
-                "layout|y": 80
-            },
-            "name": "MyToolbar4",
-            "designerId": "926ecf7b-eaec-44af-91cd-6f4e1eaca0f9",
-            "cn": [
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "emptyText": "输入搜索关键字",
-                        "fieldLabel": "",
-                        "id": "searchKeyword_busInfo",
-                        "layout|flex": null
-                    },
-                    "name": "MyTextField33",
-                    "designerId": "ec411b4b-48f2-48a1-ba57-4d3aaeaaba86",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onSearchKeyword_busInfoChange",
-                                "implHandler": [
-                                    "var getKeyword = Ext.getCmp('searchKeyword_busInfo').getValue();",
-                                    "console.log(\"keyword:\",getKeyword);",
-                                    "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
-                                    "//在load事件中添加参数",
-                                    "mystore.load(",
-                                    "    {",
-                                    "        params :",
-                                    "        {",
-                                    "            searchKeyword : getKeyword",
-                                    "        }",
-                                    "    }",
-                                    ");"
-                                ],
-                                "name": "change",
-                                "scope": "me"
-                            },
-                            "name": "onSearchKeyword_busInfoChange",
-                            "designerId": "725477a1-6907-4107-93eb-34e0a75df3a3"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/refresh.png",
-                        "layout|flex": null,
-                        "text": "刷新"
-                    },
-                    "name": "MyButton12",
-                    "designerId": "3b723d52-8c6c-40e1-93e4-ed49edbeefcb",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "Ext.getCmp('searchKeyword_busInfo').setValue('');",
-                                    "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
-                                    "mystore.load();"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "70289853-ec09-4acc-bc8c-5690a9ce009c"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/add.png",
-                        "layout|flex": null,
-                        "text": "添加"
-                    },
-                    "name": "MyButton17",
-                    "designerId": "ac307864-0a00-43de-b1d3-e5cfdae551e6",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "",
-                                    "//var win=Ext.widget('dxqy_adduplod');",
-                                    "//win.show();",
-                                    "//mainView.disable();",
-                                    "var win = Ext.widget('dxqy_adduplod');",
-                                    "console.log(win);",
-                                    "win.show();"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "91dfe089-70fc-44e5-9a7f-7aaebcf580d6"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/edit.png",
-                        "layout|flex": null,
-                        "text": "编辑"
-                    },
-                    "name": "MyButton18",
-                    "designerId": "9e699d3b-9976-41d1-9547-aba1f133c579",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "//获取数据",
-                                    "var models = Ext.getCmp('dxqy_uploadlist').getSelection();",
-                                    "if (models.length === 0){",
-                                    "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
-                                    "    return;",
-                                    "} else if(models.length >1){",
-                                    "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
-                                    "    return;",
-                                    "}",
-                                    "//启动窗口",
-                                    "var win = Ext.widget('dxqy_adduplod');",
-                                    "win.setTitle('修改宗地信息');",
-                                    "win.show();",
-                                    "",
-                                    "//改变Ajax url",
-                                    "var form = Ext.getCmp('dxqy_addinformation').getForm();",
-                                    "form.loadRecord(models[0]);",
-                                    "form.url = 'update_dxInfo';",
-                                    "",
-                                    "var form1 = Ext.getCmp('photoInfo').getForm();",
-                                    "form1.loadRecord(models[0]);",
-                                    "form1.url = 'update_dxInfo';",
-                                    "",
-                                    "var form2 = Ext.getCmp('mapinfo').getForm();",
-                                    "form2.loadRecord(models[0]);",
-                                    "form2.url = 'update_dxInfo';"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "252d6784-e153-40b2-95a4-2f4359063391"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/delete.png",
-                        "layout|flex": null,
-                        "text": "删除"
-                    },
-                    "name": "MyButton21",
-                    "designerId": "1db300d7-1844-42cb-8f7e-7c0c0a7b2a43",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var grid = Ext.getCmp('dxqy_uploadlist');",
-                                    "var records = grid.getSelection();",
-                                    "if (records.length === 0) {",
-                                    "    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
-                                    "    return;",
-                                    "} else if (records.length > 1) {",
-                                    "    Ext.Msg.alert('提示', '每次只能 一条信息。');",
-                                    "    return;",
-                                    "}",
-                                    "var record = records[0];",
-                                    "",
-                                    "Ext.Msg.confirm('您正在删除', '企业名称为：' + record.get('qymc') + '，企业代码为：'+record.get('dxdm')+'，<br/> 确认删除？', getResult);",
-                                    "function getResult(confirm)",
-                                    "{",
-                                    "    console.log('confirm:', confirm);",
-                                    "    if (confirm == \"yes\"){",
-                                    "        var id = record.get(\"id\");",
-                                    "        console.log('id:',id);",
-                                    "        Ext.Ajax.request(",
-                                    "            {",
-                                    "                url : 'del_dxinfo',",
-                                    "                params :",
-                                    "                {",
-                                    "                    id : id",
-                                    "                },",
-                                    "                success : function (response){",
-                                    "                    Ext.Msg.alert('成功提示', '记录删除成功。');",
-                                    "                    //successResult();",
-                                    "                    var mystore = Ext.StoreMgr.get('dxqy_uploadStore');",
-                                    "                    mystore.load();",
-                                    "                },",
-                                    "                failure : function (response){",
-                                    "                    failedResult();",
-                                    "                    Ext.Msg.alert('失败提示', '记录删除失败。');",
-                                    "                }",
-                                    "            });",
-                                    "    }",
-                                    "}"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "56afaffa-7fd6-4c70-8f85-be2748c4c36a"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "type": "Ext.grid.Panel",
             "reference": {
                 "name": "items",
@@ -311,8 +28,7 @@
             "codeClass": null,
             "userConfig": {
                 "id": "dxqy_uploadlist",
-                "layout|x": -1,
-                "layout|y": 0,
+                "layout|region": "center",
                 "store": "dxqy_uploadStore",
                 "title": ""
             },
@@ -1081,6 +797,286 @@
                     "codeClass": null,
                     "name": "MyCheckboxSelectionModel4",
                     "designerId": "8e7afe93-7dd6-41ce-89a2-6d8c616e05ce"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "926ecf7b-eaec-44af-91cd-6f4e1eaca0f9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "输入搜索关键字",
+                                "fieldLabel": "",
+                                "id": "searchKeyword_busInfo",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField33",
+                            "designerId": "ec411b4b-48f2-48a1-ba57-4d3aaeaaba86",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSearchKeyword_busInfoChange",
+                                        "implHandler": [
+                                            "var getKeyword = Ext.getCmp('searchKeyword_busInfo').getValue();",
+                                            "console.log(\"keyword:\",getKeyword);",
+                                            "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load(",
+                                            "    {",
+                                            "        params :",
+                                            "        {",
+                                            "            searchKeyword : getKeyword",
+                                            "        }",
+                                            "    }",
+                                            ");"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSearchKeyword_busInfoChange",
+                                    "designerId": "725477a1-6907-4107-93eb-34e0a75df3a3"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/refresh.png",
+                                "layout|flex": null,
+                                "text": "刷新"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "3b723d52-8c6c-40e1-93e4-ed49edbeefcb",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "Ext.getCmp('searchKeyword_busInfo').setValue('');",
+                                            "var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象",
+                                            "mystore.load();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "70289853-ec09-4acc-bc8c-5690a9ce009c"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "ac307864-0a00-43de-b1d3-e5cfdae551e6",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "",
+                                            "//var win=Ext.widget('dxqy_adduplod');",
+                                            "//win.show();",
+                                            "//mainView.disable();",
+                                            "var win = Ext.widget('dxqy_adduplod');",
+                                            "console.log(win);",
+                                            "win.show();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "91dfe089-70fc-44e5-9a7f-7aaebcf580d6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "编辑"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "9e699d3b-9976-41d1-9547-aba1f133c579",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var models = Ext.getCmp('dxqy_uploadlist').getSelection();",
+                                            "if (models.length === 0){",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                            "    return;",
+                                            "} else if(models.length >1){",
+                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                            "    return;",
+                                            "}",
+                                            "//启动窗口",
+                                            "var win = Ext.widget('dxqy_adduplod');",
+                                            "win.setTitle('修改宗地信息');",
+                                            "win.show();",
+                                            "",
+                                            "//改变Ajax url",
+                                            "var form = Ext.getCmp('dxqy_addinformation').getForm();",
+                                            "form.loadRecord(models[0]);",
+                                            "form.url = 'update_dxInfo';",
+                                            "",
+                                            "var form1 = Ext.getCmp('photoInfo').getForm();",
+                                            "form1.loadRecord(models[0]);",
+                                            "form1.url = 'update_dxInfo';",
+                                            "",
+                                            "var form2 = Ext.getCmp('mapinfo').getForm();",
+                                            "form2.loadRecord(models[0]);",
+                                            "form2.url = 'update_dxInfo';"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "252d6784-e153-40b2-95a4-2f4359063391"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/delete.png",
+                                "layout|flex": null,
+                                "text": "删除"
+                            },
+                            "name": "MyButton21",
+                            "designerId": "1db300d7-1844-42cb-8f7e-7c0c0a7b2a43",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var grid = Ext.getCmp('dxqy_uploadlist');",
+                                            "var records = grid.getSelection();",
+                                            "if (records.length === 0) {",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                            "    return;",
+                                            "} else if (records.length > 1) {",
+                                            "    Ext.Msg.alert('提示', '每次只能 一条信息。');",
+                                            "    return;",
+                                            "}",
+                                            "var record = records[0];",
+                                            "",
+                                            "Ext.Msg.confirm('您正在删除', '企业名称为：' + record.get('qymc') + '，企业代码为：'+record.get('dxdm')+'，<br/> 确认删除？', getResult);",
+                                            "function getResult(confirm)",
+                                            "{",
+                                            "    console.log('confirm:', confirm);",
+                                            "    if (confirm == \"yes\"){",
+                                            "        var id = record.get(\"id\");",
+                                            "        console.log('id:',id);",
+                                            "        Ext.Ajax.request(",
+                                            "            {",
+                                            "                url : 'del_dxinfo',",
+                                            "                params :",
+                                            "                {",
+                                            "                    id : id",
+                                            "                },",
+                                            "                success : function (response){",
+                                            "                    Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                            "                    //successResult();",
+                                            "                    var mystore = Ext.StoreMgr.get('dxqy_uploadStore');",
+                                            "                    mystore.load();",
+                                            "                },",
+                                            "                failure : function (response){",
+                                            "                    failedResult();",
+                                            "                    Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                            "                }",
+                                            "            });",
+                                            "    }",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "56afaffa-7fd6-4c70-8f85-be2748c4c36a"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

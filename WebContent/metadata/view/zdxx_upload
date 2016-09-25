@@ -10,6 +10,7 @@
         "designer|userClassName": "zdxx_upload",
         "height": 450,
         "id": null,
+        "layout": "border",
         "title": "宗地信息填报",
         "width": 654
     },
@@ -18,200 +19,6 @@
     "viewControllerInstanceId": "e25cd0c9-5c87-4f6d-bf5a-685b5f8776f9",
     "viewModelInstanceId": "e81329e3-4ed7-450b-88c3-0b5c5f81365d",
     "cn": [
-        {
-            "type": "Ext.toolbar.Toolbar",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dock": "top"
-            },
-            "name": "MyToolbar4",
-            "designerId": "581475e6-e17f-4971-bc08-519cc17aa094",
-            "cn": [
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "emptyText": "输入搜索关键字",
-                        "fieldLabel": "",
-                        "id": "searchKeyword_zdInfo",
-                        "layout|flex": null
-                    },
-                    "name": "MyTextField33",
-                    "designerId": "12be7a13-17cc-470c-8497-ce6b20fe4d76",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fn": "onSearchKeyword_zdInfoChange",
-                                "implHandler": [
-                                    "var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();",
-                                    "console.log(\"keyword:\",getKeyword);",
-                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
-                                    "//在load事件中添加参数",
-                                    "mystore.load(",
-                                    "    {",
-                                    "        params :",
-                                    "        {",
-                                    "            searchKeyword : newValue",
-                                    "        }",
-                                    "    }",
-                                    ");"
-                                ],
-                                "name": "change",
-                                "scope": "me"
-                            },
-                            "name": "onSearchKeyword_zdInfoChange",
-                            "designerId": "f307b2d5-30be-4042-95e2-7b1d900fac43"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/refresh.png",
-                        "layout|flex": null,
-                        "text": "刷新"
-                    },
-                    "name": "MyButton12",
-                    "designerId": "9f61fd6a-a80e-4c2e-8a4f-a11f03930ad2",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "Ext.getCmp('searchKeyword_zdInfo').setValue('');",
-                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
-                                    "mystore.load();"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "21bd5679-67a0-4f19-b07c-bd0b3f0bed27"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/add.png",
-                        "layout|flex": null,
-                        "text": "添加"
-                    },
-                    "name": "MyButton17",
-                    "designerId": "194582a9-4a39-4c85-bb4f-785bf2d175f4",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "var win = Ext.widget('zdxx_add');",
-                                    "//console.log(win);",
-                                    "win.show();"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "a18d5707-489d-4a98-bf1e-dfb1f1dde34f"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "images/table/edit.png",
-                        "layout|flex": null,
-                        "text": "编辑"
-                    },
-                    "name": "MyButton18",
-                    "designerId": "47d39d05-4dd9-46f4-a55b-6d311b67da84",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "button",
-                                    "e"
-                                ],
-                                "fn": "handler",
-                                "implHandler": [
-                                    "//获取数据",
-                                    "var models = Ext.getCmp('zd_info').getSelection();",
-                                    "if (models.length === 0){",
-                                    "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
-                                    "    return;",
-                                    "} else if(models.length >1){",
-                                    "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
-                                    "    return;",
-                                    "}",
-                                    "//启动窗口",
-                                    "var win = Ext.widget('zdxx_add');",
-                                    "win.setTitle('修改宗地信息');",
-                                    "win.show();",
-                                    "",
-                                    "//改变Ajax url",
-                                    "var form = Ext.getCmp('add_zdwidinfo').getForm();",
-                                    "form.loadRecord(models[0]);",
-                                    "form.url = 'update_zdInfo';"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "fe3a057e-6803-4ff6-85cf-be3602afcb73"
-                        }
-                    ]
-                }
-            ]
-        },
         {
             "type": "Ext.grid.Panel",
             "reference": {
@@ -222,6 +29,7 @@
             "userConfig": {
                 "autoScroll": true,
                 "id": "zd_info",
+                "layout|region": "center",
                 "sortableColumns": false,
                 "store": "zd_infoStore",
                 "title": ""
@@ -684,6 +492,200 @@
                     "codeClass": null,
                     "name": "MyCheckboxSelectionModel4",
                     "designerId": "057897ae-6b9b-42b3-a07f-3fd6979e48c9"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "581475e6-e17f-4971-bc08-519cc17aa094",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "输入搜索关键字",
+                                "fieldLabel": "",
+                                "id": "searchKeyword_zdInfo",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField33",
+                            "designerId": "12be7a13-17cc-470c-8497-ce6b20fe4d76",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onSearchKeyword_zdInfoChange",
+                                        "implHandler": [
+                                            "var getKeyword = Ext.getCmp('searchKeyword_zdInfo').getValue();",
+                                            "console.log(\"keyword:\",getKeyword);",
+                                            "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "mystore.load(",
+                                            "    {",
+                                            "        params :",
+                                            "        {",
+                                            "            searchKeyword : newValue",
+                                            "        }",
+                                            "    }",
+                                            ");"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onSearchKeyword_zdInfoChange",
+                                    "designerId": "f307b2d5-30be-4042-95e2-7b1d900fac43"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/refresh.png",
+                                "layout|flex": null,
+                                "text": "刷新"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "9f61fd6a-a80e-4c2e-8a4f-a11f03930ad2",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "Ext.getCmp('searchKeyword_zdInfo').setValue('');",
+                                            "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                            "mystore.load();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "21bd5679-67a0-4f19-b07c-bd0b3f0bed27"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/add.png",
+                                "layout|flex": null,
+                                "text": "添加"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "194582a9-4a39-4c85-bb4f-785bf2d175f4",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var win = Ext.widget('zdxx_add');",
+                                            "//console.log(win);",
+                                            "win.show();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "a18d5707-489d-4a98-bf1e-dfb1f1dde34f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "images/table/edit.png",
+                                "layout|flex": null,
+                                "text": "编辑"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "47d39d05-4dd9-46f4-a55b-6d311b67da84",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "button",
+                                            "e"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//获取数据",
+                                            "var models = Ext.getCmp('zd_info').getSelection();",
+                                            "if (models.length === 0){",
+                                            "    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');",
+                                            "    return;",
+                                            "} else if(models.length >1){",
+                                            "    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');",
+                                            "    return;",
+                                            "}",
+                                            "//启动窗口",
+                                            "var win = Ext.widget('zdxx_add');",
+                                            "win.setTitle('修改宗地信息');",
+                                            "win.show();",
+                                            "",
+                                            "//改变Ajax url",
+                                            "var form = Ext.getCmp('add_zdwidinfo').getForm();",
+                                            "form.loadRecord(models[0]);",
+                                            "form.url = 'update_zdInfo';"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "fe3a057e-6803-4ff6-85cf-be3602afcb73"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },

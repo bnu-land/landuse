@@ -378,7 +378,7 @@ Ext.define('MyApp.view.zdxx_add', {
                         {
                             xtype: 'button',
                             handler: function(button, e) {
-                                var win = Ext.getCmp('add_zdinfo');
+                                var win = Ext.getCmp('zdxx_add');
                                 win.close();
                             },
                             width: 80,

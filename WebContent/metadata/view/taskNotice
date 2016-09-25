@@ -220,6 +220,7 @@
             "codeClass": null,
             "userConfig": {
                 "autoScroll": true,
+                "layout": "border",
                 "layout|region": "center",
                 "layout|split": false,
                 "title": "宗地信息列表"
@@ -237,6 +238,7 @@
                     "userConfig": {
                         "focusOnToFront": false,
                         "id": "zd_infoGrid",
+                        "layout|region": "center",
                         "store": "zd_infoStore",
                         "title": ""
                     },
@@ -684,183 +686,183 @@
                             "codeClass": null,
                             "name": "MyCheckboxSelectionModel4",
                             "designerId": "2c1e24fb-2244-44f8-88f1-ff22ffc745a5"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.toolbar.Toolbar",
-                    "reference": {
-                        "name": "dockedItems",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dock": "top"
-                    },
-                    "name": "MyToolbar6",
-                    "designerId": "65886030-aaa2-4d93-a024-d5eb8a258aac",
-                    "cn": [
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "emptyText": "请输入搜索关键字",
-                                "fieldLabel": "",
-                                "layout|flex": null
-                            },
-                            "name": "MyTextField34",
-                            "designerId": "0eaebaea-7179-4a82-b303-e92ad03038cc",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onTextfieldChange",
-                                        "implHandler": [
-                                            "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
-                                            "//在load事件中添加参数",
-                                            "mystore.load(",
-                                            "{",
-                                            "    params :",
-                                            "    {",
-                                            "        searchKeyword : newValue",
-                                            "    }",
-                                            "}",
-                                            ");"
-                                        ],
-                                        "name": "change",
-                                        "scope": "me"
-                                    },
-                                    "name": "onTextfieldChange",
-                                    "designerId": "d8756b3d-9703-498b-8833-842bb481f8d7"
-                                }
-                            ]
                         },
                         {
-                            "type": "Ext.button.Button",
+                            "type": "Ext.toolbar.Toolbar",
                             "reference": {
-                                "name": "items",
+                                "name": "dockedItems",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "icon": "images/table/preview.png",
-                                "layout|flex": null,
-                                "text": "查看"
+                                "dock": "top"
                             },
-                            "name": "MyButton17",
-                            "designerId": "5ba3daf4-6f13-49bc-9a7c-bea75c41ea81",
+                            "name": "MyToolbar6",
+                            "designerId": "65886030-aaa2-4d93-a024-d5eb8a258aac",
                             "cn": [
                                 {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onButtonClick",
-                                        "implHandler": [
-                                            "//获取数据",
-                                            "var models = Ext.getCmp('zd_infoGrid').getSelection();",
-                                            "if (models.length === 0){",
-                                            "    Ext.Msg.alert('提示', '未选中某宗地。');",
-                                            "    return;",
-                                            "} else if(models.length >1){",
-                                            "    Ext.Msg.alert('提示', '每次只能查看一条宗地信息，请重新选择。');",
-                                            "    return;",
-                                            "}",
-                                            "//启动窗口",
-                                            "var win = Ext.widget('zdxx_add');",
-                                            "win.setTitle('查看宗地信息');",
-                                            "win.show();",
-                                            "",
-                                            "//改变Ajax url",
-                                            "var form = Ext.getCmp('add_zdwidinfo').getForm();",
-                                            "form.loadRecord(models[0]);",
-                                            "form.url = 'update_zdInfo';"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onButtonClick",
-                                    "designerId": "6bafd6e2-0251-4421-9508-6e1a0147d3da"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "icon": "images/table/delete.png",
-                                "layout|flex": null,
-                                "text": "清除"
-                            },
-                            "name": "MyButton18",
-                            "designerId": "547ed280-c9a3-4fcf-b32a-fba9357e1921",
-                            "cn": [
-                                {
-                                    "type": "fixedfunction",
+                                    "type": "Ext.form.field.Text",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fn": "handler",
-                                        "implHandler": [
-                                            "//获取数据",
-                                            "var records = Ext.getCmp('zd_infoGrid').getSelection();",
-                                            "if (records.length === 0){",
-                                            "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
-                                            "   return;",
-                                            "}else if(records.length >1){",
-                                            "   Ext.Msg.alert('提示', '每次只能删除一条记录。');",
-                                            "   return;",
-                                            "}",
-                                            "var id = records[0].get(\"id\");",
-                                            "var columnName= records[0].get(\"support_type\");",
-                                            "Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);",
-                                            "console.log(id);",
-                                            "",
-                                            "function getResult(confirm)",
-                                            "{",
-                                            "    console.log('confirm:', confirm);",
-                                            "    if (confirm == \"yes\"){",
-                                            "        Ext.Ajax.request(",
-                                            "        {",
-                                            "            url : 'del_zdinfo',",
-                                            "            params :",
-                                            "            {",
-                                            "                id : id",
-                                            "            },",
-                                            "            success : function (response){",
-                                            "                Ext.Msg.alert('成功提示', '记录删除成功。');",
-                                            "                var mystore = Ext.StoreMgr.get('zd_infoStore');",
-                                            "                mystore.load();",
-                                            "            },",
-                                            "            failure : function (response){",
-                                            "                Ext.Msg.alert('失败提示', '记录删除失败。');",
-                                            "            }",
-                                            "        });",
-                                            "    }",
-                                            "}"
-                                        ]
+                                        "emptyText": "请输入搜索关键字",
+                                        "fieldLabel": "",
+                                        "layout|flex": null
                                     },
-                                    "name": "handler",
-                                    "designerId": "cd1bf60d-dfdc-4689-b2e3-3b2fbbe9f3d0"
+                                    "name": "MyTextField34",
+                                    "designerId": "0eaebaea-7179-4a82-b303-e92ad03038cc",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onTextfieldChange",
+                                                "implHandler": [
+                                                    "var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象",
+                                                    "//在load事件中添加参数",
+                                                    "mystore.load(",
+                                                    "{",
+                                                    "    params :",
+                                                    "    {",
+                                                    "        searchKeyword : newValue",
+                                                    "    }",
+                                                    "}",
+                                                    ");"
+                                                ],
+                                                "name": "change",
+                                                "scope": "me"
+                                            },
+                                            "name": "onTextfieldChange",
+                                            "designerId": "d8756b3d-9703-498b-8833-842bb481f8d7"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/preview.png",
+                                        "layout|flex": null,
+                                        "text": "查看"
+                                    },
+                                    "name": "MyButton17",
+                                    "designerId": "5ba3daf4-6f13-49bc-9a7c-bea75c41ea81",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onButtonClick",
+                                                "implHandler": [
+                                                    "//获取数据",
+                                                    "var models = Ext.getCmp('zd_infoGrid').getSelection();",
+                                                    "if (models.length === 0){",
+                                                    "    Ext.Msg.alert('提示', '未选中某宗地。');",
+                                                    "    return;",
+                                                    "} else if(models.length >1){",
+                                                    "    Ext.Msg.alert('提示', '每次只能查看一条宗地信息，请重新选择。');",
+                                                    "    return;",
+                                                    "}",
+                                                    "//启动窗口",
+                                                    "var win = Ext.widget('zdxx_add');",
+                                                    "win.setTitle('查看宗地信息');",
+                                                    "win.show();",
+                                                    "",
+                                                    "//改变Ajax url",
+                                                    "var form = Ext.getCmp('add_zdwidinfo').getForm();",
+                                                    "form.loadRecord(models[0]);",
+                                                    "form.url = 'update_zdInfo';"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onButtonClick",
+                                            "designerId": "6bafd6e2-0251-4421-9508-6e1a0147d3da"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "images/table/delete.png",
+                                        "layout|flex": null,
+                                        "text": "清除"
+                                    },
+                                    "name": "MyButton18",
+                                    "designerId": "547ed280-c9a3-4fcf-b32a-fba9357e1921",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "//获取数据",
+                                                    "var records = Ext.getCmp('zd_infoGrid').getSelection();",
+                                                    "if (records.length === 0){",
+                                                    "   Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');",
+                                                    "   return;",
+                                                    "}else if(records.length >1){",
+                                                    "   Ext.Msg.alert('提示', '每次只能删除一条记录。');",
+                                                    "   return;",
+                                                    "}",
+                                                    "var id = records[0].get(\"id\");",
+                                                    "var columnName= records[0].get(\"support_type\");",
+                                                    "Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);",
+                                                    "console.log(id);",
+                                                    "",
+                                                    "function getResult(confirm)",
+                                                    "{",
+                                                    "    console.log('confirm:', confirm);",
+                                                    "    if (confirm == \"yes\"){",
+                                                    "        Ext.Ajax.request(",
+                                                    "        {",
+                                                    "            url : 'del_zdinfo',",
+                                                    "            params :",
+                                                    "            {",
+                                                    "                id : id",
+                                                    "            },",
+                                                    "            success : function (response){",
+                                                    "                Ext.Msg.alert('成功提示', '记录删除成功。');",
+                                                    "                var mystore = Ext.StoreMgr.get('zd_infoStore');",
+                                                    "                mystore.load();",
+                                                    "            },",
+                                                    "            failure : function (response){",
+                                                    "                Ext.Msg.alert('失败提示', '记录删除失败。');",
+                                                    "            }",
+                                                    "        });",
+                                                    "    }",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "cd1bf60d-dfdc-4689-b2e3-3b2fbbe9f3d0"
+                                        }
+                                    ]
                                 }
                             ]
                         }

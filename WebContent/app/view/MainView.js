@@ -401,7 +401,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '通知通告发布',
+                    title: '通知通告管理',
                     items: [
                         {
                             xtype: 'menu',
@@ -442,7 +442,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '法律法规查询',
+                    title: '法律法规管理',
                     items: [
                         {
                             xtype: 'menu',

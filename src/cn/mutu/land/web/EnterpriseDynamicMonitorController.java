@@ -53,13 +53,13 @@ public class EnterpriseDynamicMonitorController {
 	}
 	
 	// --------------------企业上传信息审核--------------------------------
-	@RequestMapping(value = "/set_EntUploadCheckPass")
-	@ResponseBody
-	public Map<String, Object> set_EntUploadCheckPass(
-			@RequestParam("ids") String[] ids,
-			@RequestParam("isPass") int isPass) throws SQLException {
-		return this.entServcie.setEntUploadCheckPass(ids, isPass);
-	}
+		@RequestMapping(value = "/set_EntUploadCheckPass")
+		@ResponseBody
+		public Map<String, Object> set_EntUploadCheckPass(
+				@RequestParam("ids") String[] ids,
+				@RequestParam("isPass") int isPass) throws SQLException {
+			return this.entServcie.setEntUploadCheckPass(ids, isPass);
+		}
 	
 	// --------------------企业上传信息审核结果--------------------------------
 	@RequestMapping(value = "/set_EntUploadCheckResult")

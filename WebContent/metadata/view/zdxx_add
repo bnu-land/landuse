@@ -675,7 +675,7 @@
                                         ],
                                         "fn": "handler",
                                         "implHandler": [
-                                            "var win = Ext.getCmp('add_zdinfo');",
+                                            "var win = Ext.getCmp('zdxx_add');",
                                             "win.close();"
                                         ]
                                     },

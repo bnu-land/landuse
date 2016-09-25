@@ -128,10 +128,12 @@ Ext.define('MyApp.view.taskNotice', {
             region: 'center',
             split: false,
             autoScroll: true,
+            layout: 'border',
             title: '宗地信息列表',
             items: [
                 {
                     xtype: 'gridpanel',
+                    region: 'center',
                     focusOnToFront: false,
                     id: 'zd_infoGrid',
                     title: '',
@@ -292,72 +294,72 @@ Ext.define('MyApp.view.taskNotice', {
                     ],
                     selModel: {
                         selType: 'checkboxmodel'
-                    }
-                }
-            ],
-            dockedItems: [
-                {
-                    xtype: 'toolbar',
-                    dock: 'top',
-                    items: [
+                    },
+                    dockedItems: [
                         {
-                            xtype: 'textfield',
-                            fieldLabel: '',
-                            emptyText: '请输入搜索关键字',
-                            listeners: {
-                                change: 'onTextfieldChange'
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            icon: 'images/table/preview.png',
-                            text: '查看',
-                            listeners: {
-                                click: 'onButtonClick'
-                            }
-                        },
-                        {
-                            xtype: 'button',
-                            handler: function() {
-                                //获取数据
-                                var records = Ext.getCmp('zd_infoGrid').getSelection();
-                                if (records.length === 0){
-                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
-                                    return;
-                                }else if(records.length >1){
-                                    Ext.Msg.alert('提示', '每次只能删除一条记录。');
-                                    return;
-                                }
-                                var id = records[0].get("id");
-                                var columnName= records[0].get("support_type");
-                                Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);
-                                console.log(id);
-
-                                function getResult(confirm)
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
                                 {
-                                    console.log('confirm:', confirm);
-                                    if (confirm == "yes"){
-                                        Ext.Ajax.request(
-                                        {
-                                            url : 'del_zdinfo',
-                                            params :
-                                            {
-                                                id : id
-                                            },
-                                            success : function (response){
-                                                Ext.Msg.alert('成功提示', '记录删除成功。');
-                                                var mystore = Ext.StoreMgr.get('zd_infoStore');
-                                                mystore.load();
-                                            },
-                                            failure : function (response){
-                                                Ext.Msg.alert('失败提示', '记录删除失败。');
-                                            }
-                                        });
+                                    xtype: 'textfield',
+                                    fieldLabel: '',
+                                    emptyText: '请输入搜索关键字',
+                                    listeners: {
+                                        change: 'onTextfieldChange'
                                     }
+                                },
+                                {
+                                    xtype: 'button',
+                                    icon: 'images/table/preview.png',
+                                    text: '查看',
+                                    listeners: {
+                                        click: 'onButtonClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    handler: function() {
+                                        //获取数据
+                                        var records = Ext.getCmp('zd_infoGrid').getSelection();
+                                        if (records.length === 0){
+                                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                            return;
+                                        }else if(records.length >1){
+                                            Ext.Msg.alert('提示', '每次只能删除一条记录。');
+                                            return;
+                                        }
+                                        var id = records[0].get("id");
+                                        var columnName= records[0].get("support_type");
+                                        Ext.Msg.confirm('提示', '您正在删除一条宗地信息<br/>[' +columnName+']。<br/> 确认删除？', getResult);
+                                        console.log(id);
+
+                                        function getResult(confirm)
+                                        {
+                                            console.log('confirm:', confirm);
+                                            if (confirm == "yes"){
+                                                Ext.Ajax.request(
+                                                {
+                                                    url : 'del_zdinfo',
+                                                    params :
+                                                    {
+                                                        id : id
+                                                    },
+                                                    success : function (response){
+                                                        Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                        var mystore = Ext.StoreMgr.get('zd_infoStore');
+                                                        mystore.load();
+                                                    },
+                                                    failure : function (response){
+                                                        Ext.Msg.alert('失败提示', '记录删除失败。');
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    },
+                                    icon: 'images/table/delete.png',
+                                    text: '清除'
                                 }
-                            },
-                            icon: 'images/table/delete.png',
-                            text: '清除'
+                            ]
                         }
                     ]
                 }

@@ -1063,7 +1063,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "通知通告发布"
+                        "title": "通知通告管理"
                     },
                     "name": "MyPanel11",
                     "designerId": "c749454c-251f-4a67-b271-05ee29dac618",
@@ -1177,7 +1177,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "法律法规查询"
+                        "title": "法律法规管理"
                     },
                     "name": "MyPanel12",
                     "designerId": "cea05db7-52ba-4675-a8ff-9bba48f971a6",

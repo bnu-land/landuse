@@ -14,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.mutu.land.model.BusinessMap;
+import cn.mutu.land.model.DevZdInfo;
 import cn.mutu.land.model.EntDxqyydPda;
 import cn.mutu.land.model.EntExpirealert;
 import cn.mutu.land.model.EntQyjyd;
-import cn.mutu.land.model.LandKfqType;
 
 @Service
 public class EnterpriseDynamicMonitorService {
@@ -127,12 +127,13 @@ public class EnterpriseDynamicMonitorService {
 	// --------------------企业信息审核--------------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> setEntUploadCheckPass(String[] ids, int isPass) {
-		BusinessMap result = null;
+		DevZdInfo result = null;
 		Map<String, Object> map = new HashMap<>();
 		Session session = sessionFactory.getCurrentSession();
 		try {
+	       System.out.println("审核状态："+isPass);
 			for (String id : ids) {
-				result = (BusinessMap) session.get(BusinessMap.class,
+				result = (DevZdInfo) session.get(DevZdInfo.class,
 						Integer.parseInt(id));
 				result.setIsPass(isPass);
 				session.saveOrUpdate(result);

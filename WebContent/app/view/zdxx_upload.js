@@ -19,13 +19,13 @@ Ext.define('MyApp.view.zdxx_upload', {
 
     requires: [
         'MyApp.view.zdxx_uploadViewModel',
-        'Ext.toolbar.Toolbar',
-        'Ext.form.field.Text',
-        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.View',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button'
     ],
 
     viewModel: {
@@ -33,74 +33,14 @@ Ext.define('MyApp.view.zdxx_upload', {
     },
     height: 450,
     width: 654,
+    layout: 'border',
     title: '宗地信息填报',
     defaultListenerScope: true,
 
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            items: [
-                {
-                    xtype: 'textfield',
-                    id: 'searchKeyword_zdInfo',
-                    fieldLabel: '',
-                    emptyText: '输入搜索关键字',
-                    listeners: {
-                        change: 'onSearchKeyword_zdInfoChange'
-                    }
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        Ext.getCmp('searchKeyword_zdInfo').setValue('');
-                        var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
-                        mystore.load();
-                    },
-                    icon: 'images/table/refresh.png',
-                    text: '刷新'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var win = Ext.widget('zdxx_add');
-                        //console.log(win);
-                        win.show();
-                    },
-                    icon: 'images/table/add.png',
-                    text: '添加'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        //获取数据
-                        var models = Ext.getCmp('zd_info').getSelection();
-                        if (models.length === 0){
-                            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
-                            return;
-                        } else if(models.length >1){
-                            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
-                            return;
-                        }
-                        //启动窗口
-                        var win = Ext.widget('zdxx_add');
-                        win.setTitle('修改宗地信息');
-                        win.show();
-
-                        //改变Ajax url
-                        var form = Ext.getCmp('add_zdwidinfo').getForm();
-                        form.loadRecord(models[0]);
-                        form.url = 'update_zdInfo';
-                    },
-                    icon: 'images/table/edit.png',
-                    text: '编辑'
-                }
-            ]
-        }
-    ],
     items: [
         {
             xtype: 'gridpanel',
+            region: 'center',
             autoScroll: true,
             id: 'zd_info',
             title: '',
@@ -267,7 +207,69 @@ Ext.define('MyApp.view.zdxx_upload', {
             ],
             selModel: {
                 selType: 'checkboxmodel'
-            }
+            },
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'searchKeyword_zdInfo',
+                            fieldLabel: '',
+                            emptyText: '输入搜索关键字',
+                            listeners: {
+                                change: 'onSearchKeyword_zdInfoChange'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                Ext.getCmp('searchKeyword_zdInfo').setValue('');
+                                var mystore = Ext.StoreMgr.get('zd_infoStore'); //获得store对象
+                                mystore.load();
+                            },
+                            icon: 'images/table/refresh.png',
+                            text: '刷新'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var win = Ext.widget('zdxx_add');
+                                //console.log(win);
+                                win.show();
+                            },
+                            icon: 'images/table/add.png',
+                            text: '添加'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                //获取数据
+                                var models = Ext.getCmp('zd_info').getSelection();
+                                if (models.length === 0){
+                                    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+                                    return;
+                                } else if(models.length >1){
+                                    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+                                    return;
+                                }
+                                //启动窗口
+                                var win = Ext.widget('zdxx_add');
+                                win.setTitle('修改宗地信息');
+                                win.show();
+
+                                //改变Ajax url
+                                var form = Ext.getCmp('add_zdwidinfo').getForm();
+                                form.loadRecord(models[0]);
+                                form.url = 'update_zdInfo';
+                            },
+                            icon: 'images/table/edit.png',
+                            text: '编辑'
+                        }
+                    ]
+                }
+            ]
         }
     ],
     listeners: {

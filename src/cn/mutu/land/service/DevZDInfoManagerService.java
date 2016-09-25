@@ -43,13 +43,13 @@ public class DevZDInfoManagerService {
 		return myInfoResult;
 	}
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getCheckList(String searchKeyword) {
+	public Map<String, Object> getCheckList(int searchKeyword) {
 		String hql = "FROM DevZdInfo as info";
-		if (!searchKeyword.equals("")) {
-			String likeStr = " LIKE '%" + searchKeyword + "%' ";
-			String hql2 = " WHERE info.shzt" + likeStr;
+		
+			String likeStr = " LIKE " + searchKeyword ;
+			String hql2 = " WHERE info.isPass" + likeStr;
 			hql += hql2;
-		}		
+			
 		List<DevZdInfo> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);

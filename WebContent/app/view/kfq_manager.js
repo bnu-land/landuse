@@ -19,14 +19,14 @@ Ext.define('MyApp.view.kfq_manager', {
 
     requires: [
         'MyApp.view.kfq_managerViewModel',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button',
-        'Ext.form.field.ComboBox',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Action',
         'Ext.grid.View',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button',
+        'Ext.form.field.ComboBox'
     ],
 
     viewModel: {
@@ -37,165 +37,6 @@ Ext.define('MyApp.view.kfq_manager', {
     layout: 'border',
     title: '开发区信息管理',
     defaultListenerScope: true,
-
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            items: [
-                {
-                    xtype: 'textfield',
-                    id: 'txt_search_key',
-                    width: 120,
-                    fieldLabel: '',
-                    emptyText: '请输入搜索关键字',
-                    listeners: {
-                        change: 'onTxt_search_keyChange'
-                    }
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var getKeyword = Ext.getCmp('txt_search_key').getValue();
-                        console.log("keyword:",getKeyword);
-                        var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
-                        //在load事件中添加参数
-                        mystore.load(
-                        {
-                            params :
-                            {
-                                searchKeyword : getKeyword
-                            }
-                        }
-                        );
-
-                    },
-                    id: 'but_search',
-                    icon: 'images/table/search.png',
-                    text: '搜索'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        Ext.getCmp('txt_search_key').setValue('');
-                        var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
-                        mystore.load();
-                    },
-                    id: 'refresh_button',
-                    icon: 'images/table/refresh.png',
-                    text: '刷新'
-                },
-                {
-                    xtype: 'combobox',
-                    id: 'kfqjb',
-                    width: 181,
-                    fieldLabel: '开发区级别',
-                    labelWidth: 80,
-                    delimiter: '',
-                    displayField: 'kfqjb',
-                    store: [
-                        '',
-                        '国家级',
-                        '省级',
-                        '示范区'
-                    ],
-                    valueField: 'kfqjb',
-                    listeners: {
-                        change: 'onEnt_landuse_gradeCombo1Change'
-                    }
-                },
-                {
-                    xtype: 'combobox',
-                    id: 'kfqpjlx',
-                    width: 190,
-                    fieldLabel: '开发区类型',
-                    labelWidth: 80,
-                    displayField: 'kfqpjlx',
-                    store: [
-                        '',
-                        '工业主导型',
-                        '产城融合型'
-                    ],
-                    valueField: 'kfqpjlx',
-                    listeners: {
-                        change: 'onEnt_landuse_typeCombo1Change'
-                    }
-                },
-                {
-                    xtype: 'combobox',
-                    id: 'kfqmc',
-                    width: 220,
-                    fieldLabel: '选择开发区',
-                    labelWidth: 80,
-                    displayField: 'kfqmc',
-                    store: 'kfqInfoStore',
-                    valueField: 'kfqmc',
-                    listeners: {
-                        change: 'onKfqInfo_selectKfq_ComboChange'
-                    }
-                },
-                {
-                    xtype: 'combobox',
-                    hidden: true,
-                    id: 'ent_landuse_yearCombo1',
-                    width: 190,
-                    fieldLabel: '选择年份',
-                    labelWidth: 80,
-                    store: [
-                        '2016',
-                        '2015',
-                        '2014',
-                        '2013',
-                        '2012',
-                        '2011',
-                        '2010'
-                    ],
-                    valueField: 'mapUrl'
-                },
-                {
-                    xtype: 'button',
-                    handler: function() {
-                        var win=Ext.widget('kfq_add');
-                        win.show();
-                    },
-                    itemId: 'but_add',
-                    icon: 'images/table/add.png',
-                    text: '新增开发区'
-                },
-                {
-                    xtype: 'button',
-                    handler: function() {
-                        var grid = Ext.getCmp('kfqInfo_grid');
-                        var records = grid.getSelection();
-                        if (records.length === 0) {
-                            Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');
-                            return;
-                        } else if (records.length > 1) {
-                            Ext.Msg.alert('提示', '每次只能编辑一条信息。');
-                            return;
-                        }
-
-                        var win = Ext.widget('kfqChangeWindow');
-                        win.show();
-
-                        //var form = Ext.widget('db_UserWindowForm');
-                        var form = Ext.getCmp('kfqChangeForm');
-                        console.log("form:",form);
-                        form.loadRecord(records[0]);
-
-
-                        //var form = Ext.getCmp('form_kfqinfo_add').getForm();
-                        //form.loadRecord(record);
-
-                    },
-                    id: 'changeButton',
-                    itemId: '',
-                    icon: 'images/table/edit.png',
-                    text: '变更'
-                }
-            ]
-        }
-    ],
 
     initConfig: function(instanceConfig) {
         var me = this,
@@ -330,7 +171,165 @@ Ext.define('MyApp.view.kfq_manager', {
                         ],
                         selModel: Ext.create('Ext.selection.CheckboxModel', {
                             selType: 'checkboxmodel'
-                        })
+                        }),
+                        dockedItems: [
+                            {
+                                xtype: 'toolbar',
+                                dock: 'top',
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        id: 'txt_search_key',
+                                        width: 120,
+                                        fieldLabel: '',
+                                        emptyText: '请输入搜索关键字',
+                                        listeners: {
+                                            change: 'onTxt_search_keyChange'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        handler: function(button, e) {
+                                            var getKeyword = Ext.getCmp('txt_search_key').getValue();
+                                            console.log("keyword:",getKeyword);
+                                            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                                            //在load事件中添加参数
+                                            mystore.load(
+                                            {
+                                                params :
+                                                {
+                                                    searchKeyword : getKeyword
+                                                }
+                                            }
+                                            );
+
+                                        },
+                                        id: 'but_search',
+                                        icon: 'images/table/search.png',
+                                        text: '搜索'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        handler: function(button, e) {
+                                            Ext.getCmp('txt_search_key').setValue('');
+                                            var mystore = Ext.StoreMgr.get('kfqInfoStore'); //获得store对象
+                                            mystore.load();
+                                        },
+                                        id: 'refresh_button',
+                                        icon: 'images/table/refresh.png',
+                                        text: '刷新'
+                                    },
+                                    {
+                                        xtype: 'combobox',
+                                        id: 'kfqjb',
+                                        width: 181,
+                                        fieldLabel: '开发区级别',
+                                        labelWidth: 80,
+                                        delimiter: '',
+                                        displayField: 'kfqjb',
+                                        store: [
+                                            '',
+                                            '国家级',
+                                            '省级',
+                                            '示范区'
+                                        ],
+                                        valueField: 'kfqjb',
+                                        listeners: {
+                                            change: 'onEnt_landuse_gradeCombo1Change'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'combobox',
+                                        id: 'kfqpjlx',
+                                        width: 190,
+                                        fieldLabel: '开发区类型',
+                                        labelWidth: 80,
+                                        displayField: 'kfqpjlx',
+                                        store: [
+                                            '',
+                                            '工业主导型',
+                                            '产城融合型'
+                                        ],
+                                        valueField: 'kfqpjlx',
+                                        listeners: {
+                                            change: 'onEnt_landuse_typeCombo1Change'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'combobox',
+                                        id: 'kfqmc',
+                                        width: 220,
+                                        fieldLabel: '选择开发区',
+                                        labelWidth: 80,
+                                        displayField: 'kfqmc',
+                                        store: 'kfqInfoStore',
+                                        valueField: 'kfqmc',
+                                        listeners: {
+                                            change: 'onKfqInfo_selectKfq_ComboChange'
+                                        }
+                                    },
+                                    {
+                                        xtype: 'combobox',
+                                        hidden: true,
+                                        id: 'ent_landuse_yearCombo1',
+                                        width: 190,
+                                        fieldLabel: '选择年份',
+                                        labelWidth: 80,
+                                        store: [
+                                            '2016',
+                                            '2015',
+                                            '2014',
+                                            '2013',
+                                            '2012',
+                                            '2011',
+                                            '2010'
+                                        ],
+                                        valueField: 'mapUrl'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        handler: function() {
+                                            var win=Ext.widget('kfq_add');
+                                            win.show();
+                                        },
+                                        itemId: 'but_add',
+                                        icon: 'images/table/add.png',
+                                        text: '新增开发区'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        handler: function() {
+                                            var grid = Ext.getCmp('kfqInfo_grid');
+                                            var records = grid.getSelection();
+                                            if (records.length === 0) {
+                                                Ext.Msg.alert('提示', '请选择一条数据后再点击编辑按钮。');
+                                                return;
+                                            } else if (records.length > 1) {
+                                                Ext.Msg.alert('提示', '每次只能编辑一条信息。');
+                                                return;
+                                            }
+
+                                            var win = Ext.widget('kfqChangeWindow');
+                                            win.show();
+
+                                            //var form = Ext.widget('db_UserWindowForm');
+                                            var form = Ext.getCmp('kfqChangeForm');
+                                            console.log("form:",form);
+                                            form.loadRecord(records[0]);
+
+
+                                            //var form = Ext.getCmp('form_kfqinfo_add').getForm();
+                                            //form.loadRecord(record);
+
+                                        },
+                                        id: 'changeButton',
+                                        itemId: '',
+                                        icon: 'images/table/edit.png',
+                                        text: '变更'
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             };

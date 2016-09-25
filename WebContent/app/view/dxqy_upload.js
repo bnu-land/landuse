@@ -19,14 +19,14 @@ Ext.define('MyApp.view.dxqy_upload', {
 
     requires: [
         'MyApp.view.zd_informationViewModel1',
-        'Ext.toolbar.Toolbar',
-        'Ext.form.field.Text',
-        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Action',
         'Ext.grid.View',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button'
     ],
 
     viewModel: {
@@ -34,136 +34,14 @@ Ext.define('MyApp.view.dxqy_upload', {
     },
     height: 445,
     width: 1010,
-    layout: 'absolute',
+    layout: 'border',
     title: '典型企业信息填报',
     defaultListenerScope: true,
 
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            x: 40,
-            y: 80,
-            dock: 'top',
-            items: [
-                {
-                    xtype: 'textfield',
-                    id: 'searchKeyword_busInfo',
-                    fieldLabel: '',
-                    emptyText: '输入搜索关键字',
-                    listeners: {
-                        change: 'onSearchKeyword_busInfoChange'
-                    }
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        Ext.getCmp('searchKeyword_busInfo').setValue('');
-                        var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象
-                        mystore.load();
-                    },
-                    icon: 'images/table/refresh.png',
-                    text: '刷新'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-
-                        //var win=Ext.widget('dxqy_adduplod');
-                        //win.show();
-                        //mainView.disable();
-                        var win = Ext.widget('dxqy_adduplod');
-                        console.log(win);
-                        win.show();
-                    },
-                    icon: 'images/table/add.png',
-                    text: '添加'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        //获取数据
-                        var models = Ext.getCmp('dxqy_uploadlist').getSelection();
-                        if (models.length === 0){
-                            Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
-                            return;
-                        } else if(models.length >1){
-                            Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
-                            return;
-                        }
-                        //启动窗口
-                        var win = Ext.widget('dxqy_adduplod');
-                        win.setTitle('修改宗地信息');
-                        win.show();
-
-                        //改变Ajax url
-                        var form = Ext.getCmp('dxqy_addinformation').getForm();
-                        form.loadRecord(models[0]);
-                        form.url = 'update_dxInfo';
-
-                        var form1 = Ext.getCmp('photoInfo').getForm();
-                        form1.loadRecord(models[0]);
-                        form1.url = 'update_dxInfo';
-
-                        var form2 = Ext.getCmp('mapinfo').getForm();
-                        form2.loadRecord(models[0]);
-                        form2.url = 'update_dxInfo';
-                    },
-                    icon: 'images/table/edit.png',
-                    text: '编辑'
-                },
-                {
-                    xtype: 'button',
-                    handler: function(button, e) {
-                        var grid = Ext.getCmp('dxqy_uploadlist');
-                        var records = grid.getSelection();
-                        if (records.length === 0) {
-                            Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
-                            return;
-                        } else if (records.length > 1) {
-                            Ext.Msg.alert('提示', '每次只能 一条信息。');
-                            return;
-                        }
-                        var record = records[0];
-
-                        Ext.Msg.confirm('您正在删除', '企业名称为：' + record.get('qymc') + '，企业代码为：'+record.get('dxdm')+'，<br/> 确认删除？', getResult);
-                        function getResult(confirm)
-                        {
-                            console.log('confirm:', confirm);
-                            if (confirm == "yes"){
-                                var id = record.get("id");
-                                console.log('id:',id);
-                                Ext.Ajax.request(
-                                {
-                                    url : 'del_dxinfo',
-                                    params :
-                                    {
-                                        id : id
-                                    },
-                                    success : function (response){
-                                        Ext.Msg.alert('成功提示', '记录删除成功。');
-                                        //successResult();
-                                        var mystore = Ext.StoreMgr.get('dxqy_uploadStore');
-                                        mystore.load();
-                                    },
-                                    failure : function (response){
-                                        failedResult();
-                                        Ext.Msg.alert('失败提示', '记录删除失败。');
-                                    }
-                                });
-                            }
-                        }
-                    },
-                    icon: 'images/table/delete.png',
-                    text: '删除'
-                }
-            ]
-        }
-    ],
     items: [
         {
             xtype: 'gridpanel',
-            x: -1,
-            y: 0,
+            region: 'center',
             id: 'dxqy_uploadlist',
             title: '',
             store: 'dxqy_uploadStore',
@@ -438,7 +316,126 @@ Ext.define('MyApp.view.dxqy_upload', {
             ],
             selModel: {
                 selType: 'checkboxmodel'
-            }
+            },
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            id: 'searchKeyword_busInfo',
+                            fieldLabel: '',
+                            emptyText: '输入搜索关键字',
+                            listeners: {
+                                change: 'onSearchKeyword_busInfoChange'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                Ext.getCmp('searchKeyword_busInfo').setValue('');
+                                var mystore = Ext.StoreMgr.get('dxqy_uploadStore'); //获得store对象
+                                mystore.load();
+                            },
+                            icon: 'images/table/refresh.png',
+                            text: '刷新'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+
+                                //var win=Ext.widget('dxqy_adduplod');
+                                //win.show();
+                                //mainView.disable();
+                                var win = Ext.widget('dxqy_adduplod');
+                                console.log(win);
+                                win.show();
+                            },
+                            icon: 'images/table/add.png',
+                            text: '添加'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                //获取数据
+                                var models = Ext.getCmp('dxqy_uploadlist').getSelection();
+                                if (models.length === 0){
+                                    Ext.Msg.alert('提示', '请选择一条数据后再修改信息。');
+                                    return;
+                                } else if(models.length >1){
+                                    Ext.Msg.alert('提示', '每次只能修改一条信息，请重新选择。');
+                                    return;
+                                }
+                                //启动窗口
+                                var win = Ext.widget('dxqy_adduplod');
+                                win.setTitle('修改宗地信息');
+                                win.show();
+
+                                //改变Ajax url
+                                var form = Ext.getCmp('dxqy_addinformation').getForm();
+                                form.loadRecord(models[0]);
+                                form.url = 'update_dxInfo';
+
+                                var form1 = Ext.getCmp('photoInfo').getForm();
+                                form1.loadRecord(models[0]);
+                                form1.url = 'update_dxInfo';
+
+                                var form2 = Ext.getCmp('mapinfo').getForm();
+                                form2.loadRecord(models[0]);
+                                form2.url = 'update_dxInfo';
+                            },
+                            icon: 'images/table/edit.png',
+                            text: '编辑'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, e) {
+                                var grid = Ext.getCmp('dxqy_uploadlist');
+                                var records = grid.getSelection();
+                                if (records.length === 0) {
+                                    Ext.Msg.alert('提示', '请选择一条数据后再点击删除按钮。');
+                                    return;
+                                } else if (records.length > 1) {
+                                    Ext.Msg.alert('提示', '每次只能 一条信息。');
+                                    return;
+                                }
+                                var record = records[0];
+
+                                Ext.Msg.confirm('您正在删除', '企业名称为：' + record.get('qymc') + '，企业代码为：'+record.get('dxdm')+'，<br/> 确认删除？', getResult);
+                                function getResult(confirm)
+                                {
+                                    console.log('confirm:', confirm);
+                                    if (confirm == "yes"){
+                                        var id = record.get("id");
+                                        console.log('id:',id);
+                                        Ext.Ajax.request(
+                                        {
+                                            url : 'del_dxinfo',
+                                            params :
+                                            {
+                                                id : id
+                                            },
+                                            success : function (response){
+                                                Ext.Msg.alert('成功提示', '记录删除成功。');
+                                                //successResult();
+                                                var mystore = Ext.StoreMgr.get('dxqy_uploadStore');
+                                                mystore.load();
+                                            },
+                                            failure : function (response){
+                                                failedResult();
+                                                Ext.Msg.alert('失败提示', '记录删除失败。');
+                                            }
+                                        });
+                                    }
+                                }
+                            },
+                            icon: 'images/table/delete.png',
+                            text: '删除'
+                        }
+                    ]
+                }
+            ]
         }
     ],
 
