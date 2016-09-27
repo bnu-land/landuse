@@ -212,7 +212,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "供应时间",
-                        "format": "Y-m-d",
+                        "format": "Y-m",
                         "layout|x": 300,
                         "layout|y": 100,
                         "name": "gysj",

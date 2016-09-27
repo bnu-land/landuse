@@ -136,7 +136,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "html": "<%= request.getSession().getAttribute(\"currentUser\"); %>",
+                                "html": "<%=request.getUserPrincipal().getName();%>",
                                 "id": "mainview_curUernameLabel",
                                 "layout|flex": null,
                                 "text": "admin"
@@ -274,6 +274,21 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
+                                        "id": "kfq_manager",
+                                        "text": "开发区信息管理"
+                                    },
+                                    "name": "MyMenuItem18",
+                                    "designerId": "85d93acb-77b8-4bc3-ab9f-cacd5b45b16e"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
                                         "id": "zdxx_upload",
                                         "text": "数据填报【宗地信息】"
                                     },
@@ -288,27 +303,13 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "dxqy_upload",
                                         "text": "数据填报【典型企业】"
                                     },
                                     "name": "MyMenuItem27",
                                     "designerId": "878a111c-be26-4e1a-beeb-12c3bf55bfd4"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "kfq_manager",
-                                        "text": "开发区信息管理"
-                                    },
-                                    "name": "MyMenuItem18",
-                                    "designerId": "85d93acb-77b8-4bc3-ab9f-cacd5b45b16e"
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -477,123 +478,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "title": "专题统计分析"
-                    },
-                    "name": "MyPanel4",
-                    "designerId": "bba14e45-2837-4d8e-a872-662c5091881c",
-                    "cn": [
-                        {
-                            "type": "Ext.menu.Menu",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "floating": false,
-                                "itemId": "menu2",
-                                "placeholderCollapseHideMode": 2,
-                                "width": null
-                            },
-                            "name": "MyMenu1",
-                            "designerId": "e587c1dd-ec3d-4424-b5e7-7f1813466103",
-                            "cn": [
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "thematic_LanduseConstructionContrast",
-                                        "text": "土地利用结构统计"
-                                    },
-                                    "name": "MyMenuItem3",
-                                    "designerId": "c770dbb5-a50a-473c-8a44-23d286934911"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
-                                        "id": "thematic_LanduseConstructionChangeTrend",
-                                        "text": "土地利用结构变化趋势分析"
-                                    },
-                                    "name": "MyMenuItem4",
-                                    "designerId": "beb13bbb-44b2-4fb0-97e0-73f2e7187f02"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "hideOnClick": false,
-                                        "id": "thematic_LanuseIntensityTrend",
-                                        "text": "土地利用集约度趋势分析"
-                                    },
-                                    "name": "MyMenuItem5",
-                                    "designerId": "cfe59057-3ba4-4721-9511-6d7cda87e10c"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hidden": true,
-                                        "hideOnClick": false,
-                                        "id": "thematic_LanuseIntensityPotentialTrend",
-                                        "text": "土地集约利用潜力趋势分析"
-                                    },
-                                    "name": "MyMenuItem9",
-                                    "designerId": "64d31213-6cbe-43b5-b8b5-0ab84abc0ecf"
-                                },
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onMenu2Click",
-                                        "implHandler": [
-                                            "var xtype = item.id;",
-                                            "var mainView = Ext.getCmp('mainView');",
-                                            "mainView.removeAll();",
-                                            "mainView.add(Ext.widget(xtype));"
-                                        ],
-                                        "name": "click",
-                                        "scope": "me"
-                                    },
-                                    "name": "onMenu2Click",
-                                    "designerId": "5962e219-dbb0-445a-ba49-ac595a753ea2"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.panel.Panel",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "title": "土地利用现状调查"
+                        "title": "用地调查"
                     },
                     "name": "MyPanel9",
                     "designerId": "4b54cbb4-2552-4e4b-bde3-f24a77857a49",
@@ -654,6 +539,21 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
+                                        "id": "survey_zdxx",
+                                        "text": "宗地信息调查"
+                                    },
+                                    "name": "MyMenuItem28",
+                                    "designerId": "7a2abcd2-555e-4891-bb4b-656ab3086b72"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
                                         "id": "survey_TypicalEnterprise",
                                         "text": "典型企业调查"
                                     },
@@ -669,23 +569,8 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "survey_IndexCurrentValueCalculation",
-                                        "text": "指标现状值计算"
-                                    },
-                                    "name": "MyMenuItem8",
-                                    "designerId": "1b9bbc5d-fa2d-428e-9922-09ea7c1397b1"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
                                         "id": "survey_Landuse",
-                                        "text": "土地利用现状地图"
+                                        "text": "土地利用现状调查"
                                     },
                                     "name": "MyMenuItem20",
                                     "designerId": "f86685e3-0fa6-4a2d-ac36-dfa980c2435f"
@@ -743,6 +628,21 @@
                             "name": "MyMenu2",
                             "designerId": "48175472-97a9-4afb-8c9e-6c726b9fda3c",
                             "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "survey_IndexCurrentValueCalculation",
+                                        "text": "指标现状值计算"
+                                    },
+                                    "name": "MyMenuItem8",
+                                    "designerId": "1b9bbc5d-fa2d-428e-9922-09ea7c1397b1"
+                                },
                                 {
                                     "type": "Ext.menu.Item",
                                     "reference": {
@@ -936,6 +836,122 @@
                                     },
                                     "name": "onMenu3Click",
                                     "designerId": "8e72f46d-d77e-4229-a2f7-4fd8e03aa447"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "专题统计分析"
+                    },
+                    "name": "MyPanel4",
+                    "designerId": "bba14e45-2837-4d8e-a872-662c5091881c",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "floating": false,
+                                "itemId": "menu2",
+                                "placeholderCollapseHideMode": 2,
+                                "width": null
+                            },
+                            "name": "MyMenu1",
+                            "designerId": "e587c1dd-ec3d-4424-b5e7-7f1813466103",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "thematic_LanduseConstructionContrast",
+                                        "text": "土地利用结构统计"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "c770dbb5-a50a-473c-8a44-23d286934911"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "thematic_LanduseConstructionChangeTrend",
+                                        "text": "土地利用结构变化趋势分析"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "beb13bbb-44b2-4fb0-97e0-73f2e7187f02"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
+                                        "id": "thematic_LanuseIntensityTrend",
+                                        "text": "土地利用集约度趋势分析"
+                                    },
+                                    "name": "MyMenuItem5",
+                                    "designerId": "cfe59057-3ba4-4721-9511-6d7cda87e10c"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
+                                        "id": "thematic_LanuseIntensityPotentialTrend",
+                                        "text": "土地集约利用潜力趋势分析"
+                                    },
+                                    "name": "MyMenuItem9",
+                                    "designerId": "64d31213-6cbe-43b5-b8b5-0ab84abc0ecf"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMenu2Click",
+                                        "implHandler": [
+                                            "var xtype = item.id;",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMenu2Click",
+                                    "designerId": "5962e219-dbb0-445a-ba49-ac595a753ea2"
                                 }
                             ]
                         }
@@ -1206,21 +1222,6 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "hideOnClick": false,
-                                        "id": "law_Manage",
-                                        "text": "法律法规管理"
-                                    },
-                                    "name": "MyMenuItem6",
-                                    "designerId": "80260177-85fe-41ac-abc9-bf8eb7d9c4ab"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "hideOnClick": false,
                                         "id": "law_Import",
                                         "text": "法律法规导入"
                                     },
@@ -1235,6 +1236,22 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "law_Manage",
+                                        "text": "法律法规管理"
+                                    },
+                                    "name": "MyMenuItem6",
+                                    "designerId": "80260177-85fe-41ac-abc9-bf8eb7d9c4ab"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "law_Search",
                                         "text": "法律法规查询"
@@ -1595,6 +1612,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
                                         "id": "system_MapManage",
                                         "text": "地图管理"

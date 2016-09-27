@@ -296,6 +296,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             items: [
                                                                                 {
                                                                                     xtype: 'numberfield',
+                                                                                    id: 'mainLanduseDegree',
                                                                                     margin: '0,0,0,0',
                                                                                     width: 210,
                                                                                     fieldLabel: '土地利用程度',
@@ -306,7 +307,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     minLengthText: '此项最小长度不得小于 {0}',
                                                                                     maxValue: 0.25,
                                                                                     minText: '此项最小值不得低于 {0}',
-                                                                                    minValue: 0.2
+                                                                                    minValue: 0.2,
+                                                                                    listeners: {
+                                                                                        change: 'onNumberfieldChange'
+                                                                                    }
                                                                                 }
                                                                             ]
                                                                         },
@@ -317,6 +321,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             items: [
                                                                                 {
                                                                                     xtype: 'numberfield',
+                                                                                    id: 'mainLanduseConstruct',
                                                                                     margin: '0,0,0,0',
                                                                                     width: 210,
                                                                                     fieldLabel: '用地结构状况',
@@ -327,7 +332,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     maxText: '此项最大值不得超过{0}',
                                                                                     maxValue: 0.27,
                                                                                     minText: '此项最小值不得小于{0}',
-                                                                                    minValue: 0.2
+                                                                                    minValue: 0.2,
+                                                                                    listeners: {
+                                                                                        change: 'onMainLanduseConstructChange'
+                                                                                    }
                                                                                 }
                                                                             ]
                                                                         },
@@ -343,6 +351,7 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                             items: [
                                                                                 {
                                                                                     xtype: 'numberfield',
+                                                                                    id: 'mainLanduseIntensity',
                                                                                     margin: '0,0,0,0',
                                                                                     width: 210,
                                                                                     fieldLabel: '土地利用强度',
@@ -351,7 +360,10 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
                                                                                     emptyText: '0.5',
                                                                                     hideTrigger: true,
                                                                                     maxValue: 0.57,
-                                                                                    minValue: 0.5
+                                                                                    minValue: 0.5,
+                                                                                    listeners: {
+                                                                                        change: 'onMainLanduseIntensityChange'
+                                                                                    }
                                                                                 }
                                                                             ]
                                                                         }
@@ -2221,6 +2233,39 @@ Ext.define('MyApp.view.intensityuse_IndexWeightDetermine', {
             ]
         }
     ],
+
+    onNumberfieldChange: function(field, newValue, oldValue, eOpts) {
+        var ydjgzk=Ext.getCmp('mainLanduseConstruct').getValue();
+        var tdlyqd=Ext.getCmp('mainLanduseIntensity').getValue();
+        var fz=ydjgzk+tdlyqd+newValue;
+        console.log(fz);
+        if(fz>1)
+        {
+            Ext.Msg.alert('提示','权重分值和大于1，请重新填写');
+        }
+    },
+
+    onMainLanduseConstructChange: function(field, newValue, oldValue, eOpts) {
+        var tdlycd=Ext.getCmp('mainLanduseDegree').getValue();
+        var tdlyqd=Ext.getCmp('mainLanduseIntensity').getValue();
+        var fz=tdlycd+tdlyqd+newValue;
+        console.log(fz);
+        if(fz>1)
+        {
+            Ext.Msg.alert('提示','权重分值和大于1，请重新填写');
+        }
+    },
+
+    onMainLanduseIntensityChange: function(field, newValue, oldValue, eOpts) {
+        var tdlycd=Ext.getCmp('mainLanduseDegree').getValue();
+        var tdlyjg=Ext.getCmp('mainLanduseConstruct').getValue();
+        var fz=tdlycd+tdlyjg+newValue;
+        console.log(fz);
+        if(fz>1)
+        {
+            Ext.Msg.alert('提示','权重分值和大于1，请重新填写');
+        }
+    },
 
     onComboboxChange1: function(field, newValue, oldValue, eOpts) {
         var store = Ext.StoreMgr.get('landIndexWeightStore'); //获得store对象

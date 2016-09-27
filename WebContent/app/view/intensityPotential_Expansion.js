@@ -208,7 +208,7 @@ Ext.define('MyApp.view.intensityPotential_Expansion', {
             xtype: 'gridpanel',
             region: 'center',
             id: 'intensity_expansion_grid',
-            title: '开发区土地集约利用拓展潜力测算数据',
+            title: '开发区土地集约利用扩展潜力测算数据',
             store: 'landIntensityExpansionStore',
             columns: [
                 {

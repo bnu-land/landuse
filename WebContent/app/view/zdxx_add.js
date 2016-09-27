@@ -149,7 +149,7 @@ Ext.define('MyApp.view.zdxx_add', {
                     fieldLabel: '供应时间',
                     name: 'gysj',
                     allowBlank: false,
-                    format: 'Y-m-d'
+                    format: 'Y-m'
                 },
                 {
                     xtype: 'combobox',

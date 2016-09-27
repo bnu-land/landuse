@@ -136,6 +136,7 @@ public class EnterpriseDynamicMonitorService {
 				result = (DevZdInfo) session.get(DevZdInfo.class,
 						Integer.parseInt(id));
 				result.setIsPass(isPass);
+				 System.out.println("审核状态2："+id+result.getIsPass());
 				session.saveOrUpdate(result);
 				map.put("success", true);
 			}

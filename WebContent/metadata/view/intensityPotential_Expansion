@@ -432,7 +432,7 @@
                 "id": "intensity_expansion_grid",
                 "layout|region": "center",
                 "store": "landIntensityExpansionStore",
-                "title": "开发区土地集约利用拓展潜力测算数据"
+                "title": "开发区土地集约利用扩展潜力测算数据"
             },
             "name": "MyGridPanel",
             "designerId": "b3c7c076-6562-4ccd-adf0-dc37e6e31bab",

@@ -210,7 +210,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "icon": "images/table/add.png",
+                                        "icon": "images/table/edit.png",
                                         "layout|flex": null,
                                         "text": "编辑角色"
                                     },
@@ -264,7 +264,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "icon": "images/table/add.png",
+                                        "icon": "images/table/delete2.png",
                                         "layout|flex": null,
                                         "text": "删除角色"
                                     },

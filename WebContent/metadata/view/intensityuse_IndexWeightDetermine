@@ -603,6 +603,7 @@
                                                                                         "emptyText": "0.25",
                                                                                         "fieldLabel": "土地利用程度",
                                                                                         "hideTrigger": true,
+                                                                                        "id": "mainLanduseDegree",
                                                                                         "labelWidth": 150,
                                                                                         "margin": "0,0,0,0",
                                                                                         "maxValue": 0.25,
@@ -613,7 +614,34 @@
                                                                                         "width": 210
                                                                                     },
                                                                                     "name": "MyNumberField8",
-                                                                                    "designerId": "1800ae42-c093-457b-be3d-f5d4d8eb5707"
+                                                                                    "designerId": "1800ae42-c093-457b-be3d-f5d4d8eb5707",
+                                                                                    "cn": [
+                                                                                        {
+                                                                                            "type": "basiceventbinding",
+                                                                                            "reference": {
+                                                                                                "name": "listeners",
+                                                                                                "type": "array"
+                                                                                            },
+                                                                                            "codeClass": null,
+                                                                                            "userConfig": {
+                                                                                                "fn": "onNumberfieldChange",
+                                                                                                "implHandler": [
+                                                                                                    "var ydjgzk=Ext.getCmp('mainLanduseConstruct').getValue();",
+                                                                                                    "var tdlyqd=Ext.getCmp('mainLanduseIntensity').getValue();",
+                                                                                                    "var fz=ydjgzk+tdlyqd+newValue;",
+                                                                                                    "console.log(fz);",
+                                                                                                    "if(fz>1)",
+                                                                                                    "{",
+                                                                                                    "    Ext.Msg.alert('提示','权重分值和大于1，请重新填写');",
+                                                                                                    "}"
+                                                                                                ],
+                                                                                                "name": "change",
+                                                                                                "scope": "me"
+                                                                                            },
+                                                                                            "name": "onNumberfieldChange",
+                                                                                            "designerId": "9aa415fb-f64f-4d6b-bf6a-0376f0f4ee4a"
+                                                                                        }
+                                                                                    ]
                                                                                 }
                                                                             ]
                                                                         },
@@ -643,6 +671,7 @@
                                                                                         "emptyText": "0.25",
                                                                                         "fieldLabel": "用地结构状况",
                                                                                         "hideTrigger": true,
+                                                                                        "id": "mainLanduseConstruct",
                                                                                         "labelWidth": 150,
                                                                                         "margin": "0,0,0,0",
                                                                                         "maxText": "此项最大值不得超过{0}",
@@ -653,7 +682,34 @@
                                                                                         "width": 210
                                                                                     },
                                                                                     "name": "MyNumberField41",
-                                                                                    "designerId": "07d2016a-be5a-4922-8b15-7d4c5ed47dcc"
+                                                                                    "designerId": "07d2016a-be5a-4922-8b15-7d4c5ed47dcc",
+                                                                                    "cn": [
+                                                                                        {
+                                                                                            "type": "basiceventbinding",
+                                                                                            "reference": {
+                                                                                                "name": "listeners",
+                                                                                                "type": "array"
+                                                                                            },
+                                                                                            "codeClass": null,
+                                                                                            "userConfig": {
+                                                                                                "fn": "onMainLanduseConstructChange",
+                                                                                                "implHandler": [
+                                                                                                    "var tdlycd=Ext.getCmp('mainLanduseDegree').getValue();",
+                                                                                                    "var tdlyqd=Ext.getCmp('mainLanduseIntensity').getValue();",
+                                                                                                    "var fz=tdlycd+tdlyqd+newValue;",
+                                                                                                    "console.log(fz);",
+                                                                                                    "if(fz>1)",
+                                                                                                    "{",
+                                                                                                    "    Ext.Msg.alert('提示','权重分值和大于1，请重新填写');",
+                                                                                                    "}"
+                                                                                                ],
+                                                                                                "name": "change",
+                                                                                                "scope": "me"
+                                                                                            },
+                                                                                            "name": "onMainLanduseConstructChange",
+                                                                                            "designerId": "d395e449-2912-4a58-9456-38d02ffac6cc"
+                                                                                        }
+                                                                                    ]
                                                                                 }
                                                                             ]
                                                                         },
@@ -686,6 +742,7 @@
                                                                                         "emptyText": "0.5",
                                                                                         "fieldLabel": "土地利用强度",
                                                                                         "hideTrigger": true,
+                                                                                        "id": "mainLanduseIntensity",
                                                                                         "labelWidth": 150,
                                                                                         "margin": "0,0,0,0",
                                                                                         "maxValue": 0.57,
@@ -694,7 +751,34 @@
                                                                                         "width": 210
                                                                                     },
                                                                                     "name": "MyNumberField10",
-                                                                                    "designerId": "1271c2f3-f0ff-4efb-9038-f27092049c60"
+                                                                                    "designerId": "1271c2f3-f0ff-4efb-9038-f27092049c60",
+                                                                                    "cn": [
+                                                                                        {
+                                                                                            "type": "basiceventbinding",
+                                                                                            "reference": {
+                                                                                                "name": "listeners",
+                                                                                                "type": "array"
+                                                                                            },
+                                                                                            "codeClass": null,
+                                                                                            "userConfig": {
+                                                                                                "fn": "onMainLanduseIntensityChange",
+                                                                                                "implHandler": [
+                                                                                                    "var tdlycd=Ext.getCmp('mainLanduseDegree').getValue();",
+                                                                                                    "var tdlyjg=Ext.getCmp('mainLanduseConstruct').getValue();",
+                                                                                                    "var fz=tdlycd+tdlyjg+newValue;",
+                                                                                                    "console.log(fz);",
+                                                                                                    "if(fz>1)",
+                                                                                                    "{",
+                                                                                                    "    Ext.Msg.alert('提示','权重分值和大于1，请重新填写');",
+                                                                                                    "}"
+                                                                                                ],
+                                                                                                "name": "change",
+                                                                                                "scope": "me"
+                                                                                            },
+                                                                                            "name": "onMainLanduseIntensityChange",
+                                                                                            "designerId": "1e566e8f-cdc0-4f4c-afff-4570a0cd8e47"
+                                                                                        }
+                                                                                    ]
                                                                                 }
                                                                             ]
                                                                         }

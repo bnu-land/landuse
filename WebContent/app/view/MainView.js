@@ -68,7 +68,7 @@ Ext.define('MyApp.view.MainView', {
                         },
                         {
                             xtype: 'label',
-                            html: '<%= request.getSession().getAttribute("currentUser"); %>',
+                            html: '<%=request.getUserPrincipal().getName();%>',
                             id: 'mainview_curUernameLabel',
                             text: 'admin',
                             listeners: {
@@ -113,21 +113,22 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    id: 'kfq_manager',
+                                    hideOnClick: false,
+                                    text: '开发区信息管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
                                     id: 'zdxx_upload',
                                     hideOnClick: false,
                                     text: '数据填报【宗地信息】'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'dxqy_upload',
                                     hideOnClick: false,
                                     text: '数据填报【典型企业】'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'kfq_manager',
-                                    hideOnClick: false,
-                                    text: '开发区信息管理'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -189,50 +190,7 @@ Ext.define('MyApp.view.MainView', {
                 },
                 {
                     xtype: 'panel',
-                    title: '专题统计分析',
-                    items: [
-                        {
-                            xtype: 'menu',
-                            floating: false,
-                            itemId: 'menu2',
-                            placeholderCollapseHideMode: 2,
-                            items: [
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'thematic_LanduseConstructionContrast',
-                                    hideOnClick: false,
-                                    text: '土地利用结构统计'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    id: 'thematic_LanduseConstructionChangeTrend',
-                                    hideOnClick: false,
-                                    text: '土地利用结构变化趋势分析'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    hidden: true,
-                                    id: 'thematic_LanuseIntensityTrend',
-                                    hideOnClick: false,
-                                    text: '土地利用集约度趋势分析'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    hidden: true,
-                                    id: 'thematic_LanuseIntensityPotentialTrend',
-                                    hideOnClick: false,
-                                    text: '土地集约利用潜力趋势分析'
-                                }
-                            ],
-                            listeners: {
-                                click: 'onMenu2Click'
-                            }
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
-                    title: '土地利用现状调查',
+                    title: '用地调查',
                     items: [
                         {
                             xtype: 'menu',
@@ -255,21 +213,21 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    id: 'survey_zdxx',
+                                    hideOnClick: false,
+                                    text: '宗地信息调查'
+                                },
+                                {
+                                    xtype: 'menuitem',
                                     id: 'survey_TypicalEnterprise',
                                     hideOnClick: false,
                                     text: '典型企业调查'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'survey_IndexCurrentValueCalculation',
-                                    hideOnClick: false,
-                                    text: '指标现状值计算'
-                                },
-                                {
-                                    xtype: 'menuitem',
                                     id: 'survey_Landuse',
                                     hideOnClick: false,
-                                    text: '土地利用现状地图'
+                                    text: '土地利用现状调查'
                                 }
                             ],
                             listeners: {
@@ -287,6 +245,12 @@ Ext.define('MyApp.view.MainView', {
                             floating: false,
                             itemId: 'menu3',
                             items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'survey_IndexCurrentValueCalculation',
+                                    hideOnClick: false,
+                                    text: '指标现状值计算'
+                                },
                                 {
                                     xtype: 'menuitem',
                                     id: 'intensityuse_IndexWeightDetermine',
@@ -354,6 +318,49 @@ Ext.define('MyApp.view.MainView', {
                             ],
                             listeners: {
                                 click: 'onMenu3Click'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    title: '专题统计分析',
+                    items: [
+                        {
+                            xtype: 'menu',
+                            floating: false,
+                            itemId: 'menu2',
+                            placeholderCollapseHideMode: 2,
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'thematic_LanduseConstructionContrast',
+                                    hideOnClick: false,
+                                    text: '土地利用结构统计'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'thematic_LanduseConstructionChangeTrend',
+                                    hideOnClick: false,
+                                    text: '土地利用结构变化趋势分析'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    id: 'thematic_LanuseIntensityTrend',
+                                    hideOnClick: false,
+                                    text: '土地利用集约度趋势分析'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    id: 'thematic_LanuseIntensityPotentialTrend',
+                                    hideOnClick: false,
+                                    text: '土地集约利用潜力趋势分析'
+                                }
+                            ],
+                            listeners: {
+                                click: 'onMenu2Click'
                             }
                         }
                     ]
@@ -451,18 +458,19 @@ Ext.define('MyApp.view.MainView', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    id: 'law_Manage',
-                                    hideOnClick: false,
-                                    text: '法律法规管理'
-                                },
-                                {
-                                    xtype: 'menuitem',
                                     id: 'law_Import',
                                     hideOnClick: false,
                                     text: '法律法规导入'
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    id: 'law_Manage',
+                                    hideOnClick: false,
+                                    text: '法律法规管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'law_Search',
                                     hideOnClick: false,
                                     text: '法律法规查询'
@@ -594,6 +602,7 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    hidden: true,
                                     id: 'system_MapManage',
                                     hideOnClick: false,
                                     text: '地图管理'
@@ -689,13 +698,6 @@ Ext.define('MyApp.view.MainView', {
         mainView.add(Ext.widget(xtype));
     },
 
-    onMenu2Click: function(menu, item, e, eOpts) {
-        var xtype = item.id;
-        var mainView = Ext.getCmp('mainView');
-        mainView.removeAll();
-        mainView.add(Ext.widget(xtype));
-    },
-
     onMenu3Click2: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
@@ -711,6 +713,13 @@ Ext.define('MyApp.view.MainView', {
     },
 
     onMenu3Click: function(menu, item, e, eOpts) {
+        var xtype = item.id;
+        var mainView = Ext.getCmp('mainView');
+        mainView.removeAll();
+        mainView.add(Ext.widget(xtype));
+    },
+
+    onMenu2Click: function(menu, item, e, eOpts) {
         var xtype = item.id;
         var mainView = Ext.getCmp('mainView');
         mainView.removeAll();
