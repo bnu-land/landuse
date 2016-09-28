@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "tasknotice",
-        "designer|userClassName": "taskNoticeViewController"
+        "designer|userAlias": "taskmation",
+        "designer|userClassName": "taskMationViewController"
     },
     "designerId": "dc64bb39-6a3d-4438-9bae-e91d89395a42"
 }

@@ -13,7 +13,7 @@
         ],
         "id": null,
         "layout": "fit",
-        "title": "企业集约度动态监测"
+        "title": "开发区集约度动态监测"
     },
     "name": "enterprise_LandusePropertyChangeMonitor1",
     "designerId": "9aabb849-3716-4fa3-abd6-825a1dfbf061",
@@ -405,12 +405,42 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "emptyText": "请输入搜索开发区名称",
                                 "fieldLabel": null,
                                 "id": "ent_intensityMonitor_SearchField",
                                 "layout|flex": null
                             },
                             "name": "MyTextField",
-                            "designerId": "4af812cd-9f9b-46fd-bb1e-424f7f4c31de"
+                            "designerId": "4af812cd-9f9b-46fd-bb1e-424f7f4c31de",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onEnt_intensityMonitor_SearchFieldChange",
+                                        "implHandler": [
+                                            "//var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();",
+                                            "var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象",
+                                            "//在load事件中添加参数",
+                                            "store.load({",
+                                            "    params: {",
+                                            "        searchKeyword: newValue,",
+                                            "        code : ''",
+                                            "    }",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onEnt_intensityMonitor_SearchFieldChange",
+                                    "designerId": "3babc23a-790d-44b0-be49-883ce0ede7fe"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.button.Button",
@@ -420,6 +450,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "hidden": true,
                                 "layout|flex": null,
                                 "text": "搜索"
                             },
@@ -655,6 +686,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "icon": "images/table/filter.png",
                                 "layout|flex": null,
                                 "text": "筛选"
                             },

@@ -47,10 +47,12 @@ Ext.define('MyApp.view.zdxx_upload', {
             items: [
                 {
                     xtype: 'panel',
+                    layout: 'border',
                     title: '本年度未上报',
                     items: [
                         {
                             xtype: 'gridpanel',
+                            region: 'center',
                             autoScroll: true,
                             id: 'zd_info',
                             title: '',
@@ -137,6 +139,11 @@ Ext.define('MyApp.view.zdxx_upload', {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'dlmc',
                                     text: '地类名称'
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'dldm',
+                                    text: '地类代码'
                                 },
                                 {
                                     xtype: 'gridcolumn',

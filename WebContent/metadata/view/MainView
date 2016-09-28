@@ -230,7 +230,141 @@
                     "userConfig": {
                         "collapsed": true,
                         "hideMode": null,
-                        "title": "开发区数据管理"
+                        "title": "开发区数据管理【地方】"
+                    },
+                    "name": "MyPanel21",
+                    "designerId": "2b060714-6a86-4f50-b143-3c41b80dcdf8",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "floating": false,
+                                "itemId": "menu3",
+                                "width": null
+                            },
+                            "name": "MyMenu2",
+                            "designerId": "69d17805-5dee-4fa9-b4c3-393364f36ab2",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "taskMation",
+                                        "text": "任务动态"
+                                    },
+                                    "name": "MyMenuItem17",
+                                    "designerId": "68a7b63e-875a-431c-a2ab-7fc068a6307d"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
+                                        "id": "kfq_manager1",
+                                        "text": "开发区信息管理"
+                                    },
+                                    "name": "MyMenuItem18",
+                                    "designerId": "1227da2f-92ca-48b5-b168-9cdd8f74e9f6"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hideOnClick": false,
+                                        "id": "zdxx_upload",
+                                        "text": "数据填报【宗地信息】"
+                                    },
+                                    "name": "MyMenuItem22",
+                                    "designerId": "16c07fba-ab50-452c-aa58-378cad5bf0b2"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideOnClick": false,
+                                        "id": "dxqy_upload1",
+                                        "text": "数据填报【典型企业】"
+                                    },
+                                    "name": "MyMenuItem27",
+                                    "designerId": "a3325837-b3a2-4056-bda2-ca9194e654bc"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "hideMode": "visibility",
+                                        "hideOnClick": false,
+                                        "id": "kfq_uploadDataCheck1",
+                                        "text": "开发区填报数据审核"
+                                    },
+                                    "name": "MyMenuItem23",
+                                    "designerId": "b6a276c6-f55a-4680-bd61-5aae8ed10a91"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMenu3Click91",
+                                        "implHandler": [
+                                            "var xtype = item.id;",
+                                            "var mainView = Ext.getCmp('mainView');",
+                                            "mainView.removeAll();",
+                                            "mainView.add(Ext.widget(xtype));"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onMenu3Click91",
+                                    "designerId": "8eb6959f-8f47-4077-8962-3b4cfb07d391"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "collapsed": true,
+                        "hideMode": null,
+                        "title": "开发区数据管理【省厅】"
                     },
                     "name": "MyPanel6",
                     "designerId": "22635016-2f64-4390-ae33-0cefb52e1f77",
@@ -260,7 +394,7 @@
                                     "userConfig": {
                                         "hideOnClick": false,
                                         "id": "taskNotice",
-                                        "text": "任务动态"
+                                        "text": "任务下发"
                                     },
                                     "name": "MyMenuItem17",
                                     "designerId": "1d9db772-c27e-438d-87a2-6dbc71b50add"
@@ -288,8 +422,9 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "hidden": true,
                                         "hideOnClick": false,
-                                        "id": "zdxx_upload",
+                                        "id": "zdxx_upload2",
                                         "text": "数据填报【宗地信息】"
                                     },
                                     "name": "MyMenuItem22",

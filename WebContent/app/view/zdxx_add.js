@@ -89,16 +89,13 @@ Ext.define('MyApp.view.zdxx_add', {
                     ]
                 },
                 {
-                    xtype: 'combobox',
+                    xtype: 'textfield',
                     x: 570,
                     y: 20,
                     width: 220,
                     fieldLabel: '开发区评价类型',
                     name: 'kfqpjlx',
-                    store: [
-                        '产城融合型',
-                        '工业主导型'
-                    ]
+                    editable: false
                 },
                 {
                     xtype: 'combobox',
@@ -358,8 +355,8 @@ Ext.define('MyApp.view.zdxx_add', {
                 },
                 {
                     xtype: 'textareafield',
-                    x: 27,
-                    y: 431,
+                    x: 20,
+                    y: 460,
                     width: 760,
                     fieldLabel: '备注',
                     name: 'bz'

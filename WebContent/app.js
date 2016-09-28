@@ -34,7 +34,8 @@ Ext.application({
         'dxqy_photoupload',
         'dxqy_mapupload',
         'dxqy_photoPreview',
-        'dxqy_mapPreview'
+        'dxqy_mapPreview',
+        'survey_zdxx'
     ],
     name: 'MyApp',
 

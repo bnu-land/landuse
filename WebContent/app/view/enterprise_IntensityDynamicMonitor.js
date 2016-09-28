@@ -29,7 +29,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
 
     html: '<div id = "enterprise_IntensityDynamicMonitor_div" style = "width=100%;height:100%;"></div>',
     layout: 'fit',
-    title: '企业集约度动态监测',
+    title: '开发区集约度动态监测',
     defaultListenerScope: true,
 
     listeners: {
@@ -163,10 +163,15 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                     items: [
                         {
                             xtype: 'textfield',
-                            id: 'ent_intensityMonitor_SearchField'
+                            id: 'ent_intensityMonitor_SearchField',
+                            emptyText: '请输入搜索开发区名称',
+                            listeners: {
+                                change: 'onEnt_intensityMonitor_SearchFieldChange'
+                            }
                         },
                         {
                             xtype: 'button',
+                            hidden: true,
                             text: '搜索',
                             listeners: {
                                 click: 'onButtonClick3'
@@ -217,6 +222,7 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
                         },
                         {
                             xtype: 'button',
+                            icon: 'images/table/filter.png',
                             text: '筛选'
                         },
                         {
@@ -233,6 +239,19 @@ Ext.define('MyApp.view.enterprise_IntensityDynamicMonitor', {
     ],
 
     onPanelAfterRender: function(component, eOpts) {
+
+    },
+
+    onEnt_intensityMonitor_SearchFieldChange: function(field, newValue, oldValue, eOpts) {
+        //var keyword = Ext.getCmp('ent_intensityMonitor_SearchField').getValue();
+        var store = Ext.StoreMgr.get('enterprise_IntensityAlertStore'); //获得store对象
+        //在load事件中添加参数
+        store.load({
+            params: {
+                searchKeyword: newValue,
+                code : ''
+            }
+        });
 
     },
 

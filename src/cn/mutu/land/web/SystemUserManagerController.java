@@ -222,6 +222,8 @@ public class SystemUserManagerController {
 	@ResponseBody
 	public void updateRoleInfo(@RequestBody URoleInfo roleInfo)
 			throws IOException {
+		System.out.println("描述："+roleInfo);
+		
 		this.systemUserManagerService.updateOneRoleInfo(roleInfo);
 	}
 

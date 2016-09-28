@@ -98,7 +98,58 @@ Ext.define('MyApp.view.MainView', {
                 {
                     xtype: 'panel',
                     collapsed: true,
-                    title: '开发区数据管理',
+                    title: '开发区数据管理【地方】',
+                    items: [
+                        {
+                            xtype: 'menu',
+                            floating: false,
+                            itemId: 'menu3',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'taskMation',
+                                    hideOnClick: false,
+                                    text: '任务动态'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    id: 'kfq_manager1',
+                                    hideOnClick: false,
+                                    text: '开发区信息管理'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    id: 'zdxx_upload',
+                                    hideOnClick: false,
+                                    text: '数据填报【宗地信息】'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    id: 'dxqy_upload1',
+                                    hideOnClick: false,
+                                    text: '数据填报【典型企业】'
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    hidden: true,
+                                    hideMode: 'visibility',
+                                    id: 'kfq_uploadDataCheck1',
+                                    hideOnClick: false,
+                                    text: '开发区填报数据审核'
+                                }
+                            ],
+                            listeners: {
+                                click: 'onMenu3Click91'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    collapsed: true,
+                    title: '开发区数据管理【省厅】',
                     items: [
                         {
                             xtype: 'menu',
@@ -109,7 +160,7 @@ Ext.define('MyApp.view.MainView', {
                                     xtype: 'menuitem',
                                     id: 'taskNotice',
                                     hideOnClick: false,
-                                    text: '任务动态'
+                                    text: '任务下发'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -119,7 +170,8 @@ Ext.define('MyApp.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    id: 'zdxx_upload',
+                                    hidden: true,
+                                    id: 'zdxx_upload2',
                                     hideOnClick: false,
                                     text: '数据填报【宗地信息】'
                                 },
@@ -682,6 +734,13 @@ Ext.define('MyApp.view.MainView', {
                 console.log("请求错误。");
             }
         });
+    },
+
+    onMenu3Click91: function(menu, item, e, eOpts) {
+        var xtype = item.id;
+        var mainView = Ext.getCmp('mainView');
+        mainView.removeAll();
+        mainView.add(Ext.widget(xtype));
     },
 
     onMenu3Click9: function(menu, item, e, eOpts) {

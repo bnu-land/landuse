@@ -201,9 +201,9 @@ Ext.application({
         'system_test',
       
      
-        'taskNotice',
+        'taskMation',
       
-        
+        "survey_zdxx",
         'kfq_manager',
         'chart_bar',
         'chart_pie',

@@ -41,6 +41,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout": "border",
                         "title": "本年度未上报"
                     },
                     "name": "MyPanel7",
@@ -66,6 +67,7 @@
                             "userConfig": {
                                 "autoScroll": true,
                                 "id": "zd_info",
+                                "layout|region": "center",
                                 "sortableColumns": false,
                                 "store": "zd_infoStore",
                                 "title": ""
@@ -249,6 +251,20 @@
                                     },
                                     "name": "MyColumn24",
                                     "designerId": "f5f4bd0a-f820-4b9b-9475-2fbb0188e68e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "dldm",
+                                        "text": "地类代码"
+                                    },
+                                    "name": "MyColumn49",
+                                    "designerId": "818ff07e-8e3e-447c-9902-82d593b37586"
                                 },
                                 {
                                     "type": "Ext.grid.column.Column",

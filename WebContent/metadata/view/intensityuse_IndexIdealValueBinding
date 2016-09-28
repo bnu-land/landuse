@@ -102,6 +102,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "icon": "images/table/add1.png",
                                                 "layout|flex": null,
                                                 "margin": null,
                                                 "text": "添加专家打分",
@@ -158,6 +159,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "icon": "images/table/refresh.png",
                                                 "layout|flex": null,
                                                 "margin": null,
                                                 "text": "重置",
@@ -194,7 +196,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "layout|flex": null,
-                                                "width": 250
+                                                "width": 220
                                             },
                                             "name": "MySeparator",
                                             "designerId": "a30ed046-cb44-4126-a3ea-c0681e809411"

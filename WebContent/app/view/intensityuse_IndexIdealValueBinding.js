@@ -97,6 +97,7 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
                                                 grid.setTitle('专家打分记录表');
                                             },
                                             width: '',
+                                            icon: 'images/table/add1.png',
                                             text: '添加专家打分'
                                         },
                                         {
@@ -106,11 +107,12 @@ Ext.define('MyApp.view.intensityuse_IndexIdealValueBinding', {
                                                 form.reset();
                                             },
                                             width: '',
+                                            icon: 'images/table/refresh.png',
                                             text: '重置'
                                         },
                                         {
                                             xtype: 'tbseparator',
-                                            width: 250
+                                            width: 220
                                         },
                                         {
                                             xtype: 'label',

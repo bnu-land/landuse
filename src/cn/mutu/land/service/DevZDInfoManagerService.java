@@ -29,8 +29,11 @@ public class DevZDInfoManagerService {
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
 			String hql2 = " WHERE info.id" + likeStr 
-					+ "OR info.kfqmc" + likeStr
-					+"OR info.shzt" + likeStr;
+					+ "OR info.gysj" + likeStr
+					+"OR info.dlmc" + likeStr
+					+"OR info.gylx" + likeStr
+					+"OR info.qs" + likeStr
+					+"OR info.dldm" + likeStr;
 			hql += hql2;
 		}		
 		List<DevZdInfo> results = null;

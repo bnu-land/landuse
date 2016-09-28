@@ -117,23 +117,21 @@
                     "designerId": "b53b25af-22cd-446a-83e5-2068d3510047"
                 },
                 {
-                    "type": "Ext.form.field.ComboBox",
+                    "type": "Ext.form.field.Text",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "editable": false,
                         "fieldLabel": "开发区评价类型",
                         "layout|x": 570,
                         "layout|y": 20,
                         "name": "kfqpjlx",
-                        "store": [
-                            "['产城融合型','工业主导型']"
-                        ],
                         "width": 220
                     },
-                    "name": "MyComboBox6",
+                    "name": "MyTextField21",
                     "configAlternates": {
                         "store": "array"
                     },
@@ -610,8 +608,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "备注",
-                        "layout|x": 27,
-                        "layout|y": 431,
+                        "layout|x": 20,
+                        "layout|y": 460,
                         "name": "bz",
                         "width": 760
                     },
