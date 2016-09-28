@@ -157,7 +157,7 @@
                                                     "    var filepath=record.get('filePath');",
                                                     "    var index=filepath.lastIndexOf('/');",
                                                     "    if(index<=0){",
-                                                    "         Ext.Msg.alert('提示','解析文件路径出错');",
+                                                    "        Ext.Msg.alert('提示','解析文件路径出错');",
                                                     "        params+='&pre=false';",
                                                     "    }else{",
                                                     "        var filename=filepath.substring(index+1);",

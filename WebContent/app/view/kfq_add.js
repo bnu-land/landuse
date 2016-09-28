@@ -21,6 +21,7 @@ Ext.define('MyApp.view.kfq_add', {
         'MyApp.view.kfq_addViewModel',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
+        'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.toolbar.Toolbar',
         'Ext.toolbar.Fill',
@@ -69,12 +70,18 @@ Ext.define('MyApp.view.kfq_add', {
                             allowBlank: false
                         },
                         {
-                            xtype: 'textfield',
+                            xtype: 'combobox',
                             width: 325,
                             fieldLabel: '开发区级别',
                             labelAlign: 'right',
                             labelWidth: 150,
-                            name: 'kfqjb'
+                            name: 'kfqjb',
+                            editable: false,
+                            store: [
+                                '国家级',
+                                '省级',
+                                '示范基地'
+                            ]
                         },
                         {
                             xtype: 'textfield',
@@ -120,13 +127,25 @@ Ext.define('MyApp.view.kfq_add', {
                             name: 'sptdzmj'
                         },
                         {
-                            xtype: 'textfield',
+                            xtype: 'combobox',
                             height: 25,
                             width: 325,
                             fieldLabel: '开发区审批类型',
                             labelAlign: 'right',
                             labelWidth: 150,
-                            name: 'kfqsplx'
+                            name: 'kfqsplx',
+                            editable: false,
+                            store: [
+                                '经济技术开发区',
+                                '高新技术产业开发区',
+                                '保税区',
+                                '出口加工区',
+                                '边境经济合作区',
+                                '其他类型的国家级开发区',
+                                '省级经济开发区',
+                                '省级高新技术产业园区',
+                                '省级特色工业园区'
+                            ]
                         },
                         {
                             xtype: 'datefield',

@@ -30,7 +30,6 @@
                 "bodyPadding": 10,
                 "designer|snapToGrid": 10,
                 "height": 250,
-                "hidden": true,
                 "id": "survey_IndexCurrentValue_Form",
                 "jsonSubmit": true,
                 "layout": "absolute",

@@ -45,7 +45,6 @@ Ext.define('MyApp.view.survey_IndexCurrentValueCalculation', {
             xtype: 'form',
             anchor: '100%',
             height: 250,
-            hidden: true,
             id: 'survey_IndexCurrentValue_Form',
             layout: 'absolute',
             bodyPadding: 10,
