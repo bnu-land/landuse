@@ -199,9 +199,8 @@ Ext.define('MyApp.view.dxqy_upload', {
                                     groupFilepath:""
                                 },
                                 success:function(response){
-                                    console.log(response.responseText);
                                     var winPre=Ext.getCmp('photoPreviewPanel');
-                                    if(response.responseText=='null'){
+                                    if(response===''){
                                         winPre.html='<span>无法预览图片</span>';
                                     }
                                     else winPre.html='<img id="blah" src="'+response.responseText+'" alt="your image" width="80%" style="margin-left:10px;margin-right:10px"/>';
@@ -309,13 +308,12 @@ Ext.define('MyApp.view.dxqy_upload', {
                                 groupFilepath:""
                             },
                             success:function(response){
-                                console.log(response.responseText);
                                 var win = Ext.widget('dxqy_photoPreview');
 
                                 var form = Ext.getCmp('photoInfoForm1').getForm();
                                 form.loadRecord(record);
                                 var winPre=Ext.getCmp('photoPreviewPanel1');
-                                if(response.responseText=='null'){
+                                if(response===''){
                                     winPre.html='<span>无法预览图片</span>';
                                     return;
                                 }
