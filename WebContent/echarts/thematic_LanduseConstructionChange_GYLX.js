@@ -1,6 +1,6 @@
 var storeId = "thematic_LCCT_ChartStore";
-var echartDivId = "thematic_LanduseConstructionChangeTrend_echart";
-var title = "土地利用结构变化趋势";
+var echartDivId = "thematic_LanduseConstructionChangeTrend_GYLX_echart";
+var title = "土地利用结构变化统计";
 
 var store = Ext.data.StoreManager.get(storeId);
 var echartsData;
@@ -14,7 +14,7 @@ if (!store) {
 function getLegendName(dataArr) {
     var legendNames = [];
     for (var i in dataArr) {
-        legendNames.push(dataArr[i].DLMC);
+        legendNames.push(dataArr[i].GYLX);
     }
     return legendNames;
 }
@@ -97,11 +97,7 @@ store.on('load', function(store, records, successful, operation, eOpts) {
    var row4 = getRowValue(echartsData, 3); 
    var row5 = getRowValue(echartsData, 4); 
    var row6 = getRowValue(echartsData, 5); 
-   var row7 = getRowValue(echartsData, 6); 
-   var row8 = getRowValue(echartsData, 7); 
-   var row9 = getRowValue(echartsData, 8); 
-   var row10 = getRowValue(echartsData, 9); 
-   var row11 = getRowValue(echartsData, 10); 
+
    
    // console.log("echartData:", echartsData);
     //console.log("row11:", row11);
@@ -181,26 +177,6 @@ store.on('load', function(store, records, successful, operation, eOpts) {
             name: echartsLegend[5],
             type: 'bar',
             data: row6
-        }, {
-            name: echartsLegend[6],
-            type: 'bar',
-            data:row7
-        }, {
-            name: echartsLegend[7],
-            type: 'bar',
-            data: row8
-        }, {
-            name: echartsLegend[8],
-            type: 'bar',
-            data:row9
-        }, {
-            name: echartsLegend[9],
-            type: 'bar',
-            data: row10
-        }, {
-            name: echartsLegend[10],
-            type: 'bar',
-            data: row11
         }]
     };
 

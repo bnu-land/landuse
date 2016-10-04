@@ -51,6 +51,7 @@ require([
     var submitButton = Ext.getCmp('thematicLCCT_SubmitButton');
     var kfqname=KFQCombo.getValue();
     //图层选择变化时
+    KFQCombo.setValue('');
     if (KFQCombo) {
         KFQCombo.on('change', onKFQComboChange);
     }
@@ -122,7 +123,7 @@ require([
                 var av = featureAttributes[attr];
                 var v;
                 if (isNumber(av)) {
-                    v = Math.ceil(av);
+                    v = av.toFixed(3);
                 }else{
                     v = av;
                 }
@@ -160,7 +161,7 @@ require([
                 //System.out.println(key);
                 console.log(key);
                 rec.push(key);
-                rec.push(dlmj[key]);
+                rec.push(dlmj[key].toFixed(3));
                 dataMulti.push(rec);
                 
             }
@@ -169,7 +170,7 @@ require([
             for (var i = 0; i < dataMulti.length; i++) {
                 var mj = dlmj[dataMulti[i][0]];
                 if (mj) {
-                    dataMulti[i].push(mj);
+                    dataMulti[i].push(mj.toFixed(3));
                 } else {
                     dataMulti[i].push(0);
                 }
@@ -204,7 +205,7 @@ require([
 
         //var storeGrid = Ext.data.StoreManager.get("thematic_LCCT_GridStore");
         //storeGrid.setData(jsonData);
-        var grid = Ext.getCmp('thematic_LCCT_Grid1');
+        var grid = Ext.getCmp('thematic_LCCT_Grid_GYLX');
         grid.reconfigure(gridStore, columnsArr);
 
         // echarts
@@ -244,11 +245,11 @@ require([
 
     //选择第一个
 
-    var storeKFQ = Ext.data.StoreManager.lookup('thematic_LCCT_KFQStore');
+   /* var storeKFQ = Ext.data.StoreManager.lookup('thematic_LCCT_KFQStore');
     if (storeKFQ.getCount() > 0) {
         var model = storeKFQ.getAt(0);
         KFQCombo.select(model);
     }
-
+*/
 
 });

@@ -36,47 +36,74 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
 
     items: [
         {
-            xtype: 'panel',
-            region: 'center',
-            split: true,
-            html: '<div id = "thematic_LanduseConstructionChangeTrend_echart" class="echartsDiv"></div>',
-            layout: 'fit',
-            listeners: {
-                afterrender: 'onPanelAfterRender1'
-            }
-        },
-        {
             xtype: 'tabpanel',
-            region: 'south',
-            split: true,
-            height: 250,
-            title: '',
+            region: 'center',
             activeTab: 0,
             items: [
                 {
-                    xtype: 'gridpanel',
-                    id: 'thematic_LCCT_Grid',
-                    title: '历年土地建设状况统计数据',
-                    columns: [
+                    xtype: 'panel',
+                    layout: 'border',
+                    title: '土地建设状况',
+                    items: [
                         {
-                            xtype: 'rownumberer'
+                            xtype: 'panel',
+                            region: 'center',
+                            split: true,
+                            html: '<div id = "thematic_LanduseConstructionChangeTrend_echart" class="echartsDiv"></div>',
+                            layout: 'fit',
+                            listeners: {
+                                afterrender: 'onPanelAfterRender1'
+                            }
+                        },
+                        {
+                            xtype: 'gridpanel',
+                            region: 'south',
+                            split: true,
+                            height: 150,
+                            id: 'thematic_LCCT_Grid',
+                            title: '历年土地建设状况统计数据',
+                            columns: [
+                                {
+                                    xtype: 'rownumberer'
+                                }
+                            ],
+                            listeners: {
+                                activate: 'onThematic_LCCT_GridActivate'
+                            }
                         }
                     ],
                     listeners: {
-                        activate: 'onThematic_LCCT_GridActivate'
+                        activate: 'onPanelActivate'
                     }
                 },
                 {
-                    xtype: 'gridpanel',
-                    id: 'thematic_LCCT_Grid1',
-                    title: '历年土地供应状况统计数据',
-                    columns: [
+                    xtype: 'panel',
+                    layout: 'border',
+                    title: '土地供应状况',
+                    items: [
                         {
-                            xtype: 'rownumberer'
+                            xtype: 'panel',
+                            region: 'center',
+                            split: true,
+                            html: '<div id = "thematic_LanduseConstructionChangeTrend_GYLX_echart" class="echartsDiv"></div>',
+                            layout: 'fit'
+                        },
+                        {
+                            xtype: 'gridpanel',
+                            region: 'south',
+                            split: true,
+                            height: 150,
+                            id: 'thematic_LCCT_Grid_GYLX',
+                            title: '历年土地供应状况统计数据',
+                            columns: [
+                                {
+                                    xtype: 'rownumberer'
+                                }
+                            ]
                         }
                     ],
                     listeners: {
-                        activate: 'onThematic_LCCT_Grid1Activate'
+                        activate: 'onPanelActivate1'
                     }
                 }
             ]
@@ -147,36 +174,45 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
             ]
         }
     ],
-    listeners: {
-        afterrender: 'onPanelAfterRender'
-    },
 
     onPanelAfterRender1: function(component, eOpts) {
-        var head = document.getElementsByTagName('head')[0];
+        /*var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="echarts/thematic_LanduseConstructionChangeTrend.js";//"mapjs/dataImport.js";//
-        head.appendChild(script);
+        script.src="echarts/thematic_LanduseConstructionChange_DLMC.js";//"mapjs/dataImport.js";//
+        head.appendChild(script);*/
     },
 
     onThematic_LCCT_GridActivate: function(component, eOpts) {
+
+    },
+
+    onPanelActivate: function(component, eOpts) {
+
         var head = document.getElementsByTagName('head')[0];
                 var script= document.createElement("script");
                 script.type = "text/javascript";
-                script.src="mapjs/thematic_LanduseConstructionChangeTrend1_map.js";//"mapjs/dataImport.js";//
+                script.src="mapjs/thematic_LanduseConstructionChange_DLMC_map.js";//"mapjs/dataImport.js";//
                 head.appendChild(script);
-    },
-
-    onThematic_LCCT_Grid1Activate: function(component, eOpts) {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/thematic_LanduseConstructionChangeTrend1_map.js";//"mapjs/dataImport.js";//
+        script.src="echarts/thematic_LanduseConstructionChange_DLMC.js";//"mapjs/dataImport.js";//
         head.appendChild(script);
     },
 
-    onPanelAfterRender: function(component, eOpts) {
+    onPanelActivate1: function(component, eOpts) {
 
+        var head = document.getElementsByTagName('head')[0];
+                var script= document.createElement("script");
+                script.type = "text/javascript";
+                script.src="mapjs/thematic_LanduseConstructionChange_GYLX_map.js";//"mapjs/dataImport.js";//
+                head.appendChild(script);
+        var head = document.getElementsByTagName('head')[0];
+        var script= document.createElement("script");
+        script.type = "text/javascript";
+        script.src="echarts/thematic_LanduseConstructionChange_GYLX.js";//"mapjs/dataImport.js";//
+        head.appendChild(script);
     }
 
 });

@@ -21,49 +21,6 @@
     "viewModelInstanceId": "1c79a484-2db3-42e3-b65c-336303a1e602",
     "cn": [
         {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "html": [
-                    "<div id = \"thematic_LanduseConstructionChangeTrend_echart\" class=\"echartsDiv\"></div>"
-                ],
-                "layout": "fit",
-                "layout|region": "center",
-                "layout|split": true,
-                "title": null
-            },
-            "name": "MyPanel",
-            "designerId": "170a5920-58fb-4a20-937e-4146d726207c",
-            "cn": [
-                {
-                    "type": "basiceventbinding",
-                    "reference": {
-                        "name": "listeners",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "onPanelAfterRender1",
-                        "implHandler": [
-                            "var head = document.getElementsByTagName('head')[0];",
-                            "var script= document.createElement(\"script\");",
-                            "script.type = \"text/javascript\";",
-                            "script.src=\"echarts/thematic_LanduseConstructionChangeTrend.js\";//\"mapjs/dataImport.js\";//",
-                            "head.appendChild(script);"
-                        ],
-                        "name": "afterrender",
-                        "scope": "me"
-                    },
-                    "name": "onPanelAfterRender1",
-                    "designerId": "350e0e17-3ff4-4252-acb1-b7b939fe9717"
-                }
-            ]
-        },
-        {
             "type": "Ext.tab.Panel",
             "reference": {
                 "name": "items",
@@ -72,50 +29,126 @@
             "codeClass": null,
             "userConfig": {
                 "activeTab": 0,
-                "height": 250,
-                "layout|region": "south",
-                "layout|split": true,
-                "title": ""
+                "layout|region": "center"
             },
             "name": "MyTabPanel3",
-            "designerId": "ea86c3fa-8148-44dd-bcd6-4482b1819e4d",
+            "designerId": "4071988a-2974-4392-bfc7-ebd0ff976133",
             "cn": [
                 {
-                    "type": "Ext.grid.Panel",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": null,
-                        "height": null,
-                        "id": "thematic_LCCT_Grid",
-                        "store": null,
-                        "title": "历年土地建设状况统计数据"
+                        "layout": "border",
+                        "title": "土地建设状况"
                     },
-                    "name": "MyGridPanel1",
-                    "designerId": "702de879-7d7c-4a52-99ff-263c5d5de7f6",
+                    "name": "MyPanel24",
+                    "designerId": "08db8638-f2c0-48ec-b576-06299ed77885",
                     "cn": [
                         {
-                            "type": "Ext.grid.View",
+                            "type": "Ext.panel.Panel",
                             "reference": {
-                                "name": "viewConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "name": "MyGridView1",
-                            "designerId": "4e0cc2c0-24f3-430f-9680-75c3c0886eda"
-                        },
-                        {
-                            "type": "Ext.grid.column.RowNumberer",
-                            "reference": {
-                                "name": "columns",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "name": "MyRowNumberer1",
-                            "designerId": "034aabac-c769-41f4-a7ac-c68a8f7756fb"
+                            "userConfig": {
+                                "html": [
+                                    "<div id = \"thematic_LanduseConstructionChangeTrend_echart\" class=\"echartsDiv\"></div>"
+                                ],
+                                "layout": "fit",
+                                "layout|region": "center",
+                                "layout|split": true,
+                                "title": null
+                            },
+                            "name": "MyPanel",
+                            "designerId": "170a5920-58fb-4a20-937e-4146d726207c",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onPanelAfterRender1",
+                                        "implHandler": [
+                                            "/*var head = document.getElementsByTagName('head')[0];",
+                                            "var script= document.createElement(\"script\");",
+                                            "script.type = \"text/javascript\";",
+                                            "script.src=\"echarts/thematic_LanduseConstructionChange_DLMC.js\";//\"mapjs/dataImport.js\";//",
+                                            "head.appendChild(script);*/"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onPanelAfterRender1",
+                                    "designerId": "350e0e17-3ff4-4252-acb1-b7b939fe9717"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "height": 150,
+                                "id": "thematic_LCCT_Grid",
+                                "layout|region": "south",
+                                "layout|split": true,
+                                "store": null,
+                                "title": "历年土地建设状况统计数据"
+                            },
+                            "name": "MyGridPanel1",
+                            "designerId": "702de879-7d7c-4a52-99ff-263c5d5de7f6",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView1",
+                                    "designerId": "4e0cc2c0-24f3-430f-9680-75c3c0886eda"
+                                },
+                                {
+                                    "type": "Ext.grid.column.RowNumberer",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyRowNumberer1",
+                                    "designerId": "034aabac-c769-41f4-a7ac-c68a8f7756fb"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onThematic_LCCT_GridActivate",
+                                        "implHandler": [
+                                            ""
+                                        ],
+                                        "name": "activate",
+                                        "scope": "me"
+                                    },
+                                    "name": "onThematic_LCCT_GridActivate",
+                                    "designerId": "0b73ff54-30f1-4ef7-b928-d5f79c614d5b"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.tab.Tab",
@@ -125,7 +158,7 @@
                             },
                             "codeClass": null,
                             "name": "TabConfig9",
-                            "designerId": "036512f0-e47e-4712-bb36-69345154975f"
+                            "designerId": "2c395278-b142-462d-a2fc-ad3169eb42d2"
                         },
                         {
                             "type": "basiceventbinding",
@@ -135,58 +168,101 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onThematic_LCCT_GridActivate",
+                                "fn": "onPanelActivate",
                                 "implHandler": [
+                                    "      ",
                                     "var head = document.getElementsByTagName('head')[0];",
                                     "        var script= document.createElement(\"script\");",
                                     "        script.type = \"text/javascript\";",
-                                    "        script.src=\"mapjs/thematic_LanduseConstructionChangeTrend1_map.js\";//\"mapjs/dataImport.js\";//",
-                                    "        head.appendChild(script);"
+                                    "        script.src=\"mapjs/thematic_LanduseConstructionChange_DLMC_map.js\";//\"mapjs/dataImport.js\";//",
+                                    "        head.appendChild(script);",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"echarts/thematic_LanduseConstructionChange_DLMC.js\";//\"mapjs/dataImport.js\";//",
+                                    "head.appendChild(script);  "
                                 ],
                                 "name": "activate",
                                 "scope": "me"
                             },
-                            "name": "onThematic_LCCT_GridActivate",
-                            "designerId": "0b73ff54-30f1-4ef7-b928-d5f79c614d5b"
+                            "name": "onPanelActivate",
+                            "designerId": "fc68e7e6-8644-41f4-a0fd-82318e2f9135"
                         }
                     ]
                 },
                 {
-                    "type": "Ext.grid.Panel",
+                    "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": null,
-                        "height": null,
-                        "id": "thematic_LCCT_Grid1",
-                        "store": null,
-                        "title": "历年土地供应状况统计数据"
+                        "layout": "border",
+                        "title": "土地供应状况"
                     },
-                    "name": "MyGridPanel8",
-                    "designerId": "020616ad-7821-48b4-98b9-5df56e4bb37c",
+                    "name": "MyPanel26",
+                    "designerId": "593d5670-91b4-42a1-93c6-f35afd4fa301",
                     "cn": [
                         {
-                            "type": "Ext.grid.View",
+                            "type": "Ext.panel.Panel",
                             "reference": {
-                                "name": "viewConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "name": "MyGridView1",
-                            "designerId": "55bf5f15-db38-49ea-8225-1d300c08a414"
-                        },
-                        {
-                            "type": "Ext.grid.column.RowNumberer",
-                            "reference": {
-                                "name": "columns",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "name": "MyRowNumberer1",
-                            "designerId": "baa2232a-dd99-4b84-a312-a4e0ef01178a"
+                            "userConfig": {
+                                "html": [
+                                    "<div id = \"thematic_LanduseConstructionChangeTrend_GYLX_echart\" class=\"echartsDiv\"></div>"
+                                ],
+                                "layout": "fit",
+                                "layout|region": "center",
+                                "layout|split": true,
+                                "title": null
+                            },
+                            "name": "MyPanel27",
+                            "designerId": "5701f12c-30c6-4441-a082-37b229ce6e0a"
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": null,
+                                "height": 150,
+                                "id": "thematic_LCCT_Grid_GYLX",
+                                "layout|region": "south",
+                                "layout|split": true,
+                                "store": null,
+                                "title": "历年土地供应状况统计数据"
+                            },
+                            "name": "MyGridPanel8",
+                            "designerId": "059215a9-c2b4-481d-945a-00806f771a44",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.View",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyGridView1",
+                                    "designerId": "b9b60102-087b-4ef1-8fba-bda0d3f373fe"
+                                },
+                                {
+                                    "type": "Ext.grid.column.RowNumberer",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyRowNumberer1",
+                                    "designerId": "b8754789-1a2a-4885-ae6a-df3f37f44dd4"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.tab.Tab",
@@ -195,8 +271,8 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "name": "TabConfig9",
-                            "designerId": "1d1cf99b-a905-4112-9e55-2d15fc869ee9"
+                            "name": "TabConfig10",
+                            "designerId": "cc47df32-cb90-4f79-88ba-52b26b1ed4b0"
                         },
                         {
                             "type": "basiceventbinding",
@@ -206,19 +282,25 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onThematic_LCCT_Grid1Activate",
+                                "fn": "onPanelActivate1",
                                 "implHandler": [
+                                    "",
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "        var script= document.createElement(\"script\");",
+                                    "        script.type = \"text/javascript\";",
+                                    "        script.src=\"mapjs/thematic_LanduseConstructionChange_GYLX_map.js\";//\"mapjs/dataImport.js\";//",
+                                    "        head.appendChild(script);",
                                     "var head = document.getElementsByTagName('head')[0];",
                                     "var script= document.createElement(\"script\");",
                                     "script.type = \"text/javascript\";",
-                                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend1_map.js\";//\"mapjs/dataImport.js\";//",
+                                    "script.src=\"echarts/thematic_LanduseConstructionChange_GYLX.js\";//\"mapjs/dataImport.js\";//",
                                     "head.appendChild(script);"
                                 ],
                                 "name": "activate",
                                 "scope": "me"
                             },
-                            "name": "onThematic_LCCT_Grid1Activate",
-                            "designerId": "5b1e11c3-574a-4fae-b00a-bc24dd3fada9"
+                            "name": "onPanelActivate1",
+                            "designerId": "31a7df30-a7d9-4564-901e-96d8889b20bc"
                         }
                     ]
                 }
@@ -407,24 +489,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onPanelAfterRender",
-                "implHandler": [
-                    ""
-                ],
-                "name": "afterrender",
-                "scope": "me"
-            },
-            "name": "onPanelAfterRender",
-            "designerId": "a1b87ad1-1120-408e-b92d-9d5ba08dfdb9"
         }
     ]
 }
