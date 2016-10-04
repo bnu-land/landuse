@@ -14,7 +14,7 @@ if (!store) {
 function getLegendName(dataArr) {
     var legendNames = [];
     for (var i in dataArr) {
-        legendNames.push(dataArr[i].DLMC);
+        legendNames.push(dataArr[i].GYLX);
     }
     return legendNames;
 }
@@ -76,16 +76,19 @@ function getRowValue(dataArr,index) {
 store.on('load', function(store, records, successful, operation, eOpts) {
     // echartsData = store.data.items;
     var jsonData = Ext.pluck(store.data.items, 'data'); // 从store获取数据
+    console.log("从store获取数据："+jsonData);
     var echartsData = Object.keys(jsonData).map(function(k) {
+       
         return jsonData[k];
-    });
 
+    });
+  
     var echartsLegend = getLegendName(echartsData); // 横坐标
     
     var echartsLegendType = getLegendType(echartsData); // 横坐标标注
     echartsLegendType.shift();//删除数组第一项，																			
     echartsLegendType.pop();//删除数组最后一项
-    //console.log("我在这里"+echartsLegendType);
+    console.log("我在这里"+echartsLegendType);
     //console.log("长度"+echartsData.getLenth());
     
    var row1 = getRowValue(echartsData, 0); // 第一列的数据

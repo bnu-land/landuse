@@ -18,12 +18,13 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
     alias: 'widget.thematic_LanduseConstructionChangeTrend',
 
     requires: [
+        'Ext.tab.Panel',
         'Ext.grid.Panel',
         'Ext.grid.View',
         'Ext.grid.column.RowNumberer',
+        'Ext.tab.Tab',
         'Ext.toolbar.Toolbar',
-        'Ext.form.field.ComboBox',
-        'Ext.button.Button'
+        'Ext.form.field.ComboBox'
     ],
 
     autoScroll: true,
@@ -45,22 +46,38 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
             }
         },
         {
-            xtype: 'panel',
+            xtype: 'tabpanel',
             region: 'south',
             split: true,
             height: 250,
-            layout: 'fit',
             title: '',
+            activeTab: 0,
             items: [
                 {
                     xtype: 'gridpanel',
                     id: 'thematic_LCCT_Grid',
-                    title: '历年土地利用结构统计数据',
+                    title: '历年土地建设状况统计数据',
                     columns: [
                         {
                             xtype: 'rownumberer'
                         }
-                    ]
+                    ],
+                    listeners: {
+                        activate: 'onThematic_LCCT_GridActivate'
+                    }
+                },
+                {
+                    xtype: 'gridpanel',
+                    id: 'thematic_LCCT_Grid1',
+                    title: '历年土地供应状况统计数据',
+                    columns: [
+                        {
+                            xtype: 'rownumberer'
+                        }
+                    ],
+                    listeners: {
+                        activate: 'onThematic_LCCT_Grid1Activate'
+                    }
                 }
             ]
         }
@@ -142,13 +159,24 @@ Ext.define('MyApp.view.thematic_LanduseConstructionChangeTrend', {
         head.appendChild(script);
     },
 
-    onPanelAfterRender: function(component, eOpts) {
-        //加入地图的js文件
+    onThematic_LCCT_GridActivate: function(component, eOpts) {
+        var head = document.getElementsByTagName('head')[0];
+                var script= document.createElement("script");
+                script.type = "text/javascript";
+                script.src="mapjs/thematic_LanduseConstructionChangeTrend1_map.js";//"mapjs/dataImport.js";//
+                head.appendChild(script);
+    },
+
+    onThematic_LCCT_Grid1Activate: function(component, eOpts) {
         var head = document.getElementsByTagName('head')[0];
         var script= document.createElement("script");
         script.type = "text/javascript";
-        script.src="mapjs/thematic_LanduseConstructionChangeTrend_map.js";//thematic_LanduseConstructionChangeTrend_map.js
+        script.src="mapjs/thematic_LanduseConstructionChangeTrend1_map.js";//"mapjs/dataImport.js";//
         head.appendChild(script);
+    },
+
+    onPanelAfterRender: function(component, eOpts) {
+
     }
 
 });

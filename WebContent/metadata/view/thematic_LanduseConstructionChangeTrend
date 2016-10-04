@@ -64,20 +64,20 @@
             ]
         },
         {
-            "type": "Ext.panel.Panel",
+            "type": "Ext.tab.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
+                "activeTab": 0,
                 "height": 250,
-                "layout": "fit",
                 "layout|region": "south",
                 "layout|split": true,
                 "title": ""
             },
-            "name": "MyPanel1",
+            "name": "MyTabPanel3",
             "designerId": "ea86c3fa-8148-44dd-bcd6-4482b1819e4d",
             "cn": [
                 {
@@ -92,7 +92,7 @@
                         "height": null,
                         "id": "thematic_LCCT_Grid",
                         "store": null,
-                        "title": "历年土地利用结构统计数据"
+                        "title": "历年土地建设状况统计数据"
                     },
                     "name": "MyGridPanel1",
                     "designerId": "702de879-7d7c-4a52-99ff-263c5d5de7f6",
@@ -116,6 +116,109 @@
                             "codeClass": null,
                             "name": "MyRowNumberer1",
                             "designerId": "034aabac-c769-41f4-a7ac-c68a8f7756fb"
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig9",
+                            "designerId": "036512f0-e47e-4712-bb36-69345154975f"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onThematic_LCCT_GridActivate",
+                                "implHandler": [
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "        var script= document.createElement(\"script\");",
+                                    "        script.type = \"text/javascript\";",
+                                    "        script.src=\"mapjs/thematic_LanduseConstructionChangeTrend1_map.js\";//\"mapjs/dataImport.js\";//",
+                                    "        head.appendChild(script);"
+                                ],
+                                "name": "activate",
+                                "scope": "me"
+                            },
+                            "name": "onThematic_LCCT_GridActivate",
+                            "designerId": "0b73ff54-30f1-4ef7-b928-d5f79c614d5b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": null,
+                        "id": "thematic_LCCT_Grid1",
+                        "store": null,
+                        "title": "历年土地供应状况统计数据"
+                    },
+                    "name": "MyGridPanel8",
+                    "designerId": "020616ad-7821-48b4-98b9-5df56e4bb37c",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView1",
+                            "designerId": "55bf5f15-db38-49ea-8225-1d300c08a414"
+                        },
+                        {
+                            "type": "Ext.grid.column.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyRowNumberer1",
+                            "designerId": "baa2232a-dd99-4b84-a312-a4e0ef01178a"
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig9",
+                            "designerId": "1d1cf99b-a905-4112-9e55-2d15fc869ee9"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onThematic_LCCT_Grid1Activate",
+                                "implHandler": [
+                                    "var head = document.getElementsByTagName('head')[0];",
+                                    "var script= document.createElement(\"script\");",
+                                    "script.type = \"text/javascript\";",
+                                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend1_map.js\";//\"mapjs/dataImport.js\";//",
+                                    "head.appendChild(script);"
+                                ],
+                                "name": "activate",
+                                "scope": "me"
+                            },
+                            "name": "onThematic_LCCT_Grid1Activate",
+                            "designerId": "5b1e11c3-574a-4fae-b00a-bc24dd3fada9"
                         }
                     ]
                 }
@@ -315,12 +418,7 @@
             "userConfig": {
                 "fn": "onPanelAfterRender",
                 "implHandler": [
-                    "//加入地图的js文件",
-                    "var head = document.getElementsByTagName('head')[0];",
-                    "var script= document.createElement(\"script\");",
-                    "script.type = \"text/javascript\";",
-                    "script.src=\"mapjs/thematic_LanduseConstructionChangeTrend_map.js\";//thematic_LanduseConstructionChangeTrend_map.js",
-                    "head.appendChild(script);"
+                    ""
                 ],
                 "name": "afterrender",
                 "scope": "me"
