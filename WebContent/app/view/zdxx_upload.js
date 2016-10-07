@@ -24,9 +24,9 @@ Ext.define('MyApp.view.zdxx_upload', {
         'Ext.grid.Panel',
         'Ext.grid.column.RowNumberer',
         'Ext.grid.column.Action',
+        'Ext.toolbar.Paging',
         'Ext.grid.View',
         'Ext.selection.CheckboxModel',
-        'Ext.toolbar.Toolbar',
         'Ext.form.field.Text'
     ],
 
@@ -266,10 +266,15 @@ Ext.define('MyApp.view.zdxx_upload', {
                                     text: '备注'
                                 }
                             ],
-                            selModel: {
-                                selType: 'checkboxmodel'
-                            },
                             dockedItems: [
+                                {
+                                    xtype: 'pagingtoolbar',
+                                    dock: 'bottom',
+                                    width: 360,
+                                    displayInfo: true,
+                                    emptyMsg: '无数据',
+                                    store: 'zd_infoStore'
+                                },
                                 {
                                     xtype: 'toolbar',
                                     dock: 'top',
@@ -330,9 +335,15 @@ Ext.define('MyApp.view.zdxx_upload', {
                                         }
                                     ]
                                 }
-                            ]
+                            ],
+                            selModel: {
+                                selType: 'checkboxmodel'
+                            }
                         }
-                    ]
+                    ],
+                    listeners: {
+                        activate: 'onPanelActivate'
+                    }
                 },
                 {
                     xtype: 'panel',
@@ -840,10 +851,26 @@ Ext.define('MyApp.view.zdxx_upload', {
             {
                 params :
                 {
-                    searchKeyword : newValue
+                    searchKeyword : newValue,
+                    start:0,
+                    limit:10
                 }
             }
         );
+    },
+
+    onPanelActivate: function(component, eOpts) {
+        var store=Ext.StoreMgr.get('zd_infoStore');
+        store.load ({
+         params: {
+                // specify params for the first page load if using paging
+                start: 0,
+                limit: 10,
+                // other params
+                searchKeyword: ''
+            }
+        });
+
     },
 
     onSearchKeyword_zdInfoChange1: function(field, newValue, oldValue, eOpts) {

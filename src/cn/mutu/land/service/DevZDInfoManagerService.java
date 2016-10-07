@@ -24,8 +24,11 @@ public class DevZDInfoManagerService {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getZdInfoList(String searchKeyword) {
-		String hql = "FROM DevZdInfo as info";
+	public Map<String, Object> getZdInfoList(String start,String limit,String searchKeyword) {
+		
+		
+		String hql = "FROM DevZdInfo as info ";
+		String totalCount=new String();
 		if (!searchKeyword.equals("")) {
 			String likeStr = " LIKE '%" + searchKeyword + "%' ";
 			String hql2 = " WHERE info.id" + likeStr 
@@ -34,15 +37,20 @@ public class DevZDInfoManagerService {
 					+"OR info.gylx" + likeStr
 					+"OR info.qs" + likeStr
 					+"OR info.dldm" + likeStr;
-			hql += hql2;
+			hql +=hql2;
 		}		
 		List<DevZdInfo> results = null;
 		org.hibernate.Query query = sessionFactory.getCurrentSession()
 				.createQuery(hql);
+		if(!query.list().isEmpty())
+			totalCount=String.valueOf(query.list().size());
+		query.setFirstResult(Integer.parseInt(start));
+		query.setMaxResults(Integer.parseInt(limit));
 		results = (List<DevZdInfo>) query.list();
 		Map<String, Object> myInfoResult = new TreeMap<String, Object>();
+		System.out.println("总数是："+totalCount);
 		myInfoResult.put("root", results);
-		myInfoResult.put("success", true);
+		myInfoResult.put("total", new String(totalCount));
 		return myInfoResult;
 	}
 	@SuppressWarnings("unchecked")

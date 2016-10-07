@@ -26,6 +26,7 @@ Ext.define('MyApp.store.zd_infoStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            pageSize: 10,
             storeId: 'zd_infoStore',
             autoLoad: true,
             autoSync: true,

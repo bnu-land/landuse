@@ -10,6 +10,7 @@
         "autoSync": true,
         "designer|userClassName": "zd_infoStore",
         "model": "zdinformationModel",
+        "pageSize": 10,
         "storeId": "zd_infoStore"
     },
     "name": "MyJsonStore",
@@ -24,7 +25,7 @@
             "codeClass": null,
             "userConfig": {
                 "extraParams": [
-                    "{searchKeyword:\"\"}"
+                    "{searchKeyword:''}"
                 ],
                 "url": "get_zdinfo"
             },

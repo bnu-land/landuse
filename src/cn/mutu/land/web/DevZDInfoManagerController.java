@@ -32,10 +32,13 @@ public class DevZDInfoManagerController {
 	@RequestMapping(value = "/get_zdinfo")
 	@ResponseBody
 	public Map<String, Object> getZdList(
+			@RequestParam("start") String start,
+			@RequestParam("limit") String limit,
 			@RequestParam("searchKeyword") String searchKeyword)
 			throws SQLException {
 		searchKeyword = Encoder.encode(searchKeyword);
-		return this.zdinfoService.getZdInfoList(searchKeyword);
+		Map<String,Object> myList=this.zdinfoService.getZdInfoList(start,limit,searchKeyword);
+		return (myList);
 		//
 	}
 	

@@ -27,7 +27,7 @@ Ext.define('MyApp.store.zd_checkStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'zd_checkStore',
-            autoLoad: true,
+            autoLoad: false,
             autoSync: true,
             model: 'MyApp.model.zdinformationModel',
             proxy: {

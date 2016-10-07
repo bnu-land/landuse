@@ -603,6 +603,23 @@
                                     "designerId": "b44bcee5-eac1-4c31-964a-21797c0e5af0"
                                 },
                                 {
+                                    "type": "Ext.toolbar.Paging",
+                                    "reference": {
+                                        "name": "dockedItems",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "displayInfo": true,
+                                        "dock": "bottom",
+                                        "emptyMsg": "无数据",
+                                        "store": "zd_infoStore",
+                                        "width": 360
+                                    },
+                                    "name": "MyPagingToolbar",
+                                    "designerId": "755cd03b-a3ed-41a0-a27c-65261b410b17"
+                                },
+                                {
                                     "type": "Ext.grid.View",
                                     "reference": {
                                         "name": "viewConfig",
@@ -669,7 +686,9 @@
                                                             "    {",
                                                             "        params :",
                                                             "        {",
-                                                            "            searchKeyword : newValue",
+                                                            "            searchKeyword : newValue,",
+                                                            "            start:0,",
+                                                            "            limit:10",
                                                             "        }",
                                                             "    }",
                                                             ");"
@@ -817,6 +836,34 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPanelActivate",
+                                "implHandler": [
+                                    "var store=Ext.StoreMgr.get('zd_infoStore');",
+                                    "store.load ({",
+                                    " params: {",
+                                    "        // specify params for the first page load if using paging",
+                                    "        start: 0,",
+                                    "        limit: 10,",
+                                    "        // other params",
+                                    "        searchKeyword: ''",
+                                    "    }",
+                                    "});",
+                                    ""
+                                ],
+                                "name": "activate",
+                                "scope": "me"
+                            },
+                            "name": "onPanelActivate",
+                            "designerId": "58b3dec0-0f06-4465-b8f6-82ff56b37f41"
                         }
                     ]
                 },
