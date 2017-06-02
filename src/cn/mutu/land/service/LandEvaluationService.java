@@ -27,7 +27,7 @@ public class LandEvaluationService {
 		this.sessionFactory = sessionFactory;
 	}
 
-	// ------------指标现状值计算----------------------------
+	// ------------指标现状值计算测试----------------------------
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getLandKfqTypeList(String searchKeyword) {
 		String hql = "FROM LandKfqType as t";
